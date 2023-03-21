@@ -21,4 +21,5 @@
 #include "at32f435_437_clock.h"
 int main(void) {
     systick_clock_source_config(SYSTICK_CLOCK_SOURCE_AHBCLK_DIV8);
+    SysTick_Config(1000);
 }

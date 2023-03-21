@@ -82,6 +82,7 @@ void delay_ms(uint16_t nms) {
 
         SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;
         SysTick->VAL = 0x00;
+		SysTick_Config(1000);
     }
 }
 

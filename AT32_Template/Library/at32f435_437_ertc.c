@@ -220,7 +220,7 @@ error_status ERTC_Reset(void) {
   * @param  div_b: division b (0~0x7FFF).
   * @retval error_status (ERROR or SUCCESS).
   */
-error_status ERTC_divider_Set(uint16_t div_a, uint16_t div_b) {
+error_status ERTC_Divider_Set(uint16_t div_a, uint16_t div_b) {
     /* disable write protection */
     ERTC_Write_Protect_Disable();
 
@@ -602,7 +602,7 @@ error_status ERTC_Alarm_Enable(ERTC_Alarm_Type alarm_x, confirm_state new_state)
   * @param  alarm: alarm para.
   * @retval none.
   */
-void ERTC_Alarm_Get(ERTC_Alarm_Type alarm_x, ERTC_Alarm_value_Type* alarm) {
+void ERTC_Alarm_Get(ERTC_Alarm_Type alarm_x, ERTC_Alarm_Value_Type* alarm) {
     ERTC_reg_Alarm_Type reg;
 
     reg.ala = 0;

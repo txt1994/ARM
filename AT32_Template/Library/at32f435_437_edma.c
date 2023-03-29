@@ -140,10 +140,10 @@ void eDMA_Init(eDMA_Stream_Type *eDMA_streamx, eDMA_Init_Type *eDMA_Init_struct)
     eDMA_streamx->ctrl_bit.spl = eDMA_Init_struct->priority;
 
     /* config mct bits */
-    eDMA_streamx->ctrl_bit.mct = eDMA_Init_struct->memory_burst_mode;
+    eDMA_streamx->ctrl_bit.mct = eDMA_Init_struct->memory_burst_Mode;
 
     /* config pct bits */
-    eDMA_streamx->ctrl_bit.pct = eDMA_Init_struct->peripheral_burst_mode;
+    eDMA_streamx->ctrl_bit.pct = eDMA_Init_struct->peripheral_burst_Mode;
 
     /* config fen bits */
     eDMA_streamx->fctrl_bit.fen = eDMA_Init_struct->fifo_Mode_Enable;
@@ -173,11 +173,11 @@ void eDMA_Default_Para_Init(eDMA_Init_Type *eDMA_Init_struct) {
     eDMA_Init_struct->fifo_threshold = EDMA_FIFO_THRESHOLD_1QUARTER;
     eDMA_Init_struct->fifo_Mode_Enable = FALSE;
     eDMA_Init_struct->memory0_base_addr = 0;
-    eDMA_Init_struct->memory_burst_mode = EDMA_Memory_SINGLE;
+    eDMA_Init_struct->memory_burst_Mode = EDMA_Memory_SINGLE;
     eDMA_Init_struct->memory_Data_width = EDMA_Memory_Data_WIDTH_BYTE;
     eDMA_Init_struct->memory_inc_Enable = FALSE;
     eDMA_Init_struct->peripheral_base_addr = 0;
-    eDMA_Init_struct->peripheral_burst_mode = EDMA_PERIPHERAL_SINGLE;
+    eDMA_Init_struct->peripheral_burst_Mode = EDMA_PERIPHERAL_SINGLE;
     eDMA_Init_struct->peripheral_Data_width = EDMA_PERIPHERAL_Data_WIDTH_BYTE;
     eDMA_Init_struct->peripheral_inc_Enable = FALSE;
     eDMA_Init_struct->priority = EDMA_PRIORITY_LOW;

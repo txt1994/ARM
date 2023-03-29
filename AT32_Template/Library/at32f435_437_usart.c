@@ -311,14 +311,14 @@ void usart_WakeUp_ID_Set(usart_Type* usart_x, uint8_t usart_id) {
   * @param  usart_x: select the usart or the uart peripheral.
   *         this parameter can be one of the following values:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
-  * @param  wakeup_mode: determines the way to wake up usart method.
+  * @param  wakeup_Mode: determines the way to wake up usart method.
   *         this parameter can be one of the following values:
   *         - USART_WakeUp_BY_IDLE_FRAME
   *         - USART_WakeUp_BY_MATCHING_ID
   * @retval none
   */
-void usart_WakeUp_Mode_Set(usart_Type* usart_x, usart_WakeUp_Mode_Type wakeup_mode) {
-    usart_x->ctrl1_bit.wum = wakeup_mode;
+void usart_WakeUp_Mode_Set(usart_Type* usart_x, usart_WakeUp_Mode_Type wakeup_Mode) {
+    usart_x->ctrl1_bit.wum = wakeup_Mode;
 }
 
 /**
@@ -418,7 +418,7 @@ void usart_smartcard_guard_Time_Set(usart_Type* usart_x, uint8_t guard_Time_val)
   * @param  div_val: specifies the division.
   * @retval none
   */
-void usart_irda_smartcard_division_Set(usart_Type* usart_x, uint8_t div_val) {
+void usart_irda_smartcard_Division_Set(usart_Type* usart_x, uint8_t div_val) {
     usart_x->gdiv_bit.isdiv = div_val;
 }
 
@@ -485,7 +485,7 @@ void usart_irda_Mode_Enable(usart_Type* usart_x, confirm_state new_state) {
   *         this parameter can be: TRUE or FALSE.
   * @retval none
   */
-void usart_irda_low_power_Enable(usart_Type* usart_x, confirm_state new_state) {
+void usart_irda_low_Power_Enable(usart_Type* usart_x, confirm_state new_state) {
     usart_x->ctrl3_bit.irdalp = new_state;
 }
 

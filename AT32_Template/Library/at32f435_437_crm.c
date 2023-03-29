@@ -137,7 +137,7 @@ error_status crm_hext_stable_wait(void) {
     uint32_t stable_cnt = 0;
     error_status status = ERROR;
 
-    while((crm_Flag_Get(CRM_HEXT_STABLE_FLAG) != SET) && (stable_cnt < HEXT_STARTUP_TIMEOUT)) {
+    while((crm_Flag_Get(CRM_HEXT_STABLE_FLAG) != SET) && (stable_cnt < HEXT_StartUP_TIMEOUT)) {
         stable_cnt ++;
     }
 
@@ -504,7 +504,7 @@ void crm_apb2_div_Set(crm_apb2_div_Type value) {
   *         - CRM_USB_DIV_7
   * @retval none
   */
-void crm_usb_Clock_div_Set(crm_usb_div_Type value) {
+void crm_USB_Clock_div_Set(crm_USB_div_Type value) {
     CRM->misc2_bit.usbdiv = value;
 }
 
@@ -546,7 +546,7 @@ void crm_Auto_Step_Mode_Enable(confirm_state new_state) {
   *         - CRM_HICK48_NODIV
   * @retval none
   */
-void crm_hick_divider_Select(crm_hick_div_6_Type value) {
+void crm_hick_Divider_Select(crm_hick_div_6_Type value) {
     CRM->misc1_bit.hickdiv = value;
 }
 
@@ -559,7 +559,7 @@ void crm_hick_divider_Select(crm_hick_div_6_Type value) {
   * @retval none
   */
 void crm_hick_sclk_Frequency_Select(crm_hick_sclk_Frequency_Type value) {
-    crm_hick_divider_Select(CRM_HICK48_NODIV);
+    crm_hick_Divider_Select(CRM_HICK48_NODIV);
     CRM->misc1_bit.hick_to_sclk = value;
 }
 
@@ -571,7 +571,7 @@ void crm_hick_sclk_Frequency_Select(crm_hick_sclk_Frequency_Type value) {
   *         - CRM_USB_Clock_Source_HICK
   * @retval none
   */
-void crm_usb_Clock_Source_Select(crm_usb_Clock_Source_Type value) {
+void crm_USB_Clock_Source_Select(crm_USB_Clock_Source_Type value) {
     if(value == CRM_USB_Clock_Source_HICK) {
         crm_hick_sclk_Frequency_Select(CRM_HICK_SCLK_48MHZ);
     }

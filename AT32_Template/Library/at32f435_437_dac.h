@@ -105,7 +105,7 @@ typedef enum {
     DAC1_12BIT_RIGHT                       = 0x40007408, /*!< dac1 12-bit data right-aligned */
     DAC1_12BIT_LEFT                        = 0x4000740C, /*!< dac1 12-bit data left-aligned */
     DAC1_8BIT_RIGHT                        = 0x40007410  /*!< dac1 8-bit data right-aligned */
-} dac1_aligned_Data_Type;
+} dac1_Aligned_Data_Type;
 
 /**
   * @brief  dac2 aligned data type
@@ -114,7 +114,7 @@ typedef enum {
     DAC2_12BIT_RIGHT                       = 0x40007414, /*!< dac2 12-bit data right-aligned */
     DAC2_12BIT_LEFT                        = 0x40007418, /*!< dac2 12-bit data left-aligned */
     DAC2_8BIT_RIGHT                        = 0x4000741C  /*!< dac2 8-bit data right-aligned */
-} dac2_aligned_Data_Type;
+} dac2_Aligned_Data_Type;
 
 /**
   * @brief  dac dual data type
@@ -330,8 +330,8 @@ void DAC_wave_Generate(DAC_Select_Type DAC_Select, DAC_wave_Type DAC_wave);
 void DAC_Mask_amplitude_Select(DAC_Select_Type DAC_Select, DAC_Mask_amplitude_Type DAC_Mask_amplitude);
 void DAC_DMA_Enable(DAC_Select_Type DAC_Select, confirm_state new_state);
 uint16_t DAC_Data_OutPut_Get(DAC_Select_Type DAC_Select);
-void DAC_1_Data_Set(dac1_aligned_Data_Type dac1_aligned, uint16_t dac1_data);
-void DAC_2_Data_Set(dac2_aligned_Data_Type dac2_aligned, uint16_t dac2_data);
+void DAC_1_Data_Set(dac1_Aligned_Data_Type dac1_aligned, uint16_t dac1_data);
+void DAC_2_Data_Set(dac2_Aligned_Data_Type dac2_aligned, uint16_t dac2_data);
 void DAC_dual_Data_Set(DAC_dual_Data_Type DAC_dual, uint16_t data1, uint16_t data2);
 void DAC_udr_Enable(DAC_Select_Type DAC_Select, confirm_state new_state);
 flag_status DAC_udr_Flag_Get(DAC_Select_Type DAC_Select);

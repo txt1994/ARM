@@ -116,8 +116,8 @@ typedef enum {
   * @brief spi cs mode type
   */
 typedef enum {
-    SPI_CS_HARDWARE_MODE                   = 0x00, /*!< cs is hardware mode */
-    SPI_CS_Software_MODE                   = 0x01  /*!< cs is software mode */
+    SPI_CS_HARDWARE_Mode                   = 0x00, /*!< cs is hardware mode */
+    SPI_CS_Software_Mode                   = 0x01  /*!< cs is software mode */
 } spi_cs_Mode_Type;
 
 /**
@@ -238,8 +238,8 @@ typedef enum {
   * @brief spi init type
   */
 typedef struct {
-    spi_transmission_Mode_Type             transmission_mode;     /*!< transmission mode selection */
-    spi_Master_Slave_Mode_Type             master_Slave_mode;     /*!< master or slave mode selection */
+    spi_transmission_Mode_Type             transmission_Mode;     /*!< transmission mode selection */
+    spi_Master_Slave_Mode_Type             master_Slave_Mode;     /*!< master or slave mode selection */
     spi_mclk_Freq_div_Type                 mclk_Freq_division;    /*!< master clock frequency division selection */
     spi_first_Bit_Type                     first_Bit_transmission;/*!< transmit lsb or msb selection */
     spi_frame_Bit_Num_Type                 frame_Bit_Num;         /*!< frame bit num 8 or 16 bit selection */
@@ -252,7 +252,7 @@ typedef struct {
   * @brief i2s init type
   */
 typedef struct {
-    i2s_Operation_Mode_Type                operation_mode;        /*!< operation mode selection */
+    i2s_Operation_Mode_Type                operation_Mode;        /*!< operation mode selection */
     i2s_audio_protocol_Type                audio_protocol;        /*!< audio protocol selection */
     i2s_audio_sampling_Freq_Type           audio_sampling_freq;   /*!< audio frequency selection */
     i2s_Data_Channel_format_Type           data_Channel_format;   /*!< data bit num and channel bit num selection */
@@ -430,7 +430,7 @@ void spi_CRC_next_transmit(spi_Type* spi_x);
 void spi_CRC_polynomial_Set(spi_Type* spi_x, uint16_t CRC_poly);
 uint16_t spi_CRC_polynomial_Get(spi_Type* spi_x);
 void spi_CRC_Enable(spi_Type* spi_x, confirm_state new_state);
-uint16_t spi_CRC_value_Get(spi_Type* spi_x, spi_CRC_direction_Type CRC_direction);
+uint16_t spi_CRC_Value_Get(spi_Type* spi_x, spi_CRC_direction_Type CRC_direction);
 void spi_hardware_cs_OutPut_Enable(spi_Type* spi_x, confirm_state new_state);
 void spi_Software_cs_Internal_level_Set(spi_Type* spi_x, spi_Software_cs_level_Type level);
 void spi_frame_Bit_Num_Set(spi_Type* spi_x, spi_frame_Bit_Num_Type bit_Num);

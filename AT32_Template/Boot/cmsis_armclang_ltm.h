@@ -118,8 +118,8 @@ __PACKED_STRUCT T_UINT32_Read { uint32_t v; };
 
 /* #########################  Startup and Lowlevel Init  ######################## */
 
-#ifndef __PROGRAM_START
-    #define __PROGRAM_START           __main
+#ifndef __PROGRAM_Start
+    #define __PROGRAM_Start           __main
 #endif
 
 #ifndef __InitIAL_SP

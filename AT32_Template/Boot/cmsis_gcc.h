@@ -121,7 +121,7 @@ __PACKED_STRUCT T_UINT32_Read { uint32_t v; };
 
 /* #########################  Startup and Lowlevel Init  ######################## */
 
-#ifndef __PROGRAM_START
+#ifndef __PROGRAM_Start
 
 /**
   \brief   Initializes data and bss sections
@@ -130,8 +130,8 @@ __PACKED_STRUCT T_UINT32_Read { uint32_t v; };
            in the used linker script.
 
  */
-__STATIC_FORCEINLINE __NO_RETURN void __cmsis_start(void) {
-    extern void _start(void) __NO_RETURN;
+__STATIC_FORCEINLINE __NO_RETURN void __cmsis_Start(void) {
+    extern void _Start(void) __NO_RETURN;
 
     typedef struct {
         uint32_t const* src;
@@ -161,10 +161,10 @@ __STATIC_FORCEINLINE __NO_RETURN void __cmsis_start(void) {
         }
     }
 
-    _start();
+    _Start();
 }
 
-#define __PROGRAM_START           __cmsis_start
+#define __PROGRAM_Start           __cmsis_Start
 #endif
 
 #ifndef __InitIAL_SP

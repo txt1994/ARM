@@ -69,14 +69,14 @@ void spi_i2s_Reset(spi_Type *spi_x) {
   * @retval none
   */
 void spi_Default_Para_Init(spi_Init_Type* spi_Init_struct) {
-    spi_Init_struct->transmission_mode = SPI_Transmit_FULL_DUPLEX;
-    spi_Init_struct->master_Slave_mode = SPI_Mode_SLAVE;
+    spi_Init_struct->transmission_Mode = SPI_Transmit_FULL_DUPLEX;
+    spi_Init_struct->master_Slave_Mode = SPI_Mode_SLAVE;
     spi_Init_struct->mclk_Freq_division = SPI_MCLK_DIV_2;
     spi_Init_struct->first_Bit_transmission = SPI_FIRST_Bit_MSB;
     spi_Init_struct->frame_Bit_Num = SPI_FRAME_8BIT;
     spi_Init_struct->clock_polarity = SPI_Clock_POLARITY_LOW;
     spi_Init_struct->clock_phase = SPI_Clock_PHASE_1EDGE;
-    spi_Init_struct->cs_Mode_Selection = SPI_CS_Software_MODE;
+    spi_Init_struct->cs_Mode_Selection = SPI_CS_Software_Mode;
 }
 
 /**
@@ -90,19 +90,19 @@ void spi_Default_Para_Init(spi_Init_Type* spi_Init_struct) {
 void spi_Init(spi_Type* spi_x, spi_Init_Type* spi_Init_struct) {
     spi_x->i2sctrl_bit.i2smsel = FALSE;
 
-    if(spi_Init_struct->transmission_mode == SPI_Transmit_FULL_DUPLEX) {
+    if(spi_Init_struct->transmission_Mode == SPI_Transmit_FULL_DUPLEX) {
         spi_x->ctrl1_bit.slben = FALSE;
         spi_x->ctrl1_bit.slbtd = FALSE;
         spi_x->ctrl1_bit.ora = FALSE;
-    } else if(spi_Init_struct->transmission_mode == SPI_Transmit_SIMPLEX_RX) {
+    } else if(spi_Init_struct->transmission_Mode == SPI_Transmit_SIMPLEX_RX) {
         spi_x->ctrl1_bit.slben = FALSE;
         spi_x->ctrl1_bit.slbtd = FALSE;
         spi_x->ctrl1_bit.ora = TRUE;
-    } else if(spi_Init_struct->transmission_mode == SPI_Transmit_HALF_DUPLEX_RX) {
+    } else if(spi_Init_struct->transmission_Mode == SPI_Transmit_HALF_DUPLEX_RX) {
         spi_x->ctrl1_bit.slben = TRUE;
         spi_x->ctrl1_bit.slbtd = FALSE;
         spi_x->ctrl1_bit.ora = FALSE;
-    } else if(spi_Init_struct->transmission_mode == SPI_Transmit_HALF_DUPLEX_TX) {
+    } else if(spi_Init_struct->transmission_Mode == SPI_Transmit_HALF_DUPLEX_TX) {
         spi_x->ctrl1_bit.slben = TRUE;
         spi_x->ctrl1_bit.slbtd = TRUE;
         spi_x->ctrl1_bit.ora = FALSE;
@@ -110,13 +110,13 @@ void spi_Init(spi_Type* spi_x, spi_Init_Type* spi_Init_struct) {
 
     spi_x->ctrl1_bit.swcsen = spi_Init_struct->cs_Mode_Selection;
 
-    if((spi_Init_struct->master_Slave_mode == SPI_Mode_MASTER) && (spi_Init_struct->cs_Mode_Selection == SPI_CS_Software_MODE)) {
+    if((spi_Init_struct->master_Slave_Mode == SPI_Mode_MASTER) && (spi_Init_struct->cs_Mode_Selection == SPI_CS_Software_Mode)) {
         spi_x->ctrl1_bit.swcsil = TRUE;
     } else {
         spi_x->ctrl1_bit.swcsil = FALSE;
     }
 
-    spi_x->ctrl1_bit.msten = spi_Init_struct->master_Slave_mode;
+    spi_x->ctrl1_bit.msten = spi_Init_struct->master_Slave_Mode;
 
     if(spi_Init_struct->mclk_Freq_division <= SPI_MCLK_DIV_256) {
         spi_x->ctrl2_bit.mdiv3en = FALSE;
@@ -208,7 +208,7 @@ void spi_CRC_Enable(spi_Type* spi_x, confirm_state new_state) {
   *         - SPI_CRC_TX
   * @retval the select crc register value
   */
-uint16_t spi_CRC_value_Get(spi_Type* spi_x, spi_CRC_direction_Type CRC_direction) {
+uint16_t spi_CRC_Value_Get(spi_Type* spi_x, spi_CRC_direction_Type CRC_direction) {
     if(CRC_direction == SPI_CRC_RX)
         return  spi_x->rCRC_bit.rcrc;
     else
@@ -295,7 +295,7 @@ void spi_Enable(spi_Type* spi_x, confirm_state new_state) {
   * @retval none
   */
 void i2s_Default_Para_Init(i2s_Init_Type* i2s_Init_struct) {
-    i2s_Init_struct->operation_mode = I2S_Mode_Slave_TX;
+    i2s_Init_struct->operation_Mode = I2S_Mode_Slave_TX;
     i2s_Init_struct->audio_protocol = I2S_AUDIO_PROTOCOL_PHILLIPS;
     i2s_Init_struct->audio_sampling_freq = I2S_AUDIO_Frequency_DEFAULT;
     i2s_Init_struct->data_Channel_format = I2S_Data_16BIT_Channel_16BIT;
@@ -399,7 +399,7 @@ void i2s_Init(spi_Type* spi_x, i2s_Init_Type* i2s_Init_struct) {
 
     spi_x->i2sctrl_bit.i2sclkpol = i2s_Init_struct->clock_polarity;
     spi_x->i2sclk_bit.i2smclkoe = i2s_Init_struct->mclk_OutPut_Enable;
-    spi_x->i2sctrl_bit.opersel = i2s_Init_struct->operation_mode;
+    spi_x->i2sctrl_bit.opersel = i2s_Init_struct->operation_Mode;
     spi_x->i2sctrl_bit.i2smsel = TRUE;
 }
 

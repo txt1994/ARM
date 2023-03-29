@@ -49,7 +49,7 @@ uint32_t DEBUG_device_ID_Get(void) {
 }
 /**
   * @brief  set periph debug mode
-  * @param  periph_DEBUG_mode
+  * @param  periph_DEBUG_Mode
   *         this parameter can be one of the following values:
   *         - DEBUG_SLEEP
   *         - DEBUG_DEEPSLEEP
@@ -57,16 +57,16 @@ uint32_t DEBUG_device_ID_Get(void) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void DEBUG_low_power_Mode_Set(uint32_t low_power_mode, confirm_state new_state) {
+void DEBUG_low_Power_Mode_Set(uint32_t low_Power_Mode, confirm_state new_state) {
     if(new_state != FALSE) {
-        DEBUGMCU->ctrl |= low_power_mode;
+        DEBUGMCU->ctrl |= low_Power_Mode;
     } else {
-        DEBUGMCU->ctrl &= ~low_power_mode;
+        DEBUGMCU->ctrl &= ~low_Power_Mode;
     }
 }
 /**
   * @brief  set apb1 periph debug mode
-  * @param  periph_DEBUG_mode
+  * @param  periph_DEBUG_Mode
   *         this parameter can be any combination of the following values:
   *         - DEBUG_TMR2_PAUSE                      - DEBUG_TMR3_PAUSE
   *         - DEBUG_TMR4_PAUSE                      - DEBUG_TMR5_PAUSE
@@ -89,7 +89,7 @@ void DEBUG_apb1_periph_Mode_Set(uint32_t apb1_periph, confirm_state new_state) {
 }
 /**
   * @brief  set apb2 periph debug mode
-  * @param  periph_DEBUG_mode
+  * @param  periph_DEBUG_Mode
   *         this parameter can be any combination of the following values:
   *         - DEBUG_TMR1_PAUSE                      - DEBUG_TMR8_PAUSE
   *         - DEBUG_TMR20_PAUSE                     - DEBUG_TMR9_PAUSE

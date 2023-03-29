@@ -82,7 +82,7 @@ void pwc_pvm_level_Select(pwc_pvm_voltage_Type pvm_voltage) {
   *         this parameter can be: TRUE or FALSE.
   * @retval none
   */
-void pwc_power_voltage_monitor_Enable(confirm_state new_state) {
+void pwc_Power_voltage_monitor_Enable(confirm_state new_state) {
     PWC->ctrl_bit.pvmen = new_state;
 }
 

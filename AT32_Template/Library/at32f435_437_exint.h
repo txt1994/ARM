@@ -100,7 +100,7 @@ typedef enum {
   * @brief exint init type
   */
 typedef struct {
-    EXINT_line_Mode_Type                   line_mode;     /*!< choose mode event or interrupt mode */
+    EXINT_line_Mode_Type                   line_Mode;     /*!< choose mode event or interrupt mode */
     uint32_t                               line_Select;   /*!< select the exint line, availiable for single line or multiple lines */
     EXINT_polarity_Config_Type             line_polarity; /*!< select the tregger polarity, with rising edge, falling edge or both edge */
     confirm_state                          line_Enable;   /*!< enable or disable exint */

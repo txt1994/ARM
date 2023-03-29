@@ -299,7 +299,7 @@ void I2C_Auto_Stop_Enable(I2C_Type *I2C_x, confirm_state new_state) {
   * @param  new_state (TRUE or FALSE).
   * @retval none
   */
-void I2C_reload_Enable(I2C_Type *I2C_x, confirm_state new_state) {
+void I2C_Reload_Enable(I2C_Type *I2C_x, confirm_state new_state) {
     I2C_x->ctrl2_bit.rlden = new_state;
 }
 
@@ -398,7 +398,7 @@ void I2C_PEC_Transmit_Enable(I2C_Type *I2C_x, confirm_state new_state) {
   *         I2C1, I2C2, I2C3.
   * @retval the value of the pec.
   */
-uint8_t I2C_PEC_value_Get(I2C_Type *I2C_x) {
+uint8_t I2C_PEC_Value_Get(I2C_Type *I2C_x) {
     return (uint8_t)(I2C_x->pec_bit.pecval);
 }
 
@@ -543,17 +543,17 @@ void I2C_DMA_Enable(I2C_Type *I2C_x, I2C_DMA_Request_Type DMA_req, confirm_state
   * @param  cnt: transfer conuter(0~255)
   * @param  rld_stop: config reload and gen stop condition mode.
   *         this parameter can be one of the following values:
-  *         - I2C_Auto_Stop_MODE: auto generate stop mode.
-  *         - I2C_SOFT_Stop_MODE: soft generate stop mode.
-  *         - I2C_RELOAD_MODE:  reload mode.
+  *         - I2C_Auto_Stop_Mode: auto generate stop mode.
+  *         - I2C_SOFT_Stop_Mode: soft generate stop mode.
+  *         - I2C_Reload_Mode:  reload mode.
   * @param  start: config gen start condition mode.
   *         this parameter can be one of the following values:
-  *         - I2C_WITHOUT_START: transfer data without start condition.
+  *         - I2C_WITHOUT_Start: transfer data without start condition.
   *         - I2C_Gen_Start_Read: read data and generate start.
   *         - I2C_Gen_Start_Write: send data and generate start.
   * @retval none
   */
-void I2C_Transmit_Set(I2C_Type *I2C_x, uint16_t address, uint8_t cnt, I2C_reload_Stop_Mode_Type rld_stop, I2C_Start_Mode_Type start) {
+void I2C_Transmit_Set(I2C_Type *I2C_x, uint16_t address, uint8_t cnt, I2C_Reload_Stop_Mode_Type rld_stop, I2C_Start_Mode_Type start) {
     uint32_t temp;
 
     /* copy ctrl2 value to temp */

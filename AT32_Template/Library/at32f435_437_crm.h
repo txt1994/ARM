@@ -615,7 +615,7 @@ typedef enum {
     CRM_USB_DIV_6_5                        = 0x0A, /*!< pllclk div6.5 to usbclk */
     CRM_USB_DIV_6                          = 0x0B, /*!< pllclk div6 to usbclk */
     CRM_USB_DIV_7                          = 0x0C  /*!< pllclk div7 to usbclk */
-} crm_usb_div_Type;
+} crm_USB_div_Type;
 
 /**
   * @brief crm ertc clock
@@ -745,7 +745,7 @@ typedef enum {
 typedef enum {
     CRM_USB_Clock_Source_PLL               = 0x00, /*!< select phase locking loop clock as usb clock source */
     CRM_USB_Clock_Source_HICK              = 0x01  /*!< select high speed internal clock as usb clock source */
-} crm_usb_Clock_Source_Type;
+} crm_USB_Clock_Source_Type;
 
 /**
   * @brief crm hick as system clock frequency select
@@ -1457,13 +1457,13 @@ void crm_ERTC_Clock_Enable(confirm_state new_state);
 void crm_ahb_div_Set(crm_ahb_div_Type value);
 void crm_apb1_div_Set(crm_apb1_div_Type value);
 void crm_apb2_div_Set(crm_apb2_div_Type value);
-void crm_usb_Clock_div_Set(crm_usb_div_Type value);
+void crm_USB_Clock_div_Set(crm_USB_div_Type value);
 void crm_Clock_failure_detection_Enable(confirm_state new_state);
 void crm_battery_powered_domain_Reset(confirm_state new_state);
 void crm_Auto_Step_Mode_Enable(confirm_state new_state);
-void crm_hick_divider_Select(crm_hick_div_6_Type value);
+void crm_hick_Divider_Select(crm_hick_div_6_Type value);
 void crm_hick_sclk_Frequency_Select(crm_hick_sclk_Frequency_Type value);
-void crm_usb_Clock_Source_Select(crm_usb_Clock_Source_Type value);
+void crm_USB_Clock_Source_Select(crm_USB_Clock_Source_Type value);
 void crm_clkout_to_tmr10_Enable(confirm_state new_state);
 void crm_pll_Config(crm_pll_Clock_Source_Type clock_source, uint16_t pll_ns, \
                     uint16_t pll_ms, crm_pll_fr_Type pll_fr);

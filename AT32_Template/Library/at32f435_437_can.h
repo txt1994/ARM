@@ -240,7 +240,7 @@ typedef enum {
     CAN_TX_MAILBOX0                        = 0x00, /*!< can tx mailbox 0 */
     CAN_TX_MAILBOX1                        = 0x01, /*!< can tx mailbox 1 */
     CAN_TX_MAILBOX2                        = 0x02  /*!< can tx mailbox 2 */
-} can_tx_mailbox_Num_Type;
+} can_TX_mailbox_Num_Type;
 
 /**
   * @brief  can receive fifo
@@ -248,7 +248,7 @@ typedef enum {
 typedef enum {
     CAN_RX_FIFO0                           = 0x00, /*!< can fifo 0 used to receive */
     CAN_RX_FIFO1                           = 0x01  /*!< can fifo 1 used to receive */
-} can_rx_FIFO_Num_Type;
+} can_RX_FIFO_Num_Type;
 
 /**
   * @brief  can transmit status
@@ -346,9 +346,9 @@ typedef struct {
 typedef struct {
     confirm_state filter_activate_Enable;  /*!< enable or disable the filter activate.*/
 
-    can_Filter_Mode_Type filter_mode;      /*!< config the filter mode mask or list.*/
+    can_Filter_Mode_Type filter_Mode;      /*!< config the filter mode mask or list.*/
 
-    can_Filter_FIFO_Type filter_fifo;      /*!< config the fifo which will be assigned to the filter. */
+    can_Filter_FIFO_Type filter_FIFO;      /*!< config the fifo which will be assigned to the filter. */
 
     uint8_t filter_Number;                 /*!< config the filter number, parameter ranges from 0 to 13. */
 
@@ -386,7 +386,7 @@ typedef struct {
 
     uint8_t data[8];                       /*!< contains the transmit data. it ranges from 0 to 0xFF. */
 
-} can_tx_message_Type;
+} can_TX_Message_Type;
 
 /**
   * @brief  can rx message structure definition
@@ -409,7 +409,7 @@ typedef struct {
 
     uint8_t filter_index;                /*!< specifies the message stored in which filter
                                               this parameter can be a value between 0 to 0xFF */
-} can_rx_message_Type;
+} can_RX_Message_Type;
 
 /**
   * @brief can controller area network tx mailbox
@@ -468,7 +468,7 @@ typedef struct {
             __IO uint32_t tmdt7                : 8; /* [31:24] */
         } tmdth_bit;
     };
-} can_tx_mailbox_Type;
+} can_TX_mailbox_Type;
 
 /**
   * @brief can controller area network fifo mailbox
@@ -715,7 +715,7 @@ typedef struct {
     /**
       * @brief can controller area network tx mailbox register, offset:0x180~0x1AC
       */
-    can_tx_mailbox_Type tx_mailbox[3];
+    can_TX_mailbox_Type tx_mailbox[3];
 
     /**
       * @brief can controller area network fifo mailbox register, offset:0x1B0~0x1CC
@@ -936,13 +936,13 @@ void can_Filter_Default_Para_Init(can_Filter_Init_Type* can_Filter_Init_struct);
 void can_Filter_Init(can_Type* can_x, can_Filter_Init_Type* can_Filter_Init_struct);
 void can_DEBUG_transmission_prohibit(can_Type* can_x, confirm_state new_state);
 void can_ttc_Mode_Enable(can_Type* can_x, confirm_state new_state);
-uint8_t can_message_transmit(can_Type* can_x, can_tx_message_Type* tx_message_struct);
-can_Transmit_Status_Type can_Transmit_Status_Get(can_Type* can_x, can_tx_mailbox_Num_Type transmit_mailbox);
-void can_Transmit_cancel(can_Type* can_x, can_tx_mailbox_Num_Type transmit_mailbox);
-void can_message_receive(can_Type* can_x, can_rx_FIFO_Num_Type fifo_Number, can_rx_message_Type* rx_message_struct);
-void can_receive_FIFO_release(can_Type* can_x, can_rx_FIFO_Num_Type fifo_Number);
-uint8_t can_receive_message_pending_Get(can_Type* can_x, can_rx_FIFO_Num_Type fifo_Number);
-error_status can_operating_Mode_Set(can_Type* can_x, can_operating_Mode_Type can_operating_mode);
+uint8_t can_Message_transmit(can_Type* can_x, can_TX_Message_Type* tx_Message_struct);
+can_Transmit_Status_Type can_Transmit_Status_Get(can_Type* can_x, can_TX_mailbox_Num_Type transmit_mailbox);
+void can_Transmit_cancel(can_Type* can_x, can_TX_mailbox_Num_Type transmit_mailbox);
+void can_Message_receive(can_Type* can_x, can_RX_FIFO_Num_Type fifo_Number, can_RX_Message_Type* rx_Message_struct);
+void can_receive_FIFO_release(can_Type* can_x, can_RX_FIFO_Num_Type fifo_Number);
+uint8_t can_receive_Message_pending_Get(can_Type* can_x, can_RX_FIFO_Num_Type fifo_Number);
+error_status can_operating_Mode_Set(can_Type* can_x, can_operating_Mode_Type can_operating_Mode);
 can_Enter_doze_Status_Type can_doze_Mode_Enter(can_Type* can_x);
 can_quit_doze_Status_Type can_doze_Mode_Exit(can_Type* can_x);
 can_Error_record_Type can_Error_Type_record_Get(can_Type* can_x);

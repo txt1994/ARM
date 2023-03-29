@@ -190,7 +190,7 @@ typedef struct {
 void pwc_Reset(void);
 void pwc_battery_powered_domain_access(confirm_state new_state);
 void pwc_pvm_level_Select(pwc_pvm_voltage_Type pvm_voltage);
-void pwc_power_voltage_monitor_Enable(confirm_state new_state);
+void pwc_Power_voltage_monitor_Enable(confirm_state new_state);
 void pwc_WakeUp_Pin_Enable(uint32_t pin_Num, confirm_state new_state);
 void pwc_Flag_Clear(uint32_t pwc_flag);
 flag_status pwc_Flag_Get(uint32_t pwc_flag);

@@ -314,7 +314,7 @@ uint16_t DAC_Data_OutPut_Get(DAC_Select_Type DAC_Select) {
   * @param  dac1_data :indecate from selected data holding register
   * @retval none
   */
-void DAC_1_Data_Set(dac1_aligned_Data_Type dac1_aligned, uint16_t dac1_data) {
+void DAC_1_Data_Set(dac1_Aligned_Data_Type dac1_aligned, uint16_t dac1_data) {
     *(__IO uint32_t *) dac1_aligned = dac1_data;
 }
 
@@ -328,7 +328,7 @@ void DAC_1_Data_Set(dac1_aligned_Data_Type dac1_aligned, uint16_t dac1_data) {
   * @param  dac2_data :indecate from selected data holding register
   * @retval none
   */
-void DAC_2_Data_Set(dac2_aligned_Data_Type dac2_aligned, uint16_t dac2_data) {
+void DAC_2_Data_Set(dac2_Aligned_Data_Type dac2_aligned, uint16_t dac2_data) {
     *(__IO uint32_t *) dac2_aligned = dac2_data;
 }
 

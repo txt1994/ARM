@@ -153,7 +153,7 @@ void at32_board_Init() {
     at32_led_off(LED3);
     at32_led_off(LED4);
 
-    /* configure button in at_start board */
+    /* configure button in at_Start board */
     at32_button_Init();
 }
 
@@ -197,7 +197,7 @@ uint8_t at32_button_state(void) {
 button_Type at32_button_press() {
     static uint8_t pressed = 1;
 
-    /* get button state in at_start board */
+    /* get button state in at_Start board */
     if((pressed == 1) && (at32_button_state() != RESET)) {
         /* debounce */
         pressed = 0;

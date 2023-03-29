@@ -84,9 +84,9 @@ __Vectors       DCD     __Initial_sp                        ; Top of Stack
                 DCD     TMR1_OVF_TMR10_IRQHandler           ; TMR1 Overflow and TMR10
                 DCD     TMR1_TRG_HALL_TMR11_IRQHandler      ; TMR1 Trigger and hall and TMR11
                 DCD     TMR1_CH_IRQHandler                  ; TMR1 Channel
-                DCD     TMR2_GLOBAL_IRQHandler              ; TMR2
-                DCD     TMR3_GLOBAL_IRQHandler              ; TMR3
-                DCD     TMR4_GLOBAL_IRQHandler              ; TMR4
+                DCD     TMR2_Global_IRQHandler              ; TMR2
+                DCD     TMR3_Global_IRQHandler              ; TMR3
+                DCD     TMR4_Global_IRQHandler              ; TMR4
                 DCD     I2C1_EVT_IRQHandler                 ; I2C1 Event
                 DCD     I2C1_ERR_IRQHandler                 ; I2C1 Error
                 DCD     I2C2_EVT_IRQHandler                 ; I2C2 Event
@@ -106,12 +106,12 @@ __Vectors       DCD     __Initial_sp                        ; Top of Stack
                 DCD     EDMA_Stream8_IRQHandler             ; EDMA Stream 8
                 DCD     XMC_IRQHandler                      ; XMC
                 DCD     SDIO1_IRQHandler                    ; SDIO1
-                DCD     TMR5_GLOBAL_IRQHandler              ; TMR5
+                DCD     TMR5_Global_IRQHandler              ; TMR5
                 DCD     SPI3_I2S3EXT_IRQHandler             ; SPI3
                 DCD     UART4_IRQHandler                    ; UART4
                 DCD     UART5_IRQHandler                    ; UART5
-                DCD     TMR6_DAC_GLOBAL_IRQHandler          ; TMR6 & DAC
-                DCD     TMR7_GLOBAL_IRQHandler              ; TMR7
+                DCD     TMR6_DAC_Global_IRQHandler          ; TMR6 & DAC
+                DCD     TMR7_Global_IRQHandler              ; TMR7
                 DCD     DMA1_Channel1_IRQHandler            ; DMA1 Channel 1
                 DCD     DMA1_Channel2_IRQHandler            ; DMA1 Channel 2
                 DCD     DMA1_Channel3_IRQHandler            ; DMA1 Channel 3
@@ -261,9 +261,9 @@ Default_Handler PROC
                 EXPORT  TMR1_OVF_TMR10_IRQHandler           [WEAK]
                 EXPORT  TMR1_TRG_HALL_TMR11_IRQHandler      [WEAK]
                 EXPORT  TMR1_CH_IRQHandler                  [WEAK]
-                EXPORT  TMR2_GLOBAL_IRQHandler              [WEAK]
-                EXPORT  TMR3_GLOBAL_IRQHandler              [WEAK]
-                EXPORT  TMR4_GLOBAL_IRQHandler              [WEAK]
+                EXPORT  TMR2_Global_IRQHandler              [WEAK]
+                EXPORT  TMR3_Global_IRQHandler              [WEAK]
+                EXPORT  TMR4_Global_IRQHandler              [WEAK]
                 EXPORT  I2C1_EVT_IRQHandler                 [WEAK]
                 EXPORT  I2C1_ERR_IRQHandler                 [WEAK]
                 EXPORT  I2C2_EVT_IRQHandler                 [WEAK]
@@ -283,12 +283,12 @@ Default_Handler PROC
                 EXPORT  EDMA_Stream8_IRQHandler             [WEAK]
                 EXPORT  XMC_IRQHandler                      [WEAK]
                 EXPORT  SDIO1_IRQHandler                    [WEAK]
-                EXPORT  TMR5_GLOBAL_IRQHandler              [WEAK]
+                EXPORT  TMR5_Global_IRQHandler              [WEAK]
                 EXPORT  SPI3_I2S3EXT_IRQHandler             [WEAK]
                 EXPORT  UART4_IRQHandler                    [WEAK]
                 EXPORT  UART5_IRQHandler                    [WEAK]
-                EXPORT  TMR6_DAC_GLOBAL_IRQHandler          [WEAK]
-                EXPORT  TMR7_GLOBAL_IRQHandler              [WEAK]
+                EXPORT  TMR6_DAC_Global_IRQHandler          [WEAK]
+                EXPORT  TMR7_Global_IRQHandler              [WEAK]
                 EXPORT  DMA1_Channel1_IRQHandler            [WEAK]
                 EXPORT  DMA1_Channel2_IRQHandler            [WEAK]
                 EXPORT  DMA1_Channel3_IRQHandler            [WEAK]
@@ -357,9 +357,9 @@ TMR1_BRK_TMR9_IRQHandler
 TMR1_OVF_TMR10_IRQHandler
 TMR1_TRG_HALL_TMR11_IRQHandler
 TMR1_CH_IRQHandler
-TMR2_GLOBAL_IRQHandler
-TMR3_GLOBAL_IRQHandler
-TMR4_GLOBAL_IRQHandler
+TMR2_Global_IRQHandler
+TMR3_Global_IRQHandler
+TMR4_Global_IRQHandler
 I2C1_EVT_IRQHandler
 I2C1_ERR_IRQHandler
 I2C2_EVT_IRQHandler
@@ -379,12 +379,12 @@ TMR8_CH_IRQHandler
 EDMA_Stream8_IRQHandler
 XMC_IRQHandler
 SDIO1_IRQHandler
-TMR5_GLOBAL_IRQHandler
+TMR5_Global_IRQHandler
 SPI3_I2S3EXT_IRQHandler
 UART4_IRQHandler
 UART5_IRQHandler
-TMR6_DAC_GLOBAL_IRQHandler
-TMR7_GLOBAL_IRQHandler
+TMR6_DAC_Global_IRQHandler
+TMR7_Global_IRQHandler
 DMA1_Channel1_IRQHandler
 DMA1_Channel2_IRQHandler
 DMA1_Channel3_IRQHandler

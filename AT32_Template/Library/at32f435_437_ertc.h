@@ -376,7 +376,7 @@ typedef struct {
     uint32_t mask;                         /*!< alarm mask*/
     uint8_t week_Date_sel;                 /*!< week or date mode */
     uint8_t week;                          /*!< week */
-} ERTC_Alarm_value_Type;
+} ERTC_Alarm_Value_Type;
 
 /**
   * @brief ertc time reg union
@@ -1021,7 +1021,7 @@ error_status ERTC_Wait_flag(uint32_t flag, flag_status status);
 error_status ERTC_Init_Mode_Enter(void);
 void ERTC_Init_Mode_Exit(void);
 error_status ERTC_Reset(void);
-error_status ERTC_divider_Set(uint16_t div_a, uint16_t div_b);
+error_status ERTC_Divider_Set(uint16_t div_a, uint16_t div_b);
 error_status ERTC_hour_Mode_Set(ERTC_hour_Mode_Set_Type mode);
 error_status ERTC_Date_Set(uint8_t year, uint8_t month, uint8_t date, uint8_t week);
 error_status ERTC_Time_Set(uint8_t hour, uint8_t min, uint8_t sec, ERTC_am_pm_Type ampm);
@@ -1032,7 +1032,7 @@ void ERTC_Alarm_week_Date_Select(ERTC_Alarm_Type alarm_x, ERTC_week_Date_Select_
 void ERTC_Alarm_Set(ERTC_Alarm_Type alarm_x, uint8_t week_date, uint8_t hour, uint8_t min, uint8_t sec, ERTC_am_pm_Type ampm);
 void ERTC_Alarm_Sub_Second_Set(ERTC_Alarm_Type alarm_x, uint32_t value, ERTC_Alarm_sbs_Mask_Type mask);
 error_status ERTC_Alarm_Enable(ERTC_Alarm_Type alarm_x, confirm_state new_state);
-void ERTC_Alarm_Get(ERTC_Alarm_Type alarm_x, ERTC_Alarm_value_Type* alarm);
+void ERTC_Alarm_Get(ERTC_Alarm_Type alarm_x, ERTC_Alarm_Value_Type* alarm);
 uint32_t ERTC_Alarm_Sub_Second_Get(ERTC_Alarm_Type alarm_x);
 void ERTC_WakeUp_Clock_Set(ERTC_WakeUp_Clock_Type clock);
 void ERTC_WakeUp_Counter_Set(uint32_t counter);

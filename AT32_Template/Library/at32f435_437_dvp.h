@@ -233,7 +233,7 @@ typedef enum {
   */
 typedef enum {
     DVP_HSEID_LINE_END                     = 0x00,
-    DVP_HSEID_LINE_START                   = 0x01
+    DVP_HSEID_LINE_Start                   = 0x01
 } DVP_hseid_Type;
 
 /**
@@ -241,7 +241,7 @@ typedef enum {
   */
 typedef enum {
     DVP_VSEID_FRAME_END                    = 0x00,
-    DVP_VSEID_FRMAE_START                  = 0x01
+    DVP_VSEID_FRMAE_Start                  = 0x01
 } DVP_vseid_Type;
 /**
   * @brief dvp idun type
@@ -521,11 +521,11 @@ typedef struct {
 void DVP_Reset(void);
 void DVP_capture_Enable(confirm_state new_state);
 void DVP_capture_Enable(confirm_state new_state);
-void DVP_capture_Mode_Set(DVP_cfm_Type cap_mode);
-void DVP_window_crop_Enable(confirm_state new_state);
-void DVP_window_crop_Set(uint16_t crop_x, uint16_t crop_y, uint16_t crop_w, uint16_t crop_h, uint8_t bytes);
+void DVP_capture_Mode_Set(DVP_cfm_Type cap_Mode);
+void DVP_Window_crop_Enable(confirm_state new_state);
+void DVP_Window_crop_Set(uint16_t crop_x, uint16_t crop_y, uint16_t crop_w, uint16_t crop_h, uint8_t bytes);
 void DVP_jpeg_Enable(confirm_state new_state);
-void DVP_Sync_Mode_Set(DVP_sm_Type sync_mode);
+void DVP_Sync_Mode_Set(DVP_sm_Type sync_Mode);
 void DVP_Sync_code_Set(uint8_t fmsc, uint8_t fmec, uint8_t lnsc, uint8_t lnec);
 void DVP_Sync_unmask_Set(uint8_t fmsu, uint8_t fmeu, uint8_t lnsu, uint8_t lneu);
 void DVP_pclk_polarity_Set(DVP_ckp_Type eage);

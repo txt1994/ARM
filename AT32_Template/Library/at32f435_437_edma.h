@@ -432,8 +432,8 @@ typedef struct {
     eDMA_priority_level_Type               priority;                   /*!< edma priority can choose from very high, high, dedium or low */
     confirm_state                          fifo_Mode_Enable;           /*!< edma fifo mode enable */
     eDMA_FIFO_Threshold_Type               fifo_threshold;             /*!< edma fifo threshold vaule */
-    eDMA_Memory_burst_Type                 memory_burst_mode;          /*!< edma memory burst transfer */
-    eDMA_peripheral_burst_Type             peripheral_burst_mode;      /*!< edma peripheral burst transfer */
+    eDMA_Memory_burst_Type                 memory_burst_Mode;          /*!< edma memory burst transfer */
+    eDMA_peripheral_burst_Type             peripheral_burst_Mode;      /*!< edma peripheral burst transfer */
 } eDMA_Init_Type;
 
 /**

@@ -109,7 +109,7 @@ void nvic_vector_table_Set(uint32_t base, uint32_t offset) {
 
 /**
   * @brief  config nvic lowpower mode
-  * @param  lp_mode
+  * @param  lp_Mode
   *         this parameter can be one of the following values:
   *         - NVIC_LP_SEVONPEND
   *         - NVIC_LP_SLEEPDEEP
@@ -117,11 +117,11 @@ void nvic_vector_table_Set(uint32_t base, uint32_t offset) {
   * @param  new_state (new state of lp condition. ENABLE or DISABLE)
   * @retval none
   */
-void nvic_lowpower_Mode_Config(nvic_lowpower_Mode_Type lp_mode, confirm_state new_state) {
+void nvic_lowpower_Mode_Config(nvic_lowpower_Mode_Type lp_Mode, confirm_state new_state) {
     if(new_state != FALSE) {
-        SCB->SCR |= lp_mode;
+        SCB->SCR |= lp_Mode;
     } else {
-        SCB->SCR &= (uint32_t)(~(uint32_t)lp_mode);
+        SCB->SCR &= (uint32_t)(~(uint32_t)lp_Mode);
     }
 }
 

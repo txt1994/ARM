@@ -771,8 +771,8 @@ typedef struct {
 #define SysTick_CTRL_Enable_Msk            (1UL /*<< SysTick_CTRL_Enable_Pos*/)           /*!< SysTick CTRL: ENABLE Mask */
 
 /* SysTick Reload Register Definitions */
-#define SysTick_LOAD_RELOAD_Pos             0U                                            /*!< SysTick LOAD: RELOAD Position */
-#define SysTick_LOAD_RELOAD_Msk            (0xFFFFFFUL /*<< SysTick_LOAD_RELOAD_Pos*/)    /*!< SysTick LOAD: RELOAD Mask */
+#define SysTick_LOAD_Reload_Pos             0U                                            /*!< SysTick LOAD: RELOAD Position */
+#define SysTick_LOAD_Reload_Msk            (0xFFFFFFUL /*<< SysTick_LOAD_Reload_Pos*/)    /*!< SysTick LOAD: RELOAD Mask */
 
 /* SysTick Current Register Definitions */
 #define SysTick_VAL_CURRENT_Pos             0U                                            /*!< SysTick VAL: CURRENT Position */
@@ -1345,8 +1345,8 @@ typedef struct {
 #define FPU_FPDSCR_RMode_Msk               (3UL << FPU_FPDSCR_RMode_Pos)                  /*!< FPDSCR: RMode bit Mask */
 
 /* Media and FP Feature Register 0 Definitions */
-#define FPU_MVFR0_FP_rounding_modes_Pos    28U                                            /*!< MVFR0: FP rounding modes bits Position */
-#define FPU_MVFR0_FP_rounding_modes_Msk    (0xFUL << FPU_MVFR0_FP_rounding_modes_Pos)     /*!< MVFR0: FP rounding modes bits Mask */
+#define FPU_MVFR0_FP_rounding_Modes_Pos    28U                                            /*!< MVFR0: FP rounding modes bits Position */
+#define FPU_MVFR0_FP_rounding_Modes_Msk    (0xFUL << FPU_MVFR0_FP_rounding_Modes_Pos)     /*!< MVFR0: FP rounding modes bits Mask */
 
 #define FPU_MVFR0_Short_vectors_Pos        24U                                            /*!< MVFR0: Short vectors bits Position */
 #define FPU_MVFR0_Short_vectors_Msk        (0xFUL << FPU_MVFR0_Short_vectors_Pos)         /*!< MVFR0: Short vectors bits Mask */
@@ -1962,7 +1962,7 @@ __STATIC_INLINE uint32_t SCB_GetFPUType(void) {
            must contain a vendor-specific implementation of this function.
  */
 __STATIC_INLINE uint32_t SysTick_Config(uint32_t ticks) {
-    if ((ticks - 1UL) > SysTick_LOAD_RELOAD_Msk) {
+    if ((ticks - 1UL) > SysTick_LOAD_Reload_Msk) {
         return (1UL);                                                   /* Reload value impossible */
     }
 

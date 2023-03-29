@@ -65,11 +65,11 @@ void sdio_Reset(sdio_Type *sdio_x) {
   *         SDIO1, SDIO2.
   * @param  power_state
   *         this parameter can be one of the following values:
-  *         - SDIO_POWER_OFF
-  *         - SDIO_POWER_ON
+  *         - SDIO_Power_OFF
+  *         - SDIO_Power_ON
   * @retval none
   */
-void sdio_power_Set(sdio_Type *sdio_x, sdio_power_state_Type power_state) {
+void sdio_Power_Set(sdio_Type *sdio_x, sdio_Power_state_Type power_state) {
     sdio_x->pwrctrl_bit.ps = power_state;
 }
 
@@ -78,10 +78,10 @@ void sdio_power_Set(sdio_Type *sdio_x, sdio_power_state_Type power_state) {
   * @param  sdio_x: to select the sdio peripheral.
   *         this parameter can be one of the following values:
   *         SDIO1, SDIO2.
-  * @retval sdio_power_state_Type (SDIO_POWER_ON or SDIO_POWER_OFF)
+  * @retval sdio_Power_state_Type (SDIO_Power_ON or SDIO_Power_OFF)
   */
-sdio_power_state_Type sdio_power_Status_Get(sdio_Type *sdio_x) {
-    return (sdio_power_state_Type)(sdio_x->pwrctrl_bit.ps);
+sdio_Power_state_Type sdio_Power_Status_Get(sdio_Type *sdio_x) {
+    return (sdio_Power_state_Type)(sdio_x->pwrctrl_bit.ps);
 }
 
 /**
@@ -144,7 +144,7 @@ void sdio_Clock_bypass(sdio_Type *sdio_x, confirm_state new_state) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void sdio_power_saving_Mode_Enable(sdio_Type *sdio_x, confirm_state new_state) {
+void sdio_Power_saving_Mode_Enable(sdio_Type *sdio_x, confirm_state new_state) {
     sdio_x->clkctrl_bit.pwrsven = new_state;
 }
 
@@ -400,7 +400,7 @@ void sdio_Data_Config(sdio_Type *sdio_x, sdio_Data_struct_Type *data_struct) {
     /* config data block, transfer mode and transfer direction */
     sdio_x->dtctrl_bit.blksize = data_struct->block_size;
     sdio_x->dtctrl_bit.tfrdir = data_struct->transfer_direction;
-    sdio_x->dtctrl_bit.tfrmode = data_struct->transfer_mode;
+    sdio_x->dtctrl_bit.tfrmode = data_struct->transfer_Mode;
 
     /* config data length */
     sdio_x->dtlen_bit.dtlen = data_struct->data_length;
@@ -489,7 +489,7 @@ void sdio_Read_Wait_Mode_Set(sdio_Type *sdio_x, sdio_Read_Wait_Mode_Type mode) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void sdio_Read_Wait_start(sdio_Type *sdio_x, confirm_state new_state) {
+void sdio_Read_Wait_Start(sdio_Type *sdio_x, confirm_state new_state) {
     sdio_x->dtctrl_bit.rdwtstart = new_state;
 }
 

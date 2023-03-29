@@ -94,7 +94,7 @@ typedef enum {
     TMR_Clock_DIV1                         = 0x00, /*!< tmr clock division 1 */
     TMR_Clock_DIV2                         = 0x01, /*!< tmr clock division 2 */
     TMR_Clock_DIV4                         = 0x02  /*!< tmr clock division 4 */
-} tmr_Clock_division_Type;
+} tmr_Clock_Division_Type;
 
 /**
   * @brief tmr counter mode type
@@ -143,9 +143,9 @@ typedef enum {
     TMR_Sub_ENCODER_Mode_A                 = 0x01, /*!< subordinate mode select encoder mode a */
     TMR_Sub_ENCODER_Mode_B                 = 0x02, /*!< subordinate mode select encoder mode b */
     TMR_Sub_ENCODER_Mode_C                 = 0x03, /*!< subordinate mode select encoder mode c */
-    TMR_Sub_Reset_MODE                     = 0x04, /*!< subordinate mode select reset */
-    TMR_Sub_HANG_MODE                      = 0x05, /*!< subordinate mode select hang */
-    TMR_Sub_Trigger_MODE                   = 0x06, /*!< subordinate mode select trigger */
+    TMR_Sub_Reset_Mode                     = 0x04, /*!< subordinate mode select reset */
+    TMR_Sub_HANG_Mode                      = 0x05, /*!< subordinate mode select hang */
+    TMR_Sub_Trigger_Mode                   = 0x06, /*!< subordinate mode select trigger */
     TMR_Sub_EXTERNAL_Clock_Mode_A          = 0x07  /*!< subordinate mode external clock mode a */
 } tmr_Sub_Mode_Select_Type;
 
@@ -215,9 +215,9 @@ typedef enum {
   * @brief tmr channel1 input connected type
   */
 typedef enum {
-    TMR_CHANEL1_CONNECTED_C1IRAW           = 0x00, /*!< channel1 pins is only connected to C1IRAW input */
-    TMR_CHANEL1_2_3_CONNECTED_C1IRAW_XOR   = 0x01  /*!< channel1/2/3 pins are connected to C1IRAW input after xored */
-} tmr_channel1_Input_connected_Type;
+    TMR_CHANEL1_ConnectED_C1IRAW           = 0x00, /*!< channel1 pins is only connected to C1IRAW input */
+    TMR_CHANEL1_2_3_ConnectED_C1IRAW_XOR   = 0x01  /*!< channel1/2/3 pins are connected to C1IRAW input after xored */
+} tmr_channel1_Input_Connected_Type;
 
 /**
   * @brief tmr input channel mapped type channel direction
@@ -236,7 +236,7 @@ typedef enum {
     TMR_Channel_Input_DIV_2                = 0x01, /*!< tmr channel input divider 2 */
     TMR_Channel_Input_DIV_4                = 0x02, /*!< tmr channel input divider 4 */
     TMR_Channel_Input_DIV_8                = 0x03  /*!< tmr channel input divider 8 */
-} tmr_Channel_Input_divider_Type;
+} tmr_Channel_Input_Divider_Type;
 
 /**
   * @brief tmr dma request source select type
@@ -290,7 +290,7 @@ typedef enum {
     TMR_ES_Frequency_DIV_2                 = 0x01, /*!< tmr external signal frequency divider 2 */
     TMR_ES_Frequency_DIV_4                 = 0x02, /*!< tmr external signal frequency divider 4 */
     TMR_ES_Frequency_DIV_8                 = 0x03  /*!< tmr external signal frequency divider 8 */
-} tmr_external_signal_divider_Type;
+} tmr_external_signal_Divider_Type;
 
 /**
   * @brief tmr external signal polarity type
@@ -381,7 +381,7 @@ typedef enum {
   * @brief tmr output config type
   */
 typedef struct {
-    tmr_OutPut_Control_Mode_Type           oc_mode;             /*!< output channel mode */
+    tmr_OutPut_Control_Mode_Type           oc_Mode;             /*!< output channel mode */
     confirm_state                          oc_idle_state;       /*!< output channel idle state */
     confirm_state                          occ_idle_state;      /*!< output channel complementary idle state */
     tmr_OutPut_polarity_Type               oc_polarity;         /*!< output channel polarity */
@@ -839,22 +839,22 @@ void tmr_OutPut_Default_Para_Init(tmr_OutPut_Config_Type *tmr_OutPut_struct);
 void tmr_Input_Default_Para_Init(tmr_Input_Config_Type *tmr_Input_struct);
 void tmr_brkdt_Default_Para_Init(tmr_brkdt_Config_Type *tmr_brkdt_struct);
 void tmr_base_Init(tmr_Type* tmr_x, uint32_t tmr_pr, uint32_t tmr_div);
-void tmr_Clock_Source_div_Set(tmr_Type *tmr_x, tmr_Clock_division_Type tmr_Clock_div);
+void tmr_Clock_Source_div_Set(tmr_Type *tmr_x, tmr_Clock_Division_Type tmr_Clock_div);
 void tmr_cnt_dir_Set(tmr_Type *tmr_x, tmr_count_Mode_Type tmr_cnt_dir);
 void tmr_repetition_Counter_Set(tmr_Type *tmr_x, uint8_t tmr_rpr_value);
-void tmr_Counter_value_Set(tmr_Type *tmr_x, uint32_t tmr_cnt_value);
-uint32_t tmr_Counter_value_Get(tmr_Type *tmr_x);
-void tmr_div_value_Set(tmr_Type *tmr_x, uint32_t tmr_div_value);
-uint32_t tmr_div_value_Get(tmr_Type *tmr_x);
+void tmr_Counter_Value_Set(tmr_Type *tmr_x, uint32_t tmr_cnt_value);
+uint32_t tmr_Counter_Value_Get(tmr_Type *tmr_x);
+void tmr_div_Value_Set(tmr_Type *tmr_x, uint32_t tmr_div_value);
+uint32_t tmr_div_Value_Get(tmr_Type *tmr_x);
 void tmr_OutPut_Channel_Config(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
                                tmr_OutPut_Config_Type *tmr_OutPut_struct);
 void tmr_OutPut_Channel_Mode_Select(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
-                                    tmr_OutPut_Control_Mode_Type oc_mode);
-void tmr_period_value_Set(tmr_Type *tmr_x, uint32_t tmr_pr_value);
-uint32_t tmr_period_value_Get(tmr_Type *tmr_x);
-void tmr_Channel_value_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
+                                    tmr_OutPut_Control_Mode_Type oc_Mode);
+void tmr_period_Value_Set(tmr_Type *tmr_x, uint32_t tmr_pr_value);
+uint32_t tmr_period_Value_Get(tmr_Type *tmr_x);
+void tmr_Channel_Value_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
                            uint32_t tmr_Channel_value);
-uint32_t tmr_Channel_value_Get(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel);
+uint32_t tmr_Channel_Value_Get(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel);
 void tmr_period_buffer_Enable(tmr_Type *tmr_x, confirm_state new_state);
 void tmr_OutPut_Channel_buffer_Enable(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
                                       confirm_state new_state);
@@ -867,17 +867,17 @@ void tmr_32_Bit_function_Enable (tmr_Type *tmr_x, confirm_state new_state);
 void tmr_OverFlow_Request_Source_Set(tmr_Type *tmr_x, confirm_state new_state);
 void tmr_OverFlow_Event_Disable(tmr_Type *tmr_x, confirm_state new_state);
 void tmr_Input_Channel_Init(tmr_Type *tmr_x, tmr_Input_Config_Type *input_struct, \
-                            tmr_Channel_Input_divider_Type divider_factor);
+                            tmr_Channel_Input_Divider_Type divider_factor);
 void tmr_Channel_Enable(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, confirm_state new_state);
 void tmr_Input_Channel_Filter_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
                                   uint16_t filter_value);
 void tmr_pwm_Input_Config(tmr_Type *tmr_x, tmr_Input_Config_Type *input_struct, \
-                          tmr_Channel_Input_divider_Type divider_factor);
-void tmr_channel1_Input_Select(tmr_Type *tmr_x, tmr_channel1_Input_connected_Type ch1_connect);
-void tmr_Input_Channel_divider_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
-                                   tmr_Channel_Input_divider_Type divider_factor);
-void tmr_primary_Mode_Select(tmr_Type *tmr_x, tmr_primary_Select_Type primary_mode);
-void tmr_Sub_Mode_Select(tmr_Type *tmr_x, tmr_Sub_Mode_Select_Type sub_mode);
+                          tmr_Channel_Input_Divider_Type divider_factor);
+void tmr_channel1_Input_Select(tmr_Type *tmr_x, tmr_channel1_Input_Connected_Type ch1_Connect);
+void tmr_Input_Channel_Divider_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
+                                   tmr_Channel_Input_Divider_Type divider_factor);
+void tmr_primary_Mode_Select(tmr_Type *tmr_x, tmr_primary_Select_Type primary_Mode);
+void tmr_Sub_Mode_Select(tmr_Type *tmr_x, tmr_Sub_Mode_Select_Type sub_Mode);
 void tmr_Channel_DMA_Select(tmr_Type *tmr_x, tmr_DMA_Request_Source_Type cc_DMA_Select);
 void tmr_hall_Select(tmr_Type *tmr_x,  confirm_state new_state);
 void tmr_Channel_buffer_Enable(tmr_Type *tmr_x, confirm_state new_state);
@@ -893,13 +893,13 @@ void tmr_OutPut_Enable(tmr_Type *tmr_x, confirm_state new_state);
 void tmr_Internal_Clock_Set(tmr_Type *tmr_x);
 void tmr_OutPut_Channel_polarity_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
                                      tmr_polarity_active_Type oc_polarity);
-void tmr_external_Clock_Config(tmr_Type *tmr_x, tmr_external_signal_divider_Type es_divide, \
+void tmr_external_Clock_Config(tmr_Type *tmr_x, tmr_external_signal_Divider_Type es_divide, \
                                tmr_external_signal_polarity_Type  es_polarity, uint16_t es_filter);
-void tmr_external_Clock_mode1_Config(tmr_Type *tmr_x, tmr_external_signal_divider_Type es_divide, \
+void tmr_external_Clock_Mode1_Config(tmr_Type *tmr_x, tmr_external_signal_Divider_Type es_divide, \
                                      tmr_external_signal_polarity_Type  es_polarity, uint16_t es_filter);
-void tmr_external_Clock_mode2_Config(tmr_Type *tmr_x, tmr_external_signal_divider_Type es_divide, \
+void tmr_external_Clock_Mode2_Config(tmr_Type *tmr_x, tmr_external_signal_Divider_Type es_divide, \
                                      tmr_external_signal_polarity_Type  es_polarity, uint16_t es_filter);
-void tmr_encoder_Mode_Config(tmr_Type *tmr_x, tmr_encoder_Mode_Type encoder_mode, tmr_Input_polarity_Type \
+void tmr_encoder_Mode_Config(tmr_Type *tmr_x, tmr_encoder_Mode_Type encoder_Mode, tmr_Input_polarity_Type \
                              ic1_polarity, tmr_Input_polarity_Type ic2_polarity);
 void tmr_force_OutPut_Set(tmr_Type *tmr_x,  tmr_Channel_Select_Type tmr_channel, \
                           tmr_force_OutPut_Type force_output);

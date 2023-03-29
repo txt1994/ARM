@@ -425,7 +425,7 @@ typedef enum {
 typedef enum {
     EMAC_DMA_RX_Reset_Stop_COMMAND         = 0x00, /*!< receive reset or stop command */
     EMAC_DMA_RX_FETCH_DESCRIPTOR           = 0x01, /*!< rx dma is fetching descriptor */
-    EMAC_DMA_RX_WAITING_PACKET             = 0x03, /*!< rx dma is waiting for packets */
+    EMAC_DMA_RX_WAITING_Packet             = 0x03, /*!< rx dma is waiting for packets */
     EMAC_DMA_RX_DESCRIPTOR_UNAVAILABLE     = 0x04, /*!< rx dma descriptor is unavailable */
     EMAC_DMA_RX_CLOSE_DESCRIPTOR           = 0x05, /*!< rx dma is closing descriptor */
     EMAC_DMA_RX_FIFO_TO_HOST               = 0x07  /*!< rx dma is transferring data from fifo to host */
@@ -564,8 +564,8 @@ typedef struct {
     confirm_state                          auto_pad_CRC_strip;    /*!< automtic pad/crc stripping enable */
     confirm_state                          retry_Disable;         /*!< retry disable*/
     confirm_state                          ipv4_checksum_offload; /*!< ipv4 checksum offload enable */
-    EMAC_Duplex_Type                       duplex_mode;           /*!< duplex mode enable */
-    confirm_state                          loopback_mode;         /*!< loopback mode enable */
+    EMAC_Duplex_Type                       duplex_Mode;           /*!< duplex mode enable */
+    confirm_state                          loopback_Mode;         /*!< loopback mode enable */
     confirm_state                          receive_Own_Disable;   /*!< receive own disbale */
     EMAC_Speed_Type                        fast_ethernet_speed;   /*!< fast ethernet speed enable */
     confirm_state                          carrier_sense_Disable; /*!< carrier sense disable*/
@@ -1427,7 +1427,7 @@ void EMAC_Reset(void);
 void EMAC_Clock_Range_Set(void);
 void EMAC_DMA_Software_Reset_Set(void);
 flag_status EMAC_DMA_Software_Reset_Get(void);
-void EMAC_start(void);
+void EMAC_Start(void);
 void EMAC_Stop(void);
 error_status EMAC_PHY_Register_Write(uint8_t address, uint8_t reg, uint16_t data);
 error_status EMAC_PHY_Register_Read(uint8_t address, uint8_t reg, uint16_t *data);
@@ -1447,7 +1447,7 @@ void EMAC_Interframe_gap_Set(EMAC_intergrame_gap_Type number);
 void EMAC_Jabber_Disable(confirm_state new_state);
 void EMAC_WatchDog_Disable(confirm_state new_state);
 void EMAC_Fast_Speed_Set(EMAC_Speed_Type speed);
-void EMAC_Duplex_Mode_Set(EMAC_Duplex_Type duplex_mode);
+void EMAC_Duplex_Mode_Set(EMAC_Duplex_Type duplex_Mode);
 void EMAC_Promiscuous_Mode_Set(confirm_state new_state);
 void EMAC_Hash_Unicast_Set(confirm_state new_state);
 void EMAC_Hash_multicast_Set(confirm_state new_state);
@@ -1474,7 +1474,7 @@ void EMAC_vlan_tag_identifier_Set(uint16_t identifier);
 void EMAC_vlan_tag_comparison_Set(confirm_state new_state);
 void EMAC_WakeUp_Frame_Set(uint32_t value);
 uint32_t EMAC_WakeUp_Frame_Get(void);
-void EMAC_power_down_Set(confirm_state new_state);
+void EMAC_Power_down_Set(confirm_state new_state);
 void EMAC_Magic_Packet_Enable(confirm_state new_state);
 void EMAC_WakeUp_Frame_Enable(confirm_state new_state);
 flag_status EMAC_Received_Magic_Packet_Get(void);
@@ -1495,8 +1495,8 @@ void EMAC_DMA_Config(EMAC_DMA_Config_Type *control_para);
 void EMAC_DMA_Arbitation_Set(EMAC_DMA_RX_TX_Ratio_Type ratio, confirm_state new_state);
 void EMAC_DMA_Descriptor_Skip_Length_Set(uint8_t length);
 void EMAC_DMA_Separate_pbl_Set(EMAC_DMA_pbl_Type tx_length, EMAC_DMA_pbl_Type rx_length, confirm_state new_state);
-void EMAC_DMA_eight_pbl_Mode_Set(confirm_state new_state);
-void EMAC_DMA_Address_aligned_beats_Set(confirm_state new_state);
+void EMAC_DMA_Eight_pbl_Mode_Set(confirm_state new_state);
+void EMAC_DMA_Address_Aligned_Beats_Set(confirm_state new_state);
 void EMAC_DMA_Poll_Demand_Set(EMAC_DMA_TX_RX_Type transfer_Type, uint32_t value);
 uint32_t EMAC_DMA_Poll_Demand_Get(EMAC_DMA_TX_RX_Type transfer_Type);
 EMAC_DMA_Receive_Process_Status_Type EMAC_DMA_Receive_Status_Get(void);
@@ -1532,7 +1532,7 @@ void EMAC_PTP_PSV2_Enable(confirm_state new_state);
 void EMAC_PTP_SnapShot_EMAC_Frames_Enable(confirm_state new_state);
 void EMAC_PTP_SnapShot_Ipv6_Frames_Enable(confirm_state new_state);
 void EMAC_PTP_SnapShot_Ipv4_Frames_Enable(confirm_state new_state);
-void EMAC_PTP_SnapShot_Event_message_Enable(confirm_state new_state);
+void EMAC_PTP_SnapShot_Event_Message_Enable(confirm_state new_state);
 void EMAC_PTP_SnapShot_Master_Event_Enable(confirm_state new_state);
 void EMAC_PTP_Clock_Node_Set(EMAC_PTP_Clock_Node_Type node);
 void EMAC_PTP_MAC_Address_Filter_Enable(confirm_state new_state);

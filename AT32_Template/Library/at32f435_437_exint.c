@@ -62,7 +62,7 @@ void EXINT_Default_Para_Init(EXINT_Init_Type *EXINT_struct) {
     EXINT_struct->line_Enable = FALSE;
     EXINT_struct->line_Select = EXINT_LINE_NONE;
     EXINT_struct->line_polarity = EXINT_Trigger_FALLING_EDGE;
-    EXINT_struct->line_mode = EXINT_LINE_EVENT;
+    EXINT_struct->line_Mode = EXINT_LINE_EVENT;
 }
 
 /**
@@ -79,7 +79,7 @@ void EXINT_Init(EXINT_Init_Type *EXINT_struct) {
     EXINT->evten &= ~line_index;
 
     if(EXINT_struct->line_Enable != FALSE) {
-        if(EXINT_struct->line_mode == EXINT_LINE_INTERRUPUT) {
+        if(EXINT_struct->line_Mode == EXINT_LINE_INTERRUPUT) {
             EXINT->inten |= line_index;
         } else {
             EXINT->evten |= line_index;

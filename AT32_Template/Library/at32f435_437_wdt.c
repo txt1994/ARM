@@ -62,7 +62,7 @@ void WDT_Counter_reload(void) {
   * @param  reload_value (0x0000~0x0FFF)
   * @retval none
   */
-void WDT_reload_value_Set(uint16_t reload_value) {
+void WDT_Reload_Value_Set(uint16_t reload_value) {
     WDT->rld = reload_value;
 }
 
@@ -79,7 +79,7 @@ void WDT_reload_value_Set(uint16_t reload_value) {
   *         - WDT_CLK_DIV_256
   * @retval none
   */
-void WDT_divider_Set(WDT_division_Type division) {
+void WDT_Divider_Set(WDT_Division_Type division) {
     WDT->div_bit.div = division;
 }
 
@@ -122,7 +122,7 @@ flag_status WDT_Flag_Get(uint16_t WDT_flag) {
   * @param  window_cnt (0x0000~0x0FFF)
   * @retval none
   */
-void WDT_window_Counter_Set(uint16_t window_cnt) {
+void WDT_Window_Counter_Set(uint16_t window_cnt) {
     WDT->win_bit.win = window_cnt;
 }
 

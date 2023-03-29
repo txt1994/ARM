@@ -65,7 +65,7 @@ typedef enum {
     WWDT_PCLK1_DIV_8192                    = 0x01, /*!< wwdt counter clock = (pclk1/4096)/2) */
     WWDT_PCLK1_DIV_16384                   = 0x02, /*!< wwdt counter clock = (pclk1/4096)/4) */
     WWDT_PCLK1_DIV_32768                   = 0x03  /*!< wwdt counter clock = (pclk1/4096)/8) */
-} wWDT_division_Type;
+} wWDT_Division_Type;
 
 /**
   * @brief type define wwdt register all
@@ -121,13 +121,13 @@ typedef struct {
   */
 
 void wWDT_Reset(void);
-void wWDT_divider_Set(wWDT_division_Type division);
+void wWDT_Divider_Set(wWDT_Division_Type division);
 void wWDT_Flag_Clear(void);
 void wWDT_Enable(uint8_t wWDT_cnt);
 void wWDT_Interrupt_Enable(void);
 flag_status wWDT_Flag_Get(void);
 void wWDT_Counter_Set(uint8_t wWDT_cnt);
-void wWDT_window_Counter_Set(uint8_t window_cnt);
+void wWDT_Window_Counter_Set(uint8_t window_cnt);
 
 /**
   * @}

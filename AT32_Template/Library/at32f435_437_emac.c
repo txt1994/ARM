@@ -70,12 +70,12 @@ void EMAC_Control_Para_Init(EMAC_Control_Config_Type *control_para) {
     control_para->back_off_limit = EMAC_BACKOFF_LIMIT_0;
     control_para->carrier_sense_Disable = FALSE;
     control_para->deferral_check = FALSE;
-    control_para->duplex_mode = EMAC_HALF_DUPLEX;
+    control_para->duplex_Mode = EMAC_HALF_DUPLEX;
     control_para->fast_ethernet_speed = EMAC_SPEED_10MBPS;
     control_para->interframe_gap = EMAC_INTERFRAME_GAP_96BIT;
     control_para->ipv4_checksum_offload = FALSE;
     control_para->jabber_Disable = FALSE;
-    control_para->loopback_mode = FALSE;
+    control_para->loopback_Mode = FALSE;
     control_para->receive_Own_Disable = FALSE;
     control_para->retry_Disable = FALSE;
     control_para->watchdog_Disable = FALSE;
@@ -123,7 +123,7 @@ void EMAC_Control_Config(EMAC_Control_Config_Type *control_struct) {
     EMAC_Auto_pad_CRC_stripping_Set(control_struct->auto_pad_CRC_strip);
     EMAC_retry_Disable(control_struct->retry_Disable);
     EMAC_Ipv4_checksum_offload_Set(control_struct->ipv4_checksum_offload);
-    EMAC_Loopback_Mode_Enable(control_struct->loopback_mode);
+    EMAC_Loopback_Mode_Enable(control_struct->loopback_Mode);
     EMAC_Receive_Own_Disable(control_struct->receive_Own_Disable);
     EMAC_Carrier_sense_Disable(control_struct->carrier_sense_Disable);
     EMAC_Interframe_gap_Set(control_struct->interframe_gap);
@@ -158,7 +158,7 @@ flag_status EMAC_DMA_Software_Reset_Get(void) {
   * @param  none
   * @retval none
   */
-void EMAC_start(void) {
+void EMAC_Start(void) {
     /* enable transmit state machine of the mac for transmission on the mii */
     EMAC_Trasmitter_Enable(TRUE);
 
@@ -411,14 +411,14 @@ void EMAC_Fast_Speed_Set(EMAC_Speed_Type speed) {
 
 /**
   * @brief  set duplex mode.
-  * @param  duplex_mode: communication mode
+  * @param  duplex_Mode: communication mode
   *         this parameter can be one of the following values:
   *         - EMAC_HALF_DUPLEX
   *         - EMAC_FULL_DUPLEX
   * @retval none
   */
-void EMAC_Duplex_Mode_Set(EMAC_Duplex_Type duplex_mode) {
-    EMAC->ctrl_bit.dm = duplex_mode;
+void EMAC_Duplex_Mode_Set(EMAC_Duplex_Type duplex_Mode) {
+    EMAC->ctrl_bit.dm = duplex_Mode;
 }
 
 /**
@@ -673,7 +673,7 @@ uint32_t EMAC_WakeUp_Frame_Get(void) {
   * @param  new_state: TRUE or FALSE.
   * @retval none
   */
-void EMAC_power_down_Set(confirm_state new_state) {
+void EMAC_Power_down_Set(confirm_state new_state) {
     EMAC->pmtctrlsts_bit.pd = new_state;
 }
 
@@ -1069,7 +1069,7 @@ void EMAC_DMA_Separate_pbl_Set(EMAC_DMA_pbl_Type tx_length, EMAC_DMA_pbl_Type rx
   * @param  new_state: TRUE or FALSE
   * @retval none
   */
-void EMAC_DMA_eight_pbl_Mode_Set(confirm_state new_state) {
+void EMAC_DMA_Eight_pbl_Mode_Set(confirm_state new_state) {
     EMAC_DMA->bm_bit.pblx8 = new_state;
 }
 
@@ -1078,7 +1078,7 @@ void EMAC_DMA_eight_pbl_Mode_Set(confirm_state new_state) {
   * @param  new_state: TRUE or FALSE
   * @retval none
   */
-void EMAC_DMA_Address_aligned_beats_Set(confirm_state new_state) {
+void EMAC_DMA_Address_Aligned_Beats_Set(confirm_state new_state) {
     EMAC_DMA->bm_bit.aab = new_state;
 }
 
@@ -1134,7 +1134,7 @@ uint32_t EMAC_DMA_Poll_Demand_Get(EMAC_DMA_TX_RX_Type transfer_Type) {
   *         this parameter can be one of the following values:
   *         - EMAC_DMA_RX_Reset_Stop_COMMAND
   *         - EMAC_DMA_RX_FETCH_DESCRIPTOR
-  *         - EMAC_DMA_RX_WAITING_PACKET
+  *         - EMAC_DMA_RX_WAITING_Packet
   *         - EMAC_DMA_RX_DESCRIPTOR_UNAVAILABLE
   *         - EMAC_DMA_RX_CLOSE_DESCRIPTOR
   *         - EMAC_DMA_RX_FIFO_TO_HOST
@@ -1149,8 +1149,8 @@ EMAC_DMA_Receive_Process_Status_Type EMAC_DMA_Receive_Status_Get(void) {
             return EMAC_DMA_RX_FETCH_DESCRIPTOR;
         }
 
-        case EMAC_DMA_RX_WAITING_PACKET: {
-            return EMAC_DMA_RX_WAITING_PACKET;
+        case EMAC_DMA_RX_WAITING_Packet: {
+            return EMAC_DMA_RX_WAITING_Packet;
         }
 
         case EMAC_DMA_RX_DESCRIPTOR_UNAVAILABLE: {
@@ -1803,7 +1803,7 @@ void EMAC_PTP_SnapShot_Ipv4_Frames_Enable(confirm_state new_state) {
   * @param  new_state: TRUE or FALSE.
   * @retval none
   */
-void EMAC_PTP_SnapShot_Event_message_Enable(confirm_state new_state) {
+void EMAC_PTP_SnapShot_Event_Message_Enable(confirm_state new_state) {
     EMAC_PTP->tsctrl_bit.etsfem = new_state;
 }
 

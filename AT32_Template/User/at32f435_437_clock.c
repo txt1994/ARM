@@ -63,7 +63,7 @@ void system_Clock_Config(void) {
     PWC_Ldo_OutPut_Voltage_Set(PWC_LDO_OutPut_1V3);
 
     /* set the flash clock divider */
-    FLASH_Clock_divider_Set(FLASH_Clock_DIV_3);
+    FLASH_Clock_Divider_Set(FLASH_Clock_DIV_3);
 
     crm_Clock_Source_Enable(CRM_Clock_Source_HEXT, TRUE);
 

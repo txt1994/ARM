@@ -244,8 +244,8 @@ __packed struct  __iar_u32 {
     #endif
 #endif
 
-#ifndef __PROGRAM_START
-    #define __PROGRAM_START           __iar_program_start
+#ifndef __PROGRAM_Start
+    #define __PROGRAM_Start           __iar_program_Start
 #endif
 
 #ifndef __InitIAL_SP

@@ -156,7 +156,7 @@ defined (AT32F437VMT7) || defined (AT32F437ZMT7)
   *         - FLASH_Clock_DIV_3
   *         - FLASH_Clock_DIV_4
   */
-#define FLASH_Clock_divider_Set(div)     (FLASH->divr_bit.fdiv = div)
+#define FLASH_Clock_Divider_Set(div)     (FLASH->divr_bit.fdiv = div)
 
 /**
   * @}
@@ -186,7 +186,7 @@ typedef enum {
     FLASH_Clock_DIV_2                      = 0x00, /*!< flash clock divide by 2 */
     FLASH_Clock_DIV_3                      = 0x01, /*!< flash clock divide by 3 */
     FLASH_Clock_DIV_4                      = 0x02  /*!< flash clock divide by 4 */
-} FLASH_Clock_divider_Type;
+} FLASH_Clock_Divider_Type;
 
 /**
   * @brief  flash status type

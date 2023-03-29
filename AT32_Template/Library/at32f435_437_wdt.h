@@ -71,7 +71,7 @@ typedef enum {
     WDT_CLK_DIV_64                         = 0x04, /*!< wdt clock divider value is 64 */
     WDT_CLK_DIV_128                        = 0x05, /*!< wdt clock divider value is 128 */
     WDT_CLK_DIV_256                        = 0x06  /*!< wdt clock divider value is 256 */
-} WDT_division_Type;
+} WDT_Division_Type;
 
 /**
   * @brief wdt cmd value type
@@ -81,7 +81,7 @@ typedef enum {
     WDT_CMD_UNLOCK                         = 0x5555, /*!< enable write protection command */
     WDT_CMD_Enable                         = 0xCCCC, /*!< enable wdt command */
     WDT_CMD_RELOAD                         = 0xAAAA  /*!< reload command */
-} WDT_cmd_value_Type;
+} WDT_CMD_Value_Type;
 
 /**
   * @brief type define wdt register all
@@ -157,11 +157,11 @@ typedef struct {
 
 void WDT_Enable(void);
 void WDT_Counter_reload(void);
-void WDT_reload_value_Set(uint16_t reload_value);
-void WDT_divider_Set(WDT_division_Type division);
+void WDT_Reload_Value_Set(uint16_t reload_value);
+void WDT_Divider_Set(WDT_Division_Type division);
 void WDT_Register_Write_Enable( confirm_state new_state);
 flag_status WDT_Flag_Get(uint16_t WDT_flag);
-void WDT_window_Counter_Set(uint16_t window_cnt);
+void WDT_Window_Counter_Set(uint16_t window_cnt);
 
 /**
   * @}

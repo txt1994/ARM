@@ -60,14 +60,14 @@ void DVP_capture_Enable(confirm_state new_state) {
 
 /**
   * @brief  set dvp capture mode
-  * @param  cap_mode
+  * @param  cap_Mode
   *         this parameter can be one of the following values:
   *         - DVP_CAP_FUNC_Mode_CONTINUOUS
   *         - DVP_CAP_FUNC_Mode_SINGLE
   * @retval none
   */
-void DVP_capture_Mode_Set(DVP_cfm_Type cap_mode) {
-    DVP->ctrl_bit.cfm = cap_mode;
+void DVP_capture_Mode_Set(DVP_cfm_Type cap_Mode) {
+    DVP->ctrl_bit.cfm = cap_Mode;
 }
 
 /**
@@ -75,7 +75,7 @@ void DVP_capture_Mode_Set(DVP_cfm_Type cap_mode) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void DVP_window_crop_Enable(confirm_state new_state) {
+void DVP_Window_crop_Enable(confirm_state new_state) {
     DVP->ctrl_bit.crp = new_state;
 }
 
@@ -89,7 +89,7 @@ void DVP_window_crop_Enable(confirm_state new_state) {
   *         eg. y8:bytes = 1, rgb565:bytes = 2
   * @retval none
   */
-void DVP_window_crop_Set(uint16_t crop_x, uint16_t crop_y, uint16_t crop_w, uint16_t crop_h, uint8_t bytes) {
+void DVP_Window_crop_Set(uint16_t crop_x, uint16_t crop_y, uint16_t crop_w, uint16_t crop_h, uint8_t bytes) {
     DVP->cwst = ((crop_x * bytes) | (crop_y << 16));
     DVP->cwsz = ((crop_w * bytes - 1) | ((crop_h - 1) << 16));
 }
@@ -105,14 +105,14 @@ void DVP_jpeg_Enable(confirm_state new_state) {
 
 /**
   * @brief  set dvp synchronization mode
-  * @param  sync_mode
+  * @param  sync_Mode
   *         this parameter can be one of the following values:
   *         - DVP_Sync_Mode_HARDWARE
   *         - DVP_Sync_Mode_EMBEDDED
   * @retval none
   */
-void DVP_Sync_Mode_Set(DVP_sm_Type sync_mode) {
-    DVP->ctrl_bit.sm = sync_mode;
+void DVP_Sync_Mode_Set(DVP_sm_Type sync_Mode) {
+    DVP->ctrl_bit.sm = sync_Mode;
 }
 
 /**
@@ -455,11 +455,11 @@ void DVP_DMA_burst_Set(DVP_dmabt_Type DVP_dmabt) {
   * @param  DVP_hseid: hsync event interrupt strategy
   *         this parameter can be one of the following values:
   *         - DVP_HSEID_LINE_END
-  *         - DVP_HSEID_LINE_START
+  *         - DVP_HSEID_LINE_Start
   * @param  DVP_vseid: vsync event interrupt strategy
   *         this parameter can be one of the following values:
   *         - DVP_VSEID_FRAME_END
-  *         - DVP_VSEID_FRMAE_START
+  *         - DVP_VSEID_FRMAE_Start
   * @retval none
   */
 void DVP_Sync_Event_Interrupt_Set(DVP_hseid_Type DVP_hseid, DVP_vseid_Type DVP_vseid) {

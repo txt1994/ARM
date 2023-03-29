@@ -58,7 +58,7 @@ void wWDT_Reset(void) {
   *         - WWDT_PCLK1_DIV_32768       (wwdt counter clock = (pclk1/4096)/8)
   * @retval none
   */
-void wWDT_divider_Set(wWDT_division_Type division) {
+void wWDT_Divider_Set(wWDT_Division_Type division) {
     WWDT->cfg_bit.div = division;
 }
 
@@ -112,7 +112,7 @@ void wWDT_Counter_Set(uint8_t wWDT_cnt) {
   * @param  window_cnt (0x40~0x7f)
   * @retval none
   */
-void wWDT_window_Counter_Set(uint8_t window_cnt) {
+void wWDT_Window_Counter_Set(uint8_t window_cnt) {
     WWDT->cfg_bit.win = window_cnt;
 }
 

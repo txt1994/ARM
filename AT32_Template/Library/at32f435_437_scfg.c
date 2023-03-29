@@ -51,16 +51,16 @@ void scfg_Reset(void) {
 
 /**
   * @brief  scfg xmc address mapping swap set
-  * @param  xmc_swap
+  * @param  XMC_swap
   *         this parameter can be one of the following values:
   *         - SCFG_XMC_SWAP_NONE
-  *         - SCFG_XMC_SWAP_MODE1
-  *         - SCFG_XMC_SWAP_MODE2
-  *         - SCFG_XMC_SWAP_MODE3
+  *         - SCFG_XMC_SWAP_Mode1
+  *         - SCFG_XMC_SWAP_Mode2
+  *         - SCFG_XMC_SWAP_Mode3
   * @retval none
   */
-void scfg_xmc_mapping_swap_Set(scfg_xmc_swap_Type xmc_swap) {
-    SCFG->cfg1_bit.swap_xmc = xmc_swap;
+void scfg_XMC_mapping_swap_Set(scfg_XMC_swap_Type XMC_swap) {
+    SCFG->cfg1_bit.swap_xmc = XMC_swap;
 }
 
 /**
@@ -113,14 +113,14 @@ void scfg_EMAC_interface_Set(scfg_EMAC_interface_Type mode) {
   * @param  port_source:
   *         select the gpio port to be used as source for exint lines.
   *         this parameter can be one of the following values:
-  *         - SCFG_PORT_Source_GPIOA
-  *         - SCFG_PORT_Source_GPIOB
-  *         - SCFG_PORT_Source_GPIOC
-  *         - SCFG_PORT_Source_GPIOD
-  *         - SCFG_PORT_Source_GPIOE
-  *         - SCFG_PORT_Source_GPIOF
-  *         - SCFG_PORT_Source_GPIOG
-  *         - SCFG_PORT_Source_GPIOH
+  *         - SCFG_Port_Source_GPIOA
+  *         - SCFG_Port_Source_GPIOB
+  *         - SCFG_Port_Source_GPIOC
+  *         - SCFG_Port_Source_GPIOD
+  *         - SCFG_Port_Source_GPIOE
+  *         - SCFG_Port_Source_GPIOF
+  *         - SCFG_Port_Source_GPIOG
+  *         - SCFG_Port_Source_GPIOH
   * @param  pin_source:
   *         specifies the exint line to be configured.
   *         this parameter can be one of the following values:
@@ -142,7 +142,7 @@ void scfg_EMAC_interface_Set(scfg_EMAC_interface_Type mode) {
   *         - SCFG_PINS_SOURCE15
   * @retval none
   */
-void scfg_EXINT_line_Config(scfg_port_Source_Type port_source, scfg_pins_Source_Type pin_source) {
+void scfg_EXINT_line_Config(scfg_Port_Source_Type port_source, scfg_pins_Source_Type pin_source) {
     uint32_t tmp = 0x00;
     tmp = ((uint32_t)0x0F) << (0x04 * (pin_source & (uint8_t)0x03));
 

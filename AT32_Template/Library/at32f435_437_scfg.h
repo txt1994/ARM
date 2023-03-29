@@ -54,10 +54,10 @@ extern "C" {
   */
 typedef enum {
     SCFG_XMC_SWAP_NONE                     = 0x00, /* no swap */
-    SCFG_XMC_SWAP_MODE1                    = 0x01, /* sdram 0x60000000 and 0x70000000, nor psram sram nand2 0xC00000000 and 0xD0000000 */
-    SCFG_XMC_SWAP_MODE2                    = 0x02, /* qspi2 0x80000000, nand3 0xB0000000 */
-    SCFG_XMC_SWAP_MODE3                    = 0x03  /* sdram 0x60000000 and 0x70000000, nor psram sram nand2 0xC00000000 and 0xD0000000, qspi2 0x80000000, nand3 0xB0000000 */
-} scfg_xmc_swap_Type;
+    SCFG_XMC_SWAP_Mode1                    = 0x01, /* sdram 0x60000000 and 0x70000000, nor psram sram nand2 0xC00000000 and 0xD0000000 */
+    SCFG_XMC_SWAP_Mode2                    = 0x02, /* qspi2 0x80000000, nand3 0xB0000000 */
+    SCFG_XMC_SWAP_Mode3                    = 0x03  /* sdram 0x60000000 and 0x70000000, nor psram sram nand2 0xC00000000 and 0xD0000000, qspi2 0x80000000, nand3 0xB0000000 */
+} scfg_XMC_swap_Type;
 
 /**
   * @brief scfg infrared modulation signal source selecting type
@@ -113,15 +113,15 @@ typedef enum {
   * @brief gpio port source type
   */
 typedef enum {
-    SCFG_PORT_Source_GPIOA                 = 0x00,
-    SCFG_PORT_Source_GPIOB                 = 0x01,
-    SCFG_PORT_Source_GPIOC                 = 0x02,
-    SCFG_PORT_Source_GPIOD                 = 0x03,
-    SCFG_PORT_Source_GPIOE                 = 0x04,
-    SCFG_PORT_Source_GPIOF                 = 0x05,
-    SCFG_PORT_Source_GPIOG                 = 0x06,
-    SCFG_PORT_Source_GPIOH                 = 0x07
-} scfg_port_Source_Type;
+    SCFG_Port_Source_GPIOA                 = 0x00,
+    SCFG_Port_Source_GPIOB                 = 0x01,
+    SCFG_Port_Source_GPIOC                 = 0x02,
+    SCFG_Port_Source_GPIOD                 = 0x03,
+    SCFG_Port_Source_GPIOE                 = 0x04,
+    SCFG_Port_Source_GPIOF                 = 0x05,
+    SCFG_Port_Source_GPIOG                 = 0x06,
+    SCFG_Port_Source_GPIOH                 = 0x07
+} scfg_Port_Source_Type;
 
 /**
   * @brief scfg emac interface selecting type
@@ -272,11 +272,11 @@ typedef struct {
   */
 
 void scfg_Reset(void);
-void scfg_xmc_mapping_swap_Set(scfg_xmc_swap_Type xmc_swap);
+void scfg_XMC_mapping_swap_Set(scfg_XMC_swap_Type XMC_swap);
 void scfg_infrared_Config(scfg_ir_Source_Type source, scfg_ir_polarity_Type polarity);
 void scfg_mem_map_Set(scfg_mem_map_Type mem_map);
 void scfg_EMAC_interface_Set(scfg_EMAC_interface_Type mode);
-void scfg_EXINT_line_Config(scfg_port_Source_Type port_source, scfg_pins_Source_Type pin_source);
+void scfg_EXINT_line_Config(scfg_Port_Source_Type port_source, scfg_pins_Source_Type pin_source);
 void scfg_pins_ultra_driven_Enable(scfg_ultra_driven_pins_Type value, confirm_state new_state);
 
 /**

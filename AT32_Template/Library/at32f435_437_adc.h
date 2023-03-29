@@ -104,19 +104,19 @@ typedef enum {
   * @brief adc combine mode type
   */
 typedef enum {
-    ADC_INDEPENDENT_MODE                               = 0x00, /*!< independent mode */
-    ADC_Ordinary_SMLT_Preempt_SMLT_ONESLAVE_MODE       = 0x01, /*!< single slaver combined ordinary simultaneous + preempt simultaneous mode */
-    ADC_Ordinary_SMLT_Preempt_INTERLTRIG_ONESLAVE_MODE = 0x02, /*!< single slaver combined ordinary simultaneous + preempt interleaved trigger mode */
-    ADC_Preempt_SMLT_ONLY_ONESLAVE_MODE                = 0x05, /*!< single slaver preempt simultaneous mode only */
-    ADC_Ordinary_SMLT_ONLY_ONESLAVE_MODE               = 0x06, /*!< single slaver ordinary simultaneous mode only */
-    ADC_Ordinary_SHIFT_ONLY_ONESLAVE_MODE              = 0x07, /*!< single slaver ordinary shifting mode only */
-    ADC_Preempt_INTERLTRIG_ONLY_ONESLAVE_MODE          = 0x09, /*!< single slaver preempt interleaved trigger mode only */
-    ADC_Ordinary_SMLT_Preempt_SMLT_TWOSLAVE_MODE       = 0x11, /*!< double slaver combined ordinary simultaneous + preempt simultaneous mode */
-    ADC_Ordinary_SMLT_Preempt_INTERLTRIG_TWOSLAVE_MODE = 0x12, /*!< double slaver combined ordinary simultaneous + preempt interleaved trigger mode */
-    ADC_Preempt_SMLT_ONLY_TWOSLAVE_MODE                = 0x15, /*!< double slaver preempt simultaneous mode only */
-    ADC_Ordinary_SMLT_ONLY_TWOSLAVE_MODE               = 0x16, /*!< double slaver ordinary simultaneous mode only */
-    ADC_Ordinary_SHIFT_ONLY_TWOSLAVE_MODE              = 0x17, /*!< double slaver ordinary shifting mode only */
-    ADC_Preempt_INTERLTRIG_ONLY_TWOSLAVE_MODE          = 0x19  /*!< double slaver preempt interleaved trigger mode only */
+    ADC_INDEPENDENT_Mode                               = 0x00, /*!< independent mode */
+    ADC_Ordinary_SMLT_Preempt_SMLT_ONESLAVE_Mode       = 0x01, /*!< single slaver combined ordinary simultaneous + preempt simultaneous mode */
+    ADC_Ordinary_SMLT_Preempt_INTERLTRIG_ONESLAVE_Mode = 0x02, /*!< single slaver combined ordinary simultaneous + preempt interleaved trigger mode */
+    ADC_Preempt_SMLT_ONLY_ONESLAVE_Mode                = 0x05, /*!< single slaver preempt simultaneous mode only */
+    ADC_Ordinary_SMLT_ONLY_ONESLAVE_Mode               = 0x06, /*!< single slaver ordinary simultaneous mode only */
+    ADC_Ordinary_SHIFT_ONLY_ONESLAVE_Mode              = 0x07, /*!< single slaver ordinary shifting mode only */
+    ADC_Preempt_INTERLTRIG_ONLY_ONESLAVE_Mode          = 0x09, /*!< single slaver preempt interleaved trigger mode only */
+    ADC_Ordinary_SMLT_Preempt_SMLT_TWOSLAVE_Mode       = 0x11, /*!< double slaver combined ordinary simultaneous + preempt simultaneous mode */
+    ADC_Ordinary_SMLT_Preempt_INTERLTRIG_TWOSLAVE_Mode = 0x12, /*!< double slaver combined ordinary simultaneous + preempt interleaved trigger mode */
+    ADC_Preempt_SMLT_ONLY_TWOSLAVE_Mode                = 0x15, /*!< double slaver preempt simultaneous mode only */
+    ADC_Ordinary_SMLT_ONLY_TWOSLAVE_Mode               = 0x16, /*!< double slaver ordinary simultaneous mode only */
+    ADC_Ordinary_SHIFT_ONLY_TWOSLAVE_Mode              = 0x17, /*!< double slaver ordinary shifting mode only */
+    ADC_Preempt_INTERLTRIG_ONLY_TWOSLAVE_Mode          = 0x19  /*!< double slaver preempt interleaved trigger mode only */
 } ADC_Combine_Mode_Type;
 
 /**
@@ -366,9 +366,9 @@ typedef enum {
   * @brief adc common config type
   */
 typedef struct {
-    ADC_Combine_Mode_Type                  combine_mode;                    /*!< adc combine mode select */
+    ADC_Combine_Mode_Type                  combine_Mode;                    /*!< adc combine mode select */
     ADC_div_Type                           div;                             /*!< adc division select */
-    ADC_Common_DMA_Mode_Type               common_DMA_mode;                 /*!< adc common dma mode select */
+    ADC_Common_DMA_Mode_Type               common_DMA_Mode;                 /*!< adc common dma mode select */
     confirm_state                          common_DMA_Request_repeat_state; /*!< adc common dma repeat state */
     ADC_sampling_interval_Type             sampling_interval;               /*!< ordinary shifting mode adjacent adc sampling interval select */
     confirm_state                          tempervintrv_state;              /*!< adc temperature sensor and vintrv state */
@@ -379,8 +379,8 @@ typedef struct {
   * @brief adc base config type
   */
 typedef struct {
-    confirm_state                          sequence_mode;           /*!< adc sequence mode */
-    confirm_state                          repeat_mode;             /*!< adc repeat mode */
+    confirm_state                          sequence_Mode;           /*!< adc sequence mode */
+    confirm_state                          repeat_Mode;             /*!< adc repeat mode */
     ADC_Data_align_Type                    data_align;              /*!< adc data alignment */
     uint8_t                                ordinary_Channel_length; /*!< adc ordinary channel sequence length*/
 } ADC_base_Config_Type;
@@ -810,20 +810,20 @@ void ADC_voltage_battery_Enable(confirm_state new_state);
 void ADC_DMA_Mode_Enable(ADC_Type *ADC_x, confirm_state new_state);
 void ADC_DMA_Request_repeat_Enable(ADC_Type *ADC_x, confirm_state new_state);
 void ADC_Interrupt_Enable(ADC_Type *ADC_x, uint32_t ADC_int, confirm_state new_state);
-void ADC_Calibration_value_Set(ADC_Type *ADC_x, uint8_t ADC_Calibration_value);
+void ADC_Calibration_Value_Set(ADC_Type *ADC_x, uint8_t ADC_Calibration_value);
 void ADC_Calibration_Init(ADC_Type *ADC_x);
 flag_status ADC_Calibration_Init_Status_Get(ADC_Type *ADC_x);
-void ADC_Calibration_start(ADC_Type *ADC_x);
+void ADC_Calibration_Start(ADC_Type *ADC_x);
 flag_status ADC_Calibration_Status_Get(ADC_Type *ADC_x);
 void ADC_voltage_monitor_Enable(ADC_Type *ADC_x, ADC_voltage_monitoring_Type ADC_voltage_monitoring);
-void ADC_voltage_monitor_threshold_value_Set(ADC_Type *ADC_x, uint16_t ADC_high_threshold, uint16_t ADC_low_threshold);
+void ADC_voltage_monitor_threshold_Value_Set(ADC_Type *ADC_x, uint16_t ADC_high_threshold, uint16_t ADC_low_threshold);
 void ADC_voltage_monitor_single_Channel_Select(ADC_Type *ADC_x, ADC_Channel_Select_Type ADC_channel);
 void ADC_Ordinary_Channel_Set(ADC_Type *ADC_x, ADC_Channel_Select_Type ADC_channel, uint8_t ADC_sequence, ADC_sampletime_Select_Type ADC_sampletime);
 void ADC_Preempt_Channel_length_Set(ADC_Type *ADC_x, uint8_t ADC_Channel_lenght);
 void ADC_Preempt_Channel_Set(ADC_Type *ADC_x, ADC_Channel_Select_Type ADC_channel, uint8_t ADC_sequence, ADC_sampletime_Select_Type ADC_sampletime);
 void ADC_Ordinary_Conversion_Trigger_Set(ADC_Type *ADC_x, ADC_Ordinary_trig_Select_Type ADC_Ordinary_trig, ADC_Ordinary_trig_Edge_Type ADC_Ordinary_trig_edge);
 void ADC_Preempt_Conversion_Trigger_Set(ADC_Type *ADC_x, ADC_Preempt_trig_Select_Type ADC_Preempt_trig, ADC_Preempt_trig_Edge_Type ADC_Preempt_trig_edge);
-void ADC_Preempt_offset_value_Set(ADC_Type *ADC_x, ADC_Preempt_Channel_Type ADC_Preempt_channel, uint16_t ADC_offset_value);
+void ADC_Preempt_offset_Value_Set(ADC_Type *ADC_x, ADC_Preempt_Channel_Type ADC_Preempt_channel, uint16_t ADC_offset_value);
 void ADC_Ordinary_part_count_Set(ADC_Type *ADC_x, uint8_t ADC_Channel_count);
 void ADC_Ordinary_part_Mode_Enable(ADC_Type *ADC_x, confirm_state new_state);
 void ADC_Preempt_part_Mode_Enable(ADC_Type *ADC_x, confirm_state new_state);

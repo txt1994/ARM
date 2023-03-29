@@ -87,7 +87,7 @@ typedef enum {
   */
 typedef enum {
     GPIO_Drive_Strength_STRONGER           = 0x01, /*!< stronger sourcing/sinking strength */
-    GPIO_Drive_Strength_MODERATE           = 0x02  /*!< moderate sourcing/sinking strength */
+    GPIO_Drive_Strength_ModeRATE           = 0x02  /*!< moderate sourcing/sinking strength */
 } GPIO_Drive_Type;
 
 /**

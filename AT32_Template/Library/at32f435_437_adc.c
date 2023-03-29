@@ -64,9 +64,9 @@ void ADC_Enable(ADC_Type *ADC_x, confirm_state new_state) {
 
 /**
   * @brief  adc base default para init.
-  * @param  sequence_mode: set the state of adc sequence mode.
+  * @param  sequence_Mode: set the state of adc sequence mode.
   *         this parameter can be:TRUE or FALSE
-  * @param  repeat_mode: set the state of adc repeat conversion mode.
+  * @param  repeat_Mode: set the state of adc repeat conversion mode.
   *         this parameter can be:TRUE or FALSE
   * @param  data_align: set the state of adc data alignment.
   *         this parameter can be one of the following values:
@@ -78,8 +78,8 @@ void ADC_Enable(ADC_Type *ADC_x, confirm_state new_state) {
   * @retval none
   */
 void ADC_base_Default_Para_Init(ADC_base_Config_Type *ADC_base_struct) {
-    ADC_base_struct->sequence_mode = FALSE;
-    ADC_base_struct->repeat_mode = FALSE;
+    ADC_base_struct->sequence_Mode = FALSE;
+    ADC_base_struct->repeat_Mode = FALSE;
     ADC_base_struct->data_align = ADC_RIGHT_ALIGNMENT;
     ADC_base_struct->ordinary_Channel_length = 1;
 }
@@ -89,9 +89,9 @@ void ADC_base_Default_Para_Init(ADC_base_Config_Type *ADC_base_struct) {
   * @param  ADC_x: select the adc peripheral.
   *         this parameter can be one of the following values:
   *         - ADC1, ADC2, ADC3.
-  * @param  sequence_mode: set the state of adc sequence mode.
+  * @param  sequence_Mode: set the state of adc sequence mode.
   *         this parameter can be:TRUE or FALSE
-  * @param  repeat_mode: set the state of adc repeat conversion mode.
+  * @param  repeat_Mode: set the state of adc repeat conversion mode.
   *         this parameter can be:TRUE or FALSE
   * @param  data_align: set the state of adc data alignment.
   *         this parameter can be one of the following values:
@@ -103,28 +103,28 @@ void ADC_base_Default_Para_Init(ADC_base_Config_Type *ADC_base_struct) {
   * @retval none
   */
 void ADC_base_Config(ADC_Type *ADC_x, ADC_base_Config_Type *ADC_base_struct) {
-    ADC_x->ctrl1_bit.sqen = ADC_base_struct->sequence_mode;
-    ADC_x->ctrl2_bit.rpen = ADC_base_struct->repeat_mode;
+    ADC_x->ctrl1_bit.sqen = ADC_base_struct->sequence_Mode;
+    ADC_x->ctrl2_bit.rpen = ADC_base_struct->repeat_Mode;
     ADC_x->ctrl2_bit.dtalign = ADC_base_struct->data_align;
     ADC_x->osq1_bit.oclen = ADC_base_struct->ordinary_Channel_length - 1;
 }
 
 /**
   * @brief  adc common default para init.
-  * @param  combine_mode: configure the adc combine_mode mode.
+  * @param  combine_Mode: configure the adc combine_Mode mode.
   *         this parameter can be one of the following values:
-  *         - ADC_INDEPENDENT_MODE                       - ADC_Ordinary_SMLT_Preempt_SMLT_ONESLAVE_MODE   - ADC_Ordinary_SMLT_Preempt_INTERLTRIG_ONESLAVE_MODE
-  *         - ADC_Preempt_SMLT_ONLY_ONESLAVE_MODE        - ADC_Ordinary_SMLT_ONLY_ONESLAVE_MODE           - ADC_Ordinary_SHIFT_ONLY_ONESLAVE_MODE
-  *         - ADC_Preempt_INTERLTRIG_ONLY_ONESLAVE_MODE  - ADC_Ordinary_SMLT_Preempt_SMLT_TWOSLAVE_MODE   - ADC_Ordinary_SMLT_Preempt_INTERLTRIG_TWOSLAVE_MODE
-  *         - ADC_Preempt_SMLT_ONLY_TWOSLAVE_MODE        - ADC_Ordinary_SMLT_ONLY_TWOSLAVE_MODE           - ADC_Ordinary_SHIFT_ONLY_TWOSLAVE_MODE
-  *         - ADC_Preempt_INTERLTRIG_ONLY_TWOSLAVE_MODE
+  *         - ADC_INDEPENDENT_Mode                       - ADC_Ordinary_SMLT_Preempt_SMLT_ONESLAVE_Mode   - ADC_Ordinary_SMLT_Preempt_INTERLTRIG_ONESLAVE_Mode
+  *         - ADC_Preempt_SMLT_ONLY_ONESLAVE_Mode        - ADC_Ordinary_SMLT_ONLY_ONESLAVE_Mode           - ADC_Ordinary_SHIFT_ONLY_ONESLAVE_Mode
+  *         - ADC_Preempt_INTERLTRIG_ONLY_ONESLAVE_Mode  - ADC_Ordinary_SMLT_Preempt_SMLT_TWOSLAVE_Mode   - ADC_Ordinary_SMLT_Preempt_INTERLTRIG_TWOSLAVE_Mode
+  *         - ADC_Preempt_SMLT_ONLY_TWOSLAVE_Mode        - ADC_Ordinary_SMLT_ONLY_TWOSLAVE_Mode           - ADC_Ordinary_SHIFT_ONLY_TWOSLAVE_Mode
+  *         - ADC_Preempt_INTERLTRIG_ONLY_TWOSLAVE_Mode
   * @param  div: configure the adc division.
   *         this parameter can be one of the following values:
   *         - ADC_HCLK_DIV_2             - ADC_HCLK_DIV_3             - ADC_HCLK_DIV_4             - ADC_HCLK_DIV_5
   *         - ADC_HCLK_DIV_6             - ADC_HCLK_DIV_7             - ADC_HCLK_DIV_8             - ADC_HCLK_DIV_9
   *         - ADC_HCLK_DIV_10            - ADC_HCLK_DIV_11            - ADC_HCLK_DIV_12            - ADC_HCLK_DIV_13
   *         - ADC_HCLK_DIV_14            - ADC_HCLK_DIV_15            - ADC_HCLK_DIV_16            - ADC_HCLK_DIV_17
-  * @param  common_DMA_mode: configure the adc common dma mode.
+  * @param  common_DMA_Mode: configure the adc common dma mode.
   *         this parameter can be one of the following values:
   *         - ADC_Common_DMAMODE_Disable
   *         - ADC_Common_DMAMODE_1 <mode 1 can be used: all ordinary simultaneous mode,all ordinary shifting mode>
@@ -147,9 +147,9 @@ void ADC_base_Config(ADC_Type *ADC_x, ADC_base_Config_Type *ADC_base_struct) {
   * @retval none
   */
 void ADC_Common_Default_Para_Init(ADC_Common_Config_Type *ADC_Common_struct) {
-    ADC_Common_struct->combine_mode = ADC_INDEPENDENT_MODE;
+    ADC_Common_struct->combine_Mode = ADC_INDEPENDENT_Mode;
     ADC_Common_struct->div = ADC_HCLK_DIV_2;
-    ADC_Common_struct->common_DMA_mode = ADC_Common_DMAMODE_Disable;
+    ADC_Common_struct->common_DMA_Mode = ADC_Common_DMAMODE_Disable;
     ADC_Common_struct->common_DMA_Request_repeat_state = FALSE;
     ADC_Common_struct->sampling_interval = ADC_SAMPLING_INTERVAL_5CYCLES;
     ADC_Common_struct->tempervintrv_state = FALSE;
@@ -158,20 +158,20 @@ void ADC_Common_Default_Para_Init(ADC_Common_Config_Type *ADC_Common_struct) {
 
 /**
   * @brief  adc common default para init.
-  * @param  combine_mode: configure the adc combine_mode mode.
+  * @param  combine_Mode: configure the adc combine_Mode mode.
   *         this parameter can be one of the following values:
-  *         - ADC_INDEPENDENT_MODE                       - ADC_Ordinary_SMLT_Preempt_SMLT_ONESLAVE_MODE   - ADC_Ordinary_SMLT_Preempt_INTERLTRIG_ONESLAVE_MODE
-  *         - ADC_Preempt_SMLT_ONLY_ONESLAVE_MODE        - ADC_Ordinary_SMLT_ONLY_ONESLAVE_MODE           - ADC_Ordinary_SHIFT_ONLY_ONESLAVE_MODE
-  *         - ADC_Preempt_INTERLTRIG_ONLY_ONESLAVE_MODE  - ADC_Ordinary_SMLT_Preempt_SMLT_TWOSLAVE_MODE   - ADC_Ordinary_SMLT_Preempt_INTERLTRIG_TWOSLAVE_MODE
-  *         - ADC_Preempt_SMLT_ONLY_TWOSLAVE_MODE        - ADC_Ordinary_SMLT_ONLY_TWOSLAVE_MODE           - ADC_Ordinary_SHIFT_ONLY_TWOSLAVE_MODE
-  *         - ADC_Preempt_INTERLTRIG_ONLY_TWOSLAVE_MODE
+  *         - ADC_INDEPENDENT_Mode                       - ADC_Ordinary_SMLT_Preempt_SMLT_ONESLAVE_Mode   - ADC_Ordinary_SMLT_Preempt_INTERLTRIG_ONESLAVE_Mode
+  *         - ADC_Preempt_SMLT_ONLY_ONESLAVE_Mode        - ADC_Ordinary_SMLT_ONLY_ONESLAVE_Mode           - ADC_Ordinary_SHIFT_ONLY_ONESLAVE_Mode
+  *         - ADC_Preempt_INTERLTRIG_ONLY_ONESLAVE_Mode  - ADC_Ordinary_SMLT_Preempt_SMLT_TWOSLAVE_Mode   - ADC_Ordinary_SMLT_Preempt_INTERLTRIG_TWOSLAVE_Mode
+  *         - ADC_Preempt_SMLT_ONLY_TWOSLAVE_Mode        - ADC_Ordinary_SMLT_ONLY_TWOSLAVE_Mode           - ADC_Ordinary_SHIFT_ONLY_TWOSLAVE_Mode
+  *         - ADC_Preempt_INTERLTRIG_ONLY_TWOSLAVE_Mode
   * @param  div: configure the adc division.
   *         this parameter can be one of the following values:
   *         - ADC_HCLK_DIV_2             - ADC_HCLK_DIV_3             - ADC_HCLK_DIV_4             - ADC_HCLK_DIV_5
   *         - ADC_HCLK_DIV_6             - ADC_HCLK_DIV_7             - ADC_HCLK_DIV_8             - ADC_HCLK_DIV_9
   *         - ADC_HCLK_DIV_10            - ADC_HCLK_DIV_11            - ADC_HCLK_DIV_12            - ADC_HCLK_DIV_13
   *         - ADC_HCLK_DIV_14            - ADC_HCLK_DIV_15            - ADC_HCLK_DIV_16            - ADC_HCLK_DIV_17
-  * @param  common_DMA_mode: configure the adc common dma mode.
+  * @param  common_DMA_Mode: configure the adc common dma mode.
   *         this parameter can be one of the following values:
   *         - ADC_Common_DMAMODE_Disable
   *         - ADC_Common_DMAMODE_1 <mode 1 can be used: all ordinary simultaneous mode,all ordinary shifting mode>
@@ -194,16 +194,16 @@ void ADC_Common_Default_Para_Init(ADC_Common_Config_Type *ADC_Common_struct) {
   * @retval none
   */
 void ADC_Common_Config(ADC_Common_Config_Type *ADC_Common_struct) {
-    ADCCOM->cctrl_bit.mssel = ADC_Common_struct->combine_mode;
+    ADCCOM->cctrl_bit.mssel = ADC_Common_struct->combine_Mode;
     ADCCOM->cctrl_bit.adcdiv = ADC_Common_struct->div;
 
-    if(ADC_Common_struct->common_DMA_mode & 0x04) {
+    if(ADC_Common_struct->common_DMA_Mode & 0x04) {
         ADCCOM->cctrl_bit.msdmasel_h = TRUE;
     } else {
         ADCCOM->cctrl_bit.msdmasel_h = FALSE;
     }
 
-    ADCCOM->cctrl_bit.msdmasel_l = ADC_Common_struct->common_DMA_mode & 0x03;
+    ADCCOM->cctrl_bit.msdmasel_l = ADC_Common_struct->common_DMA_Mode & 0x03;
     ADCCOM->cctrl_bit.msdrcen = ADC_Common_struct->common_DMA_Request_repeat_state;
     ADCCOM->cctrl_bit.asisel = ADC_Common_struct->sampling_interval;
     ADCCOM->cctrl_bit.itsrven = ADC_Common_struct->tempervintrv_state;
@@ -296,7 +296,7 @@ void ADC_Interrupt_Enable(ADC_Type *ADC_x, uint32_t ADC_int, confirm_state new_s
   *         - (0x00~0x7F)
   * @retval none
   */
-void ADC_Calibration_value_Set(ADC_Type *ADC_x, uint8_t ADC_Calibration_value) {
+void ADC_Calibration_Value_Set(ADC_Type *ADC_x, uint8_t ADC_Calibration_value) {
     ADC_x->calval = ADC_Calibration_value;
 }
 
@@ -333,7 +333,7 @@ flag_status ADC_Calibration_Init_Status_Get(ADC_Type *ADC_x) {
   *         - ADC1, ADC2, ADC3.
   * @retval none
   */
-void ADC_Calibration_start(ADC_Type *ADC_x) {
+void ADC_Calibration_Start(ADC_Type *ADC_x) {
     ADC_x->ctrl2_bit.adcal = TRUE;
 }
 
@@ -388,7 +388,7 @@ void ADC_voltage_monitor_Enable(ADC_Type *ADC_x, ADC_voltage_monitoring_Type ADC
   *         - (0x000~0xFFF)
   * @retval none
   */
-void ADC_voltage_monitor_threshold_value_Set(ADC_Type *ADC_x, uint16_t ADC_high_threshold, uint16_t ADC_low_threshold) {
+void ADC_voltage_monitor_threshold_Value_Set(ADC_Type *ADC_x, uint16_t ADC_high_threshold, uint16_t ADC_low_threshold) {
     ADC_x->vmhb_bit.vmhb = ADC_high_threshold;
     ADC_x->vmlb_bit.vmlb = ADC_low_threshold;
 }
@@ -827,7 +827,7 @@ void ADC_Preempt_Conversion_Trigger_Set(ADC_Type *ADC_x, ADC_Preempt_trig_Select
   *         - (0x000~0xFFF)
   * @retval none
   */
-void ADC_Preempt_offset_value_Set(ADC_Type *ADC_x, ADC_Preempt_Channel_Type ADC_Preempt_channel, uint16_t ADC_offset_value) {
+void ADC_Preempt_offset_Value_Set(ADC_Type *ADC_x, ADC_Preempt_Channel_Type ADC_Preempt_channel, uint16_t ADC_offset_value) {
     switch(ADC_Preempt_channel) {
         case ADC_Preempt_Channel_1:
             ADC_x->pcdto1_bit.pcdto1 = ADC_offset_value;

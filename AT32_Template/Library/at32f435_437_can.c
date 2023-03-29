@@ -160,7 +160,7 @@ void can_Default_Para_Init(can_base_Type* can_base_struct) {
     /* initialize the multiple message sending sequence rule */
     can_base_struct->mmssr_Selection = CAN_SENDING_BY_ID;
 
-    /* initialize the can_mode */
+    /* initialize the can_Mode */
     can_base_struct->mode_Selection = CAN_Mode_COMMUNICATE;
 }
 
@@ -249,10 +249,10 @@ void can_Filter_Default_Para_Init(can_Filter_Init_Type* can_Filter_Init_struct) 
     can_Filter_Init_struct->filter_activate_Enable = FALSE;
 
     /* filter mode */
-    can_Filter_Init_struct->filter_mode = CAN_Filter_Mode_ID_MASK;
+    can_Filter_Init_struct->filter_Mode = CAN_Filter_Mode_ID_MASK;
 
     /* filter relation fifo select */
-    can_Filter_Init_struct->filter_fifo = CAN_Filter_FIFO0;
+    can_Filter_Init_struct->filter_FIFO = CAN_Filter_FIFO0;
 
     /* filter number select */
     can_Filter_Init_struct->filter_Number = 0;
@@ -316,7 +316,7 @@ void can_Filter_Init(can_Type* can_x, can_Filter_Init_Type* can_Filter_Init_stru
     }
 
     /* filter mode */
-    switch(can_Filter_Init_struct->filter_mode) {
+    switch(can_Filter_Init_struct->filter_Mode) {
         case CAN_Filter_Mode_ID_MASK:
             can_x->fmcfg &= ~(uint32_t)filter_Number_Bit_pos;
             break;
@@ -330,7 +330,7 @@ void can_Filter_Init(can_Type* can_x, can_Filter_Init_Type* can_Filter_Init_stru
     }
 
     /* filter relation fifo select */
-    switch(can_Filter_Init_struct->filter_fifo) {
+    switch(can_Filter_Init_struct->filter_FIFO) {
         case CAN_Filter_FIFO0:
             can_x->frf &= ~(uint32_t)filter_Number_Bit_pos;
             break;
@@ -405,7 +405,7 @@ void can_ttc_Mode_Enable(can_Type* can_x, confirm_state new_state) {
   * @param  can_x: select the can peripheral.
   *         this parameter can be one of the following values:
   *         CAN1,CAN2.
-  * @param  tx_message_struct: pointer to a structure which contains the message to be trans.
+  * @param  tx_Message_struct: pointer to a structure which contains the message to be trans.
   * @retval the number of the mailbox that is used for transmission:
   *         this parameter can be one of the following values:
   *         - CAN_TX_MAILBOX0
@@ -413,7 +413,7 @@ void can_ttc_Mode_Enable(can_Type* can_x, confirm_state new_state) {
   *         - CAN_TX_MAILBOX2
   *         - CAN_TX_Status_NO_EMPTY <meanings there is no empty mailbox, message cannot be filled>
   */
-uint8_t can_message_transmit(can_Type* can_x, can_tx_message_Type* tx_message_struct) {
+uint8_t can_Message_transmit(can_Type* can_x, can_TX_Message_Type* tx_Message_struct) {
     uint8_t transmit_mailbox = CAN_TX_Status_NO_EMPTY;
 
     /* select one empty transmit mailbox */
@@ -430,34 +430,34 @@ uint8_t can_message_transmit(can_Type* can_x, can_tx_message_Type* tx_message_st
     if(transmit_mailbox != CAN_TX_Status_NO_EMPTY) {
         /* set up the id */
         can_x->tx_mailbox[transmit_mailbox].tmi &= 0x00000001;
-        can_x->tx_mailbox[transmit_mailbox].tmi_bit.tmidsel = tx_message_struct->id_Type;
+        can_x->tx_mailbox[transmit_mailbox].tmi_bit.tmidsel = tx_Message_struct->id_Type;
 
-        switch(tx_message_struct->id_Type) {
+        switch(tx_Message_struct->id_Type) {
             case CAN_ID_STANDARD:
-                can_x->tx_mailbox[transmit_mailbox].tmi_bit.tmsid = tx_message_struct->standard_id;
+                can_x->tx_mailbox[transmit_mailbox].tmi_bit.tmsid = tx_Message_struct->standard_id;
                 break;
 
             case CAN_ID_EXTENDED:
-                can_x->tx_mailbox[transmit_mailbox].tmi |= (tx_message_struct->extended_id << 3);
+                can_x->tx_mailbox[transmit_mailbox].tmi |= (tx_Message_struct->extended_id << 3);
                 break;
 
             default:
                 break;
         }
 
-        can_x->tx_mailbox[transmit_mailbox].tmi_bit.tmfrsel = tx_message_struct->frame_Type;
+        can_x->tx_mailbox[transmit_mailbox].tmi_bit.tmfrsel = tx_Message_struct->frame_Type;
         /* set up the dlc */
-        can_x->tx_mailbox[transmit_mailbox].tmc_bit.tmdtbl = (tx_message_struct->dlc & ((uint8_t)0x0F));
+        can_x->tx_mailbox[transmit_mailbox].tmc_bit.tmdtbl = (tx_Message_struct->dlc & ((uint8_t)0x0F));
 
         /* set up the data field */
-        can_x->tx_mailbox[transmit_mailbox].tmdtl = (((uint32_t)tx_message_struct->data[3] << 24) |
-                ((uint32_t)tx_message_struct->data[2] << 16) |
-                ((uint32_t)tx_message_struct->data[1] << 8) |
-                ((uint32_t)tx_message_struct->data[0]));
-        can_x->tx_mailbox[transmit_mailbox].tmdth = (((uint32_t)tx_message_struct->data[7] << 24) |
-                ((uint32_t)tx_message_struct->data[6] << 16) |
-                ((uint32_t)tx_message_struct->data[5] << 8) |
-                ((uint32_t)tx_message_struct->data[4]));
+        can_x->tx_mailbox[transmit_mailbox].tmdtl = (((uint32_t)tx_Message_struct->data[3] << 24) |
+                ((uint32_t)tx_Message_struct->data[2] << 16) |
+                ((uint32_t)tx_Message_struct->data[1] << 8) |
+                ((uint32_t)tx_Message_struct->data[0]));
+        can_x->tx_mailbox[transmit_mailbox].tmdth = (((uint32_t)tx_Message_struct->data[7] << 24) |
+                ((uint32_t)tx_Message_struct->data[6] << 16) |
+                ((uint32_t)tx_Message_struct->data[5] << 8) |
+                ((uint32_t)tx_Message_struct->data[4]));
 
         /* request transmission */
         can_x->tx_mailbox[transmit_mailbox].tmi_bit.tmsr = TRUE;
@@ -482,7 +482,7 @@ uint8_t can_message_transmit(can_Type* can_x, can_tx_message_Type* tx_message_st
   *         - CAN_TX_Status_FAILED
   *         - CAN_TX_Status_PENDING
   */
-can_Transmit_Status_Type can_Transmit_Status_Get(can_Type* can_x, can_tx_mailbox_Num_Type transmit_mailbox) {
+can_Transmit_Status_Type can_Transmit_Status_Get(can_Type* can_x, can_TX_mailbox_Num_Type transmit_mailbox) {
     can_Transmit_Status_Type state_index = CAN_TX_Status_FAILED;
 
     switch(transmit_mailbox) {
@@ -545,7 +545,7 @@ can_Transmit_Status_Type can_Transmit_Status_Get(can_Type* can_x, can_tx_mailbox
   *         - CAN_TX_MAILBOX2
   * @retval none.
   */
-void can_Transmit_cancel(can_Type* can_x, can_tx_mailbox_Num_Type transmit_mailbox) {
+void can_Transmit_cancel(can_Type* can_x, can_TX_mailbox_Num_Type transmit_mailbox) {
     switch (transmit_mailbox) {
         case CAN_TX_MAILBOX0:
             can_x->tsts = CAN_TSTS_TM0CT_VAL;
@@ -573,42 +573,42 @@ void can_Transmit_cancel(can_Type* can_x, can_tx_mailbox_Num_Type transmit_mailb
   *         this parameter can be one of the following values:
   *         - CAN_RX_FIFO0
   *         - CAN_RX_FIFO1
-  * @param  rx_message_struct: pointer to a structure which store the receive message.
+  * @param  rx_Message_struct: pointer to a structure which store the receive message.
   * @retval none.
   */
-void can_message_receive(can_Type* can_x, can_rx_FIFO_Num_Type fifo_Number, can_rx_message_Type* rx_message_struct) {
+void can_Message_receive(can_Type* can_x, can_RX_FIFO_Num_Type fifo_Number, can_RX_Message_Type* rx_Message_struct) {
     /* get the id type */
-    rx_message_struct->id_Type = (can_identifier_Type)can_x->fifo_mailbox[fifo_Number].rfi_bit.rfidi;
+    rx_Message_struct->id_Type = (can_identifier_Type)can_x->fifo_mailbox[fifo_Number].rfi_bit.rfidi;
 
-    switch (rx_message_struct->id_Type) {
+    switch (rx_Message_struct->id_Type) {
         case CAN_ID_STANDARD:
-            rx_message_struct->standard_id = can_x->fifo_mailbox[fifo_Number].rfi_bit.rfsid;
+            rx_Message_struct->standard_id = can_x->fifo_mailbox[fifo_Number].rfi_bit.rfsid;
             break;
 
         case CAN_ID_EXTENDED:
-            rx_message_struct->extended_id = 0x1FFFFFFF & (can_x->fifo_mailbox[fifo_Number].rfi >> 3);
+            rx_Message_struct->extended_id = 0x1FFFFFFF & (can_x->fifo_mailbox[fifo_Number].rfi >> 3);
             break;
 
         default:
             break;
     }
 
-    rx_message_struct->frame_Type = (can_trans_frame_Type)can_x->fifo_mailbox[fifo_Number].rfi_bit.rffri;
+    rx_Message_struct->frame_Type = (can_trans_frame_Type)can_x->fifo_mailbox[fifo_Number].rfi_bit.rffri;
     /* get the dlc */
-    rx_message_struct->dlc = can_x->fifo_mailbox[fifo_Number].rfc_bit.rfdtl;
+    rx_Message_struct->dlc = can_x->fifo_mailbox[fifo_Number].rfc_bit.rfdtl;
 
     /* get the filter match number */
-    rx_message_struct->filter_index = can_x->fifo_mailbox[fifo_Number].rfc_bit.rffmn;
+    rx_Message_struct->filter_index = can_x->fifo_mailbox[fifo_Number].rfc_bit.rffmn;
 
     /* get the data field */
-    rx_message_struct->data[0] = can_x->fifo_mailbox[fifo_Number].rfdtl_bit.rfdt0;
-    rx_message_struct->data[1] = can_x->fifo_mailbox[fifo_Number].rfdtl_bit.rfdt1;
-    rx_message_struct->data[2] = can_x->fifo_mailbox[fifo_Number].rfdtl_bit.rfdt2;
-    rx_message_struct->data[3] = can_x->fifo_mailbox[fifo_Number].rfdtl_bit.rfdt3;
-    rx_message_struct->data[4] = can_x->fifo_mailbox[fifo_Number].rfdth_bit.rfdt4;
-    rx_message_struct->data[5] = can_x->fifo_mailbox[fifo_Number].rfdth_bit.rfdt5;
-    rx_message_struct->data[6] = can_x->fifo_mailbox[fifo_Number].rfdth_bit.rfdt6;
-    rx_message_struct->data[7] = can_x->fifo_mailbox[fifo_Number].rfdth_bit.rfdt7;
+    rx_Message_struct->data[0] = can_x->fifo_mailbox[fifo_Number].rfdtl_bit.rfdt0;
+    rx_Message_struct->data[1] = can_x->fifo_mailbox[fifo_Number].rfdtl_bit.rfdt1;
+    rx_Message_struct->data[2] = can_x->fifo_mailbox[fifo_Number].rfdtl_bit.rfdt2;
+    rx_Message_struct->data[3] = can_x->fifo_mailbox[fifo_Number].rfdtl_bit.rfdt3;
+    rx_Message_struct->data[4] = can_x->fifo_mailbox[fifo_Number].rfdth_bit.rfdt4;
+    rx_Message_struct->data[5] = can_x->fifo_mailbox[fifo_Number].rfdth_bit.rfdt5;
+    rx_Message_struct->data[6] = can_x->fifo_mailbox[fifo_Number].rfdth_bit.rfdt6;
+    rx_Message_struct->data[7] = can_x->fifo_mailbox[fifo_Number].rfdth_bit.rfdt7;
 
     /* release the fifo */
     can_receive_FIFO_release(can_x, fifo_Number);
@@ -625,7 +625,7 @@ void can_message_receive(can_Type* can_x, can_rx_FIFO_Num_Type fifo_Number, can_
   *         - CAN_RX_FIFO1
   * @retval none.
   */
-void can_receive_FIFO_release(can_Type* can_x, can_rx_FIFO_Num_Type fifo_Number) {
+void can_receive_FIFO_release(can_Type* can_x, can_RX_FIFO_Num_Type fifo_Number) {
     switch (fifo_Number) {
         case CAN_RX_FIFO0:
             can_x->rf0 = CAN_RF0_RF0R_VAL;
@@ -651,7 +651,7 @@ void can_receive_FIFO_release(can_Type* can_x, can_rx_FIFO_Num_Type fifo_Number)
   *         - CAN_RX_FIFO1
   * @retval the number of message pending in the receive fifo.
   */
-uint8_t can_receive_message_pending_Get(can_Type* can_x, can_rx_FIFO_Num_Type fifo_Number) {
+uint8_t can_receive_Message_pending_Get(can_Type* can_x, can_RX_FIFO_Num_Type fifo_Number) {
     uint8_t message_pending = 0;
 
     switch (fifo_Number) {
@@ -675,7 +675,7 @@ uint8_t can_receive_message_pending_Get(can_Type* can_x, can_rx_FIFO_Num_Type fi
   * @param  can_x: select the can peripheral.
   *         this parameter can be one of the following values:
   *         CAN1,CAN2.
-  * @param  can_operating_mode: can operating mode.
+  * @param  can_operating_Mode: can operating mode.
   *         this parameter can be one of the following values:
   *         - CAN_OPERATINGMODE_Freeze
   *         - CAN_OPERATINGMODE_DOZE
@@ -684,11 +684,11 @@ uint8_t can_receive_message_pending_Get(can_Type* can_x, can_rx_FIFO_Num_Type fi
   *         this parameter can be one of the following values:
   *         SUCCESS or ERROR
   */
-error_status can_operating_Mode_Set(can_Type* can_x, can_operating_Mode_Type can_operating_mode) {
+error_status can_operating_Mode_Set(can_Type* can_x, can_operating_Mode_Type can_operating_Mode) {
     error_status status = ERROR;
     uint32_t time_out_index = FZC_TIMEOUT;
 
-    if (can_operating_mode == CAN_OPERATINGMODE_Freeze) {
+    if (can_operating_Mode == CAN_OPERATINGMODE_Freeze) {
         /* request enter freeze mode */
         can_x->mctrl_bit.dzen = FALSE;
         can_x->mctrl_bit.fzen = TRUE;
@@ -702,7 +702,7 @@ error_status can_operating_Mode_Set(can_Type* can_x, can_operating_Mode_Type can
         } else {
             status = SUCCESS;
         }
-    } else if(can_operating_mode == CAN_OPERATINGMODE_DOZE) {
+    } else if(can_operating_Mode == CAN_OPERATINGMODE_DOZE) {
         /* request enter doze mode */
         can_x->mctrl_bit.dzen = TRUE;
         can_x->mctrl_bit.fzen = FALSE;
@@ -716,7 +716,7 @@ error_status can_operating_Mode_Set(can_Type* can_x, can_operating_Mode_Type can
         } else {
             status = SUCCESS;
         }
-    } else if(can_operating_mode == CAN_OPERATINGMODE_COMMUNICATE) {
+    } else if(can_operating_Mode == CAN_OPERATINGMODE_COMMUNICATE) {
         /* request enter normal mode */
         can_x->mctrl_bit.dzen = FALSE;
         can_x->mctrl_bit.fzen = FALSE;

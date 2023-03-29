@@ -98,7 +98,7 @@ void nvic_irq_Enable(IRQn_Type irqn, uint32_t preempt_priority, uint32_t sub_pri
 void nvic_irq_Disable(IRQn_Type irqn);
 void nvic_priority_group_Config(nvic_priority_group_Type priority_group);
 void nvic_vector_table_Set(uint32_t base, uint32_t offset);
-void nvic_lowpower_Mode_Config(nvic_lowpower_Mode_Type lp_mode, confirm_state new_state);
+void nvic_lowpower_Mode_Config(nvic_lowpower_Mode_Type lp_Mode, confirm_state new_state);
 void systick_Clock_Source_Config(systick_Clock_Source_Type source);
 
 /**

@@ -7030,7 +7030,7 @@ __STATIC_FORCEINLINE void arm_circularRead_q7(
  * @param[in]  blockSize  is the number of samples to process
  * @param[out] pResult    is output value.
  */
-void arm_power_q31(
+void arm_Power_q31(
     const q31_t * pSrc,
     uint32_t blockSize,
     q63_t * pResult);
@@ -7042,7 +7042,7 @@ void arm_power_q31(
  * @param[in]  blockSize  is the number of samples to process
  * @param[out] pResult    is output value.
  */
-void arm_power_f32(
+void arm_Power_f32(
     const float32_t * pSrc,
     uint32_t blockSize,
     float32_t * pResult);
@@ -7054,7 +7054,7 @@ void arm_power_f32(
  * @param[in]  blockSize  is the number of samples to process
  * @param[out] pResult    is output value.
  */
-void arm_power_q15(
+void arm_Power_q15(
     const q15_t * pSrc,
     uint32_t blockSize,
     q63_t * pResult);
@@ -7066,7 +7066,7 @@ void arm_power_q15(
  * @param[in]  blockSize  is the number of samples to process
  * @param[out] pResult    is output value.
  */
-void arm_power_q7(
+void arm_Power_q7(
     const q7_t * pSrc,
     uint32_t blockSize,
     q31_t * pResult);

@@ -116,9 +116,9 @@ extern "C" {
   * @brief sdio power state
   */
 typedef enum {
-    SDIO_POWER_OFF                         = 0x00, /*!< power-off, clock to card is stopped */
-    SDIO_POWER_ON                          = 0x03  /*!< power-on, the card is clocked */
-} sdio_power_state_Type;
+    SDIO_Power_OFF                         = 0x00, /*!< power-off, clock to card is stopped */
+    SDIO_Power_ON                          = 0x03  /*!< power-on, the card is clocked */
+} sdio_Power_state_Type;
 
 /**
   * @brief sdio edge phase
@@ -227,7 +227,7 @@ typedef struct {
     uint32_t                               timeout;            /*!< the sdio data timeout period in car bus clock periods */
     uint32_t                               data_length;        /*!< the sdio data length */
     sdio_Block_size_Type                   block_size;         /*!< the sdio data block size of block transfer mode */
-    sdio_Transfer_Mode_Type                transfer_mode;      /*!< the sdio transfer mode, block or stream */
+    sdio_Transfer_Mode_Type                transfer_Mode;      /*!< the sdio transfer mode, block or stream */
     sdio_Transfer_direction_Type           transfer_direction; /*!< the sdio data transfer direction */
 } sdio_Data_struct_Type;
 
@@ -526,12 +526,12 @@ typedef struct {
   */
 
 void sdio_Reset(sdio_Type *sdio_x);
-void sdio_power_Set(sdio_Type *sdio_x, sdio_power_state_Type power_state);
-sdio_power_state_Type sdio_power_Status_Get(sdio_Type *sdio_x);
+void sdio_Power_Set(sdio_Type *sdio_x, sdio_Power_state_Type power_state);
+sdio_Power_state_Type sdio_Power_Status_Get(sdio_Type *sdio_x);
 void sdio_Clock_Config(sdio_Type *sdio_x, uint16_t clk_div, sdio_Edge_phase_Type clk_edg);
 void sdio_bus_width_Config(sdio_Type *sdio_x, sdio_bus_width_Type width);
 void sdio_Clock_bypass(sdio_Type *sdio_x, confirm_state new_state);
-void sdio_power_saving_Mode_Enable(sdio_Type *sdio_x, confirm_state new_state);
+void sdio_Power_saving_Mode_Enable(sdio_Type *sdio_x, confirm_state new_state);
 void sdio_flow_Control_Enable(sdio_Type *sdio_x, confirm_state new_state);
 void sdio_Clock_Enable(sdio_Type *sdio_x, confirm_state new_state);
 void sdio_DMA_Enable(sdio_Type *sdio_x, confirm_state new_state);
@@ -549,7 +549,7 @@ uint32_t sdio_Data_Read(sdio_Type *sdio_x);
 uint32_t sdio_buffer_Counter_Get(sdio_Type *sdio_x);
 void sdio_Data_Write(sdio_Type *sdio_x, uint32_t data);
 void sdio_Read_Wait_Mode_Set(sdio_Type *sdio_x, sdio_Read_Wait_Mode_Type mode);
-void sdio_Read_Wait_start(sdio_Type *sdio_x, confirm_state new_state);
+void sdio_Read_Wait_Start(sdio_Type *sdio_x, confirm_state new_state);
 void sdio_Read_Wait_stop(sdio_Type *sdio_x, confirm_state new_state);
 void sdio_io_function_Enable(sdio_Type *sdio_x, confirm_state new_state);
 void sdio_io_suspend_command_Set(sdio_Type *sdio_x, confirm_state new_state);

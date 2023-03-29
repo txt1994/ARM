@@ -370,7 +370,7 @@ typedef enum {
     CAN_FLAG_BOERR    = CAN_REGIDX_BIT(ERR_REG_OFFSET, 2U),             /*!< bus-off error */
     CAN_FLAG_PERR     = CAN_REGIDX_BIT(ERR_REG_OFFSET, 1U),             /*!< passive error */
     CAN_FLAG_WERR     = CAN_REGIDX_BIT(ERR_REG_OFFSET, 0U),             /*!< warning error */
-} can_flag_enum;
+} CAN_flag_enum;
 
 /* CAN interrupt flags */
 typedef enum {
@@ -395,7 +395,7 @@ typedef enum {
     CAN_INT_FLAG_BOERR = CAN_REGIDX_BITS(ERR_REG_OFFSET, 2U, 10U),      /*!< bus-off error interrupt flag */
     CAN_INT_FLAG_PERR  = CAN_REGIDX_BITS(ERR_REG_OFFSET, 1U, 9U),       /*!< passive error interrupt flag */
     CAN_INT_FLAG_WERR  = CAN_REGIDX_BITS(ERR_REG_OFFSET, 0U, 8U),       /*!< warning error interrupt flag */
-} can_interrupt_flag_enum;
+} CAN_Interrupt_flag_enum;
 
 /* CAN initiliaze parameters structure */
 typedef struct {
@@ -410,7 +410,7 @@ typedef struct {
     ControlStatus rec_fifo_overwrite;                                   /*!< receive FIFO overwrite mode disable */
     ControlStatus trans_fifo_order;                                     /*!< transmit FIFO order */
     uint16_t prescaler;                                                 /*!< baudrate prescaler */
-} can_parameter_struct;
+} CAN_parameter_struct;
 
 /* CAN transmit message structure */
 typedef struct {
@@ -420,7 +420,7 @@ typedef struct {
     uint8_t tx_ft;                                                      /*!< type of frame, data or remote */
     uint8_t tx_dlen;                                                    /*!< data length */
     uint8_t tx_data[8];                                                 /*!< transmit data */
-} can_trasnmit_message_struct;
+} CAN_trasnmit_message_struct;
 
 /* CAN receive message structure */
 typedef struct {
@@ -431,7 +431,7 @@ typedef struct {
     uint8_t rx_dlen;                                                    /*!< data length */
     uint8_t rx_data[8];                                                 /*!< receive data */
     uint8_t rx_fi;                                                      /*!< filtering index */
-} can_receive_message_struct;
+} CAN_receive_message_struct;
 
 /* CAN filter parameters structure */
 typedef struct {
@@ -444,7 +444,7 @@ typedef struct {
     uint16_t filter_mode;                                               /*!< filter mode, list or mask */
     uint16_t filter_bits;                                               /*!< filter scale */
     ControlStatus filter_enable;                                        /*!< filter work or not */
-} can_filter_parameter_struct;
+} CAN_filter_parameter_struct;
 
 /* CAN errors */
 typedef enum {
@@ -456,7 +456,7 @@ typedef enum {
     CAN_ERROR_BITDOMINANTER,                                            /*!< bit dominant error */
     CAN_ERROR_CRC,                                                      /*!< CRC error */
     CAN_ERROR_SOFTWARECFG,                                              /*!< software configure */
-} can_error_enum;
+} CAN_error_enum;
 
 /* transmit states */
 typedef enum {
@@ -464,14 +464,14 @@ typedef enum {
     CAN_TRANSMIT_OK = 1U,                                               /*!< CAN transmitted success */
     CAN_TRANSMIT_PENDING = 2U,                                          /*!< CAN transmitted pending */
     CAN_TRANSMIT_NOMAILBOX = 4U,                                        /*!< no empty mailbox to be used for CAN */
-} can_transmit_state_enum;
+} CAN_transmit_state_enum;
 
 typedef enum {
     CAN_INIT_STRUCT = 0,                                                /* CAN initiliaze parameters struct */
     CAN_FILTER_STRUCT,                                                  /* CAN filter parameters struct */
     CAN_TX_MESSAGE_STRUCT,                                              /* CAN transmit message struct */
     CAN_RX_MESSAGE_STRUCT,                                              /* CAN receive message struct */
-} can_struct_type_enum;
+} CAN_struct_type_enum;
 
 /* CAN baudrate prescaler */
 #define BT_BAUDPSC(regval)                 (BITS(0,9) & ((uint32_t)(regval) << 0))
@@ -687,64 +687,64 @@ typedef enum {
 /* function declarations */
 /* initialization functions */
 /* deinitialize CAN */
-void can_deinit(uint32_t can_periph);
+void CAN_DeInit(uint32_t CAN_periph);
 /* initialize CAN structure */
-void can_struct_para_init(can_struct_type_enum type, void *p_struct);
+void CAN_struct_para_init(CAN_struct_type_enum type, void *p_struct);
 /* initialize CAN */
-ErrStatus can_init(uint32_t can_periph, can_parameter_struct *can_parameter_init);
+ErrStatus CAN_init(uint32_t CAN_periph, CAN_parameter_struct *CAN_parameter_init);
 /* CAN filter initialization */
-void can_filter_init(can_filter_parameter_struct *can_filter_parameter_init);
+void CAN_filter_init(CAN_filter_parameter_struct *CAN_filter_parameter_init);
 
 /* function configuration */
 /* set can1 filter start bank number */
 void can1_filter_start_bank(uint8_t start_bank);
 /* enable functions */
 /* CAN debug freeze enable */
-void can_debug_freeze_enable(uint32_t can_periph);
+void CAN_debug_freeze_enable(uint32_t CAN_periph);
 /* CAN debug freeze disable */
-void can_debug_freeze_disable(uint32_t can_periph);
+void CAN_debug_freeze_disable(uint32_t CAN_periph);
 /* CAN time trigger mode enable */
-void can_time_trigger_mode_enable(uint32_t can_periph);
+void CAN_time_trigger_mode_enable(uint32_t CAN_periph);
 /* CAN time trigger mode disable */
-void can_time_trigger_mode_disable(uint32_t can_periph);
+void CAN_time_trigger_mode_disable(uint32_t CAN_periph);
 
 /* transmit functions */
 /* transmit CAN message */
-uint8_t can_message_transmit(uint32_t can_periph, can_trasnmit_message_struct *transmit_message);
+uint8_t CAN_message_transmit(uint32_t CAN_periph, CAN_trasnmit_message_struct *transmit_message);
 /* get CAN transmit state */
-can_transmit_state_enum can_transmit_states(uint32_t can_periph, uint8_t mailbox_number);
+CAN_transmit_state_enum CAN_transmit_states(uint32_t CAN_periph, uint8_t mailbox_number);
 /* stop CAN transmission */
-void can_transmission_stop(uint32_t can_periph, uint8_t mailbox_number);
+void CAN_transmission_stop(uint32_t CAN_periph, uint8_t mailbox_number);
 /* CAN receive message */
-void can_message_receive(uint32_t can_periph, uint8_t fifo_number, can_receive_message_struct *receive_message);
+void CAN_message_receive(uint32_t CAN_periph, uint8_t fifo_number, CAN_receive_message_struct *receive_message);
 /* CAN release FIFO */
-void can_fifo_release(uint32_t can_periph, uint8_t fifo_number);
+void CAN_fifo_release(uint32_t CAN_periph, uint8_t fifo_number);
 /* CAN receive message length */
-uint8_t can_receive_message_length_get(uint32_t can_periph, uint8_t fifo_number);
+uint8_t CAN_receive_message_Length_get(uint32_t CAN_periph, uint8_t fifo_number);
 /* CAN working mode */
-ErrStatus can_working_mode_set(uint32_t can_periph, uint8_t working_mode);
+ErrStatus CAN_working_mode_set(uint32_t CAN_periph, uint8_t working_mode);
 /* CAN wakeup from sleep mode */
-ErrStatus can_wakeup(uint32_t can_periph);
+ErrStatus CAN_wakeup(uint32_t CAN_periph);
 
 /* CAN get error type */
-can_error_enum can_error_get(uint32_t can_periph);
+CAN_error_enum CAN_error_get(uint32_t CAN_periph);
 /* get CAN receive error number */
-uint8_t can_receive_error_number_get(uint32_t can_periph);
+uint8_t CAN_receive_error_number_get(uint32_t CAN_periph);
 /* get CAN transmit error number */
-uint8_t can_transmit_error_number_get(uint32_t can_periph);
+uint8_t CAN_transmit_error_number_get(uint32_t CAN_periph);
 
 /* interrupt & flag functions */
 /* CAN get flag state */
-FlagStatus can_flag_get(uint32_t can_periph, can_flag_enum flag);
+FlagStatus CAN_flag_get(uint32_t CAN_periph, CAN_flag_enum flag);
 /* CAN clear flag state */
-void can_flag_clear(uint32_t can_periph, can_flag_enum flag);
+void CAN_flag_clear(uint32_t CAN_periph, CAN_flag_enum flag);
 /* CAN interrupt enable */
-void can_interrupt_enable(uint32_t can_periph, uint32_t interrupt);
+void CAN_Interrupt_enable(uint32_t CAN_periph, uint32_t interrupt);
 /* CAN interrupt disable */
-void can_interrupt_disable(uint32_t can_periph, uint32_t interrupt);
+void CAN_Interrupt_disable(uint32_t CAN_periph, uint32_t interrupt);
 /* CAN get interrupt flag state */
-FlagStatus can_interrupt_flag_get(uint32_t can_periph, can_interrupt_flag_enum flag);
+FlagStatus CAN_Interrupt_flag_get(uint32_t CAN_periph, CAN_Interrupt_flag_enum flag);
 /* CAN clear interrupt flag state */
-void can_interrupt_flag_clear(uint32_t can_periph, can_interrupt_flag_enum flag);
+void CAN_Interrupt_flag_clear(uint32_t CAN_periph, CAN_Interrupt_flag_enum flag);
 
 #endif /* GD32F4XX_CAN_H */

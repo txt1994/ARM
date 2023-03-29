@@ -46,16 +46,16 @@ OF SUCH DAMAGE.
     参数[输出]:  无
     返回值:      无
 */
-void tli_deinit(void) {
-    rcu_periph_reset_enable(RCU_TLIRST);
-    rcu_periph_reset_disable(RCU_TLIRST);
+void TLI_DeInit(void) {
+    RCU_Periph_Reset_Enable(RCU_TLIRST);
+    RCU_Periph_Reset_Disable(RCU_TLIRST);
 }
 
 /*!
     简介:    initialize the parameters of TLI parameter structure with the default values, it is suggested
-                that call this function after a tli_parameter_struct structure is defined
+                that call this function after a TLI_parameter_struct structure is defined
     参数[输入]:  无
-    参数[输出]: tli_struct: the data needed to initialize TLI
+    参数[输出]: TLI_struct: the data needed to initialize TLI
                   synpsz_vpsz: size of the vertical synchronous pulse
                   synpsz_hpsz: size of the horizontal synchronous pulse
                   backpsz_vbpsz: size of the vertical back porch plus synchronous pulse
@@ -73,28 +73,28 @@ void tli_deinit(void) {
                   signalpolarity_pixelck: TLI_PIXEL_CLOCK_TLI,TLI_PIXEL_CLOCK_INVERTEDTLI
     返回值:      无
 */
-void tli_struct_para_init(tli_parameter_struct *tli_struct) {
+void TLI_struct_para_init(TLI_parameter_struct *TLI_struct) {
     /* initialize the struct parameters with default values */
-    tli_struct->synpsz_vpsz = TLI_DEFAULT_VALUE;
-    tli_struct->synpsz_hpsz = TLI_DEFAULT_VALUE;
-    tli_struct->backpsz_vbpsz = TLI_DEFAULT_VALUE;
-    tli_struct->backpsz_hbpsz = TLI_DEFAULT_VALUE;
-    tli_struct->activesz_vasz = TLI_DEFAULT_VALUE;
-    tli_struct->activesz_hasz = TLI_DEFAULT_VALUE;
-    tli_struct->totalsz_vtsz = TLI_DEFAULT_VALUE;
-    tli_struct->totalsz_htsz = TLI_DEFAULT_VALUE;
-    tli_struct->backcolor_red = TLI_DEFAULT_VALUE;
-    tli_struct->backcolor_green = TLI_DEFAULT_VALUE;
-    tli_struct->backcolor_blue = TLI_DEFAULT_VALUE;
-    tli_struct->signalpolarity_hs = TLI_HSYN_ACTLIVE_LOW;
-    tli_struct->signalpolarity_vs = TLI_VSYN_ACTLIVE_LOW;
-    tli_struct->signalpolarity_de = TLI_DE_ACTLIVE_LOW;
-    tli_struct->signalpolarity_pixelck = TLI_PIXEL_CLOCK_TLI;
+    TLI_struct->synpsz_vpsz = TLI_DEFAULT_VALUE;
+    TLI_struct->synpsz_hpsz = TLI_DEFAULT_VALUE;
+    TLI_struct->backpsz_vbpsz = TLI_DEFAULT_VALUE;
+    TLI_struct->backpsz_hbpsz = TLI_DEFAULT_VALUE;
+    TLI_struct->activesz_vasz = TLI_DEFAULT_VALUE;
+    TLI_struct->activesz_hasz = TLI_DEFAULT_VALUE;
+    TLI_struct->totalsz_vtsz = TLI_DEFAULT_VALUE;
+    TLI_struct->totalsz_htsz = TLI_DEFAULT_VALUE;
+    TLI_struct->backcolor_red = TLI_DEFAULT_VALUE;
+    TLI_struct->backcolor_green = TLI_DEFAULT_VALUE;
+    TLI_struct->backcolor_blue = TLI_DEFAULT_VALUE;
+    TLI_struct->signalpolarity_hs = TLI_HSYN_ACTLIVE_LOW;
+    TLI_struct->signalpolarity_vs = TLI_VSYN_ACTLIVE_LOW;
+    TLI_struct->signalpolarity_de = TLI_DE_ACTLIVE_LOW;
+    TLI_struct->signalpolarity_pixelck = TLI_PIXEL_CLOCK_TLI;
 }
 
 /*!
     简介:    initialize TLI display timing parameters
-    参数[输入]:  tli_struct: the data needed to initialize TLI
+    参数[输入]:  TLI_struct: the data needed to initialize TLI
                   synpsz_vpsz: size of the vertical synchronous pulse
                   synpsz_hpsz: size of the horizontal synchronous pulse
                   backpsz_vbpsz: size of the vertical back porch plus synchronous pulse
@@ -113,25 +113,25 @@ void tli_struct_para_init(tli_parameter_struct *tli_struct) {
     参数[输出]:  无
     返回值:      无
 */
-void tli_init(tli_parameter_struct *tli_struct) {
+void TLI_init(TLI_parameter_struct *TLI_struct) {
     /* synchronous pulse size configuration */
     TLI_SPSZ &= ~(TLI_SPSZ_VPSZ | TLI_SPSZ_HPSZ);
-    TLI_SPSZ = (uint32_t)((uint32_t)tli_struct->synpsz_vpsz | ((uint32_t)tli_struct->synpsz_hpsz << 16U));
+    TLI_SPSZ = (uint32_t)((uint32_t)TLI_struct->synpsz_vpsz | ((uint32_t)TLI_struct->synpsz_hpsz << 16U));
     /* back-porch size configuration */
     TLI_BPSZ &= ~(TLI_BPSZ_VBPSZ | TLI_BPSZ_HBPSZ);
-    TLI_BPSZ = (uint32_t)((uint32_t)tli_struct->backpsz_vbpsz | ((uint32_t)tli_struct->backpsz_hbpsz << 16U));
+    TLI_BPSZ = (uint32_t)((uint32_t)TLI_struct->backpsz_vbpsz | ((uint32_t)TLI_struct->backpsz_hbpsz << 16U));
     /* active size configuration */
     TLI_ASZ &= ~(TLI_ASZ_VASZ | TLI_ASZ_HASZ);
-    TLI_ASZ = (tli_struct->activesz_vasz | (tli_struct->activesz_hasz << 16U));
+    TLI_ASZ = (TLI_struct->activesz_vasz | (TLI_struct->activesz_hasz << 16U));
     /* total size configuration */
     TLI_TSZ &= ~(TLI_TSZ_VTSZ | TLI_TSZ_HTSZ);
-    TLI_TSZ = (tli_struct->totalsz_vtsz | (tli_struct->totalsz_htsz << 16U));
+    TLI_TSZ = (TLI_struct->totalsz_vtsz | (TLI_struct->totalsz_htsz << 16U));
     /* background color configuration */
     TLI_BGC &= ~(TLI_BGC_BVB | (TLI_BGC_BVG) | (TLI_BGC_BVR));
-    TLI_BGC = (tli_struct->backcolor_blue | (tli_struct->backcolor_green << 8U) | (tli_struct->backcolor_red << 16U));
+    TLI_BGC = (TLI_struct->backcolor_blue | (TLI_struct->backcolor_green << 8U) | (TLI_struct->backcolor_red << 16U));
     TLI_CTL &= ~(TLI_CTL_HPPS | TLI_CTL_VPPS | TLI_CTL_DEPS | TLI_CTL_CLKPS);
-    TLI_CTL |= (tli_struct->signalpolarity_hs | tli_struct->signalpolarity_vs | \
-                tli_struct->signalpolarity_de | tli_struct->signalpolarity_pixelck);
+    TLI_CTL |= (TLI_struct->signalpolarity_hs | TLI_struct->signalpolarity_vs | \
+                TLI_struct->signalpolarity_de | TLI_struct->signalpolarity_pixelck);
 
 }
 
@@ -144,7 +144,7 @@ void tli_init(tli_parameter_struct *tli_struct) {
     参数[输出]:  无
     返回值:      无
 */
-void tli_dither_config(uint8_t dither_stat) {
+void TLI_dither_Config(uint8_t dither_stat) {
     if(TLI_DITHER_ENABLE == dither_stat) {
         TLI_CTL |= TLI_CTL_DFEN;
     } else {
@@ -158,7 +158,7 @@ void tli_dither_config(uint8_t dither_stat) {
     参数[输出]:  无
     返回值:      无
 */
-void tli_enable(void) {
+void TLI_enable(void) {
     TLI_CTL |= TLI_CTL_TLIEN;
 }
 
@@ -168,7 +168,7 @@ void tli_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void tli_disable(void) {
+void TLI_disable(void) {
     TLI_CTL &= ~(TLI_CTL_TLIEN);
 }
 
@@ -181,7 +181,7 @@ void tli_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void tli_reload_config(uint8_t reload_mod) {
+void TLI_reload_Config(uint8_t reload_mod) {
     if(TLI_FRAME_BLANK_RELOAD_EN == reload_mod) {
         /* the layer configuration will be reloaded at frame blank */
         TLI_RL |= TLI_RL_FBR;
@@ -193,7 +193,7 @@ void tli_reload_config(uint8_t reload_mod) {
 
 /*!
     简介:    initialize the parameters of TLI layer structure with the default values, it is suggested
-                that call this function after a tli_layer_parameter_struct structure is defined
+                that call this function after a TLI_layer_parameter_struct structure is defined
     参数[输入]:  无
     参数[输出]: layer_struct: TLI Layer parameter struct
                   layer_window_rightpos: window right position
@@ -216,7 +216,7 @@ void tli_reload_config(uint8_t reload_mod) {
                   layer_frame_total_line_number: frame total line number
     返回值:      无
 */
-void tli_layer_struct_para_init(tli_layer_parameter_struct *layer_struct) {
+void TLI_layer_struct_para_init(TLI_layer_parameter_struct *layer_struct) {
     /* initialize the struct parameters with default values */
     layer_struct->layer_window_rightpos = TLI_DEFAULT_VALUE;
     layer_struct->layer_window_leftpos = TLI_DEFAULT_VALUE;
@@ -261,7 +261,7 @@ void tli_layer_struct_para_init(tli_layer_parameter_struct *layer_struct) {
     参数[输出]:  无
     返回值:      无
 */
-void tli_layer_init(uint32_t layerx, tli_layer_parameter_struct *layer_struct) {
+void TLI_layer_init(uint32_t layerx, TLI_layer_parameter_struct *layer_struct) {
     /* configure layer window horizontal position */
     TLI_LxHPOS(layerx) &= ~(TLI_LxHPOS_WLP | (TLI_LxHPOS_WRP));
     TLI_LxHPOS(layerx) = (uint32_t)((uint32_t)layer_struct->layer_window_leftpos | ((uint32_t)layer_struct->layer_window_rightpos << 16U));
@@ -303,7 +303,7 @@ void tli_layer_init(uint32_t layerx, tli_layer_parameter_struct *layer_struct) {
     参数[输出]:  无
     返回值:      无
 */
-void tli_layer_window_offset_modify(uint32_t layerx, uint16_t offset_x, uint16_t offset_y) {
+void TLI_layer_window_offset_modify(uint32_t layerx, uint16_t offset_x, uint16_t offset_y) {
     /* configure window start position */
     uint32_t layer_ppf, line_num, hstart, vstart;
     uint32_t line_length = 0U;
@@ -351,7 +351,7 @@ void tli_layer_window_offset_modify(uint32_t layerx, uint16_t offset_x, uint16_t
 
 /*!
     简介:    initialize the parameters of TLI layer LUT structure with the default values, it is suggested
-                that call this function after a tli_layer_lut_parameter_struct structure is defined
+                that call this function after a TLI_layer_lut_parameter_struct structure is defined
     参数[输入]:  无
     参数[输出]: lut_struct: TLI layer LUT parameter struct
                   layer_table_addr: look up table write address
@@ -360,7 +360,7 @@ void tli_layer_window_offset_modify(uint32_t layerx, uint16_t offset_x, uint16_t
                   layer_lut_channel_blue: blue channel of a LUT entry
     返回值:      无
 */
-void tli_lut_struct_para_init(tli_layer_lut_parameter_struct *lut_struct) {
+void TLI_lut_struct_para_init(TLI_layer_lut_parameter_struct *lut_struct) {
     /* initialize the struct parameters with default values */
     lut_struct->layer_table_addr = TLI_DEFAULT_VALUE;
     lut_struct->layer_lut_channel_red = TLI_DEFAULT_VALUE;
@@ -379,7 +379,7 @@ void tli_lut_struct_para_init(tli_layer_lut_parameter_struct *lut_struct) {
     参数[输出]:  无
     返回值:      无
 */
-void tli_lut_init(uint32_t layerx, tli_layer_lut_parameter_struct *lut_struct) {
+void TLI_lut_init(uint32_t layerx, TLI_layer_lut_parameter_struct *lut_struct) {
     TLI_LxLUT(layerx) = (uint32_t)(((uint32_t)lut_struct->layer_lut_channel_blue) | ((uint32_t)lut_struct->layer_lut_channel_green << 8U)
                                    | ((uint32_t)lut_struct->layer_lut_channel_red << 16U
                                       | ((uint32_t)lut_struct->layer_table_addr << 24U)));
@@ -394,7 +394,7 @@ void tli_lut_init(uint32_t layerx, tli_layer_lut_parameter_struct *lut_struct) {
     参数[输出]:  无
     返回值:      无
 */
-void tli_color_key_init(uint32_t layerx, uint8_t redkey, uint8_t greenkey, uint8_t bluekey) {
+void TLI_Color_key_init(uint32_t layerx, uint8_t redkey, uint8_t greenkey, uint8_t bluekey) {
     TLI_LxCKEY(layerx) = (((uint32_t)bluekey) | ((uint32_t)greenkey << 8U) | ((uint32_t)redkey << 16U));
 }
 
@@ -404,7 +404,7 @@ void tli_color_key_init(uint32_t layerx, uint8_t redkey, uint8_t greenkey, uint8
     参数[输出]:  无
     返回值:      无
 */
-void tli_layer_enable(uint32_t layerx) {
+void TLI_layer_enable(uint32_t layerx) {
     TLI_LxCTL(layerx) |= TLI_LxCTL_LEN;
 }
 
@@ -414,7 +414,7 @@ void tli_layer_enable(uint32_t layerx) {
     参数[输出]:  无
     返回值:      无
 */
-void tli_layer_disable(uint32_t layerx) {
+void TLI_layer_disable(uint32_t layerx) {
     TLI_LxCTL(layerx) &= ~(TLI_LxCTL_LEN);
 }
 
@@ -424,7 +424,7 @@ void tli_layer_disable(uint32_t layerx) {
     参数[输出]:  无
     返回值:      无
 */
-void tli_color_key_enable(uint32_t layerx) {
+void TLI_Color_key_enable(uint32_t layerx) {
     TLI_LxCTL(layerx) |= TLI_LxCTL_CKEYEN;
 }
 
@@ -434,7 +434,7 @@ void tli_color_key_enable(uint32_t layerx) {
     参数[输出]:  无
     返回值:      无
 */
-void tli_color_key_disable(uint32_t layerx) {
+void TLI_Color_key_disable(uint32_t layerx) {
     TLI_LxCTL(layerx) &= ~(TLI_LxCTL_CKEYEN);
 }
 
@@ -444,7 +444,7 @@ void tli_color_key_disable(uint32_t layerx) {
     参数[输出]:  无
     返回值:      无
 */
-void tli_lut_enable(uint32_t layerx) {
+void TLI_lut_enable(uint32_t layerx) {
     TLI_LxCTL(layerx) |= TLI_LxCTL_LUTEN;
 }
 
@@ -454,7 +454,7 @@ void tli_lut_enable(uint32_t layerx) {
     参数[输出]:  无
     返回值:      无
 */
-void tli_lut_disable(uint32_t layerx) {
+void TLI_lut_disable(uint32_t layerx) {
     TLI_LxCTL(layerx) &= ~(TLI_LxCTL_LUTEN);
 }
 
@@ -464,7 +464,7 @@ void tli_lut_disable(uint32_t layerx) {
     参数[输出]:  无
     返回值:      无
 */
-void tli_line_mark_set(uint16_t line_num) {
+void TLI_line_mark_set(uint16_t line_num) {
     TLI_LM &= ~(TLI_LM_LM);
     TLI_LM = (uint32_t)line_num;
 }
@@ -475,7 +475,7 @@ void tli_line_mark_set(uint16_t line_num) {
     参数[输出]:  无
     返回值:     position of current pixel
 */
-uint32_t tli_current_pos_get(void) {
+uint32_t TLI_current_pos_get(void) {
     return TLI_CPPOS;
 }
 
@@ -490,7 +490,7 @@ uint32_t tli_current_pos_get(void) {
     参数[输出]:  无
     返回值:      无
 */
-void tli_interrupt_enable(uint32_t int_flag) {
+void TLI_Interrupt_enable(uint32_t int_flag) {
     TLI_INTEN |= (int_flag);
 }
 
@@ -505,7 +505,7 @@ void tli_interrupt_enable(uint32_t int_flag) {
     参数[输出]:  无
     返回值:      无
 */
-void tli_interrupt_disable(uint32_t int_flag) {
+void TLI_Interrupt_disable(uint32_t int_flag) {
     TLI_INTEN &= ~(int_flag);
 }
 
@@ -520,7 +520,7 @@ void tli_interrupt_disable(uint32_t int_flag) {
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus tli_interrupt_flag_get(uint32_t int_flag) {
+FlagStatus TLI_Interrupt_flag_get(uint32_t int_flag) {
     uint32_t state;
     state = TLI_INTF;
 
@@ -546,7 +546,7 @@ FlagStatus tli_interrupt_flag_get(uint32_t int_flag) {
     参数[输出]:  无
     返回值:      无
 */
-void tli_interrupt_flag_clear(uint32_t int_flag) {
+void TLI_Interrupt_flag_clear(uint32_t int_flag) {
     TLI_INTC |= (int_flag);
 }
 
@@ -565,7 +565,7 @@ void tli_interrupt_flag_clear(uint32_t int_flag) {
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus tli_flag_get(uint32_t flag) {
+FlagStatus TLI_flag_get(uint32_t flag) {
     uint32_t stat;
 
     /* choose which register to get flag or state */

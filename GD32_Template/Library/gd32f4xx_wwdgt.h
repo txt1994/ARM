@@ -75,20 +75,20 @@ OF SUCH DAMAGE.
 
 /* function declarations */
 /* reset the window watchdog timer configuration */
-void wwdgt_deinit(void);
+void WWDGT_DeInit(void);
 /* start the window watchdog timer counter */
-void wwdgt_enable(void);
+void WWDGT_Enable(void);
 
 /* configure the window watchdog timer counter value */
-void wwdgt_counter_update(uint16_t counter_value);
+void WWDGT_counter_Update(uint16_t counter_value);
 /* configure counter value, window value, and prescaler divider value */
-void wwdgt_config(uint16_t counter, uint16_t window, uint32_t prescaler);
+void WWDGT_Config(uint16_t counter, uint16_t window, uint32_t prescaler);
 
 /* check early wakeup interrupt state of WWDGT */
-FlagStatus wwdgt_flag_get(void);
+FlagStatus WWDGT_Flag_Get(void);
 /* clear early wakeup interrupt state of WWDGT */
-void wwdgt_flag_clear(void);
+void WWDGT_Flag_Clear(void);
 /* enable early wakeup interrupt of WWDGT */
-void wwdgt_interrupt_enable(void);
+void WWDGT_Interrupt_Enable(void);
 
 #endif /* GD32F4XX_WWDGT_H */

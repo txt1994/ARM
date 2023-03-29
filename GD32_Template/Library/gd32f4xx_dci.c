@@ -43,14 +43,14 @@ OF SUCH DAMAGE.
     参数[输出]:  无
     返回值:      无
 */
-void dci_deinit(void) {
-    rcu_periph_reset_enable(RCU_DCIRST);
-    rcu_periph_reset_disable(RCU_DCIRST);
+void DCI_DeInit(void) {
+    RCU_Periph_Reset_Enable(RCU_DCIRST);
+    RCU_Periph_Reset_Disable(RCU_DCIRST);
 }
 
 /*!
     简介:    initialize DCI registers
-    参数[输入]:  dci_struct: DCI parameter initialization structure
+    参数[输入]:  DCI_struct: DCI parameter initialization structure
                 members of the structure and the member values are shown as below:
                 capture_mode    : DCI_CAPTURE_MODE_CONTINUOUS, DCI_CAPTURE_MODE_SNAPSHOT
                 colck_polarity  : DCI_CK_POLARITY_FALLING, DCI_CK_POLARITY_RISING
@@ -62,17 +62,17 @@ void dci_deinit(void) {
     参数[输出]:  无
     返回值:      无
 */
-void dci_init(dci_parameter_struct *dci_struct) {
+void DCI_init(DCI_parameter_struct *DCI_struct) {
     uint32_t reg = 0U;
     /* disable capture function and DCI */
     DCI_CTL &= ~(DCI_CTL_CAP | DCI_CTL_DCIEN);
     /* configure DCI parameter */
-    reg |= dci_struct->capture_mode;
-    reg |= dci_struct->clock_polarity;
-    reg |= dci_struct->hsync_polarity;
-    reg |= dci_struct->vsync_polarity;
-    reg |= dci_struct->frame_rate;
-    reg |= dci_struct->interface_format;
+    reg |= DCI_struct->capture_mode;
+    reg |= DCI_struct->clock_polarity;
+    reg |= DCI_struct->hsync_polarity;
+    reg |= DCI_struct->vsync_polarity;
+    reg |= DCI_struct->frame_rate;
+    reg |= DCI_struct->interface_format;
 
     DCI_CTL = reg;
 }
@@ -83,7 +83,7 @@ void dci_init(dci_parameter_struct *dci_struct) {
     参数[输出]:  无
     返回值:      无
 */
-void dci_enable(void) {
+void DCI_enable(void) {
     DCI_CTL |= DCI_CTL_DCIEN;
 }
 
@@ -93,7 +93,7 @@ void dci_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void dci_disable(void) {
+void DCI_disable(void) {
     DCI_CTL &= ~DCI_CTL_DCIEN;
 }
 
@@ -103,7 +103,7 @@ void dci_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void dci_capture_enable(void) {
+void DCI_capture_enable(void) {
     DCI_CTL |= DCI_CTL_CAP;
 }
 
@@ -113,7 +113,7 @@ void dci_capture_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void dci_capture_disable(void) {
+void DCI_capture_disable(void) {
     DCI_CTL &= ~DCI_CTL_CAP;
 }
 
@@ -123,7 +123,7 @@ void dci_capture_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void dci_jpeg_enable(void) {
+void DCI_jpeg_enable(void) {
     DCI_CTL |= DCI_CTL_JM;
 }
 
@@ -133,7 +133,7 @@ void dci_jpeg_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void dci_jpeg_disable(void) {
+void DCI_jpeg_disable(void) {
     DCI_CTL &= ~DCI_CTL_JM;
 }
 
@@ -143,7 +143,7 @@ void dci_jpeg_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void dci_crop_window_enable(void) {
+void DCI_crop_window_enable(void) {
     DCI_CTL |= DCI_CTL_WDEN;
 }
 
@@ -153,7 +153,7 @@ void dci_crop_window_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void dci_crop_window_disable(void) {
+void DCI_crop_window_disable(void) {
     DCI_CTL &= ~DCI_CTL_WDEN;
 }
 
@@ -166,7 +166,7 @@ void dci_crop_window_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void dci_crop_window_config(uint16_t start_x, uint16_t start_y, uint16_t size_width, uint16_t size_height) {
+void DCI_crop_window_Config(uint16_t start_x, uint16_t start_y, uint16_t size_width, uint16_t size_height) {
     DCI_CWSPOS = ((uint32_t)start_x | ((uint32_t)start_y << 16));
     DCI_CWSZ = ((uint32_t)size_width | ((uint32_t)size_height << 16));
 }
@@ -177,7 +177,7 @@ void dci_crop_window_config(uint16_t start_x, uint16_t start_y, uint16_t size_wi
     参数[输出]:  无
     返回值:      无
 */
-void dci_embedded_sync_enable(void) {
+void DCI_embedded_sync_enable(void) {
     DCI_CTL |= DCI_CTL_ESM;
 }
 
@@ -187,7 +187,7 @@ void dci_embedded_sync_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void dci_embedded_sync_disable(void) {
+void DCI_embedded_sync_disable(void) {
     DCI_CTL &= ~DCI_CTL_ESM;
 }
 /*!
@@ -199,7 +199,7 @@ void dci_embedded_sync_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void dci_sync_codes_config(uint8_t frame_start, uint8_t line_start, uint8_t line_end, uint8_t frame_end) {
+void DCI_sync_codes_Config(uint8_t frame_start, uint8_t line_start, uint8_t line_end, uint8_t frame_end) {
     DCI_SC = ((uint32_t)frame_start | ((uint32_t)line_start << 8) | ((uint32_t)line_end << 16) | ((uint32_t)frame_end << 24));
 }
 
@@ -212,7 +212,7 @@ void dci_sync_codes_config(uint8_t frame_start, uint8_t line_start, uint8_t line
     参数[输出]:  无
     返回值:      无
 */
-void dci_sync_codes_unmask_config(uint8_t frame_start, uint8_t line_start, uint8_t line_end, uint8_t frame_end) {
+void DCI_sync_codes_unmask_Config(uint8_t frame_start, uint8_t line_start, uint8_t line_end, uint8_t frame_end) {
     DCI_SCUMSK = ((uint32_t)frame_start | ((uint32_t)line_start << 8) | ((uint32_t)line_end << 16) | ((uint32_t)frame_end << 24));
 }
 
@@ -222,7 +222,7 @@ void dci_sync_codes_unmask_config(uint8_t frame_start, uint8_t line_start, uint8
     参数[输出]:  无
     返回值:     data
 */
-uint32_t dci_data_read(void) {
+uint32_t DCI_data_read(void) {
     return DCI_DATA;
 }
 
@@ -240,7 +240,7 @@ uint32_t dci_data_read(void) {
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus dci_flag_get(uint32_t flag) {
+FlagStatus DCI_flag_get(uint32_t flag) {
     uint32_t stat = 0U;
 
     if(flag >> 31) {
@@ -269,7 +269,7 @@ FlagStatus dci_flag_get(uint32_t flag) {
     参数[输出]:  无
     返回值:      无
 */
-void dci_interrupt_enable(uint32_t interrupt) {
+void DCI_Interrupt_enable(uint32_t interrupt) {
     DCI_INTEN |= interrupt;
 }
 
@@ -284,7 +284,7 @@ void dci_interrupt_enable(uint32_t interrupt) {
     参数[输出]:  无
     返回值:      无
 */
-void dci_interrupt_disable(uint32_t interrupt) {
+void DCI_Interrupt_disable(uint32_t interrupt) {
     DCI_INTEN &= ~interrupt;
 }
 
@@ -299,7 +299,7 @@ void dci_interrupt_disable(uint32_t interrupt) {
     参数[输出]:  无
     返回值:      无
 */
-void dci_interrupt_flag_clear(uint32_t int_flag) {
+void DCI_Interrupt_flag_clear(uint32_t int_flag) {
     DCI_INTC |= int_flag;
 }
 
@@ -314,7 +314,7 @@ void dci_interrupt_flag_clear(uint32_t int_flag) {
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus dci_interrupt_flag_get(uint32_t int_flag) {
+FlagStatus DCI_Interrupt_flag_get(uint32_t int_flag) {
     if(RESET == (DCI_INTF & int_flag)) {
         return RESET;
     } else {

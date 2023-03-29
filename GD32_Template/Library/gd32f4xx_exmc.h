@@ -256,27 +256,27 @@ typedef struct {
     uint32_t asyn_data_setuptime;                                       /*!< configure the data setup time, asynchronous access mode valid */
     uint32_t asyn_address_holdtime;                                     /*!< configure the address hold time, asynchronous access mode valid */
     uint32_t asyn_address_setuptime;                                    /*!< configure the address setup time, asynchronous access mode valid */
-} exmc_norsram_timing_parameter_struct;
+} EXMC_norsram_timing_parameter_struct;
 
 /* EXMC NOR/SRAM initialize structure */
 typedef struct {
     uint32_t norsram_region;                                            /*!< select the region of EXMC NOR/SRAM bank */
     uint32_t write_mode;                                                /*!< the write mode, synchronous mode or asynchronous mode */
     uint32_t extended_mode;                                             /*!< enable or disable the extended mode */
-    uint32_t asyn_wait;                                                 /*!< enable or disable the asynchronous wait function */
+    uint32_t asyn_Wait;                                                 /*!< enable or disable the asynchronous wait function */
     uint32_t nwait_signal;                                              /*!< enable or disable the NWAIT signal while in synchronous bust mode */
     uint32_t memory_write;                                              /*!< enable or disable the write operation */
-    uint32_t nwait_config;                                              /*!< NWAIT signal configuration */
+    uint32_t nwait_Config;                                              /*!< NWAIT signal configuration */
     uint32_t wrap_burst_mode;                                           /*!< enable or disable the wrap burst mode */
     uint32_t nwait_polarity;                                            /*!< specifies the polarity of NWAIT signal from memory */
     uint32_t burst_mode;                                                /*!< enable or disable the burst mode */
     uint32_t databus_width;                                             /*!< specifies the databus width of external memory */
     uint32_t memory_type;                                               /*!< specifies the type of external memory */
     uint32_t address_data_mux;                                          /*!< specifies whether the data bus and address bus are multiplexed */
-    exmc_norsram_timing_parameter_struct* read_write_timing;            /*!< timing parameters for read and write if the extendedmode is not used or the timing
+    EXMC_norsram_timing_parameter_struct* read_write_timing;            /*!< timing parameters for read and write if the extendedmode is not used or the timing
                                                                              parameters for read if the extendedmode is used. */
-    exmc_norsram_timing_parameter_struct* write_timing;                 /*!< timing parameters for write when the extendedmode is used. */
-} exmc_norsram_parameter_struct;
+    EXMC_norsram_timing_parameter_struct* write_timing;                 /*!< timing parameters for write when the extendedmode is used. */
+} EXMC_norsram_parameter_struct;
 
 /* EXMC NAND/PC card timing initialize structure */
 typedef struct {
@@ -284,7 +284,7 @@ typedef struct {
     uint32_t holdtime;                                                  /*!< configure the address hold time(or the data hold time for write operation) */
     uint32_t waittime;                                                  /*!< configure the minimum wait time */
     uint32_t setuptime;                                                 /*!< configure the address setup time */
-} exmc_nand_pccard_timing_parameter_struct;
+} EXMC_nand_pccard_timing_parameter_struct;
 
 /* EXMC NAND initialize structure */
 typedef struct {
@@ -295,19 +295,19 @@ typedef struct {
     uint32_t ecc_logic;                                                 /*!< enable or disable the ECC calculation logic */
     uint32_t databus_width;                                             /*!< the NAND flash databus width */
     uint32_t wait_feature;                                              /*!< enable or disable the wait feature */
-    exmc_nand_pccard_timing_parameter_struct* common_space_timing;      /*!< the timing parameters for NAND flash common space */
-    exmc_nand_pccard_timing_parameter_struct* attribute_space_timing;   /*!< the timing parameters for NAND flash attribute space */
-} exmc_nand_parameter_struct;
+    EXMC_nand_pccard_timing_parameter_struct* common_space_timing;      /*!< the timing parameters for NAND flash common space */
+    EXMC_nand_pccard_timing_parameter_struct* attribute_space_timing;   /*!< the timing parameters for NAND flash attribute space */
+} EXMC_nand_parameter_struct;
 
 /* EXMC PC card initialize structure */
 typedef struct {
     uint32_t atr_latency;                                               /*!< configure the latency of ALE low to RB low */
     uint32_t ctr_latency;                                               /*!< configure the latency of CLE low to RB low */
     uint32_t wait_feature;                                              /*!< enable or disable the wait feature */
-    exmc_nand_pccard_timing_parameter_struct*  common_space_timing;     /*!< the timing parameters for PC card common space */
-    exmc_nand_pccard_timing_parameter_struct*  attribute_space_timing;  /*!< the timing parameters for PC card attribute space */
-    exmc_nand_pccard_timing_parameter_struct*  io_space_timing;         /*!< the timing parameters for PC card IO space */
-} exmc_pccard_parameter_struct;
+    EXMC_nand_pccard_timing_parameter_struct*  common_space_timing;     /*!< the timing parameters for PC card common space */
+    EXMC_nand_pccard_timing_parameter_struct*  attribute_space_timing;  /*!< the timing parameters for PC card attribute space */
+    EXMC_nand_pccard_timing_parameter_struct*  io_space_timing;         /*!< the timing parameters for PC card IO space */
+} EXMC_pccard_parameter_struct;
 
 /* EXMC SDRAM timing initialize structure */
 typedef struct {
@@ -318,22 +318,22 @@ typedef struct {
     uint32_t row_address_select_delay;                                  /*!< configure the row address select delay */
     uint32_t exit_selfrefresh_delay;                                    /*!< configure the exit self-refresh delay */
     uint32_t load_mode_register_delay;                                  /*!< configure the load mode register delay */
-} exmc_sdram_timing_parameter_struct;
+} EXMC_sdram_timing_parameter_struct;
 
 /* EXMC SDRAM initialize structure */
 typedef struct {
     uint32_t sdram_device;                                              /*!< device of SDRAM */
     uint32_t pipeline_read_delay;                                       /*!< the delay for reading data after CAS latency in HCLK clock cycles */
     uint32_t burst_read_switch;                                         /*!< enable or disable the burst read */
-    uint32_t sdclock_config;                                            /*!< the SDCLK memory clock for both SDRAM banks */
+    uint32_t sdclock_Config;                                            /*!< the SDCLK memory clock for both SDRAM banks */
     uint32_t write_protection;                                          /*!< enable or disable SDRAM bank write protection function */
     uint32_t cas_latency;                                               /*!< configure the SDRAM CAS latency */
     uint32_t internal_bank_number;                                      /*!< the number of internal bank */
     uint32_t data_width;                                                /*!< the databus width of SDRAM memory */
     uint32_t row_address_width;                                         /*!< the bit width of a row address */
     uint32_t column_address_width;                                      /*!< the bit width of a column address */
-    exmc_sdram_timing_parameter_struct* timing;                         /*!< the timing parameters for write and read SDRAM */
-} exmc_sdram_parameter_struct;
+    EXMC_sdram_timing_parameter_struct* timing;                         /*!< the timing parameters for write and read SDRAM */
+} EXMC_sdram_parameter_struct;
 
 /* EXMC SDRAM command initialize structure */
 typedef struct {
@@ -341,7 +341,7 @@ typedef struct {
     uint32_t auto_refresh_number;                                       /*!< the number of successive auto-refresh cycles will be send when CMD = 011 */
     uint32_t bank_select;                                               /*!< the bank which command will be sent to */
     uint32_t command;                                                   /*!< the commands that will be sent to SDRAM */
-} exmc_sdram_command_parameter_struct;
+} EXMC_sdram_command_parameter_struct;
 
 /* EXMC SQPISRAM initialize structure */
 typedef struct {
@@ -349,7 +349,7 @@ typedef struct {
     uint32_t id_length;                                                 /*!< SPI PSRAM ID length */
     uint32_t address_bits;                                              /*!< bit number of SPI PSRAM address phase */
     uint32_t command_bits;                                              /*!< bit number of SPI PSRAM command phase */
-} exmc_sqpipsram_parameter_struct;
+} EXMC_sqpipsram_parameter_struct;
 
 /* EXMC register address */
 #define EXMC_SNCTL(region)                    REG32(EXMC + 0x08U*((uint32_t)(region)))                      /*!< EXMC SRAM/NOR flash control registers, region = 0,1,2,3 */
@@ -567,45 +567,45 @@ typedef struct {
 
 /* SPI PSRAM ID length */
 #define SINIT_IDL(regval)                   (BITS(29,30) & ((uint32_t)(regval) << 29))
-#define EXMC_SQPIPSRAM_ID_LENGTH_64B        SINIT_IDL(0)                  /*!< SPI PSRAM ID length is 64 bits */
-#define EXMC_SQPIPSRAM_ID_LENGTH_32B        SINIT_IDL(1)                  /*!< SPI PSRAM ID length is 32 bits */
-#define EXMC_SQPIPSRAM_ID_LENGTH_16B        SINIT_IDL(2)                  /*!< SPI PSRAM ID length is 16 bits */
-#define EXMC_SQPIPSRAM_ID_LENGTH_8B         SINIT_IDL(3)                  /*!< SPI PSRAM ID length is 8 bits */
+#define EXMC_SQPIPSRAM_ID_Length_64B        SINIT_IDL(0)                  /*!< SPI PSRAM ID length is 64 bits */
+#define EXMC_SQPIPSRAM_ID_Length_32B        SINIT_IDL(1)                  /*!< SPI PSRAM ID length is 32 bits */
+#define EXMC_SQPIPSRAM_ID_Length_16B        SINIT_IDL(2)                  /*!< SPI PSRAM ID length is 16 bits */
+#define EXMC_SQPIPSRAM_ID_Length_8B         SINIT_IDL(3)                  /*!< SPI PSRAM ID length is 8 bits */
 
 /* SPI PSRAM bit number of address phase */
 #define SINIT_ADRBIT(regval)                (BITS(24,28) & ((uint32_t)(regval) << 24))
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_1B       SINIT_ADRBIT(1)               /*!< SPI PSRAM address is 1 bit */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_2B       SINIT_ADRBIT(2)               /*!< SPI PSRAM address is 2 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_3B       SINIT_ADRBIT(3)               /*!< SPI PSRAM address is 3 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_4B       SINIT_ADRBIT(4)               /*!< SPI PSRAM address is 4 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_5B       SINIT_ADRBIT(5)               /*!< SPI PSRAM address is 5 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_6B       SINIT_ADRBIT(6)               /*!< SPI PSRAM address is 6 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_7B       SINIT_ADRBIT(7)               /*!< SPI PSRAM address is 7 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_8B       SINIT_ADRBIT(8)               /*!< SPI PSRAM address is 8 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_9B       SINIT_ADRBIT(9)               /*!< SPI PSRAM address is 9 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_10B      SINIT_ADRBIT(10)              /*!< SPI PSRAM address is 10 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_11B      SINIT_ADRBIT(11)              /*!< SPI PSRAM address is 11 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_12B      SINIT_ADRBIT(12)              /*!< SPI PSRAM address is 12 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_13B      SINIT_ADRBIT(13)              /*!< SPI PSRAM address is 13 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_14B      SINIT_ADRBIT(14)              /*!< SPI PSRAM address is 14 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_15B      SINIT_ADRBIT(15)              /*!< SPI PSRAM address is 15 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_16B      SINIT_ADRBIT(16)              /*!< SPI PSRAM address is 16 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_17B      SINIT_ADRBIT(17)              /*!< SPI PSRAM address is 17 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_18B      SINIT_ADRBIT(18)              /*!< SPI PSRAM address is 18 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_19B      SINIT_ADRBIT(19)              /*!< SPI PSRAM address is 19 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_20B      SINIT_ADRBIT(20)              /*!< SPI PSRAM address is 20 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_21B      SINIT_ADRBIT(21)              /*!< SPI PSRAM address is 21 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_22B      SINIT_ADRBIT(22)              /*!< SPI PSRAM address is 22 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_23B      SINIT_ADRBIT(23)              /*!< SPI PSRAM address is 23 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_24B      SINIT_ADRBIT(24)              /*!< SPI PSRAM address is 24 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_25B      SINIT_ADRBIT(25)              /*!< SPI PSRAM address is 25 bits */
-#define EXMC_SQPIPSRAM_ADDR_LENGTH_26B      SINIT_ADRBIT(26)              /*!< SPI PSRAM address is 26 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_1B       SINIT_ADRBIT(1)               /*!< SPI PSRAM address is 1 bit */
+#define EXMC_SQPIPSRAM_ADDR_Length_2B       SINIT_ADRBIT(2)               /*!< SPI PSRAM address is 2 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_3B       SINIT_ADRBIT(3)               /*!< SPI PSRAM address is 3 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_4B       SINIT_ADRBIT(4)               /*!< SPI PSRAM address is 4 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_5B       SINIT_ADRBIT(5)               /*!< SPI PSRAM address is 5 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_6B       SINIT_ADRBIT(6)               /*!< SPI PSRAM address is 6 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_7B       SINIT_ADRBIT(7)               /*!< SPI PSRAM address is 7 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_8B       SINIT_ADRBIT(8)               /*!< SPI PSRAM address is 8 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_9B       SINIT_ADRBIT(9)               /*!< SPI PSRAM address is 9 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_10B      SINIT_ADRBIT(10)              /*!< SPI PSRAM address is 10 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_11B      SINIT_ADRBIT(11)              /*!< SPI PSRAM address is 11 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_12B      SINIT_ADRBIT(12)              /*!< SPI PSRAM address is 12 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_13B      SINIT_ADRBIT(13)              /*!< SPI PSRAM address is 13 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_14B      SINIT_ADRBIT(14)              /*!< SPI PSRAM address is 14 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_15B      SINIT_ADRBIT(15)              /*!< SPI PSRAM address is 15 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_16B      SINIT_ADRBIT(16)              /*!< SPI PSRAM address is 16 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_17B      SINIT_ADRBIT(17)              /*!< SPI PSRAM address is 17 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_18B      SINIT_ADRBIT(18)              /*!< SPI PSRAM address is 18 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_19B      SINIT_ADRBIT(19)              /*!< SPI PSRAM address is 19 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_20B      SINIT_ADRBIT(20)              /*!< SPI PSRAM address is 20 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_21B      SINIT_ADRBIT(21)              /*!< SPI PSRAM address is 21 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_22B      SINIT_ADRBIT(22)              /*!< SPI PSRAM address is 22 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_23B      SINIT_ADRBIT(23)              /*!< SPI PSRAM address is 23 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_24B      SINIT_ADRBIT(24)              /*!< SPI PSRAM address is 24 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_25B      SINIT_ADRBIT(25)              /*!< SPI PSRAM address is 25 bits */
+#define EXMC_SQPIPSRAM_ADDR_Length_26B      SINIT_ADRBIT(26)              /*!< SPI PSRAM address is 26 bits */
 
 /* SPI PSRAM bit number of command phase */
 #define SINIT_CMDBIT(regval)                (BITS(16,17) & ((uint32_t)(regval) << 16))
-#define EXMC_SQPIPSRAM_COMMAND_LENGTH_4B    SINIT_CMDBIT(0)               /*!< SPI PSRAM command is 4 bits */
-#define EXMC_SQPIPSRAM_COMMAND_LENGTH_8B    SINIT_CMDBIT(1)               /*!< SPI PSRAM command is 8 bits */
-#define EXMC_SQPIPSRAM_COMMAND_LENGTH_16B   SINIT_CMDBIT(2)               /*!< SPI PSRAM command is 16 bits */
+#define EXMC_SQPIPSRAM_COMMAND_Length_4B    SINIT_CMDBIT(0)               /*!< SPI PSRAM command is 4 bits */
+#define EXMC_SQPIPSRAM_COMMAND_Length_8B    SINIT_CMDBIT(1)               /*!< SPI PSRAM command is 8 bits */
+#define EXMC_SQPIPSRAM_COMMAND_Length_16B   SINIT_CMDBIT(2)               /*!< SPI PSRAM command is 16 bits */
 
 /* SPI PSRAM read command mode */
 #define SRCMD_RMODE(regval)                 (BITS(20,21) & ((uint32_t)(regval) << 20))
@@ -636,8 +636,8 @@ typedef struct {
 #define EXMC_SYN_WRITE                      EXMC_SNCTL_SYNCWR             /*!< synchronous write mode */
 
 /* EXMC NWAIT signal configuration */
-#define EXMC_NWAIT_CONFIG_BEFORE            ((uint32_t)0x00000000U)       /*!< NWAIT signal is active one data cycle before wait state */
-#define EXMC_NWAIT_CONFIG_DURING            EXMC_SNCTL_NRWTCFG            /*!< NWAIT signal is active during wait state */
+#define EXMC_NWAIT_Config_BEFORE            ((uint32_t)0x00000000U)       /*!< NWAIT signal is active one data cycle before wait state */
+#define EXMC_NWAIT_Config_DURING            EXMC_SNCTL_NRWTCFG            /*!< NWAIT signal is active during wait state */
 
 /* EXMC NWAIT signal polarity configuration */
 #define EXMC_NWAIT_POLARITY_LOW             ((uint32_t)0x00000000U)       /*!< low level is active of NWAIT */
@@ -699,108 +699,108 @@ typedef struct {
 /* initialization functions */
 /* NOR/SRAM */
 /* deinitialize EXMC NOR/SRAM region */
-void exmc_norsram_deinit(uint32_t exmc_norsram_region);
-/* initialize exmc_norsram_parameter_struct with the default values */
-void exmc_norsram_struct_para_init(exmc_norsram_parameter_struct* exmc_norsram_init_struct);
+void EXMC_norsram_DeInit(uint32_t EXMC_norsram_region);
+/* initialize EXMC_norsram_parameter_struct with the default values */
+void EXMC_norsram_struct_para_init(EXMC_norsram_parameter_struct* EXMC_norsram_init_struct);
 /* initialize EXMC NOR/SRAM region */
-void exmc_norsram_init(exmc_norsram_parameter_struct* exmc_norsram_init_struct);
+void EXMC_norsram_init(EXMC_norsram_parameter_struct* EXMC_norsram_init_struct);
 /* enable EXMC NOR/SRAM region */
-void exmc_norsram_enable(uint32_t exmc_norsram_region);
+void EXMC_norsram_enable(uint32_t EXMC_norsram_region);
 /* disable EXMC NOR/SRAM region */
-void exmc_norsram_disable(uint32_t exmc_norsram_region);
+void EXMC_norsram_disable(uint32_t EXMC_norsram_region);
 /* NAND */
 /* deinitialize EXMC NAND bank */
-void exmc_nand_deinit(uint32_t exmc_nand_bank);
-/* initialize exmc_nand_parameter_struct with the default values */
-void exmc_nand_struct_para_init(exmc_nand_parameter_struct* exmc_nand_init_struct);
+void EXMC_nand_DeInit(uint32_t EXMC_nand_bank);
+/* initialize EXMC_nand_parameter_struct with the default values */
+void EXMC_nand_struct_para_init(EXMC_nand_parameter_struct* EXMC_nand_init_struct);
 /* initialize EXMC NAND bank */
-void exmc_nand_init(exmc_nand_parameter_struct* exmc_nand_init_struct);
+void EXMC_nand_init(EXMC_nand_parameter_struct* EXMC_nand_init_struct);
 /* enable EXMC NAND bank */
-void exmc_nand_enable(uint32_t exmc_nand_bank);
+void EXMC_nand_enable(uint32_t EXMC_nand_bank);
 /* disable EXMC NAND bank */
-void exmc_nand_disable(uint32_t exmc_nand_bank);
+void EXMC_nand_disable(uint32_t EXMC_nand_bank);
 /* PC card */
 /* deinitialize EXMC PC card bank */
-void exmc_pccard_deinit(void);
-/* initialize exmc_pccard_parameter_struct with the default values */
-void exmc_pccard_struct_para_init(exmc_pccard_parameter_struct* exmc_pccard_init_struct);
+void EXMC_pccard_DeInit(void);
+/* initialize EXMC_pccard_parameter_struct with the default values */
+void EXMC_pccard_struct_para_init(EXMC_pccard_parameter_struct* EXMC_pccard_init_struct);
 /* initialize EXMC PC card bank */
-void exmc_pccard_init(exmc_pccard_parameter_struct* exmc_pccard_init_struct);
+void EXMC_pccard_init(EXMC_pccard_parameter_struct* EXMC_pccard_init_struct);
 /* enable EXMC PC card bank */
-void exmc_pccard_enable(void);
+void EXMC_pccard_enable(void);
 /* disable EXMC PC card bank */
-void exmc_pccard_disable(void);
+void EXMC_pccard_disable(void);
 /* SDRAM */
 /* deinitialize EXMC SDRAM device */
-void exmc_sdram_deinit(uint32_t exmc_sdram_device);
-/* initialize exmc_sdram_parameter_struct with the default values */
-void exmc_sdram_struct_para_init(exmc_sdram_parameter_struct* exmc_sdram_init_struct);
+void EXMC_sdram_DeInit(uint32_t EXMC_sdram_device);
+/* initialize EXMC_sdram_parameter_struct with the default values */
+void EXMC_sdram_struct_para_init(EXMC_sdram_parameter_struct* EXMC_sdram_init_struct);
 /* initialize EXMC SDRAM device */
-void exmc_sdram_init(exmc_sdram_parameter_struct* exmc_sdram_init_struct);
-/* initialize exmc_sdram_command_parameter_struct with the default values */
-void exmc_sdram_struct_command_para_init(exmc_sdram_command_parameter_struct *exmc_sdram_command_init_struct);
+void EXMC_sdram_init(EXMC_sdram_parameter_struct* EXMC_sdram_init_struct);
+/* initialize EXMC_sdram_command_parameter_struct with the default values */
+void EXMC_sdram_struct_command_para_init(EXMC_sdram_command_parameter_struct *EXMC_sdram_command_init_struct);
 /* SQPIPSRAM */
 /* deinitialize EXMC SQPIPSRAM */
-void exmc_sqpipsram_deinit(void);
-/* initialize exmc_sqpipsram_parameter_struct with the default values */
-void exmc_sqpipsram_struct_para_init(exmc_sqpipsram_parameter_struct* exmc_sqpipsram_init_struct);
+void EXMC_sqpipsram_DeInit(void);
+/* initialize EXMC_sqpipsram_parameter_struct with the default values */
+void EXMC_sqpipsram_struct_para_init(EXMC_sqpipsram_parameter_struct* EXMC_sqpipsram_init_struct);
 /* initialize EXMC SQPIPSRAM */
-void exmc_sqpipsram_init(exmc_sqpipsram_parameter_struct* exmc_sqpipsram_init_struct);
+void EXMC_sqpipsram_init(EXMC_sqpipsram_parameter_struct* EXMC_sqpipsram_init_struct);
 
 /* function configuration */
 /* NOR/SRAM */
 /* configure consecutive clock */
-void exmc_norsram_consecutive_clock_config(uint32_t clock_mode);
+void EXMC_norsram_consecutive_clock_Config(uint32_t clock_mode);
 /* configure CRAM page size */
-void exmc_norsram_page_size_config(uint32_t exmc_norsram_region, uint32_t page_size);
+void EXMC_norsram_page_size_Config(uint32_t EXMC_norsram_region, uint32_t page_size);
 /* NAND */
 /* enable or disable the EXMC NAND ECC function */
-void exmc_nand_ecc_config(uint32_t exmc_nand_bank, ControlStatus newvalue);
+void EXMC_nand_ecc_Config(uint32_t EXMC_nand_bank, ControlStatus newvalue);
 /* get the EXMC ECC value */
-uint32_t exmc_ecc_get(uint32_t exmc_nand_bank);
+uint32_t EXMC_ecc_get(uint32_t EXMC_nand_bank);
 /* SDRAM */
 /* enable or disable read sample */
-void exmc_sdram_readsample_enable(ControlStatus newvalue);
+void EXMC_sdram_readsample_enable(ControlStatus newvalue);
 /* configure the delayed sample clock of read data */
-void exmc_sdram_readsample_config(uint32_t delay_cell, uint32_t extra_hclk);
+void EXMC_sdram_readsample_Config(uint32_t delay_cell, uint32_t extra_hclk);
 /* configure the SDRAM memory command */
-void exmc_sdram_command_config(exmc_sdram_command_parameter_struct* exmc_sdram_command_init_struct);
+void EXMC_sdram_command_Config(EXMC_sdram_command_parameter_struct* EXMC_sdram_command_init_struct);
 /* set auto-refresh interval */
-void exmc_sdram_refresh_count_set(uint32_t exmc_count);
+void EXMC_sdram_refresh_count_set(uint32_t EXMC_count);
 /* set the number of successive auto-refresh command */
-void exmc_sdram_autorefresh_number_set(uint32_t exmc_number);
+void EXMC_sdram_autorefresh_number_set(uint32_t EXMC_number);
 /* configure the write protection function */
-void exmc_sdram_write_protection_config(uint32_t exmc_sdram_device, ControlStatus newvalue);
+void EXMC_sdram_write_protection_Config(uint32_t EXMC_sdram_device, ControlStatus newvalue);
 /* get the status of SDRAM device0 or device1 */
-uint32_t exmc_sdram_bankstatus_get(uint32_t exmc_sdram_device);
+uint32_t EXMC_sdram_bankstatus_get(uint32_t EXMC_sdram_device);
 /* SQPIPSRAM */
 /* set the read command */
-void exmc_sqpipsram_read_command_set(uint32_t read_command_mode, uint32_t read_wait_cycle, uint32_t read_command_code);
+void EXMC_sqpipsram_read_command_set(uint32_t read_command_mode, uint32_t read_Wait_cycle, uint32_t read_command_code);
 /* set the write command */
-void exmc_sqpipsram_write_command_set(uint32_t write_command_mode, uint32_t write_wait_cycle, uint32_t write_command_code);
+void EXMC_sqpipsram_write_command_set(uint32_t write_command_mode, uint32_t write_Wait_cycle, uint32_t write_command_code);
 /* send SPI read ID command */
-void exmc_sqpipsram_read_id_command_send(void);
+void EXMC_sqpipsram_read_id_command_send(void);
 /* send SPI special command which does not have address and data phase */
-void exmc_sqpipsram_write_cmd_send(void);
+void EXMC_sqpipsram_write_cmd_send(void);
 /* get the EXMC SPI ID low data */
-uint32_t exmc_sqpipsram_low_id_get(void);
+uint32_t EXMC_sqpipsram_low_id_get(void);
 /* get the EXMC SPI ID high data */
-uint32_t exmc_sqpipsram_high_id_get(void);
+uint32_t EXMC_sqpipsram_high_id_get(void);
 /* get the bit value of EXMC send write command bit or read ID command */
-FlagStatus exmc_sqpipsram_send_command_state_get(uint32_t send_command_flag);
+FlagStatus EXMC_sqpipsram_send_command_state_get(uint32_t send_command_flag);
 
 /* interrupt & flag functions */
 /* enable EXMC interrupt */
-void exmc_interrupt_enable(uint32_t exmc_bank, uint32_t interrupt);
+void EXMC_Interrupt_enable(uint32_t EXMC_bank, uint32_t interrupt);
 /* disable EXMC interrupt */
-void exmc_interrupt_disable(uint32_t exmc_bank, uint32_t interrupt);
+void EXMC_Interrupt_disable(uint32_t EXMC_bank, uint32_t interrupt);
 /* get EXMC flag status */
-FlagStatus exmc_flag_get(uint32_t exmc_bank, uint32_t flag);
+FlagStatus EXMC_flag_get(uint32_t EXMC_bank, uint32_t flag);
 /* clear EXMC flag status */
-void exmc_flag_clear(uint32_t exmc_bank, uint32_t flag);
+void EXMC_flag_clear(uint32_t EXMC_bank, uint32_t flag);
 /* get EXMC interrupt flag */
-FlagStatus exmc_interrupt_flag_get(uint32_t exmc_bank, uint32_t interrupt);
+FlagStatus EXMC_Interrupt_flag_get(uint32_t EXMC_bank, uint32_t interrupt);
 /* clear EXMC interrupt flag */
-void exmc_interrupt_flag_clear(uint32_t exmc_bank, uint32_t interrupt);
+void EXMC_Interrupt_flag_clear(uint32_t EXMC_bank, uint32_t interrupt);
 
 #endif /* GD32F4XX_EXMC_H */

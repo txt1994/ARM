@@ -43,9 +43,9 @@ OF SUCH DAMAGE.
     参数[输出]:  无
     返回值:      无
 */
-void wwdgt_deinit(void) {
-    rcu_periph_reset_enable(RCU_WWDGTRST);
-    rcu_periph_reset_disable(RCU_WWDGTRST);
+void WWDGT_DeInit(void) {
+    RCU_Periph_Reset_Enable(RCU_WWDGTRST);
+    RCU_Periph_Reset_Disable(RCU_WWDGTRST);
 }
 
 /*!
@@ -54,7 +54,7 @@ void wwdgt_deinit(void) {
     参数[输出]:  无
     返回值:      无
 */
-void wwdgt_enable(void) {
+void WWDGT_Enable(void) {
     WWDGT_CTL |= WWDGT_CTL_WDGTEN;
 }
 
@@ -64,7 +64,7 @@ void wwdgt_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void wwdgt_counter_update(uint16_t counter_value) {
+void WWDGT_counter_Update(uint16_t counter_value) {
     WWDGT_CTL = (uint32_t)(CTL_CNT(counter_value));
 }
 
@@ -81,7 +81,7 @@ void wwdgt_counter_update(uint16_t counter_value) {
     参数[输出]:  无
     返回值:      无
 */
-void wwdgt_config(uint16_t counter, uint16_t window, uint32_t prescaler) {
+void WWDGT_Config(uint16_t counter, uint16_t window, uint32_t prescaler) {
     /* configure WIN and PSC bits, configure CNT bit */
     WWDGT_CTL = (uint32_t)(CTL_CNT(counter));
     WWDGT_CFG = (uint32_t)(CFG_WIN(window) | prescaler);
@@ -93,7 +93,7 @@ void wwdgt_config(uint16_t counter, uint16_t window, uint32_t prescaler) {
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus wwdgt_flag_get(void) {
+FlagStatus WWDGT_Flag_Get(void) {
     if(RESET != (WWDGT_STAT & WWDGT_STAT_EWIF)) {
         return SET;
     }
@@ -107,7 +107,7 @@ FlagStatus wwdgt_flag_get(void) {
     参数[输出]:  无
     返回值:      无
 */
-void wwdgt_flag_clear(void) {
+void WWDGT_Flag_Clear(void) {
     WWDGT_STAT = (uint32_t)(RESET);
 }
 
@@ -117,6 +117,6 @@ void wwdgt_flag_clear(void) {
     参数[输出]:  无
     返回值:      无
 */
-void wwdgt_interrupt_enable(void) {
+void WWDGT_Interrupt_Enable(void) {
     WWDGT_CFG |= WWDGT_CFG_EWIE;
 }

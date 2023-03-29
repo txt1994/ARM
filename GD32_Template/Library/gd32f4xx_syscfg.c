@@ -43,14 +43,14 @@ OF SUCH DAMAGE.
     参数[输出]:  无
     返回值:      无
 */
-void syscfg_deinit(void) {
-    rcu_periph_reset_enable(RCU_SYSCFGRST);
-    rcu_periph_reset_disable(RCU_SYSCFGRST);
+void SYSCFG_DeInit(void) {
+    RCU_Periph_Reset_Enable(RCU_SYSCFGRST);
+    RCU_Periph_Reset_Disable(RCU_SYSCFGRST);
 }
 
 /*!
     简介:    configure the boot mode
-    参数[输入]:  syscfg_bootmode: selects the memory remapping
+    参数[输入]:  SYSCFG_bootmode: selects the memory remapping
                 only one parameter can be selected which is shown as below:
       参数:        SYSCFG_BOOTMODE_FLASH: main flash memory (0x08000000~0x083BFFFF) is mapped at address 0x00000000
       参数:        SYSCFG_BOOTMODE_BOOTLOADER: boot loader (0x1FFF0000 - 0x1FFF77FF) is mapped at address 0x00000000
@@ -60,89 +60,89 @@ void syscfg_deinit(void) {
     参数[输出]:  无
     返回值:      无
 */
-void syscfg_bootmode_config(uint8_t syscfg_bootmode) {
-    /* reset the SYSCFG_CFG0_BOOT_MODE bit and set according to syscfg_bootmode */
+void SYSCFG_bootmode_Config(uint8_t SYSCFG_bootmode) {
+    /* reset the SYSCFG_CFG0_BOOT_MODE bit and set according to SYSCFG_bootmode */
     SYSCFG_CFG0 &= ~SYSCFG_CFG0_BOOT_MODE;
-    SYSCFG_CFG0 |= (uint32_t)syscfg_bootmode;
+    SYSCFG_CFG0 |= (uint32_t)SYSCFG_bootmode;
 }
 
 /*!
     简介:    FMC memory mapping swap
-    参数[输入]:  syscfg_fmc_swap: selects the interal flash bank swapping
+    参数[输入]:  SYSCFG_FMC_swap: selects the interal flash bank swapping
                 only one parameter can be selected which is shown as below:
       参数:        SYSCFG_FMC_SWP_BANK0: bank 0 is mapped at address 0x08000000 and bank 1 is mapped at address 0x08100000
       参数:        SYSCFG_FMC_SWP_BANK1: bank 1 is mapped at address 0x08000000 and bank 0 is mapped at address 0x08100000
     参数[输出]:  无
     返回值:      无
 */
-void syscfg_fmc_swap_config(uint32_t syscfg_fmc_swap) {
+void SYSCFG_FMC_swap_Config(uint32_t SYSCFG_FMC_swap) {
     uint32_t reg;
     reg = SYSCFG_CFG0;
-    /* reset the FMC_SWP bit and set according to syscfg_fmc_swap */
+    /* reset the FMC_SWP bit and set according to SYSCFG_FMC_swap */
     reg &= ~SYSCFG_CFG0_FMC_SWP;
-    SYSCFG_CFG0 = (reg | syscfg_fmc_swap);
+    SYSCFG_CFG0 = (reg | SYSCFG_FMC_swap);
 }
 
 /*!
     简介:    EXMC memory mapping swap
-    参数[输入]:  syscfg_exmc_swap: selects the memories in EXMC swapping
+    参数[输入]:  SYSCFG_EXMC_swap: selects the memories in EXMC swapping
                 only one parameter can be selected which is shown as below:
       参数:        SYSCFG_EXMC_SWP_ENABLE: SDRAM bank 0 and bank 1 are swapped with NAND bank 1 and PC card
       参数:        SYSCFG_EXMC_SWP_DISABLE: no memory mapping swap
     参数[输出]:  无
     返回值:      无
 */
-void syscfg_exmc_swap_config(uint32_t syscfg_exmc_swap) {
+void SYSCFG_EXMC_swap_Config(uint32_t SYSCFG_EXMC_swap) {
     uint32_t reg;
 
     reg = SYSCFG_CFG0;
-    /* reset the SYSCFG_CFG0_EXMC_SWP bits and set according to syscfg_exmc_swap */
+    /* reset the SYSCFG_CFG0_EXMC_SWP bits and set according to SYSCFG_EXMC_swap */
     reg &= ~SYSCFG_CFG0_EXMC_SWP;
-    SYSCFG_CFG0 = (reg | syscfg_exmc_swap);
+    SYSCFG_CFG0 = (reg | SYSCFG_EXMC_swap);
 }
 
 /*!
     简介:    configure the GPIO pin as EXTI Line
-    参数[输入]:  exti_port: specify the GPIO port used in EXTI
+    参数[输入]:  EXTI_port: specify the GPIO port used in EXTI
                 only one parameter can be selected which is shown as below:
       参数:        EXTI_SOURCE_GPIOx(x = A,B,C,D,E,F,G,H,I): EXTI GPIO port
-    参数[输入]:  exti_pin: specify the EXTI line
+    参数[输入]:  EXTI_pin: specify the EXTI line
                 only one parameter can be selected which is shown as below:
       参数:        EXTI_SOURCE_PINx(x = 0..15): EXTI GPIO pin
     参数[输出]:  无
     返回值:      无
 */
-void syscfg_exti_line_config(uint8_t exti_port, uint8_t exti_pin) {
-    uint32_t clear_exti_mask = ~((uint32_t)EXTI_SS_MASK << (EXTI_SS_MSTEP(exti_pin)));
-    uint32_t config_exti_mask = ((uint32_t)exti_port) << (EXTI_SS_MSTEP(exti_pin));
+void SYSCFG_EXTI_line_Config(uint8_t EXTI_port, uint8_t EXTI_pin) {
+    uint32_t clear_EXTI_mask = ~((uint32_t)EXTI_SS_MASK << (EXTI_SS_MSTEP(EXTI_pin)));
+    uint32_t config_EXTI_mask = ((uint32_t)EXTI_port) << (EXTI_SS_MSTEP(EXTI_pin));
 
-    switch(exti_pin / EXTI_SS_JSTEP) {
+    switch(EXTI_pin / EXTI_SS_JSTEP) {
     case EXTISS0:
         /* clear EXTI source line(0..3) */
-        SYSCFG_EXTISS0 &= clear_exti_mask;
+        SYSCFG_EXTISS0 &= clear_EXTI_mask;
         /* configure EXTI soure line(0..3) */
-        SYSCFG_EXTISS0 |= config_exti_mask;
+        SYSCFG_EXTISS0 |= config_EXTI_mask;
         break;
 
     case EXTISS1:
         /* clear EXTI soure line(4..7) */
-        SYSCFG_EXTISS1 &= clear_exti_mask;
+        SYSCFG_EXTISS1 &= clear_EXTI_mask;
         /* configure EXTI soure line(4..7) */
-        SYSCFG_EXTISS1 |= config_exti_mask;
+        SYSCFG_EXTISS1 |= config_EXTI_mask;
         break;
 
     case EXTISS2:
         /* clear EXTI soure line(8..11) */
-        SYSCFG_EXTISS2 &= clear_exti_mask;
+        SYSCFG_EXTISS2 &= clear_EXTI_mask;
         /* configure EXTI soure line(8..11) */
-        SYSCFG_EXTISS2 |= config_exti_mask;
+        SYSCFG_EXTISS2 |= config_EXTI_mask;
         break;
 
     case EXTISS3:
         /* clear EXTI soure line(12..15) */
-        SYSCFG_EXTISS3 &= clear_exti_mask;
+        SYSCFG_EXTISS3 &= clear_EXTI_mask;
         /* configure EXTI soure line(12..15) */
-        SYSCFG_EXTISS3 |= config_exti_mask;
+        SYSCFG_EXTISS3 |= config_EXTI_mask;
         break;
 
     default:
@@ -152,38 +152,38 @@ void syscfg_exti_line_config(uint8_t exti_port, uint8_t exti_pin) {
 
 /*!
     简介:    configure the PHY interface for the ethernet MAC
-    参数[输入]:  syscfg_enet_phy_interface: specifies the media interface mode.
+    参数[输入]:  SYSCFG_ENET_phy_interface: specifies the media interface mode.
                 only one parameter can be selected which is shown as below:
       参数:        SYSCFG_ENET_PHY_MII: MII mode is selected
       参数:        SYSCFG_ENET_PHY_RMII: RMII mode is selected
     参数[输出]:  无
     返回值:      无
 */
-void syscfg_enet_phy_interface_config(uint32_t syscfg_enet_phy_interface) {
+void SYSCFG_ENET_phy_interface_Config(uint32_t SYSCFG_ENET_phy_interface) {
     uint32_t reg;
 
     reg = SYSCFG_CFG1;
-    /* reset the ENET_PHY_SEL bit and set according to syscfg_enet_phy_interface */
+    /* reset the ENET_PHY_SEL bit and set according to SYSCFG_ENET_phy_interface */
     reg &= ~SYSCFG_CFG1_ENET_PHY_SEL;
-    SYSCFG_CFG1 = (reg | syscfg_enet_phy_interface);
+    SYSCFG_CFG1 = (reg | SYSCFG_ENET_phy_interface);
 }
 
 /*!
     简介:    configure the I/O compensation cell
-    参数[输入]:  syscfg_compensation: specifies the I/O compensation cell mode
+    参数[输入]:  SYSCFG_compensation: specifies the I/O compensation cell mode
                 only one parameter can be selected which is shown as below:
       参数:        SYSCFG_COMPENSATION_ENABLE: I/O compensation cell is enabled
       参数:        SYSCFG_COMPENSATION_DISABLE: I/O compensation cell is disabled
     参数[输出]:  无
     返回值:      无
 */
-void syscfg_compensation_config(uint32_t syscfg_compensation) {
+void SYSCFG_compensation_Config(uint32_t SYSCFG_compensation) {
     uint32_t reg;
 
     reg = SYSCFG_CPSCTL;
-    /* reset the SYSCFG_CPSCTL_CPS_EN bit and set according to syscfg_compensation */
+    /* reset the SYSCFG_CPSCTL_CPS_EN bit and set according to SYSCFG_compensation */
     reg &= ~SYSCFG_CPSCTL_CPS_EN;
-    SYSCFG_CPSCTL = (reg | syscfg_compensation);
+    SYSCFG_CPSCTL = (reg | SYSCFG_compensation);
 }
 
 /*!
@@ -192,7 +192,7 @@ void syscfg_compensation_config(uint32_t syscfg_compensation) {
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
   */
-FlagStatus syscfg_flag_get(void) {
+FlagStatus SYSCFG_flag_get(void) {
     if(((uint32_t)RESET) != (SYSCFG_CPSCTL & SYSCFG_CPSCTL_CPS_RDY)) {
         return SET;
     } else {

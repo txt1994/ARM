@@ -209,7 +209,7 @@ typedef struct {
     uint32_t signalpolarity_vs;               /*!< vertical pulse polarity selection */
     uint32_t signalpolarity_de;               /*!< data enable polarity selection */
     uint32_t signalpolarity_pixelck;          /*!< pixel clock polarity selection */
-} tli_parameter_struct;
+} TLI_parameter_struct;
 
 /* TLI layer parameter struct definitions */
 typedef struct {
@@ -229,7 +229,7 @@ typedef struct {
     uint16_t layer_frame_buf_stride_offset;   /*!< frame buffer stride offset */
     uint16_t layer_frame_line_length;         /*!< frame line length */
     uint16_t layer_frame_total_line_number;   /*!< frame total line number */
-} tli_layer_parameter_struct;
+} TLI_layer_parameter_struct;
 
 /* TLI layer LUT parameter struct definitions */
 typedef struct {
@@ -237,7 +237,7 @@ typedef struct {
     uint8_t layer_lut_channel_red;            /*!< red channel of a LUT entry */
     uint8_t layer_lut_channel_green;          /*!< green channel of a LUT entry */
     uint8_t layer_lut_channel_blue;           /*!< blue channel of a LUT entry */
-} tli_layer_lut_parameter_struct;
+} TLI_layer_lut_parameter_struct;
 
 /* packeted pixel format */
 typedef enum {
@@ -249,17 +249,17 @@ typedef enum {
     LAYER_PPF_L8,                            /*!< layerx pixel format L8 */
     LAYER_PPF_AL44,                          /*!< layerx pixel format AL44 */
     LAYER_PPF_AL88                           /*!< layerx pixel format AL88 */
-} tli_layer_ppf_enum;
+} TLI_layer_ppf_enum;
 
 /* TLI flags */
-#define TLI_FLAG_VDE                   TLI_STAT_VDE                /*!< current VDE status */
-#define TLI_FLAG_HDE                   TLI_STAT_HDE                /*!< current HDE status */
-#define TLI_FLAG_VS                    TLI_STAT_VS                 /*!< current VS status of the TLI */
-#define TLI_FLAG_HS                    TLI_STAT_HS                 /*!< current HS status of the TLI */
-#define TLI_FLAG_LM                    BIT(0) | BIT(31)            /*!< line mark interrupt flag */
-#define TLI_FLAG_FE                    BIT(1) | BIT(31)            /*!< FIFO error interrupt flag */
-#define TLI_FLAG_TE                    BIT(2) | BIT(31)            /*!< transaction error interrupt flag */
-#define TLI_FLAG_LCR                   BIT(3) | BIT(31)            /*!< layer configuration reloaded interrupt flag */
+#define TLI_Flag_VDE                   TLI_STAT_VDE                /*!< current VDE status */
+#define TLI_Flag_HDE                   TLI_STAT_HDE                /*!< current HDE status */
+#define TLI_Flag_VS                    TLI_STAT_VS                 /*!< current VS status of the TLI */
+#define TLI_Flag_HS                    TLI_STAT_HS                 /*!< current HS status of the TLI */
+#define TLI_Flag_LM                    BIT(0) | BIT(31)            /*!< line mark interrupt flag */
+#define TLI_Flag_FE                    BIT(1) | BIT(31)            /*!< FIFO error interrupt flag */
+#define TLI_Flag_TE                    BIT(2) | BIT(31)            /*!< transaction error interrupt flag */
+#define TLI_Flag_LCR                   BIT(3) | BIT(31)            /*!< layer configuration reloaded interrupt flag */
 
 /* TLI interrupt enable or disable */
 #define TLI_INT_LM                     BIT(0)                      /*!< line mark interrupt */
@@ -268,10 +268,10 @@ typedef enum {
 #define TLI_INT_LCR                    BIT(3)                      /*!< layer configuration reloaded interrupt */
 
 /* TLI interrupt flag */
-#define TLI_INT_FLAG_LM                BIT(0)                      /*!< line mark interrupt flag */
-#define TLI_INT_FLAG_FE                BIT(1)                      /*!< FIFO error interrupt flag */
-#define TLI_INT_FLAG_TE                BIT(2)                      /*!< transaction error interrupt flag */
-#define TLI_INT_FLAG_LCR               BIT(3)                      /*!< layer configuration reloaded interrupt flag */
+#define TLI_INT_Flag_LM                BIT(0)                      /*!< line mark interrupt flag */
+#define TLI_INT_Flag_FE                BIT(1)                      /*!< FIFO error interrupt flag */
+#define TLI_INT_Flag_TE                BIT(2)                      /*!< transaction error interrupt flag */
+#define TLI_INT_Flag_LCR               BIT(3)                      /*!< layer configuration reloaded interrupt flag */
 
 /* layer reload configure */
 #define TLI_FRAME_BLANK_RELOAD_EN     ((uint8_t)0x00U)             /*!< the layer configuration will be reloaded at frame blank */
@@ -310,64 +310,64 @@ typedef enum {
 /* function declarations */
 /* initialization functions, TLI enable or disable, TLI reload mode configuration */
 /* deinitialize TLI registers */
-void tli_deinit(void);
+void TLI_DeInit(void);
 /* initialize the parameters of TLI parameter structure with the default values, it is suggested
-  that call this function after a tli_parameter_struct structure is defined */
-void tli_struct_para_init(tli_parameter_struct *tli_struct);
+  that call this function after a TLI_parameter_struct structure is defined */
+void TLI_struct_para_Init(TLI_parameter_struct *TLI_struct);
 /* initialize TLI */
-void tli_init(tli_parameter_struct *tli_struct);
+void TLI_Init(TLI_parameter_struct *TLI_struct);
 /* configure TLI dither function */
-void tli_dither_config(uint8_t dither_stat);
+void TLI_dither_Config(uint8_t dither_stat);
 /* enable TLI */
-void tli_enable(void);
+void TLI_Enable(void);
 /* disable TLI */
-void tli_disable(void);
+void TLI_Disable(void);
 /* configurate TLI reload mode */
-void tli_reload_config(uint8_t reload_mod);
+void TLI_reload_Config(uint8_t reload_mod);
 
 /* TLI layer configuration functions */
 /* initialize the parameters of TLI layer structure with the default values, it is suggested
-  that call this function after a tli_layer_parameter_struct structure is defined */
-void tli_layer_struct_para_init(tli_layer_parameter_struct *layer_struct);
+  that call this function after a TLI_layer_parameter_struct structure is defined */
+void TLI_layer_struct_para_Init(TLI_layer_parameter_struct *layer_struct);
 /* initialize TLI layer */
-void tli_layer_init(uint32_t layerx, tli_layer_parameter_struct *layer_struct);
+void TLI_layer_Init(uint32_t layerx, TLI_layer_parameter_struct *layer_struct);
 /* reconfigure window position */
-void tli_layer_window_offset_modify(uint32_t layerx, uint16_t offset_x, uint16_t offset_y);
+void TLI_layer_window_offset_modify(uint32_t layerx, uint16_t offset_x, uint16_t offset_y);
 /* initialize the parameters of TLI layer LUT structure with the default values, it is suggested
-  that call this function after a tli_layer_lut_parameter_struct structure is defined */
-void tli_lut_struct_para_init(tli_layer_lut_parameter_struct *lut_struct);
+  that call this function after a TLI_layer_lut_parameter_struct structure is defined */
+void TLI_lut_struct_para_Init(TLI_layer_lut_parameter_struct *lut_struct);
 /* initialize TLI layer LUT */
-void tli_lut_init(uint32_t layerx, tli_layer_lut_parameter_struct *lut_struct);
+void TLI_lut_Init(uint32_t layerx, TLI_layer_lut_parameter_struct *lut_struct);
 /* initialize TLI layer color key */
-void tli_color_key_init(uint32_t layerx, uint8_t redkey, uint8_t greenkey, uint8_t bluekey);
+void TLI_Color_key_Init(uint32_t layerx, uint8_t redkey, uint8_t greenkey, uint8_t bluekey);
 /* enable TLI layer */
-void tli_layer_enable(uint32_t layerx);
+void TLI_layer_Enable(uint32_t layerx);
 /* disable TLI layer */
-void tli_layer_disable(uint32_t layerx);
+void TLI_layer_Disable(uint32_t layerx);
 /* enable TLI layer color keying */
-void tli_color_key_enable(uint32_t layerx);
+void TLI_Color_key_Enable(uint32_t layerx);
 /* disable TLI layer color keying */
-void tli_color_key_disable(uint32_t layerx);
+void TLI_Color_key_Disable(uint32_t layerx);
 /* enable TLI layer LUT */
-void tli_lut_enable(uint32_t layerx);
+void TLI_lut_Enable(uint32_t layerx);
 /* disable TLI layer LUT */
-void tli_lut_disable(uint32_t layerx);
+void TLI_lut_Disable(uint32_t layerx);
 
 /* set line mark value */
-void tli_line_mark_set(uint16_t line_num);
+void TLI_line_mark_Set(uint16_t line_num);
 /* get current displayed position */
-uint32_t tli_current_pos_get(void);
+uint32_t TLI_current_pos_Get(void);
 
 /* flag and interrupt functions */
 /* enable TLI interrupt */
-void tli_interrupt_enable(uint32_t int_flag);
+void TLI_Interrupt_Enable(uint32_t int_flag);
 /* disable TLI interrupt */
-void tli_interrupt_disable(uint32_t int_flag);
+void TLI_Interrupt_Disable(uint32_t int_flag);
 /* get TLI interrupt flag */
-FlagStatus tli_interrupt_flag_get(uint32_t int_flag);
+FlagStatus TLI_Interrupt_Flag_Get(uint32_t int_flag);
 /* clear TLI interrupt flag */
-void tli_interrupt_flag_clear(uint32_t int_flag);
+void TLI_Interrupt_Flag_clear(uint32_t int_flag);
 /* get TLI flag or state in TLI_INTF register or TLI_STAT register */
-FlagStatus tli_flag_get(uint32_t flag);
+FlagStatus TLI_Flag_Get(uint32_t flag);
 
 #endif /* GD32F4XX_TLI_H */

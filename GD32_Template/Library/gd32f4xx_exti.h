@@ -227,13 +227,13 @@ typedef enum {
     EXTI_20     = BIT(20),                                    /*!< EXTI line 20 */
     EXTI_21     = BIT(21),                                    /*!< EXTI line 21 */
     EXTI_22     = BIT(22),                                    /*!< EXTI line 22 */
-} exti_line_enum;
+} EXTI_line_enum;
 
 /* external interrupt and event  */
 typedef enum {
     EXTI_INTERRUPT   = 0,                                     /*!< EXTI interrupt mode */
     EXTI_EVENT                                                /*!< EXTI event mode */
-} exti_mode_enum;
+} EXTI_mode_enum;
 
 /* interrupt trigger mode */
 typedef enum {
@@ -241,34 +241,34 @@ typedef enum {
     EXTI_TRIG_FALLING,                                        /*!< EXTI falling edge trigger */
     EXTI_TRIG_BOTH,                                           /*!< EXTI rising and falling edge trigger */
     EXTI_TRIG_NONE                                            /*!< none EXTI edge trigger */
-} exti_trig_type_enum;
+} EXTI_trig_type_enum;
 
 /* function declarations */
 /* deinitialize the EXTI */
-void exti_deinit(void);
+void EXTI_DeInit(void);
 /* enable the configuration of EXTI initialize */
-void exti_init(exti_line_enum linex, exti_mode_enum mode, exti_trig_type_enum trig_type);
+void EXTI_init(EXTI_line_enum linex, EXTI_mode_enum mode, EXTI_trig_type_enum trig_type);
 /* enable the interrupts from EXTI line x */
-void exti_interrupt_enable(exti_line_enum linex);
+void EXTI_Interrupt_enable(EXTI_line_enum linex);
 /* disable the interrupts from EXTI line x */
-void exti_interrupt_disable(exti_line_enum linex);
+void EXTI_Interrupt_disable(EXTI_line_enum linex);
 /* enable the events from EXTI line x */
-void exti_event_enable(exti_line_enum linex);
+void EXTI_event_enable(EXTI_line_enum linex);
 /* disable the events from EXTI line x */
-void exti_event_disable(exti_line_enum linex);
+void EXTI_event_disable(EXTI_line_enum linex);
 /* EXTI software interrupt event enable */
-void exti_software_interrupt_enable(exti_line_enum linex);
+void EXTI_software_Interrupt_enable(EXTI_line_enum linex);
 /* EXTI software interrupt event disable */
-void exti_software_interrupt_disable(exti_line_enum linex);
+void EXTI_software_Interrupt_disable(EXTI_line_enum linex);
 
 /* interrupt & flag functions */
 /* get EXTI lines pending flag */
-FlagStatus exti_flag_get(exti_line_enum linex);
+FlagStatus EXTI_flag_get(EXTI_line_enum linex);
 /* clear EXTI lines pending flag */
-void exti_flag_clear(exti_line_enum linex);
+void EXTI_flag_clear(EXTI_line_enum linex);
 /* get EXTI lines flag when the interrupt flag is set */
-FlagStatus exti_interrupt_flag_get(exti_line_enum linex);
+FlagStatus EXTI_Interrupt_flag_get(EXTI_line_enum linex);
 /* clear EXTI lines pending flag */
-void exti_interrupt_flag_clear(exti_line_enum linex);
+void EXTI_Interrupt_flag_clear(EXTI_line_enum linex);
 
 #endif /* GD32F4XX_EXTI_H */

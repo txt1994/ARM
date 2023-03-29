@@ -149,58 +149,58 @@ OF SUCH DAMAGE.
 
 /* function declarations */
 /* reset PMU registers */
-void pmu_deinit(void);
+void PMU_DeInit(void);
 
 /* LVD functions */
 /* select low voltage detector threshold */
-void pmu_lvd_select(uint32_t lvdt_n);
+void PMU_lvd_select(uint32_t lvdt_n);
 /* disable PMU lvd */
-void pmu_lvd_disable(void);
+void PMU_lvd_disable(void);
 
 /* LDO functions */
 /* select LDO output voltage */
-void pmu_ldo_output_select(uint32_t ldo_output);
+void PMU_ldo_output_select(uint32_t ldo_output);
 
 /* functions of low-driver mode and high-driver mode */
 /* enable high-driver mode */
-void pmu_highdriver_mode_enable(void);
+void PMU_highdriver_mode_enable(void);
 /* disable high-driver mode */
-void pmu_highdriver_mode_disable(void);
+void PMU_highdriver_mode_disable(void);
 /* switch high-driver mode */
-void pmu_highdriver_switch_select(uint32_t highdr_switch);
+void PMU_highdriver_switch_select(uint32_t highdr_switch);
 /* enable low-driver mode in deep-sleep */
-void pmu_lowdriver_mode_enable(void);
+void PMU_lowdriver_mode_enable(void);
 /* disable low-driver mode in deep-sleep */
-void pmu_lowdriver_mode_disable(void);
+void PMU_lowdriver_mode_disable(void);
 /* in deep-sleep mode, driver mode when use low power LDO */
-void pmu_lowpower_driver_config(uint32_t mode);
+void PMU_lowpower_driver_Config(uint32_t mode);
 /* in deep-sleep mode, driver mode when use normal power LDO */
-void pmu_normalpower_driver_config(uint32_t mode);
+void PMU_normalpower_driver_Config(uint32_t mode);
 
 /* set PMU mode */
 /* PMU work in sleep mode */
-void pmu_to_sleepmode(uint8_t sleepmodecmd);
+void PMU_to_sleepmode(uint8_t sleepmodecmd);
 /* PMU work in deepsleep mode */
-void pmu_to_deepsleepmode(uint32_t ldo, uint32_t lowdrive, uint8_t deepsleepmodecmd);
+void PMU_to_deepsleepmode(uint32_t ldo, uint32_t lowdrive, uint8_t deepsleepmodecmd);
 /* PMU work in standby mode */
-void pmu_to_standbymode(void);
+void PMU_to_standbymode(void);
 /* enable PMU wakeup pin */
-void pmu_wakeup_pin_enable(void);
+void PMU_wakeup_pin_enable(void);
 /* disable PMU wakeup pin */
-void pmu_wakeup_pin_disable(void);
+void PMU_wakeup_pin_disable(void);
 
 /* backup related functions */
 /* backup SRAM LDO on */
-void pmu_backup_ldo_config(uint32_t bkp_ldo);
+void PMU_backup_ldo_Config(uint32_t bkp_ldo);
 /* enable write access to the registers in backup domain */
-void pmu_backup_write_enable(void);
+void PMU_backup_write_enable(void);
 /* disable write access to the registers in backup domain */
-void pmu_backup_write_disable(void);
+void PMU_backup_write_disable(void);
 
 /* flag functions */
 /* get flag state */
-FlagStatus pmu_flag_get(uint32_t flag);
+FlagStatus PMU_flag_get(uint32_t flag);
 /* clear flag bit */
-void pmu_flag_clear(uint32_t flag);
+void PMU_flag_clear(uint32_t flag);
 
 #endif /* GD32F4XX_PMU_H */

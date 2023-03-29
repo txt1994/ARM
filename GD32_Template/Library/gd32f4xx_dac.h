@@ -194,78 +194,78 @@ OF SUCH DAMAGE.
 /* function declarations */
 /* initialization functions */
 /* deinitialize DAC */
-void dac_deinit(void);
+void DAC_DeInit(void);
 /* enable DAC */
-void dac_enable(uint32_t dac_periph);
+void DAC_enable(uint32_t DAC_periph);
 /* disable DAC */
-void dac_disable(uint32_t dac_periph);
+void DAC_disable(uint32_t DAC_periph);
 /* enable DAC DMA */
-void dac_dma_enable(uint32_t dac_periph);
+void DAC_DMA_enable(uint32_t DAC_periph);
 /* disable DAC DMA */
-void dac_dma_disable(uint32_t dac_periph);
+void DAC_DMA_disable(uint32_t DAC_periph);
 /* enable DAC output buffer */
-void dac_output_buffer_enable(uint32_t dac_periph);
+void DAC_output_buffer_enable(uint32_t DAC_periph);
 /* disable DAC output buffer */
-void dac_output_buffer_disable(uint32_t dac_periph);
+void DAC_output_buffer_disable(uint32_t DAC_periph);
 /* get the last data output value */
-uint16_t dac_output_value_get(uint32_t dac_periph);
+uint16_t DAC_output_value_get(uint32_t DAC_periph);
 /* set DAC data holding register value */
-void dac_data_set(uint32_t dac_periph, uint32_t dac_align, uint16_t data);
+void DAC_data_set(uint32_t DAC_periph, uint32_t DAC_align, uint16_t data);
 
 /* DAC trigger configuration */
 /* enable DAC trigger */
-void dac_trigger_enable(uint32_t dac_periph);
+void DAC_trigger_enable(uint32_t DAC_periph);
 /* disable DAC trigger */
-void dac_trigger_disable(uint32_t dac_periph);
+void DAC_trigger_disable(uint32_t DAC_periph);
 /* configure DAC trigger source */
-void dac_trigger_source_config(uint32_t dac_periph, uint32_t triggersource);
+void DAC_trigger_source_Config(uint32_t DAC_periph, uint32_t triggersource);
 /* enable DAC software trigger */
-void dac_software_trigger_enable(uint32_t dac_periph);
+void DAC_software_trigger_enable(uint32_t DAC_periph);
 /* disable DAC software trigger */
-void dac_software_trigger_disable(uint32_t dac_periph);
+void DAC_software_trigger_disable(uint32_t DAC_periph);
 
 /* DAC wave mode configuration */
 /* configure DAC wave mode */
-void dac_wave_mode_config(uint32_t dac_periph, uint32_t wave_mode);
+void DAC_wave_mode_Config(uint32_t DAC_periph, uint32_t wave_mode);
 /* configure DAC wave bit width */
-void dac_wave_bit_width_config(uint32_t dac_periph, uint32_t bit_width);
+void DAC_wave_bit_width_Config(uint32_t DAC_periph, uint32_t bit_width);
 /* configure DAC LFSR noise mode */
-void dac_lfsr_noise_config(uint32_t dac_periph, uint32_t unmask_bits);
+void DAC_lfsr_noise_Config(uint32_t DAC_periph, uint32_t unmask_bits);
 /* configure DAC triangle noise mode */
-void dac_triangle_noise_config(uint32_t dac_periph, uint32_t amplitude);
+void DAC_triangle_noise_Config(uint32_t DAC_periph, uint32_t amplitude);
 
 /* DAC concurrent mode configuration */
 /* enable DAC concurrent mode */
-void dac_concurrent_enable(void);
+void DAC_concurrent_enable(void);
 /* disable DAC concurrent mode */
-void dac_concurrent_disable(void);
+void DAC_concurrent_disable(void);
 /* enable DAC concurrent software trigger */
-void dac_concurrent_software_trigger_enable(void);
+void DAC_concurrent_software_trigger_enable(void);
 /* disable DAC concurrent software trigger */
-void dac_concurrent_software_trigger_disable(void);
+void DAC_concurrent_software_trigger_disable(void);
 /* enable DAC concurrent buffer function */
-void dac_concurrent_output_buffer_enable(void);
+void DAC_concurrent_output_buffer_enable(void);
 /* disable DAC concurrent buffer function */
-void dac_concurrent_output_buffer_disable(void);
+void DAC_concurrent_output_buffer_disable(void);
 /* set DAC concurrent mode data holding register value */
-void dac_concurrent_data_set(uint32_t dac_align, uint16_t data0, uint16_t data1);
+void DAC_concurrent_data_set(uint32_t DAC_align, uint16_t data0, uint16_t data1);
 /* enable DAC concurrent interrupt */
-void dac_concurrent_interrupt_enable(void);
+void DAC_concurrent_Interrupt_enable(void);
 /* disable DAC concurrent interrupt */
-void dac_concurrent_interrupt_disable(void);
+void DAC_concurrent_Interrupt_disable(void);
 
 /* DAC interrupt configuration */
 /* get the specified DAC flag(DAC DMA underrun flag) */
-FlagStatus dac_flag_get(uint32_t dac_periph);
+FlagStatus DAC_flag_get(uint32_t DAC_periph);
 /* clear the specified DAC flag(DAC DMA underrun flag) */
-void dac_flag_clear(uint32_t dac_periph);
+void DAC_flag_clear(uint32_t DAC_periph);
 /* enable DAC interrupt(DAC DMA underrun interrupt) */
-void dac_interrupt_enable(uint32_t dac_periph);
+void DAC_Interrupt_enable(uint32_t DAC_periph);
 /* disable DAC interrupt(DAC DMA underrun interrupt) */
-void dac_interrupt_disable(uint32_t dac_periph);
+void DAC_Interrupt_disable(uint32_t DAC_periph);
 /* get the specified DAC interrupt flag(DAC DMA underrun interrupt flag) */
-FlagStatus dac_interrupt_flag_get(uint32_t dac_periph);
+FlagStatus DAC_Interrupt_flag_get(uint32_t DAC_periph);
 /* clear the specified DAC interrupt flag(DAC DMA underrun interrupt flag) */
-void dac_interrupt_flag_clear(uint32_t dac_periph);
+void DAC_Interrupt_flag_clear(uint32_t DAC_periph);
 
 #endif /* GD32F4XX_DAC_H */

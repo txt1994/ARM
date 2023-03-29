@@ -93,22 +93,22 @@ OF SUCH DAMAGE.
 
 /* function declarations */
 /* enable write access to FWDGT_PSC and FWDGT_RLD */
-void fwdgt_write_enable(void);
+void FWDGT_write_enable(void);
 /* disable write access to FWDGT_PSC and FWDGT_RLD */
-void fwdgt_write_disable(void);
+void FWDGT_write_disable(void);
 /* start the free watchdog timer counter */
-void fwdgt_enable(void);
+void FWDGT_enable(void);
 
 /* configure the free watchdog timer counter prescaler value */
-ErrStatus fwdgt_prescaler_value_config(uint16_t prescaler_value);
+ErrStatus FWDGT_prescaler_value_Config(uint16_t prescaler_value);
 /* configure the free watchdog timer counter reload value */
-ErrStatus fwdgt_reload_value_config(uint16_t reload_value);
+ErrStatus FWDGT_reload_value_Config(uint16_t reload_value);
 /* reload the counter of FWDGT */
-void fwdgt_counter_reload(void);
+void FWDGT_counter_reload(void);
 /* configure counter reload value, and prescaler divider value */
-ErrStatus fwdgt_config(uint16_t reload_value, uint8_t prescaler_div);
+ErrStatus FWDGT_Config(uint16_t reload_value, uint8_t prescaler_div);
 
 /* get flag state of FWDGT */
-FlagStatus fwdgt_flag_get(uint16_t flag);
+FlagStatus FWDGT_flag_get(uint16_t flag);
 
 #endif /* GD32F4XX_FWDGT_H */

@@ -43,7 +43,7 @@ OF SUCH DAMAGE.
     参数[输出]:  无
     返回值:      无
 */
-void fwdgt_write_enable(void) {
+void FWDGT_write_enable(void) {
     FWDGT_CTL = FWDGT_WRITEACCESS_ENABLE;
 }
 
@@ -53,7 +53,7 @@ void fwdgt_write_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void fwdgt_write_disable(void) {
+void FWDGT_write_disable(void) {
     FWDGT_CTL = FWDGT_WRITEACCESS_DISABLE;
 }
 
@@ -63,7 +63,7 @@ void fwdgt_write_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void fwdgt_enable(void) {
+void FWDGT_enable(void) {
     FWDGT_CTL = FWDGT_KEY_ENABLE;
 }
 
@@ -81,7 +81,7 @@ void fwdgt_enable(void) {
     参数[输出]:  无
     返回值:     ErrStatus: ERROR or SUCCESS
 */
-ErrStatus fwdgt_prescaler_value_config(uint16_t prescaler_value) {
+ErrStatus FWDGT_prescaler_value_Config(uint16_t prescaler_value) {
     uint32_t timeout = FWDGT_PSC_TIMEOUT;
     uint32_t flag_status = RESET;
 
@@ -109,7 +109,7 @@ ErrStatus fwdgt_prescaler_value_config(uint16_t prescaler_value) {
     参数[输出]:  无
     返回值:     ErrStatus: ERROR or SUCCESS
 */
-ErrStatus fwdgt_reload_value_config(uint16_t reload_value) {
+ErrStatus FWDGT_reload_value_Config(uint16_t reload_value) {
     uint32_t timeout = FWDGT_RLD_TIMEOUT;
     uint32_t flag_status = RESET;
 
@@ -136,7 +136,7 @@ ErrStatus fwdgt_reload_value_config(uint16_t reload_value) {
     参数[输出]:  无
     返回值:      无
 */
-void fwdgt_counter_reload(void) {
+void FWDGT_counter_reload(void) {
     FWDGT_CTL = FWDGT_KEY_RELOAD;
 }
 
@@ -155,7 +155,7 @@ void fwdgt_counter_reload(void) {
     参数[输出]:  无
     返回值:     ErrStatus: ERROR or SUCCESS
 */
-ErrStatus fwdgt_config(uint16_t reload_value, uint8_t prescaler_div) {
+ErrStatus FWDGT_Config(uint16_t reload_value, uint8_t prescaler_div) {
     uint32_t timeout = FWDGT_PSC_TIMEOUT;
     uint32_t flag_status = RESET;
 
@@ -202,7 +202,7 @@ ErrStatus fwdgt_config(uint16_t reload_value, uint8_t prescaler_div) {
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus fwdgt_flag_get(uint16_t flag) {
+FlagStatus FWDGT_flag_get(uint16_t flag) {
     if(RESET != (FWDGT_STAT & flag)) {
         return SET;
     }

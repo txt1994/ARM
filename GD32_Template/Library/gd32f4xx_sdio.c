@@ -43,9 +43,9 @@ OF SUCH DAMAGE.
     参数[输出]:  无
     返回值:      无
 */
-void sdio_deinit(void) {
-    rcu_periph_reset_enable(RCU_SDIORST);
-    rcu_periph_reset_disable(RCU_SDIORST);
+void SDIO_DeInit(void) {
+    RCU_Periph_Reset_Enable(RCU_SDIORST);
+    RCU_Periph_Reset_Disable(RCU_SDIORST);
 }
 
 /*!
@@ -66,21 +66,21 @@ void sdio_deinit(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_clock_config(uint32_t clock_edge, uint32_t clock_bypass, uint32_t clock_powersave, uint16_t clock_division) {
-    uint32_t clock_config = 0U;
-    clock_config = SDIO_CLKCTL;
+void SDIO_clock_Config(uint32_t clock_edge, uint32_t clock_bypass, uint32_t clock_powersave, uint16_t clock_division) {
+    uint32_t clock_Config = 0U;
+    clock_Config = SDIO_CLKCTL;
     /* reset the CLKEDGE, CLKBYP, CLKPWRSAV, DIV */
-    clock_config &= ~(SDIO_CLKCTL_CLKEDGE | SDIO_CLKCTL_CLKBYP | SDIO_CLKCTL_CLKPWRSAV | SDIO_CLKCTL_DIV8 | SDIO_CLKCTL_DIV);
+    clock_Config &= ~(SDIO_CLKCTL_CLKEDGE | SDIO_CLKCTL_CLKBYP | SDIO_CLKCTL_CLKPWRSAV | SDIO_CLKCTL_DIV8 | SDIO_CLKCTL_DIV);
 
     /* if the clock division is greater or equal to 256, set the DIV[8] */
     if(clock_division >= 256U) {
-        clock_config |= SDIO_CLKCTL_DIV8;
+        clock_Config |= SDIO_CLKCTL_DIV8;
         clock_division -= 256U;
     }
 
     /* configure the SDIO_CLKCTL according to the parameters */
-    clock_config |= (clock_edge | clock_bypass | clock_powersave | clock_division);
-    SDIO_CLKCTL = clock_config;
+    clock_Config |= (clock_edge | clock_bypass | clock_powersave | clock_division);
+    SDIO_CLKCTL = clock_Config;
 }
 
 /*!
@@ -89,7 +89,7 @@ void sdio_clock_config(uint32_t clock_edge, uint32_t clock_bypass, uint32_t cloc
     参数[输出]:  无
     返回值:      无
 */
-void sdio_hardware_clock_enable(void) {
+void SDIO_hardware_clock_enable(void) {
     SDIO_CLKCTL |= SDIO_CLKCTL_HWCLKEN;
 }
 
@@ -99,7 +99,7 @@ void sdio_hardware_clock_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_hardware_clock_disable(void) {
+void SDIO_hardware_clock_disable(void) {
     SDIO_CLKCTL &= ~SDIO_CLKCTL_HWCLKEN;
 }
 
@@ -113,7 +113,7 @@ void sdio_hardware_clock_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_bus_mode_set(uint32_t bus_mode) {
+void SDIO_bus_mode_set(uint32_t bus_mode) {
     /* reset the SDIO card bus mode bits and set according to bus_mode */
     SDIO_CLKCTL &= ~SDIO_CLKCTL_BUSMODE;
     SDIO_CLKCTL |= bus_mode;
@@ -128,7 +128,7 @@ void sdio_bus_mode_set(uint32_t bus_mode) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_power_state_set(uint32_t power_state) {
+void SDIO_power_state_set(uint32_t power_state) {
     SDIO_PWRCTL = power_state;
 }
 
@@ -140,7 +140,7 @@ void sdio_power_state_set(uint32_t power_state) {
       参数:        SDIO_POWER_ON: SDIO power on
       参数:        SDIO_POWER_OFF: SDIO power off
 */
-uint32_t sdio_power_state_get(void) {
+uint32_t SDIO_power_state_get(void) {
     return SDIO_PWRCTL;
 }
 
@@ -150,7 +150,7 @@ uint32_t sdio_power_state_get(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_clock_enable(void) {
+void SDIO_clock_enable(void) {
     SDIO_CLKCTL |= SDIO_CLKCTL_CLKEN;
 }
 
@@ -160,7 +160,7 @@ void sdio_clock_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_clock_disable(void) {
+void SDIO_clock_disable(void) {
     SDIO_CLKCTL &= ~SDIO_CLKCTL_CLKEN;
 }
 
@@ -176,33 +176,33 @@ void sdio_clock_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_command_response_config(uint32_t cmd_index, uint32_t cmd_argument, uint32_t response_type) {
-    uint32_t cmd_config = 0U;
+void SDIO_command_response_Config(uint32_t cmd_index, uint32_t cmd_argument, uint32_t response_type) {
+    uint32_t cmd_Config = 0U;
     /* disable the CSM */
     SDIO_CMDCTL &= ~SDIO_CMDCTL_CSMEN;
     /* reset the command index, command argument and response type */
     SDIO_CMDAGMT &= ~SDIO_CMDAGMT_CMDAGMT;
     SDIO_CMDAGMT = cmd_argument;
-    cmd_config = SDIO_CMDCTL;
-    cmd_config &= ~(SDIO_CMDCTL_CMDIDX | SDIO_CMDCTL_CMDRESP);
+    cmd_Config = SDIO_CMDCTL;
+    cmd_Config &= ~(SDIO_CMDCTL_CMDIDX | SDIO_CMDCTL_CMDRESP);
     /* configure SDIO_CMDCTL and SDIO_CMDAGMT according to the parameters */
-    cmd_config |= (cmd_index | response_type);
-    SDIO_CMDCTL = cmd_config;
+    cmd_Config |= (cmd_index | response_type);
+    SDIO_CMDCTL = cmd_Config;
 }
 
 /*!
     简介:    set the command state machine wait type
     参数[输入]:  wait_type: wait type
                 only one parameter can be selected which is shown as below:
-      参数:        SDIO_WAITTYPE_NO: not wait interrupt
-      参数:        SDIO_WAITTYPE_INTERRUPT: wait interrupt
-      参数:        SDIO_WAITTYPE_DATAEND: wait the end of data transfer
+      参数:        SDIO_WaitTYPE_NO: not wait interrupt
+      参数:        SDIO_WaitTYPE_INTERRUPT: wait interrupt
+      参数:        SDIO_WaitTYPE_DATAEND: wait the end of data transfer
     参数[输出]:  无
     返回值:      无
 */
-void sdio_wait_type_set(uint32_t wait_type) {
+void SDIO_Wait_type_set(uint32_t wait_type) {
     /* reset INTWAIT and WAITDEND */
-    SDIO_CMDCTL &= ~(SDIO_CMDCTL_INTWAIT | SDIO_CMDCTL_WAITDEND);
+    SDIO_CMDCTL &= ~(SDIO_CMDCTL_INTWAIT | SDIO_CMDCTL_WaitDEND);
     /* set the wait type according to wait_type */
     SDIO_CMDCTL |= wait_type;
 }
@@ -213,7 +213,7 @@ void sdio_wait_type_set(uint32_t wait_type) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_csm_enable(void) {
+void SDIO_csm_enable(void) {
     SDIO_CMDCTL |= SDIO_CMDCTL_CSMEN;
 }
 
@@ -223,7 +223,7 @@ void sdio_csm_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_csm_disable(void) {
+void SDIO_csm_disable(void) {
     SDIO_CMDCTL &= ~SDIO_CMDCTL_CSMEN;
 }
 
@@ -233,13 +233,13 @@ void sdio_csm_disable(void) {
     参数[输出]:  无
     返回值:     last response command index
 */
-uint8_t sdio_command_index_get(void) {
+uint8_t SDIO_command_index_get(void) {
     return (uint8_t)SDIO_RSPCMDIDX;
 }
 
 /*!
     简介:    get the response for the last received command
-    参数[输入]:  sdio_responsex: SDIO response
+    参数[输入]:  SDIO_responsex: SDIO response
                 only one parameter can be selected which is shown as below:
       参数:       SDIO_RESPONSE0: card response[31:0]/card response[127:96]
       参数:       SDIO_RESPONSE1: card response[95:64]
@@ -248,10 +248,10 @@ uint8_t sdio_command_index_get(void) {
     参数[输出]:  无
     返回值:     response for the last received command
 */
-uint32_t sdio_response_get(uint32_t sdio_responsex) {
+uint32_t SDIO_response_get(uint32_t SDIO_responsex) {
     uint32_t resp_content = 0U;
 
-    switch(sdio_responsex) {
+    switch(SDIO_responsex) {
     case SDIO_RESPONSE0:
         resp_content = SDIO_RESP0;
         break;
@@ -299,7 +299,7 @@ uint32_t sdio_response_get(uint32_t sdio_responsex) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_data_config(uint32_t data_timeout, uint32_t data_length, uint32_t data_blocksize) {
+void SDIO_data_Config(uint32_t data_timeout, uint32_t data_length, uint32_t data_blocksize) {
     /* reset data timeout, data length and data block size */
     SDIO_DATATO &= ~SDIO_DATATO_DATATO;
     SDIO_DATALEN &= ~SDIO_DATALEN_DATALEN;
@@ -323,7 +323,7 @@ void sdio_data_config(uint32_t data_timeout, uint32_t data_length, uint32_t data
     参数[输出]:  无
     返回值:      无
 */
-void sdio_data_transfer_config(uint32_t transfer_mode, uint32_t transfer_direction) {
+void SDIO_data_transfer_Config(uint32_t transfer_mode, uint32_t transfer_direction) {
     uint32_t data_trans = 0U;
     /* reset the data transfer mode, transfer direction and set according to the parameters */
     data_trans = SDIO_DATACTL;
@@ -338,7 +338,7 @@ void sdio_data_transfer_config(uint32_t transfer_mode, uint32_t transfer_directi
     参数[输出]:  无
     返回值:      无
 */
-void sdio_dsm_enable(void) {
+void SDIO_dsm_enable(void) {
     SDIO_DATACTL |= SDIO_DATACTL_DATAEN;
 }
 
@@ -348,7 +348,7 @@ void sdio_dsm_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_dsm_disable(void) {
+void SDIO_dsm_disable(void) {
     SDIO_DATACTL &= ~SDIO_DATACTL_DATAEN;
 }
 
@@ -358,7 +358,7 @@ void sdio_dsm_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_data_write(uint32_t data) {
+void SDIO_data_write(uint32_t data) {
     SDIO_FIFO = data;
 }
 
@@ -368,7 +368,7 @@ void sdio_data_write(uint32_t data) {
     参数[输出]:  无
     返回值:     received data
 */
-uint32_t sdio_data_read(void) {
+uint32_t SDIO_data_read(void) {
     return SDIO_FIFO;
 }
 
@@ -378,7 +378,7 @@ uint32_t sdio_data_read(void) {
     参数[输出]:  无
     返回值:     number of remaining data bytes to be transferred
 */
-uint32_t sdio_data_counter_get(void) {
+uint32_t SDIO_data_counter_get(void) {
     return SDIO_DATACNT;
 }
 
@@ -388,7 +388,7 @@ uint32_t sdio_data_counter_get(void) {
     参数[输出]:  无
     返回值:     remaining number of words
 */
-uint32_t sdio_fifo_counter_get(void) {
+uint32_t SDIO_fifo_counter_get(void) {
     return SDIO_FIFOCNT;
 }
 
@@ -398,7 +398,7 @@ uint32_t sdio_fifo_counter_get(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_dma_enable(void) {
+void SDIO_DMA_enable(void) {
     SDIO_DATACTL |= SDIO_DATACTL_DMAEN;
 }
 
@@ -408,7 +408,7 @@ void sdio_dma_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_dma_disable(void) {
+void SDIO_DMA_disable(void) {
     SDIO_DATACTL &= ~SDIO_DATACTL_DMAEN;
 }
 
@@ -443,7 +443,7 @@ void sdio_dma_disable(void) {
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus sdio_flag_get(uint32_t flag) {
+FlagStatus SDIO_flag_get(uint32_t flag) {
     FlagStatus temp_flag = RESET;
 
     if(RESET != (SDIO_STAT & flag)) {
@@ -473,7 +473,7 @@ FlagStatus sdio_flag_get(uint32_t flag) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_flag_clear(uint32_t flag) {
+void SDIO_flag_clear(uint32_t flag) {
     SDIO_INTC = flag;
 }
 
@@ -508,7 +508,7 @@ void sdio_flag_clear(uint32_t flag) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_interrupt_enable(uint32_t int_flag) {
+void SDIO_Interrupt_enable(uint32_t int_flag) {
     SDIO_INTEN |= int_flag;
 }
 
@@ -543,7 +543,7 @@ void sdio_interrupt_enable(uint32_t int_flag) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_interrupt_disable(uint32_t int_flag) {
+void SDIO_Interrupt_disable(uint32_t int_flag) {
     SDIO_INTEN &= ~int_flag;
 }
 
@@ -578,7 +578,7 @@ void sdio_interrupt_disable(uint32_t int_flag) {
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus sdio_interrupt_flag_get(uint32_t int_flag) {
+FlagStatus SDIO_Interrupt_flag_get(uint32_t int_flag) {
     FlagStatus temp_flag = RESET;
 
     if(RESET != (SDIO_STAT & int_flag)) {
@@ -608,7 +608,7 @@ FlagStatus sdio_interrupt_flag_get(uint32_t int_flag) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_interrupt_flag_clear(uint32_t int_flag) {
+void SDIO_Interrupt_flag_clear(uint32_t int_flag) {
     SDIO_INTC = int_flag;
 }
 
@@ -618,7 +618,7 @@ void sdio_interrupt_flag_clear(uint32_t int_flag) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_readwait_enable(void) {
+void SDIO_readwait_enable(void) {
     SDIO_DATACTL |= SDIO_DATACTL_RWEN;
 }
 
@@ -628,7 +628,7 @@ void sdio_readwait_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_readwait_disable(void) {
+void SDIO_readwait_disable(void) {
     SDIO_DATACTL &= ~SDIO_DATACTL_RWEN;
 }
 
@@ -638,7 +638,7 @@ void sdio_readwait_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_stop_readwait_enable(void) {
+void SDIO_stop_readwait_enable(void) {
     SDIO_DATACTL |= SDIO_DATACTL_RWSTOP;
 }
 
@@ -648,7 +648,7 @@ void sdio_stop_readwait_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_stop_readwait_disable(void) {
+void SDIO_stop_readwait_disable(void) {
     SDIO_DATACTL &= ~SDIO_DATACTL_RWSTOP;
 }
 
@@ -661,7 +661,7 @@ void sdio_stop_readwait_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_readwait_type_set(uint32_t readwait_type) {
+void SDIO_readwait_type_set(uint32_t readwait_type) {
     if(SDIO_READWAITTYPE_CLK == readwait_type) {
         SDIO_DATACTL |= SDIO_DATACTL_RWTYPE;
     } else {
@@ -675,7 +675,7 @@ void sdio_readwait_type_set(uint32_t readwait_type) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_operation_enable(void) {
+void SDIO_operation_enable(void) {
     SDIO_DATACTL |= SDIO_DATACTL_IOEN;
 }
 
@@ -685,7 +685,7 @@ void sdio_operation_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_operation_disable(void) {
+void SDIO_operation_disable(void) {
     SDIO_DATACTL &= ~SDIO_DATACTL_IOEN;
 }
 
@@ -695,7 +695,7 @@ void sdio_operation_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_suspend_enable(void) {
+void SDIO_suspend_enable(void) {
     SDIO_CMDCTL |= SDIO_CMDCTL_SUSPEND;
 }
 
@@ -705,7 +705,7 @@ void sdio_suspend_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_suspend_disable(void) {
+void SDIO_suspend_disable(void) {
     SDIO_CMDCTL &= ~SDIO_CMDCTL_SUSPEND;
 }
 
@@ -715,7 +715,7 @@ void sdio_suspend_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_ceata_command_enable(void) {
+void SDIO_ceata_command_enable(void) {
     SDIO_CMDCTL |= SDIO_CMDCTL_ATAEN;
 }
 
@@ -725,7 +725,7 @@ void sdio_ceata_command_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_ceata_command_disable(void) {
+void SDIO_ceata_command_disable(void) {
     SDIO_CMDCTL &= ~SDIO_CMDCTL_ATAEN;
 }
 
@@ -735,7 +735,7 @@ void sdio_ceata_command_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_ceata_interrupt_enable(void) {
+void SDIO_ceata_Interrupt_enable(void) {
     SDIO_CMDCTL &= ~SDIO_CMDCTL_NINTEN;
 }
 
@@ -745,7 +745,7 @@ void sdio_ceata_interrupt_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_ceata_interrupt_disable(void) {
+void SDIO_ceata_Interrupt_disable(void) {
     SDIO_CMDCTL |= SDIO_CMDCTL_NINTEN;
 }
 
@@ -755,7 +755,7 @@ void sdio_ceata_interrupt_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_ceata_command_completion_enable(void) {
+void SDIO_ceata_command_completion_enable(void) {
     SDIO_CMDCTL |= SDIO_CMDCTL_ENCMDC;
 }
 
@@ -765,6 +765,6 @@ void sdio_ceata_command_completion_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void sdio_ceata_command_completion_disable(void) {
+void SDIO_ceata_command_completion_disable(void) {
     SDIO_CMDCTL &= ~SDIO_CMDCTL_ENCMDC;
 }

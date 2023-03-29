@@ -169,19 +169,19 @@ OF SUCH DAMAGE.
 
 /* function declarations */
 /* deinitialize IREF */
-void iref_deinit(void);
+void IREF_DeInit(void);
 /* enable IREF */
-void iref_enable(void);
+void IREF_enable(void);
 /* disable IREF */
-void iref_disable(void);
+void IREF_disable(void);
 
 /* set IREF mode*/
-void iref_mode_set(uint32_t step);
+void IREF_mode_set(uint32_t step);
 /* set IREF sink current mode*/
-void iref_sink_set(uint32_t sinkmode);
+void IREF_sink_set(uint32_t sinkmode);
 /* set IREF current precision trim value */
-void iref_precision_trim_value_set(uint32_t precisiontrim);
+void IREF_precision_trim_value_set(uint32_t precisiontrim);
 /* set IREF step data*/
-void iref_step_data_config(uint32_t stepdata);
+void IREF_step_data_Config(uint32_t stepdata);
 
 #endif /* GD32F4XX_IREF_H */

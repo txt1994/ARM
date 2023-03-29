@@ -61,21 +61,21 @@ OF SUCH DAMAGE.
 
 /* function declarations */
 /* deinit CRC calculation unit */
-void crc_deinit(void);
+void CRC_DeInit(void);
 
 /* reset data register(CRC_DATA) to the value of 0xFFFFFFFF */
-void crc_data_register_reset(void);
+void CRC_data_register_reset(void);
 /* read the value of the data register */
-uint32_t crc_data_register_read(void);
+uint32_t CRC_data_register_read(void);
 
 /* read the value of the free data register */
-uint8_t crc_free_data_register_read(void);
+uint8_t CRC_free_data_register_read(void);
 /* write data to the free data register */
-void crc_free_data_register_write(uint8_t free_data);
+void CRC_free_data_register_write(uint8_t free_data);
 
 /* calculate the CRC value of a 32-bit data */
-uint32_t crc_single_data_calculate(uint32_t sdata);
+uint32_t CRC_single_data_calculate(uint32_t sdata);
 /* calculate the CRC value of an array of 32-bit values */
-uint32_t crc_block_data_calculate(uint32_t array[], uint32_t size);
+uint32_t CRC_block_data_calculate(uint32_t array[], uint32_t size);
 
 #endif /* GD32F4XX_CRC_H */

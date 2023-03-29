@@ -132,7 +132,7 @@ typedef struct {
     uint32_t vsync_polarity;                                         /*!< vertical polarity selection */
     uint32_t frame_rate;                                             /*!< frame capture rate */
     uint32_t interface_format;                                       /*!< digital camera interface format */
-} dci_parameter_struct;
+} DCI_parameter_struct;
 
 #define DCI_CAPTURE_MODE_CONTINUOUS   ((uint32_t)0x00000000U)        /*!< continuous capture mode */
 #define DCI_CAPTURE_MODE_SNAPSHOT     DCI_CTL_SNAP                   /*!< snapshot capture mode */
@@ -184,55 +184,55 @@ typedef struct {
 /* function declarations */
 /* initialization functions */
 /* DCI deinit */
-void dci_deinit(void);
+void DCI_DeInit(void);
 /* initialize DCI registers */
-void dci_init(dci_parameter_struct* dci_struct);
+void DCI_init(DCI_parameter_struct* DCI_struct);
 
 /* enable DCI function */
-void dci_enable(void);
+void DCI_enable(void);
 /* disable DCI function */
-void dci_disable(void);
+void DCI_disable(void);
 /* enable DCI capture */
-void dci_capture_enable(void);
+void DCI_capture_enable(void);
 /* disable DCI capture */
-void dci_capture_disable(void);
+void DCI_capture_disable(void);
 /* enable DCI jpeg mode */
-void dci_jpeg_enable(void);
+void DCI_jpeg_enable(void);
 /* disable DCI jpeg mode */
-void dci_jpeg_disable(void);
+void DCI_jpeg_disable(void);
 
 /* function configuration */
 /* enable cropping window function */
-void dci_crop_window_enable(void);
+void DCI_crop_window_enable(void);
 /* disable cropping window function */
-void dci_crop_window_disable(void);
+void DCI_crop_window_disable(void);
 /* configure DCI cropping window */
-void dci_crop_window_config(uint16_t start_x, uint16_t start_y, uint16_t size_width, uint16_t size_height);
+void DCI_crop_window_Config(uint16_t start_x, uint16_t start_y, uint16_t size_width, uint16_t size_height);
 
 /* enable embedded synchronous mode */
-void dci_embedded_sync_enable(void);
+void DCI_embedded_sync_enable(void);
 /* disable embedded synchronous mode */
-void dci_embedded_sync_disable(void);
+void DCI_embedded_sync_disable(void);
 /* configure synchronous codes in embedded synchronous mode */
-void dci_sync_codes_config(uint8_t frame_start, uint8_t line_start, uint8_t line_end, uint8_t frame_end);
+void DCI_sync_codes_Config(uint8_t frame_start, uint8_t line_start, uint8_t line_end, uint8_t frame_end);
 /* configure synchronous codes unmask in embedded synchronous mode */
-void dci_sync_codes_unmask_config(uint8_t frame_start, uint8_t line_start, uint8_t line_end, uint8_t frame_end);
+void DCI_sync_codes_unmask_Config(uint8_t frame_start, uint8_t line_start, uint8_t line_end, uint8_t frame_end);
 
 /* read DCI data register */
-uint32_t dci_data_read(void);
+uint32_t DCI_data_read(void);
 
 /* interrupt & flag functions */
 /* get specified flag */
-FlagStatus dci_flag_get(uint32_t flag);
+FlagStatus DCI_flag_get(uint32_t flag);
 /* enable specified DCI interrupt */
-void dci_interrupt_enable(uint32_t interrupt);
+void DCI_Interrupt_enable(uint32_t interrupt);
 /* disable specified DCI interrupt */
-void dci_interrupt_disable(uint32_t interrupt);
+void DCI_Interrupt_disable(uint32_t interrupt);
 
 
 /* get specified interrupt flag */
-FlagStatus dci_interrupt_flag_get(uint32_t int_flag);
+FlagStatus DCI_Interrupt_flag_get(uint32_t int_flag);
 /* clear specified interrupt flag */
-void dci_interrupt_flag_clear(uint32_t int_flag);
+void DCI_Interrupt_flag_clear(uint32_t int_flag);
 
 #endif /* GD32F4XX_DCI_H */

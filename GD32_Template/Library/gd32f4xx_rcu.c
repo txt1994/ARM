@@ -55,10 +55,10 @@ OF SUCH DAMAGE.
     参数[输出]:  无
     返回值:      无
 */
-void rcu_deinit(void) {
+void rcu_DeInit(void) {
     /* enable IRC16M */
     RCU_CTL |= RCU_CTL_IRC16MEN;
-    rcu_osci_stab_wait(RCU_IRC16M);
+    rcu_osci_stab_Wait(RCU_IRC16M);
     RCU_CFG0 &= ~RCU_CFG0_SCS;
 
     /* reset CTL register */
@@ -291,7 +291,7 @@ void rcu_periph_clock_sleep_disable(rcu_periph_sleep_enum periph) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_periph_reset_enable(rcu_periph_reset_enum periph_reset) {
+void RCU_Periph_Reset_Enable(rcu_periph_reset_enum periph_reset) {
     RCU_REG_VAL(periph_reset) |= BIT(RCU_BIT_POS(periph_reset));
 }
 
@@ -327,7 +327,7 @@ void rcu_periph_reset_enable(rcu_periph_reset_enum periph_reset) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_periph_reset_disable(rcu_periph_reset_enum periph_reset) {
+void RCU_Periph_Reset_Disable(rcu_periph_reset_enum periph_reset) {
     RCU_REG_VAL(periph_reset) &= ~BIT(RCU_BIT_POS(periph_reset));
 }
 
@@ -361,7 +361,7 @@ void rcu_bkp_reset_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_system_clock_source_config(uint32_t ck_sys) {
+void rcu_system_clock_source_Config(uint32_t ck_sys) {
     uint32_t reg;
 
     reg = RCU_CFG0;
@@ -391,7 +391,7 @@ uint32_t rcu_system_clock_source_get(void) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_ahb_clock_config(uint32_t ck_ahb) {
+void rcu_ahb_clock_Config(uint32_t ck_ahb) {
     uint32_t reg;
 
     reg = RCU_CFG0;
@@ -412,7 +412,7 @@ void rcu_ahb_clock_config(uint32_t ck_ahb) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_apb1_clock_config(uint32_t ck_apb1) {
+void rcu_apb1_clock_Config(uint32_t ck_apb1) {
     uint32_t reg;
 
     reg = RCU_CFG0;
@@ -433,7 +433,7 @@ void rcu_apb1_clock_config(uint32_t ck_apb1) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_apb2_clock_config(uint32_t ck_apb2) {
+void rcu_apb2_clock_Config(uint32_t ck_apb2) {
     uint32_t reg;
 
     reg = RCU_CFG0;
@@ -455,7 +455,7 @@ void rcu_apb2_clock_config(uint32_t ck_apb2) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_ckout0_config(uint32_t ckout0_src, uint32_t ckout0_div) {
+void rcu_ckout0_Config(uint32_t ckout0_src, uint32_t ckout0_div) {
     uint32_t reg;
 
     reg = RCU_CFG0;
@@ -477,7 +477,7 @@ void rcu_ckout0_config(uint32_t ckout0_src, uint32_t ckout0_div) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_ckout1_config(uint32_t ckout1_src, uint32_t ckout1_div) {
+void rcu_ckout1_Config(uint32_t ckout1_src, uint32_t ckout1_div) {
     uint32_t reg;
 
     reg = RCU_CFG0;
@@ -502,7 +502,7 @@ void rcu_ckout1_config(uint32_t ckout1_src, uint32_t ckout1_div) {
     参数[输出]:  无
     返回值:     ErrStatus: SUCCESS or ERROR
 */
-ErrStatus rcu_pll_config(uint32_t pll_src, uint32_t pll_psc, uint32_t pll_n, uint32_t pll_p, uint32_t pll_q) {
+ErrStatus rcu_pll_Config(uint32_t pll_src, uint32_t pll_psc, uint32_t pll_n, uint32_t pll_p, uint32_t pll_q) {
     uint32_t ss_modulation_inc;
     uint32_t ss_modulation_reg;
 
@@ -541,7 +541,7 @@ ErrStatus rcu_pll_config(uint32_t pll_src, uint32_t pll_psc, uint32_t pll_n, uin
     参数[输出]:  无
     返回值:     ErrStatus: SUCCESS or ERROR
 */
-ErrStatus rcu_plli2s_config(uint32_t plli2s_n, uint32_t plli2s_r) {
+ErrStatus rcu_plli2s_Config(uint32_t plli2s_n, uint32_t plli2s_r) {
     /* check the function parameter */
     if(CHECK_PLLI2S_N_VALID(plli2s_n) && CHECK_PLLI2S_R_VALID(plli2s_r)) {
         RCU_PLLI2S = (plli2s_n << 6) | (plli2s_r << 28);
@@ -565,7 +565,7 @@ ErrStatus rcu_plli2s_config(uint32_t plli2s_n, uint32_t plli2s_r) {
     参数[输出]:  无
     返回值:     ErrStatus: SUCCESS or ERROR
 */
-ErrStatus rcu_pllsai_config(uint32_t pllsai_n, uint32_t pllsai_p, uint32_t pllsai_r) {
+ErrStatus rcu_pllsai_Config(uint32_t pllsai_n, uint32_t pllsai_p, uint32_t pllsai_r) {
     /* check the function parameter */
     if(CHECK_PLLSAI_N_VALID(pllsai_n) && CHECK_PLLSAI_P_VALID(pllsai_p) && CHECK_PLLSAI_R_VALID(pllsai_r)) {
         RCU_PLLSAI = (pllsai_n << 6U) | (((pllsai_p >> 1U) - 1U) << 16U) | (pllsai_r << 28U);
@@ -580,7 +580,7 @@ ErrStatus rcu_pllsai_config(uint32_t pllsai_n, uint32_t pllsai_p, uint32_t pllsa
 
 /*!
     简介:    configure the RTC clock source selection
-    参数[输入]:  rtc_clock_source: RTC clock source selection
+    参数[输入]:  RTC_clock_source: RTC clock source selection
                 only one parameter can be selected which is shown as below:
       参数:        RCU_RTCSRC_NONE: no clock selected
       参数:        RCU_RTCSRC_LXTAL: CK_LXTAL selected as RTC source clock
@@ -589,31 +589,31 @@ ErrStatus rcu_pllsai_config(uint32_t pllsai_n, uint32_t pllsai_p, uint32_t pllsa
     参数[输出]:  无
     返回值:      无
 */
-void rcu_rtc_clock_config(uint32_t rtc_clock_source) {
+void rcu_RTC_clock_Config(uint32_t RTC_clock_source) {
     uint32_t reg;
 
     reg = RCU_BDCTL;
-    /* reset the RTCSRC bits and set according to rtc_clock_source */
+    /* reset the RTCSRC bits and set according to RTC_clock_source */
     reg &= ~RCU_BDCTL_RTCSRC;
-    RCU_BDCTL = (reg | rtc_clock_source);
+    RCU_BDCTL = (reg | RTC_clock_source);
 }
 
 /*!
     简介:    configure the frequency division of RTC clock when HXTAL was selected as its clock source
-    参数[输入]:  rtc_div: RTC clock frequency division
+    参数[输入]:  RTC_div: RTC clock frequency division
                 only one parameter can be selected which is shown as below:
       参数:        RCU_RTC_HXTAL_NONE: no clock for RTC
       参数:        RCU_RTC_HXTAL_DIVx: RTCDIV clock select CK_HXTAL / x, x = 2....31
     参数[输出]:  无
     返回值:      无
 */
-void rcu_rtc_div_config(uint32_t rtc_div) {
+void rcu_RTC_div_Config(uint32_t RTC_div) {
     uint32_t reg;
 
     reg = RCU_CFG0;
-    /* reset the RTCDIV bits and set according to rtc_div value */
+    /* reset the RTCDIV bits and set according to RTC_div value */
     reg &= ~RCU_CFG0_RTCDIV;
-    RCU_CFG0 = (reg | rtc_div);
+    RCU_CFG0 = (reg | RTC_div);
 }
 
 
@@ -626,7 +626,7 @@ void rcu_rtc_div_config(uint32_t rtc_div) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_i2s_clock_config(uint32_t i2s_clock_source) {
+void rcu_i2s_clock_Config(uint32_t i2s_clock_source) {
     uint32_t reg;
 
     reg = RCU_CFG0;
@@ -644,7 +644,7 @@ void rcu_i2s_clock_config(uint32_t i2s_clock_source) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_ck48m_clock_config(uint32_t ck48m_clock_source) {
+void rcu_ck48m_clock_Config(uint32_t ck48m_clock_source) {
     uint32_t reg;
 
     reg = RCU_ADDCTL;
@@ -662,7 +662,7 @@ void rcu_ck48m_clock_config(uint32_t ck48m_clock_source) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_pll48m_clock_config(uint32_t pll48m_clock_source) {
+void rcu_pll48m_clock_Config(uint32_t pll48m_clock_source) {
     uint32_t reg;
 
     reg = RCU_ADDCTL;
@@ -673,7 +673,7 @@ void rcu_pll48m_clock_config(uint32_t pll48m_clock_source) {
 
 /*!
     简介:    configure the TIMER clock prescaler selection
-    参数[输入]:  timer_clock_prescaler: TIMER clock selection
+    参数[输入]:  TIMER_clock_prescaler: TIMER clock selection
                 only one parameter can be selected which is shown as below:
       参数:        RCU_TIMER_PSC_MUL2: if APB1PSC/APB2PSC in RCU_CFG0 register is 0b0xx(CK_APBx = CK_AHB)
                                       or 0b100(CK_APBx = CK_AHB/2), the TIMER clock is equal to CK_AHB(CK_TIMERx = CK_AHB).
@@ -686,12 +686,12 @@ void rcu_pll48m_clock_config(uint32_t pll48m_clock_source) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_timer_clock_prescaler_config(uint32_t timer_clock_prescaler) {
+void rcu_TIMER_clock_prescaler_Config(uint32_t TIMER_clock_prescaler) {
     /* configure the TIMERSEL bit and select the TIMER clock prescaler */
-    if(timer_clock_prescaler == RCU_TIMER_PSC_MUL2) {
-        RCU_CFG1 &= timer_clock_prescaler;
+    if(TIMER_clock_prescaler == RCU_TIMER_PSC_MUL2) {
+        RCU_CFG1 &= TIMER_clock_prescaler;
     } else {
-        RCU_CFG1 |= timer_clock_prescaler;
+        RCU_CFG1 |= TIMER_clock_prescaler;
     }
 }
 
@@ -703,7 +703,7 @@ void rcu_timer_clock_prescaler_config(uint32_t timer_clock_prescaler) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_tli_clock_div_config(uint32_t pllsai_r_div) {
+void rcu_tli_clock_div_Config(uint32_t pllsai_r_div) {
     uint32_t reg;
 
     reg = RCU_CFG1;
@@ -721,7 +721,7 @@ void rcu_tli_clock_div_config(uint32_t pllsai_r_div) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_lxtal_drive_capability_config(uint32_t lxtal_dricap) {
+void rcu_lxtal_drive_capability_Config(uint32_t lxtal_dricap) {
     uint32_t reg;
 
     reg = RCU_BDCTL;
@@ -746,7 +746,7 @@ void rcu_lxtal_drive_capability_config(uint32_t lxtal_dricap) {
     参数[输出]:  无
     返回值:     ErrStatus: SUCCESS or ERROR
 */
-ErrStatus rcu_osci_stab_wait(rcu_osci_type_enum osci) {
+ErrStatus rcu_osci_stab_Wait(rcu_osci_type_enum osci) {
     uint32_t stb_cnt = 0U;
     ErrStatus reval = ERROR;
     FlagStatus osci_stat = RESET;
@@ -1018,7 +1018,7 @@ void rcu_irc16m_adjust_value_set(uint32_t irc16m_adjval) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_spread_spectrum_config(uint32_t spread_spectrum_type, uint32_t modstep, uint32_t modcnt) {
+void rcu_spread_spectrum_Config(uint32_t spread_spectrum_type, uint32_t modstep, uint32_t modcnt) {
     uint32_t reg;
 
     reg = RCU_PLLSSCTL;
@@ -1105,7 +1105,7 @@ void rcu_deepsleep_voltage_set(uint32_t dsvol) {
     参数[输出]:  无
     返回值:     clock frequency of system, AHB, APB1, APB2
 */
-uint32_t rcu_clock_freq_get(rcu_clock_freq_enum clock) {
+uint32_t RCU_Clock_Freq_Get(rcu_clock_freq_enum clock) {
     uint32_t sws, ck_freq = 0U;
     uint32_t cksys_freq, ahb_freq, apb1_freq, apb2_freq;
     uint32_t pllpsc, plln, pllsel, pllp, ck_src, idx, clk_exp;
@@ -1249,7 +1249,7 @@ void rcu_all_reset_flag_clear(void) {
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus rcu_interrupt_flag_get(rcu_int_flag_enum int_flag) {
+FlagStatus rcu_Interrupt_flag_get(rcu_int_flag_enum int_flag) {
     /* get the rcu interrupt flag */
     if(RESET != (RCU_REG_VAL(int_flag) & BIT(RCU_BIT_POS(int_flag)))) {
         return SET;
@@ -1274,7 +1274,7 @@ FlagStatus rcu_interrupt_flag_get(rcu_int_flag_enum int_flag) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_interrupt_flag_clear(rcu_int_flag_clear_enum int_flag) {
+void rcu_Interrupt_flag_clear(rcu_int_flag_clear_enum int_flag) {
     RCU_REG_VAL(int_flag) |= BIT(RCU_BIT_POS(int_flag));
 }
 
@@ -1293,7 +1293,7 @@ void rcu_interrupt_flag_clear(rcu_int_flag_clear_enum int_flag) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_interrupt_enable(rcu_int_enum interrupt) {
+void rcu_Interrupt_enable(rcu_int_enum interrupt) {
     RCU_REG_VAL(interrupt) |= BIT(RCU_BIT_POS(interrupt));
 }
 
@@ -1313,6 +1313,6 @@ void rcu_interrupt_enable(rcu_int_enum interrupt) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_interrupt_disable(rcu_int_enum interrupt) {
+void rcu_Interrupt_disable(rcu_int_enum interrupt) {
     RCU_REG_VAL(interrupt) &= ~BIT(RCU_BIT_POS(interrupt));
 }

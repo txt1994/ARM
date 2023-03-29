@@ -170,7 +170,7 @@ typedef enum {
     DMA_CH5,                                        /*!< DMA Channel 5 */
     DMA_CH6,                                        /*!< DMA Channel 6 */
     DMA_CH7                                         /*!< DMA Channel 7 */
-} dma_channel_enum;
+} DMA_channel_enum;
 
 /* DMA peripheral select */
 typedef enum {
@@ -182,7 +182,7 @@ typedef enum {
     DMA_SUBPERI5,                                   /*!< DMA Peripheral 5 */
     DMA_SUBPERI6,                                   /*!< DMA Peripheral 6 */
     DMA_SUBPERI7                                    /*!< DMA Peripheral 7 */
-} dma_subperipheral_enum;
+} DMA_subperipheral_enum;
 
 /* DMA multidata mode initialize struct */
 typedef struct {
@@ -202,7 +202,7 @@ typedef struct {
     uint32_t direction;                             /*!< channel data transfer direction */
     uint32_t number;                                /*!< channel transfer number */
     uint32_t priority;                              /*!< channel priority level */
-} dma_multi_data_parameter_struct;
+} DMA_multi_data_parameter_struct;
 
 /* DMA singledata mode initialize struct */
 typedef struct {
@@ -218,7 +218,7 @@ typedef struct {
     uint32_t direction;                             /*!< channel data transfer direction */
     uint32_t number;                                /*!< channel transfer number */
     uint32_t priority;                              /*!< channel priority level */
-} dma_single_data_parameter_struct;
+} DMA_single_data_parameter_struct;
 
 #define DMA_FLAG_ADD(flag,channel)        ((uint32_t)((flag)<<((((uint32_t)(channel)*6U))+((uint32_t)(((uint32_t)(channel)) >> 1U)&0x01U)*4U)))   /*!< DMA channel flag shift */
 
@@ -343,82 +343,82 @@ typedef struct {
 /* function declarations */
 /* DMA deinitialization and initialization functions */
 /* deinitialize DMA a channel registers */
-void dma_deinit(uint32_t dma_periph, dma_channel_enum channelx);
+void DMA_DeInit(uint32_t DMA_periph, DMA_channel_enum channelx);
 /* initialize the DMA single data mode parameters struct with the default values */
-void dma_single_data_para_struct_init(dma_single_data_parameter_struct* init_struct);
+void DMA_single_data_para_struct_init(DMA_single_data_parameter_struct* init_struct);
 /* initialize the DMA multi data mode parameters struct with the default values */
-void dma_multi_data_para_struct_init(dma_multi_data_parameter_struct* init_struct);
+void DMA_multi_data_para_struct_init(DMA_multi_data_parameter_struct* init_struct);
 /* DMA single data mode initialize */
-void dma_single_data_mode_init(uint32_t dma_periph, dma_channel_enum channelx, dma_single_data_parameter_struct* init_struct);
+void DMA_single_data_mode_init(uint32_t DMA_periph, DMA_channel_enum channelx, DMA_single_data_parameter_struct* init_struct);
 /* DMA multi data mode initialize */
-void dma_multi_data_mode_init(uint32_t dma_periph, dma_channel_enum channelx, dma_multi_data_parameter_struct* init_struct);
+void DMA_multi_data_mode_init(uint32_t DMA_periph, DMA_channel_enum channelx, DMA_multi_data_parameter_struct* init_struct);
 
 /* DMA configuration functions */
 /* set DMA peripheral base address */
-void dma_periph_address_config(uint32_t dma_periph, dma_channel_enum channelx, uint32_t address);
+void DMA_periph_address_Config(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t address);
 /* set DMA Memory base address */
-void dma_memory_address_config(uint32_t dma_periph, dma_channel_enum channelx, uint8_t memory_flag, uint32_t address);
+void DMA_memory_address_Config(uint32_t DMA_periph, DMA_channel_enum channelx, uint8_t memory_flag, uint32_t address);
 
 /* set the number of remaining data to be transferred by the DMA */
-void dma_transfer_number_config(uint32_t dma_periph, dma_channel_enum channelx, uint32_t number);
+void DMA_transfer_number_Config(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t number);
 /* get the number of remaining data to be transferred by the DMA */
-uint32_t dma_transfer_number_get(uint32_t dma_periph, dma_channel_enum channelx);
+uint32_t DMA_transfer_number_get(uint32_t DMA_periph, DMA_channel_enum channelx);
 
 /* configure priority level of DMA channel */
-void dma_priority_config(uint32_t dma_periph, dma_channel_enum channelx, uint32_t priority);
+void DMA_priority_Config(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t priority);
 
 /* configure transfer burst beats of memory */
-void dma_memory_burst_beats_config (uint32_t dma_periph, dma_channel_enum channelx, uint32_t mbeat);
+void DMA_memory_burst_beats_Config (uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t mbeat);
 /* configure transfer burst beats of peripheral */
-void dma_periph_burst_beats_config (uint32_t dma_periph, dma_channel_enum channelx, uint32_t pbeat);
+void DMA_periph_burst_beats_Config (uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t pbeat);
 /* configure transfer data size of memory */
-void dma_memory_width_config (uint32_t dma_periph, dma_channel_enum channelx, uint32_t msize);
+void DMA_memory_width_Config (uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t msize);
 /* configure transfer data size of peripheral */
-void dma_periph_width_config (uint32_t dma_periph, dma_channel_enum channelx, uint32_t psize);
+void DMA_periph_width_Config (uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t psize);
 
 /* configure next address increasement algorithm of memory */
-void dma_memory_address_generation_config(uint32_t dma_periph, dma_channel_enum channelx, uint8_t generation_algorithm);
+void DMA_memory_address_generation_Config(uint32_t DMA_periph, DMA_channel_enum channelx, uint8_t generation_algorithm);
 /* configure next address increasement algorithm of peripheral */
-void dma_peripheral_address_generation_config(uint32_t dma_periph, dma_channel_enum channelx, uint8_t generation_algorithm);
+void DMA_peripheral_address_generation_Config(uint32_t DMA_periph, DMA_channel_enum channelx, uint8_t generation_algorithm);
 
 /* enable DMA circulation mode */
-void dma_circulation_enable(uint32_t dma_periph, dma_channel_enum channelx);
+void DMA_circulation_enable(uint32_t DMA_periph, DMA_channel_enum channelx);
 /* disable DMA circulation mode */
-void dma_circulation_disable(uint32_t dma_periph, dma_channel_enum channelx);
+void DMA_circulation_disable(uint32_t DMA_periph, DMA_channel_enum channelx);
 /* enable DMA channel */
-void dma_channel_enable(uint32_t dma_periph, dma_channel_enum channelx);
+void DMA_channel_enable(uint32_t DMA_periph, DMA_channel_enum channelx);
 /* disable DMA channel */
-void dma_channel_disable(uint32_t dma_periph, dma_channel_enum channelx);
+void DMA_channel_disable(uint32_t DMA_periph, DMA_channel_enum channelx);
 
 /* configure the direction of data transfer on the channel */
-void dma_transfer_direction_config(uint32_t dma_periph, dma_channel_enum channelx, uint8_t direction);
+void DMA_transfer_direction_Config(uint32_t DMA_periph, DMA_channel_enum channelx, uint8_t direction);
 
 /* DMA switch buffer mode config */
-void dma_switch_buffer_mode_config(uint32_t dma_periph, dma_channel_enum channelx, uint32_t memory1_addr, uint32_t memory_select);
+void DMA_switch_buffer_mode_Config(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t memory1_addr, uint32_t memory_select);
 /* DMA using memory get */
-uint32_t dma_using_memory_get(uint32_t dma_periph, dma_channel_enum channelx);
+uint32_t DMA_using_memory_get(uint32_t DMA_periph, DMA_channel_enum channelx);
 
 /* DMA channel peripheral select */
-void dma_channel_subperipheral_select(uint32_t dma_periph, dma_channel_enum channelx, dma_subperipheral_enum sub_periph);
+void DMA_channel_subperipheral_select(uint32_t DMA_periph, DMA_channel_enum channelx, DMA_subperipheral_enum sub_periph);
 /* DMA flow controller configure */
-void dma_flow_controller_config(uint32_t dma_periph, dma_channel_enum channelx, uint32_t controller);
+void DMA_flow_controller_Config(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t controller);
 /* DMA flow controller enable */
-void dma_switch_buffer_mode_enable(uint32_t dma_periph, dma_channel_enum channelx, ControlStatus newvalue);
+void DMA_switch_buffer_mode_enable(uint32_t DMA_periph, DMA_channel_enum channelx, ControlStatus newvalue);
 /* DMA FIFO status get */
-uint32_t dma_fifo_status_get(uint32_t dma_periph, dma_channel_enum channelx);
+uint32_t DMA_fifo_status_get(uint32_t DMA_periph, DMA_channel_enum channelx);
 
 /* flag and interrupt functions */
 /* check DMA flag is set or not */
-FlagStatus dma_flag_get(uint32_t dma_periph, dma_channel_enum channelx, uint32_t flag);
+FlagStatus DMA_flag_get(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t flag);
 /* clear DMA a channel flag */
-void dma_flag_clear(uint32_t dma_periph, dma_channel_enum channelx, uint32_t flag);
+void DMA_flag_clear(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t flag);
 /* enable DMA interrupt */
-void dma_interrupt_enable(uint32_t dma_periph, dma_channel_enum channelx, uint32_t source);
+void DMA_Interrupt_enable(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t source);
 /* disable DMA interrupt */
-void dma_interrupt_disable(uint32_t dma_periph, dma_channel_enum channelx, uint32_t source);
+void DMA_Interrupt_disable(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t source);
 /* check DMA flag is set or not */
-FlagStatus dma_interrupt_flag_get(uint32_t dma_periph, dma_channel_enum channelx, uint32_t interrupt);
+FlagStatus DMA_Interrupt_flag_get(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t interrupt);
 /* clear DMA a channel flag */
-void dma_interrupt_flag_clear(uint32_t dma_periph, dma_channel_enum channelx, uint32_t interrupt);
+void DMA_Interrupt_flag_clear(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t interrupt);
 
 #endif /* GD32F4XX_DMA_H */

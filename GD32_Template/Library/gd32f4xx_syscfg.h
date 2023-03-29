@@ -159,24 +159,24 @@ OF SUCH DAMAGE.
 /* function declarations */
 /* initialization functions */
 /* deinit syscfg module */
-void syscfg_deinit(void);
+void SYSCFG_DeInit(void);
 
 /* function configuration */
 /* configure the boot mode */
-void syscfg_bootmode_config(uint8_t syscfg_bootmode);
+void SYSCFG_bootmode_Config(uint8_t SYSCFG_bootmode);
 /* configure FMC memory mapping swap */
-void syscfg_fmc_swap_config(uint32_t syscfg_fmc_swap);
+void SYSCFG_FMC_swap_Config(uint32_t SYSCFG_FMC_swap);
 /* configure the EXMC swap */
-void syscfg_exmc_swap_config(uint32_t syscfg_exmc_swap);
+void SYSCFG_EXMC_swap_Config(uint32_t SYSCFG_EXMC_swap);
 /* configure the GPIO pin as EXTI Line */
-void syscfg_exti_line_config(uint8_t exti_port, uint8_t exti_pin);
+void SYSCFG_EXTI_line_Config(uint8_t EXTI_port, uint8_t EXTI_pin);
 /* configure the PHY interface for the ethernet MAC */
-void syscfg_enet_phy_interface_config(uint32_t syscfg_enet_phy_interface);
+void SYSCFG_ENET_phy_interface_Config(uint32_t SYSCFG_ENET_phy_interface);
 /* configure the I/O compensation cell */
-void syscfg_compensation_config(uint32_t syscfg_compensation);
+void SYSCFG_compensation_Config(uint32_t SYSCFG_compensation);
 
 /* interrupt & flag functions */
 /* check the I/O compensation cell is ready or not */
-FlagStatus syscfg_flag_get(void);
+FlagStatus SYSCFG_flag_get(void);
 
 #endif /* GD32F4XX_SYSCFG_H */

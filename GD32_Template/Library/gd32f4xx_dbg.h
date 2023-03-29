@@ -96,7 +96,7 @@ OF SUCH DAMAGE.
 #define DBG_BIT_POS(val)                    ((uint32_t)(val) & 0x1FU)
 
 /* register index */
-enum dbg_reg_idx {
+enum DBG_reg_idx {
     DBG_IDX_CTL0  = 0x04U,
     DBG_IDX_CTL1  = 0x08U,
     DBG_IDX_CTL2  = 0x0CU
@@ -125,27 +125,27 @@ typedef enum {
     DBG_TIMER8_HOLD            = DBG_REGIDX_BIT(DBG_IDX_CTL2, 16U),                   /*!< hold TIMER8 counter when core is halted */
     DBG_TIMER9_HOLD            = DBG_REGIDX_BIT(DBG_IDX_CTL2, 17U),                   /*!< hold TIMER9 counter when core is halted */
     DBG_TIMER10_HOLD           = DBG_REGIDX_BIT(DBG_IDX_CTL2, 18U)                    /*!< hold TIMER10 counter when core is halted */
-} dbg_periph_enum;
+} DBG_periph_enum;
 
 /* function declarations */
 /* deinitialize the DBG */
-void dbg_deinit(void);
+void DBG_DeInit(void);
 /* read DBG_ID code register */
-uint32_t dbg_id_get(void);
+uint32_t DBG_id_get(void);
 
 /* enable low power behavior when the MCU is in debug mode */
-void dbg_low_power_enable(uint32_t dbg_low_power);
+void DBG_low_power_enable(uint32_t DBG_low_power);
 /* disable low power behavior when the MCU is in debug mode */
-void dbg_low_power_disable(uint32_t dbg_low_power);
+void DBG_low_power_disable(uint32_t DBG_low_power);
 
 /* enable peripheral behavior when the MCU is in debug mode */
-void dbg_periph_enable(dbg_periph_enum dbg_periph);
+void DBG_periph_enable(DBG_periph_enum DBG_periph);
 /* disable peripheral behavior when the MCU is in debug mode */
-void dbg_periph_disable(dbg_periph_enum dbg_periph);
+void DBG_periph_disable(DBG_periph_enum DBG_periph);
 
 /* enable trace pin assignment */
-void dbg_trace_pin_enable(void);
+void DBG_trace_pin_enable(void);
 /* disable trace pin assignment */
-void dbg_trace_pin_disable(void);
+void DBG_trace_pin_disable(void);
 
 #endif /* GD32F4XX_DBG_H */

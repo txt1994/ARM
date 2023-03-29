@@ -244,7 +244,7 @@ typedef struct {
     uint16_t factor_syn;                                                        /*!< RTC synchronous prescaler value: 0x0 - 0x7FFF */
     uint32_t am_pm;                                                             /*!< RTC AM/PM value */
     uint32_t display_format;                                                    /*!< RTC time notation */
-} rtc_parameter_struct;
+} RTC_parameter_struct;
 
 /* structure for RTC alarm configuration */
 typedef struct {
@@ -255,7 +255,7 @@ typedef struct {
     uint8_t alarm_minute;                                                       /*!< RTC alarm minute value: 0x0 - 0x59(BCD format) */
     uint8_t alarm_second;                                                       /*!< RTC alarm second value: 0x0 - 0x59(BCD format) */
     uint32_t am_pm;                                                             /*!< RTC alarm AM/PM value */
-} rtc_alarm_struct;
+} RTC_alarm_struct;
 
 /* structure for RTC time-stamp configuration */
 typedef struct {
@@ -266,7 +266,7 @@ typedef struct {
     uint8_t timestamp_minute;                                                   /*!< RTC time-stamp minute value: 0x0 - 0x59(BCD format) */
     uint8_t timestamp_second;                                                   /*!< RTC time-stamp second value: 0x0 - 0x59(BCD format) */
     uint32_t am_pm;                                                             /*!< RTC time-stamp AM/PM value */
-} rtc_timestamp_struct;
+} RTC_timestamp_struct;
 
 /* structure for RTC tamper configuration */
 typedef struct {
@@ -277,7 +277,7 @@ typedef struct {
     ControlStatus tamper_precharge_enable;                                      /*!< RTC tamper precharge feature during a voltage level detection */
     uint32_t tamper_precharge_time;                                             /*!< RTC tamper precharge duration if precharge feature is enabled */
     ControlStatus tamper_with_timestamp;                                        /*!< RTC tamper time-stamp feature */
-} rtc_tamper_struct;
+} RTC_tamper_struct;
 
 /* time register value */
 #define TIME_SC(regval)                    (BITS(0,6) & ((uint32_t)(regval) << 0))    /*!< write value to RTC_TIME_SC bit field */
@@ -539,99 +539,99 @@ typedef struct {
 
 /* function declarations */
 /* reset most of the RTC registers */
-ErrStatus rtc_deinit(void);
+ErrStatus RTC_DeInit(void);
 /* initialize RTC registers */
-ErrStatus rtc_init(rtc_parameter_struct* rtc_initpara_struct);
+ErrStatus RTC_init(RTC_parameter_struct* RTC_initpara_struct);
 /* enter RTC init mode */
-ErrStatus rtc_init_mode_enter(void);
+ErrStatus RTC_init_mode_enter(void);
 /* exit RTC init mode */
-void rtc_init_mode_exit(void);
+void RTC_init_mode_exit(void);
 /* wait until RTC_TIME and RTC_DATE registers are synchronized with APB clock, and the shadow registers are updated */
-ErrStatus rtc_register_sync_wait(void);
+ErrStatus RTC_register_sync_Wait(void);
 
 /* get current time and date */
-void rtc_current_time_get(rtc_parameter_struct* rtc_initpara_struct);
+void RTC_current_time_get(RTC_parameter_struct* RTC_initpara_struct);
 /* get current subsecond value */
-uint32_t rtc_subsecond_get(void);
+uint32_t RTC_subsecond_get(void);
 
 /* configure RTC alarm */
-void rtc_alarm_config(uint8_t rtc_alarm, rtc_alarm_struct* rtc_alarm_time);
+void RTC_alarm_Config(uint8_t RTC_alarm, RTC_alarm_struct* RTC_alarm_time);
 /* configure subsecond of RTC alarm */
-void rtc_alarm_subsecond_config(uint8_t rtc_alarm, uint32_t mask_subsecond, uint32_t subsecond);
+void RTC_alarm_subsecond_Config(uint8_t RTC_alarm, uint32_t mask_subsecond, uint32_t subsecond);
 /* get RTC alarm */
-void rtc_alarm_get(uint8_t rtc_alarm, rtc_alarm_struct* rtc_alarm_time);
+void RTC_alarm_get(uint8_t RTC_alarm, RTC_alarm_struct* RTC_alarm_time);
 /* get RTC alarm subsecond */
-uint32_t rtc_alarm_subsecond_get(uint8_t rtc_alarm);
+uint32_t RTC_alarm_subsecond_get(uint8_t RTC_alarm);
 /* enable RTC alarm */
-void rtc_alarm_enable(uint8_t rtc_alarm);
+void RTC_alarm_enable(uint8_t RTC_alarm);
 /* disable RTC alarm */
-ErrStatus rtc_alarm_disable(uint8_t rtc_alarm);
+ErrStatus RTC_alarm_disable(uint8_t RTC_alarm);
 
 /* enable RTC time-stamp */
-void rtc_timestamp_enable(uint32_t edge);
+void RTC_timestamp_enable(uint32_t edge);
 /* disable RTC time-stamp */
-void rtc_timestamp_disable(void);
+void RTC_timestamp_disable(void);
 /* get RTC timestamp time and date */
-void rtc_timestamp_get(rtc_timestamp_struct* rtc_timestamp);
+void RTC_timestamp_get(RTC_timestamp_struct* RTC_timestamp);
 /* get RTC time-stamp subsecond */
-uint32_t rtc_timestamp_subsecond_get(void);
+uint32_t RTC_timestamp_subsecond_get(void);
 /* RTC time-stamp pin map */
-void rtc_timestamp_pin_map(uint32_t rtc_af);
+void RTC_timestamp_pin_map(uint32_t RTC_af);
 
 /* enable RTC tamper */
-void rtc_tamper_enable(rtc_tamper_struct* rtc_tamper);
+void RTC_tamper_enable(RTC_tamper_struct* RTC_tamper);
 /* disable RTC tamper */
-void rtc_tamper_disable(uint32_t source);
+void RTC_tamper_disable(uint32_t source);
 /* RTC tamper0 pin map */
-void rtc_tamper0_pin_map(uint32_t rtc_af);
+void RTC_tamper0_pin_map(uint32_t RTC_af);
 
 /* enable specified RTC interrupt */
-void rtc_interrupt_enable(uint32_t interrupt);
+void RTC_Interrupt_enable(uint32_t interrupt);
 /* disble specified RTC interrupt */
-void rtc_interrupt_disable(uint32_t interrupt);
+void RTC_Interrupt_disable(uint32_t interrupt);
 /* check specified flag */
-FlagStatus rtc_flag_get(uint32_t flag);
+FlagStatus RTC_flag_get(uint32_t flag);
 /* clear specified flag */
-void rtc_flag_clear(uint32_t flag);
+void RTC_flag_clear(uint32_t flag);
 
 /* configure RTC alarm output source */
-void rtc_alarm_output_config(uint32_t source, uint32_t mode);
+void RTC_alarm_output_Config(uint32_t source, uint32_t mode);
 /* configure RTC calibration output source */
-void rtc_calibration_output_config(uint32_t source);
+void RTC_calibration_output_Config(uint32_t source);
 
 /* adjust the daylight saving time by adding or substracting one hour from the current time */
-void rtc_hour_adjust(uint32_t operation);
+void RTC_hour_adjust(uint32_t operation);
 /* adjust RTC second or subsecond value of current time */
-ErrStatus rtc_second_adjust(uint32_t add, uint32_t minus);
+ErrStatus RTC_second_adjust(uint32_t add, uint32_t minus);
 
 /* enable RTC bypass shadow registers function */
-void rtc_bypass_shadow_enable(void);
+void RTC_bypass_shadow_enable(void);
 /* disable RTC bypass shadow registers function */
-void rtc_bypass_shadow_disable(void);
+void RTC_bypass_shadow_disable(void);
 
 /* enable RTC reference clock detection function */
-ErrStatus rtc_refclock_detection_enable(void);
+ErrStatus RTC_refclock_detection_enable(void);
 /* disable RTC reference clock detection function */
-ErrStatus rtc_refclock_detection_disable(void);
+ErrStatus RTC_refclock_detection_disable(void);
 
 /* enable RTC wakeup timer */
-void rtc_wakeup_enable(void);
+void RTC_wakeup_enable(void);
 /* disable RTC wakeup timer */
-ErrStatus rtc_wakeup_disable(void);
+ErrStatus RTC_wakeup_disable(void);
 /* set auto wakeup timer clock */
-ErrStatus rtc_wakeup_clock_set(uint8_t wakeup_clock);
+ErrStatus RTC_wakeup_clock_set(uint8_t wakeup_clock);
 /* set auto wakeup timer value */
-ErrStatus rtc_wakeup_timer_set(uint16_t wakeup_timer);
+ErrStatus RTC_wakeup_TIMER_set(uint16_t wakeup_timer);
 /* get auto wakeup timer value */
-uint16_t rtc_wakeup_timer_get(void);
+uint16_t RTC_wakeup_TIMER_get(void);
 
 /* configure RTC smooth calibration */
-ErrStatus rtc_smooth_calibration_config(uint32_t window, uint32_t plus, uint32_t minus);
+ErrStatus RTC_smooth_calibration_Config(uint32_t window, uint32_t plus, uint32_t minus);
 /* enable RTC coarse calibration */
-ErrStatus rtc_coarse_calibration_enable(void);
+ErrStatus RTC_coarse_calibration_enable(void);
 /* disable RTC coarse calibration */
-ErrStatus rtc_coarse_calibration_disable(void);
+ErrStatus RTC_coarse_calibration_disable(void);
 /* configure RTC coarse calibration direction and step */
-ErrStatus rtc_coarse_calibration_config(uint8_t direction, uint8_t step);
+ErrStatus RTC_coarse_calibration_Config(uint8_t direction, uint8_t step);
 
 #endif /* GD32F4XX_RTC_H */

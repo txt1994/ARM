@@ -38,7 +38,7 @@ OF SUCH DAMAGE.
 
 /*!
     简介:    set the priority group
-    参数[输入]:  nvic_prigroup: the NVIC priority group
+    参数[输入]:  NVIC_prigroup: the NVIC priority group
       参数:        NVIC_PRIGROUP_PRE0_SUB4:0 bits for pre-emption priority 4 bits for subpriority
       参数:        NVIC_PRIGROUP_PRE1_SUB3:1 bits for pre-emption priority 3 bits for subpriority
       参数:        NVIC_PRIGROUP_PRE2_SUB2:2 bits for pre-emption priority 2 bits for subpriority
@@ -47,21 +47,21 @@ OF SUCH DAMAGE.
     参数[输出]:  无
     返回值:      无
 */
-void nvic_priority_group_set(uint32_t nvic_prigroup) {
+void NVIC_priority_group_set(uint32_t NVIC_prigroup) {
     /* set the priority group value */
-    SCB->AIRCR = NVIC_AIRCR_VECTKEY_MASK | nvic_prigroup;
+    SCB->AIRCR = NVIC_AIRCR_VECTKEY_MASK | NVIC_prigroup;
 }
 
 /*!
     简介:    enable NVIC request
-    参数[输入]:  nvic_irq: the NVIC interrupt request, detailed in IRQn_Type
-    参数[输入]:  nvic_irq_pre_priority: the pre-emption priority needed to set
-    参数[输入]:  nvic_irq_sub_priority: the subpriority needed to set
+    参数[输入]:  NVIC_irq: the NVIC interrupt request, detailed in IRQn_Type
+    参数[输入]:  NVIC_irq_pre_priority: the pre-emption priority needed to set
+    参数[输入]:  NVIC_irq_sub_priority: the subpriority needed to set
     参数[输出]:  无
     返回值:      无
 */
-void nvic_irq_enable(uint8_t nvic_irq, uint8_t nvic_irq_pre_priority,
-                     uint8_t nvic_irq_sub_priority) {
+void NVIC_irq_enable(uint8_t NVIC_irq, uint8_t NVIC_irq_pre_priority,
+                     uint8_t NVIC_irq_sub_priority) {
     uint32_t temp_priority = 0x00U, temp_pre = 0x00U, temp_sub = 0x00U;
 
     /* use the priority group value to get the temp_pre and the temp_sub */
@@ -81,42 +81,42 @@ void nvic_irq_enable(uint8_t nvic_irq, uint8_t nvic_irq_pre_priority,
         temp_pre = 4U;
         temp_sub = 0x0U;
     } else {
-        nvic_priority_group_set(NVIC_PRIGROUP_PRE2_SUB2);
+        NVIC_priority_group_set(NVIC_PRIGROUP_PRE2_SUB2);
         temp_pre = 2U;
         temp_sub = 0x2U;
     }
 
     /* get the temp_priority to fill the NVIC->IP register */
-    temp_priority = (uint32_t)nvic_irq_pre_priority << (0x4U - temp_pre);
-    temp_priority |= nvic_irq_sub_priority & (0x0FU >> (0x4U - temp_sub));
+    temp_priority = (uint32_t)NVIC_irq_pre_priority << (0x4U - temp_pre);
+    temp_priority |= NVIC_irq_sub_priority & (0x0FU >> (0x4U - temp_sub));
     temp_priority = temp_priority << 0x04U;
-    NVIC->IP[nvic_irq] = (uint8_t)temp_priority;
+    NVIC->IP[NVIC_irq] = (uint8_t)temp_priority;
     /* enable the selected IRQ */
-    NVIC->ISER[nvic_irq >> 0x05U] = (uint32_t)0x01U << (nvic_irq & (uint8_t)0x1FU);
+    NVIC->ISER[NVIC_irq >> 0x05U] = (uint32_t)0x01U << (NVIC_irq & (uint8_t)0x1FU);
 }
 
 /*!
     简介:    disable NVIC request
-    参数[输入]:  nvic_irq: the NVIC interrupt request, detailed in IRQn_Type
+    参数[输入]:  NVIC_irq: the NVIC interrupt request, detailed in IRQn_Type
     参数[输出]:  无
     返回值:      无
 */
-void nvic_irq_disable(uint8_t nvic_irq) {
+void NVIC_irq_disable(uint8_t NVIC_irq) {
     /* disable the selected IRQ.*/
-    NVIC->ICER[nvic_irq >> 0x05] = (uint32_t)0x01 << (nvic_irq & (uint8_t)0x1F);
+    NVIC->ICER[NVIC_irq >> 0x05] = (uint32_t)0x01 << (NVIC_irq & (uint8_t)0x1F);
 }
 
 /*!
     简介:    set the NVIC vector table base address
-    参数[输入]:  nvic_vict_tab: the RAM or FLASH base address
+    参数[输入]:  NVIC_vict_tab: the RAM or FLASH base address
       参数:        NVIC_VECTTAB_RAM: RAM base address
       \are        NVIC_VECTTAB_FLASH: Flash base address
     参数[输入]:  offset: Vector Table offset
     参数[输出]:  无
     返回值:      无
 */
-void nvic_vector_table_set(uint32_t nvic_vict_tab, uint32_t offset) {
-    SCB->VTOR = nvic_vict_tab | (offset & NVIC_VECTTAB_OFFSET_MASK);
+void NVIC_vector_table_set(uint32_t NVIC_vict_tab, uint32_t offset) {
+    SCB->VTOR = NVIC_vict_tab | (offset & NVIC_VECTTAB_OFFSET_MASK);
     __DSB();
 }
 

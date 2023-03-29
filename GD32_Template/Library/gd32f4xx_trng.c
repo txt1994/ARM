@@ -43,9 +43,9 @@ OF SUCH DAMAGE.
     参数[输出]:  无
     返回值:      无
 */
-void trng_deinit(void) {
-    rcu_periph_reset_enable(RCU_TRNGRST);
-    rcu_periph_reset_disable(RCU_TRNGRST);
+void TRNG_DeInit(void) {
+    RCU_Periph_Reset_Enable(RCU_TRNGRST);
+    RCU_Periph_Reset_Disable(RCU_TRNGRST);
 }
 
 /*!
@@ -54,7 +54,7 @@ void trng_deinit(void) {
     参数[输出]:  无
     返回值:      无
 */
-void trng_enable(void) {
+void TRNG_Enable(void) {
     TRNG_CTL |= TRNG_CTL_TRNGEN;
 }
 
@@ -64,7 +64,7 @@ void trng_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void trng_disable(void) {
+void TRNG_Disable(void) {
     TRNG_CTL &= ~TRNG_CTL_TRNGEN;
 }
 
@@ -74,7 +74,7 @@ void trng_disable(void) {
     参数[输出]:  无
     返回值:     uint32_t: 0x0-0xFFFFFFFF
 */
-uint32_t trng_get_true_random_data(void) {
+uint32_t TRNG_Get_true_random_data(void) {
     return (TRNG_DATA);
 }
 
@@ -84,7 +84,7 @@ uint32_t trng_get_true_random_data(void) {
     参数[输出]:  无
     返回值:      无
 */
-void trng_interrupt_enable(void) {
+void TRNG_Interrupt_Enable(void) {
     TRNG_CTL |= TRNG_CTL_TRNGIE;
 }
 
@@ -94,7 +94,7 @@ void trng_interrupt_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void trng_interrupt_disable(void) {
+void TRNG_Interrupt_Disable(void) {
     TRNG_CTL &= ~TRNG_CTL_TRNGIE;
 }
 
@@ -102,13 +102,13 @@ void trng_interrupt_disable(void) {
     简介:      get TRNG flag status
     参数[输入]:  flag: TRNG flag
                 only one parameter can be selected which is shown as below:
-      参数:        TRNG_FLAG_DRDY: random Data ready status
-      参数:        TRNG_FLAG_CECS: clock error current status
-      参数:        TRNG_FLAG_SECS: seed error current status
+      参数:        TRNG_Flag_DRDY: random Data ready status
+      参数:        TRNG_Flag_CECS: clock error current status
+      参数:        TRNG_Flag_SECS: seed error current status
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus trng_flag_get(trng_flag_enum flag) {
+FlagStatus TRNG_Flag_Get(TRNG_Flag_enum flag) {
     if(RESET != (TRNG_STAT & flag)) {
         return SET;
     } else {
@@ -120,12 +120,12 @@ FlagStatus trng_flag_get(trng_flag_enum flag) {
     简介:      get TRNG interrupt flag status
     参数[输入]:  int_flag: TRNG interrupt flag
                 only one parameter can be selected which is shown as below:
-      参数:        TRNG_INT_FLAG_CEIF: clock error interrupt flag
-      参数:        TRNG_INT_FLAG_SEIF: seed error interrupt flag
+      参数:        TRNG_INT_Flag_CEIF: clock error interrupt flag
+      参数:        TRNG_INT_Flag_SEIF: seed error interrupt flag
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus trng_interrupt_flag_get(trng_int_flag_enum int_flag) {
+FlagStatus TRNG_Interrupt_Flag_Get(TRNG_int_Flag_enum int_flag) {
     if(RESET != (TRNG_STAT & int_flag)) {
         return SET;
     } else {
@@ -137,11 +137,11 @@ FlagStatus trng_interrupt_flag_get(trng_int_flag_enum int_flag) {
     简介:      clear TRNG interrupt flag status
     参数[输入]:  int_flag: TRNG interrupt flag
                 only one parameter can be selected which is shown as below:
-      参数:        TRNG_INT_FLAG_CEIF: clock error interrupt flag
-      参数:        TRNG_INT_FLAG_SEIF: seed error interrupt flag
+      参数:        TRNG_INT_Flag_CEIF: clock error interrupt flag
+      参数:        TRNG_INT_Flag_SEIF: seed error interrupt flag
     参数[输出]:  无
     返回值:      无
 */
-void trng_interrupt_flag_clear(trng_int_flag_enum int_flag) {
+void TRNG_Interrupt_Flag_Clear(TRNG_int_Flag_enum int_flag) {
     TRNG_STAT &= ~(uint32_t)int_flag;
 }

@@ -195,7 +195,7 @@ typedef enum {
     I2C_FLAG_TFR = I2C_REGIDX_BIT(I2C_SAMCS_REG_OFFSET, 13U),           /*!< txframe rise flag */
     I2C_FLAG_RFF = I2C_REGIDX_BIT(I2C_SAMCS_REG_OFFSET, 14U),           /*!< rxframe fall flag */
     I2C_FLAG_RFR = I2C_REGIDX_BIT(I2C_SAMCS_REG_OFFSET, 15U)            /*!< rxframe rise flag */
-} i2c_flag_enum;
+} I2C_flag_enum;
 
 /* I2C interrupt flags */
 typedef enum {
@@ -219,7 +219,7 @@ typedef enum {
     I2C_INT_FLAG_TFR = I2C_REGIDX_BIT2(I2C_SAMCS_REG_OFFSET, 5U, I2C_SAMCS_REG_OFFSET, 13U),         /*!< txframe rise interrupt flag */
     I2C_INT_FLAG_RFF = I2C_REGIDX_BIT2(I2C_SAMCS_REG_OFFSET, 6U, I2C_SAMCS_REG_OFFSET, 14U),         /*!< rxframe fall interrupt flag */
     I2C_INT_FLAG_RFR = I2C_REGIDX_BIT2(I2C_SAMCS_REG_OFFSET, 7U, I2C_SAMCS_REG_OFFSET, 15U)          /*!< rxframe rise interrupt flag */
-} i2c_interrupt_flag_enum;
+} I2C_Interrupt_flag_enum;
 
 /* I2C interrupt */
 typedef enum {
@@ -232,7 +232,7 @@ typedef enum {
     I2C_INT_TFR = I2C_REGIDX_BIT(I2C_SAMCS_REG_OFFSET, 5U),             /*!< txframe rise interrupt */
     I2C_INT_RFF = I2C_REGIDX_BIT(I2C_SAMCS_REG_OFFSET, 6U),             /*!< rxframe fall interrupt */
     I2C_INT_RFR = I2C_REGIDX_BIT(I2C_SAMCS_REG_OFFSET, 7U)              /*!< rxframe rise interrupt */
-} i2c_interrupt_enum;
+} I2C_Interrupt_enum;
 
 /* the digital noise filter can filter spikes's length */
 typedef enum {
@@ -252,7 +252,7 @@ typedef enum {
     I2C_DF_13PCLKS,                                                     /*!< enable digital noise filter and the maximum filtered spiker's length 13 PCLK1 */
     I2C_DF_14PCLKS,                                                     /*!< enable digital noise filter and the maximum filtered spiker's length 14 PCLK1 */
     I2C_DF_15PCLKS                                                      /*!< enable digital noise filter and the maximum filtered spiker's length 15 PCLK1 */
-} i2c_digital_filter_enum;
+} I2C_digital_filter_enum;
 
 /* SMBus/I2C mode switch and SMBus type selection */
 #define I2C_I2CMODE_ENABLE            ((uint32_t)0x00000000U)           /*!< I2C mode */
@@ -330,84 +330,84 @@ typedef enum {
 /* function declarations */
 /* initialization functions */
 /* reset I2C */
-void i2c_deinit(uint32_t i2c_periph);
+void I2C_DeInit(uint32_t I2C_periph);
 /* configure I2C clock */
-void i2c_clock_config(uint32_t i2c_periph, uint32_t clkspeed, uint32_t dutycyc);
+void I2C_clock_Config(uint32_t I2C_periph, uint32_t clkspeed, uint32_t dutycyc);
 /* configure I2C address */
-void i2c_mode_addr_config(uint32_t i2c_periph, uint32_t mode, uint32_t addformat, uint32_t addr);
+void I2C_mode_addr_Config(uint32_t I2C_periph, uint32_t mode, uint32_t addformat, uint32_t addr);
 
 /* application function declarations */
 /* select SMBus type */
-void i2c_smbus_type_config(uint32_t i2c_periph, uint32_t type);
+void I2C_smbus_type_Config(uint32_t I2C_periph, uint32_t type);
 /* whether or not to send an ACK */
-void i2c_ack_config(uint32_t i2c_periph, uint32_t ack);
+void I2C_ack_Config(uint32_t I2C_periph, uint32_t ack);
 /* configure I2C POAP position */
-void i2c_ackpos_config(uint32_t i2c_periph, uint32_t pos);
+void I2C_ackpos_Config(uint32_t I2C_periph, uint32_t pos);
 /* master sends slave address */
-void i2c_master_addressing(uint32_t i2c_periph, uint32_t addr, uint32_t trandirection);
+void I2C_master_addressing(uint32_t I2C_periph, uint32_t addr, uint32_t trandirection);
 /* enable dual-address mode */
-void i2c_dualaddr_enable(uint32_t i2c_periph, uint32_t addr);
+void I2C_dualaddr_enable(uint32_t I2C_periph, uint32_t addr);
 /* disable dual-address mode */
-void i2c_dualaddr_disable(uint32_t i2c_periph);
+void I2C_dualaddr_disable(uint32_t I2C_periph);
 /* enable I2C */
-void i2c_enable(uint32_t i2c_periph);
+void I2C_enable(uint32_t I2C_periph);
 /* disable I2C */
-void i2c_disable(uint32_t i2c_periph);
+void I2C_disable(uint32_t I2C_periph);
 /* generate a START condition on I2C bus */
-void i2c_start_on_bus(uint32_t i2c_periph);
+void I2C_start_on_bus(uint32_t I2C_periph);
 /* generate a STOP condition on I2C bus */
-void i2c_stop_on_bus(uint32_t i2c_periph);
+void I2C_stop_on_bus(uint32_t I2C_periph);
 /* I2C transmit data function */
-void i2c_data_transmit(uint32_t i2c_periph, uint8_t data);
+void I2C_data_transmit(uint32_t I2C_periph, uint8_t data);
 /* I2C receive data function */
-uint8_t i2c_data_receive(uint32_t i2c_periph);
+uint8_t I2C_data_receive(uint32_t I2C_periph);
 /* configure I2C DMA mode */
-void i2c_dma_config(uint32_t i2c_periph, uint32_t dmastate);
+void I2C_DMA_Config(uint32_t I2C_periph, uint32_t dmastate);
 /* configure whether next DMA EOT is DMA last transfer or not */
-void i2c_dma_last_transfer_config(uint32_t i2c_periph, uint32_t dmalast);
+void I2C_DMA_last_transfer_Config(uint32_t I2C_periph, uint32_t dmalast);
 /* whether to stretch SCL low when data is not ready in slave mode */
-void i2c_stretch_scl_low_config(uint32_t i2c_periph, uint32_t stretchpara);
+void I2C_stretch_scl_low_Config(uint32_t I2C_periph, uint32_t stretchpara);
 /* whether or not to response to a general call */
-void i2c_slave_response_to_gcall_config(uint32_t i2c_periph, uint32_t gcallpara);
+void I2C_slave_response_to_gcall_Config(uint32_t I2C_periph, uint32_t gcallpara);
 /* configure software reset of I2C */
-void i2c_software_reset_config(uint32_t i2c_periph, uint32_t sreset);
+void I2C_software_reset_Config(uint32_t I2C_periph, uint32_t sreset);
 /* configure I2C PEC calculation */
-void i2c_pec_config(uint32_t i2c_periph, uint32_t pecstate);
+void I2C_pec_Config(uint32_t I2C_periph, uint32_t pecstate);
 /* configure whether to transfer PEC value */
-void i2c_pec_transfer_config(uint32_t i2c_periph, uint32_t pecpara);
+void I2C_pec_transfer_Config(uint32_t I2C_periph, uint32_t pecpara);
 /* get packet error checking value */
-uint8_t i2c_pec_value_get(uint32_t i2c_periph);
+uint8_t I2C_pec_value_get(uint32_t I2C_periph);
 /* configure I2C alert through SMBA pin */
-void i2c_smbus_alert_config(uint32_t i2c_periph, uint32_t smbuspara);
+void I2C_smbus_alert_Config(uint32_t I2C_periph, uint32_t smbuspara);
 /* configure I2C ARP protocol in SMBus */
-void i2c_smbus_arp_config(uint32_t i2c_periph, uint32_t arpstate);
+void I2C_smbus_arp_Config(uint32_t I2C_periph, uint32_t arpstate);
 /* disable analog noise filter */
-void i2c_analog_noise_filter_disable(uint32_t i2c_periph);
+void I2C_analog_noise_filter_disable(uint32_t I2C_periph);
 /* enable analog noise filter */
-void i2c_analog_noise_filter_enable(uint32_t i2c_periph);
+void I2C_analog_noise_filter_enable(uint32_t I2C_periph);
 /* configure digital noise filter */
-void i2c_digital_noise_filter_config(uint32_t i2c_periph, i2c_digital_filter_enum dfilterpara);
+void I2C_digital_noise_filter_Config(uint32_t I2C_periph, I2C_digital_filter_enum dfilterpara);
 /* enable SAM_V interface */
-void i2c_sam_enable(uint32_t i2c_periph);
+void I2C_sam_enable(uint32_t I2C_periph);
 /* disable SAM_V interface */
-void i2c_sam_disable(uint32_t i2c_periph);
+void I2C_sam_disable(uint32_t I2C_periph);
 /* enable SAM_V interface timeout detect */
-void i2c_sam_timeout_enable(uint32_t i2c_periph);
+void I2C_sam_timeout_enable(uint32_t I2C_periph);
 /* disable SAM_V interface timeout detect */
-void i2c_sam_timeout_disable(uint32_t i2c_periph);
+void I2C_sam_timeout_disable(uint32_t I2C_periph);
 
 /* interrupt & flag functions */
 /* get I2C flag status */
-FlagStatus i2c_flag_get(uint32_t i2c_periph, i2c_flag_enum flag);
+FlagStatus I2C_flag_get(uint32_t I2C_periph, I2C_flag_enum flag);
 /* clear I2C flag status */
-void i2c_flag_clear(uint32_t i2c_periph, i2c_flag_enum flag);
+void I2C_flag_clear(uint32_t I2C_periph, I2C_flag_enum flag);
 /* enable I2C interrupt */
-void i2c_interrupt_enable(uint32_t i2c_periph, i2c_interrupt_enum interrupt);
+void I2C_Interrupt_enable(uint32_t I2C_periph, I2C_Interrupt_enum interrupt);
 /* disable I2C interrupt */
-void i2c_interrupt_disable(uint32_t i2c_periph, i2c_interrupt_enum interrupt);
+void I2C_Interrupt_disable(uint32_t I2C_periph, I2C_Interrupt_enum interrupt);
 /* get I2C interrupt flag status */
-FlagStatus i2c_interrupt_flag_get(uint32_t i2c_periph, i2c_interrupt_flag_enum int_flag);
+FlagStatus I2C_Interrupt_flag_get(uint32_t I2C_periph, I2C_Interrupt_flag_enum int_flag);
 /* clear I2C interrupt flag status */
-void i2c_interrupt_flag_clear(uint32_t i2c_periph, i2c_interrupt_flag_enum int_flag);
+void I2C_Interrupt_flag_clear(uint32_t I2C_periph, I2C_Interrupt_flag_enum int_flag);
 
 #endif /* GD32F4XX_I2C_H */

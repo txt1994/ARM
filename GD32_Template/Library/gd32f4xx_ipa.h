@@ -199,7 +199,7 @@ typedef struct {
     uint32_t foreground_prered;                           /*!< foreground pre-defined red value */
     uint32_t foreground_pregreen;                         /*!< foreground pre-defined green value */
     uint32_t foreground_preblue;                          /*!< foreground pre-defined blue value */
-} ipa_foreground_parameter_struct;
+} IPA_foreground_parameter_struct;
 
 /* IPA background parameter struct definitions */
 typedef struct {
@@ -211,7 +211,7 @@ typedef struct {
     uint32_t background_prered;                           /*!< background pre-defined red value */
     uint32_t background_pregreen;                         /*!< background pre-defined green value */
     uint32_t background_preblue;                          /*!< background pre-defined blue value */
-} ipa_background_parameter_struct;
+} IPA_background_parameter_struct;
 
 /* IPA destination parameter struct definitions */
 typedef struct {
@@ -224,7 +224,7 @@ typedef struct {
     uint32_t destination_preblue;                         /*!< destination pre-defined blue value */
     uint32_t image_width;                                 /*!< width of the image to be processed */
     uint32_t image_height;                                /*!< height of the image to be processed */
-} ipa_destination_parameter_struct;
+} IPA_destination_parameter_struct;
 
 /* destination pixel format */
 typedef enum {
@@ -233,7 +233,7 @@ typedef enum {
     IPA_DPF_RGB565,                                       /*!< destination pixel format RGB565 */
     IPA_DPF_ARGB1555,                                     /*!< destination pixel format ARGB1555 */
     IPA_DPF_ARGB4444                                      /*!< destination pixel format ARGB4444 */
-} ipa_dpf_enum;
+} IPA_dpf_enum;
 
 /* LUT pixel format */
 #define IPA_LUT_PF_ARGB8888             ((uint8_t)0x00U)                 /*!< LUT pixel format ARGB8888 */
@@ -317,65 +317,65 @@ typedef enum {
 /* function declarations */
 /* functions enable or disable, pixel format convert mode set */
 /* deinitialize IPA */
-void ipa_deinit(void);
+void IPA_DeInit(void);
 /* enable IPA transfer */
-void ipa_transfer_enable(void);
+void IPA_transfer_enable(void);
 /* enable IPA transfer hang up */
-void ipa_transfer_hangup_enable(void);
+void IPA_transfer_hangup_enable(void);
 /* disable IPA transfer hang up */
-void ipa_transfer_hangup_disable(void);
+void IPA_transfer_hangup_disable(void);
 /* enable IPA transfer stop */
-void ipa_transfer_stop_enable(void);
+void IPA_transfer_stop_enable(void);
 /* disable IPA transfer stop */
-void ipa_transfer_stop_disable(void);
+void IPA_transfer_stop_disable(void);
 /* enable IPA foreground LUT loading */
-void ipa_foreground_lut_loading_enable(void);
+void IPA_foreground_lut_loading_enable(void);
 /* enable IPA background LUT loading */
-void ipa_background_lut_loading_enable(void);
+void IPA_background_lut_loading_enable(void);
 /* set pixel format convert mode, the function is invalid when the IPA transfer is enabled */
-void ipa_pixel_format_convert_mode_set(uint32_t pfcm);
+void IPA_pixel_format_convert_mode_set(uint32_t pfcm);
 
 /* structure initialization, foreground, background, destination and LUT initialization */
 /* initialize the structure of IPA foreground parameter struct with the default values, it is
-  suggested that call this function after an ipa_foreground_parameter_struct structure is defined */
-void ipa_foreground_struct_para_init(ipa_foreground_parameter_struct *foreground_struct);
+  suggested that call this function after an IPA_foreground_parameter_struct structure is defined */
+void IPA_foreground_struct_para_init(IPA_foreground_parameter_struct *foreground_struct);
 /* initialize foreground parameters */
-void ipa_foreground_init(ipa_foreground_parameter_struct *foreground_struct);
+void IPA_foreground_init(IPA_foreground_parameter_struct *foreground_struct);
 /* initialize the structure of IPA background parameter struct with the default values, it is
-  suggested that call this function after an ipa_background_parameter_struct structure is defined */
-void ipa_background_struct_para_init(ipa_background_parameter_struct *background_struct);
+  suggested that call this function after an IPA_background_parameter_struct structure is defined */
+void IPA_background_struct_para_init(IPA_background_parameter_struct *background_struct);
 /* initialize background parameters */
-void ipa_background_init(ipa_background_parameter_struct *background_struct);
+void IPA_background_init(IPA_background_parameter_struct *background_struct);
 /* initialize the structure of IPA destination parameter struct with the default values, it is
-  suggested that call this function after an ipa_destination_parameter_struct structure is defined */
-void ipa_destination_struct_para_init(ipa_destination_parameter_struct *destination_struct);
+  suggested that call this function after an IPA_destination_parameter_struct structure is defined */
+void IPA_destination_struct_para_init(IPA_destination_parameter_struct *destination_struct);
 /* initialize destination parameters */
-void ipa_destination_init(ipa_destination_parameter_struct *destination_struct);
+void IPA_destination_init(IPA_destination_parameter_struct *destination_struct);
 /* initialize IPA foreground LUT parameters */
-void ipa_foreground_lut_init(uint8_t fg_lut_num, uint8_t fg_lut_pf, uint32_t fg_lut_addr);
+void IPA_foreground_lut_init(uint8_t fg_lut_num, uint8_t fg_lut_pf, uint32_t fg_lut_addr);
 /* initialize IPA background LUT parameters */
-void ipa_background_lut_init(uint8_t bg_lut_num, uint8_t bg_lut_pf, uint32_t bg_lut_addr);
+void IPA_background_lut_init(uint8_t bg_lut_num, uint8_t bg_lut_pf, uint32_t bg_lut_addr);
 
 /* configuration functions */
 /* configure IPA line mark */
-void ipa_line_mark_config(uint16_t line_num);
+void IPA_line_mark_Config(uint16_t line_num);
 /* inter-timer enable or disable */
-void ipa_inter_timer_config(uint8_t timer_cfg);
+void IPA_inter_TIMER_Config(uint8_t TIMER_cfg);
 /* configure the number of clock cycles interval */
-void ipa_interval_clock_num_config(uint8_t clk_num);
+void IPA_interval_clock_num_Config(uint8_t clk_num);
 
 /* flag and interrupt functions */
 /* get IPA flag status in IPA_INTF register */
-FlagStatus ipa_flag_get(uint32_t flag);
+FlagStatus IPA_flag_get(uint32_t flag);
 /* clear IPA flag in IPA_INTF register */
-void ipa_flag_clear(uint32_t flag);
+void IPA_flag_clear(uint32_t flag);
 /* enable IPA interrupt */
-void ipa_interrupt_enable(uint32_t int_flag);
+void IPA_Interrupt_enable(uint32_t int_flag);
 /* disable IPA interrupt */
-void ipa_interrupt_disable(uint32_t int_flag);
+void IPA_Interrupt_disable(uint32_t int_flag);
 /* get IPA interrupt flag */
-FlagStatus ipa_interrupt_flag_get(uint32_t int_flag);
+FlagStatus IPA_Interrupt_flag_get(uint32_t int_flag);
 /* clear IPA interrupt flag */
-void ipa_interrupt_flag_clear(uint32_t int_flag);
+void IPA_Interrupt_flag_clear(uint32_t int_flag);
 
 #endif /* GD32F4XX_IPA_H */

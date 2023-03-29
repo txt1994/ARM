@@ -43,9 +43,9 @@ OF SUCH DAMAGE.
     参数[输出]:  无
     返回值:      无
 */
-void iref_deinit(void) {
-    rcu_periph_reset_enable(RCU_IREFRST);
-    rcu_periph_reset_disable(RCU_IREFRST);
+void IREF_DeInit(void) {
+    RCU_Periph_Reset_Enable(RCU_IREFRST);
+    RCU_Periph_Reset_Disable(RCU_IREFRST);
 }
 
 /*!
@@ -54,7 +54,7 @@ void iref_deinit(void) {
     参数[输出]:  无
     返回值:      无
 */
-void iref_enable(void) {
+void IREF_enable(void) {
     IREF_CTL |= IREF_CTL_CREN;
 }
 
@@ -64,7 +64,7 @@ void iref_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void iref_disable(void) {
+void IREF_disable(void) {
     IREF_CTL &= ~IREF_CTL_CREN;
 }
 
@@ -76,7 +76,7 @@ void iref_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void iref_mode_set(uint32_t step) {
+void IREF_mode_set(uint32_t step) {
     IREF_CTL &= ~IREF_CTL_SSEL;
     IREF_CTL |= step;
 }
@@ -88,7 +88,7 @@ void iref_mode_set(uint32_t step) {
     参数[输出]:  无
     返回值:      无
 */
-void iref_precision_trim_value_set(uint32_t precisiontrim) {
+void IREF_precision_trim_value_set(uint32_t precisiontrim) {
     IREF_CTL &= ~IREF_CTL_CPT;
     IREF_CTL |= precisiontrim;
 }
@@ -101,7 +101,7 @@ void iref_precision_trim_value_set(uint32_t precisiontrim) {
     参数[输出]:  无
     返回值:      无
 */
-void iref_sink_set(uint32_t sinkmode) {
+void IREF_sink_set(uint32_t sinkmode) {
     IREF_CTL &= ~IREF_CTL_SCMOD;
     IREF_CTL |= sinkmode;
 }
@@ -114,7 +114,7 @@ void iref_sink_set(uint32_t sinkmode) {
     返回值:      无
 */
 
-void iref_step_data_config(uint32_t stepdata) {
+void IREF_step_data_Config(uint32_t stepdata) {
     IREF_CTL &= ~IREF_CTL_CSDT;
     IREF_CTL |= stepdata;
 }

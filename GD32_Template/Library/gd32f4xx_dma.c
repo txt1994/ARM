@@ -41,29 +41,29 @@ OF SUCH DAMAGE.
 
 /*!
     简介:    deinitialize DMA a channel registers
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel is deinitialized
       参数:        DMA_CHx(x=0..7)
     参数[输出]:  无
     返回值:      无
 */
-void dma_deinit(uint32_t dma_periph, dma_channel_enum channelx) {
+void DMA_DeInit(uint32_t DMA_periph, DMA_channel_enum channelx) {
     /* disable DMA a channel */
-    DMA_CHCTL(dma_periph, channelx) &= ~DMA_CHXCTL_CHEN;
+    DMA_CHCTL(DMA_periph, channelx) &= ~DMA_CHXCTL_CHEN;
     /* reset DMA channel registers */
-    DMA_CHCTL(dma_periph, channelx) = DMA_CHCTL_RESET_VALUE;
-    DMA_CHCNT(dma_periph, channelx) = DMA_CHCNT_RESET_VALUE;
-    DMA_CHPADDR(dma_periph, channelx) = DMA_CHPADDR_RESET_VALUE;
-    DMA_CHM0ADDR(dma_periph, channelx) = DMA_CHMADDR_RESET_VALUE;
-    DMA_CHM1ADDR(dma_periph, channelx) = DMA_CHMADDR_RESET_VALUE;
-    DMA_CHFCTL(dma_periph, channelx) = DMA_CHFCTL_RESET_VALUE;
+    DMA_CHCTL(DMA_periph, channelx) = DMA_CHCTL_RESET_VALUE;
+    DMA_CHCNT(DMA_periph, channelx) = DMA_CHCNT_RESET_VALUE;
+    DMA_CHPADDR(DMA_periph, channelx) = DMA_CHPADDR_RESET_VALUE;
+    DMA_CHM0ADDR(DMA_periph, channelx) = DMA_CHMADDR_RESET_VALUE;
+    DMA_CHM1ADDR(DMA_periph, channelx) = DMA_CHMADDR_RESET_VALUE;
+    DMA_CHFCTL(DMA_periph, channelx) = DMA_CHFCTL_RESET_VALUE;
 
     if(channelx < DMA_CH4) {
-        DMA_INTC0(dma_periph) |= DMA_FLAG_ADD(DMA_CHINTF_RESET_VALUE, channelx);
+        DMA_INTC0(DMA_periph) |= DMA_FLAG_ADD(DMA_CHINTF_RESET_VALUE, channelx);
     } else {
-        channelx -= (dma_channel_enum)4;
-        DMA_INTC1(dma_periph) |= DMA_FLAG_ADD(DMA_CHINTF_RESET_VALUE, channelx);
+        channelx -= (DMA_channel_enum)4;
+        DMA_INTC1(DMA_periph) |= DMA_FLAG_ADD(DMA_CHINTF_RESET_VALUE, channelx);
     }
 }
 
@@ -73,7 +73,7 @@ void dma_deinit(uint32_t dma_periph, dma_channel_enum channelx) {
     参数[输出]:  无
     返回值:      无
 */
-void dma_single_data_para_struct_init(dma_single_data_parameter_struct *init_struct) {
+void DMA_single_data_para_struct_init(DMA_single_data_parameter_struct *init_struct) {
     /* set the DMA struct with the default values */
     init_struct->periph_addr         = 0U;
     init_struct->periph_inc          = DMA_PERIPH_INCREASE_DISABLE;
@@ -92,7 +92,7 @@ void dma_single_data_para_struct_init(dma_single_data_parameter_struct *init_str
     参数[输出]:  无
     返回值:      无
 */
-void dma_multi_data_para_struct_init(dma_multi_data_parameter_struct *init_struct) {
+void DMA_multi_data_para_struct_init(DMA_multi_data_parameter_struct *init_struct) {
     /* set the DMA struct with the default values */
     init_struct->periph_addr         = 0U;
     init_struct->periph_width        = 0U;
@@ -110,7 +110,7 @@ void dma_multi_data_para_struct_init(dma_multi_data_parameter_struct *init_struc
 
 /*!
     简介:    initialize DMA single data mode
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel is initialized
       参数:        DMA_CHx(x=0..7)
@@ -127,58 +127,58 @@ void dma_multi_data_para_struct_init(dma_multi_data_parameter_struct *init_struc
     参数[输出]:  无
     返回值:      无
 */
-void dma_single_data_mode_init(uint32_t dma_periph, dma_channel_enum channelx, dma_single_data_parameter_struct *init_struct) {
+void DMA_single_data_mode_init(uint32_t DMA_periph, DMA_channel_enum channelx, DMA_single_data_parameter_struct *init_struct) {
     uint32_t ctl;
 
     /* select single data mode */
-    DMA_CHFCTL(dma_periph, channelx) &= ~DMA_CHXFCTL_MDMEN;
+    DMA_CHFCTL(DMA_periph, channelx) &= ~DMA_CHXFCTL_MDMEN;
 
     /* configure peripheral base address */
-    DMA_CHPADDR(dma_periph, channelx) = init_struct->periph_addr;
+    DMA_CHPADDR(DMA_periph, channelx) = init_struct->periph_addr;
 
     /* configure memory base address */
-    DMA_CHM0ADDR(dma_periph, channelx) = init_struct->memory0_addr;
+    DMA_CHM0ADDR(DMA_periph, channelx) = init_struct->memory0_addr;
 
     /* configure the number of remaining data to be transferred */
-    DMA_CHCNT(dma_periph, channelx) = init_struct->number;
+    DMA_CHCNT(DMA_periph, channelx) = init_struct->number;
 
     /* configure peripheral and memory transfer width,channel priotity,transfer mode */
-    ctl = DMA_CHCTL(dma_periph, channelx);
+    ctl = DMA_CHCTL(DMA_periph, channelx);
     ctl &= ~(DMA_CHXCTL_PWIDTH | DMA_CHXCTL_MWIDTH | DMA_CHXCTL_PRIO | DMA_CHXCTL_TM);
     ctl |= (init_struct->periph_memory_width | (init_struct->periph_memory_width << 2) | init_struct->priority | init_struct->direction);
-    DMA_CHCTL(dma_periph, channelx) = ctl;
+    DMA_CHCTL(DMA_periph, channelx) = ctl;
 
     /* configure peripheral increasing mode */
     if(DMA_PERIPH_INCREASE_ENABLE == init_struct->periph_inc) {
-        DMA_CHCTL(dma_periph, channelx) |= DMA_CHXCTL_PNAGA;
+        DMA_CHCTL(DMA_periph, channelx) |= DMA_CHXCTL_PNAGA;
     } else if(DMA_PERIPH_INCREASE_DISABLE == init_struct->periph_inc) {
-        DMA_CHCTL(dma_periph, channelx) &= ~DMA_CHXCTL_PNAGA;
+        DMA_CHCTL(DMA_periph, channelx) &= ~DMA_CHXCTL_PNAGA;
     } else {
-        DMA_CHCTL(dma_periph, channelx) |= DMA_CHXCTL_PAIF;
+        DMA_CHCTL(DMA_periph, channelx) |= DMA_CHXCTL_PAIF;
     }
 
     /* configure memory increasing mode */
     if(DMA_MEMORY_INCREASE_ENABLE == init_struct->memory_inc) {
-        DMA_CHCTL(dma_periph, channelx) |= DMA_CHXCTL_MNAGA;
+        DMA_CHCTL(DMA_periph, channelx) |= DMA_CHXCTL_MNAGA;
     } else {
-        DMA_CHCTL(dma_periph, channelx) &= ~DMA_CHXCTL_MNAGA;
+        DMA_CHCTL(DMA_periph, channelx) &= ~DMA_CHXCTL_MNAGA;
     }
 
     /* configure DMA circular mode */
     if(DMA_CIRCULAR_MODE_ENABLE == init_struct->circular_mode) {
-        DMA_CHCTL(dma_periph, channelx) |= DMA_CHXCTL_CMEN;
+        DMA_CHCTL(DMA_periph, channelx) |= DMA_CHXCTL_CMEN;
     } else {
-        DMA_CHCTL(dma_periph, channelx) &= ~DMA_CHXCTL_CMEN;
+        DMA_CHCTL(DMA_periph, channelx) &= ~DMA_CHXCTL_CMEN;
     }
 }
 
 /*!
     简介:    initialize DMA multi data mode
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel is initialized
       参数:        DMA_CHx(x=0..7)
-    参数[输入]:  dma_multi_data_parameter_struct: the data needed to initialize DMA multi data mode
+    参数[输入]:  DMA_multi_data_parameter_struct: the data needed to initialize DMA multi data mode
                   periph_addr: peripheral base address
                   periph_width: DMA_PERIPH_WIDTH_8BIT,DMA_PERIPH_WIDTH_16BIT,DMA_PERIPH_WIDTH_32BIT
                   periph_inc: DMA_PERIPH_INCREASE_ENABLE,DMA_PERIPH_INCREASE_DISABLE,DMA_PERIPH_INCREASE_FIX
@@ -195,55 +195,55 @@ void dma_single_data_mode_init(uint32_t dma_periph, dma_channel_enum channelx, d
     参数[输出]:  无
     返回值:      无
 */
-void dma_multi_data_mode_init(uint32_t dma_periph, dma_channel_enum channelx, dma_multi_data_parameter_struct *init_struct) {
+void DMA_multi_data_mode_init(uint32_t DMA_periph, DMA_channel_enum channelx, DMA_multi_data_parameter_struct *init_struct) {
     uint32_t ctl;
 
     /* select multi data mode and configure FIFO critical value */
-    DMA_CHFCTL(dma_periph, channelx) |= (DMA_CHXFCTL_MDMEN | init_struct->critical_value);
+    DMA_CHFCTL(DMA_periph, channelx) |= (DMA_CHXFCTL_MDMEN | init_struct->critical_value);
 
     /* configure peripheral base address */
-    DMA_CHPADDR(dma_periph, channelx) = init_struct->periph_addr;
+    DMA_CHPADDR(DMA_periph, channelx) = init_struct->periph_addr;
 
     /* configure memory base address */
-    DMA_CHM0ADDR(dma_periph, channelx) = init_struct->memory0_addr;
+    DMA_CHM0ADDR(DMA_periph, channelx) = init_struct->memory0_addr;
 
     /* configure the number of remaining data to be transferred */
-    DMA_CHCNT(dma_periph, channelx) = init_struct->number;
+    DMA_CHCNT(DMA_periph, channelx) = init_struct->number;
 
     /* configure peripheral and memory transfer width,channel priotity,transfer mode,peripheral and memory burst transfer width */
-    ctl = DMA_CHCTL(dma_periph, channelx);
+    ctl = DMA_CHCTL(DMA_periph, channelx);
     ctl &= ~(DMA_CHXCTL_PWIDTH | DMA_CHXCTL_MWIDTH | DMA_CHXCTL_PRIO | DMA_CHXCTL_TM | DMA_CHXCTL_PBURST | DMA_CHXCTL_MBURST);
     ctl |= (init_struct->periph_width | (init_struct->memory_width) | init_struct->priority | init_struct->direction | init_struct->memory_burst_width |
             init_struct->periph_burst_width);
-    DMA_CHCTL(dma_periph, channelx) = ctl;
+    DMA_CHCTL(DMA_periph, channelx) = ctl;
 
     /* configure peripheral increasing mode */
     if(DMA_PERIPH_INCREASE_ENABLE == init_struct->periph_inc) {
-        DMA_CHCTL(dma_periph, channelx) |= DMA_CHXCTL_PNAGA;
+        DMA_CHCTL(DMA_periph, channelx) |= DMA_CHXCTL_PNAGA;
     } else if(DMA_PERIPH_INCREASE_DISABLE == init_struct->periph_inc) {
-        DMA_CHCTL(dma_periph, channelx) &= ~DMA_CHXCTL_PNAGA;
+        DMA_CHCTL(DMA_periph, channelx) &= ~DMA_CHXCTL_PNAGA;
     } else {
-        DMA_CHCTL(dma_periph, channelx) |= DMA_CHXCTL_PAIF;
+        DMA_CHCTL(DMA_periph, channelx) |= DMA_CHXCTL_PAIF;
     }
 
     /* configure memory increasing mode */
     if(DMA_MEMORY_INCREASE_ENABLE == init_struct->memory_inc) {
-        DMA_CHCTL(dma_periph, channelx) |= DMA_CHXCTL_MNAGA;
+        DMA_CHCTL(DMA_periph, channelx) |= DMA_CHXCTL_MNAGA;
     } else {
-        DMA_CHCTL(dma_periph, channelx) &= ~DMA_CHXCTL_MNAGA;
+        DMA_CHCTL(DMA_periph, channelx) &= ~DMA_CHXCTL_MNAGA;
     }
 
     /* configure DMA circular mode */
     if(DMA_CIRCULAR_MODE_ENABLE == init_struct->circular_mode) {
-        DMA_CHCTL(dma_periph, channelx) |= DMA_CHXCTL_CMEN;
+        DMA_CHCTL(DMA_periph, channelx) |= DMA_CHXCTL_CMEN;
     } else {
-        DMA_CHCTL(dma_periph, channelx) &= ~DMA_CHXCTL_CMEN;
+        DMA_CHCTL(DMA_periph, channelx) &= ~DMA_CHXCTL_CMEN;
     }
 }
 
 /*!
     简介:    set DMA peripheral base address
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel to set peripheral base address
       参数:        DMA_CHx(x=0..7)
@@ -251,13 +251,13 @@ void dma_multi_data_mode_init(uint32_t dma_periph, dma_channel_enum channelx, dm
     参数[输出]:  无
     返回值:      无
 */
-void dma_periph_address_config(uint32_t dma_periph, dma_channel_enum channelx, uint32_t address) {
-    DMA_CHPADDR(dma_periph, channelx) = address;
+void DMA_periph_address_Config(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t address) {
+    DMA_CHPADDR(DMA_periph, channelx) = address;
 }
 
 /*!
     简介:    set DMA Memory0 base address
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel to set Memory base address
       参数:        DMA_CHx(x=0..7)
@@ -266,17 +266,17 @@ void dma_periph_address_config(uint32_t dma_periph, dma_channel_enum channelx, u
     参数[输出]:  无
     返回值:      无
 */
-void dma_memory_address_config(uint32_t dma_periph, dma_channel_enum channelx, uint8_t memory_flag, uint32_t address) {
+void DMA_memory_address_Config(uint32_t DMA_periph, DMA_channel_enum channelx, uint8_t memory_flag, uint32_t address) {
     if(memory_flag) {
-        DMA_CHM1ADDR(dma_periph, channelx) = address;
+        DMA_CHM1ADDR(DMA_periph, channelx) = address;
     } else {
-        DMA_CHM0ADDR(dma_periph, channelx) = address;
+        DMA_CHM0ADDR(DMA_periph, channelx) = address;
     }
 }
 
 /*!
     简介:    set the number of remaining data to be transferred by the DMA
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel to set number
       参数:        DMA_CHx(x=0..7)
@@ -284,26 +284,26 @@ void dma_memory_address_config(uint32_t dma_periph, dma_channel_enum channelx, u
     参数[输出]:  无
     返回值:      无
 */
-void dma_transfer_number_config(uint32_t dma_periph, dma_channel_enum channelx, uint32_t number) {
-    DMA_CHCNT(dma_periph, channelx) = number;
+void DMA_transfer_number_Config(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t number) {
+    DMA_CHCNT(DMA_periph, channelx) = number;
 }
 
 /*!
     简介:    get the number of remaining data to be transferred by the DMA
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel to set number
       参数:        DMA_CHx(x=0..7)
     参数[输出]:  无
     返回值:     uint32_t: the number of remaining data to be transferred by the DMA
 */
-uint32_t dma_transfer_number_get(uint32_t dma_periph, dma_channel_enum channelx) {
-    return (uint32_t)DMA_CHCNT(dma_periph, channelx);
+uint32_t DMA_transfer_number_get(uint32_t DMA_periph, DMA_channel_enum channelx) {
+    return (uint32_t)DMA_CHCNT(DMA_periph, channelx);
 }
 
 /*!
     简介:    configure priority level of DMA channel
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel
       参数:        DMA_CHx(x=0..7)
@@ -316,19 +316,19 @@ uint32_t dma_transfer_number_get(uint32_t dma_periph, dma_channel_enum channelx)
     参数[输出]:  无
     返回值:      无
 */
-void dma_priority_config(uint32_t dma_periph, dma_channel_enum channelx, uint32_t priority) {
+void DMA_priority_Config(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t priority) {
     uint32_t ctl;
     /* acquire DMA_CHxCTL register */
-    ctl = DMA_CHCTL(dma_periph, channelx);
+    ctl = DMA_CHCTL(DMA_periph, channelx);
     /* assign regiser */
     ctl &= ~DMA_CHXCTL_PRIO;
     ctl |= priority;
-    DMA_CHCTL(dma_periph, channelx) = ctl;
+    DMA_CHCTL(DMA_periph, channelx) = ctl;
 }
 
 /*!
     简介:    configure transfer burst beats of memory
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel
       参数:        DMA_CHx(x=0..7)
@@ -340,19 +340,19 @@ void dma_priority_config(uint32_t dma_periph, dma_channel_enum channelx, uint32_
     参数[输出]:  无
     返回值:      无
 */
-void dma_memory_burst_beats_config(uint32_t dma_periph, dma_channel_enum channelx, uint32_t mbeat) {
+void DMA_memory_burst_beats_Config(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t mbeat) {
     uint32_t ctl;
     /* acquire DMA_CHxCTL register */
-    ctl = DMA_CHCTL(dma_periph, channelx);
+    ctl = DMA_CHCTL(DMA_periph, channelx);
     /* assign regiser */
     ctl &= ~DMA_CHXCTL_MBURST;
     ctl |= mbeat;
-    DMA_CHCTL(dma_periph, channelx) = ctl;
+    DMA_CHCTL(DMA_periph, channelx) = ctl;
 }
 
 /*!
     简介:    configure transfer burst beats of peripheral
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel
       参数:        DMA_CHx(x=0..7)
@@ -365,19 +365,19 @@ void dma_memory_burst_beats_config(uint32_t dma_periph, dma_channel_enum channel
     参数[输出]:  无
     返回值:      无
 */
-void dma_periph_burst_beats_config(uint32_t dma_periph, dma_channel_enum channelx, uint32_t pbeat) {
+void DMA_periph_burst_beats_Config(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t pbeat) {
     uint32_t ctl;
     /* acquire DMA_CHxCTL register */
-    ctl = DMA_CHCTL(dma_periph, channelx);
+    ctl = DMA_CHCTL(DMA_periph, channelx);
     /* assign regiser */
     ctl &= ~DMA_CHXCTL_PBURST;
     ctl |= pbeat;
-    DMA_CHCTL(dma_periph, channelx) = ctl;
+    DMA_CHCTL(DMA_periph, channelx) = ctl;
 }
 
 /*!
     简介:    configure transfer data size of memory
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel
       参数:        DMA_CHx(x=0..7)
@@ -389,19 +389,19 @@ void dma_periph_burst_beats_config(uint32_t dma_periph, dma_channel_enum channel
     参数[输出]:  无
     返回值:      无
 */
-void dma_memory_width_config(uint32_t dma_periph, dma_channel_enum channelx, uint32_t msize) {
+void DMA_memory_width_Config(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t msize) {
     uint32_t ctl;
     /* acquire DMA_CHxCTL register */
-    ctl = DMA_CHCTL(dma_periph, channelx);
+    ctl = DMA_CHCTL(DMA_periph, channelx);
     /* assign regiser */
     ctl &= ~DMA_CHXCTL_MWIDTH;
     ctl |= msize;
-    DMA_CHCTL(dma_periph, channelx) = ctl;
+    DMA_CHCTL(DMA_periph, channelx) = ctl;
 }
 
 /*!
     简介:    configure transfer data size of peripheral
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel
       参数:        DMA_CHx(x=0..7)
@@ -413,19 +413,19 @@ void dma_memory_width_config(uint32_t dma_periph, dma_channel_enum channelx, uin
     参数[输出]:  无
     返回值:      无
 */
-void dma_periph_width_config(uint32_t dma_periph, dma_channel_enum channelx, uint32_t psize) {
+void DMA_periph_width_Config(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t psize) {
     uint32_t ctl;
     /* acquire DMA_CHxCTL register */
-    ctl = DMA_CHCTL(dma_periph, channelx);
+    ctl = DMA_CHCTL(DMA_periph, channelx);
     /* assign regiser */
     ctl &= ~DMA_CHXCTL_PWIDTH;
     ctl |= psize;
-    DMA_CHCTL(dma_periph, channelx) = ctl;
+    DMA_CHCTL(DMA_periph, channelx) = ctl;
 }
 
 /*!
     简介:    configure memory address generation generation_algorithm
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel
       参数:        DMA_CHx(x=0..7)
@@ -436,17 +436,17 @@ void dma_periph_width_config(uint32_t dma_periph, dma_channel_enum channelx, uin
     参数[输出]:  无
     返回值:      无
 */
-void dma_memory_address_generation_config(uint32_t dma_periph, dma_channel_enum channelx, uint8_t generation_algorithm) {
+void DMA_memory_address_generation_Config(uint32_t DMA_periph, DMA_channel_enum channelx, uint8_t generation_algorithm) {
     if(DMA_MEMORY_INCREASE_ENABLE == generation_algorithm) {
-        DMA_CHCTL(dma_periph, channelx) |= DMA_CHXCTL_MNAGA;
+        DMA_CHCTL(DMA_periph, channelx) |= DMA_CHXCTL_MNAGA;
     } else {
-        DMA_CHCTL(dma_periph, channelx) &= ~DMA_CHXCTL_MNAGA;
+        DMA_CHCTL(DMA_periph, channelx) &= ~DMA_CHXCTL_MNAGA;
     }
 }
 
 /*!
     简介:    configure peripheral address generation_algorithm
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel
       参数:        DMA_CHx(x=0..7)
@@ -458,72 +458,72 @@ void dma_memory_address_generation_config(uint32_t dma_periph, dma_channel_enum 
     参数[输出]:  无
     返回值:      无
 */
-void dma_peripheral_address_generation_config(uint32_t dma_periph, dma_channel_enum channelx, uint8_t generation_algorithm) {
+void DMA_peripheral_address_generation_Config(uint32_t DMA_periph, DMA_channel_enum channelx, uint8_t generation_algorithm) {
     if(DMA_PERIPH_INCREASE_ENABLE == generation_algorithm) {
-        DMA_CHCTL(dma_periph, channelx) |= DMA_CHXCTL_PNAGA;
+        DMA_CHCTL(DMA_periph, channelx) |= DMA_CHXCTL_PNAGA;
     } else if(DMA_PERIPH_INCREASE_DISABLE == generation_algorithm) {
-        DMA_CHCTL(dma_periph, channelx) &= ~DMA_CHXCTL_PNAGA;
+        DMA_CHCTL(DMA_periph, channelx) &= ~DMA_CHXCTL_PNAGA;
     } else {
-        DMA_CHCTL(dma_periph, channelx) |= DMA_CHXCTL_PNAGA;
-        DMA_CHCTL(dma_periph, channelx) |= DMA_CHXCTL_PAIF;
+        DMA_CHCTL(DMA_periph, channelx) |= DMA_CHXCTL_PNAGA;
+        DMA_CHCTL(DMA_periph, channelx) |= DMA_CHXCTL_PAIF;
     }
 }
 
 /*!
     简介:    enable DMA circulation mode
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel
       参数:        DMA_CHx(x=0..7)
     参数[输出]:  无
     返回值:      无
 */
-void dma_circulation_enable(uint32_t dma_periph, dma_channel_enum channelx) {
-    DMA_CHCTL(dma_periph, channelx) |= DMA_CHXCTL_CMEN;
+void DMA_circulation_enable(uint32_t DMA_periph, DMA_channel_enum channelx) {
+    DMA_CHCTL(DMA_periph, channelx) |= DMA_CHXCTL_CMEN;
 }
 
 /*!
     简介:    disable DMA circulation mode
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel
       参数:        DMA_CHx(x=0..7)
     参数[输出]:  无
     返回值:      无
 */
-void dma_circulation_disable(uint32_t dma_periph, dma_channel_enum channelx) {
-    DMA_CHCTL(dma_periph, channelx) &= ~DMA_CHXCTL_CMEN;
+void DMA_circulation_disable(uint32_t DMA_periph, DMA_channel_enum channelx) {
+    DMA_CHCTL(DMA_periph, channelx) &= ~DMA_CHXCTL_CMEN;
 }
 
 /*!
     简介:    enable DMA channel
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel
       参数:        DMA_CHx(x=0..7)
     参数[输出]:  无
     返回值:      无
 */
-void dma_channel_enable(uint32_t dma_periph, dma_channel_enum channelx) {
-    DMA_CHCTL(dma_periph, channelx) |= DMA_CHXCTL_CHEN;
+void DMA_channel_enable(uint32_t DMA_periph, DMA_channel_enum channelx) {
+    DMA_CHCTL(DMA_periph, channelx) |= DMA_CHXCTL_CHEN;
 }
 
 /*!
     简介:    disable DMA channel
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel
       参数:        DMA_CHx(x=0..7)
     参数[输出]:  无
     返回值:      无
 */
-void dma_channel_disable(uint32_t dma_periph, dma_channel_enum channelx) {
-    DMA_CHCTL(dma_periph, channelx) &= ~DMA_CHXCTL_CHEN;
+void DMA_channel_disable(uint32_t DMA_periph, DMA_channel_enum channelx) {
+    DMA_CHCTL(DMA_periph, channelx) &= ~DMA_CHXCTL_CHEN;
 }
 
 /*!
     简介:    configure the direction of  data transfer on the channel
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel
       参数:        DMA_CHx(x=0..7)
@@ -535,20 +535,20 @@ void dma_channel_disable(uint32_t dma_periph, dma_channel_enum channelx) {
     参数[输出]:  无
     返回值:      无
 */
-void dma_transfer_direction_config(uint32_t dma_periph, dma_channel_enum channelx, uint8_t direction) {
+void DMA_transfer_direction_Config(uint32_t DMA_periph, DMA_channel_enum channelx, uint8_t direction) {
     uint32_t ctl;
     /* acquire DMA_CHxCTL register */
-    ctl = DMA_CHCTL(dma_periph, channelx);
+    ctl = DMA_CHCTL(DMA_periph, channelx);
     /* assign regiser */
     ctl &= ~DMA_CHXCTL_TM;
     ctl |= direction;
 
-    DMA_CHCTL(dma_periph, channelx) = ctl;
+    DMA_CHCTL(DMA_periph, channelx) = ctl;
 }
 
 /*!
     简介:    DMA switch buffer mode config
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel
       参数:        DMA_CHx(x=0..7)
@@ -557,28 +557,28 @@ void dma_transfer_direction_config(uint32_t dma_periph, dma_channel_enum channel
     参数[输出]:  无
     返回值:      无
 */
-void dma_switch_buffer_mode_config(uint32_t dma_periph, dma_channel_enum channelx, uint32_t memory1_addr, uint32_t memory_select) {
+void DMA_switch_buffer_mode_Config(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t memory1_addr, uint32_t memory_select) {
     /* configure memory1 base address */
-    DMA_CHM1ADDR(dma_periph, channelx) = memory1_addr;
+    DMA_CHM1ADDR(DMA_periph, channelx) = memory1_addr;
 
     if(DMA_MEMORY_0 == memory_select) {
-        DMA_CHCTL(dma_periph, channelx) &= ~DMA_CHXCTL_MBS;
+        DMA_CHCTL(DMA_periph, channelx) &= ~DMA_CHXCTL_MBS;
     } else {
-        DMA_CHCTL(dma_periph, channelx) |= DMA_CHXCTL_MBS;
+        DMA_CHCTL(DMA_periph, channelx) |= DMA_CHXCTL_MBS;
     }
 }
 
 /*!
     简介:    DMA using memory get
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel
       参数:        DMA_CHx(x=0..7)
     参数[输出]:  无
     返回值:     the using memory
 */
-uint32_t dma_using_memory_get(uint32_t dma_periph, dma_channel_enum channelx) {
-    if((DMA_CHCTL(dma_periph, channelx)) & DMA_CHXCTL_MBS) {
+uint32_t DMA_using_memory_get(uint32_t DMA_periph, DMA_channel_enum channelx) {
+    if((DMA_CHCTL(DMA_periph, channelx)) & DMA_CHXCTL_MBS) {
         return DMA_MEMORY_1;
     } else {
         return DMA_MEMORY_0;
@@ -587,7 +587,7 @@ uint32_t dma_using_memory_get(uint32_t dma_periph, dma_channel_enum channelx) {
 
 /*!
     简介:    DMA channel peripheral select
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel
       参数:        DMA_CHx(x=0..7)
@@ -596,20 +596,20 @@ uint32_t dma_using_memory_get(uint32_t dma_periph, dma_channel_enum channelx) {
     参数[输出]:  无
     返回值:      无
 */
-void dma_channel_subperipheral_select(uint32_t dma_periph, dma_channel_enum channelx, dma_subperipheral_enum sub_periph) {
+void DMA_channel_subperipheral_select(uint32_t DMA_periph, DMA_channel_enum channelx, DMA_subperipheral_enum sub_periph) {
     uint32_t ctl;
     /* acquire DMA_CHxCTL register */
-    ctl = DMA_CHCTL(dma_periph, channelx);
+    ctl = DMA_CHCTL(DMA_periph, channelx);
     /* assign regiser */
     ctl &= ~DMA_CHXCTL_PERIEN;
     ctl |= ((uint32_t)sub_periph << CHXCTL_PERIEN_OFFSET);
 
-    DMA_CHCTL(dma_periph, channelx) = ctl;
+    DMA_CHCTL(DMA_periph, channelx) = ctl;
 }
 
 /*!
     简介:    DMA flow controller configure
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel
       参数:        DMA_CHx(x=0..7)
@@ -620,17 +620,17 @@ void dma_channel_subperipheral_select(uint32_t dma_periph, dma_channel_enum chan
     参数[输出]:  无
     返回值:      无
 */
-void dma_flow_controller_config(uint32_t dma_periph, dma_channel_enum channelx, uint32_t controller) {
+void DMA_flow_controller_Config(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t controller) {
     if(DMA_FLOW_CONTROLLER_DMA == controller) {
-        DMA_CHCTL(dma_periph, channelx) &= ~DMA_CHXCTL_TFCS;
+        DMA_CHCTL(DMA_periph, channelx) &= ~DMA_CHXCTL_TFCS;
     } else {
-        DMA_CHCTL(dma_periph, channelx) |= DMA_CHXCTL_TFCS;
+        DMA_CHCTL(DMA_periph, channelx) |= DMA_CHXCTL_TFCS;
     }
 }
 
 /*!
     简介:    DMA switch buffer mode enable
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel
       参数:        DMA_CHx(x=0..7)
@@ -638,32 +638,32 @@ void dma_flow_controller_config(uint32_t dma_periph, dma_channel_enum channelx, 
     参数[输出]:  无
     返回值:      无
 */
-void dma_switch_buffer_mode_enable(uint32_t dma_periph, dma_channel_enum channelx, ControlStatus newvalue) {
+void DMA_switch_buffer_mode_enable(uint32_t DMA_periph, DMA_channel_enum channelx, ControlStatus newvalue) {
     if(ENABLE == newvalue) {
         /* switch buffer mode enable */
-        DMA_CHCTL(dma_periph, channelx) |= DMA_CHXCTL_SBMEN;
+        DMA_CHCTL(DMA_periph, channelx) |= DMA_CHXCTL_SBMEN;
     } else {
         /* switch buffer mode disable */
-        DMA_CHCTL(dma_periph, channelx) &= ~DMA_CHXCTL_SBMEN;
+        DMA_CHCTL(DMA_periph, channelx) &= ~DMA_CHXCTL_SBMEN;
     }
 }
 
 /*!
     简介:    DMA FIFO status get
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel
       参数:        DMA_CHx(x=0..7)
     参数[输出]:  无
     返回值:     the using memory
 */
-uint32_t dma_fifo_status_get(uint32_t dma_periph, dma_channel_enum channelx) {
-    return (DMA_CHFCTL(dma_periph, channelx) & DMA_CHXFCTL_FCNT);
+uint32_t DMA_fifo_status_get(uint32_t DMA_periph, DMA_channel_enum channelx) {
+    return (DMA_CHFCTL(DMA_periph, channelx) & DMA_CHXFCTL_FCNT);
 }
 
 /*!
     简介:    get DMA flag is set or not
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel to get flag
       参数:        DMA_CHx(x=0..7)
@@ -677,17 +677,17 @@ uint32_t dma_fifo_status_get(uint32_t dma_periph, dma_channel_enum channelx) {
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus dma_flag_get(uint32_t dma_periph, dma_channel_enum channelx, uint32_t flag) {
+FlagStatus DMA_flag_get(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t flag) {
     if(channelx < DMA_CH4) {
-        if(DMA_INTF0(dma_periph) & DMA_FLAG_ADD(flag, channelx)) {
+        if(DMA_INTF0(DMA_periph) & DMA_FLAG_ADD(flag, channelx)) {
             return SET;
         } else {
             return RESET;
         }
     } else {
-        channelx -= (dma_channel_enum)4;
+        channelx -= (DMA_channel_enum)4;
 
-        if(DMA_INTF1(dma_periph) & DMA_FLAG_ADD(flag, channelx)) {
+        if(DMA_INTF1(DMA_periph) & DMA_FLAG_ADD(flag, channelx)) {
             return SET;
         } else {
             return RESET;
@@ -697,7 +697,7 @@ FlagStatus dma_flag_get(uint32_t dma_periph, dma_channel_enum channelx, uint32_t
 
 /*!
     简介:    clear DMA a channel flag
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel to get flag
       参数:        DMA_CHx(x=0..7)
@@ -711,18 +711,18 @@ FlagStatus dma_flag_get(uint32_t dma_periph, dma_channel_enum channelx, uint32_t
     参数[输出]:  无
     返回值:      无
 */
-void dma_flag_clear(uint32_t dma_periph, dma_channel_enum channelx, uint32_t flag) {
+void DMA_flag_clear(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t flag) {
     if(channelx < DMA_CH4) {
-        DMA_INTC0(dma_periph) |= DMA_FLAG_ADD(flag, channelx);
+        DMA_INTC0(DMA_periph) |= DMA_FLAG_ADD(flag, channelx);
     } else {
-        channelx -= (dma_channel_enum)4;
-        DMA_INTC1(dma_periph) |= DMA_FLAG_ADD(flag, channelx);
+        channelx -= (DMA_channel_enum)4;
+        DMA_INTC1(DMA_periph) |= DMA_FLAG_ADD(flag, channelx);
     }
 }
 
 /*!
     简介:    enable DMA interrupt
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel
       参数:        DMA_CHx(x=0..7)
@@ -736,17 +736,17 @@ void dma_flag_clear(uint32_t dma_periph, dma_channel_enum channelx, uint32_t fla
     参数[输出]:  无
     返回值:      无
 */
-void dma_interrupt_enable(uint32_t dma_periph, dma_channel_enum channelx, uint32_t source) {
+void DMA_Interrupt_enable(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t source) {
     if(DMA_CHXFCTL_FEEIE != source) {
-        DMA_CHCTL(dma_periph, channelx) |= source;
+        DMA_CHCTL(DMA_periph, channelx) |= source;
     } else {
-        DMA_CHFCTL(dma_periph, channelx) |= source;
+        DMA_CHFCTL(DMA_periph, channelx) |= source;
     }
 }
 
 /*!
     简介:    disable DMA interrupt
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel
       参数:        DMA_CHx(x=0..7)
@@ -760,17 +760,17 @@ void dma_interrupt_enable(uint32_t dma_periph, dma_channel_enum channelx, uint32
     参数[输出]:  无
     返回值:      无
 */
-void dma_interrupt_disable(uint32_t dma_periph, dma_channel_enum channelx, uint32_t source) {
+void DMA_Interrupt_disable(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t source) {
     if(DMA_CHXFCTL_FEEIE != source) {
-        DMA_CHCTL(dma_periph, channelx) &= ~source;
+        DMA_CHCTL(DMA_periph, channelx) &= ~source;
     } else {
-        DMA_CHFCTL(dma_periph, channelx) &= ~source;
+        DMA_CHFCTL(DMA_periph, channelx) &= ~source;
     }
 }
 
 /*!
     简介:    get DMA interrupt flag is set or not
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel to get interrupt flag
       参数:        DMA_CHx(x=0..7)
@@ -784,67 +784,67 @@ void dma_interrupt_disable(uint32_t dma_periph, dma_channel_enum channelx, uint3
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus dma_interrupt_flag_get(uint32_t dma_periph, dma_channel_enum channelx, uint32_t interrupt) {
+FlagStatus DMA_Interrupt_flag_get(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t interrupt) {
     uint32_t interrupt_enable = 0U, interrupt_flag = 0U;
-    dma_channel_enum channel_flag_offset = channelx;
+    DMA_channel_enum channel_flag_offset = channelx;
 
     if(channelx < DMA_CH4) {
         switch(interrupt) {
         case DMA_INTF_FEEIF:
-            interrupt_flag = DMA_INTF0(dma_periph) & DMA_FLAG_ADD(interrupt, channelx);
-            interrupt_enable = DMA_CHFCTL(dma_periph, channelx) & DMA_CHXFCTL_FEEIE;
+            interrupt_flag = DMA_INTF0(DMA_periph) & DMA_FLAG_ADD(interrupt, channelx);
+            interrupt_enable = DMA_CHFCTL(DMA_periph, channelx) & DMA_CHXFCTL_FEEIE;
             break;
 
         case DMA_INTF_SDEIF:
-            interrupt_flag = DMA_INTF0(dma_periph) & DMA_FLAG_ADD(interrupt, channelx);
-            interrupt_enable = DMA_CHCTL(dma_periph, channelx) & DMA_CHXCTL_SDEIE;
+            interrupt_flag = DMA_INTF0(DMA_periph) & DMA_FLAG_ADD(interrupt, channelx);
+            interrupt_enable = DMA_CHCTL(DMA_periph, channelx) & DMA_CHXCTL_SDEIE;
             break;
 
         case DMA_INTF_TAEIF:
-            interrupt_flag = DMA_INTF0(dma_periph) & DMA_FLAG_ADD(interrupt, channelx);
-            interrupt_enable = DMA_CHCTL(dma_periph, channelx) & DMA_CHXCTL_TAEIE;
+            interrupt_flag = DMA_INTF0(DMA_periph) & DMA_FLAG_ADD(interrupt, channelx);
+            interrupt_enable = DMA_CHCTL(DMA_periph, channelx) & DMA_CHXCTL_TAEIE;
             break;
 
         case DMA_INTF_HTFIF:
-            interrupt_flag = DMA_INTF0(dma_periph) & DMA_FLAG_ADD(interrupt, channelx);
-            interrupt_enable = DMA_CHCTL(dma_periph, channelx) & DMA_CHXCTL_HTFIE;
+            interrupt_flag = DMA_INTF0(DMA_periph) & DMA_FLAG_ADD(interrupt, channelx);
+            interrupt_enable = DMA_CHCTL(DMA_periph, channelx) & DMA_CHXCTL_HTFIE;
             break;
 
         case DMA_INTF_FTFIF:
-            interrupt_flag = (DMA_INTF0(dma_periph) & DMA_FLAG_ADD(interrupt, channelx));
-            interrupt_enable = (DMA_CHCTL(dma_periph, channelx) & DMA_CHXCTL_FTFIE);
+            interrupt_flag = (DMA_INTF0(DMA_periph) & DMA_FLAG_ADD(interrupt, channelx));
+            interrupt_enable = (DMA_CHCTL(DMA_periph, channelx) & DMA_CHXCTL_FTFIE);
             break;
 
         default:
             break;
         }
     } else {
-        channel_flag_offset -= (dma_channel_enum)4;
+        channel_flag_offset -= (DMA_channel_enum)4;
 
         switch(interrupt) {
         case DMA_INTF_FEEIF:
-            interrupt_flag = DMA_INTF1(dma_periph) & DMA_FLAG_ADD(interrupt, channel_flag_offset);
-            interrupt_enable = DMA_CHFCTL(dma_periph, channelx) & DMA_CHXFCTL_FEEIE;
+            interrupt_flag = DMA_INTF1(DMA_periph) & DMA_FLAG_ADD(interrupt, channel_flag_offset);
+            interrupt_enable = DMA_CHFCTL(DMA_periph, channelx) & DMA_CHXFCTL_FEEIE;
             break;
 
         case DMA_INTF_SDEIF:
-            interrupt_flag = DMA_INTF1(dma_periph) & DMA_FLAG_ADD(interrupt, channel_flag_offset);
-            interrupt_enable = DMA_CHCTL(dma_periph, channelx) & DMA_CHXCTL_SDEIE;
+            interrupt_flag = DMA_INTF1(DMA_periph) & DMA_FLAG_ADD(interrupt, channel_flag_offset);
+            interrupt_enable = DMA_CHCTL(DMA_periph, channelx) & DMA_CHXCTL_SDEIE;
             break;
 
         case DMA_INTF_TAEIF:
-            interrupt_flag = DMA_INTF1(dma_periph) & DMA_FLAG_ADD(interrupt, channel_flag_offset);
-            interrupt_enable = DMA_CHCTL(dma_periph, channelx) & DMA_CHXCTL_TAEIE;
+            interrupt_flag = DMA_INTF1(DMA_periph) & DMA_FLAG_ADD(interrupt, channel_flag_offset);
+            interrupt_enable = DMA_CHCTL(DMA_periph, channelx) & DMA_CHXCTL_TAEIE;
             break;
 
         case DMA_INTF_HTFIF:
-            interrupt_flag = DMA_INTF1(dma_periph) & DMA_FLAG_ADD(interrupt, channel_flag_offset);
-            interrupt_enable = DMA_CHCTL(dma_periph, channelx) & DMA_CHXCTL_HTFIE;
+            interrupt_flag = DMA_INTF1(DMA_periph) & DMA_FLAG_ADD(interrupt, channel_flag_offset);
+            interrupt_enable = DMA_CHCTL(DMA_periph, channelx) & DMA_CHXCTL_HTFIE;
             break;
 
         case DMA_INTF_FTFIF:
-            interrupt_flag = DMA_INTF1(dma_periph) & DMA_FLAG_ADD(interrupt, channel_flag_offset);
-            interrupt_enable = DMA_CHCTL(dma_periph, channelx) & DMA_CHXCTL_FTFIE;
+            interrupt_flag = DMA_INTF1(DMA_periph) & DMA_FLAG_ADD(interrupt, channel_flag_offset);
+            interrupt_enable = DMA_CHCTL(DMA_periph, channelx) & DMA_CHXCTL_FTFIE;
             break;
 
         default:
@@ -861,7 +861,7 @@ FlagStatus dma_interrupt_flag_get(uint32_t dma_periph, dma_channel_enum channelx
 
 /*!
     简介:    clear DMA a channel interrupt flag
-    参数[输入]:  dma_periph: DMAx(x=0,1)
+    参数[输入]:  DMA_periph: DMAx(x=0,1)
       参数:        DMAx(x=0,1)
     参数[输入]:  channelx: specify which DMA channel to clear interrupt flag
       参数:        DMA_CHx(x=0..7)
@@ -875,11 +875,11 @@ FlagStatus dma_interrupt_flag_get(uint32_t dma_periph, dma_channel_enum channelx
     参数[输出]:  无
     返回值:      无
 */
-void dma_interrupt_flag_clear(uint32_t dma_periph, dma_channel_enum channelx, uint32_t interrupt) {
+void DMA_Interrupt_flag_clear(uint32_t DMA_periph, DMA_channel_enum channelx, uint32_t interrupt) {
     if(channelx < DMA_CH4) {
-        DMA_INTC0(dma_periph) |= DMA_FLAG_ADD(interrupt, channelx);
+        DMA_INTC0(DMA_periph) |= DMA_FLAG_ADD(interrupt, channelx);
     } else {
-        channelx -= (dma_channel_enum)4;
-        DMA_INTC1(dma_periph) |= DMA_FLAG_ADD(interrupt, channelx);
+        channelx -= (DMA_channel_enum)4;
+        DMA_INTC1(DMA_periph) |= DMA_FLAG_ADD(interrupt, channelx);
     }
 }

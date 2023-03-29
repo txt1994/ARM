@@ -61,7 +61,7 @@ OF SUCH DAMAGE.
     参数[输出]:  无
     返回值:      无
 */
-void fmc_wscnt_set(uint32_t wscnt) {
+void FMC_wscnt_set(uint32_t wscnt) {
     uint32_t reg;
 
     reg = FMC_WS;
@@ -76,7 +76,7 @@ void fmc_wscnt_set(uint32_t wscnt) {
     参数[输出]:  无
     返回值:      无
 */
-void fmc_unlock(void) {
+void FMC_unlock(void) {
     if((RESET != (FMC_CTL & FMC_CTL_LK))) {
         /* write the FMC key */
         FMC_KEY = UNLOCK_KEY0;
@@ -90,7 +90,7 @@ void fmc_unlock(void) {
     参数[输出]:  无
     返回值:      无
 */
-void fmc_lock(void) {
+void FMC_lock(void) {
     /* set the LK bit*/
     FMC_CTL |= FMC_CTL_LK;
 }
@@ -111,13 +111,13 @@ void fmc_lock(void) {
       参数:        FMC_OPERR: operation error
       参数:        FMC_TOERR: timeout error
 */
-fmc_state_enum fmc_page_erase(uint32_t page_addr) {
-    fmc_state_enum fmc_state = FMC_READY;
+FMC_state_enum FMC_page_erase(uint32_t page_addr) {
+    FMC_state_enum FMC_state = FMC_READY;
 
     /* wait for the FMC ready */
-    fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
 
-    if(FMC_READY == fmc_state) {
+    if(FMC_READY == FMC_state) {
         /* unlock page erase operation */
         FMC_PEKEY = UNLOCK_PE_KEY;
 
@@ -128,21 +128,21 @@ fmc_state_enum fmc_page_erase(uint32_t page_addr) {
         FMC_CTL |= FMC_CTL_START;
 
         /* wait for the FMC ready */
-        fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+        FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
 
         FMC_PECFG &= ~FMC_PE_EN;
         FMC_CTL &= ~FMC_CTL_SER;
     }
 
     /* return the FMC state */
-    return fmc_state;
+    return FMC_state;
 }
 
 #endif
 
 /*!
     简介:    FMC erase sector
-    参数[输入]:  fmc_sector: select the sector to erase
+    参数[输入]:  FMC_sector: select the sector to erase
                 only one parameter can be selected which is shown as below:
       参数:        CTL_SECTOR_NUMBER_0: sector 0
       参数:        CTL_SECTOR_NUMBER_1: sector 1
@@ -183,19 +183,19 @@ fmc_state_enum fmc_page_erase(uint32_t page_addr) {
       参数:        FMC_OPERR: operation error
       参数:        FMC_TOERR: timeout error
 */
-fmc_state_enum fmc_sector_erase(uint32_t fmc_sector) {
-    fmc_state_enum fmc_state = FMC_READY;
+FMC_state_enum FMC_sector_erase(uint32_t FMC_sector) {
+    FMC_state_enum FMC_state = FMC_READY;
     /* wait for the FMC ready */
-    fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
 
-    if(FMC_READY == fmc_state) {
+    if(FMC_READY == FMC_state) {
         /* start sector erase */
         FMC_CTL &= ~FMC_CTL_SN;
-        FMC_CTL |= (FMC_CTL_SER | fmc_sector);
+        FMC_CTL |= (FMC_CTL_SER | FMC_sector);
         FMC_CTL |= FMC_CTL_START;
 
         /* wait for the FMC ready */
-        fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+        FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
 
         /* reset the SER bit */
         FMC_CTL &= (~FMC_CTL_SER);
@@ -203,7 +203,7 @@ fmc_state_enum fmc_sector_erase(uint32_t fmc_sector) {
     }
 
     /* return the FMC state */
-    return fmc_state;
+    return FMC_state;
 }
 
 /*!
@@ -220,25 +220,25 @@ fmc_state_enum fmc_sector_erase(uint32_t fmc_sector) {
       参数:        FMC_OPERR: operation error
       参数:        FMC_TOERR: timeout error
 */
-fmc_state_enum fmc_mass_erase(void) {
-    fmc_state_enum fmc_state = FMC_READY;
+FMC_state_enum FMC_mass_erase(void) {
+    FMC_state_enum FMC_state = FMC_READY;
     /* wait for the FMC ready */
-    fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
 
-    if(FMC_READY == fmc_state) {
+    if(FMC_READY == FMC_state) {
         /* start whole chip erase */
         FMC_CTL |= (FMC_CTL_MER0 | FMC_CTL_MER1);
         FMC_CTL |= FMC_CTL_START;
 
         /* wait for the FMC ready */
-        fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+        FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
 
         /* reset the MER bits */
         FMC_CTL &= ~(FMC_CTL_MER0 | FMC_CTL_MER1);
     }
 
     /* return the fmc state */
-    return fmc_state;
+    return FMC_state;
 }
 
 /*!
@@ -255,25 +255,25 @@ fmc_state_enum fmc_mass_erase(void) {
       参数:        FMC_OPERR: operation error
       参数:        FMC_TOERR: timeout error
 */
-fmc_state_enum fmc_bank0_erase(void) {
-    fmc_state_enum fmc_state = FMC_READY;
+FMC_state_enum FMC_bank0_erase(void) {
+    FMC_state_enum FMC_state = FMC_READY;
     /* wait for the FMC ready */
-    fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
 
-    if(FMC_READY == fmc_state) {
+    if(FMC_READY == FMC_state) {
         /* start FMC bank0 erase */
         FMC_CTL |= FMC_CTL_MER0;
         FMC_CTL |= FMC_CTL_START;
 
         /* wait for the FMC ready */
-        fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+        FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
 
         /* reset the MER0 bit */
         FMC_CTL &= (~FMC_CTL_MER0);
     }
 
     /* return the fmc state */
-    return fmc_state;
+    return FMC_state;
 }
 
 /*!
@@ -290,25 +290,25 @@ fmc_state_enum fmc_bank0_erase(void) {
       参数:        FMC_OPERR: operation error
       参数:        FMC_TOERR: timeout error
 */
-fmc_state_enum fmc_bank1_erase(void) {
-    fmc_state_enum fmc_state = FMC_READY;
+FMC_state_enum FMC_bank1_erase(void) {
+    FMC_state_enum FMC_state = FMC_READY;
     /* wait for the FMC ready */
-    fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
 
-    if(FMC_READY == fmc_state) {
+    if(FMC_READY == FMC_state) {
         /* start FMC bank1 erase */
         FMC_CTL |= FMC_CTL_MER1;
         FMC_CTL |= FMC_CTL_START;
 
         /* wait for the FMC ready */
-        fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+        FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
 
         /* reset the MER1 bit */
         FMC_CTL &= (~FMC_CTL_MER1);
     }
 
     /* return the fmc state */
-    return fmc_state;
+    return FMC_state;
 }
 
 /*!
@@ -326,12 +326,12 @@ fmc_state_enum fmc_bank1_erase(void) {
       参数:        FMC_OPERR: operation error
       参数:        FMC_TOERR: timeout error
 */
-fmc_state_enum fmc_word_program(uint32_t address, uint32_t data) {
-    fmc_state_enum fmc_state = FMC_READY;
+FMC_state_enum FMC_Word_program(uint32_t address, uint32_t data) {
+    FMC_state_enum FMC_state = FMC_READY;
     /* wait for the FMC ready */
-    fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
 
-    if(FMC_READY == fmc_state) {
+    if(FMC_READY == FMC_state) {
         /* set the PG bit to start program */
         FMC_CTL &= ~FMC_CTL_PSZ;
         FMC_CTL |= CTL_PSZ_WORD;
@@ -340,14 +340,14 @@ fmc_state_enum fmc_word_program(uint32_t address, uint32_t data) {
         REG32(address) = data;
 
         /* wait for the FMC ready */
-        fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+        FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
 
         /* reset the PG bit */
         FMC_CTL &= ~FMC_CTL_PG;
     }
 
     /* return the FMC state */
-    return fmc_state;
+    return FMC_state;
 }
 
 /*!
@@ -365,12 +365,12 @@ fmc_state_enum fmc_word_program(uint32_t address, uint32_t data) {
       参数:        FMC_OPERR: operation error
       参数:        FMC_TOERR: timeout error
 */
-fmc_state_enum fmc_halfword_program(uint32_t address, uint16_t data) {
-    fmc_state_enum fmc_state = FMC_READY;
+FMC_state_enum FMC_halfword_program(uint32_t address, uint16_t data) {
+    FMC_state_enum FMC_state = FMC_READY;
     /* wait for the FMC ready */
-    fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
 
-    if(FMC_READY == fmc_state) {
+    if(FMC_READY == FMC_state) {
         /* set the PG bit to start program */
         FMC_CTL &= ~FMC_CTL_PSZ;
         FMC_CTL |= CTL_PSZ_HALF_WORD;
@@ -379,14 +379,14 @@ fmc_state_enum fmc_halfword_program(uint32_t address, uint16_t data) {
         REG16(address) = data;
 
         /* wait for the FMC ready */
-        fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+        FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
 
         /* reset the PG bit */
         FMC_CTL &= ~FMC_CTL_PG;
     }
 
     /* return the FMC state */
-    return fmc_state;
+    return FMC_state;
 }
 
 /*!
@@ -404,12 +404,12 @@ fmc_state_enum fmc_halfword_program(uint32_t address, uint16_t data) {
       参数:        FMC_OPERR: operation error
       参数:        FMC_TOERR: timeout error
 */
-fmc_state_enum fmc_byte_program(uint32_t address, uint8_t data) {
-    fmc_state_enum fmc_state = FMC_READY;
+FMC_state_enum FMC_byte_program(uint32_t address, uint8_t data) {
+    FMC_state_enum FMC_state = FMC_READY;
     /* wait for the FMC ready */
-    fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
 
-    if(FMC_READY == fmc_state) {
+    if(FMC_READY == FMC_state) {
         /* set the PG bit to start program */
         FMC_CTL &= ~FMC_CTL_PSZ;
         FMC_CTL |= CTL_PSZ_BYTE;
@@ -418,14 +418,14 @@ fmc_state_enum fmc_byte_program(uint32_t address, uint8_t data) {
         REG8(address) = data;
 
         /* wait for the FMC ready */
-        fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+        FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
 
         /* reset the PG bit */
         FMC_CTL &= ~FMC_CTL_PG;
     }
 
     /* return the FMC state */
-    return fmc_state;
+    return FMC_state;
 }
 
 /*!
@@ -472,13 +472,13 @@ void ob_start(void) {
 */
 void ob_erase(void) {
     uint32_t reg, reg1;
-    fmc_state_enum fmc_state = FMC_READY;
+    FMC_state_enum FMC_state = FMC_READY;
     /* wait for the FMC ready */
-    fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
     reg = FMC_OBCTL0;
     reg1 = FMC_OBCTL1;
 
-    if(FMC_READY == fmc_state) {
+    if(FMC_READY == FMC_state) {
 
         /* reset the OB_FWDGT, OB_DEEPSLEEP and OB_STDBY, set according to ob_fwdgt ,ob_deepsleep and ob_stdby */
         reg |= (FMC_OBCTL0_NWDG_HW | FMC_OBCTL0_NRST_DPSLP | FMC_OBCTL0_NRST_STDBY);
@@ -514,16 +514,16 @@ void ob_erase(void) {
 ErrStatus ob_write_protection_enable(uint32_t ob_wp) {
     uint32_t reg0 = FMC_OBCTL0;
     uint32_t reg1 = FMC_OBCTL1;
-    fmc_state_enum fmc_state = FMC_READY;
+    FMC_state_enum FMC_state = FMC_READY;
 
     if(RESET != (FMC_OBCTL0 & FMC_OBCTL0_DRP)) {
         return ERROR;
     }
 
     /* wait for the FMC ready */
-    fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
 
-    if(FMC_READY == fmc_state) {
+    if(FMC_READY == FMC_state) {
         reg0 &= (~((uint32_t)ob_wp << 16U));
         reg1 &= (~(ob_wp & 0xFFFF0000U));
         FMC_OBCTL0 = reg0;
@@ -548,16 +548,16 @@ ErrStatus ob_write_protection_enable(uint32_t ob_wp) {
 ErrStatus ob_write_protection_disable(uint32_t ob_wp) {
     uint32_t reg0 = FMC_OBCTL0;
     uint32_t reg1 = FMC_OBCTL1;
-    fmc_state_enum fmc_state = FMC_READY;
+    FMC_state_enum FMC_state = FMC_READY;
 
     if(RESET != (FMC_OBCTL0 & FMC_OBCTL0_DRP)) {
         return ERROR;
     }
 
     /* wait for the FMC ready */
-    fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
 
-    if(FMC_READY == fmc_state) {
+    if(FMC_READY == FMC_state) {
         reg0 |= ((uint32_t)ob_wp << 16U);
         reg1 |= (ob_wp & 0xFFFF0000U);
         FMC_OBCTL0 = reg0;
@@ -582,15 +582,15 @@ ErrStatus ob_write_protection_disable(uint32_t ob_wp) {
 void ob_drp_enable(uint32_t ob_drp) {
     uint32_t reg0 = FMC_OBCTL0;
     uint32_t reg1 = FMC_OBCTL1;
-    fmc_state_enum fmc_state = FMC_READY;
+    FMC_state_enum FMC_state = FMC_READY;
     uint32_t drp_state = FMC_OBCTL0 & FMC_OBCTL0_DRP;
     uint32_t wp0_state = FMC_OBCTL0 & FMC_OBCTL0_WP0;
     uint32_t wp1_state = FMC_OBCTL1 & FMC_OBCTL1_WP1;
 
     /* wait for the FMC ready */
-    fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
 
-    if(FMC_READY == fmc_state) {
+    if(FMC_READY == FMC_state) {
         if(RESET == drp_state) {
             reg0 &= ~FMC_OBCTL0_WP0;
             reg1 &= ~FMC_OBCTL1_WP1;
@@ -618,11 +618,11 @@ void ob_drp_enable(uint32_t ob_drp) {
 void ob_drp_disable(void) {
     uint32_t reg0 = FMC_OBCTL0;
     uint32_t reg1 = FMC_OBCTL1;
-    fmc_state_enum fmc_state = FMC_READY;
+    FMC_state_enum FMC_state = FMC_READY;
     /* wait for the FMC ready */
-    fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
 
-    if(FMC_READY == fmc_state) {
+    if(FMC_READY == FMC_state) {
         if(((uint8_t)(reg0 >> 8U)) == (uint8_t)FMC_NSPC) {
             /* security protection should be set as low level protection before disable D-BUS read protection */
             reg0 &= ~FMC_OBCTL0_SPC;
@@ -655,12 +655,12 @@ void ob_drp_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void ob_security_protection_config(uint8_t ob_spc) {
-    fmc_state_enum fmc_state = FMC_READY;
+void ob_security_protection_Config(uint8_t ob_spc) {
+    FMC_state_enum FMC_state = FMC_READY;
     /* wait for the FMC ready */
-    fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
 
-    if(FMC_READY == fmc_state) {
+    if(FMC_READY == FMC_state) {
         uint32_t reg;
 
         reg = FMC_OBCTL0;
@@ -689,12 +689,12 @@ void ob_security_protection_config(uint8_t ob_spc) {
     返回值:      无
 */
 void ob_user_write(uint32_t ob_fwdgt, uint32_t ob_deepsleep, uint32_t ob_stdby) {
-    fmc_state_enum fmc_state = FMC_READY;
+    FMC_state_enum FMC_state = FMC_READY;
 
     /* wait for the FMC ready */
-    fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
 
-    if(FMC_READY == fmc_state) {
+    if(FMC_READY == FMC_state) {
         uint32_t reg;
 
         reg = FMC_OBCTL0;
@@ -733,7 +733,7 @@ void ob_user_bor_threshold(uint32_t ob_bor_th) {
     参数[输出]:  无
     返回值:      无
 */
-void ob_boot_mode_config(uint32_t boot_mode) {
+void ob_boot_mode_Config(uint32_t boot_mode) {
     uint32_t reg;
 
     reg = FMC_OBCTL0;
@@ -835,7 +835,7 @@ uint8_t ob_user_bor_threshold_get(void) {
 
 /*!
     简介:    get flag set or reset
-    参数[输入]:  fmc_flag: check FMC flag
+    参数[输入]:  FMC_flag: check FMC flag
                 only one parameter can be selected which is shown as below:
       参数:        FMC_FLAG_BUSY: FMC busy flag bit
       参数:        FMC_FLAG_RDDERR: FMC read D-bus protection error flag bit
@@ -847,8 +847,8 @@ uint8_t ob_user_bor_threshold_get(void) {
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus fmc_flag_get(uint32_t fmc_flag) {
-    if(FMC_STAT & fmc_flag) {
+FlagStatus FMC_flag_get(uint32_t FMC_flag) {
+    if(FMC_STAT & FMC_flag) {
         return SET;
     }
 
@@ -869,40 +869,40 @@ FlagStatus fmc_flag_get(uint32_t fmc_flag) {
     参数[输出]:  无
     返回值:      无
 */
-void fmc_flag_clear(uint32_t fmc_flag) {
+void FMC_flag_clear(uint32_t FMC_flag) {
     /* clear the flags */
-    FMC_STAT = fmc_flag;
+    FMC_STAT = FMC_flag;
 }
 
 /*!
     简介:    enable FMC interrupt
-    参数[输入]:  fmc_int: the FMC interrupt source
+    参数[输入]:  FMC_int: the FMC interrupt source
                 only one parameter can be selected which is shown as below:
       参数:        FMC_INT_END: enable FMC end of program interrupt
       参数:        FMC_INT_ERR: enable FMC error interrupt
     参数[输出]:  无
     返回值:      无
 */
-void fmc_interrupt_enable(uint32_t fmc_int) {
-    FMC_CTL |= fmc_int;
+void FMC_Interrupt_enable(uint32_t FMC_int) {
+    FMC_CTL |= FMC_int;
 }
 
 /*!
     简介:    disable FMC interrupt
-    参数[输入]:  fmc_int: the FMC interrupt source
+    参数[输入]:  FMC_int: the FMC interrupt source
                 only one parameter can be selected which is shown as below:
       参数:        FMC_INT_END: disable FMC end of program interrupt
       参数:        FMC_INT_ERR: disable FMC error interrupt
     参数[输出]:  无
     返回值:      无
 */
-void fmc_interrupt_disable(uint32_t fmc_int) {
-    FMC_CTL &= ~(uint32_t)fmc_int;
+void FMC_Interrupt_disable(uint32_t FMC_int) {
+    FMC_CTL &= ~(uint32_t)FMC_int;
 }
 
 /*!
     简介:    get FMC interrupt flag set or reset
-    参数[输入]:  fmc_int_flag: FMC interrupt flag
+    参数[输入]:  FMC_int_flag: FMC interrupt flag
                 only one parameter can be selected which is shown as below:
       参数:        FMC_INT_FLAG_RDDERR: FMC read D-bus protection error interrupt flag
       参数:        FMC_INT_FLAG_PGSERR: FMC program sequence error interrupt flag
@@ -913,18 +913,18 @@ void fmc_interrupt_disable(uint32_t fmc_int) {
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus fmc_interrupt_flag_get(uint32_t fmc_int_flag) {
-    if(FMC_FLAG_END == fmc_int_flag) {
+FlagStatus FMC_Interrupt_flag_get(uint32_t FMC_int_flag) {
+    if(FMC_FLAG_END == FMC_int_flag) {
         /* end of operation interrupt flag */
         if(FMC_CTL & FMC_CTL_ENDIE) {
-            if(FMC_STAT & fmc_int_flag) {
+            if(FMC_STAT & FMC_int_flag) {
                 return SET;
             }
         }
     } else {
         /* error interrupt flags */
         if(FMC_CTL & FMC_CTL_ERRIE) {
-            if(FMC_STAT & fmc_int_flag) {
+            if(FMC_STAT & FMC_int_flag) {
                 return SET;
             }
         }
@@ -935,7 +935,7 @@ FlagStatus fmc_interrupt_flag_get(uint32_t fmc_int_flag) {
 
 /*!
     简介:    clear the FMC interrupt flag
-    参数[输入]:  fmc_int_flag: FMC interrupt flag
+    参数[输入]:  FMC_int_flag: FMC interrupt flag
                 only one parameter can be selected which is shown as below:
       参数:        FMC_INT_FLAG_RDDERR: FMC read D-bus protection error interrupt flag
       参数:        FMC_INT_FLAG_PGSERR: FMC program sequence error interrupt flag
@@ -946,9 +946,9 @@ FlagStatus fmc_interrupt_flag_get(uint32_t fmc_int_flag) {
     参数[输出]:  无
     返回值:      无
 */
-void fmc_interrupt_flag_clear(uint32_t fmc_int_flag) {
+void FMC_Interrupt_flag_clear(uint32_t FMC_int_flag) {
     /* clear the interrupt flag */
-    FMC_STAT = fmc_int_flag;
+    FMC_STAT = FMC_int_flag;
 }
 
 /*!
@@ -964,28 +964,28 @@ void fmc_interrupt_flag_clear(uint32_t fmc_int_flag) {
       参数:        FMC_WPERR: erase/program protection error
       参数:        FMC_OPERR: operation error
 */
-fmc_state_enum fmc_state_get(void) {
-    fmc_state_enum fmc_state = FMC_READY;
+FMC_state_enum FMC_state_get(void) {
+    FMC_state_enum FMC_state = FMC_READY;
     uint32_t temp_val = FMC_STAT;
 
     if(RESET != (temp_val & FMC_FLAG_BUSY)) {
-        fmc_state = FMC_BUSY;
+        FMC_state = FMC_BUSY;
     } else if(RESET != (temp_val & FMC_FLAG_RDDERR)) {
-        fmc_state = FMC_RDDERR;
+        FMC_state = FMC_RDDERR;
     } else if(RESET != (temp_val & FMC_FLAG_PGSERR)) {
-        fmc_state = FMC_PGSERR;
+        FMC_state = FMC_PGSERR;
     } else if(RESET != (temp_val & FMC_FLAG_PGMERR)) {
-        fmc_state = FMC_PGMERR;
+        FMC_state = FMC_PGMERR;
     } else if(RESET != (temp_val & FMC_FLAG_WPERR)) {
-        fmc_state = FMC_WPERR;
+        FMC_state = FMC_WPERR;
     } else if(RESET != (temp_val & FMC_FLAG_OPERR)) {
-        fmc_state = FMC_OPERR;
+        FMC_state = FMC_OPERR;
     } else {
-        fmc_state = FMC_READY;
+        FMC_state = FMC_READY;
     }
 
     /* return the FMC state */
-    return fmc_state;
+    return FMC_state;
 }
 
 /*!
@@ -1002,20 +1002,20 @@ fmc_state_enum fmc_state_get(void) {
       参数:        FMC_OPERR: operation error
       参数:        FMC_TOERR: timeout error
 */
-fmc_state_enum fmc_ready_wait(uint32_t timeout) {
-    fmc_state_enum fmc_state = FMC_BUSY;
+FMC_state_enum FMC_ready_Wait(uint32_t timeout) {
+    FMC_state_enum FMC_state = FMC_BUSY;
 
     /* wait for FMC ready */
     do {
         /* get FMC state */
-        fmc_state = fmc_state_get();
+        FMC_state = FMC_state_get();
         timeout--;
-    } while((FMC_BUSY == fmc_state) && (0U != timeout));
+    } while((FMC_BUSY == FMC_state) && (0U != timeout));
 
     if(0U == timeout) {
-        fmc_state = FMC_TOERR;
+        FMC_state = FMC_TOERR;
     }
 
     /* return the FMC state */
-    return fmc_state;
+    return FMC_state;
 }

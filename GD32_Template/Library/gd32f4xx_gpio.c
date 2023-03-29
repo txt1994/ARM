@@ -39,66 +39,66 @@ OF SUCH DAMAGE.
 
 /*!
     简介:      reset GPIO port
-    参数[输入]:  gpio_periph: GPIO port
+    参数[输入]:  GPIO_periph: GPIO port
                 only one parameter can be selected which is shown as below:
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
     参数[输出]:  无
     返回值:      无
 */
-void gpio_deinit(uint32_t gpio_periph) {
-    switch(gpio_periph) {
+void GPIO_DeInit(uint32_t GPIO_periph) {
+    switch(GPIO_periph) {
     case GPIOA:
         /* reset GPIOA */
-        rcu_periph_reset_enable(RCU_GPIOARST);
-        rcu_periph_reset_disable(RCU_GPIOARST);
+        RCU_Periph_Reset_Enable(RCU_GPIOARST);
+        RCU_Periph_Reset_Disable(RCU_GPIOARST);
         break;
 
     case GPIOB:
         /* reset GPIOB */
-        rcu_periph_reset_enable(RCU_GPIOBRST);
-        rcu_periph_reset_disable(RCU_GPIOBRST);
+        RCU_Periph_Reset_Enable(RCU_GPIOBRST);
+        RCU_Periph_Reset_Disable(RCU_GPIOBRST);
         break;
 
     case GPIOC:
         /* reset GPIOC */
-        rcu_periph_reset_enable(RCU_GPIOCRST);
-        rcu_periph_reset_disable(RCU_GPIOCRST);
+        RCU_Periph_Reset_Enable(RCU_GPIOCRST);
+        RCU_Periph_Reset_Disable(RCU_GPIOCRST);
         break;
 
     case GPIOD:
         /* reset GPIOD */
-        rcu_periph_reset_enable(RCU_GPIODRST);
-        rcu_periph_reset_disable(RCU_GPIODRST);
+        RCU_Periph_Reset_Enable(RCU_GPIODRST);
+        RCU_Periph_Reset_Disable(RCU_GPIODRST);
         break;
 
     case GPIOE:
         /* reset GPIOE */
-        rcu_periph_reset_enable(RCU_GPIOERST);
-        rcu_periph_reset_disable(RCU_GPIOERST);
+        RCU_Periph_Reset_Enable(RCU_GPIOERST);
+        RCU_Periph_Reset_Disable(RCU_GPIOERST);
         break;
 
     case GPIOF:
         /* reset GPIOF */
-        rcu_periph_reset_enable(RCU_GPIOFRST);
-        rcu_periph_reset_disable(RCU_GPIOFRST);
+        RCU_Periph_Reset_Enable(RCU_GPIOFRST);
+        RCU_Periph_Reset_Disable(RCU_GPIOFRST);
         break;
 
     case GPIOG:
         /* reset GPIOG */
-        rcu_periph_reset_enable(RCU_GPIOGRST);
-        rcu_periph_reset_disable(RCU_GPIOGRST);
+        RCU_Periph_Reset_Enable(RCU_GPIOGRST);
+        RCU_Periph_Reset_Disable(RCU_GPIOGRST);
         break;
 
     case GPIOH:
         /* reset GPIOH */
-        rcu_periph_reset_enable(RCU_GPIOHRST);
-        rcu_periph_reset_disable(RCU_GPIOHRST);
+        RCU_Periph_Reset_Enable(RCU_GPIOHRST);
+        RCU_Periph_Reset_Disable(RCU_GPIOHRST);
         break;
 
     case GPIOI:
         /* reset GPIOI */
-        rcu_periph_reset_enable(RCU_GPIOIRST);
-        rcu_periph_reset_disable(RCU_GPIOIRST);
+        RCU_Periph_Reset_Enable(RCU_GPIOIRST);
+        RCU_Periph_Reset_Disable(RCU_GPIOIRST);
         break;
 
     default:
@@ -108,7 +108,7 @@ void gpio_deinit(uint32_t gpio_periph) {
 
 /*!
     简介:      set GPIO mode
-    参数[输入]:  gpio_periph: GPIO port
+    参数[输入]:  GPIO_periph: GPIO port
                 only one parameter can be selected which is shown as below:
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
     参数[输入]:  mode: GPIO pin mode
@@ -126,12 +126,12 @@ void gpio_deinit(uint32_t gpio_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void gpio_mode_set(uint32_t gpio_periph, uint32_t mode, uint32_t pull_up_down, uint32_t pin) {
+void GPIO_mode_set(uint32_t GPIO_periph, uint32_t mode, uint32_t pull_up_down, uint32_t pin) {
     uint16_t i;
     uint32_t ctl, pupd;
 
-    ctl = GPIO_CTL(gpio_periph);
-    pupd = GPIO_PUD(gpio_periph);
+    ctl = GPIO_CTL(GPIO_periph);
+    pupd = GPIO_PUD(GPIO_periph);
 
     for(i = 0U; i < 16U; i++) {
         if((1U << i) & pin) {
@@ -147,13 +147,13 @@ void gpio_mode_set(uint32_t gpio_periph, uint32_t mode, uint32_t pull_up_down, u
         }
     }
 
-    GPIO_CTL(gpio_periph) = ctl;
-    GPIO_PUD(gpio_periph) = pupd;
+    GPIO_CTL(GPIO_periph) = ctl;
+    GPIO_PUD(GPIO_periph) = pupd;
 }
 
 /*!
     简介:      set GPIO output type and speed
-    参数[输入]:  gpio_periph: GPIO port
+    参数[输入]:  GPIO_periph: GPIO port
                 only one parameter can be selected which is shown as below:
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
     参数[输入]:  otype: GPIO pin output mode
@@ -170,18 +170,18 @@ void gpio_mode_set(uint32_t gpio_periph, uint32_t mode, uint32_t pull_up_down, u
     参数[输出]:  无
     返回值:      无
 */
-void gpio_output_options_set(uint32_t gpio_periph, uint8_t otype, uint32_t speed, uint32_t pin) {
+void GPIO_output_options_set(uint32_t GPIO_periph, uint8_t otype, uint32_t speed, uint32_t pin) {
     uint16_t i;
     uint32_t ospeedr;
 
     if(GPIO_OTYPE_OD == otype) {
-        GPIO_OMODE(gpio_periph) |= (uint32_t)pin;
+        GPIO_OMODE(GPIO_periph) |= (uint32_t)pin;
     } else {
-        GPIO_OMODE(gpio_periph) &= (uint32_t)(~pin);
+        GPIO_OMODE(GPIO_periph) &= (uint32_t)(~pin);
     }
 
     /* get the specified pin output speed bits value */
-    ospeedr = GPIO_OSPD(gpio_periph);
+    ospeedr = GPIO_OSPD(GPIO_periph);
 
     for(i = 0U; i < 16U; i++) {
         if((1U << i) & pin) {
@@ -192,12 +192,12 @@ void gpio_output_options_set(uint32_t gpio_periph, uint8_t otype, uint32_t speed
         }
     }
 
-    GPIO_OSPD(gpio_periph) = ospeedr;
+    GPIO_OSPD(GPIO_periph) = ospeedr;
 }
 
 /*!
     简介:    set GPIO pin bit
-    参数[输入]:  gpio_periph: GPIO port
+    参数[输入]:  GPIO_periph: GPIO port
                 only one parameter can be selected which is shown as below:
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
     参数[输入]:  pin: GPIO pin
@@ -206,13 +206,13 @@ void gpio_output_options_set(uint32_t gpio_periph, uint8_t otype, uint32_t speed
     参数[输出]:  无
     返回值:      无
 */
-void gpio_bit_set(uint32_t gpio_periph, uint32_t pin) {
-    GPIO_BOP(gpio_periph) = (uint32_t)pin;
+void GPIO_bit_set(uint32_t GPIO_periph, uint32_t pin) {
+    GPIO_BOP(GPIO_periph) = (uint32_t)pin;
 }
 
 /*!
     简介:      reset GPIO pin bit
-    参数[输入]:  gpio_periph: GPIO port
+    参数[输入]:  GPIO_periph: GPIO port
                 only one parameter can be selected which is shown as below:
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
     参数[输入]:  pin: GPIO pin
@@ -221,13 +221,13 @@ void gpio_bit_set(uint32_t gpio_periph, uint32_t pin) {
     参数[输出]:  无
     返回值:      无
 */
-void gpio_bit_reset(uint32_t gpio_periph, uint32_t pin) {
-    GPIO_BC(gpio_periph) = (uint32_t)pin;
+void GPIO_bit_reset(uint32_t GPIO_periph, uint32_t pin) {
+    GPIO_BC(GPIO_periph) = (uint32_t)pin;
 }
 
 /*!
     简介:      write data to the specified GPIO pin
-    参数[输入]:  gpio_periph: GPIO port
+    参数[输入]:  GPIO_periph: GPIO port
                 only one parameter can be selected which is shown as below:
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
     参数[输入]:  pin: GPIO pin
@@ -239,30 +239,30 @@ void gpio_bit_reset(uint32_t gpio_periph, uint32_t pin) {
     参数[输出]:  无
     返回值:      无
 */
-void gpio_bit_write(uint32_t gpio_periph, uint32_t pin, bit_status bit_value) {
+void GPIO_bit_write(uint32_t GPIO_periph, uint32_t pin, bit_status bit_value) {
     if(RESET != bit_value) {
-        GPIO_BOP(gpio_periph) = (uint32_t)pin;
+        GPIO_BOP(GPIO_periph) = (uint32_t)pin;
     } else {
-        GPIO_BC(gpio_periph) = (uint32_t)pin;
+        GPIO_BC(GPIO_periph) = (uint32_t)pin;
     }
 }
 
 /*!
     简介:      write data to the specified GPIO port
-    参数[输入]:  gpio_periph: GPIO port
+    参数[输入]:  GPIO_periph: GPIO port
                 only one parameter can be selected which is shown as below:
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
     参数[输入]:  data: specify the value to be written to the port output control register
     参数[输出]:  无
     返回值:      无
 */
-void gpio_port_write(uint32_t gpio_periph, uint16_t data) {
-    GPIO_OCTL(gpio_periph) = (uint32_t)data;
+void GPIO_port_write(uint32_t GPIO_periph, uint16_t data) {
+    GPIO_OCTL(GPIO_periph) = (uint32_t)data;
 }
 
 /*!
     简介:      get GPIO pin input status
-    参数[输入]:  gpio_periph: GPIO port
+    参数[输入]:  GPIO_periph: GPIO port
                 only one parameter can be selected which is shown as below:
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
     参数[输入]:  pin: GPIO pin
@@ -271,8 +271,8 @@ void gpio_port_write(uint32_t gpio_periph, uint16_t data) {
     参数[输出]:  无
     返回值:     input status of GPIO pin: SET or RESET
 */
-FlagStatus gpio_input_bit_get(uint32_t gpio_periph, uint32_t pin) {
-    if((uint32_t)RESET != (GPIO_ISTAT(gpio_periph) & (pin))) {
+FlagStatus GPIO_input_bit_get(uint32_t GPIO_periph, uint32_t pin) {
+    if((uint32_t)RESET != (GPIO_ISTAT(GPIO_periph) & (pin))) {
         return SET;
     } else {
         return RESET;
@@ -281,19 +281,19 @@ FlagStatus gpio_input_bit_get(uint32_t gpio_periph, uint32_t pin) {
 
 /*!
     简介:      get GPIO all pins input status
-    参数[输入]:  gpio_periph: GPIO port
+    参数[输入]:  GPIO_periph: GPIO port
                 only one parameter can be selected which is shown as below:
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
     参数[输出]:  无
     返回值:     input status of GPIO all pins
 */
-uint16_t gpio_input_port_get(uint32_t gpio_periph) {
-    return ((uint16_t)GPIO_ISTAT(gpio_periph));
+uint16_t GPIO_input_port_get(uint32_t GPIO_periph) {
+    return ((uint16_t)GPIO_ISTAT(GPIO_periph));
 }
 
 /*!
     简介:      get GPIO pin output status
-    参数[输入]:  gpio_periph: GPIO port
+    参数[输入]:  GPIO_periph: GPIO port
                 only one parameter can be selected which is shown as below:
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
     参数[输入]:  pin: GPIO pin
@@ -302,8 +302,8 @@ uint16_t gpio_input_port_get(uint32_t gpio_periph) {
     参数[输出]:  无
     返回值:     output status of GPIO pin: SET or RESET
 */
-FlagStatus gpio_output_bit_get(uint32_t gpio_periph, uint32_t pin) {
-    if((uint32_t)RESET != (GPIO_OCTL(gpio_periph) & (pin))) {
+FlagStatus GPIO_output_bit_get(uint32_t GPIO_periph, uint32_t pin) {
+    if((uint32_t)RESET != (GPIO_OCTL(GPIO_periph) & (pin))) {
         return SET;
     } else {
         return RESET;
@@ -312,19 +312,19 @@ FlagStatus gpio_output_bit_get(uint32_t gpio_periph, uint32_t pin) {
 
 /*!
     简介:      get GPIO port output status
-    参数[输入]:  gpio_periph: GPIO port
+    参数[输入]:  GPIO_periph: GPIO port
                 only one parameter can be selected which is shown as below:
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
     参数[输出]:  无
     返回值:     output status of GPIO all pins
 */
-uint16_t gpio_output_port_get(uint32_t gpio_periph) {
-    return ((uint16_t)GPIO_OCTL(gpio_periph));
+uint16_t GPIO_output_port_get(uint32_t GPIO_periph) {
+    return ((uint16_t)GPIO_OCTL(GPIO_periph));
 }
 
 /*!
     简介:      set GPIO alternate function
-    参数[输入]:  gpio_periph: GPIO port
+    参数[输入]:  GPIO_periph: GPIO port
                 only one parameter can be selected which is shown as below:
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
     参数[输入]:  alt_func_num: GPIO pin af function
@@ -350,12 +350,12 @@ uint16_t gpio_output_port_get(uint32_t gpio_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void gpio_af_set(uint32_t gpio_periph, uint32_t alt_func_num, uint32_t pin) {
+void GPIO_af_set(uint32_t GPIO_periph, uint32_t alt_func_num, uint32_t pin) {
     uint16_t i;
     uint32_t afrl, afrh;
 
-    afrl = GPIO_AFSEL0(gpio_periph);
-    afrh = GPIO_AFSEL1(gpio_periph);
+    afrl = GPIO_AFSEL0(GPIO_periph);
+    afrh = GPIO_AFSEL1(GPIO_periph);
 
     for(i = 0U; i < 8U; i++) {
         if((1U << i) & pin) {
@@ -373,13 +373,13 @@ void gpio_af_set(uint32_t gpio_periph, uint32_t alt_func_num, uint32_t pin) {
         }
     }
 
-    GPIO_AFSEL0(gpio_periph) = afrl;
-    GPIO_AFSEL1(gpio_periph) = afrh;
+    GPIO_AFSEL0(GPIO_periph) = afrl;
+    GPIO_AFSEL1(GPIO_periph) = afrh;
 }
 
 /*!
     简介:      lock GPIO pin bit
-    参数[输入]:  gpio_periph: GPIO port
+    参数[输入]:  GPIO_periph: GPIO port
                 only one parameter can be selected which is shown as below:
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
     参数[输入]:  pin: GPIO pin
@@ -388,21 +388,21 @@ void gpio_af_set(uint32_t gpio_periph, uint32_t alt_func_num, uint32_t pin) {
     参数[输出]:  无
     返回值:      无
 */
-void gpio_pin_lock(uint32_t gpio_periph, uint32_t pin) {
+void GPIO_pin_lock(uint32_t GPIO_periph, uint32_t pin) {
     uint32_t lock = 0x00010000U;
     lock |= pin;
 
     /* lock key writing sequence: write 1->write 0->write 1->read 0->read 1 */
-    GPIO_LOCK(gpio_periph) = (uint32_t)lock;
-    GPIO_LOCK(gpio_periph) = (uint32_t)pin;
-    GPIO_LOCK(gpio_periph) = (uint32_t)lock;
-    lock = GPIO_LOCK(gpio_periph);
-    lock = GPIO_LOCK(gpio_periph);
+    GPIO_LOCK(GPIO_periph) = (uint32_t)lock;
+    GPIO_LOCK(GPIO_periph) = (uint32_t)pin;
+    GPIO_LOCK(GPIO_periph) = (uint32_t)lock;
+    lock = GPIO_LOCK(GPIO_periph);
+    lock = GPIO_LOCK(GPIO_periph);
 }
 
 /*!
     简介:      toggle GPIO pin status
-    参数[输入]:  gpio_periph: GPIO port
+    参数[输入]:  GPIO_periph: GPIO port
                 only one parameter can be selected which is shown as below:
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
     参数[输入]:  pin: GPIO pin
@@ -411,19 +411,19 @@ void gpio_pin_lock(uint32_t gpio_periph, uint32_t pin) {
     参数[输出]:  无
     返回值:      无
 */
-void gpio_bit_toggle(uint32_t gpio_periph, uint32_t pin) {
-    GPIO_TG(gpio_periph) = (uint32_t)pin;
+void GPIO_bit_toggle(uint32_t GPIO_periph, uint32_t pin) {
+    GPIO_TG(GPIO_periph) = (uint32_t)pin;
 }
 
 /*!
     简介:      toggle GPIO port status
-    参数[输入]:  gpio_periph: GPIO port
+    参数[输入]:  GPIO_periph: GPIO port
                 only one parameter can be selected which is shown as below:
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
 
     参数[输出]:  无
     返回值:      无
 */
-void gpio_port_toggle(uint32_t gpio_periph) {
-    GPIO_TG(gpio_periph) = 0x0000FFFFU;
+void GPIO_port_toggle(uint32_t GPIO_periph) {
+    GPIO_TG(GPIO_periph) = 0x0000FFFFU;
 }

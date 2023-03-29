@@ -84,7 +84,7 @@ OF SUCH DAMAGE.
 #define SDIO_CMDCTL_CMDIDX              BITS(0,5)              /*!< command index */
 #define SDIO_CMDCTL_CMDRESP             BITS(6,7)              /*!< command response type bits */
 #define SDIO_CMDCTL_INTWAIT             BIT(8)                 /*!< interrupt wait instead of timeout */
-#define SDIO_CMDCTL_WAITDEND            BIT(9)                 /*!< wait for ends of data transfer */
+#define SDIO_CMDCTL_WaitDEND            BIT(9)                 /*!< wait for ends of data transfer */
 #define SDIO_CMDCTL_CSMEN               BIT(10)                /*!< command state machine(CSM) enable bit */
 #define SDIO_CMDCTL_SUSPEND             BIT(11)                /*!< SD I/O suspend command(SD I/O only) */
 #define SDIO_CMDCTL_ENCMDC              BIT(12)                /*!< CMD completion signal enabled (CE-ATA only) */
@@ -287,9 +287,9 @@ OF SUCH DAMAGE.
 #define SDIO_RESPONSETYPE_LONG          CMDCTL_CMDRESP(3)      /*!< long response */
 
 /* command state machine wait type */
-#define SDIO_WAITTYPE_NO                (uint32_t)0x00000000U  /*!< not wait interrupt */
-#define SDIO_WAITTYPE_INTERRUPT         SDIO_CMDCTL_INTWAIT    /*!< wait interrupt */
-#define SDIO_WAITTYPE_DATAEND           SDIO_CMDCTL_WAITDEND   /*!< wait the end of data transfer */
+#define SDIO_WaitTYPE_NO                (uint32_t)0x00000000U  /*!< not wait interrupt */
+#define SDIO_WaitTYPE_INTERRUPT         SDIO_CMDCTL_INTWAIT    /*!< wait interrupt */
+#define SDIO_WaitTYPE_DATAEND           SDIO_CMDCTL_WaitDEND   /*!< wait the end of data transfer */
 
 #define SDIO_RESPONSE0                  (uint32_t)0x00000000U  /*!< card response[31:0]/card response[127:96] */
 #define SDIO_RESPONSE1                  (uint32_t)0x00000001U  /*!< card response[95:64] */
@@ -329,106 +329,106 @@ OF SUCH DAMAGE.
 /* function declarations */
 /* de/initialization functions, hardware clock, bus mode, power_state and SDIO clock configuration */
 /* deinitialize the SDIO */
-void sdio_deinit(void);
+void SDIO_DeInit(void);
 /* configure the SDIO clock */
-void sdio_clock_config(uint32_t clock_edge, uint32_t clock_bypass, uint32_t clock_powersave, uint16_t clock_division);
+void SDIO_clock_Config(uint32_t clock_edge, uint32_t clock_bypass, uint32_t clock_powersave, uint16_t clock_division);
 /* enable hardware clock control */
-void sdio_hardware_clock_enable(void);
+void SDIO_hardware_clock_enable(void);
 /* disable hardware clock control */
-void sdio_hardware_clock_disable(void);
+void SDIO_hardware_clock_disable(void);
 /* set different SDIO card bus mode */
-void sdio_bus_mode_set(uint32_t bus_mode);
+void SDIO_bus_mode_set(uint32_t bus_mode);
 /* set the SDIO power state */
-void sdio_power_state_set(uint32_t power_state);
+void SDIO_power_state_set(uint32_t power_state);
 /* get the SDIO power state */
-uint32_t sdio_power_state_get(void);
+uint32_t SDIO_power_state_get(void);
 /* enable SDIO_CLK clock output */
-void sdio_clock_enable(void);
+void SDIO_clock_enable(void);
 /* disable SDIO_CLK clock output */
-void sdio_clock_disable(void);
+void SDIO_clock_disable(void);
 
 /* configure the command index, argument, response type, wait type and CSM to send command functions */
 /* configure the command and response */
-void sdio_command_response_config(uint32_t cmd_index, uint32_t cmd_argument, uint32_t response_type);
+void SDIO_command_response_Config(uint32_t cmd_index, uint32_t cmd_argument, uint32_t response_type);
 /* set the command state machine wait type */
-void sdio_wait_type_set(uint32_t wait_type);
+void SDIO_Wait_type_set(uint32_t wait_type);
 /* enable the CSM(command state machine) */
-void sdio_csm_enable(void);
+void SDIO_csm_enable(void);
 /* disable the CSM(command state machine) */
-void sdio_csm_disable(void);
+void SDIO_csm_disable(void);
 /* get the last response command index */
-uint8_t sdio_command_index_get(void);
+uint8_t SDIO_command_index_get(void);
 /* get the response for the last received command */
-uint32_t sdio_response_get(uint32_t sdio_responsex);
+uint32_t SDIO_response_get(uint32_t SDIO_responsex);
 
 /* configure the data timeout, length, block size, transfer mode, direction and DSM for data transfer functions */
 /* configure the data timeout, data length and data block size */
-void sdio_data_config(uint32_t data_timeout, uint32_t data_length, uint32_t data_blocksize);
+void SDIO_data_Config(uint32_t data_timeout, uint32_t data_length, uint32_t data_blocksize);
 /* configure the data transfer mode and direction */
-void sdio_data_transfer_config(uint32_t transfer_mode, uint32_t transfer_direction);
+void SDIO_data_transfer_Config(uint32_t transfer_mode, uint32_t transfer_direction);
 /* enable the DSM(data state machine) for data transfer */
-void sdio_dsm_enable(void);
+void SDIO_dsm_enable(void);
 /* disable the DSM(data state machine) */
-void sdio_dsm_disable(void);
+void SDIO_dsm_disable(void);
 /* write data(one word) to the transmit FIFO */
-void sdio_data_write(uint32_t data);
+void SDIO_data_write(uint32_t data);
 /* read data(one word) from the receive FIFO */
-uint32_t sdio_data_read(void);
+uint32_t SDIO_data_read(void);
 /* get the number of remaining data bytes to be transferred to card */
-uint32_t sdio_data_counter_get(void);
+uint32_t SDIO_data_counter_get(void);
 /* get the number of words remaining to be written or read from FIFO */
-uint32_t sdio_fifo_counter_get(void);
+uint32_t SDIO_fifo_counter_get(void);
 /* enable the DMA request for SDIO */
-void sdio_dma_enable(void);
+void SDIO_DMA_enable(void);
 /* disable the DMA request for SDIO */
-void sdio_dma_disable(void);
+void SDIO_DMA_disable(void);
 
 /* flag and interrupt functions */
 /* get the flags state of SDIO */
-FlagStatus sdio_flag_get(uint32_t flag);
+FlagStatus SDIO_flag_get(uint32_t flag);
 /* clear the pending flags of SDIO */
-void sdio_flag_clear(uint32_t flag);
+void SDIO_flag_clear(uint32_t flag);
 /* enable the SDIO interrupt */
-void sdio_interrupt_enable(uint32_t int_flag);
+void SDIO_Interrupt_enable(uint32_t int_flag);
 /* disable the SDIO interrupt */
-void sdio_interrupt_disable(uint32_t int_flag);
+void SDIO_Interrupt_disable(uint32_t int_flag);
 /* get the interrupt flags state of SDIO */
-FlagStatus sdio_interrupt_flag_get(uint32_t int_flag);
+FlagStatus SDIO_Interrupt_flag_get(uint32_t int_flag);
 /* clear the interrupt pending flags of SDIO */
-void sdio_interrupt_flag_clear(uint32_t int_flag);
+void SDIO_Interrupt_flag_clear(uint32_t int_flag);
 
 /* SD I/O card functions */
 /* enable the read wait mode(SD I/O only) */
-void sdio_readwait_enable(void);
+void SDIO_readwait_enable(void);
 /* disable the read wait mode(SD I/O only) */
-void sdio_readwait_disable(void);
+void SDIO_readwait_disable(void);
 /* enable the function that stop the read wait process(SD I/O only) */
-void sdio_stop_readwait_enable(void);
+void SDIO_stop_readwait_enable(void);
 /* disable the function that stop the read wait process(SD I/O only) */
-void sdio_stop_readwait_disable(void);
+void SDIO_stop_readwait_disable(void);
 /* set the read wait type(SD I/O only) */
-void sdio_readwait_type_set(uint32_t readwait_type);
+void SDIO_readwait_type_set(uint32_t readwait_type);
 /* enable the SD I/O mode specific operation(SD I/O only) */
-void sdio_operation_enable(void);
+void SDIO_operation_enable(void);
 /* disable the SD I/O mode specific operation(SD I/O only) */
-void sdio_operation_disable(void);
+void SDIO_operation_disable(void);
 /* enable the SD I/O suspend operation(SD I/O only) */
-void sdio_suspend_enable(void);
+void SDIO_suspend_enable(void);
 /* disable the SD I/O suspend operation(SD I/O only) */
-void sdio_suspend_disable(void);
+void SDIO_suspend_disable(void);
 
 /* CE-ATA functions */
 /* enable the CE-ATA command(CE-ATA only) */
-void sdio_ceata_command_enable(void);
+void SDIO_ceata_command_enable(void);
 /* disable the CE-ATA command(CE-ATA only) */
-void sdio_ceata_command_disable(void);
+void SDIO_ceata_command_disable(void);
 /* enable the CE-ATA interrupt(CE-ATA only) */
-void sdio_ceata_interrupt_enable(void);
+void SDIO_ceata_Interrupt_enable(void);
 /* disable the CE-ATA interrupt(CE-ATA only) */
-void sdio_ceata_interrupt_disable(void);
+void SDIO_ceata_Interrupt_disable(void);
 /* enable the CE-ATA command completion signal(CE-ATA only) */
-void sdio_ceata_command_completion_enable(void);
+void SDIO_ceata_command_completion_enable(void);
 /* disable the CE-ATA command completion signal(CE-ATA only) */
-void sdio_ceata_command_completion_disable(void);
+void SDIO_ceata_command_completion_disable(void);
 
 #endif /* GD32F4XX_SDIO_H */

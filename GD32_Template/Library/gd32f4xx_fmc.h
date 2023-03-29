@@ -135,7 +135,7 @@ typedef enum {
     FMC_WPERR,                                                    /*!< erase/program protection error */
     FMC_OPERR,                                                    /*!< operation error */
     FMC_TOERR                                                     /*!< timeout error */
-} fmc_state_enum;
+} FMC_state_enum;
 
 /* unlock key */
 #define UNLOCK_KEY0                ((uint32_t)0x45670123U)        /*!< unlock key 0 */
@@ -330,29 +330,29 @@ typedef enum {
 /* function declarations */
 /* FMC main memory programming functions */
 /* set the FMC wait state counter */
-void fmc_wscnt_set(uint32_t wscnt);
+void FMC_wscnt_set(uint32_t wscnt);
 /* unlock the main FMC operation */
-void fmc_unlock(void);
+void FMC_unlock(void);
 /* lock the main FMC operation */
-void fmc_lock(void);
+void FMC_lock(void);
 #if defined (GD32F425) || defined (GD32F427) || defined (GD32F470)
 /* FMC erase page */
-fmc_state_enum fmc_page_erase(uint32_t page_addr);
+FMC_state_enum FMC_page_erase(uint32_t page_addr);
 #endif
 /* FMC erase sector */
-fmc_state_enum fmc_sector_erase(uint32_t fmc_sector);
+FMC_state_enum FMC_sector_erase(uint32_t FMC_sector);
 /* FMC erase whole chip */
-fmc_state_enum fmc_mass_erase(void);
+FMC_state_enum FMC_mass_erase(void);
 /* FMC erase whole bank0 */
-fmc_state_enum fmc_bank0_erase(void);
+FMC_state_enum FMC_bank0_erase(void);
 /* FMC erase whole bank1 */
-fmc_state_enum fmc_bank1_erase(void);
+FMC_state_enum FMC_bank1_erase(void);
 /* FMC program a word at the corresponding address */
-fmc_state_enum fmc_word_program(uint32_t address, uint32_t data);
+FMC_state_enum FMC_Word_program(uint32_t address, uint32_t data);
 /* FMC program a half word at the corresponding address */
-fmc_state_enum fmc_halfword_program(uint32_t address, uint16_t data);
+FMC_state_enum FMC_halfword_program(uint32_t address, uint16_t data);
 /* FMC program a byte at the corresponding address */
-fmc_state_enum fmc_byte_program(uint32_t address, uint8_t data);
+FMC_state_enum FMC_byte_program(uint32_t address, uint8_t data);
 
 /* FMC option bytes programming functions */
 /* unlock the option byte operation */
@@ -372,13 +372,13 @@ void ob_drp_enable(uint32_t ob_drp);
 /* disable erase/program protection and D-bus read protection */
 void ob_drp_disable(void);
 /* configure security protection level */
-void ob_security_protection_config(uint8_t ob_spc);
+void ob_security_protection_Config(uint8_t ob_spc);
 /* program the FMC user option byte */
 void ob_user_write(uint32_t ob_fwdgt, uint32_t ob_deepsleep, uint32_t ob_stdby);
 /* program the option byte BOR threshold value */
 void ob_user_bor_threshold(uint32_t ob_bor_th);
 /* configure the boot mode */
-void ob_boot_mode_config(uint32_t boot_mode);
+void ob_boot_mode_Config(uint32_t boot_mode);
 /* get the FMC user option byte */
 uint8_t ob_user_get(void);
 /* get the FMC option byte write protection */
@@ -396,20 +396,20 @@ uint8_t ob_user_bor_threshold_get(void);
 
 /* FMC interrupts and flags management functions */
 /* get flag set or reset */
-FlagStatus fmc_flag_get(uint32_t fmc_flag);
+FlagStatus FMC_flag_get(uint32_t FMC_flag);
 /* clear the FMC pending flag */
-void fmc_flag_clear(uint32_t fmc_flag);
+void FMC_flag_clear(uint32_t FMC_flag);
 /* enable FMC interrupt */
-void fmc_interrupt_enable(uint32_t fmc_int);
+void FMC_Interrupt_enable(uint32_t FMC_int);
 /* disable FMC interrupt */
-void fmc_interrupt_disable(uint32_t fmc_int);
+void FMC_Interrupt_disable(uint32_t FMC_int);
 /* get FMC interrupt flag set or reset */
-FlagStatus fmc_interrupt_flag_get(uint32_t fmc_int_flag);
+FlagStatus FMC_Interrupt_flag_get(uint32_t FMC_int_flag);
 /* clear the FMC interrupt flag */
-void fmc_interrupt_flag_clear(uint32_t fmc_int_flag);
+void FMC_Interrupt_flag_clear(uint32_t FMC_int_flag);
 /* get the FMC state */
-fmc_state_enum fmc_state_get(void);
+FMC_state_enum FMC_state_get(void);
 /* check whether FMC is ready or not */
-fmc_state_enum fmc_ready_wait(uint32_t timeout);
+FMC_state_enum FMC_ready_Wait(uint32_t timeout);
 
 #endif /* GD32F4XX_FMC_H */

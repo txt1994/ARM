@@ -66,38 +66,38 @@ OF SUCH DAMAGE.
 /* constants definitions */
 /* TRNG status flag */
 typedef enum {
-    TRNG_FLAG_DRDY = TRNG_STAT_DRDY,                           /*!< random Data ready status */
-    TRNG_FLAG_CECS = TRNG_STAT_CECS,                           /*!< clock error current status */
-    TRNG_FLAG_SECS = TRNG_STAT_SECS                            /*!< seed error current status */
-} trng_flag_enum;
+    TRNG_Flag_DRDY = TRNG_STAT_DRDY,                           /*!< random Data ready status */
+    TRNG_Flag_CECS = TRNG_STAT_CECS,                           /*!< clock error current status */
+    TRNG_Flag_SECS = TRNG_STAT_SECS                            /*!< seed error current status */
+} TRNG_Flag_enum;
 
 /* TRNG inerrupt flag */
 typedef enum {
-    TRNG_INT_FLAG_CEIF = TRNG_STAT_CEIF,                       /*!< clock error interrupt flag */
-    TRNG_INT_FLAG_SEIF = TRNG_STAT_SEIF                        /*!< seed error interrupt flag */
-} trng_int_flag_enum;
+    TRNG_INT_Flag_CEIF = TRNG_STAT_CEIF,                       /*!< clock error interrupt flag */
+    TRNG_INT_Flag_SEIF = TRNG_STAT_SEIF                        /*!< seed error interrupt flag */
+} TRNG_int_Flag_enum;
 
 /* function declarations */
 /* initialization functions */
 /* reset TRNG */
-void trng_deinit(void);
+void TRNG_DeInit(void);
 /* enable TRNG */
-void trng_enable(void);
+void TRNG_Enable(void);
 /* disable TRNG */
-void trng_disable(void);
+void TRNG_Disable(void);
 /* get the true random data */
-uint32_t trng_get_true_random_data(void);
+uint32_t TRNG_Get_true_random_data(void);
 
 /* interrupt & flag functions */
 /* enable TRNG interrupt */
-void trng_interrupt_enable(void);
+void TRNG_Interrupt_Enable(void);
 /* disable TRNG interrupt  */
-void trng_interrupt_disable(void);
+void TRNG_Interrupt_Disable(void);
 /* get TRNG flag status */
-FlagStatus trng_flag_get(trng_flag_enum flag);
+FlagStatus TRNG_Flag_Get(TRNG_Flag_enum flag);
 /* get TRNG interrupt flag status */
-FlagStatus trng_interrupt_flag_get(trng_int_flag_enum int_flag);
+FlagStatus TRNG_Interrupt_Flag_Get(TRNG_int_Flag_enum int_flag);
 /* clear TRNG interrupt flag status */
-void trng_interrupt_flag_clear(trng_int_flag_enum int_flag);
+void TRNG_Interrupt_Flag_Clear(TRNG_int_Flag_enum int_flag);
 
 #endif /* GD32F4XX_TRNG_H */

@@ -135,51 +135,51 @@ OF SUCH DAMAGE.
 
 /* function declarations */
 /* reset ctc clock trim controller */
-void ctc_deinit(void);
+void CTC_DeInit(void);
 /* enable CTC trim counter */
-void ctc_counter_enable(void);
+void CTC_counter_enable(void);
 /* disable CTC trim counter */
-void ctc_counter_disable(void);
+void CTC_counter_disable(void);
 
 /* configure the IRC48M trim value */
-void ctc_irc48m_trim_value_config(uint8_t trim_value);
+void CTC_irc48m_trim_value_Config(uint8_t trim_value);
 /* generate software reference source sync pulse */
-void ctc_software_refsource_pulse_generate(void);
+void CTC_software_refsource_pulse_generate(void);
 /* configure hardware automatically trim mode */
-void ctc_hardware_trim_mode_config(uint32_t hardmode);
+void CTC_hardware_trim_mode_Config(uint32_t hardmode);
 
 /* configure reference signal source polarity */
-void ctc_refsource_polarity_config(uint32_t polarity);
+void CTC_refsource_polarity_Config(uint32_t polarity);
 /* select reference signal source */
-void ctc_refsource_signal_select(uint32_t refs);
+void CTC_refsource_signal_select(uint32_t refs);
 /* configure reference signal source prescaler */
-void ctc_refsource_prescaler_config(uint32_t prescaler);
+void CTC_refsource_prescaler_Config(uint32_t prescaler);
 /* configure clock trim base limit value */
-void ctc_clock_limit_value_config(uint8_t limit_value);
+void CTC_clock_limit_value_Config(uint8_t limit_value);
 /* configure CTC counter reload value */
-void ctc_counter_reload_value_config(uint16_t reload_value);
+void CTC_counter_reload_value_Config(uint16_t reload_value);
 
 /* read CTC counter capture value when reference sync pulse occurred */
-uint16_t ctc_counter_capture_value_read(void);
+uint16_t CTC_counter_capture_value_read(void);
 /* read CTC trim counter direction when reference sync pulse occurred */
-FlagStatus ctc_counter_direction_read(void);
+FlagStatus CTC_counter_direction_read(void);
 /* read CTC counter reload value */
-uint16_t ctc_counter_reload_value_read(void);
+uint16_t CTC_counter_reload_value_read(void);
 /* read the IRC48M trim value */
-uint8_t ctc_irc48m_trim_value_read(void);
+uint8_t CTC_irc48m_trim_value_read(void);
 
 /* interrupt & flag functions */
 /* enable the CTC interrupt */
-void ctc_interrupt_enable(uint32_t interrupt);
+void CTC_Interrupt_enable(uint32_t interrupt);
 /* disable the CTC interrupt */
-void ctc_interrupt_disable(uint32_t interrupt);
+void CTC_Interrupt_disable(uint32_t interrupt);
 /* get CTC interrupt flag */
-FlagStatus ctc_interrupt_flag_get(uint32_t int_flag);
+FlagStatus CTC_Interrupt_flag_get(uint32_t int_flag);
 /* clear CTC interrupt flag */
-void ctc_interrupt_flag_clear(uint32_t int_flag);
+void CTC_Interrupt_flag_clear(uint32_t int_flag);
 /* get CTC flag */
-FlagStatus ctc_flag_get(uint32_t flag);
+FlagStatus CTC_flag_get(uint32_t flag);
 /* clear CTC flag */
-void ctc_flag_clear(uint32_t flag);
+void CTC_flag_clear(uint32_t flag);
 
 #endif /* GD32F4XX_CTC_H */

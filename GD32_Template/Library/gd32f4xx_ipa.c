@@ -45,9 +45,9 @@ OF SUCH DAMAGE.
     参数[输出]:  无
     返回值:      无
 */
-void ipa_deinit(void) {
-    rcu_periph_reset_enable(RCU_IPARST);
-    rcu_periph_reset_disable(RCU_IPARST);
+void IPA_DeInit(void) {
+    RCU_Periph_Reset_Enable(RCU_IPARST);
+    RCU_Periph_Reset_Disable(RCU_IPARST);
 }
 
 /*!
@@ -56,7 +56,7 @@ void ipa_deinit(void) {
     参数[输出]:  无
     返回值:      无
 */
-void ipa_transfer_enable(void) {
+void IPA_transfer_enable(void) {
     IPA_CTL |= IPA_CTL_TEN;
 }
 
@@ -66,7 +66,7 @@ void ipa_transfer_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void ipa_transfer_hangup_enable(void) {
+void IPA_transfer_hangup_enable(void) {
     IPA_CTL |= IPA_CTL_THU;
 }
 
@@ -76,7 +76,7 @@ void ipa_transfer_hangup_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void ipa_transfer_hangup_disable(void) {
+void IPA_transfer_hangup_disable(void) {
     IPA_CTL &= ~(IPA_CTL_THU);
 }
 
@@ -86,7 +86,7 @@ void ipa_transfer_hangup_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void ipa_transfer_stop_enable(void) {
+void IPA_transfer_stop_enable(void) {
     IPA_CTL |= IPA_CTL_TST;
 }
 
@@ -96,7 +96,7 @@ void ipa_transfer_stop_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void ipa_transfer_stop_disable(void) {
+void IPA_transfer_stop_disable(void) {
     IPA_CTL &= ~(IPA_CTL_TST);
 }
 /*!
@@ -105,7 +105,7 @@ void ipa_transfer_stop_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void ipa_foreground_lut_loading_enable(void) {
+void IPA_foreground_lut_loading_enable(void) {
     IPA_FPCTL |= IPA_FPCTL_FLLEN;
 }
 
@@ -115,7 +115,7 @@ void ipa_foreground_lut_loading_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void ipa_background_lut_loading_enable(void) {
+void IPA_background_lut_loading_enable(void) {
     IPA_BPCTL |= IPA_BPCTL_BLLEN;
 }
 
@@ -130,14 +130,14 @@ void ipa_background_lut_loading_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void ipa_pixel_format_convert_mode_set(uint32_t pfcm) {
+void IPA_pixel_format_convert_mode_set(uint32_t pfcm) {
     IPA_CTL &= ~(IPA_CTL_PFCM);
     IPA_CTL |= pfcm;
 }
 
 /*!
     简介:    initialize the structure of IPA foreground parameter struct with the default values, it is
-                suggested that call this function after an ipa_foreground_parameter_struct structure is defined
+                suggested that call this function after an IPA_foreground_parameter_struct structure is defined
     参数[输入]:  无
     参数[输出]: foreground_struct: the data needed to initialize foreground
                   foreground_memaddr: foreground memory base address
@@ -152,7 +152,7 @@ void ipa_pixel_format_convert_mode_set(uint32_t pfcm) {
                   foreground_preblue: foreground pre-defined blue value
     返回值:      无
 */
-void ipa_foreground_struct_para_init(ipa_foreground_parameter_struct *foreground_struct) {
+void IPA_foreground_struct_para_init(IPA_foreground_parameter_struct *foreground_struct) {
     /* initialize the struct parameters with default values */
     foreground_struct->foreground_memaddr = IPA_DEFAULT_VALUE;
     foreground_struct->foreground_lineoff = IPA_DEFAULT_VALUE;
@@ -180,7 +180,7 @@ void ipa_foreground_struct_para_init(ipa_foreground_parameter_struct *foreground
     参数[输出]:  无
     返回值:      无
 */
-void ipa_foreground_init(ipa_foreground_parameter_struct *foreground_struct) {
+void IPA_foreground_init(IPA_foreground_parameter_struct *foreground_struct) {
     FlagStatus tempflag = RESET;
 
     if(RESET != (IPA_CTL & IPA_CTL_TEN)) {
@@ -213,7 +213,7 @@ void ipa_foreground_init(ipa_foreground_parameter_struct *foreground_struct) {
 
 /*!
     简介:    initialize the structure of IPA background parameter struct with the default values, it is
-                suggested that call this function after an ipa_background_parameter_struct structure is defined
+                suggested that call this function after an IPA_background_parameter_struct structure is defined
     参数[输入]:  无
     参数[输出]: background_struct: the data needed to initialize background
                   background_memaddr: background memory base address
@@ -228,7 +228,7 @@ void ipa_foreground_init(ipa_foreground_parameter_struct *foreground_struct) {
                   background_preblue: background pre-defined blue value
     返回值:      无
 */
-void ipa_background_struct_para_init(ipa_background_parameter_struct *background_struct) {
+void IPA_background_struct_para_init(IPA_background_parameter_struct *background_struct) {
     /* initialize the struct parameters with default values */
     background_struct->background_memaddr = IPA_DEFAULT_VALUE;
     background_struct->background_lineoff = IPA_DEFAULT_VALUE;
@@ -256,7 +256,7 @@ void ipa_background_struct_para_init(ipa_background_parameter_struct *background
     参数[输出]:  无
     返回值:      无
 */
-void ipa_background_init(ipa_background_parameter_struct *background_struct) {
+void IPA_background_init(IPA_background_parameter_struct *background_struct) {
     FlagStatus tempflag = RESET;
 
     if(RESET != (IPA_CTL & IPA_CTL_TEN)) {
@@ -289,11 +289,11 @@ void ipa_background_init(ipa_background_parameter_struct *background_struct) {
 
 /*!
     简介:    initialize the structure of IPA destination parameter struct with the default values, it is
-                suggested that call this function after an ipa_destination_parameter_struct structure is defined
+                suggested that call this function after an IPA_destination_parameter_struct structure is defined
     参数[输入]:  无
     参数[输出]: destination_struct: the data needed to initialize destination parameter
                   destination_pf: IPA_DPF_ARGB8888,IPA_DPF_RGB888,IPA_DPF_RGB565,IPA_DPF_ARGB1555,
-                              IPA_DPF_ARGB4444,refer to ipa_dpf_enum
+                              IPA_DPF_ARGB4444,refer to IPA_dpf_enum
                   destination_lineoff: destination line offset
                   destination_prealpha: destination pre-defined alpha value
                   destination_prered: destination pre-defined red value
@@ -304,7 +304,7 @@ void ipa_background_init(ipa_background_parameter_struct *background_struct) {
                   image_height: height of the image to be processed
     返回值:      无
 */
-void ipa_destination_struct_para_init(ipa_destination_parameter_struct *destination_struct) {
+void IPA_destination_struct_para_init(IPA_destination_parameter_struct *destination_struct) {
     /* initialize the struct parameters with default values */
     destination_struct->destination_pf = IPA_DPF_ARGB8888;
     destination_struct->destination_lineoff = IPA_DEFAULT_VALUE;
@@ -321,7 +321,7 @@ void ipa_destination_struct_para_init(ipa_destination_parameter_struct *destinat
     简介:    initialize destination parameters
     参数[输入]:  destination_struct: the data needed to initialize destination parameters
                   destination_pf: IPA_DPF_ARGB8888,IPA_DPF_RGB888,IPA_DPF_RGB565,IPA_DPF_ARGB1555,
-                                IPA_DPF_ARGB4444,refer to ipa_dpf_enum
+                                IPA_DPF_ARGB4444,refer to IPA_dpf_enum
                   destination_lineoff: destination line offset
                   destination_prealpha: destination pre-defined alpha value
                   destination_prered: destination pre-defined red value
@@ -333,7 +333,7 @@ void ipa_destination_struct_para_init(ipa_destination_parameter_struct *destinat
     参数[输出]:  无
     返回值:      无
 */
-void ipa_destination_init(ipa_destination_parameter_struct *destination_struct) {
+void IPA_destination_init(IPA_destination_parameter_struct *destination_struct) {
     uint32_t destination_pixelformat;
     FlagStatus tempflag = RESET;
 
@@ -415,7 +415,7 @@ void ipa_destination_init(ipa_destination_parameter_struct *destination_struct) 
     参数[输出]:  无
     返回值:      无
 */
-void ipa_foreground_lut_init(uint8_t fg_lut_num, uint8_t fg_lut_pf, uint32_t fg_lut_addr) {
+void IPA_foreground_lut_init(uint8_t fg_lut_num, uint8_t fg_lut_pf, uint32_t fg_lut_addr) {
     FlagStatus tempflag = RESET;
 
     if(RESET != (IPA_FPCTL & IPA_FPCTL_FLLEN)) {
@@ -452,7 +452,7 @@ void ipa_foreground_lut_init(uint8_t fg_lut_num, uint8_t fg_lut_pf, uint32_t fg_
     参数[输出]:  无
     返回值:      无
 */
-void ipa_background_lut_init(uint8_t bg_lut_num, uint8_t bg_lut_pf, uint32_t bg_lut_addr) {
+void IPA_background_lut_init(uint8_t bg_lut_num, uint8_t bg_lut_pf, uint32_t bg_lut_addr) {
     FlagStatus tempflag = RESET;
 
     if(RESET != (IPA_BPCTL & IPA_BPCTL_BLLEN)) {
@@ -487,19 +487,19 @@ void ipa_background_lut_init(uint8_t bg_lut_num, uint8_t bg_lut_pf, uint32_t bg_
     参数[输出]:  无
     返回值:      无
 */
-void ipa_line_mark_config(uint16_t line_num) {
+void IPA_line_mark_Config(uint16_t line_num) {
     IPA_LM &= ~(IPA_LM_LM);
     IPA_LM = line_num;
 }
 
 /*!
     简介:    inter-timer enable or disable
-    参数[输入]:  timer_cfg: IPA_INTER_TIMER_ENABLE,IPA_INTER_TIMER_DISABLE
+    参数[输入]:  TIMER_cfg: IPA_INTER_TIMER_ENABLE,IPA_INTER_TIMER_DISABLE
     参数[输出]:  无
     返回值:      无
 */
-void ipa_inter_timer_config(uint8_t timer_cfg) {
-    if(IPA_INTER_TIMER_ENABLE == timer_cfg) {
+void IPA_inter_TIMER_Config(uint8_t TIMER_cfg) {
+    if(IPA_INTER_TIMER_ENABLE == TIMER_cfg) {
         IPA_ITCTL |= IPA_ITCTL_ITEN;
     } else {
         IPA_ITCTL &= ~(IPA_ITCTL_ITEN);
@@ -512,7 +512,7 @@ void ipa_inter_timer_config(uint8_t timer_cfg) {
     参数[输出]:  无
     返回值:      无
 */
-void ipa_interval_clock_num_config(uint8_t clk_num) {
+void IPA_interval_clock_num_Config(uint8_t clk_num) {
     /* NCCI[7:0] bits have no meaning if ITEN is '0' */
     IPA_ITCTL &= ~(IPA_ITCTL_NCCI);
     IPA_ITCTL |= ((uint32_t)clk_num << 8U);
@@ -531,7 +531,7 @@ void ipa_interval_clock_num_config(uint8_t clk_num) {
     参数[输出]:  无
     返回值:      无
 */
-FlagStatus ipa_flag_get(uint32_t flag) {
+FlagStatus IPA_flag_get(uint32_t flag) {
     if(RESET != (IPA_INTF & flag)) {
         return SET;
     } else {
@@ -552,7 +552,7 @@ FlagStatus ipa_flag_get(uint32_t flag) {
     参数[输出]:  无
     返回值:      无
 */
-void ipa_flag_clear(uint32_t flag) {
+void IPA_flag_clear(uint32_t flag) {
     IPA_INTC |= (flag);
 }
 
@@ -569,7 +569,7 @@ void ipa_flag_clear(uint32_t flag) {
     参数[输出]:  无
     返回值:      无
 */
-void ipa_interrupt_enable(uint32_t int_flag) {
+void IPA_Interrupt_enable(uint32_t int_flag) {
     IPA_CTL |= (int_flag);
 }
 
@@ -586,7 +586,7 @@ void ipa_interrupt_enable(uint32_t int_flag) {
     参数[输出]:  无
     返回值:      无
 */
-void ipa_interrupt_disable(uint32_t int_flag) {
+void IPA_Interrupt_disable(uint32_t int_flag) {
     IPA_CTL &= ~(int_flag);
 }
 
@@ -603,7 +603,7 @@ void ipa_interrupt_disable(uint32_t int_flag) {
     参数[输出]:  无
     返回值:      无
 */
-FlagStatus ipa_interrupt_flag_get(uint32_t int_flag) {
+FlagStatus IPA_Interrupt_flag_get(uint32_t int_flag) {
     if(0U != (IPA_INTF & int_flag)) {
         return SET;
     } else {
@@ -624,6 +624,6 @@ FlagStatus ipa_interrupt_flag_get(uint32_t int_flag) {
     参数[输出]:  无
     返回值:      无
 */
-void ipa_interrupt_flag_clear(uint32_t int_flag) {
+void IPA_Interrupt_flag_clear(uint32_t int_flag) {
     IPA_INTC |= (int_flag);
 }

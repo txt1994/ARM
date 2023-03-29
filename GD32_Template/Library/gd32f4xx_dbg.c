@@ -45,7 +45,7 @@ OF SUCH DAMAGE.
     参数[输出]:  无
     返回值:      无
 */
-void dbg_deinit(void) {
+void DBG_DeInit(void) {
     DBG_CTL0 = DBG_RESET_VAL;
     DBG_CTL1 = DBG_RESET_VAL;
 }
@@ -56,13 +56,13 @@ void dbg_deinit(void) {
     参数[输出]:  无
     返回值:     DBG_ID code
 */
-uint32_t dbg_id_get(void) {
+uint32_t DBG_id_get(void) {
     return DBG_ID;
 }
 
 /*!
     简介:    enable low power behavior when the mcu is in debug mode
-    参数[输入]:  dbg_low_power:
+    参数[输入]:  DBG_low_power:
                 this parameter can be any combination of the following values:
       参数:        DBG_LOW_POWER_SLEEP: keep debugger connection during sleep mode
       参数:        DBG_LOW_POWER_DEEPSLEEP: keep debugger connection during deepsleep mode
@@ -70,13 +70,13 @@ uint32_t dbg_id_get(void) {
     参数[输出]:  无
     返回值:      无
 */
-void dbg_low_power_enable(uint32_t dbg_low_power) {
-    DBG_CTL0 |= dbg_low_power;
+void DBG_low_power_enable(uint32_t DBG_low_power) {
+    DBG_CTL0 |= DBG_low_power;
 }
 
 /*!
     简介:    disable low power behavior when the mcu is in debug mode
-    参数[输入]:  dbg_low_power:
+    参数[输入]:  DBG_low_power:
                 this parameter can be any combination of the following values:
       参数:        DBG_LOW_POWER_SLEEP: donot keep debugger connection during sleep mode
       参数:        DBG_LOW_POWER_DEEPSLEEP: donot keep debugger connection during deepsleep mode
@@ -84,13 +84,13 @@ void dbg_low_power_enable(uint32_t dbg_low_power) {
     参数[输出]:  无
     返回值:      无
 */
-void dbg_low_power_disable(uint32_t dbg_low_power) {
-    DBG_CTL0 &= ~dbg_low_power;
+void DBG_low_power_disable(uint32_t DBG_low_power) {
+    DBG_CTL0 &= ~DBG_low_power;
 }
 
 /*!
     简介:    enable peripheral behavior when the mcu is in debug mode
-    参数[输入]:  dbg_periph: dbg_periph_enum
+    参数[输入]:  DBG_periph: DBG_periph_enum
                 only one parameter can be selected which is shown as below:
       参数:        DBG_TIMER1_HOLD: hold TIMER1 counter when core is halted
       参数:        DBG_TIMER2_HOLD: hold TIMER2 counter when core is halted
@@ -116,13 +116,13 @@ void dbg_low_power_disable(uint32_t dbg_low_power) {
       参数:        DBG_TIMER10_HOLD: hold TIMER10 counter when core is halted
     返回值:      无
 */
-void dbg_periph_enable(dbg_periph_enum dbg_periph) {
-    DBG_REG_VAL(dbg_periph) |= BIT(DBG_BIT_POS(dbg_periph));
+void DBG_periph_enable(DBG_periph_enum DBG_periph) {
+    DBG_REG_VAL(DBG_periph) |= BIT(DBG_BIT_POS(DBG_periph));
 }
 
 /*!
     简介:    disable peripheral behavior when the mcu is in debug mode
-    参数[输入]:  dbg_periph: dbg_periph_enum
+    参数[输入]:  DBG_periph: DBG_periph_enum
                 only one parameter can be selected which is shown as below:
       参数:        DBG_TIMER1_HOLD: hold TIMER1 counter when core is halted
       参数:        DBG_TIMER2_HOLD: hold TIMER2 counter when core is halted
@@ -149,8 +149,8 @@ void dbg_periph_enable(dbg_periph_enum dbg_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void dbg_periph_disable(dbg_periph_enum dbg_periph) {
-    DBG_REG_VAL(dbg_periph) &= ~BIT(DBG_BIT_POS(dbg_periph));
+void DBG_periph_disable(DBG_periph_enum DBG_periph) {
+    DBG_REG_VAL(DBG_periph) &= ~BIT(DBG_BIT_POS(DBG_periph));
 }
 
 /*!
@@ -159,7 +159,7 @@ void dbg_periph_disable(dbg_periph_enum dbg_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void dbg_trace_pin_enable(void) {
+void DBG_trace_pin_enable(void) {
     DBG_CTL0 |= DBG_CTL0_TRACE_IOEN;
 }
 
@@ -169,7 +169,7 @@ void dbg_trace_pin_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void dbg_trace_pin_disable(void) {
+void DBG_trace_pin_disable(void) {
     DBG_CTL0 &= ~DBG_CTL0_TRACE_IOEN;
 }
 

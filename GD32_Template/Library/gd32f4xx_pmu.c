@@ -44,10 +44,10 @@ OF SUCH DAMAGE.
     参数[输出]:  无
     返回值:      无
 */
-void pmu_deinit(void) {
+void PMU_DeInit(void) {
     /* reset PMU */
-    rcu_periph_reset_enable(RCU_PMURST);
-    rcu_periph_reset_disable(RCU_PMURST);
+    RCU_Periph_Reset_Enable(RCU_PMURST);
+    RCU_Periph_Reset_Disable(RCU_PMURST);
 }
 
 /*!
@@ -64,12 +64,12 @@ void pmu_deinit(void) {
     参数[输出]:  无
     返回值:      无
 */
-void pmu_lvd_select(uint32_t lvdt_n) {
+void PMU_lvd_select(uint32_t lvdt_n) {
     /* disable LVD */
     PMU_CTL &= ~PMU_CTL_LVDEN;
     /* clear LVDT bits */
     PMU_CTL &= ~PMU_CTL_LVDT;
-    /* set LVDT bits according to pmu_lvdt_n */
+    /* set LVDT bits according to PMU_lvdt_n */
     PMU_CTL |= lvdt_n;
     /* enable LVD */
     PMU_CTL |= PMU_CTL_LVDEN;
@@ -81,7 +81,7 @@ void pmu_lvd_select(uint32_t lvdt_n) {
     参数[输出]:  无
     返回值:      无
 */
-void pmu_lvd_disable(void) {
+void PMU_lvd_disable(void) {
     /* disable LVD */
     PMU_CTL &= ~PMU_CTL_LVDEN;
 }
@@ -96,7 +96,7 @@ void pmu_lvd_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void pmu_ldo_output_select(uint32_t ldo_output) {
+void PMU_ldo_output_select(uint32_t ldo_output) {
     PMU_CTL &= ~PMU_CTL_LDOVS;
     PMU_CTL |= ldo_output;
 }
@@ -108,7 +108,7 @@ void pmu_ldo_output_select(uint32_t ldo_output) {
     参数[输出]:  无
     返回值:      无
 */
-void pmu_highdriver_mode_enable(void) {
+void PMU_highdriver_mode_enable(void) {
     PMU_CTL |= PMU_CTL_HDEN;
 }
 
@@ -118,7 +118,7 @@ void pmu_highdriver_mode_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void pmu_highdriver_mode_disable(void) {
+void PMU_highdriver_mode_disable(void) {
     PMU_CTL &= ~PMU_CTL_HDEN;
 }
 
@@ -131,9 +131,9 @@ void pmu_highdriver_mode_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void pmu_highdriver_switch_select(uint32_t highdr_switch) {
+void PMU_highdriver_switch_select(uint32_t highdr_switch) {
     /* wait for HDRF flag set */
-    while(SET != pmu_flag_get(PMU_FLAG_HDRF)) {
+    while(SET != PMU_flag_get(PMU_FLAG_HDRF)) {
     }
 
     PMU_CTL &= ~PMU_CTL_HDS;
@@ -146,7 +146,7 @@ void pmu_highdriver_switch_select(uint32_t highdr_switch) {
     参数[输出]:  无
     返回值:      无
 */
-void pmu_lowdriver_mode_enable(void) {
+void PMU_lowdriver_mode_enable(void) {
     PMU_CTL |= PMU_CTL_LDEN;
 }
 
@@ -156,7 +156,7 @@ void pmu_lowdriver_mode_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void pmu_lowdriver_mode_disable(void) {
+void PMU_lowdriver_mode_disable(void) {
     PMU_CTL &= ~PMU_CTL_LDEN;
 }
 
@@ -168,7 +168,7 @@ void pmu_lowdriver_mode_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void pmu_lowpower_driver_config(uint32_t mode) {
+void PMU_lowpower_driver_Config(uint32_t mode) {
     PMU_CTL &= ~PMU_CTL_LDLP;
     PMU_CTL |= mode;
 }
@@ -181,7 +181,7 @@ void pmu_lowpower_driver_config(uint32_t mode) {
     参数[输出]:  无
     返回值:      无
 */
-void pmu_normalpower_driver_config(uint32_t mode) {
+void PMU_normalpower_driver_Config(uint32_t mode) {
     PMU_CTL &= ~PMU_CTL_LDNP;
     PMU_CTL |= mode;
 }
@@ -194,7 +194,7 @@ void pmu_normalpower_driver_config(uint32_t mode) {
     参数[输出]:  无
     返回值:      无
 */
-void pmu_to_sleepmode(uint8_t sleepmodecmd) {
+void PMU_to_sleepmode(uint8_t sleepmodecmd) {
     /* clear sleepdeep bit of Cortex-M4 system control register */
     SCB->SCR &= ~((uint32_t)SCB_SCR_SLEEPDEEP_Msk);
 
@@ -221,12 +221,12 @@ void pmu_to_sleepmode(uint8_t sleepmodecmd) {
     参数[输出]:  无
     返回值:      无
 */
-void pmu_to_deepsleepmode(uint32_t ldo, uint32_t lowdrive, uint8_t deepsleepmodecmd) {
+void PMU_to_deepsleepmode(uint32_t ldo, uint32_t lowdrive, uint8_t deepsleepmodecmd) {
     static uint32_t reg_snap[4];
     /* clear stbmod and ldolp bits */
     PMU_CTL &= ~((uint32_t)(PMU_CTL_STBMOD | PMU_CTL_LDOLP | PMU_CTL_LDEN | PMU_CTL_LDNP | PMU_CTL_LDLP));
 
-    /* set ldolp bit according to pmu_ldo */
+    /* set ldolp bit according to PMU_ldo */
     PMU_CTL |= ldo;
 
     /* configure low drive mode in deep-sleep mode */
@@ -275,7 +275,7 @@ void pmu_to_deepsleepmode(uint32_t ldo, uint32_t lowdrive, uint8_t deepsleepmode
     参数[输出]:  无
     返回值:      无
 */
-void pmu_to_standbymode(void) {
+void PMU_to_standbymode(void) {
     /* set stbmod bit */
     PMU_CTL |= PMU_CTL_STBMOD;
 
@@ -300,7 +300,7 @@ void pmu_to_standbymode(void) {
     参数[输出]:  无
     返回值:      无
 */
-void pmu_wakeup_pin_enable(void) {
+void PMU_wakeup_pin_enable(void) {
     PMU_CS |= PMU_CS_WUPEN;
 }
 
@@ -310,7 +310,7 @@ void pmu_wakeup_pin_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void pmu_wakeup_pin_disable(void) {
+void PMU_wakeup_pin_disable(void) {
     PMU_CS &= ~PMU_CS_WUPEN;
 }
 
@@ -322,7 +322,7 @@ void pmu_wakeup_pin_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void pmu_backup_ldo_config(uint32_t bkp_ldo) {
+void PMU_backup_ldo_Config(uint32_t bkp_ldo) {
     PMU_CS &= ~PMU_CS_BLDOON;
     PMU_CS |= bkp_ldo;
 }
@@ -333,7 +333,7 @@ void pmu_backup_ldo_config(uint32_t bkp_ldo) {
     参数[输出]:  无
     返回值:      无
 */
-void pmu_backup_write_enable(void) {
+void PMU_backup_write_enable(void) {
     PMU_CTL |= PMU_CTL_BKPWEN;
 }
 
@@ -343,7 +343,7 @@ void pmu_backup_write_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void pmu_backup_write_disable(void) {
+void PMU_backup_write_disable(void) {
     PMU_CTL &= ~PMU_CTL_BKPWEN;
 }
 
@@ -361,7 +361,7 @@ void pmu_backup_write_disable(void) {
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus pmu_flag_get(uint32_t flag) {
+FlagStatus PMU_flag_get(uint32_t flag) {
     if(PMU_CS & flag) {
         return SET;
     } else {
@@ -377,7 +377,7 @@ FlagStatus pmu_flag_get(uint32_t flag) {
     参数[输出]:  无
     返回值:      无
 */
-void pmu_flag_clear(uint32_t flag) {
+void PMU_flag_clear(uint32_t flag) {
     switch(flag) {
     case PMU_FLAG_RESET_WAKEUP:
         /* reset wakeup flag */

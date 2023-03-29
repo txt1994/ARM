@@ -55,10 +55,10 @@ OF SUCH DAMAGE.
     参数[输出]:  无
     返回值:      无
 */
-void rcu_DeInit(void) {
+void RCU_DeInit(void) {
     /* enable IRC16M */
     RCU_CTL |= RCU_CTL_IRC16MEN;
-    rcu_osci_stab_Wait(RCU_IRC16M);
+    RCU_osci_stab_Wait(RCU_IRC16M);
     RCU_CFG0 &= ~RCU_CFG0_SCS;
 
     /* reset CTL register */
@@ -83,7 +83,7 @@ void rcu_DeInit(void) {
 
 /*!
     简介:    enable the peripherals clock
-    参数[输入]:  periph: RCU peripherals, refer to rcu_periph_enum
+    参数[输入]:  periph: RCU peripherals, refer to RCU_periph_enum
                 only one parameter can be selected which is shown as below:
       参数:        RCU_GPIOx (x = A, B, C, D, E, F, G, H, I): GPIO ports clock
       参数:        RCU_CRC: CRC clock
@@ -120,13 +120,13 @@ void rcu_DeInit(void) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_periph_clock_enable(rcu_periph_enum periph) {
+void RCU_periph_clock_enable(RCU_periph_enum periph) {
     RCU_REG_VAL(periph) |= BIT(RCU_BIT_POS(periph));
 }
 
 /*!
     简介:    disable the peripherals clock
-    参数[输入]:  periph: RCU peripherals, refer to rcu_periph_enum
+    参数[输入]:  periph: RCU peripherals, refer to RCU_periph_enum
                 only one parameter can be selected which is shown as below:
       参数:        RCU_GPIOx (x = A, B, C, D, E, F, G, H, I): GPIO ports clock
       参数:        RCU_CRC: CRC clock
@@ -163,13 +163,13 @@ void rcu_periph_clock_enable(rcu_periph_enum periph) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_periph_clock_disable(rcu_periph_enum periph) {
+void RCU_periph_clock_disable(RCU_periph_enum periph) {
     RCU_REG_VAL(periph) &= ~BIT(RCU_BIT_POS(periph));
 }
 
 /*!
     简介:    enable the peripherals clock when sleep mode
-    参数[输入]:  periph: RCU peripherals, refer to rcu_periph_sleep_enum
+    参数[输入]:  periph: RCU peripherals, refer to RCU_periph_sleep_enum
                 only one parameter can be selected which is shown as below:
       参数:        RCU_GPIOx_SLP (x = A, B, C, D, E, F, G, H, I): GPIO ports clock
       参数:        RCU_CRC_SLP: CRC clock
@@ -209,13 +209,13 @@ void rcu_periph_clock_disable(rcu_periph_enum periph) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_periph_clock_sleep_enable(rcu_periph_sleep_enum periph) {
+void RCU_periph_clock_sleep_enable(RCU_periph_sleep_enum periph) {
     RCU_REG_VAL(periph) |= BIT(RCU_BIT_POS(periph));
 }
 
 /*!
     简介:    disable the peripherals clock when sleep mode
-    参数[输入]:  periph: RCU peripherals, refer to rcu_periph_sleep_enum
+    参数[输入]:  periph: RCU peripherals, refer to RCU_periph_sleep_enum
                 only one parameter can be selected which is shown as below:
       参数:        RCU_GPIOx_SLP (x = A, B, C, D, E, F, G, H, I): GPIO ports clock
       参数:        RCU_CRC_SLP: CRC clock
@@ -255,13 +255,13 @@ void rcu_periph_clock_sleep_enable(rcu_periph_sleep_enum periph) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_periph_clock_sleep_disable(rcu_periph_sleep_enum periph) {
+void RCU_periph_clock_sleep_disable(RCU_periph_sleep_enum periph) {
     RCU_REG_VAL(periph) &= ~BIT(RCU_BIT_POS(periph));
 }
 
 /*!
     简介:    reset the peripherals
-    参数[输入]:  periph_reset: RCU peripherals reset, refer to rcu_periph_reset_enum
+    参数[输入]:  periph_reset: RCU peripherals reset, refer to RCU_periph_reset_enum
                 only one parameter can be selected which is shown as below:
       参数:        RCU_GPIOxRST (x = A, B, C, D, E, F, G, H, I): reset GPIO ports
       参数:        RCU_CRCRST: reset CRC
@@ -291,13 +291,13 @@ void rcu_periph_clock_sleep_disable(rcu_periph_sleep_enum periph) {
     参数[输出]:  无
     返回值:      无
 */
-void RCU_Periph_Reset_Enable(rcu_periph_reset_enum periph_reset) {
+void RCU_Periph_Reset_Enable(RCU_periph_reset_enum periph_reset) {
     RCU_REG_VAL(periph_reset) |= BIT(RCU_BIT_POS(periph_reset));
 }
 
 /*!
     简介:    disable reset the peripheral
-    参数[输入]:  periph_reset: RCU peripherals reset, refer to rcu_periph_reset_enum
+    参数[输入]:  periph_reset: RCU peripherals reset, refer to RCU_periph_reset_enum
                 only one parameter can be selected which is shown as below:
       参数:        RCU_GPIOxRST (x = A, B, C, D, E, F, G, H, I): reset GPIO ports
       参数:        RCU_CRCRST: reset CRC
@@ -327,7 +327,7 @@ void RCU_Periph_Reset_Enable(rcu_periph_reset_enum periph_reset) {
     参数[输出]:  无
     返回值:      无
 */
-void RCU_Periph_Reset_Disable(rcu_periph_reset_enum periph_reset) {
+void RCU_Periph_Reset_Disable(RCU_periph_reset_enum periph_reset) {
     RCU_REG_VAL(periph_reset) &= ~BIT(RCU_BIT_POS(periph_reset));
 }
 
@@ -337,7 +337,7 @@ void RCU_Periph_Reset_Disable(rcu_periph_reset_enum periph_reset) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_bkp_reset_enable(void) {
+void RCU_bkp_reset_enable(void) {
     RCU_BDCTL |= RCU_BDCTL_BKPRST;
 }
 
@@ -347,7 +347,7 @@ void rcu_bkp_reset_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_bkp_reset_disable(void) {
+void RCU_bkp_reset_disable(void) {
     RCU_BDCTL &= ~RCU_BDCTL_BKPRST;
 }
 
@@ -361,7 +361,7 @@ void rcu_bkp_reset_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_system_clock_source_Config(uint32_t ck_sys) {
+void RCU_system_clock_source_Config(uint32_t ck_sys) {
     uint32_t reg;
 
     reg = RCU_CFG0;
@@ -379,7 +379,7 @@ void rcu_system_clock_source_Config(uint32_t ck_sys) {
       参数:        RCU_SCSS_HXTAL: CK_HXTAL is selected as the CK_SYS source
       参数:        RCU_SCSS_PLLP: CK_PLLP is selected as the CK_SYS source
 */
-uint32_t rcu_system_clock_source_get(void) {
+uint32_t RCU_system_clock_source_get(void) {
     return (RCU_CFG0 & RCU_CFG0_SCSS);
 }
 
@@ -391,7 +391,7 @@ uint32_t rcu_system_clock_source_get(void) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_ahb_clock_Config(uint32_t ck_ahb) {
+void RCU_ahb_clock_Config(uint32_t ck_ahb) {
     uint32_t reg;
 
     reg = RCU_CFG0;
@@ -412,7 +412,7 @@ void rcu_ahb_clock_Config(uint32_t ck_ahb) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_apb1_clock_Config(uint32_t ck_apb1) {
+void RCU_apb1_clock_Config(uint32_t ck_apb1) {
     uint32_t reg;
 
     reg = RCU_CFG0;
@@ -433,7 +433,7 @@ void rcu_apb1_clock_Config(uint32_t ck_apb1) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_apb2_clock_Config(uint32_t ck_apb2) {
+void RCU_apb2_clock_Config(uint32_t ck_apb2) {
     uint32_t reg;
 
     reg = RCU_CFG0;
@@ -455,7 +455,7 @@ void rcu_apb2_clock_Config(uint32_t ck_apb2) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_ckout0_Config(uint32_t ckout0_src, uint32_t ckout0_div) {
+void RCU_ckout0_Config(uint32_t ckout0_src, uint32_t ckout0_div) {
     uint32_t reg;
 
     reg = RCU_CFG0;
@@ -477,7 +477,7 @@ void rcu_ckout0_Config(uint32_t ckout0_src, uint32_t ckout0_div) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_ckout1_Config(uint32_t ckout1_src, uint32_t ckout1_div) {
+void RCU_ckout1_Config(uint32_t ckout1_src, uint32_t ckout1_div) {
     uint32_t reg;
 
     reg = RCU_CFG0;
@@ -502,7 +502,7 @@ void rcu_ckout1_Config(uint32_t ckout1_src, uint32_t ckout1_div) {
     参数[输出]:  无
     返回值:     ErrStatus: SUCCESS or ERROR
 */
-ErrStatus rcu_pll_Config(uint32_t pll_src, uint32_t pll_psc, uint32_t pll_n, uint32_t pll_p, uint32_t pll_q) {
+ErrStatus RCU_pll_Config(uint32_t pll_src, uint32_t pll_psc, uint32_t pll_n, uint32_t pll_p, uint32_t pll_q) {
     uint32_t ss_modulation_inc;
     uint32_t ss_modulation_reg;
 
@@ -541,7 +541,7 @@ ErrStatus rcu_pll_Config(uint32_t pll_src, uint32_t pll_psc, uint32_t pll_n, uin
     参数[输出]:  无
     返回值:     ErrStatus: SUCCESS or ERROR
 */
-ErrStatus rcu_plli2s_Config(uint32_t plli2s_n, uint32_t plli2s_r) {
+ErrStatus RCU_plli2s_Config(uint32_t plli2s_n, uint32_t plli2s_r) {
     /* check the function parameter */
     if(CHECK_PLLI2S_N_VALID(plli2s_n) && CHECK_PLLI2S_R_VALID(plli2s_r)) {
         RCU_PLLI2S = (plli2s_n << 6) | (plli2s_r << 28);
@@ -565,7 +565,7 @@ ErrStatus rcu_plli2s_Config(uint32_t plli2s_n, uint32_t plli2s_r) {
     参数[输出]:  无
     返回值:     ErrStatus: SUCCESS or ERROR
 */
-ErrStatus rcu_pllsai_Config(uint32_t pllsai_n, uint32_t pllsai_p, uint32_t pllsai_r) {
+ErrStatus RCU_pllsai_Config(uint32_t pllsai_n, uint32_t pllsai_p, uint32_t pllsai_r) {
     /* check the function parameter */
     if(CHECK_PLLSAI_N_VALID(pllsai_n) && CHECK_PLLSAI_P_VALID(pllsai_p) && CHECK_PLLSAI_R_VALID(pllsai_r)) {
         RCU_PLLSAI = (pllsai_n << 6U) | (((pllsai_p >> 1U) - 1U) << 16U) | (pllsai_r << 28U);
@@ -589,7 +589,7 @@ ErrStatus rcu_pllsai_Config(uint32_t pllsai_n, uint32_t pllsai_p, uint32_t pllsa
     参数[输出]:  无
     返回值:      无
 */
-void rcu_RTC_clock_Config(uint32_t RTC_clock_source) {
+void RCU_RTC_clock_Config(uint32_t RTC_clock_source) {
     uint32_t reg;
 
     reg = RCU_BDCTL;
@@ -607,7 +607,7 @@ void rcu_RTC_clock_Config(uint32_t RTC_clock_source) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_RTC_div_Config(uint32_t RTC_div) {
+void RCU_RTC_div_Config(uint32_t RTC_div) {
     uint32_t reg;
 
     reg = RCU_CFG0;
@@ -626,7 +626,7 @@ void rcu_RTC_div_Config(uint32_t RTC_div) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_i2s_clock_Config(uint32_t i2s_clock_source) {
+void RCU_i2s_clock_Config(uint32_t i2s_clock_source) {
     uint32_t reg;
 
     reg = RCU_CFG0;
@@ -644,7 +644,7 @@ void rcu_i2s_clock_Config(uint32_t i2s_clock_source) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_ck48m_clock_Config(uint32_t ck48m_clock_source) {
+void RCU_ck48m_clock_Config(uint32_t ck48m_clock_source) {
     uint32_t reg;
 
     reg = RCU_ADDCTL;
@@ -662,7 +662,7 @@ void rcu_ck48m_clock_Config(uint32_t ck48m_clock_source) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_pll48m_clock_Config(uint32_t pll48m_clock_source) {
+void RCU_pll48m_clock_Config(uint32_t pll48m_clock_source) {
     uint32_t reg;
 
     reg = RCU_ADDCTL;
@@ -686,7 +686,7 @@ void rcu_pll48m_clock_Config(uint32_t pll48m_clock_source) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_TIMER_clock_prescaler_Config(uint32_t TIMER_clock_prescaler) {
+void RCU_TIMER_clock_prescaler_Config(uint32_t TIMER_clock_prescaler) {
     /* configure the TIMERSEL bit and select the TIMER clock prescaler */
     if(TIMER_clock_prescaler == RCU_TIMER_PSC_MUL2) {
         RCU_CFG1 &= TIMER_clock_prescaler;
@@ -703,7 +703,7 @@ void rcu_TIMER_clock_prescaler_Config(uint32_t TIMER_clock_prescaler) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_tli_clock_div_Config(uint32_t pllsai_r_div) {
+void RCU_tli_clock_div_Config(uint32_t pllsai_r_div) {
     uint32_t reg;
 
     reg = RCU_CFG1;
@@ -721,7 +721,7 @@ void rcu_tli_clock_div_Config(uint32_t pllsai_r_div) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_lxtal_drive_capability_Config(uint32_t lxtal_dricap) {
+void RCU_lxtal_drive_capability_Config(uint32_t lxtal_dricap) {
     uint32_t reg;
 
     reg = RCU_BDCTL;
@@ -733,7 +733,7 @@ void rcu_lxtal_drive_capability_Config(uint32_t lxtal_dricap) {
 
 /*!
     简介:    wait for oscillator stabilization flags is SET or oscillator startup is timeout
-    参数[输入]:  osci: oscillator types, refer to rcu_osci_type_enum
+    参数[输入]:  osci: oscillator types, refer to RCU_osci_type_enum
                 only one parameter can be selected which is shown as below:
       参数:        RCU_HXTAL: HXTAL
       参数:        RCU_LXTAL: LXTAL
@@ -746,7 +746,7 @@ void rcu_lxtal_drive_capability_Config(uint32_t lxtal_dricap) {
     参数[输出]:  无
     返回值:     ErrStatus: SUCCESS or ERROR
 */
-ErrStatus rcu_osci_stab_Wait(rcu_osci_type_enum osci) {
+ErrStatus RCU_osci_stab_Wait(RCU_osci_type_enum osci) {
     uint32_t stb_cnt = 0U;
     ErrStatus reval = ERROR;
     FlagStatus osci_stat = RESET;
@@ -755,12 +755,12 @@ ErrStatus rcu_osci_stab_Wait(rcu_osci_type_enum osci) {
     /* wait HXTAL stable */
     case RCU_HXTAL:
         while((RESET == osci_stat) && (HXTAL_STARTUP_TIMEOUT != stb_cnt)) {
-            osci_stat = rcu_flag_get(RCU_FLAG_HXTALSTB);
+            osci_stat = RCU_flag_get(RCU_FLAG_HXTALSTB);
             stb_cnt++;
         }
 
         /* check whether flag is set */
-        if(RESET != rcu_flag_get(RCU_FLAG_HXTALSTB)) {
+        if(RESET != RCU_flag_get(RCU_FLAG_HXTALSTB)) {
             reval = SUCCESS;
         }
 
@@ -769,12 +769,12 @@ ErrStatus rcu_osci_stab_Wait(rcu_osci_type_enum osci) {
     /* wait LXTAL stable */
     case RCU_LXTAL:
         while((RESET == osci_stat) && (LXTAL_STARTUP_TIMEOUT != stb_cnt)) {
-            osci_stat = rcu_flag_get(RCU_FLAG_LXTALSTB);
+            osci_stat = RCU_flag_get(RCU_FLAG_LXTALSTB);
             stb_cnt++;
         }
 
         /* check whether flag is set */
-        if(RESET != rcu_flag_get(RCU_FLAG_LXTALSTB)) {
+        if(RESET != RCU_flag_get(RCU_FLAG_LXTALSTB)) {
             reval = SUCCESS;
         }
 
@@ -783,12 +783,12 @@ ErrStatus rcu_osci_stab_Wait(rcu_osci_type_enum osci) {
     /* wait IRC16M stable */
     case RCU_IRC16M:
         while((RESET == osci_stat) && (IRC16M_STARTUP_TIMEOUT != stb_cnt)) {
-            osci_stat = rcu_flag_get(RCU_FLAG_IRC16MSTB);
+            osci_stat = RCU_flag_get(RCU_FLAG_IRC16MSTB);
             stb_cnt++;
         }
 
         /* check whether flag is set */
-        if(RESET != rcu_flag_get(RCU_FLAG_IRC16MSTB)) {
+        if(RESET != RCU_flag_get(RCU_FLAG_IRC16MSTB)) {
             reval = SUCCESS;
         }
 
@@ -797,12 +797,12 @@ ErrStatus rcu_osci_stab_Wait(rcu_osci_type_enum osci) {
     /* wait IRC48M stable */
     case RCU_IRC48M:
         while((RESET == osci_stat) && (OSC_STARTUP_TIMEOUT != stb_cnt)) {
-            osci_stat = rcu_flag_get(RCU_FLAG_IRC48MSTB);
+            osci_stat = RCU_flag_get(RCU_FLAG_IRC48MSTB);
             stb_cnt++;
         }
 
         /* check whether flag is set */
-        if(RESET != rcu_flag_get(RCU_FLAG_IRC48MSTB)) {
+        if(RESET != RCU_flag_get(RCU_FLAG_IRC48MSTB)) {
             reval = SUCCESS;
         }
 
@@ -811,12 +811,12 @@ ErrStatus rcu_osci_stab_Wait(rcu_osci_type_enum osci) {
     /* wait IRC32K stable */
     case RCU_IRC32K:
         while((RESET == osci_stat) && (OSC_STARTUP_TIMEOUT != stb_cnt)) {
-            osci_stat = rcu_flag_get(RCU_FLAG_IRC32KSTB);
+            osci_stat = RCU_flag_get(RCU_FLAG_IRC32KSTB);
             stb_cnt++;
         }
 
         /* check whether flag is set */
-        if(RESET != rcu_flag_get(RCU_FLAG_IRC32KSTB)) {
+        if(RESET != RCU_flag_get(RCU_FLAG_IRC32KSTB)) {
             reval = SUCCESS;
         }
 
@@ -825,12 +825,12 @@ ErrStatus rcu_osci_stab_Wait(rcu_osci_type_enum osci) {
     /* wait PLL stable */
     case RCU_PLL_CK:
         while((RESET == osci_stat) && (OSC_STARTUP_TIMEOUT != stb_cnt)) {
-            osci_stat = rcu_flag_get(RCU_FLAG_PLLSTB);
+            osci_stat = RCU_flag_get(RCU_FLAG_PLLSTB);
             stb_cnt++;
         }
 
         /* check whether flag is set */
-        if(RESET != rcu_flag_get(RCU_FLAG_PLLSTB)) {
+        if(RESET != RCU_flag_get(RCU_FLAG_PLLSTB)) {
             reval = SUCCESS;
         }
 
@@ -839,12 +839,12 @@ ErrStatus rcu_osci_stab_Wait(rcu_osci_type_enum osci) {
     /* wait PLLI2S stable */
     case RCU_PLLI2S_CK:
         while((RESET == osci_stat) && (OSC_STARTUP_TIMEOUT != stb_cnt)) {
-            osci_stat = rcu_flag_get(RCU_FLAG_PLLI2SSTB);
+            osci_stat = RCU_flag_get(RCU_FLAG_PLLI2SSTB);
             stb_cnt++;
         }
 
         /* check whether flag is set */
-        if(RESET != rcu_flag_get(RCU_FLAG_PLLI2SSTB)) {
+        if(RESET != RCU_flag_get(RCU_FLAG_PLLI2SSTB)) {
             reval = SUCCESS;
         }
 
@@ -853,12 +853,12 @@ ErrStatus rcu_osci_stab_Wait(rcu_osci_type_enum osci) {
     /* wait PLLSAI stable */
     case RCU_PLLSAI_CK:
         while((RESET == osci_stat) && (OSC_STARTUP_TIMEOUT != stb_cnt)) {
-            osci_stat = rcu_flag_get(RCU_FLAG_PLLSAISTB);
+            osci_stat = RCU_flag_get(RCU_FLAG_PLLSAISTB);
             stb_cnt++;
         }
 
         /* check whether flag is set */
-        if(RESET != rcu_flag_get(RCU_FLAG_PLLSAISTB)) {
+        if(RESET != RCU_flag_get(RCU_FLAG_PLLSAISTB)) {
             reval = SUCCESS;
         }
 
@@ -874,7 +874,7 @@ ErrStatus rcu_osci_stab_Wait(rcu_osci_type_enum osci) {
 
 /*!
     简介:    turn on the oscillator
-    参数[输入]:  osci: oscillator types, refer to rcu_osci_type_enum
+    参数[输入]:  osci: oscillator types, refer to RCU_osci_type_enum
                 only one parameter can be selected which is shown as below:
       参数:        RCU_HXTAL: HXTAL
       参数:        RCU_LXTAL: LXTAL
@@ -887,13 +887,13 @@ ErrStatus rcu_osci_stab_Wait(rcu_osci_type_enum osci) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_osci_on(rcu_osci_type_enum osci) {
+void RCU_osci_on(RCU_osci_type_enum osci) {
     RCU_REG_VAL(osci) |= BIT(RCU_BIT_POS(osci));
 }
 
 /*!
     简介:    turn off the oscillator
-    参数[输入]:  osci: oscillator types, refer to rcu_osci_type_enum
+    参数[输入]:  osci: oscillator types, refer to RCU_osci_type_enum
                 only one parameter can be selected which is shown as below:
       参数:        RCU_HXTAL: HXTAL
       参数:        RCU_LXTAL: LXTAL
@@ -906,20 +906,20 @@ void rcu_osci_on(rcu_osci_type_enum osci) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_osci_off(rcu_osci_type_enum osci) {
+void RCU_osci_off(RCU_osci_type_enum osci) {
     RCU_REG_VAL(osci) &= ~BIT(RCU_BIT_POS(osci));
 }
 
 /*!
     简介:    enable the oscillator bypass mode, HXTALEN or LXTALEN must be reset before it
-    参数[输入]:  osci: oscillator types, refer to rcu_osci_type_enum
+    参数[输入]:  osci: oscillator types, refer to RCU_osci_type_enum
                 only one parameter can be selected which is shown as below:
       参数:        RCU_HXTAL: high speed crystal oscillator(HXTAL)
       参数:        RCU_LXTAL: low speed crystal oscillator(LXTAL)
     参数[输出]:  无
     返回值:      无
 */
-void rcu_osci_bypass_mode_enable(rcu_osci_type_enum osci) {
+void RCU_osci_bypass_mode_enable(RCU_osci_type_enum osci) {
     uint32_t reg;
 
     switch(osci) {
@@ -952,14 +952,14 @@ void rcu_osci_bypass_mode_enable(rcu_osci_type_enum osci) {
 
 /*!
     简介:    disable the oscillator bypass mode, HXTALEN or LXTALEN must be reset before it
-    参数[输入]:  osci: oscillator types, refer to rcu_osci_type_enum
+    参数[输入]:  osci: oscillator types, refer to RCU_osci_type_enum
                 only one parameter can be selected which is shown as below:
       参数:        RCU_HXTAL: high speed crystal oscillator(HXTAL)
       参数:        RCU_LXTAL: low speed crystal oscillator(LXTAL)
     参数[输出]:  无
     返回值:      无
 */
-void rcu_osci_bypass_mode_disable(rcu_osci_type_enum osci) {
+void RCU_osci_bypass_mode_disable(RCU_osci_type_enum osci) {
     uint32_t reg;
 
     switch(osci) {
@@ -997,7 +997,7 @@ void rcu_osci_bypass_mode_disable(rcu_osci_type_enum osci) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_irc16m_adjust_value_set(uint32_t irc16m_adjval) {
+void RCU_irc16m_adjust_value_set(uint32_t irc16m_adjval) {
     uint32_t reg;
 
     reg = RCU_CTL;
@@ -1018,7 +1018,7 @@ void rcu_irc16m_adjust_value_set(uint32_t irc16m_adjval) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_spread_spectrum_Config(uint32_t spread_spectrum_type, uint32_t modstep, uint32_t modcnt) {
+void RCU_spread_spectrum_Config(uint32_t spread_spectrum_type, uint32_t modstep, uint32_t modcnt) {
     uint32_t reg;
 
     reg = RCU_PLLSSCTL;
@@ -1033,7 +1033,7 @@ void rcu_spread_spectrum_Config(uint32_t spread_spectrum_type, uint32_t modstep,
     参数[输出]:  无
     返回值:      无
 */
-void rcu_spread_spectrum_enable(void) {
+void RCU_spread_spectrum_enable(void) {
     RCU_PLLSSCTL |= RCU_PLLSSCTL_SSCGON;
 }
 
@@ -1043,7 +1043,7 @@ void rcu_spread_spectrum_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_spread_spectrum_disable(void) {
+void RCU_spread_spectrum_disable(void) {
     RCU_PLLSSCTL &= ~RCU_PLLSSCTL_SSCGON;
 }
 
@@ -1054,7 +1054,7 @@ void rcu_spread_spectrum_disable(void) {
     返回值:      无
 */
 
-void rcu_hxtal_clock_monitor_enable(void) {
+void RCU_hxtal_clock_monitor_enable(void) {
     RCU_CTL |= RCU_CTL_CKMEN;
 }
 
@@ -1064,7 +1064,7 @@ void rcu_hxtal_clock_monitor_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_hxtal_clock_monitor_disable(void) {
+void RCU_hxtal_clock_monitor_disable(void) {
     RCU_CTL &= ~RCU_CTL_CKMEN;
 }
 
@@ -1074,7 +1074,7 @@ void rcu_hxtal_clock_monitor_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_voltage_key_unlock(void) {
+void RCU_voltage_key_unlock(void) {
     RCU_VKEY = RCU_VKEY_UNLOCK;
 }
 
@@ -1089,7 +1089,7 @@ void rcu_voltage_key_unlock(void) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_deepsleep_voltage_set(uint32_t dsvol) {
+void RCU_deepsleep_voltage_set(uint32_t dsvol) {
     dsvol &= RCU_DSV_DSLPVS;
     RCU_DSV = dsvol;
 }
@@ -1105,7 +1105,7 @@ void rcu_deepsleep_voltage_set(uint32_t dsvol) {
     参数[输出]:  无
     返回值:     clock frequency of system, AHB, APB1, APB2
 */
-uint32_t RCU_Clock_Freq_Get(rcu_clock_freq_enum clock) {
+uint32_t RCU_Clock_Freq_Get(RCU_clock_freq_enum clock) {
     uint32_t sws, ck_freq = 0U;
     uint32_t cksys_freq, ahb_freq, apb1_freq, apb2_freq;
     uint32_t pllpsc, plln, pllsel, pllp, ck_src, idx, clk_exp;
@@ -1194,7 +1194,7 @@ uint32_t RCU_Clock_Freq_Get(rcu_clock_freq_enum clock) {
 
 /*!
     简介:    get the clock stabilization and periphral reset flags
-    参数[输入]:  flag: the clock stabilization and periphral reset flags, refer to rcu_flag_enum
+    参数[输入]:  flag: the clock stabilization and periphral reset flags, refer to RCU_flag_enum
                 only one parameter can be selected which is shown as below:
       参数:        RCU_FLAG_IRC16MSTB: IRC16M stabilization flag
       参数:        RCU_FLAG_HXTALSTB: HXTAL stabilization flag
@@ -1214,7 +1214,7 @@ uint32_t RCU_Clock_Freq_Get(rcu_clock_freq_enum clock) {
     参数[输出]:  无
     返回值:      无
 */
-FlagStatus rcu_flag_get(rcu_flag_enum flag) {
+FlagStatus RCU_flag_get(RCU_flag_enum flag) {
     /* get the rcu flag */
     if(RESET != (RCU_REG_VAL(flag) & BIT(RCU_BIT_POS(flag)))) {
         return SET;
@@ -1229,13 +1229,13 @@ FlagStatus rcu_flag_get(rcu_flag_enum flag) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_all_reset_flag_clear(void) {
+void RCU_all_reset_flag_clear(void) {
     RCU_RSTSCK |= RCU_RSTSCK_RSTFC;
 }
 
 /*!
     简介:    get the clock stabilization interrupt and ckm flags
-    参数[输入]:  int_flag: interrupt and ckm flags, refer to rcu_int_flag_enum
+    参数[输入]:  int_flag: interrupt and ckm flags, refer to RCU_int_flag_enum
                 only one parameter can be selected which is shown as below:
       参数:        RCU_INT_FLAG_IRC32KSTB: IRC32K stabilization interrupt flag
       参数:        RCU_INT_FLAG_LXTALSTB: LXTAL stabilization interrupt flag
@@ -1249,7 +1249,7 @@ void rcu_all_reset_flag_clear(void) {
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus rcu_Interrupt_flag_get(rcu_int_flag_enum int_flag) {
+FlagStatus RCU_Interrupt_flag_get(RCU_int_flag_enum int_flag) {
     /* get the rcu interrupt flag */
     if(RESET != (RCU_REG_VAL(int_flag) & BIT(RCU_BIT_POS(int_flag)))) {
         return SET;
@@ -1260,7 +1260,7 @@ FlagStatus rcu_Interrupt_flag_get(rcu_int_flag_enum int_flag) {
 
 /*!
     简介:    clear the interrupt flags
-    参数[输入]:  int_flag: clock stabilization and stuck interrupt flags clear, refer to rcu_int_flag_clear_enum
+    参数[输入]:  int_flag: clock stabilization and stuck interrupt flags clear, refer to RCU_int_flag_clear_enum
                 only one parameter can be selected which is shown as below:
       参数:        RCU_INT_FLAG_IRC32KSTB_CLR: IRC32K stabilization interrupt flag clear
       参数:        RCU_INT_FLAG_LXTALSTB_CLR: LXTAL stabilization interrupt flag clear
@@ -1274,13 +1274,13 @@ FlagStatus rcu_Interrupt_flag_get(rcu_int_flag_enum int_flag) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_Interrupt_flag_clear(rcu_int_flag_clear_enum int_flag) {
+void RCU_Interrupt_flag_clear(RCU_int_flag_clear_enum int_flag) {
     RCU_REG_VAL(int_flag) |= BIT(RCU_BIT_POS(int_flag));
 }
 
 /*!
     简介:    enable the stabilization interrupt
-    参数[输入]:  interrupt: clock stabilization interrupt, refer to rcu_int_enum
+    参数[输入]:  interrupt: clock stabilization interrupt, refer to RCU_int_enum
                 Only one parameter can be selected which is shown as below:
       参数:        RCU_INT_IRC32KSTB: IRC32K stabilization interrupt enable
       参数:        RCU_INT_LXTALSTB: LXTAL stabilization interrupt enable
@@ -1293,14 +1293,14 @@ void rcu_Interrupt_flag_clear(rcu_int_flag_clear_enum int_flag) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_Interrupt_enable(rcu_int_enum interrupt) {
+void RCU_Interrupt_enable(RCU_int_enum interrupt) {
     RCU_REG_VAL(interrupt) |= BIT(RCU_BIT_POS(interrupt));
 }
 
 
 /*!
     简介:    disable the stabilization interrupt
-    参数[输入]:  interrupt: clock stabilization interrupt, refer to rcu_int_enum
+    参数[输入]:  interrupt: clock stabilization interrupt, refer to RCU_int_enum
                 only one parameter can be selected which is shown as below:
       参数:        RCU_INT_IRC32KSTB: IRC32K stabilization interrupt disable
       参数:        RCU_INT_LXTALSTB: LXTAL stabilization interrupt disable
@@ -1313,6 +1313,6 @@ void rcu_Interrupt_enable(rcu_int_enum interrupt) {
     参数[输出]:  无
     返回值:      无
 */
-void rcu_Interrupt_disable(rcu_int_enum interrupt) {
+void RCU_Interrupt_disable(RCU_int_enum interrupt) {
     RCU_REG_VAL(interrupt) &= ~BIT(RCU_BIT_POS(interrupt));
 }

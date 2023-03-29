@@ -256,22 +256,22 @@ void i2s_psc_Config(uint32_t SPI_periph, uint32_t i2s_audiosample, uint32_t i2s_
     SPI_I2SPSC(SPI_periph) = SPI_I2SPSC_DEFAULT_VALUE;
 
 #ifdef I2S_EXTERNAL_CLOCK_IN
-    rcu_i2s_clock_Config(RCU_I2SSRC_I2S_CKIN);
+    RCU_i2s_clock_Config(RCU_I2SSRC_I2S_CKIN);
 
     /* set the I2S clock to the external clock input value */
     i2sclock = I2S_EXTERNAL_CLOCK_IN;
 #else
 
     /* turn on the oscillator HXTAL */
-    rcu_osci_on(RCU_HXTAL);
+    RCU_osci_on(RCU_HXTAL);
     /* wait for oscillator stabilization flags is SET */
-    rcu_osci_stab_Wait(RCU_HXTAL);
+    RCU_osci_stab_Wait(RCU_HXTAL);
     /* turn on the PLLI2S */
-    rcu_osci_on(RCU_PLLI2S_CK);
+    RCU_osci_on(RCU_PLLI2S_CK);
     /* wait for PLLI2S flags is SET */
-    rcu_osci_stab_Wait(RCU_PLLI2S_CK);
+    RCU_osci_stab_Wait(RCU_PLLI2S_CK);
     /* configure the I2S clock source selection */
-    rcu_i2s_clock_Config(RCU_I2SSRC_PLLI2S);
+    RCU_i2s_clock_Config(RCU_I2SSRC_PLLI2S);
 
     /* get the RCU_PLL_PLLPSC value */
     plli2sm = (uint32_t)(RCU_PLL & RCU_PLL_PLLPSC);

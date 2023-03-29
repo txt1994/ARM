@@ -234,7 +234,7 @@
  * There is an associated initialization function for each type of matrix
  * data structure.
  * The initialization function sets the values of the internal structure fields.
- * Refer to \ref arm_mat_init_f32(), \ref arm_mat_init_q31() and \ref arm_mat_init_q15()
+ * Refer to \ref arm_mat_Init_f32(), \ref arm_mat_Init_q31() and \ref arm_mat_Init_q15()
  * for floating-point, Q31 and Q15 types,  respectively.
  *
  * \par
@@ -860,28 +860,28 @@ typedef int8x16_t status8x8_t;
   @deprecated
  */
 #if   defined ( __CC_ARM )
-#define __SIMD32_TYPE int32_t __packed
+#define __SIMD32_Type int32_t __packed
 #elif defined ( __ARMCC_VERSION ) && ( __ARMCC_VERSION >= 6010050 )
-#define __SIMD32_TYPE int32_t
+#define __SIMD32_Type int32_t
 #elif defined ( __GNUC__ )
-#define __SIMD32_TYPE int32_t
+#define __SIMD32_Type int32_t
 #elif defined ( __ICCARM__ )
-#define __SIMD32_TYPE int32_t __packed
+#define __SIMD32_Type int32_t __packed
 #elif defined ( __TI_ARM__ )
-#define __SIMD32_TYPE int32_t
+#define __SIMD32_Type int32_t
 #elif defined ( __CSMC__ )
-#define __SIMD32_TYPE int32_t
+#define __SIMD32_Type int32_t
 #elif defined ( __TASKING__ )
-#define __SIMD32_TYPE __un(aligned) int32_t
+#define __SIMD32_Type __un(aligned) int32_t
 #elif defined(_MSC_VER )
-#define __SIMD32_TYPE int32_t
+#define __SIMD32_Type int32_t
 #else
 #error Unknown compiler
 #endif
 
-#define __SIMD32(addr)        (*(__SIMD32_TYPE **) & (addr))
-#define __SIMD32_CONST(addr)  ( (__SIMD32_TYPE * )   (addr))
-#define _SIMD32_OFFSET(addr)  (*(__SIMD32_TYPE * )   (addr))
+#define __SIMD32(addr)        (*(__SIMD32_Type **) & (addr))
+#define __SIMD32_CONST(addr)  ( (__SIMD32_Type * )   (addr))
+#define _SIMD32_OFFSET(addr)  (*(__SIMD32_Type * )   (addr))
 #define __SIMD64(addr)        (*(      int64_t **) & (addr))
 
 #define STEP(x) (x) <= 0 ? 0 : 1
@@ -1739,7 +1739,7 @@ void arm_fir_q7(
  * @param[in]     pState     points to the state buffer.
  * @param[in]     blockSize  number of samples that are processed.
  */
-void arm_fir_init_q7(
+void arm_fir_Init_q7(
     arm_fir_instance_q7 * S,
     uint16_t numTaps,
     const q7_t * pCoeffs,
@@ -1783,7 +1783,7 @@ void arm_fir_fast_q15(
  * <code>ARM_MATH_SUCCESS</code> if initialization was successful or
  * <code>ARM_MATH_ARGUMENT_ERROR</code> if <code>numTaps</code> is not a supported value.
  */
-arm_status arm_fir_init_q15(
+arm_status arm_fir_Init_q15(
     arm_fir_instance_q15 * S,
     uint16_t numTaps,
     const q15_t * pCoeffs,
@@ -1824,7 +1824,7 @@ void arm_fir_fast_q31(
  * @param[in]     pState     points to the state buffer.
  * @param[in]     blockSize  number of samples that are processed at a time.
  */
-void arm_fir_init_q31(
+void arm_fir_Init_q31(
     arm_fir_instance_q31 * S,
     uint16_t numTaps,
     const q31_t * pCoeffs,
@@ -1852,7 +1852,7 @@ void arm_fir_f32(
  * @param[in]     pState     points to the state buffer.
  * @param[in]     blockSize  number of samples that are processed at a time.
  */
-void arm_fir_init_f32(
+void arm_fir_Init_f32(
     arm_fir_instance_f32 * S,
     uint16_t numTaps,
     const float32_t * pCoeffs,
@@ -1918,7 +1918,7 @@ void arm_biquad_cascade_df1_q15(
  * @param[in]     pState     points to the state buffer.
  * @param[in]     postShift  Shift to be applied to the output. Varies according to the coefficients format
  */
-void arm_biquad_cascade_df1_init_q15(
+void arm_biquad_cascade_df1_Init_q15(
     arm_biquad_casd_df1_inst_q15 * S,
     uint8_t numStages,
     const q15_t * pCoeffs,
@@ -1972,7 +1972,7 @@ void arm_biquad_cascade_df1_fast_q31(
  * @param[in]     pState     points to the state buffer.
  * @param[in]     postShift  Shift to be applied to the output. Varies according to the coefficients format
  */
-void arm_biquad_cascade_df1_init_q31(
+void arm_biquad_cascade_df1_Init_q31(
     arm_biquad_casd_df1_inst_q31 * S,
     uint8_t numStages,
     const q31_t * pCoeffs,
@@ -2001,7 +2001,7 @@ void arm_biquad_cascade_df1_f32(
  * @param[in]     pState     points to the state buffer.
  */
 #if defined(ARM_MATH_MVEF) && !defined(ARM_MATH_AUTOVECTORIZE)
-void arm_biquad_cascade_df1_mve_init_f32(
+void arm_biquad_cascade_df1_mve_Init_f32(
     arm_biquad_casd_df1_inst_f32 * S,
     uint8_t numStages,
     const float32_t * pCoeffs,
@@ -2009,7 +2009,7 @@ void arm_biquad_cascade_df1_mve_init_f32(
     float32_t * pState);
 #endif
 
-void arm_biquad_cascade_df1_init_f32(
+void arm_biquad_cascade_df1_Init_f32(
     arm_biquad_casd_df1_inst_f32 * S,
     uint8_t numStages,
     const float32_t * pCoeffs,
@@ -2192,7 +2192,7 @@ typedef enum {
     /**< Insertion sort */
     ARM_SORT_QUICK     = 4,
     /**< Quick sort     */
-    ARM_SORT_SELECTION = 5
+    ARM_SORT_SelectION = 5
                          /**< Selection sort */
 } arm_sort_alg;
 
@@ -2231,7 +2231,7 @@ void arm_sort_f32(
  * @param[in]      alg          Selected algorithm.
  * @param[in]      dir          Sorting order.
  */
-void arm_sort_init_f32(
+void arm_sort_Init_f32(
     arm_sort_instance_f32 * S,
     arm_sort_alg alg,
     arm_sort_dir dir);
@@ -2261,7 +2261,7 @@ void arm_merge_sort_f32(
  * @param[in]      dir          Sorting order.
  * @param[in]      buffer       Working buffer.
  */
-void arm_merge_sort_init_f32(
+void arm_merge_sort_Init_f32(
     arm_merge_sort_instance_f32 * S,
     arm_sort_dir dir,
     float32_t * buffer);
@@ -2272,13 +2272,13 @@ void arm_merge_sort_init_f32(
 typedef enum {
     ARM_SPLINE_NATURAL = 0,           /**< Natural spline */
     ARM_SPLINE_PARABOLIC_RUNOUT = 1   /**< Parabolic runout spline */
-} arm_spline_type;
+} arm_spline_Type;
 
 /**
  * @brief Instance structure for the floating-point cubic spline interpolation.
  */
 typedef struct {
-    arm_spline_type type;      /**< Type (boundary conditions) */
+    arm_spline_Type type;      /**< Type (boundary conditions) */
     const float32_t * x;       /**< x values */
     const float32_t * y;       /**< y values */
     uint32_t n_x;              /**< Number of known data points */
@@ -2308,9 +2308,9 @@ void arm_spline_f32(
  * @param[in]     coeffs   coefficients array for b, c, and d
  * @param[in]     tempBuffer   buffer array for internal computations
  */
-void arm_spline_init_f32(
+void arm_spline_Init_f32(
     arm_spline_instance_f32 * S,
-    arm_spline_type type,
+    arm_spline_Type type,
     const float32_t * x,
     const float32_t * y,
     uint32_t n,
@@ -2542,7 +2542,7 @@ arm_status arm_mat_mult_fast_q31(
  * @return     The function returns either
  * <code>ARM_MATH_SIZE_MISMATCH</code> or <code>ARM_MATH_SUCCESS</code> based on the outcome of size checking.
  */
-arm_status arm_mat_sub_f32(
+arm_status arm_mat_Sub_f32(
     const arm_matrix_instance_f32 * pSrcA,
     const arm_matrix_instance_f32 * pSrcB,
     arm_matrix_instance_f32 * pDst);
@@ -2555,7 +2555,7 @@ arm_status arm_mat_sub_f32(
  * @return     The function returns either
  * <code>ARM_MATH_SIZE_MISMATCH</code> or <code>ARM_MATH_SUCCESS</code> based on the outcome of size checking.
  */
-arm_status arm_mat_sub_q15(
+arm_status arm_mat_Sub_q15(
     const arm_matrix_instance_q15 * pSrcA,
     const arm_matrix_instance_q15 * pSrcB,
     arm_matrix_instance_q15 * pDst);
@@ -2568,7 +2568,7 @@ arm_status arm_mat_sub_q15(
  * @return     The function returns either
  * <code>ARM_MATH_SIZE_MISMATCH</code> or <code>ARM_MATH_SUCCESS</code> based on the outcome of size checking.
  */
-arm_status arm_mat_sub_q31(
+arm_status arm_mat_Sub_q31(
     const arm_matrix_instance_q31 * pSrcA,
     const arm_matrix_instance_q31 * pSrcB,
     arm_matrix_instance_q31 * pDst);
@@ -2623,7 +2623,7 @@ arm_status arm_mat_scale_q31(
  * @param[in]     nColumns  number of columns in the matrix.
  * @param[in]     pData     points to the matrix data array.
  */
-void arm_mat_init_q31(
+void arm_mat_Init_q31(
     arm_matrix_instance_q31 * S,
     uint16_t nRows,
     uint16_t nColumns,
@@ -2636,7 +2636,7 @@ void arm_mat_init_q31(
  * @param[in]     nColumns  number of columns in the matrix.
  * @param[in]     pData     points to the matrix data array.
  */
-void arm_mat_init_q15(
+void arm_mat_Init_q15(
     arm_matrix_instance_q15 * S,
     uint16_t nRows,
     uint16_t nColumns,
@@ -2649,7 +2649,7 @@ void arm_mat_init_q15(
  * @param[in]     nColumns  number of columns in the matrix.
  * @param[in]     pData     points to the matrix data array.
  */
-void arm_mat_init_f32(
+void arm_mat_Init_f32(
     arm_matrix_instance_f32 * S,
     uint16_t nRows,
     uint16_t nColumns,
@@ -2706,7 +2706,7 @@ typedef struct {
  * @param[in,out] S               points to an instance of the PID structure.
  * @param[in]     resetStateFlag  flag to reset the state. 0 = no change in state 1 = reset the state.
  */
-void arm_pid_init_f32(
+void arm_pid_Init_f32(
     arm_pid_instance_f32 * S,
     int32_t resetStateFlag);
 
@@ -2715,7 +2715,7 @@ void arm_pid_init_f32(
  * @brief  Reset function for the floating-point PID Control.
  * @param[in,out] S  is an instance of the floating-point PID Control structure
  */
-void arm_pid_reset_f32(
+void arm_pid_Reset_f32(
     arm_pid_instance_f32 * S);
 
 
@@ -2724,7 +2724,7 @@ void arm_pid_reset_f32(
  * @param[in,out] S               points to an instance of the Q15 PID structure.
  * @param[in]     resetStateFlag  flag to reset the state. 0 = no change in state 1 = reset the state.
  */
-void arm_pid_init_q31(
+void arm_pid_Init_q31(
     arm_pid_instance_q31 * S,
     int32_t resetStateFlag);
 
@@ -2734,7 +2734,7 @@ void arm_pid_init_q31(
  * @param[in,out] S   points to an instance of the Q31 PID Control structure
  */
 
-void arm_pid_reset_q31(
+void arm_pid_Reset_q31(
     arm_pid_instance_q31 * S);
 
 
@@ -2743,7 +2743,7 @@ void arm_pid_reset_q31(
  * @param[in,out] S               points to an instance of the Q15 PID structure.
  * @param[in]     resetStateFlag  flag to reset the state. 0 = no change in state 1 = reset the state.
  */
-void arm_pid_init_q15(
+void arm_pid_Init_q15(
     arm_pid_instance_q15 * S,
     int32_t resetStateFlag);
 
@@ -2752,7 +2752,7 @@ void arm_pid_init_q15(
  * @brief  Reset function for the Q15 PID Control.
  * @param[in,out] S  points to an instance of the q15 PID Control structure
  */
-void arm_pid_reset_q15(
+void arm_pid_Reset_q15(
     arm_pid_instance_q15 * S);
 
 
@@ -2873,7 +2873,7 @@ typedef struct {
 } arm_cfft_radix2_instance_q15;
 
 /* Deprecated */
-arm_status arm_cfft_radix2_init_q15(
+arm_status arm_cfft_radix2_Init_q15(
     arm_cfft_radix2_instance_q15 * S,
     uint16_t fftLen,
     uint8_t ifftFlag,
@@ -2899,7 +2899,7 @@ typedef struct {
 } arm_cfft_radix4_instance_q15;
 
 /* Deprecated */
-arm_status arm_cfft_radix4_init_q15(
+arm_status arm_cfft_radix4_Init_q15(
     arm_cfft_radix4_instance_q15 * S,
     uint16_t fftLen,
     uint8_t ifftFlag,
@@ -2924,7 +2924,7 @@ typedef struct {
 } arm_cfft_radix2_instance_q31;
 
 /* Deprecated */
-arm_status arm_cfft_radix2_init_q31(
+arm_status arm_cfft_radix2_Init_q31(
     arm_cfft_radix2_instance_q31 * S,
     uint16_t fftLen,
     uint8_t ifftFlag,
@@ -2954,7 +2954,7 @@ void arm_cfft_radix4_q31(
     q31_t * pSrc);
 
 /* Deprecated */
-arm_status arm_cfft_radix4_init_q31(
+arm_status arm_cfft_radix4_Init_q31(
     arm_cfft_radix4_instance_q31 * S,
     uint16_t fftLen,
     uint8_t ifftFlag,
@@ -2975,7 +2975,7 @@ typedef struct {
 } arm_cfft_radix2_instance_f32;
 
 /* Deprecated */
-arm_status arm_cfft_radix2_init_f32(
+arm_status arm_cfft_radix2_Init_f32(
     arm_cfft_radix2_instance_f32 * S,
     uint16_t fftLen,
     uint8_t ifftFlag,
@@ -3001,7 +3001,7 @@ typedef struct {
 } arm_cfft_radix4_instance_f32;
 
 /* Deprecated */
-arm_status arm_cfft_radix4_init_f32(
+arm_status arm_cfft_radix4_Init_f32(
     arm_cfft_radix4_instance_f32 * S,
     uint16_t fftLen,
     uint8_t ifftFlag,
@@ -3030,7 +3030,7 @@ typedef struct {
     #endif
 } arm_cfft_instance_q15;
 
-arm_status arm_cfft_init_q15(
+arm_status arm_cfft_Init_q15(
     arm_cfft_instance_q15 * S,
     uint16_t fftLen);
 
@@ -3058,7 +3058,7 @@ typedef struct {
     #endif
 } arm_cfft_instance_q31;
 
-arm_status arm_cfft_init_q31(
+arm_status arm_cfft_Init_q31(
     arm_cfft_instance_q31 * S,
     uint16_t fftLen);
 
@@ -3087,7 +3087,7 @@ typedef struct {
 } arm_cfft_instance_f32;
 
 
-arm_status arm_cfft_init_f32(
+arm_status arm_cfft_Init_f32(
     arm_cfft_instance_f32 * S,
     uint16_t fftLen);
 
@@ -3131,7 +3131,7 @@ typedef struct {
     #endif
 } arm_rfft_instance_q15;
 
-arm_status arm_rfft_init_q15(
+arm_status arm_rfft_Init_q15(
     arm_rfft_instance_q15 * S,
     uint32_t fftLenReal,
     uint32_t ifftFlagR,
@@ -3159,7 +3159,7 @@ typedef struct {
     #endif
 } arm_rfft_instance_q31;
 
-arm_status arm_rfft_init_q31(
+arm_status arm_rfft_Init_q31(
     arm_rfft_instance_q31 * S,
     uint32_t fftLenReal,
     uint32_t ifftFlagR,
@@ -3184,7 +3184,7 @@ typedef struct {
     arm_cfft_radix4_instance_f32 *pCfft;        /**< points to the complex FFT instance. */
 } arm_rfft_instance_f32;
 
-arm_status arm_rfft_init_f32(
+arm_status arm_rfft_Init_f32(
     arm_rfft_instance_f32 * S,
     arm_cfft_radix4_instance_f32 * S_CFFT,
     uint32_t fftLenReal,
@@ -3205,7 +3205,7 @@ typedef struct {
     const float64_t * pTwiddleRFFT;        /**< Twiddle factors real stage  */
 } arm_rfft_fast_instance_f64 ;
 
-arm_status arm_rfft_fast_init_f64 (
+arm_status arm_rfft_fast_Init_f64 (
     arm_rfft_fast_instance_f64 * S,
     uint16_t fftLen);
 
@@ -3225,7 +3225,7 @@ typedef struct {
     const float32_t * pTwiddleRFFT;        /**< Twiddle factors real stage  */
 } arm_rfft_fast_instance_f32 ;
 
-arm_status arm_rfft_fast_init_f32 (
+arm_status arm_rfft_fast_Init_f32 (
     arm_rfft_fast_instance_f32 * S,
     uint16_t fftLen);
 
@@ -3259,7 +3259,7 @@ typedef struct {
  * @param[in]     normalize  normalizing factor.
  * @return      arm_status function returns ARM_MATH_SUCCESS if initialization is successful or ARM_MATH_ARGUMENT_ERROR if <code>fftLenReal</code> is not a supported transform length.
  */
-arm_status arm_dct4_init_f32(
+arm_status arm_dct4_Init_f32(
     arm_dct4_instance_f32 * S,
     arm_rfft_instance_f32 * S_RFFT,
     arm_cfft_radix4_instance_f32 * S_CFFT,
@@ -3304,7 +3304,7 @@ typedef struct {
  * @param[in]     normalize  normalizing factor.
  * @return      arm_status function returns ARM_MATH_SUCCESS if initialization is successful or ARM_MATH_ARGUMENT_ERROR if <code>N</code> is not a supported transform length.
  */
-arm_status arm_dct4_init_q31(
+arm_status arm_dct4_Init_q31(
     arm_dct4_instance_q31 * S,
     arm_rfft_instance_q31 * S_RFFT,
     arm_cfft_radix4_instance_q31 * S_CFFT,
@@ -3349,7 +3349,7 @@ typedef struct {
  * @param[in]     normalize  normalizing factor.
  * @return      arm_status function returns ARM_MATH_SUCCESS if initialization is successful or ARM_MATH_ARGUMENT_ERROR if <code>N</code> is not a supported transform length.
  */
-arm_status arm_dct4_init_q15(
+arm_status arm_dct4_Init_q15(
     arm_dct4_instance_q15 * S,
     arm_rfft_instance_q15 * S_RFFT,
     arm_cfft_radix4_instance_q15 * S_CFFT,
@@ -3433,7 +3433,7 @@ void arm_add_q31(
  * @param[out] pDst       points to the output vector
  * @param[in]  blockSize  number of samples in each vector
  */
-void arm_sub_f32(
+void arm_Sub_f32(
     const float32_t * pSrcA,
     const float32_t * pSrcB,
     float32_t * pDst,
@@ -3447,7 +3447,7 @@ void arm_sub_f32(
  * @param[out] pDst       points to the output vector
  * @param[in]  blockSize  number of samples in each vector
  */
-void arm_sub_q7(
+void arm_Sub_q7(
     const q7_t * pSrcA,
     const q7_t * pSrcB,
     q7_t * pDst,
@@ -3461,7 +3461,7 @@ void arm_sub_q7(
  * @param[out] pDst       points to the output vector
  * @param[in]  blockSize  number of samples in each vector
  */
-void arm_sub_q15(
+void arm_Sub_q15(
     const q15_t * pSrcA,
     const q15_t * pSrcB,
     q15_t * pDst,
@@ -3475,7 +3475,7 @@ void arm_sub_q15(
  * @param[out] pDst       points to the output vector
  * @param[in]  blockSize  number of samples in each vector
  */
-void arm_sub_q31(
+void arm_Sub_q31(
     const q31_t * pSrcA,
     const q31_t * pSrcB,
     q31_t * pDst,
@@ -4304,7 +4304,7 @@ void arm_fir_decimate_f32(
                    - \ref ARM_MATH_SUCCESS      : Operation successful
                    - \ref ARM_MATH_LENGTH_ERROR : <code>blockSize</code> is not a multiple of <code>M</code>
  */
-arm_status arm_fir_decimate_init_f32(
+arm_status arm_fir_decimate_Init_f32(
     arm_fir_decimate_instance_f32 * S,
     uint16_t numTaps,
     uint8_t M,
@@ -4352,7 +4352,7 @@ void arm_fir_decimate_fast_q15(
  * @return    The function returns ARM_MATH_SUCCESS if initialization is successful or ARM_MATH_LENGTH_ERROR if
  * <code>blockSize</code> is not a multiple of <code>M</code>.
  */
-arm_status arm_fir_decimate_init_q15(
+arm_status arm_fir_decimate_Init_q15(
     arm_fir_decimate_instance_q15 * S,
     uint16_t numTaps,
     uint8_t M,
@@ -4399,7 +4399,7 @@ void arm_fir_decimate_fast_q31(
  * @return    The function returns ARM_MATH_SUCCESS if initialization is successful or ARM_MATH_LENGTH_ERROR if
  * <code>blockSize</code> is not a multiple of <code>M</code>.
  */
-arm_status arm_fir_decimate_init_q31(
+arm_status arm_fir_decimate_Init_q31(
     arm_fir_decimate_instance_q31 * S,
     uint16_t numTaps,
     uint8_t M,
@@ -4464,7 +4464,7 @@ void arm_fir_interpolate_q15(
  * @return        The function returns ARM_MATH_SUCCESS if initialization is successful or ARM_MATH_LENGTH_ERROR if
  * the filter length <code>numTaps</code> is not a multiple of the interpolation factor <code>L</code>.
  */
-arm_status arm_fir_interpolate_init_q15(
+arm_status arm_fir_interpolate_Init_q15(
     arm_fir_interpolate_instance_q15 * S,
     uint8_t L,
     uint16_t numTaps,
@@ -4498,7 +4498,7 @@ void arm_fir_interpolate_q31(
  * @return        The function returns ARM_MATH_SUCCESS if initialization is successful or ARM_MATH_LENGTH_ERROR if
  * the filter length <code>numTaps</code> is not a multiple of the interpolation factor <code>L</code>.
  */
-arm_status arm_fir_interpolate_init_q31(
+arm_status arm_fir_interpolate_Init_q31(
     arm_fir_interpolate_instance_q31 * S,
     uint8_t L,
     uint16_t numTaps,
@@ -4532,7 +4532,7 @@ void arm_fir_interpolate_f32(
  * @return        The function returns ARM_MATH_SUCCESS if initialization is successful or ARM_MATH_LENGTH_ERROR if
  * the filter length <code>numTaps</code> is not a multiple of the interpolation factor <code>L</code>.
  */
-arm_status arm_fir_interpolate_init_f32(
+arm_status arm_fir_interpolate_Init_f32(
     arm_fir_interpolate_instance_f32 * S,
     uint8_t L,
     uint16_t numTaps,
@@ -4572,7 +4572,7 @@ void arm_biquad_cas_df1_32x64_q31(
  * @param[in]     pState     points to the state buffer.
  * @param[in]     postShift  shift to be applied to the output. Varies according to the coefficients format
  */
-void arm_biquad_cas_df1_32x64_init_q31(
+void arm_biquad_cas_df1_32x64_Init_q31(
     arm_biquad_cas_df1_32x64_ins_q31 * S,
     uint8_t numStages,
     const q31_t * pCoeffs,
@@ -4663,7 +4663,7 @@ void arm_biquad_cascade_df2T_compute_coefs_f32(
  * @param[in]     pCoeffs    points to the filter coefficients.
  * @param[in]     pState     points to the state buffer.
  */
-void arm_biquad_cascade_df2T_init_f32(
+void arm_biquad_cascade_df2T_Init_f32(
     arm_biquad_cascade_df2T_instance_f32 * S,
     uint8_t numStages,
     const float32_t * pCoeffs,
@@ -4677,7 +4677,7 @@ void arm_biquad_cascade_df2T_init_f32(
  * @param[in]     pCoeffs    points to the filter coefficients.
  * @param[in]     pState     points to the state buffer.
  */
-void arm_biquad_cascade_stereo_df2T_init_f32(
+void arm_biquad_cascade_stereo_df2T_Init_f32(
     arm_biquad_cascade_stereo_df2T_instance_f32 * S,
     uint8_t numStages,
     const float32_t * pCoeffs,
@@ -4691,7 +4691,7 @@ void arm_biquad_cascade_stereo_df2T_init_f32(
  * @param[in]     pCoeffs    points to the filter coefficients.
  * @param[in]     pState     points to the state buffer.
  */
-void arm_biquad_cascade_df2T_init_f64(
+void arm_biquad_cascade_df2T_Init_f64(
     arm_biquad_cascade_df2T_instance_f64 * S,
     uint8_t numStages,
     const float64_t * pCoeffs,
@@ -4733,7 +4733,7 @@ typedef struct {
  * @param[in] pCoeffs    points to the coefficient buffer.  The array is of length numStages.
  * @param[in] pState     points to the state buffer.  The array is of length numStages.
  */
-void arm_fir_lattice_init_q15(
+void arm_fir_lattice_Init_q15(
     arm_fir_lattice_instance_q15 * S,
     uint16_t numStages,
     const q15_t * pCoeffs,
@@ -4761,7 +4761,7 @@ void arm_fir_lattice_q15(
  * @param[in] pCoeffs    points to the coefficient buffer.  The array is of length numStages.
  * @param[in] pState     points to the state buffer.   The array is of length numStages.
  */
-void arm_fir_lattice_init_q31(
+void arm_fir_lattice_Init_q31(
     arm_fir_lattice_instance_q31 * S,
     uint16_t numStages,
     const q31_t * pCoeffs,
@@ -4789,7 +4789,7 @@ void arm_fir_lattice_q31(
  * @param[in] pCoeffs    points to the coefficient buffer.  The array is of length numStages.
  * @param[in] pState     points to the state buffer.  The array is of length numStages.
  */
-void arm_fir_lattice_init_f32(
+void arm_fir_lattice_Init_f32(
     arm_fir_lattice_instance_f32 * S,
     uint16_t numStages,
     const float32_t * pCoeffs,
@@ -4864,7 +4864,7 @@ void arm_iir_lattice_f32(
  * @param[in] pState     points to the state buffer.  The array is of length numStages+blockSize-1.
  * @param[in] blockSize  number of samples to process.
  */
-void arm_iir_lattice_init_f32(
+void arm_iir_lattice_Init_f32(
     arm_iir_lattice_instance_f32 * S,
     uint16_t numStages,
     float32_t * pkCoeffs,
@@ -4896,7 +4896,7 @@ void arm_iir_lattice_q31(
  * @param[in] pState     points to the state buffer.  The array is of length numStages+blockSize.
  * @param[in] blockSize  number of samples to process.
  */
-void arm_iir_lattice_init_q31(
+void arm_iir_lattice_Init_q31(
     arm_iir_lattice_instance_q31 * S,
     uint16_t numStages,
     q31_t * pkCoeffs,
@@ -4928,7 +4928,7 @@ void arm_iir_lattice_q15(
  * @param[in] pState     points to state buffer.  The array is of length numStages+blockSize.
  * @param[in] blockSize  number of samples to process per call.
  */
-void arm_iir_lattice_init_q15(
+void arm_iir_lattice_Init_q15(
     arm_iir_lattice_instance_q15 * S,
     uint16_t numStages,
     q15_t * pkCoeffs,
@@ -4975,7 +4975,7 @@ void arm_lms_f32(
  * @param[in] mu         step size that controls filter coefficient updates.
  * @param[in] blockSize  number of samples to process.
  */
-void arm_lms_init_f32(
+void arm_lms_Init_f32(
     arm_lms_instance_f32 * S,
     uint16_t numTaps,
     float32_t * pCoeffs,
@@ -5006,7 +5006,7 @@ typedef struct {
  * @param[in] blockSize  number of samples to process.
  * @param[in] postShift  bit shift applied to coefficients.
  */
-void arm_lms_init_q15(
+void arm_lms_Init_q15(
     arm_lms_instance_q15 * S,
     uint16_t numTaps,
     q15_t * pCoeffs,
@@ -5074,7 +5074,7 @@ void arm_lms_q31(
  * @param[in] blockSize  number of samples to process.
  * @param[in] postShift  bit shift applied to coefficients.
  */
-void arm_lms_init_q31(
+void arm_lms_Init_q31(
     arm_lms_instance_q31 * S,
     uint16_t numTaps,
     q31_t * pCoeffs,
@@ -5124,7 +5124,7 @@ void arm_lms_norm_f32(
  * @param[in] mu         step size that controls filter coefficient updates.
  * @param[in] blockSize  number of samples to process.
  */
-void arm_lms_norm_init_f32(
+void arm_lms_norm_Init_f32(
     arm_lms_norm_instance_f32 * S,
     uint16_t numTaps,
     float32_t * pCoeffs,
@@ -5176,7 +5176,7 @@ void arm_lms_norm_q31(
  * @param[in] blockSize  number of samples to process.
  * @param[in] postShift  bit shift applied to coefficients.
  */
-void arm_lms_norm_init_q31(
+void arm_lms_norm_Init_q31(
     arm_lms_norm_instance_q31 * S,
     uint16_t numTaps,
     q31_t * pCoeffs,
@@ -5229,7 +5229,7 @@ void arm_lms_norm_q15(
  * @param[in] blockSize  number of samples to process.
  * @param[in] postShift  bit shift applied to coefficients.
  */
-void arm_lms_norm_init_q15(
+void arm_lms_norm_Init_q15(
     arm_lms_norm_instance_q15 * S,
     uint16_t numTaps,
     q15_t * pCoeffs,
@@ -5467,7 +5467,7 @@ void arm_fir_sparse_f32(
  * @param[in]     maxDelay   maximum offset time supported.
  * @param[in]     blockSize  number of samples that will be processed per block.
  */
-void arm_fir_sparse_init_f32(
+void arm_fir_sparse_Init_f32(
     arm_fir_sparse_instance_f32 * S,
     uint16_t numTaps,
     const float32_t * pCoeffs,
@@ -5503,7 +5503,7 @@ void arm_fir_sparse_q31(
  * @param[in]     maxDelay   maximum offset time supported.
  * @param[in]     blockSize  number of samples that will be processed per block.
  */
-void arm_fir_sparse_init_q31(
+void arm_fir_sparse_Init_q31(
     arm_fir_sparse_instance_q31 * S,
     uint16_t numTaps,
     const q31_t * pCoeffs,
@@ -5541,7 +5541,7 @@ void arm_fir_sparse_q15(
  * @param[in]     maxDelay   maximum offset time supported.
  * @param[in]     blockSize  number of samples that will be processed per block.
  */
-void arm_fir_sparse_init_q15(
+void arm_fir_sparse_Init_q15(
     arm_fir_sparse_instance_q15 * S,
     uint16_t numTaps,
     const q15_t * pCoeffs,
@@ -5579,7 +5579,7 @@ void arm_fir_sparse_q7(
  * @param[in]     maxDelay   maximum offset time supported.
  * @param[in]     blockSize  number of samples that will be processed per block.
  */
-void arm_fir_sparse_init_q7(
+void arm_fir_sparse_Init_q7(
     arm_fir_sparse_instance_q7 * S,
     uint16_t numTaps,
     const q7_t * pCoeffs,
@@ -6658,7 +6658,7 @@ __STATIC_FORCEINLINE arm_status arm_sqrt_f32(
     float32_t * pOut) {
     if (in >= 0.0f) {
         #if defined ( __CC_ARM )
-        #if defined __TARGET_FPU_VFP
+        #if defined __Target_FPU_VFP
         *pOut = __sqrtf(in);
         #else
         *pOut = sqrtf(in);
@@ -7674,7 +7674,7 @@ typedef enum {
     /**< Radial Basis Function kernel */
     ARM_ML_KERNEL_SIGMOID = 3
                             /**< Sigmoid kernel */
-} arm_ml_kernel_type;
+} arm_ml_kernel_Type;
 
 
 /**
@@ -7746,7 +7746,7 @@ typedef struct {
  */
 
 
-void arm_svm_linear_init_f32(arm_svm_linear_instance_f32 *S,
+void arm_svm_linear_Init_f32(arm_svm_linear_instance_f32 *S,
                              uint32_t nbOfSupportVectors,
                              uint32_t vectorDimension,
                              float32_t intercept,
@@ -7785,7 +7785,7 @@ void arm_svm_linear_predict_f32(const arm_svm_linear_instance_f32 *S,
  */
 
 
-void arm_svm_polynomial_init_f32(arm_svm_polynomial_instance_f32 *S,
+void arm_svm_polynomial_Init_f32(arm_svm_polynomial_instance_f32 *S,
                                  uint32_t nbOfSupportVectors,
                                  uint32_t vectorDimension,
                                  float32_t intercept,
@@ -7824,7 +7824,7 @@ void arm_svm_polynomial_predict_f32(const arm_svm_polynomial_instance_f32 *S,
  *
  */
 
-void arm_svm_rbf_init_f32(arm_svm_rbf_instance_f32 *S,
+void arm_svm_rbf_Init_f32(arm_svm_rbf_instance_f32 *S,
                           uint32_t nbOfSupportVectors,
                           uint32_t vectorDimension,
                           float32_t intercept,
@@ -7861,7 +7861,7 @@ void arm_svm_rbf_predict_f32(const arm_svm_rbf_instance_f32 *S,
  *
  */
 
-void arm_svm_sigmoid_init_f32(arm_svm_sigmoid_instance_f32 *S,
+void arm_svm_sigmoid_Init_f32(arm_svm_sigmoid_instance_f32 *S,
                               uint32_t nbOfSupportVectors,
                               uint32_t vectorDimension,
                               float32_t intercept,
@@ -8627,7 +8627,7 @@ __STATIC_FORCEINLINE q7_t arm_bilinear_interp_q7(
 
 
 /* SMMLAR */
-#define multAcc_32x32_keep32_R(a, x, y) \
+#define multACC_32x32_keep32_R(a, x, y) \
     a = (q31_t) (((((q63_t) a) << 32) + ((q63_t) x * y) + 0x80000000LL ) >> 32)
 
 /* SMMLSR */
@@ -8639,7 +8639,7 @@ __STATIC_FORCEINLINE q7_t arm_bilinear_interp_q7(
     a = (q31_t) (((q63_t) x * y + 0x80000000LL ) >> 32)
 
 /* SMMLA */
-#define multAcc_32x32_keep32(a, x, y) \
+#define multACC_32x32_keep32(a, x, y) \
     a += (q31_t) (((q63_t) x * y) >> 32)
 
 /* SMMLS */
@@ -8654,86 +8654,86 @@ __STATIC_FORCEINLINE q7_t arm_bilinear_interp_q7(
 #if   defined ( __CC_ARM )
 /* Enter low optimization region - place directly above function definition */
 #if defined( __ARM_ARCH_7EM__ )
-#define LOW_OPTIMIZATION_ENTER \
+#define LOW_OPTIMIZATION_Enter \
     _Pragma ("push")         \
     _Pragma ("O1")
 #else
-#define LOW_OPTIMIZATION_ENTER
+#define LOW_OPTIMIZATION_Enter
 #endif
 
 /* Exit low optimization region - place directly after end of function definition */
 #if defined ( __ARM_ARCH_7EM__ )
-#define LOW_OPTIMIZATION_EXIT \
+#define LOW_OPTIMIZATION_Exit \
     _Pragma ("pop")
 #else
-#define LOW_OPTIMIZATION_EXIT
+#define LOW_OPTIMIZATION_Exit
 #endif
 
 /* Enter low optimization region - place directly above function definition */
-#define IAR_ONLY_LOW_OPTIMIZATION_ENTER
+#define IAR_ONLY_LOW_OPTIMIZATION_Enter
 
 /* Exit low optimization region - place directly after end of function definition */
-#define IAR_ONLY_LOW_OPTIMIZATION_EXIT
+#define IAR_ONLY_LOW_OPTIMIZATION_Exit
 
 #elif defined (__ARMCC_VERSION ) && ( __ARMCC_VERSION >= 6010050 )
-#define LOW_OPTIMIZATION_ENTER
-#define LOW_OPTIMIZATION_EXIT
-#define IAR_ONLY_LOW_OPTIMIZATION_ENTER
-#define IAR_ONLY_LOW_OPTIMIZATION_EXIT
+#define LOW_OPTIMIZATION_Enter
+#define LOW_OPTIMIZATION_Exit
+#define IAR_ONLY_LOW_OPTIMIZATION_Enter
+#define IAR_ONLY_LOW_OPTIMIZATION_Exit
 
 #elif defined ( __GNUC__ )
-#define LOW_OPTIMIZATION_ENTER \
+#define LOW_OPTIMIZATION_Enter \
     __attribute__(( optimize("-O1") ))
-#define LOW_OPTIMIZATION_EXIT
-#define IAR_ONLY_LOW_OPTIMIZATION_ENTER
-#define IAR_ONLY_LOW_OPTIMIZATION_EXIT
+#define LOW_OPTIMIZATION_Exit
+#define IAR_ONLY_LOW_OPTIMIZATION_Enter
+#define IAR_ONLY_LOW_OPTIMIZATION_Exit
 
 #elif defined ( __ICCARM__ )
 /* Enter low optimization region - place directly above function definition */
 #if defined ( __ARM_ARCH_7EM__ )
-#define LOW_OPTIMIZATION_ENTER \
+#define LOW_OPTIMIZATION_Enter \
     _Pragma ("optimize=low")
 #else
-#define LOW_OPTIMIZATION_ENTER
+#define LOW_OPTIMIZATION_Enter
 #endif
 
 /* Exit low optimization region - place directly after end of function definition */
-#define LOW_OPTIMIZATION_EXIT
+#define LOW_OPTIMIZATION_Exit
 
 /* Enter low optimization region - place directly above function definition */
 #if defined ( __ARM_ARCH_7EM__ )
-#define IAR_ONLY_LOW_OPTIMIZATION_ENTER \
+#define IAR_ONLY_LOW_OPTIMIZATION_Enter \
     _Pragma ("optimize=low")
 #else
-#define IAR_ONLY_LOW_OPTIMIZATION_ENTER
+#define IAR_ONLY_LOW_OPTIMIZATION_Enter
 #endif
 
 /* Exit low optimization region - place directly after end of function definition */
-#define IAR_ONLY_LOW_OPTIMIZATION_EXIT
+#define IAR_ONLY_LOW_OPTIMIZATION_Exit
 
 #elif defined ( __TI_ARM__ )
-#define LOW_OPTIMIZATION_ENTER
-#define LOW_OPTIMIZATION_EXIT
-#define IAR_ONLY_LOW_OPTIMIZATION_ENTER
-#define IAR_ONLY_LOW_OPTIMIZATION_EXIT
+#define LOW_OPTIMIZATION_Enter
+#define LOW_OPTIMIZATION_Exit
+#define IAR_ONLY_LOW_OPTIMIZATION_Enter
+#define IAR_ONLY_LOW_OPTIMIZATION_Exit
 
 #elif defined ( __CSMC__ )
-#define LOW_OPTIMIZATION_ENTER
-#define LOW_OPTIMIZATION_EXIT
-#define IAR_ONLY_LOW_OPTIMIZATION_ENTER
-#define IAR_ONLY_LOW_OPTIMIZATION_EXIT
+#define LOW_OPTIMIZATION_Enter
+#define LOW_OPTIMIZATION_Exit
+#define IAR_ONLY_LOW_OPTIMIZATION_Enter
+#define IAR_ONLY_LOW_OPTIMIZATION_Exit
 
 #elif defined ( __TASKING__ )
-#define LOW_OPTIMIZATION_ENTER
-#define LOW_OPTIMIZATION_EXIT
-#define IAR_ONLY_LOW_OPTIMIZATION_ENTER
-#define IAR_ONLY_LOW_OPTIMIZATION_EXIT
+#define LOW_OPTIMIZATION_Enter
+#define LOW_OPTIMIZATION_Exit
+#define IAR_ONLY_LOW_OPTIMIZATION_Enter
+#define IAR_ONLY_LOW_OPTIMIZATION_Exit
 
 #elif defined ( _MSC_VER ) || defined(__GNUC_PYTHON__)
-#define LOW_OPTIMIZATION_ENTER
-#define LOW_OPTIMIZATION_EXIT
-#define IAR_ONLY_LOW_OPTIMIZATION_ENTER
-#define IAR_ONLY_LOW_OPTIMIZATION_EXIT
+#define LOW_OPTIMIZATION_Enter
+#define LOW_OPTIMIZATION_Exit
+#define IAR_ONLY_LOW_OPTIMIZATION_Enter
+#define IAR_ONLY_LOW_OPTIMIZATION_Exit
 #endif
 
 

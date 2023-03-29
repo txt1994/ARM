@@ -30,9 +30,9 @@ static __IO uint32_t fac_ms;
   * @param  none
   * @retval none
   */
-void delay_init(void) {
+void delay_Init(void) {
     /* configure systick */
-    systick_clock_source_config(SYSTICK_CLOCK_SOURCE_AHBCLK_NODIV);
+    systick_Clock_Source_Config(SYSTICK_Clock_Source_AHBCLK_NODIV);
     fac_us = system_core_clock / (1000000U);
     fac_ms = fac_us * (1000U);
 }
@@ -46,13 +46,13 @@ void delay_us(uint32_t nus) {
     uint32_t temp = 0;
     SysTick->LOAD = (uint32_t)(nus * fac_us);
     SysTick->VAL = 0x00;
-    SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk ;
+    SysTick->CTRL |= SysTick_CTRL_Enable_Msk ;
 
     do {
         temp = SysTick->CTRL;
     } while((temp & 0x01) && !(temp & (1 << 16)));
 
-    SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;
+    SysTick->CTRL &= ~SysTick_CTRL_Enable_Msk;
     SysTick->VAL = 0x00;
 }
 
@@ -74,13 +74,13 @@ void delay_ms(uint16_t nms) {
         }
 
         SysTick->VAL = 0x00;
-        SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
+        SysTick->CTRL |= SysTick_CTRL_Enable_Msk;
 
         do {
             temp = SysTick->CTRL;
         } while((temp & 0x01) && !(temp & (1 << 16)));
 
-        SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;
+        SysTick->CTRL &= ~SysTick_CTRL_Enable_Msk;
         SysTick->VAL = 0x00;
 		SysTick_Config(1000);
     }

@@ -62,7 +62,7 @@ extern "C" {
   * @}
   */
 
-/** @defgroup ACC_exported_types
+/** @defgroup ACC_exported_Types
   * @{
   */
 
@@ -113,7 +113,7 @@ typedef struct {
     };
 
     /**
-    * @brief acc acc_c1 register, offset:0x0C
+    * @brief acc ACC_C1 register, offset:0x0C
     */
     union {
         __IO uint32_t c1;
@@ -124,7 +124,7 @@ typedef struct {
     };
 
     /**
-    * @brief acc acc_c2 register, offset:0x10
+    * @brief acc ACC_C2 register, offset:0x10
     */
     union {
         __IO uint32_t c2;
@@ -135,7 +135,7 @@ typedef struct {
     };
 
     /**
-    * @brief acc acc_c3 register, offset:0x14
+    * @brief acc ACC_C3 register, offset:0x14
     */
     union {
         __IO uint32_t c3;
@@ -144,32 +144,32 @@ typedef struct {
             __IO uint32_t reserved1            : 16;/* [31:16] */
         } c3_bit;
     };
-} acc_type;
+} ACC_Type;
 
 /**
   * @}
   */
 
-#define ACC                             ((acc_type *) ACC_BASE)
+#define ACC                             ((ACC_Type *) ACC_BASE)
 
 /** @defgroup ACC_exported_functions
   * @{
   */
 
-void acc_calibration_mode_enable(uint16_t acc_trim, confirm_state new_state);
-void acc_step_set(uint8_t step_value);
-void acc_sof_select(uint16_t sof_sel);
-void acc_interrupt_enable(uint16_t acc_int, confirm_state new_state);
-uint8_t acc_hicktrim_get(void);
-uint8_t acc_hickcal_get(void);
-void acc_write_c1(uint16_t acc_c1_value);
-void acc_write_c2(uint16_t acc_c2_value);
-void acc_write_c3(uint16_t acc_c3_value);
-uint16_t acc_read_c1(void);
-uint16_t acc_read_c2(void);
-uint16_t acc_read_c3(void);
-flag_status acc_flag_get(uint16_t acc_flag);
-void acc_flag_clear(uint16_t acc_flag);
+void ACC_Calibration_Mode_Enable(uint16_t ACC_trim, confirm_state new_state);
+void ACC_Step_Set(uint8_t step_value);
+void ACC_SOF_Select(uint16_t sof_sel);
+void ACC_Interrupt_Enable(uint16_t ACC_int, confirm_state new_state);
+uint8_t ACC_Hicktrim_Get(void);
+uint8_t ACC_Hickcal_Get(void);
+void ACC_Write_C1(uint16_t ACC_C1_value);
+void ACC_Write_C2(uint16_t ACC_C2_value);
+void ACC_Write_C3(uint16_t ACC_C3_value);
+uint16_t ACC_Read_C1(void);
+uint16_t ACC_Read_C2(void);
+uint16_t ACC_Read_C3(void);
+flag_status ACC_Flag_Get(uint16_t ACC_flag);
+void ACC_Flag_Clear(uint16_t ACC_flag);
 
 /**
   * @}

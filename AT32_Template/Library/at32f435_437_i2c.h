@@ -45,7 +45,7 @@ extern "C" {
 /**
   * @brief maximum number of single transfers
   */
-#define MAX_TRANSFER_CNT                 255 /*!< maximum number of single transfers */
+#define MAX_Transfer_CNT                 255 /*!< maximum number of single transfers */
 
 /** @defgroup I2C_interrupts_definition
   * @brief i2c interrupt
@@ -54,9 +54,9 @@ extern "C" {
 
 #define I2C_TD_INT                       ((uint32_t)0x00000002) /*!< i2c transmit data interrupt */
 #define I2C_RD_INT                       ((uint32_t)0x00000004) /*!< i2c receive data interrupt */
-#define I2C_ADDR_INT                     ((uint32_t)0x00000008) /*!< i2c address match interrupt */
+#define I2C_Addr_INT                     ((uint32_t)0x00000008) /*!< i2c address match interrupt */
 #define I2C_ACKFIAL_INT                  ((uint32_t)0x00000010) /*!< i2c ack fail interrupt */
-#define I2C_STOP_INT                     ((uint32_t)0x00000020) /*!< i2c stop detect interrupt */
+#define I2C_Stop_INT                     ((uint32_t)0x00000020) /*!< i2c stop detect interrupt */
 #define I2C_TDC_INT                      ((uint32_t)0x00000040) /*!< i2c transmit data complete interrupt */
 #define I2C_ERR_INT                      ((uint32_t)0x00000080) /*!< i2c bus error interrupt */
 
@@ -90,7 +90,7 @@ extern "C" {
   * @}
   */
 
-/** @defgroup I2C_exported_types
+/** @defgroup I2C_exported_Types
   * @{
   */
 
@@ -98,17 +98,17 @@ extern "C" {
   * @brief i2c smbus mode set
   */
 typedef enum {
-    I2C_SMBUS_MODE_DEVICE                  = 0x00, /*!< smbus device mode */
-    I2C_SMBUS_MODE_HOST                    = 0x01  /*!< smbus host mode */
-} i2c_smbus_mode_type;
+    I2C_SmBus_Mode_DEVICE                  = 0x00, /*!< smbus device mode */
+    I2C_SmBus_Mode_HOST                    = 0x01  /*!< smbus host mode */
+} I2C_SmBus_Mode_Type;
 
 /**
   * @brief i2c address mode
   */
 typedef enum {
-    I2C_ADDRESS_MODE_7BIT                  = 0x00, /*!< 7bit address mode */
-    I2C_ADDRESS_MODE_10BIT                 = 0x01  /*!< 10bit address mode */
-} i2c_address_mode_type;
+    I2C_Address_Mode_7BIT                  = 0x00, /*!< 7bit address mode */
+    I2C_Address_Mode_10BIT                 = 0x01  /*!< 10bit address mode */
+} I2C_Address_Mode_Type;
 
 /**
   * @brief i2c transfer direction
@@ -116,31 +116,31 @@ typedef enum {
 typedef enum {
     I2C_DIR_TRANSMIT                       = 0x00, /*!< master request a write transfer */
     I2C_DIR_RECEIVE                        = 0x01  /*!< master request a read transfer */
-} i2c_transfer_dir_type;
+} I2C_Transfer_dir_Type;
 
 /**
   * @brief i2c dma requests direction
   */
 typedef enum {
-    I2C_DMA_REQUEST_TX                     = 0x00, /*!< dma transmit request */
-    I2C_DMA_REQUEST_RX                     = 0x01  /*!< dma receive request */
-} i2c_dma_request_type;
+    I2C_DMA_Request_TX                     = 0x00, /*!< dma transmit request */
+    I2C_DMA_Request_RX                     = 0x01  /*!< dma receive request */
+} I2C_DMA_Request_Type;
 
 /**
   * @brief i2c smbus alert pin set
   */
 typedef enum {
-    I2C_SMBUS_ALERT_HIGH                   = 0x00, /*!< smbus alert pin set high */
-    I2C_SMBUS_ALERT_LOW                    = 0x01  /*!< smbus alert pin set low */
-} i2c_smbus_alert_set_type;
+    I2C_SmBus_Alert_HIGH                   = 0x00, /*!< smbus alert pin set high */
+    I2C_SmBus_Alert_LOW                    = 0x01  /*!< smbus alert pin set low */
+} I2C_SmBus_Alert_Set_Type;
 
 /**
   * @brief i2c clock timeout detection mode
   */
 typedef enum {
-    I2C_TIMEOUT_DETCET_LOW                 = 0x00, /*!< detect low level timeout */
-    I2C_TIMEOUT_DETCET_HIGH                = 0x01  /*!< detect high level timeout */
-} i2c_timeout_detcet_type;
+    I2C_TimeOut_Detcet_LOW                 = 0x00, /*!< detect low level timeout */
+    I2C_TimeOut_Detcet_HIGH                = 0x01  /*!< detect high level timeout */
+} I2C_TimeOut_Detcet_Type;
 
 /**
   * @brief i2c own address2 mask
@@ -154,25 +154,25 @@ typedef enum {
     I2C_ADDR2_MASK05                       = 0x05, /*!< only compare bit [7:5] */
     I2C_ADDR2_MASK06                       = 0x06, /*!< only compare bit [7:6] */
     I2C_ADDR2_MASK07                       = 0x07  /*!< only compare bit [7] */
-} i2c_addr2_mask_type;
+} I2C_addr2_Mask_Type;
 
 /**
   * @brief i2c reload end mode
   */
 typedef enum {
-    I2C_AUTO_STOP_MODE                     = 0x02000000, /*!< auto generate stop mode */
-    I2C_SOFT_STOP_MODE                     = 0x00000000, /*!< soft generate stop mode */
+    I2C_Auto_Stop_MODE                     = 0x02000000, /*!< auto generate stop mode */
+    I2C_SOFT_Stop_MODE                     = 0x00000000, /*!< soft generate stop mode */
     I2C_RELOAD_MODE                        = 0x01000000  /*!< reload mode */
-} i2c_reload_stop_mode_type;
+} I2C_reload_Stop_Mode_Type;
 
 /**
   * @brief i2c start mode
   */
 typedef enum {
     I2C_WITHOUT_START                      = 0x00000000, /*!< transfer data without start condition */
-    I2C_GEN_START_READ                     = 0x00002400, /*!< read data and generate start */
-    I2C_GEN_START_WRITE                    = 0x00002000  /*!< send data and generate start */
-} i2c_start_mode_type;
+    I2C_Gen_Start_Read                     = 0x00002400, /*!< read data and generate start */
+    I2C_Gen_Start_Write                    = 0x00002000  /*!< send data and generate start */
+} I2C_Start_Mode_Type;
 
 /**
   * @brief type define i2c register all
@@ -371,60 +371,60 @@ typedef struct {
         } txdt_bit;
     };
 
-} i2c_type;
+} I2C_Type;
 
 /**
   * @}
   */
 
-#define I2C1                             ((i2c_type *) I2C1_BASE)
-#define I2C2                             ((i2c_type *) I2C2_BASE)
-#define I2C3                             ((i2c_type *) I2C3_BASE)
+#define I2C1                             ((I2C_Type *) I2C1_BASE)
+#define I2C2                             ((I2C_Type *) I2C2_BASE)
+#define I2C3                             ((I2C_Type *) I2C3_BASE)
 
 /** @defgroup I2C_exported_functions
   * @{
   */
 
-void i2c_reset(i2c_type *i2c_x);
-void i2c_init(i2c_type *i2c_x, uint8_t dfilters, uint32_t clk);
-void i2c_own_address1_set(i2c_type *i2c_x, i2c_address_mode_type mode, uint16_t address);
-void i2c_own_address2_set(i2c_type *i2c_x, uint8_t address, i2c_addr2_mask_type mask);
-void i2c_own_address2_enable(i2c_type *i2c_x, confirm_state new_state);
-void i2c_smbus_enable(i2c_type *i2c_x, i2c_smbus_mode_type mode, confirm_state new_state);
-void i2c_enable(i2c_type *i2c_x, confirm_state new_state);
-void i2c_clock_stretch_enable(i2c_type *i2c_x, confirm_state new_state);
-void i2c_ack_enable(i2c_type *i2c_x, confirm_state new_state);
-void i2c_addr10_mode_enable(i2c_type *i2c_x, confirm_state new_state);
-void i2c_transfer_addr_set(i2c_type *i2c_x, uint16_t address);
-uint16_t i2c_transfer_addr_get(i2c_type *i2c_x);
-void i2c_transfer_dir_set(i2c_type *i2c_x, i2c_transfer_dir_type i2c_direction);
-i2c_transfer_dir_type i2c_transfer_dir_get(i2c_type *i2c_x);
-uint8_t i2c_matched_addr_get(i2c_type *i2c_x);
-void i2c_auto_stop_enable(i2c_type *i2c_x, confirm_state new_state);
-void i2c_reload_enable(i2c_type *i2c_x, confirm_state new_state);
-void i2c_cnt_set(i2c_type *i2c_x, uint8_t cnt);
-void i2c_addr10_header_enable(i2c_type *i2c_x, confirm_state new_state);
-void i2c_general_call_enable(i2c_type *i2c_x, confirm_state new_state);
-void i2c_smbus_alert_set(i2c_type *i2c_x, i2c_smbus_alert_set_type level);
-void i2c_slave_data_ctrl_enable(i2c_type *i2c_x, confirm_state new_state);
-void i2c_pec_calculate_enable(i2c_type *i2c_x, confirm_state new_state);
-void i2c_pec_transmit_enable(i2c_type *i2c_x, confirm_state new_state);
-uint8_t i2c_pec_value_get(i2c_type *i2c_x);
-void i2c_timeout_set(i2c_type *i2c_x, uint16_t timeout);
-void i2c_timeout_detcet_set(i2c_type *i2c_x, i2c_timeout_detcet_type mode);
-void i2c_timeout_enable(i2c_type *i2c_x, confirm_state new_state);
-void i2c_ext_timeout_set(i2c_type *i2c_x, uint16_t timeout);
-void i2c_ext_timeout_enable(i2c_type *i2c_x, confirm_state new_state);
-void i2c_interrupt_enable(i2c_type *i2c_x, uint32_t source, confirm_state new_state);
-flag_status i2c_interrupt_get(i2c_type *i2c_x, uint16_t source);
-void i2c_dma_enable(i2c_type *i2c_x, i2c_dma_request_type dma_req, confirm_state new_state);
-void i2c_transmit_set(i2c_type *i2c_x, uint16_t address, uint8_t cnt, i2c_reload_stop_mode_type rld_stop, i2c_start_mode_type start);
-void i2c_start_generate(i2c_type *i2c_x);
-void i2c_stop_generate(i2c_type *i2c_x);
-void i2c_data_send(i2c_type *i2c_x, uint8_t data);
-uint8_t i2c_data_receive(i2c_type *i2c_x);
-flag_status i2c_flag_get(i2c_type *i2c_x, uint32_t flag);
-void i2c_flag_clear(i2c_type *i2c_x, uint32_t flag);
+void I2C_Reset(I2C_Type *I2C_x);
+void I2C_Init(I2C_Type *I2C_x, uint8_t dfilters, uint32_t clk);
+void I2C_Own_Address1_Set(I2C_Type *I2C_x, I2C_Address_Mode_Type mode, uint16_t address);
+void I2C_Own_Address2_Set(I2C_Type *I2C_x, uint8_t address, I2C_addr2_Mask_Type mask);
+void I2C_Own_Address2_Enable(I2C_Type *I2C_x, confirm_state new_state);
+void I2C_SmBus_Enable(I2C_Type *I2C_x, I2C_SmBus_Mode_Type mode, confirm_state new_state);
+void I2C_Enable(I2C_Type *I2C_x, confirm_state new_state);
+void I2C_Clock_Stretch_Enable(I2C_Type *I2C_x, confirm_state new_state);
+void I2C_ACK_Enable(I2C_Type *I2C_x, confirm_state new_state);
+void I2C_addr10_Mode_Enable(I2C_Type *I2C_x, confirm_state new_state);
+void I2C_Transfer_Addr_Set(I2C_Type *I2C_x, uint16_t address);
+uint16_t I2C_Transfer_Addr_Get(I2C_Type *I2C_x);
+void I2C_Transfer_dir_Set(I2C_Type *I2C_x, I2C_Transfer_dir_Type I2C_direction);
+I2C_Transfer_dir_Type I2C_Transfer_dir_Get(I2C_Type *I2C_x);
+uint8_t I2C_Matched_Addr_Get(I2C_Type *I2C_x);
+void I2C_Auto_Stop_Enable(I2C_Type *I2C_x, confirm_state new_state);
+void I2C_reload_Enable(I2C_Type *I2C_x, confirm_state new_state);
+void I2C_cnt_Set(I2C_Type *I2C_x, uint8_t cnt);
+void I2C_addr10_header_Enable(I2C_Type *I2C_x, confirm_state new_state);
+void I2C_general_call_Enable(I2C_Type *I2C_x, confirm_state new_state);
+void I2C_SmBus_Alert_Set(I2C_Type *I2C_x, I2C_SmBus_Alert_Set_Type level);
+void I2C_Slave_Data_ctrl_Enable(I2C_Type *I2C_x, confirm_state new_state);
+void I2C_PEC_Calculate_Enable(I2C_Type *I2C_x, confirm_state new_state);
+void I2C_PEC_Transmit_Enable(I2C_Type *I2C_x, confirm_state new_state);
+uint8_t I2C_PEC_value_Get(I2C_Type *I2C_x);
+void I2C_TimeOut_Set(I2C_Type *I2C_x, uint16_t timeout);
+void I2C_TimeOut_Detcet_Set(I2C_Type *I2C_x, I2C_TimeOut_Detcet_Type mode);
+void I2C_TimeOut_Enable(I2C_Type *I2C_x, confirm_state new_state);
+void I2C_ext_TimeOut_Set(I2C_Type *I2C_x, uint16_t timeout);
+void I2C_ext_TimeOut_Enable(I2C_Type *I2C_x, confirm_state new_state);
+void I2C_Interrupt_Enable(I2C_Type *I2C_x, uint32_t source, confirm_state new_state);
+flag_status I2C_Interrupt_Get(I2C_Type *I2C_x, uint16_t source);
+void I2C_DMA_Enable(I2C_Type *I2C_x, I2C_DMA_Request_Type DMA_req, confirm_state new_state);
+void I2C_Transmit_Set(I2C_Type *I2C_x, uint16_t address, uint8_t cnt, I2C_reload_Stop_Mode_Type rld_stop, I2C_Start_Mode_Type start);
+void I2C_Start_Generate(I2C_Type *I2C_x);
+void I2C_Stop_Generate(I2C_Type *I2C_x);
+void I2C_Data_send(I2C_Type *I2C_x, uint8_t data);
+uint8_t I2C_Data_receive(I2C_Type *I2C_x);
+flag_status I2C_Flag_Get(I2C_Type *I2C_x, uint32_t flag);
+void I2C_Flag_Clear(I2C_Type *I2C_x, uint32_t flag);
 
 /**
   * @}

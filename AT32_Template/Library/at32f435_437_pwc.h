@@ -47,9 +47,9 @@ extern "C" {
   * @{
   */
 
-#define PWC_WAKEUP_FLAG                  ((uint32_t)0x00000001) /*!< wakeup flag */
+#define PWC_WakeUp_FLAG                  ((uint32_t)0x00000001) /*!< wakeup flag */
 #define PWC_STANDBY_FLAG                 ((uint32_t)0x00000002) /*!< standby flag */
-#define PWC_PVM_OUTPUT_FLAG              ((uint32_t)0x00000004) /*!< pvm output flag */
+#define PWC_PVM_OutPut_FLAG              ((uint32_t)0x00000004) /*!< pvm output flag */
 
 /**
   * @}
@@ -58,23 +58,23 @@ extern "C" {
 /**
   * @brief pwc wakeup pin num definition
   */
-#define PWC_WAKEUP_PIN_1                 ((uint32_t)0x00000100) /*!< standby wake-up pin1 */
-#define PWC_WAKEUP_PIN_2                 ((uint32_t)0x00000200) /*!< standby wake-up pin2 */
+#define PWC_WakeUp_Pin_1                 ((uint32_t)0x00000100) /*!< standby wake-up pin1 */
+#define PWC_WakeUp_Pin_2                 ((uint32_t)0x00000200) /*!< standby wake-up pin2 */
 
 /**
   * @brief  select ldo output voltage.
   * @param  val: set the ldo output voltage.
   *         this parameter can be one of the following values:
-  *         - PWC_LDO_OUTPUT_1V3: system clock up to 288MHz.
-  *         - PWC_LDO_OUTPUT_1V2: system clock up to 240MHz.
-  *         - PWC_LDO_OUTPUT_1V1: system clock up to 192MHz.
-  *         - PWC_LDO_OUTPUT_1V0: system clock up to 144MHz.
+  *         - PWC_LDO_OutPut_1V3: system clock up to 288MHz.
+  *         - PWC_LDO_OutPut_1V2: system clock up to 240MHz.
+  *         - PWC_LDO_OutPut_1V1: system clock up to 192MHz.
+  *         - PWC_LDO_OutPut_1V0: system clock up to 144MHz.
   * @note   useage limited.
-  *         PWC_LDO_OUTPUT_1V3: operation temperature range -40~85 degree, VDD must over 3.0V.
+  *         PWC_LDO_OutPut_1V3: operation temperature range -40~85 degree, VDD must over 3.0V.
   */
-#define pwc_ldo_output_voltage_set(val)  (PWC->ldoov_bit.ldoovsel = val)
+#define PWC_Ldo_OutPut_Voltage_Set(val)  (PWC->ldoov_bit.ldoovsel = val)
 
-/** @defgroup PWC_exported_types
+/** @defgroup PWC_exported_Types
   * @{
   */
 
@@ -89,33 +89,33 @@ typedef enum {
     PWC_PVM_VOLTAGE_2V7                    = 0x05, /*!< power voltage monitoring boundary 2.7v */
     PWC_PVM_VOLTAGE_2V8                    = 0x06, /*!< power voltage monitoring boundary 2.8v */
     PWC_PVM_VOLTAGE_2V9                    = 0x07  /*!< power voltage monitoring boundary 2.9v */
-} pwc_pvm_voltage_type;
+} pwc_pvm_voltage_Type;
 
 /**
   * @brief pwc ldo output voltage type
   */
 typedef enum {
-    PWC_LDO_OUTPUT_1V3                     = 0x01, /*!< ldo output voltage is 1.3v */
-    PWC_LDO_OUTPUT_1V2                     = 0x00, /*!< ldo output voltage is 1.2v */
-    PWC_LDO_OUTPUT_1V1                     = 0x04, /*!< ldo output voltage is 1.1v */
-    PWC_LDO_OUTPUT_1V0                     = 0x05, /*!< ldo output voltage is 1.0v */
-} pwc_ldo_output_voltage_type;
+    PWC_LDO_OutPut_1V3                     = 0x01, /*!< ldo output voltage is 1.3v */
+    PWC_LDO_OutPut_1V2                     = 0x00, /*!< ldo output voltage is 1.2v */
+    PWC_LDO_OutPut_1V1                     = 0x04, /*!< ldo output voltage is 1.1v */
+    PWC_LDO_OutPut_1V0                     = 0x05, /*!< ldo output voltage is 1.0v */
+} pwc_ldo_OutPut_voltage_Type;
 
 /**
   * @brief pwc sleep enter type
   */
 typedef enum {
-    PWC_SLEEP_ENTER_WFI                    = 0x00, /*!< use wfi enter sleep mode */
-    PWC_SLEEP_ENTER_WFE                    = 0x01  /*!< use wfe enter sleep mode */
-} pwc_sleep_enter_type ;
+    PWC_SLEEP_Enter_WFI                    = 0x00, /*!< use wfi enter sleep mode */
+    PWC_SLEEP_Enter_WFE                    = 0x01  /*!< use wfe enter sleep mode */
+} pwc_sleep_Enter_Type ;
 
 /**
   * @brief pwc deep sleep enter type
   */
 typedef enum {
-    PWC_DEEP_SLEEP_ENTER_WFI               = 0x00, /*!< use wfi enter deepsleep mode */
-    PWC_DEEP_SLEEP_ENTER_WFE               = 0x01  /*!< use wfe enter deepsleep mode */
-} pwc_deep_sleep_enter_type ;
+    PWC_DEEP_SLEEP_Enter_WFI               = 0x00, /*!< use wfi enter deepsleep mode */
+    PWC_DEEP_SLEEP_Enter_WFE               = 0x01  /*!< use wfe enter deepsleep mode */
+} pwc_deep_sleep_Enter_Type ;
 
 /**
   * @brief pwc regulator type
@@ -123,7 +123,7 @@ typedef enum {
 typedef enum {
     PWC_REGULATOR_ON                       = 0x00, /*!< voltage regulator state on when deepsleep mode */
     PWC_REGULATOR_LOW_POWER                = 0x01  /*!< voltage regulator state low power when deepsleep mode */
-} pwc_regulator_type ;
+} pwc_regulator_Type ;
 
 /**
   * @brief type define pwc register all
@@ -175,29 +175,29 @@ typedef struct {
         } ldoov_bit;
     };
 
-} pwc_type;
+} pwc_Type;
 
 /**
   * @}
   */
 
-#define PWC                              ((pwc_type *) PWC_BASE)
+#define PWC                              ((pwc_Type *) PWC_BASE)
 
 /** @defgroup PWC_exported_functions
   * @{
   */
 
-void pwc_reset(void);
+void pwc_Reset(void);
 void pwc_battery_powered_domain_access(confirm_state new_state);
-void pwc_pvm_level_select(pwc_pvm_voltage_type pvm_voltage);
-void pwc_power_voltage_monitor_enable(confirm_state new_state);
-void pwc_wakeup_pin_enable(uint32_t pin_num, confirm_state new_state);
-void pwc_flag_clear(uint32_t pwc_flag);
-flag_status pwc_flag_get(uint32_t pwc_flag);
-void pwc_sleep_mode_enter(pwc_sleep_enter_type pwc_sleep_enter);
-void pwc_deep_sleep_mode_enter(pwc_deep_sleep_enter_type pwc_deep_sleep_enter);
-void pwc_voltage_regulate_set(pwc_regulator_type pwc_regulator);
-void pwc_standby_mode_enter(void);
+void pwc_pvm_level_Select(pwc_pvm_voltage_Type pvm_voltage);
+void pwc_power_voltage_monitor_Enable(confirm_state new_state);
+void pwc_WakeUp_Pin_Enable(uint32_t pin_Num, confirm_state new_state);
+void pwc_Flag_Clear(uint32_t pwc_flag);
+flag_status pwc_Flag_Get(uint32_t pwc_flag);
+void pwc_sleep_Mode_Enter(pwc_sleep_Enter_Type pwc_sleep_Enter);
+void pwc_deep_sleep_Mode_Enter(pwc_deep_sleep_Enter_Type pwc_deep_sleep_Enter);
+void pwc_voltage_regulate_Set(pwc_regulator_Type pwc_regulator);
+void pwc_standby_Mode_Enter(void);
 
 /**
   * @}

@@ -121,24 +121,24 @@ extern "C" {
 /**
   * @brief dmamux flag
   */
-#define DMAMUX_SYNC_OV1_FLAG             ((uint32_t)0x00000001) /*!< dmamux channel1 synchronization overrun event flag */
-#define DMAMUX_SYNC_OV2_FLAG             ((uint32_t)0x00000002) /*!< dmamux channel2 synchronization overrun event flag */
-#define DMAMUX_SYNC_OV3_FLAG             ((uint32_t)0x00000004) /*!< dmamux channel3 synchronization overrun event flag */
-#define DMAMUX_SYNC_OV4_FLAG             ((uint32_t)0x00000008) /*!< dmamux channel4 synchronization overrun event flag */
-#define DMAMUX_SYNC_OV5_FLAG             ((uint32_t)0x00000010) /*!< dmamux channel5 synchronization overrun event flag */
-#define DMAMUX_SYNC_OV6_FLAG             ((uint32_t)0x00000020) /*!< dmamux channel6 synchronization overrun event flag */
-#define DMAMUX_SYNC_OV7_FLAG             ((uint32_t)0x00000040) /*!< dmamux channel7 synchronization overrun event flag */
+#define DMAMUX_Sync_OV1_FLAG             ((uint32_t)0x00000001) /*!< dmamux channel1 synchronization overrun event flag */
+#define DMAMUX_Sync_OV2_FLAG             ((uint32_t)0x00000002) /*!< dmamux channel2 synchronization overrun event flag */
+#define DMAMUX_Sync_OV3_FLAG             ((uint32_t)0x00000004) /*!< dmamux channel3 synchronization overrun event flag */
+#define DMAMUX_Sync_OV4_FLAG             ((uint32_t)0x00000008) /*!< dmamux channel4 synchronization overrun event flag */
+#define DMAMUX_Sync_OV5_FLAG             ((uint32_t)0x00000010) /*!< dmamux channel5 synchronization overrun event flag */
+#define DMAMUX_Sync_OV6_FLAG             ((uint32_t)0x00000020) /*!< dmamux channel6 synchronization overrun event flag */
+#define DMAMUX_Sync_OV7_FLAG             ((uint32_t)0x00000040) /*!< dmamux channel7 synchronization overrun event flag */
 
-#define DMAMUX_GEN_TRIG_OV1_FLAG         ((uint32_t)0x00000001) /*!< dmamux generator channel1 overrun event flag */
-#define DMAMUX_GEN_TRIG_OV2_FLAG         ((uint32_t)0x00000002) /*!< dmamux generator channel2 overrun event flag */
-#define DMAMUX_GEN_TRIG_OV3_FLAG         ((uint32_t)0x00000004) /*!< dmamux generator channel3 overrun event flag */
-#define DMAMUX_GEN_TRIG_OV4_FLAG         ((uint32_t)0x00000008) /*!< dmamux generator channel4 overrun event flag */
+#define DMAMUX_Gen_TRIG_OV1_FLAG         ((uint32_t)0x00000001) /*!< dmamux generator channel1 overrun event flag */
+#define DMAMUX_Gen_TRIG_OV2_FLAG         ((uint32_t)0x00000002) /*!< dmamux generator channel2 overrun event flag */
+#define DMAMUX_Gen_TRIG_OV3_FLAG         ((uint32_t)0x00000004) /*!< dmamux generator channel3 overrun event flag */
+#define DMAMUX_Gen_TRIG_OV4_FLAG         ((uint32_t)0x00000008) /*!< dmamux generator channel4 overrun event flag */
 
 /**
   * @}
   */
 
-/** @defgroup DMA_exported_types
+/** @defgroup DMA_exported_Types
   * @{
   */
 
@@ -147,27 +147,27 @@ extern "C" {
   */
 typedef enum {
     DMA_DIR_PERIPHERAL_TO_MEMORY           = 0x0000, /*!< dma data transfer direction: peripheral to memory */
-    DMA_DIR_MEMORY_TO_PERIPHERAL           = 0x0010, /*!< dma data transfer direction: memory to peripheral */
-    DMA_DIR_MEMORY_TO_MEMORY               = 0x4000  /*!< dma data transfer direction: memory to memory */
-} dma_dir_type;
+    DMA_DIR_Memory_TO_PERIPHERAL           = 0x0010, /*!< dma data transfer direction: memory to peripheral */
+    DMA_DIR_Memory_TO_MEMORY               = 0x4000  /*!< dma data transfer direction: memory to memory */
+} DMA_dir_Type;
 
 /**
   * @brief dma peripheral data size type
   */
 typedef enum {
-    DMA_PERIPHERAL_DATA_WIDTH_BYTE         = 0x00, /*!< dma peripheral databus width 8bit */
-    DMA_PERIPHERAL_DATA_WIDTH_HALFWORD     = 0x01, /*!< dma peripheral databus width 16bit */
-    DMA_PERIPHERAL_DATA_WIDTH_WORD         = 0x02  /*!< dma peripheral databus width 32bit */
-} dma_peripheral_data_size_type;
+    DMA_PERIPHERAL_Data_WIDTH_BYTE         = 0x00, /*!< dma peripheral databus width 8bit */
+    DMA_PERIPHERAL_Data_WIDTH_HALFWORD     = 0x01, /*!< dma peripheral databus width 16bit */
+    DMA_PERIPHERAL_Data_WIDTH_WORD         = 0x02  /*!< dma peripheral databus width 32bit */
+} DMA_peripheral_Data_size_Type;
 
 /**
   * @brief dma memory data size type
   */
 typedef enum {
-    DMA_MEMORY_DATA_WIDTH_BYTE             = 0x00, /*!< dma memory databus width 8bit */
-    DMA_MEMORY_DATA_WIDTH_HALFWORD         = 0x01, /*!< dma memory databus width 16bit */
-    DMA_MEMORY_DATA_WIDTH_WORD             = 0x02  /*!< dma memory databus width 32bit */
-} dma_memory_data_size_type;
+    DMA_Memory_Data_WIDTH_BYTE             = 0x00, /*!< dma memory databus width 8bit */
+    DMA_Memory_Data_WIDTH_HALFWORD         = 0x01, /*!< dma memory databus width 16bit */
+    DMA_Memory_Data_WIDTH_WORD             = 0x02  /*!< dma memory databus width 32bit */
+} DMA_Memory_Data_size_Type;
 
 /**
   * @brief dma priority level type
@@ -177,7 +177,7 @@ typedef enum {
     DMA_PRIORITY_MEDIUM                    = 0x01, /*!< dma channel priority: medium */
     DMA_PRIORITY_HIGH                      = 0x02, /*!< dma channel priority: high */
     DMA_PRIORITY_VERY_HIGH                 = 0x03  /*!< dma channel priority: very high */
-} dma_priority_level_type;
+} DMA_priority_level_Type;
 
 /**
   * @brief dmamux request type
@@ -278,85 +278,85 @@ typedef enum {
     DMAMUX_DMAREQ_ID_TMR20_TRIG            = 0x5D, /*!< dmamux channel dma request inputs resources: timer20 trigger */
     DMAMUX_DMAREQ_ID_TMR20_HALL            = 0x5E, /*!< dmamux channel dma request inputs resources: timer20 hall */
     DMAMUX_DMAREQ_ID_DVP                   = 0x69  /*!< dmamux channel dma request inputs resources: dvp */
-} dmamux_requst_id_sel_type;
+} DMAMUX_Requst_ID_sel_Type;
 
 /**
   * @brief dmamux sync id type
   */
 typedef enum {
-    DMAMUX_SYNC_ID_EXINT0                  = 0x00, /*!< dmamux channel synchronization inputs resources: exint line0 */
-    DMAMUX_SYNC_ID_EXINT1                  = 0x01, /*!< dmamux channel synchronization inputs resources: exint line1 */
-    DMAMUX_SYNC_ID_EXINT2                  = 0x02, /*!< dmamux channel synchronization inputs resources: exint line2 */
-    DMAMUX_SYNC_ID_EXINT3                  = 0x03, /*!< dmamux channel synchronization inputs resources: exint line3 */
-    DMAMUX_SYNC_ID_EXINT4                  = 0x04, /*!< dmamux channel synchronization inputs resources: exint line4 */
-    DMAMUX_SYNC_ID_EXINT5                  = 0x05, /*!< dmamux channel synchronization inputs resources: exint line5 */
-    DMAMUX_SYNC_ID_EXINT6                  = 0x06, /*!< dmamux channel synchronization inputs resources: exint line6 */
-    DMAMUX_SYNC_ID_EXINT7                  = 0x07, /*!< dmamux channel synchronization inputs resources: exint line7 */
-    DMAMUX_SYNC_ID_EXINT8                  = 0x08, /*!< dmamux channel synchronization inputs resources: exint line8 */
-    DMAMUX_SYNC_ID_EXINT9                  = 0x09, /*!< dmamux channel synchronization inputs resources: exint line9 */
-    DMAMUX_SYNC_ID_EXINT10                 = 0x0A, /*!< dmamux channel synchronization inputs resources: exint line10 */
-    DMAMUX_SYNC_ID_EXINT11                 = 0x0B, /*!< dmamux channel synchronization inputs resources: exint line11 */
-    DMAMUX_SYNC_ID_EXINT12                 = 0x0C, /*!< dmamux channel synchronization inputs resources: exint line12 */
-    DMAMUX_SYNC_ID_EXINT13                 = 0x0D, /*!< dmamux channel synchronization inputs resources: exint line13 */
-    DMAMUX_SYNC_ID_EXINT14                 = 0x0E, /*!< dmamux channel synchronization inputs resources: exint line14 */
-    DMAMUX_SYNC_ID_EXINT15                 = 0x0F, /*!< dmamux channel synchronization inputs resources: exint line15 */
-    DMAMUX_SYNC_ID_DMAMUX_CH1_EVT          = 0x10, /*!< dmamux channel synchronization inputs resources: dmamux channel1 event */
-    DMAMUX_SYNC_ID_DMAMUX_CH2_EVT          = 0x11, /*!< dmamux channel synchronization inputs resources: dmamux channel2 event */
-    DMAMUX_SYNC_ID_DMAMUX_CH3_EVT          = 0x12, /*!< dmamux channel synchronization inputs resources: dmamux channel3 event */
-    DMAMUX_SYNC_ID_DMAMUX_CH4_EVT          = 0x13, /*!< dmamux channel synchronization inputs resources: dmamux channel4 event */
-    DMAMUX_SYNC_ID_DMAMUX_CH5_EVT          = 0x14, /*!< dmamux channel synchronization inputs resources: dmamux channel5 event */
-    DMAMUX_SYNC_ID_DMAMUX_CH6_EVT          = 0x15, /*!< dmamux channel synchronization inputs resources: dmamux channel6 event */
-    DMAMUX_SYNC_ID_DMAMUX_CH7_EVT          = 0x16  /*!< dmamux channel synchronization inputs resources: dmamux channel7 event */
-} dmamux_sync_id_sel_type;
+    DMAMUX_Sync_ID_EXINT0                  = 0x00, /*!< dmamux channel synchronization inputs resources: exint line0 */
+    DMAMUX_Sync_ID_EXINT1                  = 0x01, /*!< dmamux channel synchronization inputs resources: exint line1 */
+    DMAMUX_Sync_ID_EXINT2                  = 0x02, /*!< dmamux channel synchronization inputs resources: exint line2 */
+    DMAMUX_Sync_ID_EXINT3                  = 0x03, /*!< dmamux channel synchronization inputs resources: exint line3 */
+    DMAMUX_Sync_ID_EXINT4                  = 0x04, /*!< dmamux channel synchronization inputs resources: exint line4 */
+    DMAMUX_Sync_ID_EXINT5                  = 0x05, /*!< dmamux channel synchronization inputs resources: exint line5 */
+    DMAMUX_Sync_ID_EXINT6                  = 0x06, /*!< dmamux channel synchronization inputs resources: exint line6 */
+    DMAMUX_Sync_ID_EXINT7                  = 0x07, /*!< dmamux channel synchronization inputs resources: exint line7 */
+    DMAMUX_Sync_ID_EXINT8                  = 0x08, /*!< dmamux channel synchronization inputs resources: exint line8 */
+    DMAMUX_Sync_ID_EXINT9                  = 0x09, /*!< dmamux channel synchronization inputs resources: exint line9 */
+    DMAMUX_Sync_ID_EXINT10                 = 0x0A, /*!< dmamux channel synchronization inputs resources: exint line10 */
+    DMAMUX_Sync_ID_EXINT11                 = 0x0B, /*!< dmamux channel synchronization inputs resources: exint line11 */
+    DMAMUX_Sync_ID_EXINT12                 = 0x0C, /*!< dmamux channel synchronization inputs resources: exint line12 */
+    DMAMUX_Sync_ID_EXINT13                 = 0x0D, /*!< dmamux channel synchronization inputs resources: exint line13 */
+    DMAMUX_Sync_ID_EXINT14                 = 0x0E, /*!< dmamux channel synchronization inputs resources: exint line14 */
+    DMAMUX_Sync_ID_EXINT15                 = 0x0F, /*!< dmamux channel synchronization inputs resources: exint line15 */
+    DMAMUX_Sync_ID_DMAMUX_CH1_EVT          = 0x10, /*!< dmamux channel synchronization inputs resources: dmamux channel1 event */
+    DMAMUX_Sync_ID_DMAMUX_CH2_EVT          = 0x11, /*!< dmamux channel synchronization inputs resources: dmamux channel2 event */
+    DMAMUX_Sync_ID_DMAMUX_CH3_EVT          = 0x12, /*!< dmamux channel synchronization inputs resources: dmamux channel3 event */
+    DMAMUX_Sync_ID_DMAMUX_CH4_EVT          = 0x13, /*!< dmamux channel synchronization inputs resources: dmamux channel4 event */
+    DMAMUX_Sync_ID_DMAMUX_CH5_EVT          = 0x14, /*!< dmamux channel synchronization inputs resources: dmamux channel5 event */
+    DMAMUX_Sync_ID_DMAMUX_CH6_EVT          = 0x15, /*!< dmamux channel synchronization inputs resources: dmamux channel6 event */
+    DMAMUX_Sync_ID_DMAMUX_CH7_EVT          = 0x16  /*!< dmamux channel synchronization inputs resources: dmamux channel7 event */
+} DMAMUX_Sync_ID_sel_Type;
 
 /**
   * @brief dmamux sync polarity type
   */
 typedef enum {
-    DMAMUX_SYNC_POLARITY_DISABLE           = 0x00, /*!< dmamux channel synchronization inputs resources polarity default value */
-    DMAMUX_SYNC_POLARITY_RISING            = 0x01, /*!< dmamux channel synchronization inputs resources polarity: rising */
-    DMAMUX_SYNC_POLARITY_FALLING           = 0x02, /*!< dmamux channel synchronization inputs resources polarity: falling */
-    DMAMUX_SYNC_POLARITY_RISING_FALLING    = 0x03  /*!< dmamux channel synchronization inputs resources polarity: rising_falling */
-} dmamux_sync_pol_type;
+    DMAMUX_Sync_POLARITY_Disable           = 0x00, /*!< dmamux channel synchronization inputs resources polarity default value */
+    DMAMUX_Sync_POLARITY_RISING            = 0x01, /*!< dmamux channel synchronization inputs resources polarity: rising */
+    DMAMUX_Sync_POLARITY_FALLING           = 0x02, /*!< dmamux channel synchronization inputs resources polarity: falling */
+    DMAMUX_Sync_POLARITY_RISING_FALLING    = 0x03  /*!< dmamux channel synchronization inputs resources polarity: rising_falling */
+} DMAMUX_Sync_pol_Type;
 
 /**
   * @brief dmamux generator id type
   */
 typedef enum {
-    DMAMUX_GEN_ID_EXINT0                   = 0x00, /*!< dmamux generator channel inputs resources: exint line0 */
-    DMAMUX_GEN_ID_EXINT1                   = 0x01, /*!< dmamux generator channel inputs resources: exint line1 */
-    DMAMUX_GEN_ID_EXINT2                   = 0x02, /*!< dmamux generator channel inputs resources: exint line2 */
-    DMAMUX_GEN_ID_EXINT3                   = 0x03, /*!< dmamux generator channel inputs resources: exint line3 */
-    DMAMUX_GEN_ID_EXINT4                   = 0x04, /*!< dmamux generator channel inputs resources: exint line4 */
-    DMAMUX_GEN_ID_EXINT5                   = 0x05, /*!< dmamux generator channel inputs resources: exint line5 */
-    DMAMUX_GEN_ID_EXINT6                   = 0x06, /*!< dmamux generator channel inputs resources: exint line6 */
-    DMAMUX_GEN_ID_EXINT7                   = 0x07, /*!< dmamux generator channel inputs resources: exint line7 */
-    DMAMUX_GEN_ID_EXINT8                   = 0x08, /*!< dmamux generator channel inputs resources: exint line8 */
-    DMAMUX_GEN_ID_EXINT9                   = 0x09, /*!< dmamux generator channel inputs resources: exint line9 */
-    DMAMUX_GEN_ID_EXINT10                  = 0x0A, /*!< dmamux generator channel inputs resources: exint line10 */
-    DMAMUX_GEN_ID_EXINT11                  = 0x0B, /*!< dmamux generator channel inputs resources: exint line11 */
-    DMAMUX_GEN_ID_EXINT12                  = 0x0C, /*!< dmamux generator channel inputs resources: exint line12 */
-    DMAMUX_GEN_ID_EXINT13                  = 0x0D, /*!< dmamux generator channel inputs resources: exint line13 */
-    DMAMUX_GEN_ID_EXINT14                  = 0x0E, /*!< dmamux generator channel inputs resources: exint line14 */
-    DMAMUX_GEN_ID_EXINT15                  = 0x0F, /*!< dmamux generator channel inputs resources: exint line15 */
-    DMAMUX_GEN_ID_DMAMUX_CH1_EVT           = 0x10, /*!< dmamux generator channel inputs resources: dmamux channel1 event */
-    DMAMUX_GEN_ID_DMAMUX_CH2_EVT           = 0x11, /*!< dmamux generator channel inputs resources: dmamux channel2 event */
-    DMAMUX_GEN_ID_DMAMUX_CH3_EVT           = 0x12, /*!< dmamux generator channel inputs resources: dmamux channel3 event */
-    DMAMUX_GEN_ID_DMAMUX_CH4_EVT           = 0x13, /*!< dmamux generator channel inputs resources: dmamux channel4 event */
-    DMAMUX_GEN_ID_DMAMUX_CH5_EVT           = 0x14, /*!< dmamux generator channel inputs resources: dmamux channel5 event */
-    DMAMUX_GEN_ID_DMAMUX_CH6_EVT           = 0x15, /*!< dmamux generator channel inputs resources: dmamux channel6 event */
-    DMAMUX_GEN_ID_DMAMUX_CH7_EVT           = 0x16  /*!< dmamux generator channel inputs resources: dmamux channel7 event */
-} dmamux_gen_id_sel_type;
+    DMAMUX_Gen_ID_EXINT0                   = 0x00, /*!< dmamux generator channel inputs resources: exint line0 */
+    DMAMUX_Gen_ID_EXINT1                   = 0x01, /*!< dmamux generator channel inputs resources: exint line1 */
+    DMAMUX_Gen_ID_EXINT2                   = 0x02, /*!< dmamux generator channel inputs resources: exint line2 */
+    DMAMUX_Gen_ID_EXINT3                   = 0x03, /*!< dmamux generator channel inputs resources: exint line3 */
+    DMAMUX_Gen_ID_EXINT4                   = 0x04, /*!< dmamux generator channel inputs resources: exint line4 */
+    DMAMUX_Gen_ID_EXINT5                   = 0x05, /*!< dmamux generator channel inputs resources: exint line5 */
+    DMAMUX_Gen_ID_EXINT6                   = 0x06, /*!< dmamux generator channel inputs resources: exint line6 */
+    DMAMUX_Gen_ID_EXINT7                   = 0x07, /*!< dmamux generator channel inputs resources: exint line7 */
+    DMAMUX_Gen_ID_EXINT8                   = 0x08, /*!< dmamux generator channel inputs resources: exint line8 */
+    DMAMUX_Gen_ID_EXINT9                   = 0x09, /*!< dmamux generator channel inputs resources: exint line9 */
+    DMAMUX_Gen_ID_EXINT10                  = 0x0A, /*!< dmamux generator channel inputs resources: exint line10 */
+    DMAMUX_Gen_ID_EXINT11                  = 0x0B, /*!< dmamux generator channel inputs resources: exint line11 */
+    DMAMUX_Gen_ID_EXINT12                  = 0x0C, /*!< dmamux generator channel inputs resources: exint line12 */
+    DMAMUX_Gen_ID_EXINT13                  = 0x0D, /*!< dmamux generator channel inputs resources: exint line13 */
+    DMAMUX_Gen_ID_EXINT14                  = 0x0E, /*!< dmamux generator channel inputs resources: exint line14 */
+    DMAMUX_Gen_ID_EXINT15                  = 0x0F, /*!< dmamux generator channel inputs resources: exint line15 */
+    DMAMUX_Gen_ID_DMAMUX_CH1_EVT           = 0x10, /*!< dmamux generator channel inputs resources: dmamux channel1 event */
+    DMAMUX_Gen_ID_DMAMUX_CH2_EVT           = 0x11, /*!< dmamux generator channel inputs resources: dmamux channel2 event */
+    DMAMUX_Gen_ID_DMAMUX_CH3_EVT           = 0x12, /*!< dmamux generator channel inputs resources: dmamux channel3 event */
+    DMAMUX_Gen_ID_DMAMUX_CH4_EVT           = 0x13, /*!< dmamux generator channel inputs resources: dmamux channel4 event */
+    DMAMUX_Gen_ID_DMAMUX_CH5_EVT           = 0x14, /*!< dmamux generator channel inputs resources: dmamux channel5 event */
+    DMAMUX_Gen_ID_DMAMUX_CH6_EVT           = 0x15, /*!< dmamux generator channel inputs resources: dmamux channel6 event */
+    DMAMUX_Gen_ID_DMAMUX_CH7_EVT           = 0x16  /*!< dmamux generator channel inputs resources: dmamux channel7 event */
+} DMAMUX_Gen_ID_sel_Type;
 
 /**
   * @brief dmamux generator polarity type
   */
 typedef enum {
-    DMAMUX_GEN_POLARITY_DISABLE            = 0x00, /*!< dmamux generator channel inputs resources polarity default value */
-    DMAMUX_GEN_POLARITY_RISING             = 0x01, /*!< dmamux generator channel inputs resources polarity: rising */
-    DMAMUX_GEN_POLARITY_FALLING            = 0x02, /*!< dmamux generator channel inputs resources polarity: falling */
-    DMAMUX_GEN_POLARITY_RISING_FALLING     = 0x03  /*!< dmamux generator channel inputs resources polarity: rising_falling */
-} dmamux_gen_pol_type;
+    DMAMUX_Gen_POLARITY_Disable            = 0x00, /*!< dmamux generator channel inputs resources polarity default value */
+    DMAMUX_Gen_POLARITY_RISING             = 0x01, /*!< dmamux generator channel inputs resources polarity: rising */
+    DMAMUX_Gen_POLARITY_FALLING            = 0x02, /*!< dmamux generator channel inputs resources polarity: falling */
+    DMAMUX_Gen_POLARITY_RISING_FALLING     = 0x03  /*!< dmamux generator channel inputs resources polarity: rising_falling */
+} DMAMUX_Gen_pol_Type;
 
 /**
   * @brief dma init type
@@ -364,36 +364,36 @@ typedef enum {
 typedef struct {
     uint32_t                               peripheral_base_addr;    /*!< base addrress for peripheral */
     uint32_t                               memory_base_addr;        /*!< base addrress for memory */
-    dma_dir_type                           direction;               /*!< dma transmit direction, peripheral as source or as destnation  */
+    DMA_dir_Type                           direction;               /*!< dma transmit direction, peripheral as source or as destnation  */
     uint16_t                               buffer_size;             /*!< counter to transfer (0~0xFFFF) */
-    confirm_state                          peripheral_inc_enable;   /*!< periphera address increment after one transmit */
-    confirm_state                          memory_inc_enable;       /*!< memory address increment after one transmit */
-    dma_peripheral_data_size_type          peripheral_data_width;   /*!< peripheral data width for transmit */
-    dma_memory_data_size_type              memory_data_width;       /*!< memory data width for transmit */
-    confirm_state                          loop_mode_enable;        /*!< when loop mode enable, buffer size will reload if count to 0*/
-    dma_priority_level_type                priority;                /*!< dma priority can choose from very high,high,dedium or low */
-} dma_init_type;
+    confirm_state                          peripheral_inc_Enable;   /*!< periphera address increment after one transmit */
+    confirm_state                          memory_inc_Enable;       /*!< memory address increment after one transmit */
+    DMA_peripheral_Data_size_Type          peripheral_Data_width;   /*!< peripheral data width for transmit */
+    DMA_Memory_Data_size_Type              memory_Data_width;       /*!< memory data width for transmit */
+    confirm_state                          loop_Mode_Enable;        /*!< when loop mode enable, buffer size will reload if count to 0*/
+    DMA_priority_level_Type                priority;                /*!< dma priority can choose from very high,high,dedium or low */
+} DMA_Init_Type;
 
 /**
   * @brief dmamux sync init type
   */
 typedef struct {
-    dmamux_sync_id_sel_type                sync_signal_sel;     /*!< dma dmamux synchronization input select */
+    DMAMUX_Sync_ID_sel_Type                sync_signal_sel;     /*!< dma dmamux synchronization input select */
     uint32_t                               sync_polarity;       /*!< dma dmamux synchronization polarity */
-    uint32_t                               sync_request_number; /*!< dma dmamux number of dma requests before an output event is generated  */
-    confirm_state                          sync_event_enable;   /*!< dma dmamux event generation disabled */
-    confirm_state                          sync_enable;         /*!< dma dmamux synchronization enable */
-} dmamux_sync_init_type;
+    uint32_t                               sync_Request_Number; /*!< dma dmamux number of dma requests before an output event is generated  */
+    confirm_state                          sync_Event_Enable;   /*!< dma dmamux event generation disabled */
+    confirm_state                          sync_Enable;         /*!< dma dmamux synchronization enable */
+} DMAMUX_Sync_Init_Type;
 
 /**
   * @brief dmamux generator init type
   */
 typedef struct {
-    dmamux_gen_id_sel_type                 gen_signal_sel;     /*!< dma dmamux generator dma request trigger input select */
-    dmamux_gen_pol_type                    gen_polarity;       /*!< dma dmamux generator trigger polarity */
-    uint32_t                               gen_request_number; /*!< dma dmamux the number of dma requests to be generated after a trigger event  */
-    confirm_state                          gen_enable;         /*!< dma dmamux generator enable */
-} dmamux_gen_init_type;
+    DMAMUX_Gen_ID_sel_Type                 gen_signal_sel;     /*!< dma dmamux generator dma request trigger input select */
+    DMAMUX_Gen_pol_Type                    gen_polarity;       /*!< dma dmamux generator trigger polarity */
+    uint32_t                               gen_Request_Number; /*!< dma dmamux the number of dma requests to be generated after a trigger event  */
+    confirm_state                          gen_Enable;         /*!< dma dmamux generator enable */
+} DMAMUX_Gen_Init_Type;
 
 /**
   * @brief type define dma1 register
@@ -538,7 +538,7 @@ typedef struct {
             __IO uint32_t reserved1            : 28;/* [31:4] */
         } muxgclr_bit;
     };
-} dma_type;
+} DMA_Type;
 
 /**
   * @brief type define dma channel register all
@@ -596,7 +596,7 @@ typedef struct {
             __IO uint32_t maddr                : 32;/* [31:0] */
         } maddr_bit;
     };
-} dma_channel_type;
+} DMA_Channel_Type;
 
 /**
   * @brief type define dmamux muxsctrl register
@@ -620,7 +620,7 @@ typedef struct {
             __IO uint32_t reserved3            : 3; /* [31:29] */
         } muxctrl_bit;
     };
-} dmamux_channel_type;
+} DMAMUX_Channel_Type;
 
 /**
   * @brief type define dmamux request generator register all
@@ -642,85 +642,85 @@ typedef struct {
             __IO uint32_t reserved3            : 8; /* [31:24] */
         } gctrl_bit;
     };
-} dmamux_generator_type;
+} DMAMUX_Generator_Type;
 
 /**
   * @}
   */
 
-#define DMA1                             ((dma_type *) DMA1_BASE)
-#define DMA1_CHANNEL1                    ((dma_channel_type *) DMA1_CHANNEL1_BASE)
-#define DMA1_CHANNEL2                    ((dma_channel_type *) DMA1_CHANNEL2_BASE)
-#define DMA1_CHANNEL3                    ((dma_channel_type *) DMA1_CHANNEL3_BASE)
-#define DMA1_CHANNEL4                    ((dma_channel_type *) DMA1_CHANNEL4_BASE)
-#define DMA1_CHANNEL5                    ((dma_channel_type *) DMA1_CHANNEL5_BASE)
-#define DMA1_CHANNEL6                    ((dma_channel_type *) DMA1_CHANNEL6_BASE)
-#define DMA1_CHANNEL7                    ((dma_channel_type *) DMA1_CHANNEL7_BASE)
+#define DMA1                             ((DMA_Type *) DMA1_BASE)
+#define DMA1_CHANNEL1                    ((DMA_Channel_Type *) DMA1_CHANNEL1_BASE)
+#define DMA1_CHANNEL2                    ((DMA_Channel_Type *) DMA1_CHANNEL2_BASE)
+#define DMA1_CHANNEL3                    ((DMA_Channel_Type *) DMA1_CHANNEL3_BASE)
+#define DMA1_CHANNEL4                    ((DMA_Channel_Type *) DMA1_CHANNEL4_BASE)
+#define DMA1_CHANNEL5                    ((DMA_Channel_Type *) DMA1_CHANNEL5_BASE)
+#define DMA1_CHANNEL6                    ((DMA_Channel_Type *) DMA1_CHANNEL6_BASE)
+#define DMA1_CHANNEL7                    ((DMA_Channel_Type *) DMA1_CHANNEL7_BASE)
 
-#define DMA1MUX_CHANNEL1                 ((dmamux_channel_type *) DMA1MUX_CHANNEL1_BASE)
-#define DMA1MUX_CHANNEL2                 ((dmamux_channel_type *) DMA1MUX_CHANNEL2_BASE)
-#define DMA1MUX_CHANNEL3                 ((dmamux_channel_type *) DMA1MUX_CHANNEL3_BASE)
-#define DMA1MUX_CHANNEL4                 ((dmamux_channel_type *) DMA1MUX_CHANNEL4_BASE)
-#define DMA1MUX_CHANNEL5                 ((dmamux_channel_type *) DMA1MUX_CHANNEL5_BASE)
-#define DMA1MUX_CHANNEL6                 ((dmamux_channel_type *) DMA1MUX_CHANNEL6_BASE)
-#define DMA1MUX_CHANNEL7                 ((dmamux_channel_type *) DMA1MUX_CHANNEL7_BASE)
+#define DMA1MUX_CHANNEL1                 ((DMAMUX_Channel_Type *) DMA1MUX_CHANNEL1_BASE)
+#define DMA1MUX_CHANNEL2                 ((DMAMUX_Channel_Type *) DMA1MUX_CHANNEL2_BASE)
+#define DMA1MUX_CHANNEL3                 ((DMAMUX_Channel_Type *) DMA1MUX_CHANNEL3_BASE)
+#define DMA1MUX_CHANNEL4                 ((DMAMUX_Channel_Type *) DMA1MUX_CHANNEL4_BASE)
+#define DMA1MUX_CHANNEL5                 ((DMAMUX_Channel_Type *) DMA1MUX_CHANNEL5_BASE)
+#define DMA1MUX_CHANNEL6                 ((DMAMUX_Channel_Type *) DMA1MUX_CHANNEL6_BASE)
+#define DMA1MUX_CHANNEL7                 ((DMAMUX_Channel_Type *) DMA1MUX_CHANNEL7_BASE)
 
-#define DMA1MUX_GENERATOR1               ((dmamux_generator_type *) DMA1MUX_GENERATOR1_BASE)
-#define DMA1MUX_GENERATOR2               ((dmamux_generator_type *) DMA1MUX_GENERATOR2_BASE)
-#define DMA1MUX_GENERATOR3               ((dmamux_generator_type *) DMA1MUX_GENERATOR3_BASE)
-#define DMA1MUX_GENERATOR4               ((dmamux_generator_type *) DMA1MUX_GENERATOR4_BASE)
+#define DMA1MUX_GENERATOR1               ((DMAMUX_Generator_Type *) DMA1MUX_GENERATOR1_BASE)
+#define DMA1MUX_GENERATOR2               ((DMAMUX_Generator_Type *) DMA1MUX_GENERATOR2_BASE)
+#define DMA1MUX_GENERATOR3               ((DMAMUX_Generator_Type *) DMA1MUX_GENERATOR3_BASE)
+#define DMA1MUX_GENERATOR4               ((DMAMUX_Generator_Type *) DMA1MUX_GENERATOR4_BASE)
 
-#define DMA2                             ((dma_type *) DMA2_BASE)
-#define DMA2_CHANNEL1                    ((dma_channel_type *) DMA2_CHANNEL1_BASE)
-#define DMA2_CHANNEL2                    ((dma_channel_type *) DMA2_CHANNEL2_BASE)
-#define DMA2_CHANNEL3                    ((dma_channel_type *) DMA2_CHANNEL3_BASE)
-#define DMA2_CHANNEL4                    ((dma_channel_type *) DMA2_CHANNEL4_BASE)
-#define DMA2_CHANNEL5                    ((dma_channel_type *) DMA2_CHANNEL5_BASE)
-#define DMA2_CHANNEL6                    ((dma_channel_type *) DMA2_CHANNEL6_BASE)
-#define DMA2_CHANNEL7                    ((dma_channel_type *) DMA2_CHANNEL7_BASE)
+#define DMA2                             ((DMA_Type *) DMA2_BASE)
+#define DMA2_CHANNEL1                    ((DMA_Channel_Type *) DMA2_CHANNEL1_BASE)
+#define DMA2_CHANNEL2                    ((DMA_Channel_Type *) DMA2_CHANNEL2_BASE)
+#define DMA2_CHANNEL3                    ((DMA_Channel_Type *) DMA2_CHANNEL3_BASE)
+#define DMA2_CHANNEL4                    ((DMA_Channel_Type *) DMA2_CHANNEL4_BASE)
+#define DMA2_CHANNEL5                    ((DMA_Channel_Type *) DMA2_CHANNEL5_BASE)
+#define DMA2_CHANNEL6                    ((DMA_Channel_Type *) DMA2_CHANNEL6_BASE)
+#define DMA2_CHANNEL7                    ((DMA_Channel_Type *) DMA2_CHANNEL7_BASE)
 
-#define DMA2MUX_CHANNEL1                 ((dmamux_channel_type *) DMA2MUX_CHANNEL1_BASE)
-#define DMA2MUX_CHANNEL2                 ((dmamux_channel_type *) DMA2MUX_CHANNEL2_BASE)
-#define DMA2MUX_CHANNEL3                 ((dmamux_channel_type *) DMA2MUX_CHANNEL3_BASE)
-#define DMA2MUX_CHANNEL4                 ((dmamux_channel_type *) DMA2MUX_CHANNEL4_BASE)
-#define DMA2MUX_CHANNEL5                 ((dmamux_channel_type *) DMA2MUX_CHANNEL5_BASE)
-#define DMA2MUX_CHANNEL6                 ((dmamux_channel_type *) DMA2MUX_CHANNEL6_BASE)
-#define DMA2MUX_CHANNEL7                 ((dmamux_channel_type *) DMA2MUX_CHANNEL7_BASE)
+#define DMA2MUX_CHANNEL1                 ((DMAMUX_Channel_Type *) DMA2MUX_CHANNEL1_BASE)
+#define DMA2MUX_CHANNEL2                 ((DMAMUX_Channel_Type *) DMA2MUX_CHANNEL2_BASE)
+#define DMA2MUX_CHANNEL3                 ((DMAMUX_Channel_Type *) DMA2MUX_CHANNEL3_BASE)
+#define DMA2MUX_CHANNEL4                 ((DMAMUX_Channel_Type *) DMA2MUX_CHANNEL4_BASE)
+#define DMA2MUX_CHANNEL5                 ((DMAMUX_Channel_Type *) DMA2MUX_CHANNEL5_BASE)
+#define DMA2MUX_CHANNEL6                 ((DMAMUX_Channel_Type *) DMA2MUX_CHANNEL6_BASE)
+#define DMA2MUX_CHANNEL7                 ((DMAMUX_Channel_Type *) DMA2MUX_CHANNEL7_BASE)
 
-#define DMA2MUX_GENERATOR1               ((dmamux_generator_type *) DMA2MUX_GENERATOR1_BASE)
-#define DMA2MUX_GENERATOR2               ((dmamux_generator_type *) DMA2MUX_GENERATOR2_BASE)
-#define DMA2MUX_GENERATOR3               ((dmamux_generator_type *) DMA2MUX_GENERATOR3_BASE)
-#define DMA2MUX_GENERATOR4               ((dmamux_generator_type *) DMA2MUX_GENERATOR4_BASE)
+#define DMA2MUX_GENERATOR1               ((DMAMUX_Generator_Type *) DMA2MUX_GENERATOR1_BASE)
+#define DMA2MUX_GENERATOR2               ((DMAMUX_Generator_Type *) DMA2MUX_GENERATOR2_BASE)
+#define DMA2MUX_GENERATOR3               ((DMAMUX_Generator_Type *) DMA2MUX_GENERATOR3_BASE)
+#define DMA2MUX_GENERATOR4               ((DMAMUX_Generator_Type *) DMA2MUX_GENERATOR4_BASE)
 
 /** @defgroup DMA_exported_functions
   * @{
   */
 
 /* dma controller function */
-void dma_reset(dma_channel_type *dmax_channely);
-void dma_data_number_set(dma_channel_type *dmax_channely, uint16_t data_number);
-uint16_t dma_data_number_get(dma_channel_type *dmax_channely);
-void dma_interrupt_enable(dma_channel_type *dmax_channely, uint32_t dma_int, confirm_state new_state);
-void dma_channel_enable(dma_channel_type *dmax_channely, confirm_state new_state);
-flag_status dma_flag_get(uint32_t dmax_flag);
-void dma_flag_clear(uint32_t dmax_flag);
-void dma_default_para_init(dma_init_type *dma_init_struct);
-void dma_init(dma_channel_type *dmax_channely, dma_init_type *dma_init_struct);
+void DMA_Reset(DMA_Channel_Type *dmax_channely);
+void DMA_Data_Number_Set(DMA_Channel_Type *dmax_channely, uint16_t data_Number);
+uint16_t DMA_Data_Number_Get(DMA_Channel_Type *dmax_channely);
+void DMA_Interrupt_Enable(DMA_Channel_Type *dmax_channely, uint32_t DMA_int, confirm_state new_state);
+void DMA_Channel_Enable(DMA_Channel_Type *dmax_channely, confirm_state new_state);
+flag_status DMA_Flag_Get(uint32_t dmax_flag);
+void DMA_Flag_Clear(uint32_t dmax_flag);
+void DMA_Default_Para_Init(DMA_Init_Type *DMA_Init_struct);
+void DMA_Init(DMA_Channel_Type *dmax_channely, DMA_Init_Type *DMA_Init_struct);
 
 /* dma requst multiplexer function */
-void dma_flexible_config(dma_type* dma_x, dmamux_channel_type *dmamux_channelx, dmamux_requst_id_sel_type dmamux_req_sel);
-void dmamux_enable(dma_type *dma_x, confirm_state new_state);
-void dmamux_init(dmamux_channel_type *dmamux_channelx, dmamux_requst_id_sel_type dmamux_req_sel);
-void dmamux_sync_default_para_init(dmamux_sync_init_type *dmamux_sync_init_struct);
-void dmamux_sync_config(dmamux_channel_type *dmamux_channelx, dmamux_sync_init_type *dmamux_sync_init_struct);
-void dmamux_generator_default_para_init(dmamux_gen_init_type *dmamux_gen_init_struct);
-void dmamux_generator_config(dmamux_generator_type *dmamux_gen_x, dmamux_gen_init_type *dmamux_gen_init_struct);
-void dmamux_sync_interrupt_enable(dmamux_channel_type *dmamux_channelx, confirm_state new_state);
-void dmamux_generator_interrupt_enable(dmamux_generator_type *dmamux_gen_x, confirm_state new_state);
-flag_status dmamux_sync_flag_get(dma_type *dma_x, uint32_t flag);
-void dmamux_sync_flag_clear(dma_type *dma_x, uint32_t flag);
-flag_status dmamux_generator_flag_get(dma_type *dma_x, uint32_t flag);
-void dmamux_generator_flag_clear(dma_type *dma_x, uint32_t flag);
+void DMA_Flexible_Config(DMA_Type* DMA_x, DMAMUX_Channel_Type *DMAMUX_channelx, DMAMUX_Requst_ID_sel_Type DMAMUX_req_sel);
+void DMAMUX_Enable(DMA_Type *DMA_x, confirm_state new_state);
+void DMAMUX_Init(DMAMUX_Channel_Type *DMAMUX_channelx, DMAMUX_Requst_ID_sel_Type DMAMUX_req_sel);
+void DMAMUX_Sync_Default_Para_Init(DMAMUX_Sync_Init_Type *DMAMUX_Sync_Init_struct);
+void DMAMUX_Sync_Config(DMAMUX_Channel_Type *DMAMUX_channelx, DMAMUX_Sync_Init_Type *DMAMUX_Sync_Init_struct);
+void DMAMUX_Generator_Default_Para_Init(DMAMUX_Gen_Init_Type *DMAMUX_Gen_Init_struct);
+void DMAMUX_Generator_Config(DMAMUX_Generator_Type *DMAMUX_Gen_x, DMAMUX_Gen_Init_Type *DMAMUX_Gen_Init_struct);
+void DMAMUX_Sync_Interrupt_Enable(DMAMUX_Channel_Type *DMAMUX_channelx, confirm_state new_state);
+void DMAMUX_Generator_Interrupt_Enable(DMAMUX_Generator_Type *DMAMUX_Gen_x, confirm_state new_state);
+flag_status DMAMUX_Sync_Flag_Get(DMA_Type *DMA_x, uint32_t flag);
+void DMAMUX_Sync_Flag_Clear(DMA_Type *DMA_x, uint32_t flag);
+flag_status DMAMUX_Generator_Flag_Get(DMA_Type *DMA_x, uint32_t flag);
+void DMAMUX_Generator_Flag_Clear(DMA_Type *DMA_x, uint32_t flag);
 
 /**
   * @}

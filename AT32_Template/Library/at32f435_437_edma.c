@@ -33,15 +33,15 @@
   * @{
   */
 
-#ifdef EDMA_MODULE_ENABLED
+#ifdef EDMA_MODULE_EnableD
 
 /** @defgroup EDMA_private_functions
   * @{
   */
 
 /**
-  * @brief  reset edma_streamx channely register.
-  * @param  edma_streamx:
+  * @brief  reset eDMA_streamx channely register.
+  * @param  eDMA_streamx:
   *         this parameter can be one of the following values:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
@@ -53,18 +53,18 @@
   *         - EDMA_STREAM8
   * @retval none.
   */
-void edma_reset(edma_stream_type *edma_streamx) {
+void eDMA_Reset(eDMA_Stream_Type *eDMA_streamx) {
     /* reset registers for the selected stream */
-    edma_streamx->ctrl_bit.sen = FALSE;
-    edma_streamx->ctrl = 0x0;
-    edma_streamx->dtcnt = 0x0;
-    edma_streamx->paddr = 0x0;
-    edma_streamx->m0addr = 0x0;
-    edma_streamx->m1addr = 0x0;
-    edma_streamx->fctrl = (uint32_t)0x00000021;
+    eDMA_streamx->ctrl_bit.sen = FALSE;
+    eDMA_streamx->ctrl = 0x0;
+    eDMA_streamx->dtcnt = 0x0;
+    eDMA_streamx->paddr = 0x0;
+    eDMA_streamx->m0addr = 0x0;
+    eDMA_streamx->m1addr = 0x0;
+    eDMA_streamx->fctrl = (uint32_t)0x00000021;
 
     /* reset interrupt pending bits for the selected stream */
-    switch((uint32_t)edma_streamx) {
+    switch((uint32_t)eDMA_streamx) {
         case EDMA_STREAM1_BASE:
             EDMA->clr1 = EDMA_STREAM1_INT_MASK;
             break;
@@ -104,7 +104,7 @@ void edma_reset(edma_stream_type *edma_streamx) {
 
 /**
   * @brief  edma init.
-  * @param  edma_streamx:
+  * @param  eDMA_streamx:
   *         this parameter can be one of the following values:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
@@ -114,78 +114,78 @@ void edma_reset(edma_stream_type *edma_streamx) {
   *         - EDMA_STREAM6
   *         - EDMA_STREAM7
   *         - EDMA_STREAM8
-  * @param  edma_init_struct: pointer to a edma_init_type structure.
+  * @param  eDMA_Init_struct: pointer to a eDMA_Init_Type structure.
   * @retval none.
   */
-void edma_init(edma_stream_type *edma_streamx, edma_init_type *edma_init_struct) {
+void eDMA_Init(eDMA_Stream_Type *eDMA_streamx, eDMA_Init_Type *eDMA_Init_struct) {
     /* config dtd bits */
-    edma_streamx->ctrl_bit.dtd = edma_init_struct->direction;
+    eDMA_streamx->ctrl_bit.dtd = eDMA_Init_struct->direction;
 
     /* config pincm bit */
-    edma_streamx->ctrl_bit.pincm = edma_init_struct->peripheral_inc_enable;
+    eDMA_streamx->ctrl_bit.pincm = eDMA_Init_struct->peripheral_inc_Enable;
 
     /* config mincm bit*/
-    edma_streamx->ctrl_bit.mincm = edma_init_struct->memory_inc_enable;
+    eDMA_streamx->ctrl_bit.mincm = eDMA_Init_struct->memory_inc_Enable;
 
     /* config pwidth bits */
-    edma_streamx->ctrl_bit.pwidth = edma_init_struct->peripheral_data_width;
+    eDMA_streamx->ctrl_bit.pwidth = eDMA_Init_struct->peripheral_Data_width;
 
     /* config mwidth bits */
-    edma_streamx->ctrl_bit.mwidth = edma_init_struct->memory_data_width;
+    eDMA_streamx->ctrl_bit.mwidth = eDMA_Init_struct->memory_Data_width;
 
     /* config lm bit */
-    edma_streamx->ctrl_bit.lm = edma_init_struct->loop_mode_enable;
+    eDMA_streamx->ctrl_bit.lm = eDMA_Init_struct->loop_Mode_Enable;
 
     /* config spl bits */
-    edma_streamx->ctrl_bit.spl = edma_init_struct->priority;
+    eDMA_streamx->ctrl_bit.spl = eDMA_Init_struct->priority;
 
     /* config mct bits */
-    edma_streamx->ctrl_bit.mct = edma_init_struct->memory_burst_mode;
+    eDMA_streamx->ctrl_bit.mct = eDMA_Init_struct->memory_burst_mode;
 
     /* config pct bits */
-    edma_streamx->ctrl_bit.pct = edma_init_struct->peripheral_burst_mode;
+    eDMA_streamx->ctrl_bit.pct = eDMA_Init_struct->peripheral_burst_mode;
 
     /* config fen bits */
-    edma_streamx->fctrl_bit.fen = edma_init_struct->fifo_mode_enable;
+    eDMA_streamx->fctrl_bit.fen = eDMA_Init_struct->fifo_Mode_Enable;
 
     /* config fthsel bits*/
-    edma_streamx->fctrl_bit.fthsel = edma_init_struct->fifo_threshold;
+    eDMA_streamx->fctrl_bit.fthsel = eDMA_Init_struct->fifo_threshold;
 
     /* config dtcnt */
-    edma_streamx->dtcnt = edma_init_struct->buffer_size;
+    eDMA_streamx->dtcnt = eDMA_Init_struct->buffer_size;
 
     /* config paddr */
-    edma_streamx->paddr = edma_init_struct->peripheral_base_addr;
+    eDMA_streamx->paddr = eDMA_Init_struct->peripheral_base_addr;
 
     /* config m0addr */
-    edma_streamx->m0addr = edma_init_struct->memory0_base_addr;
+    eDMA_streamx->m0addr = eDMA_Init_struct->memory0_base_addr;
 }
 
 /**
   * @brief  edma init struct config with its default value.
-  * @param  edma_init_struct: pointer to a edma_init_type structure which will be initialized.
+  * @param  eDMA_Init_struct: pointer to a eDMA_Init_Type structure which will be initialized.
   * @retval none.
   */
-void edma_default_para_init(edma_init_type *edma_init_struct) {
-    edma_init_struct->buffer_size = 0;
-    edma_init_struct->loop_mode_enable = FALSE;
-    edma_init_struct->direction = EDMA_DIR_PERIPHERAL_TO_MEMORY;
-    edma_init_struct->fifo_threshold = EDMA_FIFO_THRESHOLD_1QUARTER;
-    edma_init_struct->fifo_mode_enable = FALSE;
-    edma_init_struct->memory0_base_addr = 0;
-    edma_init_struct->memory_burst_mode = EDMA_MEMORY_SINGLE;
-    edma_init_struct->memory_data_width = EDMA_MEMORY_DATA_WIDTH_BYTE;
-    edma_init_struct->memory_inc_enable = FALSE;
-    edma_init_struct->peripheral_base_addr = 0;
-    edma_init_struct->peripheral_burst_mode = EDMA_PERIPHERAL_SINGLE;
-    edma_init_struct->peripheral_data_width = EDMA_PERIPHERAL_DATA_WIDTH_BYTE;
-    edma_init_struct->peripheral_inc_enable = FALSE;
-    edma_init_struct->priority = EDMA_PRIORITY_LOW;
+void eDMA_Default_Para_Init(eDMA_Init_Type *eDMA_Init_struct) {
+    eDMA_Init_struct->buffer_size = 0;
+    eDMA_Init_struct->loop_Mode_Enable = FALSE;
+    eDMA_Init_struct->direction = EDMA_DIR_PERIPHERAL_TO_MEMORY;
+    eDMA_Init_struct->fifo_threshold = EDMA_FIFO_THRESHOLD_1QUARTER;
+    eDMA_Init_struct->fifo_Mode_Enable = FALSE;
+    eDMA_Init_struct->memory0_base_addr = 0;
+    eDMA_Init_struct->memory_burst_mode = EDMA_Memory_SINGLE;
+    eDMA_Init_struct->memory_Data_width = EDMA_Memory_Data_WIDTH_BYTE;
+    eDMA_Init_struct->memory_inc_Enable = FALSE;
+    eDMA_Init_struct->peripheral_base_addr = 0;
+    eDMA_Init_struct->peripheral_burst_mode = EDMA_PERIPHERAL_SINGLE;
+    eDMA_Init_struct->peripheral_Data_width = EDMA_PERIPHERAL_Data_WIDTH_BYTE;
+    eDMA_Init_struct->peripheral_inc_Enable = FALSE;
+    eDMA_Init_struct->priority = EDMA_PRIORITY_LOW;
 }
 
 /**
   * @brief  enable or disable the edma streamx.
-  * @param  edma_streamx:
+  * @param  eDMA_streamx:
   *         this parameter can be one of the following values:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
@@ -198,13 +198,13 @@ void edma_default_para_init(edma_init_type *edma_init_struct) {
   * @param  new_state (TRUE or FALSE).
   * @retval none.
   */
-void edma_stream_enable(edma_stream_type *edma_streamx, confirm_state new_state) {
-    edma_streamx->ctrl_bit.sen = new_state;
+void eDMA_Stream_Enable(eDMA_Stream_Type *eDMA_streamx, confirm_state new_state) {
+    eDMA_streamx->ctrl_bit.sen = new_state;
 }
 
 /**
   * @brief  enable or disable the edma streamx interrupts.
-  * @param  edma_streamx:
+  * @param  eDMA_streamx:
   *         this parameter can be one of the following values:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
@@ -214,7 +214,7 @@ void edma_stream_enable(edma_stream_type *edma_streamx, confirm_state new_state)
   *         - EDMA_STREAM6
   *         - EDMA_STREAM7
   *         - EDMA_STREAM8
-  * @param  edma_int:
+  * @param  eDMA_int:
   *         this parameter can be one of the following values:
   *         - EDMA_FDT_INT
   *         - EDMA_HDT_INT
@@ -224,27 +224,27 @@ void edma_stream_enable(edma_stream_type *edma_streamx, confirm_state new_state)
   * @param  new_state (TRUE or FALSE).
   * @retval none.
   */
-void edma_interrupt_enable(edma_stream_type *edma_streamx, uint32_t edma_int, confirm_state new_state) {
-    if((edma_int & EDMA_FERR_INT) != 0) {
+void eDMA_Interrupt_Enable(eDMA_Stream_Type *eDMA_streamx, uint32_t eDMA_int, confirm_state new_state) {
+    if((eDMA_int & EDMA_FERR_INT) != 0) {
         if(new_state != FALSE) {
-            edma_streamx->fctrl |= (uint32_t)EDMA_FERR_INT;
+            eDMA_streamx->fctrl |= (uint32_t)EDMA_FERR_INT;
         } else {
-            edma_streamx->fctrl &= ~(uint32_t)EDMA_FERR_INT;
+            eDMA_streamx->fctrl &= ~(uint32_t)EDMA_FERR_INT;
         }
     }
 
-    if(edma_int != EDMA_FERR_INT) {
+    if(eDMA_int != EDMA_FERR_INT) {
         if(new_state != FALSE) {
-            edma_streamx->ctrl |= (uint32_t)edma_int;
+            eDMA_streamx->ctrl |= (uint32_t)eDMA_int;
         } else {
-            edma_streamx->ctrl &= ~(uint32_t)edma_int;
+            eDMA_streamx->ctrl &= ~(uint32_t)eDMA_int;
         }
     }
 }
 
 /**
   * @brief  config the edma peripheral increment offset size mode.
-  * @param  edma_streamx:
+  * @param  eDMA_streamx:
   *         this parameter can be one of the following values:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
@@ -260,13 +260,13 @@ void edma_interrupt_enable(edma_stream_type *edma_streamx, uint32_t edma_int, co
   *         - EDMA_PERIPHERAL_INC_4_BYTE
   * @retval none.
   */
-void edma_peripheral_inc_offset_set(edma_stream_type *edma_streamx, edma_peripheral_inc_offset_type offset) {
-    edma_streamx->ctrl_bit.pincos = offset;
+void eDMA_peripheral_inc_offset_Set(eDMA_Stream_Type *eDMA_streamx, eDMA_peripheral_inc_offset_Type offset) {
+    eDMA_streamx->ctrl_bit.pincos = offset;
 }
 
 /**
   * @brief  enable or disable the edma streamx flow controller.
-  * @param  edma_streamx:
+  * @param  eDMA_streamx:
   *         this parameter can be one of the following values:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
@@ -279,13 +279,13 @@ void edma_peripheral_inc_offset_set(edma_stream_type *edma_streamx, edma_periphe
   * @param  new_state (TRUE or FALSE).
   * @retval none.
   */
-void edma_flow_controller_enable(edma_stream_type *edma_streamx, confirm_state new_state) {
-    edma_streamx->ctrl_bit.pfctrl = new_state;
+void eDMA_flow_Controller_Enable(eDMA_Stream_Type *eDMA_streamx, confirm_state new_state) {
+    eDMA_streamx->ctrl_bit.pfctrl = new_state;
 }
 
 /**
   * @brief  set the number of data to be transferred.
-  * @param  edma_streamx:
+  * @param  eDMA_streamx:
   *         this parameter can be one of the following values:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
@@ -295,17 +295,17 @@ void edma_flow_controller_enable(edma_stream_type *edma_streamx, confirm_state n
   *         - EDMA_STREAM6
   *         - EDMA_STREAM7
   *         - EDMA_STREAM8
-  * @param  data_number: the number of data to be transferred (0x0000~0xFFFF).
+  * @param  data_Number: the number of data to be transferred (0x0000~0xFFFF).
   * @retval none.
   */
-void edma_data_number_set(edma_stream_type *edma_streamx, uint16_t data_number) {
+void eDMA_Data_Number_Set(eDMA_Stream_Type *eDMA_streamx, uint16_t data_Number) {
     /* write the number of data units to be transferred */
-    edma_streamx->dtcnt = data_number;
+    eDMA_streamx->dtcnt = data_Number;
 }
 
 /**
   * @brief  get the number of data to be transferred.
-  * @param  edma_streamx:
+  * @param  eDMA_streamx:
   *         this parameter can be one of the following values:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
@@ -317,13 +317,13 @@ void edma_data_number_set(edma_stream_type *edma_streamx, uint16_t data_number) 
   *         - EDMA_STREAM8
   * @retval the number value.
   */
-uint16_t edma_data_number_get(edma_stream_type *edma_streamx) {
-    return ((uint16_t)(edma_streamx->dtcnt));
+uint16_t eDMA_Data_Number_Get(eDMA_Stream_Type *eDMA_streamx) {
+    return ((uint16_t)(eDMA_streamx->dtcnt));
 }
 
 /**
   * @brief  config the the double buffer mode.
-  * @param  edma_streamx:
+  * @param  eDMA_streamx:
   *         this parameter can be one of the following values:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
@@ -336,23 +336,23 @@ uint16_t edma_data_number_get(edma_stream_type *edma_streamx) {
   * @param  memory1_addr: the address of the second buffer.
   * @param  current_memory: specifies the target area of the first transfer.
   *         this parameter can be one of the following values:
-  *         - EDMA_MEMORY_0
-  *         - EDMA_MEMORY_1
+  *         - EDMA_Memory_0
+  *         - EDMA_Memory_1
   * @retval none.
   */
-void edma_double_buffer_mode_init(edma_stream_type *edma_streamx, uint32_t memory1_addr, edma_memory_type current_memory) {
-    if(current_memory != EDMA_MEMORY_0) {
-        edma_streamx->ctrl_bit.cm = 1;
+void eDMA_Double_buffer_Mode_Init(eDMA_Stream_Type *eDMA_streamx, uint32_t memory1_addr, eDMA_Memory_Type current_memory) {
+    if(current_memory != EDMA_Memory_0) {
+        eDMA_streamx->ctrl_bit.cm = 1;
     } else {
-        edma_streamx->ctrl_bit.cm = 0;
+        eDMA_streamx->ctrl_bit.cm = 0;
     }
 
-    edma_streamx->m1addr = memory1_addr;
+    eDMA_streamx->m1addr = memory1_addr;
 }
 
 /**
   * @brief  enable or disable the double memory mode.
-  * @param  edma_streamx:
+  * @param  eDMA_streamx:
   *         this parameter can be one of the following values:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
@@ -365,17 +365,17 @@ void edma_double_buffer_mode_init(edma_stream_type *edma_streamx, uint32_t memor
   * @param  new_state (TRUE or FALSE).
   * @retval none.
   */
-void edma_double_buffer_mode_enable(edma_stream_type *edma_streamx, confirm_state new_state) {
+void eDMA_Double_buffer_Mode_Enable(eDMA_Stream_Type *eDMA_streamx, confirm_state new_state) {
     if(new_state != FALSE) {
-        edma_streamx->ctrl_bit.dmm = 1;
+        eDMA_streamx->ctrl_bit.dmm = 1;
     } else {
-        edma_streamx->ctrl_bit.dmm = 0;
+        eDMA_streamx->ctrl_bit.dmm = 0;
     }
 }
 
 /**
   * @brief  config the memory address in double buffer mode.
-  * @param  edma_streamx:
+  * @param  eDMA_streamx:
   *         this parameter can be one of the following values:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
@@ -388,21 +388,21 @@ void edma_double_buffer_mode_enable(edma_stream_type *edma_streamx, confirm_stat
   * @param  memory_addr: the address of the buffer.
   * @param  memory_target: indicates the which memory addr register will be config.
   *         this parameter can be one of the following values:
-  *         - EDMA_MEMORY_0
-  *         - EDMA_MEMORY_1
+  *         - EDMA_Memory_0
+  *         - EDMA_Memory_1
   * @retval none.
   */
-void edma_memory_addr_set(edma_stream_type *edma_streamx, uint32_t memory_addr, uint32_t memory_target) {
-    if(memory_target != EDMA_MEMORY_0) {
-        edma_streamx->m1addr = memory_addr;
+void eDMA_Memory_Addr_Set(eDMA_Stream_Type *eDMA_streamx, uint32_t memory_addr, uint32_t memory_target) {
+    if(memory_target != EDMA_Memory_0) {
+        eDMA_streamx->m1addr = memory_addr;
     } else {
-        edma_streamx->m0addr = memory_addr;
+        eDMA_streamx->m0addr = memory_addr;
     }
 }
 
 /**
   * @brief  get the current memory target.
-  * @param  edma_streamx:
+  * @param  eDMA_streamx:
   *         this parameter can be one of the following values:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
@@ -413,16 +413,16 @@ void edma_memory_addr_set(edma_stream_type *edma_streamx, uint32_t memory_addr, 
   *         - EDMA_STREAM7
   *         - EDMA_STREAM8
   * @retval the memory target
-  *         - EDMA_MEMORY_0
-  *         - EDMA_MEMORY_1
+  *         - EDMA_Memory_0
+  *         - EDMA_Memory_1
   */
-edma_memory_type edma_memory_target_get(edma_stream_type *edma_streamx) {
-    return (edma_memory_type)(edma_streamx->ctrl_bit.cm);
+eDMA_Memory_Type eDMA_Memory_Target_Get(eDMA_Stream_Type *eDMA_streamx) {
+    return (eDMA_Memory_Type)(eDMA_streamx->ctrl_bit.cm);
 }
 
 /**
   * @brief  get the enable status of edma streamx.
-  * @param  edma_streamx:
+  * @param  eDMA_streamx:
   *         this parameter can be one of the following values:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
@@ -434,8 +434,8 @@ edma_memory_type edma_memory_target_get(edma_stream_type *edma_streamx) {
   *         - EDMA_STREAM8
   * @retval current state of the edma streamx (SET or RESET).
   */
-flag_status edma_stream_status_get(edma_stream_type *edma_streamx) {
-    if((edma_streamx->ctrl_bit.sen) != RESET) {
+flag_status eDMA_Stream_Status_Get(eDMA_Stream_Type *eDMA_streamx) {
+    if((eDMA_streamx->ctrl_bit.sen) != RESET) {
         return SET;
     } else {
         return RESET;
@@ -444,7 +444,7 @@ flag_status edma_stream_status_get(edma_stream_type *edma_streamx) {
 
 /**
   * @brief  get the fifo level status.
-  * @param  edma_streamx:
+  * @param  eDMA_streamx:
   *         this parameter can be one of the following values:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
@@ -455,20 +455,20 @@ flag_status edma_stream_status_get(edma_stream_type *edma_streamx) {
   *         - EDMA_STREAM7
   *         - EDMA_STREAM8
   * @retval the fifo filling state.
-  *         - EDMA_FIFO_STATUS_LESS_1QUARTER: (0)   <  fifo level < (1/4).
-  *         - EDMA_FIFO_STATUS_1QUARTER:      (1/4) <= fifo level < (1/2) .
-  *         - EDMA_FIFO_STATUS_HALF:          (1/2) <= fifo level < (3/4).
-  *         - EDMA_FIFO_STATUS_3QUARTER:      (3/4) <= fifo level < (1).
-  *         - EDMA_FIFO_STATUS_EMPTY: fifo is empty.
-  *         - EDMA_FIFO_STATUS_FULL: fifo is full.
+  *         - EDMA_FIFO_Status_LESS_1QUARTER: (0)   <  fifo level < (1/4).
+  *         - EDMA_FIFO_Status_1QUARTER:      (1/4) <= fifo level < (1/2) .
+  *         - EDMA_FIFO_Status_HALF:          (1/2) <= fifo level < (3/4).
+  *         - EDMA_FIFO_Status_3QUARTER:      (3/4) <= fifo level < (1).
+  *         - EDMA_FIFO_Status_EMPTY: fifo is empty.
+  *         - EDMA_FIFO_Status_FULL: fifo is full.
   */
-uint8_t edma_fifo_status_get(edma_stream_type *edma_streamx) {
-    return (uint8_t)(edma_streamx->fctrl_bit.fsts);
+uint8_t eDMA_FIFO_Status_Get(eDMA_Stream_Type *eDMA_streamx) {
+    return (uint8_t)(eDMA_streamx->fctrl_bit.fsts);
 }
 
 /**
   * @brief  get the edma flag.
-  * @param  edma_flag:
+  * @param  eDMA_flag:
   *         this parameter can be one of the following values:
   *         - EDMA_FERR1_FLAG   - EDMA_DMERR1_FLAG  - EDMA_DTERR1_FLAG  - EDMA_HDT1_FLAG   - EDMA_FDT1_FLAG
   *         - EDMA_FERR2_FLAG   - EDMA_DMERR2_FLAG  - EDMA_DTERR2_FLAG  - EDMA_HDT2_FLAG   - EDMA_FDT2_FLAG
@@ -480,16 +480,16 @@ uint8_t edma_fifo_status_get(edma_stream_type *edma_streamx) {
   *         - EDMA_FERR8_FLAG   - EDMA_DMERR8_FLAG  - EDMA_DTERR8_FLAG  - EDMA_HDT8_FLAG   - EDMA_FDT8_FLAG
   * @retval the new state of edma flag (SET or RESET).
   */
-flag_status edma_flag_get(uint32_t edma_flag) {
+flag_status eDMA_Flag_Get(uint32_t eDMA_flag) {
     uint32_t status;
 
-    if(edma_flag > ((uint32_t)0x20000000)) {
+    if(eDMA_flag > ((uint32_t)0x20000000)) {
         status = EDMA->sts2;
     } else {
         status = EDMA->sts1;
     }
 
-    if((status & edma_flag) != ((uint32_t)RESET)) {
+    if((status & eDMA_flag) != ((uint32_t)RESET)) {
         return SET;
     } else {
         return RESET;
@@ -498,7 +498,7 @@ flag_status edma_flag_get(uint32_t edma_flag) {
 
 /**
   * @brief  clear the edma flag.
-  * @param  edma_flag:
+  * @param  eDMA_flag:
   *         this parameter can be one of the following values:
   *         - EDMA_FERR1_FLAG   - EDMA_DMERR1_FLAG  - EDMA_DTERR1_FLAG  - EDMA_HDT1_FLAG   - EDMA_FDT1_FLAG
   *         - EDMA_FERR2_FLAG   - EDMA_DMERR2_FLAG  - EDMA_DTERR2_FLAG  - EDMA_HDT2_FLAG   - EDMA_FDT2_FLAG
@@ -510,17 +510,17 @@ flag_status edma_flag_get(uint32_t edma_flag) {
   *         - EDMA_FERR8_FLAG   - EDMA_DMERR8_FLAG  - EDMA_DTERR8_FLAG  - EDMA_HDT8_FLAG   - EDMA_FDT8_FLAG
   * @retval none.
   */
-void edma_flag_clear(uint32_t edma_flag) {
-    if(edma_flag > ((uint32_t)0x20000000)) {
-        EDMA->clr2 = (uint32_t)(edma_flag & 0x0FFFFFFF);
+void eDMA_Flag_Clear(uint32_t eDMA_flag) {
+    if(eDMA_flag > ((uint32_t)0x20000000)) {
+        EDMA->clr2 = (uint32_t)(eDMA_flag & 0x0FFFFFFF);
     } else {
-        EDMA->clr1 = edma_flag;
+        EDMA->clr1 = eDMA_flag;
     }
 }
 
 /**
   * @brief  initialize the edma 2d mode.
-  * @param  edma_streamx_2d:
+  * @param  eDMA_streamx_2d:
   *         this parameter can be one of the following values:
   *         - EDMA_STREAM1_2D
   *         - EDMA_STREAM2_2D
@@ -536,15 +536,15 @@ void edma_flag_clear(uint32_t edma_flag) {
   * @param  ycnt: y dimension transfer count(0x0000~ 0xFFFF).
   * @retval none.
   */
-void edma_2d_init(edma_stream_2d_type *edma_streamx_2d, int16_t src_stride, int16_t dst_stride, uint16_t xcnt, uint16_t ycnt) {
-    edma_streamx_2d->s2dcnt = (uint32_t)((ycnt << 16) | (xcnt));
+void eDMA_2D_Init(eDMA_Stream_2D_Type *eDMA_streamx_2d, int16_t src_stride, int16_t dst_stride, uint16_t xcnt, uint16_t ycnt) {
+    eDMA_streamx_2d->s2dcnt = (uint32_t)((ycnt << 16) | (xcnt));
 
-    edma_streamx_2d->stride = (uint32_t)((dst_stride << 16) | (src_stride));
+    eDMA_streamx_2d->stride = (uint32_t)((dst_stride << 16) | (src_stride));
 }
 
 /**
   * @brief  enable or disable the edma 2d mode.
-  * @param  edma_streamx_2d:
+  * @param  eDMA_streamx_2d:
   *         this parameter can be one of the following values:
   *         - EDMA_STREAM1_2D
   *         - EDMA_STREAM2_2D
@@ -557,10 +557,10 @@ void edma_2d_init(edma_stream_2d_type *edma_streamx_2d, int16_t src_stride, int1
   * @param  new_state (TRUE or FALSE).
   * @retval none.
   */
-void edma_2d_enable(edma_stream_2d_type *edma_streamx_2d, confirm_state new_state) {
+void eDMA_2D_Enable(eDMA_Stream_2D_Type *eDMA_streamx_2d, confirm_state new_state) {
     uint32_t offset;
 
-    offset = ((uint32_t)edma_streamx_2d - EDMA_STREAM1_2D_BASE) / 4;
+    offset = ((uint32_t)eDMA_streamx_2d - EDMA_STREAM1_2D_BASE) / 4;
 
     if(new_state != FALSE) {
         EDMA->s2dctrl |= (uint16_t)0x0001 << offset;
@@ -571,7 +571,7 @@ void edma_2d_enable(edma_stream_2d_type *edma_streamx_2d, confirm_state new_stat
 
 /**
   * @brief  initialize the edma link list.
-  * @param  edma_streamx_ll:
+  * @param  eDMA_streamx_ll:
   *         this parameter can be one of the following values:
   *         - EDMA_STREAM1_LL
   *         - EDMA_STREAM2_LL
@@ -584,13 +584,13 @@ void edma_2d_enable(edma_stream_2d_type *edma_streamx_2d, confirm_state new_stat
   * @param  pointer: link list pointer.
   * @retval none.
   */
-void edma_link_list_init(edma_stream_link_list_type *edma_streamx_ll, uint32_t pointer) {
-    edma_streamx_ll->llp = pointer;
+void eDMA_Link_List_Init(eDMA_Stream_Link_List_Type *eDMA_streamx_ll, uint32_t pointer) {
+    eDMA_streamx_ll->llp = pointer;
 }
 
 /**
   * @brief  enable or disable the edma stream link list mode.
-  * @param  edma_streamx_ll:
+  * @param  eDMA_streamx_ll:
   *         this parameter can be any combination of the following values:
   *         - EDMA_STREAM1_LL
   *         - EDMA_STREAM2_LL
@@ -603,10 +603,10 @@ void edma_link_list_init(edma_stream_link_list_type *edma_streamx_ll, uint32_t p
   * @param  new_state (TRUE or FALSE).
   * @retval none.
   */
-void edma_link_list_enable(edma_stream_link_list_type *edma_streamx_ll, confirm_state new_state) {
+void eDMA_Link_List_Enable(eDMA_Stream_Link_List_Type *eDMA_streamx_ll, confirm_state new_state) {
     uint32_t offset;
 
-    offset = ((uint32_t)edma_streamx_ll - EDMA_STREAM1_LL_BASE) / 4;
+    offset = ((uint32_t)eDMA_streamx_ll - EDMA_STREAM1_LL_BASE) / 4;
 
     if(new_state != FALSE) {
         EDMA->llctrl |= (uint16_t)0x0001 << offset;
@@ -620,13 +620,13 @@ void edma_link_list_enable(edma_stream_link_list_type *edma_streamx_ll, confirm_
   * @param  new_state (TRUE or FALSE).
   * @retval none.
   */
-void edmamux_enable(confirm_state new_state) {
+void eDMAMUX_Enable(confirm_state new_state) {
     EDMA->muxsel_bit.tblsel = new_state;
 }
 
 /**
   * @brief  edmamux init.
-  * @param  edmamux_channelx:
+  * @param  eDMAMUX_channelx:
   *         this parameter can be one of the following values:
   *         - EDMAMUX_CHANNEL1
   *         - EDMAMUX_CHANNEL2
@@ -636,7 +636,7 @@ void edmamux_enable(confirm_state new_state) {
   *         - EDMAMUX_CHANNEL6
   *         - EDMAMUX_CHANNEL7
   *         - EDMAMUX_CHANNEL8
-  * @param  edmamux_req_id:
+  * @param  eDMAMUX_req_id:
   *         this parameter can be one of the following values:
   *         - EDMAMUX_DMAREQ_ID_REQ_G1       - EDMAMUX_DMAREQ_ID_REQ_G2       - EDMAMUX_DMAREQ_ID_REQ_G3       - EDMAMUX_DMAREQ_ID_REQ_G4
   *         - EDMAMUX_DMAREQ_ID_ADC1         - EDMAMUX_DMAREQ_ID_ADC2         - EDMAMUX_DMAREQ_ID_ADC3         - EDMAMUX_DMAREQ_ID_DAC1
@@ -664,26 +664,26 @@ void edmamux_enable(confirm_state new_state) {
   *         - EDMAMUX_DMAREQ_ID_TMR20_TRIG   - EDMAMUX_DMAREQ_ID_TMR20_HALL   - EDMAMUX_DMAREQ_ID_DVP
   * @retval none.
   */
-void edmamux_init(edmamux_channel_type *edmamux_channelx, edmamux_requst_id_sel_type edmamux_req_id) {
-    edmamux_channelx->muxctrl_bit.reqsel = edmamux_req_id;
+void eDMAMUX_Init(eDMAMUX_Channel_Type *eDMAMUX_channelx, eDMAMUX_Requst_ID_sel_Type eDMAMUX_req_id) {
+    eDMAMUX_channelx->muxctrl_bit.reqsel = eDMAMUX_req_id;
 }
 
 /**
   * @brief  edmamux sync init struct config with its default value.
-  * @param  edmamux_sync_init_struct: pointer to a edmamux_sync_init_type structure which will be initialized.
+  * @param  eDMAMUX_Sync_Init_struct: pointer to a eDMAMUX_Sync_Init_Type structure which will be initialized.
   * @retval none.
   */
-void edmamux_sync_default_para_init(edmamux_sync_init_type *edmamux_sync_init_struct) {
-    edmamux_sync_init_struct->sync_enable = FALSE;
-    edmamux_sync_init_struct->sync_event_enable = FALSE;
-    edmamux_sync_init_struct->sync_polarity = EDMAMUX_SYNC_POLARITY_DISABLE;
-    edmamux_sync_init_struct->sync_request_number = 0x0;
-    edmamux_sync_init_struct->sync_signal_sel = EDMAMUX_SYNC_ID_EXINT0;
+void eDMAMUX_Sync_Default_Para_Init(eDMAMUX_Sync_Init_Type *eDMAMUX_Sync_Init_struct) {
+    eDMAMUX_Sync_Init_struct->sync_Enable = FALSE;
+    eDMAMUX_Sync_Init_struct->sync_Event_Enable = FALSE;
+    eDMAMUX_Sync_Init_struct->sync_polarity = EDMAMUX_Sync_POLARITY_Disable;
+    eDMAMUX_Sync_Init_struct->sync_Request_Number = 0x0;
+    eDMAMUX_Sync_Init_struct->sync_signal_sel = EDMAMUX_Sync_ID_EXINT0;
 }
 
 /**
   * @brief  edmamux synchronization config.
-  * @param  edmamux_channelx:
+  * @param  eDMAMUX_channelx:
   *         this parameter can be one of the following values:
   *         - EDMAMUX_CHANNEL1
   *         - EDMAMUX_CHANNEL2
@@ -693,44 +693,44 @@ void edmamux_sync_default_para_init(edmamux_sync_init_type *edmamux_sync_init_st
   *         - EDMAMUX_CHANNEL6
   *         - EDMAMUX_CHANNEL7
   *         - EDMAMUX_CHANNEL8
-  * @param  edmamux_sync_init_struct: ointer to a edmamux_sync_init_type structure.
+  * @param  eDMAMUX_Sync_Init_struct: ointer to a eDMAMUX_Sync_Init_Type structure.
   * @retval none.
   */
-void edmamux_sync_config(edmamux_channel_type *edmamux_channelx, edmamux_sync_init_type *edmamux_sync_init_struct) {
-    edmamux_channelx->muxctrl_bit.syncsel = edmamux_sync_init_struct->sync_signal_sel;
-    edmamux_channelx->muxctrl_bit.syncpol = edmamux_sync_init_struct->sync_polarity;
-    edmamux_channelx->muxctrl_bit.reqcnt  = edmamux_sync_init_struct->sync_request_number;
-    edmamux_channelx->muxctrl_bit.evtgen  = edmamux_sync_init_struct->sync_event_enable;
-    edmamux_channelx->muxctrl_bit.syncen  = edmamux_sync_init_struct->sync_enable;
+void eDMAMUX_Sync_Config(eDMAMUX_Channel_Type *eDMAMUX_channelx, eDMAMUX_Sync_Init_Type *eDMAMUX_Sync_Init_struct) {
+    eDMAMUX_channelx->muxctrl_bit.syncsel = eDMAMUX_Sync_Init_struct->sync_signal_sel;
+    eDMAMUX_channelx->muxctrl_bit.syncpol = eDMAMUX_Sync_Init_struct->sync_polarity;
+    eDMAMUX_channelx->muxctrl_bit.reqcnt  = eDMAMUX_Sync_Init_struct->sync_Request_Number;
+    eDMAMUX_channelx->muxctrl_bit.evtgen  = eDMAMUX_Sync_Init_struct->sync_Event_Enable;
+    eDMAMUX_channelx->muxctrl_bit.syncen  = eDMAMUX_Sync_Init_struct->sync_Enable;
 }
 
 /**
   * @brief  edmamux request generator init struct config with its default value.
-  * @param  edmamux_gen_init_struct: pointer to a edmamux_gen_init_type structure which will be initialized.
+  * @param  eDMAMUX_Gen_Init_struct: pointer to a eDMAMUX_Gen_Init_Type structure which will be initialized.
   * @retval none.
   */
-void edmamux_generator_default_para_init(edmamux_gen_init_type *edmamux_gen_init_struct) {
-    edmamux_gen_init_struct->gen_enable         = FALSE;
-    edmamux_gen_init_struct->gen_polarity       = EDMAMUX_GEN_POLARITY_DISABLE;
-    edmamux_gen_init_struct->gen_request_number = 0x0;
-    edmamux_gen_init_struct->gen_signal_sel     = EDMAMUX_GEN_ID_EXINT0;
+void eDMAMUX_Generator_Default_Para_Init(eDMAMUX_Gen_Init_Type *eDMAMUX_Gen_Init_struct) {
+    eDMAMUX_Gen_Init_struct->gen_Enable         = FALSE;
+    eDMAMUX_Gen_Init_struct->gen_polarity       = EDMAMUX_Gen_POLARITY_Disable;
+    eDMAMUX_Gen_Init_struct->gen_Request_Number = 0x0;
+    eDMAMUX_Gen_Init_struct->gen_signal_sel     = EDMAMUX_Gen_ID_EXINT0;
 }
 
 /**
   * @brief  edmamux request generator init.
-  * @param  edmamux_gen_init_struct: pointer to a edmamux_gen_init_type structure which will be initialized.
+  * @param  eDMAMUX_Gen_Init_struct: pointer to a eDMAMUX_Gen_Init_Type structure which will be initialized.
   * @retval none.
   */
-void edmamux_generator_config(edmamux_generator_type *edmamux_gen_x, edmamux_gen_init_type *edmamux_gen_init_struct) {
-    edmamux_gen_x->gctrl_bit.sigsel  = edmamux_gen_init_struct->gen_signal_sel;
-    edmamux_gen_x->gctrl_bit.gpol    = edmamux_gen_init_struct->gen_polarity;
-    edmamux_gen_x->gctrl_bit.greqcnt = edmamux_gen_init_struct->gen_request_number;
-    edmamux_gen_x->gctrl_bit.gen     = edmamux_gen_init_struct->gen_enable;
+void eDMAMUX_Generator_Config(eDMAMUX_Generator_Type *eDMAMUX_Gen_x, eDMAMUX_Gen_Init_Type *eDMAMUX_Gen_Init_struct) {
+    eDMAMUX_Gen_x->gctrl_bit.sigsel  = eDMAMUX_Gen_Init_struct->gen_signal_sel;
+    eDMAMUX_Gen_x->gctrl_bit.gpol    = eDMAMUX_Gen_Init_struct->gen_polarity;
+    eDMAMUX_Gen_x->gctrl_bit.greqcnt = eDMAMUX_Gen_Init_struct->gen_Request_Number;
+    eDMAMUX_Gen_x->gctrl_bit.gen     = eDMAMUX_Gen_Init_struct->gen_Enable;
 }
 
 /**
   * @brief  enable or disable the edmamux sync interrupts.
-  * @param  edmamux_channelx:
+  * @param  eDMAMUX_channelx:
   *         this parameter can be one of the following values:
   *         - EDMAMUX_CHANNEL1
   *         - EDMAMUX_CHANNEL2
@@ -743,17 +743,17 @@ void edmamux_generator_config(edmamux_generator_type *edmamux_gen_x, edmamux_gen
   * @param  new_state (TRUE or FALSE).
   * @retval none.
   */
-void edmamux_sync_interrupt_enable(edmamux_channel_type *edmamux_channelx, confirm_state new_state) {
+void eDMAMUX_Sync_Interrupt_Enable(eDMAMUX_Channel_Type *eDMAMUX_channelx, confirm_state new_state) {
     if(new_state != FALSE) {
-        edmamux_channelx->muxctrl_bit.syncovien = TRUE;
+        eDMAMUX_channelx->muxctrl_bit.syncovien = TRUE;
     } else {
-        edmamux_channelx->muxctrl_bit.syncovien = FALSE;
+        eDMAMUX_channelx->muxctrl_bit.syncovien = FALSE;
     }
 }
 
 /**
   * @brief  enable or disable the edmamux request generator interrupts.
-  * @param  edmamux_gen_x: pointer to a edmamux_generator_type structure.
+  * @param  eDMAMUX_Gen_x: pointer to a eDMAMUX_Generator_Type structure.
   *         this parameter can be one of the following values:
   *         - EDMAMUX_GENERATOR1
   *         - EDMAMUX_GENERATOR2
@@ -762,11 +762,11 @@ void edmamux_sync_interrupt_enable(edmamux_channel_type *edmamux_channelx, confi
   * @param  new_state (TRUE or FALSE).
   * @retval none.
   */
-void edmamux_generator_interrupt_enable(edmamux_generator_type *edmamux_gen_x, confirm_state new_state) {
+void eDMAMUX_Generator_Interrupt_Enable(eDMAMUX_Generator_Type *eDMAMUX_Gen_x, confirm_state new_state) {
     if(new_state != FALSE) {
-        edmamux_gen_x->gctrl_bit.trgovien = TRUE;
+        eDMAMUX_Gen_x->gctrl_bit.trgovien = TRUE;
     } else {
-        edmamux_gen_x->gctrl_bit.trgovien = FALSE;
+        eDMAMUX_Gen_x->gctrl_bit.trgovien = FALSE;
     }
 }
 
@@ -774,17 +774,17 @@ void edmamux_generator_interrupt_enable(edmamux_generator_type *edmamux_gen_x, c
   * @brief  edmamux sync flag get.
   * @param  flag
   *         this parameter can be any combination of the following values:
-  *         - EDMAMUX_SYNC_OV1_FLAG
-  *         - EDMAMUX_SYNC_OV2_FLAG
-  *         - EDMAMUX_SYNC_OV3_FLAG
-  *         - EDMAMUX_SYNC_OV4_FLAG
-  *         - EDMAMUX_SYNC_OV5_FLAG
-  *         - EDMAMUX_SYNC_OV6_FLAG
-  *         - EDMAMUX_SYNC_OV7_FLAG
-  *         - EDMAMUX_SYNC_OV8_FLAG
+  *         - EDMAMUX_Sync_OV1_FLAG
+  *         - EDMAMUX_Sync_OV2_FLAG
+  *         - EDMAMUX_Sync_OV3_FLAG
+  *         - EDMAMUX_Sync_OV4_FLAG
+  *         - EDMAMUX_Sync_OV5_FLAG
+  *         - EDMAMUX_Sync_OV6_FLAG
+  *         - EDMAMUX_Sync_OV7_FLAG
+  *         - EDMAMUX_Sync_OV8_FLAG
   * @retval state of edmamux sync flag.
   */
-flag_status edmamux_sync_flag_get(uint32_t flag) {
+flag_status eDMAMUX_Sync_Flag_Get(uint32_t flag) {
     if((EDMA->muxsyncsts & flag) != RESET) {
         return SET;
     } else {
@@ -796,17 +796,17 @@ flag_status edmamux_sync_flag_get(uint32_t flag) {
   * @brief  edmamux sync flag clear.
   * @param  flag
   *         this parameter can be any combination of the following values:
-  *         - EDMAMUX_SYNC_OV1_FLAG
-  *         - EDMAMUX_SYNC_OV2_FLAG
-  *         - EDMAMUX_SYNC_OV3_FLAG
-  *         - EDMAMUX_SYNC_OV4_FLAG
-  *         - EDMAMUX_SYNC_OV5_FLAG
-  *         - EDMAMUX_SYNC_OV6_FLAG
-  *         - EDMAMUX_SYNC_OV7_FLAG
-  *         - EDMAMUX_SYNC_OV8_FLAG
+  *         - EDMAMUX_Sync_OV1_FLAG
+  *         - EDMAMUX_Sync_OV2_FLAG
+  *         - EDMAMUX_Sync_OV3_FLAG
+  *         - EDMAMUX_Sync_OV4_FLAG
+  *         - EDMAMUX_Sync_OV5_FLAG
+  *         - EDMAMUX_Sync_OV6_FLAG
+  *         - EDMAMUX_Sync_OV7_FLAG
+  *         - EDMAMUX_Sync_OV8_FLAG
   * @retval none.
   */
-void edmamux_sync_flag_clear(uint32_t flag) {
+void eDMAMUX_Sync_Flag_Clear(uint32_t flag) {
     EDMA->muxsyncclr = flag;
 }
 
@@ -814,13 +814,13 @@ void edmamux_sync_flag_clear(uint32_t flag) {
   * @brief  edmamux request generator flag get.
   * @param  flag
   *         this parameter can be any combination of the following values:
-  *         - EDMAMUX_GEN_TRIG_OV1_FLAG
-  *         - EDMAMUX_GEN_TRIG_OV2_FLAG
-  *         - EDMAMUX_GEN_TRIG_OV3_FLAG
-  *         - EDMAMUX_GEN_TRIG_OV4_FLAG
+  *         - EDMAMUX_Gen_TRIG_OV1_FLAG
+  *         - EDMAMUX_Gen_TRIG_OV2_FLAG
+  *         - EDMAMUX_Gen_TRIG_OV3_FLAG
+  *         - EDMAMUX_Gen_TRIG_OV4_FLAG
   * @retval state of edmamux sync flag.
   */
-flag_status edmamux_generator_flag_get(uint32_t flag) {
+flag_status eDMAMUX_Generator_Flag_Get(uint32_t flag) {
     if((EDMA->muxgsts & flag) != RESET) {
         return SET;
     } else {
@@ -832,13 +832,13 @@ flag_status edmamux_generator_flag_get(uint32_t flag) {
   * @brief  edmamux request generator flag clear.
   * @param  flag
   *         this parameter can be any combination of the following values:
-  *         - EDMAMUX_GEN_TRIG_OV1_FLAG
-  *         - EDMAMUX_GEN_TRIG_OV2_FLAG
-  *         - EDMAMUX_GEN_TRIG_OV3_FLAG
-  *         - EDMAMUX_GEN_TRIG_OV4_FLAG
+  *         - EDMAMUX_Gen_TRIG_OV1_FLAG
+  *         - EDMAMUX_Gen_TRIG_OV2_FLAG
+  *         - EDMAMUX_Gen_TRIG_OV3_FLAG
+  *         - EDMAMUX_Gen_TRIG_OV4_FLAG
   * @retval none.
   */
-void edmamux_generator_flag_clear(uint32_t flag) {
+void eDMAMUX_Generator_Flag_Clear(uint32_t flag) {
     EDMA->muxgclr = flag;
 }
 

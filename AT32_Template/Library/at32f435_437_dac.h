@@ -45,7 +45,7 @@ extern "C" {
 #define DAC1_D1DMAUDRF                   ((uint32_t)(0x00002000))
 #define DAC2_D2DMAUDRF                   ((uint32_t)(0x20000000))
 
-/** @defgroup DAC_exported_types
+/** @defgroup DAC_exported_Types
   * @{
   */
 
@@ -53,9 +53,9 @@ extern "C" {
   * @brief dac select type
   */
 typedef enum {
-    DAC1_SELECT                            = 0x01, /*!< dac1 select */
-    DAC2_SELECT                            = 0x02  /*!< dac2 select */
-} dac_select_type;
+    DAC1_Select                            = 0x01, /*!< dac1 select */
+    DAC2_Select                            = 0x02  /*!< dac2 select */
+} DAC_Select_Type;
 
 /**
   * @brief dac trigger type
@@ -67,18 +67,18 @@ typedef enum {
     DAC_TMR5_TRGOUT_EVENT                  = 0x03, /*!< dac trigger selection:timer5 trgout event */
     DAC_TMR2_TRGOUT_EVENT                  = 0x04, /*!< dac trigger selection:timer2 trgout event */
     DAC_TMR4_TRGOUT_EVENT                  = 0x05, /*!< dac trigger selection:timer4 trgout event */
-    DAC_EXTERNAL_INTERRUPT_LINE_9          = 0x06, /*!< dac trigger selection:external line9 */
-    DAC_SOFTWARE_TRIGGER                   = 0x07  /*!< dac trigger selection:software trigger */
-} dac_trigger_type;
+    DAC_EXTERNAL_Interrupt_LINE_9          = 0x06, /*!< dac trigger selection:external line9 */
+    DAC_Software_TRIGGER                   = 0x07  /*!< dac trigger selection:software trigger */
+} DAC_Trigger_Type;
 
 /**
   * @brief dac wave type
   */
 typedef enum {
-    DAC_WAVE_GENERATE_NONE                 = 0x00, /*!< dac wave generation disabled */
-    DAC_WAVE_GENERATE_NOISE                = 0x01, /*!< dac noise wave generation enabled */
-    DAC_WAVE_GENERATE_TRIANGLE             = 0x02  /*!< dac triangle wave generation enabled */
-} dac_wave_type;
+    DAC_WAVE_Generate_NONE                 = 0x00, /*!< dac wave generation disabled */
+    DAC_WAVE_Generate_NOISE                = 0x01, /*!< dac noise wave generation enabled */
+    DAC_WAVE_Generate_TRIANGLE             = 0x02  /*!< dac triangle wave generation enabled */
+} DAC_wave_Type;
 
 /**
   * @brief dac mask amplitude type
@@ -96,7 +96,7 @@ typedef enum {
     DAC_LSFR_BIT90_AMPLITUDE_1023          = 0x09, /*!< unmask bit[9:0]/ triangle amplitude equal to 1023 */
     DAC_LSFR_BITA0_AMPLITUDE_2047          = 0x0A, /*!< unmask bit[10:0]/ triangle amplitude equal to 2047 */
     DAC_LSFR_BITB0_AMPLITUDE_4095          = 0x0B  /*!< unmask bit[11:0]/ triangle amplitude equal to 4095 */
-} dac_mask_amplitude_type;
+} DAC_Mask_amplitude_Type;
 
 /**
   * @brief  dac1 aligned data type
@@ -105,7 +105,7 @@ typedef enum {
     DAC1_12BIT_RIGHT                       = 0x40007408, /*!< dac1 12-bit data right-aligned */
     DAC1_12BIT_LEFT                        = 0x4000740C, /*!< dac1 12-bit data left-aligned */
     DAC1_8BIT_RIGHT                        = 0x40007410  /*!< dac1 8-bit data right-aligned */
-} dac1_aligned_data_type;
+} dac1_aligned_Data_Type;
 
 /**
   * @brief  dac2 aligned data type
@@ -114,7 +114,7 @@ typedef enum {
     DAC2_12BIT_RIGHT                       = 0x40007414, /*!< dac2 12-bit data right-aligned */
     DAC2_12BIT_LEFT                        = 0x40007418, /*!< dac2 12-bit data left-aligned */
     DAC2_8BIT_RIGHT                        = 0x4000741C  /*!< dac2 8-bit data right-aligned */
-} dac2_aligned_data_type;
+} dac2_aligned_Data_Type;
 
 /**
   * @brief  dac dual data type
@@ -123,7 +123,7 @@ typedef enum {
     DAC_DUAL_12BIT_RIGHT                   = 0x40007420, /*!<double dac 12-bit data right-aligned */
     DAC_DUAL_12BIT_LEFT                    = 0x40007424, /*!<double dac 12-bit data left-aligned */
     DAC_DUAL_8BIT_RIGHT                    = 0x40007428  /*!<double dac 8-bit data right-aligned */
-} dac_dual_data_type;
+} DAC_dual_Data_Type;
 
 /**
   * @brief type define dac register all
@@ -307,35 +307,35 @@ typedef struct {
             __IO uint32_t reserved3            : 2;/* [31:30] */
         } sts_bit;
     };
-} dac_type;
+} DAC_Type;
 
 /**
   * @}
   */
 
-#define DAC                              ((dac_type *) DAC_BASE)
+#define DAC                              ((DAC_Type *) DAC_BASE)
 
 /** @defgroup DAC_exported_functions
   * @{
   */
 
-void dac_reset(void);
-void dac_enable(dac_select_type dac_select, confirm_state new_state);
-void dac_output_buffer_enable(dac_select_type dac_select, confirm_state new_state);
-void dac_trigger_enable(dac_select_type dac_select, confirm_state new_state);
-void dac_trigger_select(dac_select_type dac_select, dac_trigger_type dac_trigger_source);
-void dac_software_trigger_generate(dac_select_type dac_select);
-void dac_dual_software_trigger_generate(void);
-void dac_wave_generate(dac_select_type dac_select, dac_wave_type dac_wave);
-void dac_mask_amplitude_select(dac_select_type dac_select, dac_mask_amplitude_type dac_mask_amplitude);
-void dac_dma_enable(dac_select_type dac_select, confirm_state new_state);
-uint16_t dac_data_output_get(dac_select_type dac_select);
-void dac_1_data_set(dac1_aligned_data_type dac1_aligned, uint16_t dac1_data);
-void dac_2_data_set(dac2_aligned_data_type dac2_aligned, uint16_t dac2_data);
-void dac_dual_data_set(dac_dual_data_type dac_dual, uint16_t data1, uint16_t data2);
-void dac_udr_enable(dac_select_type dac_select, confirm_state new_state);
-flag_status dac_udr_flag_get(dac_select_type dac_select);
-void dac_udr_flag_clear(dac_select_type dac_select);
+void DAC_Reset(void);
+void DAC_Enable(DAC_Select_Type DAC_Select, confirm_state new_state);
+void DAC_OutPut_buffer_Enable(DAC_Select_Type DAC_Select, confirm_state new_state);
+void DAC_Trigger_Enable(DAC_Select_Type DAC_Select, confirm_state new_state);
+void DAC_Trigger_Select(DAC_Select_Type DAC_Select, DAC_Trigger_Type DAC_Trigger_source);
+void DAC_Software_Trigger_Generate(DAC_Select_Type DAC_Select);
+void DAC_dual_Software_Trigger_Generate(void);
+void DAC_wave_Generate(DAC_Select_Type DAC_Select, DAC_wave_Type DAC_wave);
+void DAC_Mask_amplitude_Select(DAC_Select_Type DAC_Select, DAC_Mask_amplitude_Type DAC_Mask_amplitude);
+void DAC_DMA_Enable(DAC_Select_Type DAC_Select, confirm_state new_state);
+uint16_t DAC_Data_OutPut_Get(DAC_Select_Type DAC_Select);
+void DAC_1_Data_Set(dac1_aligned_Data_Type dac1_aligned, uint16_t dac1_data);
+void DAC_2_Data_Set(dac2_aligned_Data_Type dac2_aligned, uint16_t dac2_data);
+void DAC_dual_Data_Set(DAC_dual_Data_Type DAC_dual, uint16_t data1, uint16_t data2);
+void DAC_udr_Enable(DAC_Select_Type DAC_Select, confirm_state new_state);
+flag_status DAC_udr_Flag_Get(DAC_Select_Type DAC_Select);
+void DAC_udr_Flag_Clear(DAC_Select_Type DAC_Select);
 
 /**
   * @}

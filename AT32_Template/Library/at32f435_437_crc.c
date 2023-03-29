@@ -33,7 +33,7 @@
   * @{
   */
 
-#ifdef CRC_MODULE_ENABLED
+#ifdef CRC_MODULE_EnableD
 
 /** @defgroup CRC_private_functions
   * @{
@@ -44,7 +44,7 @@
   * @param  none
   * @retval none
   */
-void crc_data_reset(void) {
+void CRC_Data_Reset(void) {
     /* reset crc generator */
     CRC->ctrl_bit.rst = 0x1;
 }
@@ -54,7 +54,7 @@ void crc_data_reset(void) {
   * @param  data: data word(32-bit) to compute its crc
   * @retval 32-bit crc
   */
-uint32_t crc_one_word_calculate(uint32_t data) {
+uint32_t CRC_One_Word_calculate(uint32_t data) {
     CRC->dt = data;
     return (CRC->dt);
 }
@@ -65,7 +65,7 @@ uint32_t crc_one_word_calculate(uint32_t data) {
   * @param  length: length of the buffer to be computed
   * @retval 32-bit crc
   */
-uint32_t crc_block_calculate(uint32_t *pbuffer, uint32_t length) {
+uint32_t CRC_Block_calculate(uint32_t *pbuffer, uint32_t length) {
     uint32_t index = 0;
 
     for(index = 0; index < length; index++) {
@@ -80,7 +80,7 @@ uint32_t crc_block_calculate(uint32_t *pbuffer, uint32_t length) {
   * @param  none
   * @retval 32-bit crc
   */
-uint32_t crc_data_get(void) {
+uint32_t CRC_Data_Get(void) {
     return (CRC->dt);
 }
 
@@ -89,7 +89,7 @@ uint32_t crc_data_get(void) {
   * @param  cdt_value: 8-bit value to be stored in the common data register
   * @retval none
   */
-void crc_common_data_set(uint8_t cdt_value) {
+void CRC_Common_Data_Set(uint8_t cdt_value) {
     CRC->cdt_bit.cdt = cdt_value;
 }
 
@@ -98,7 +98,7 @@ void crc_common_data_set(uint8_t cdt_value) {
   * @param  none
   * @retval 8-bit value of the common data register
   */
-uint8_t crc_common_data_get(void) {
+uint8_t CRC_Common_Data_Get(void) {
     return (CRC->cdt_bit.cdt);
 }
 
@@ -107,7 +107,7 @@ uint8_t crc_common_data_get(void) {
   * @param  value: initial data
   * @retval none
   */
-void crc_init_data_set(uint32_t value) {
+void CRC_Init_Data_Set(uint32_t value) {
     CRC->idt = value;
 }
 
@@ -115,13 +115,13 @@ void crc_init_data_set(uint32_t value) {
   * @brief  control the reversal of the bit order in the input data
   * @param  value
   *         this parameter can be one of the following values:
-  *         - CRC_REVERSE_INPUT_NO_AFFECTE
-  *         - CRC_REVERSE_INPUT_BY_BYTE
-  *         - CRC_REVERSE_INPUT_BY_HALFWORD
-  *         - CRC_REVERSE_INPUT_BY_WORD
+  *         - CRC_Reverse_Input_NO_AFFECTE
+  *         - CRC_Reverse_Input_BY_BYTE
+  *         - CRC_Reverse_Input_BY_HALFWORD
+  *         - CRC_Reverse_Input_BY_WORD
   * @retval none.
   */
-void crc_reverse_input_data_set(crc_reverse_input_type value) {
+void CRC_Reverse_Input_Data_Set(CRC_Reverse_Input_Type value) {
     CRC->ctrl_bit.revid = value;
 }
 
@@ -129,11 +129,11 @@ void crc_reverse_input_data_set(crc_reverse_input_type value) {
   * @brief  control the reversal of the bit order in the output data
   * @param  value
   *         this parameter can be one of the following values:
-  *         - CRC_REVERSE_OUTPUT_NO_AFFECTE
-  *         - CRC_REVERSE_OUTPUT_DATA
+  *         - CRC_Reverse_OutPut_NO_AFFECTE
+  *         - CRC_Reverse_OutPut_DATA
   * @retval none.
   */
-void crc_reverse_output_data_set(crc_reverse_output_type value) {
+void CRC_Reverse_OutPut_Data_Set(CRC_Reverse_OutPut_Type value) {
     CRC->ctrl_bit.revod = value;
 }
 

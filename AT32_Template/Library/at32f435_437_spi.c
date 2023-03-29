@@ -33,7 +33,7 @@
   * @{
   */
 
-#ifdef SPI_MODULE_ENABLED
+#ifdef SPI_MODULE_EnableD
 
 /** @defgroup SPI_private_functions
   * @{
@@ -46,37 +46,37 @@
   *         SPI1, SPI2, SPI3 ,SPI4
   * @retval none
   */
-void spi_i2s_reset(spi_type *spi_x) {
+void spi_i2s_Reset(spi_Type *spi_x) {
     if(spi_x == SPI1) {
-        crm_periph_reset(CRM_SPI1_PERIPH_RESET, TRUE);
-        crm_periph_reset(CRM_SPI1_PERIPH_RESET, FALSE);
+        crm_periph_Reset(CRM_SPI1_PERIPH_Reset, TRUE);
+        crm_periph_Reset(CRM_SPI1_PERIPH_Reset, FALSE);
     } else if(spi_x == SPI2) {
-        crm_periph_reset(CRM_SPI2_PERIPH_RESET, TRUE);
-        crm_periph_reset(CRM_SPI2_PERIPH_RESET, FALSE);
+        crm_periph_Reset(CRM_SPI2_PERIPH_Reset, TRUE);
+        crm_periph_Reset(CRM_SPI2_PERIPH_Reset, FALSE);
     } else if(spi_x == SPI3) {
-        crm_periph_reset(CRM_SPI3_PERIPH_RESET, TRUE);
-        crm_periph_reset(CRM_SPI3_PERIPH_RESET, FALSE);
+        crm_periph_Reset(CRM_SPI3_PERIPH_Reset, TRUE);
+        crm_periph_Reset(CRM_SPI3_PERIPH_Reset, FALSE);
     } else if(spi_x == SPI4) {
-        crm_periph_reset(CRM_SPI4_PERIPH_RESET, TRUE);
-        crm_periph_reset(CRM_SPI4_PERIPH_RESET, FALSE);
+        crm_periph_Reset(CRM_SPI4_PERIPH_Reset, TRUE);
+        crm_periph_Reset(CRM_SPI4_PERIPH_Reset, FALSE);
     }
 }
 
 /**
   * @brief  spi init config with its default value.
-  * @param  spi_init_struct : pointer to a spi_init_type structure which will
+  * @param  spi_Init_struct : pointer to a spi_Init_Type structure which will
   *         be initialized.
   * @retval none
   */
-void spi_default_para_init(spi_init_type* spi_init_struct) {
-    spi_init_struct->transmission_mode = SPI_TRANSMIT_FULL_DUPLEX;
-    spi_init_struct->master_slave_mode = SPI_MODE_SLAVE;
-    spi_init_struct->mclk_freq_division = SPI_MCLK_DIV_2;
-    spi_init_struct->first_bit_transmission = SPI_FIRST_BIT_MSB;
-    spi_init_struct->frame_bit_num = SPI_FRAME_8BIT;
-    spi_init_struct->clock_polarity = SPI_CLOCK_POLARITY_LOW;
-    spi_init_struct->clock_phase = SPI_CLOCK_PHASE_1EDGE;
-    spi_init_struct->cs_mode_selection = SPI_CS_SOFTWARE_MODE;
+void spi_Default_Para_Init(spi_Init_Type* spi_Init_struct) {
+    spi_Init_struct->transmission_mode = SPI_Transmit_FULL_DUPLEX;
+    spi_Init_struct->master_Slave_mode = SPI_Mode_SLAVE;
+    spi_Init_struct->mclk_Freq_division = SPI_MCLK_DIV_2;
+    spi_Init_struct->first_Bit_transmission = SPI_FIRST_Bit_MSB;
+    spi_Init_struct->frame_Bit_Num = SPI_FRAME_8BIT;
+    spi_Init_struct->clock_polarity = SPI_Clock_POLARITY_LOW;
+    spi_Init_struct->clock_phase = SPI_Clock_PHASE_1EDGE;
+    spi_Init_struct->cs_Mode_Selection = SPI_CS_Software_MODE;
 }
 
 /**
@@ -84,58 +84,58 @@ void spi_default_para_init(spi_init_type* spi_init_struct) {
   * @param  spi_x: select the spi peripheral.
   *         this parameter can be one of the following values:
   *         SPI1, SPI2, SPI3 ,SPI4
-  * @param  spi_init_struct : pointer to a spi_init_type structure which will be initialized.
+  * @param  spi_Init_struct : pointer to a spi_Init_Type structure which will be initialized.
   * @retval none
   */
-void spi_init(spi_type* spi_x, spi_init_type* spi_init_struct) {
+void spi_Init(spi_Type* spi_x, spi_Init_Type* spi_Init_struct) {
     spi_x->i2sctrl_bit.i2smsel = FALSE;
 
-    if(spi_init_struct->transmission_mode == SPI_TRANSMIT_FULL_DUPLEX) {
+    if(spi_Init_struct->transmission_mode == SPI_Transmit_FULL_DUPLEX) {
         spi_x->ctrl1_bit.slben = FALSE;
         spi_x->ctrl1_bit.slbtd = FALSE;
         spi_x->ctrl1_bit.ora = FALSE;
-    } else if(spi_init_struct->transmission_mode == SPI_TRANSMIT_SIMPLEX_RX) {
+    } else if(spi_Init_struct->transmission_mode == SPI_Transmit_SIMPLEX_RX) {
         spi_x->ctrl1_bit.slben = FALSE;
         spi_x->ctrl1_bit.slbtd = FALSE;
         spi_x->ctrl1_bit.ora = TRUE;
-    } else if(spi_init_struct->transmission_mode == SPI_TRANSMIT_HALF_DUPLEX_RX) {
+    } else if(spi_Init_struct->transmission_mode == SPI_Transmit_HALF_DUPLEX_RX) {
         spi_x->ctrl1_bit.slben = TRUE;
         spi_x->ctrl1_bit.slbtd = FALSE;
         spi_x->ctrl1_bit.ora = FALSE;
-    } else if(spi_init_struct->transmission_mode == SPI_TRANSMIT_HALF_DUPLEX_TX) {
+    } else if(spi_Init_struct->transmission_mode == SPI_Transmit_HALF_DUPLEX_TX) {
         spi_x->ctrl1_bit.slben = TRUE;
         spi_x->ctrl1_bit.slbtd = TRUE;
         spi_x->ctrl1_bit.ora = FALSE;
     }
 
-    spi_x->ctrl1_bit.swcsen = spi_init_struct->cs_mode_selection;
+    spi_x->ctrl1_bit.swcsen = spi_Init_struct->cs_Mode_Selection;
 
-    if((spi_init_struct->master_slave_mode == SPI_MODE_MASTER) && (spi_init_struct->cs_mode_selection == SPI_CS_SOFTWARE_MODE)) {
+    if((spi_Init_struct->master_Slave_mode == SPI_Mode_MASTER) && (spi_Init_struct->cs_Mode_Selection == SPI_CS_Software_MODE)) {
         spi_x->ctrl1_bit.swcsil = TRUE;
     } else {
         spi_x->ctrl1_bit.swcsil = FALSE;
     }
 
-    spi_x->ctrl1_bit.msten = spi_init_struct->master_slave_mode;
+    spi_x->ctrl1_bit.msten = spi_Init_struct->master_Slave_mode;
 
-    if(spi_init_struct->mclk_freq_division <= SPI_MCLK_DIV_256) {
+    if(spi_Init_struct->mclk_Freq_division <= SPI_MCLK_DIV_256) {
         spi_x->ctrl2_bit.mdiv3en = FALSE;
         spi_x->ctrl2_bit.mdiv_h = FALSE;
-        spi_x->ctrl1_bit.mdiv_l = spi_init_struct->mclk_freq_division;
-    } else if(spi_init_struct->mclk_freq_division == SPI_MCLK_DIV_3) {
+        spi_x->ctrl1_bit.mdiv_l = spi_Init_struct->mclk_Freq_division;
+    } else if(spi_Init_struct->mclk_Freq_division == SPI_MCLK_DIV_3) {
         spi_x->ctrl2_bit.mdiv3en = TRUE;
         spi_x->ctrl2_bit.mdiv_h = FALSE;
         spi_x->ctrl1_bit.mdiv_l = 0;
     } else {
         spi_x->ctrl2_bit.mdiv3en = FALSE;
         spi_x->ctrl2_bit.mdiv_h = TRUE;
-        spi_x->ctrl1_bit.mdiv_l = spi_init_struct->mclk_freq_division & 0x7;
+        spi_x->ctrl1_bit.mdiv_l = spi_Init_struct->mclk_Freq_division & 0x7;
     }
 
-    spi_x->ctrl1_bit.ltf = spi_init_struct->first_bit_transmission;
-    spi_x->ctrl1_bit.fbn = spi_init_struct->frame_bit_num;
-    spi_x->ctrl1_bit.clkpol = spi_init_struct->clock_polarity;
-    spi_x->ctrl1_bit.clkpha = spi_init_struct->clock_phase;
+    spi_x->ctrl1_bit.ltf = spi_Init_struct->first_Bit_transmission;
+    spi_x->ctrl1_bit.fbn = spi_Init_struct->frame_Bit_Num;
+    spi_x->ctrl1_bit.clkpol = spi_Init_struct->clock_polarity;
+    spi_x->ctrl1_bit.clkpha = spi_Init_struct->clock_phase;
 }
 
 /**
@@ -147,7 +147,7 @@ void spi_init(spi_type* spi_x, spi_init_type* spi_init_struct) {
   *         this parameter can be: TRUE or FALSE.
   * @retval none
   */
-void spi_ti_mode_enable(spi_type* spi_x, confirm_state new_state) {
+void spi_ti_Mode_Enable(spi_Type* spi_x, confirm_state new_state) {
     spi_x->ctrl2_bit.tien = new_state;
 }
 
@@ -158,7 +158,7 @@ void spi_ti_mode_enable(spi_type* spi_x, confirm_state new_state) {
   *         SPI1, SPI2, SPI3 ,SPI4
   * @retval none
   */
-void spi_crc_next_transmit(spi_type* spi_x) {
+void spi_CRC_next_transmit(spi_Type* spi_x) {
     spi_x->ctrl1_bit.ntc = TRUE;
 }
 
@@ -167,11 +167,11 @@ void spi_crc_next_transmit(spi_type* spi_x) {
   * @param  spi_x: select the spi peripheral.
   *         this parameter can be one of the following values:
   *         SPI1, SPI2, SPI3 ,SPI4
-  * @param  crc_poly: crc polynomial value.
+  * @param  CRC_poly: crc polynomial value.
   * @retval none
   */
-void spi_crc_polynomial_set(spi_type* spi_x, uint16_t crc_poly) {
-    spi_x->cpoly_bit.cpoly = crc_poly;
+void spi_CRC_polynomial_Set(spi_Type* spi_x, uint16_t CRC_poly) {
+    spi_x->cpoly_bit.cpoly = CRC_poly;
 }
 
 /**
@@ -181,7 +181,7 @@ void spi_crc_polynomial_set(spi_type* spi_x, uint16_t crc_poly) {
   *         SPI1, SPI2, SPI3 ,SPI4
   * @retval the select crc polynomial register value
   */
-uint16_t spi_crc_polynomial_get(spi_type* spi_x) {
+uint16_t spi_CRC_polynomial_Get(spi_Type* spi_x) {
     return spi_x->cpoly_bit.cpoly;
 }
 
@@ -194,7 +194,7 @@ uint16_t spi_crc_polynomial_get(spi_type* spi_x) {
   *         this parameter can be: TRUE or FALSE.
   * @retval none
   */
-void spi_crc_enable(spi_type* spi_x, confirm_state new_state) {
+void spi_CRC_Enable(spi_Type* spi_x, confirm_state new_state) {
     spi_x->ctrl1_bit.ccen = new_state;
 }
 
@@ -203,16 +203,16 @@ void spi_crc_enable(spi_type* spi_x, confirm_state new_state) {
   * @param  spi_x: select the spi peripheral.
   *         this parameter can be one of the following values:
   *         SPI1, SPI2, SPI3 ,SPI4
-  * @param  crc_direction: select transmit or receive crc value to be read
+  * @param  CRC_direction: select transmit or receive crc value to be read
   *         - SPI_CRC_RX
   *         - SPI_CRC_TX
   * @retval the select crc register value
   */
-uint16_t spi_crc_value_get(spi_type* spi_x, spi_crc_direction_type crc_direction) {
-    if(crc_direction == SPI_CRC_RX)
-        return  spi_x->rcrc_bit.rcrc;
+uint16_t spi_CRC_value_Get(spi_Type* spi_x, spi_CRC_direction_Type CRC_direction) {
+    if(CRC_direction == SPI_CRC_RX)
+        return  spi_x->rCRC_bit.rcrc;
     else
-        return  spi_x->tcrc_bit.tcrc;
+        return  spi_x->tCRC_bit.tcrc;
 }
 
 /**
@@ -225,7 +225,7 @@ uint16_t spi_crc_value_get(spi_type* spi_x, spi_crc_direction_type crc_direction
   *         note:the bit only use in spi master mode
   * @retval none
   */
-void spi_hardware_cs_output_enable(spi_type* spi_x, confirm_state new_state) {
+void spi_hardware_cs_OutPut_Enable(spi_Type* spi_x, confirm_state new_state) {
     spi_x->ctrl2_bit.hwcsoe = new_state;
 }
 
@@ -236,13 +236,13 @@ void spi_hardware_cs_output_enable(spi_type* spi_x, confirm_state new_state) {
   *         SPI1, SPI2, SPI3 ,SPI4
   * @param  level: set the state of spi cs level.
   *         this parameter can be one of the following values:
-  *         - SPI_SWCS_INTERNAL_LEVEL_LOW
-  *         - SPI_SWCS_INTERNAL_LEVEL_HIGHT
+  *         - SPI_SWCS_Internal_LEVEL_LOW
+  *         - SPI_SWCS_Internal_LEVEL_HIGHT
   *         note:the bit only use when swcsen bit is set.
   *         note:when use this bit,io operation on the cs pin are invalid.
   * @retval none
   */
-void spi_software_cs_internal_level_set(spi_type* spi_x, spi_software_cs_level_type level) {
+void spi_Software_cs_Internal_level_Set(spi_Type* spi_x, spi_Software_cs_level_Type level) {
     spi_x->ctrl1_bit.swcsil = level;
 }
 
@@ -251,13 +251,13 @@ void spi_software_cs_internal_level_set(spi_type* spi_x, spi_software_cs_level_t
   * @param  spi_x: select the spi peripheral.
   *         this parameter can be one of the following values:
   *         SPI1, SPI2, SPI3 ,SPI4
-  * @param  bit_num: set the data frame size
+  * @param  bit_Num: set the data frame size
   *         - SPI_FRAME_8BIT
   *         - SPI_FRAME_16BIT
   * @retval none
   */
-void spi_frame_bit_num_set(spi_type* spi_x, spi_frame_bit_num_type bit_num) {
-    spi_x->ctrl1_bit.fbn = bit_num;
+void spi_frame_Bit_Num_Set(spi_Type* spi_x, spi_frame_Bit_Num_Type bit_Num) {
+    spi_x->ctrl1_bit.fbn = bit_Num;
 }
 
 /**
@@ -271,7 +271,7 @@ void spi_frame_bit_num_set(spi_type* spi_x, spi_frame_bit_num_type bit_num) {
   *         - SPI_HALF_DUPLEX_DIRECTION_TX
   * @retval none
   */
-void spi_half_duplex_direction_set(spi_type* spi_x, spi_half_duplex_direction_type direction) {
+void spi_half_duplex_direction_Set(spi_Type* spi_x, spi_half_duplex_direction_Type direction) {
     spi_x->ctrl1_bit.slbtd = direction;
 }
 
@@ -284,23 +284,23 @@ void spi_half_duplex_direction_set(spi_type* spi_x, spi_half_duplex_direction_ty
   *         this parameter can be: TRUE or FALSE.
   * @retval none
   */
-void spi_enable(spi_type* spi_x, confirm_state new_state) {
+void spi_Enable(spi_Type* spi_x, confirm_state new_state) {
     spi_x->ctrl1_bit.spien = new_state;
 }
 
 /**
   * @brief  i2s init config with its default value.
-  * @param  i2s_init_struct : pointer to a i2s_init_type structure which will
+  * @param  i2s_Init_struct : pointer to a i2s_Init_Type structure which will
   *         be initialized.
   * @retval none
   */
-void i2s_default_para_init(i2s_init_type* i2s_init_struct) {
-    i2s_init_struct->operation_mode = I2S_MODE_SLAVE_TX;
-    i2s_init_struct->audio_protocol = I2S_AUDIO_PROTOCOL_PHILLIPS;
-    i2s_init_struct->audio_sampling_freq = I2S_AUDIO_FREQUENCY_DEFAULT;
-    i2s_init_struct->data_channel_format = I2S_DATA_16BIT_CHANNEL_16BIT;
-    i2s_init_struct->clock_polarity = I2S_CLOCK_POLARITY_LOW;
-    i2s_init_struct->mclk_output_enable = FALSE;
+void i2s_Default_Para_Init(i2s_Init_Type* i2s_Init_struct) {
+    i2s_Init_struct->operation_mode = I2S_Mode_Slave_TX;
+    i2s_Init_struct->audio_protocol = I2S_AUDIO_PROTOCOL_PHILLIPS;
+    i2s_Init_struct->audio_sampling_freq = I2S_AUDIO_Frequency_DEFAULT;
+    i2s_Init_struct->data_Channel_format = I2S_Data_16BIT_Channel_16BIT;
+    i2s_Init_struct->clock_polarity = I2S_Clock_POLARITY_LOW;
+    i2s_Init_struct->mclk_OutPut_Enable = FALSE;
 }
 
 /**
@@ -308,39 +308,39 @@ void i2s_default_para_init(i2s_init_type* i2s_init_struct) {
   * @param  spi_x: select the spi peripheral.
   *         this parameter can be one of the following values:
   *         SPI1, SPI2, SPI3 ,SPI4 , I2S2EXT, I2S3EXT
-  * @param  i2s_init_struct : pointer to a i2s_init_type structure which will be initialized.
+  * @param  i2s_Init_struct : pointer to a i2s_Init_Type structure which will be initialized.
   * @retval none
   */
-void i2s_init(spi_type* spi_x, i2s_init_type* i2s_init_struct) {
-    crm_clocks_freq_type clocks_freq;
+void i2s_Init(spi_Type* spi_x, i2s_Init_Type* i2s_Init_struct) {
+    crm_clocks_Freq_Type clocks_freq;
     uint32_t i2s_sclk_index = 0;
     uint32_t i2sdiv_index = 2, i2sodd_index = 0, frequency_index = 0;
 
     /* i2s audio frequency config */
-    if(i2s_init_struct->audio_sampling_freq == I2S_AUDIO_FREQUENCY_DEFAULT) {
+    if(i2s_Init_struct->audio_sampling_freq == I2S_AUDIO_Frequency_DEFAULT) {
         i2sodd_index = 0;
         i2sdiv_index = 2;
     } else {
-        crm_clocks_freq_get(&clocks_freq);
+        crm_clocks_Freq_Get(&clocks_freq);
         i2s_sclk_index = clocks_freq.sclk_freq;
 
-        if((i2s_init_struct->audio_protocol == I2S_AUDIO_PROTOCOL_PCM_SHORT) || (i2s_init_struct->audio_protocol == I2S_AUDIO_PROTOCOL_PCM_LONG)) {
-            if(i2s_init_struct->mclk_output_enable == TRUE) {
-                frequency_index = (((i2s_sclk_index / 128) * 10) / i2s_init_struct->audio_sampling_freq) + 5;
+        if((i2s_Init_struct->audio_protocol == I2S_AUDIO_PROTOCOL_PCM_SHORT) || (i2s_Init_struct->audio_protocol == I2S_AUDIO_PROTOCOL_PCM_LONG)) {
+            if(i2s_Init_struct->mclk_OutPut_Enable == TRUE) {
+                frequency_index = (((i2s_sclk_index / 128) * 10) / i2s_Init_struct->audio_sampling_freq) + 5;
             } else {
-                if(i2s_init_struct->data_channel_format == I2S_DATA_16BIT_CHANNEL_16BIT)
-                    frequency_index = (((i2s_sclk_index / 16) * 10) / i2s_init_struct->audio_sampling_freq) + 5;
+                if(i2s_Init_struct->data_Channel_format == I2S_Data_16BIT_Channel_16BIT)
+                    frequency_index = (((i2s_sclk_index / 16) * 10) / i2s_Init_struct->audio_sampling_freq) + 5;
                 else
-                    frequency_index = (((i2s_sclk_index / 32) * 10) / i2s_init_struct->audio_sampling_freq) + 5;
+                    frequency_index = (((i2s_sclk_index / 32) * 10) / i2s_Init_struct->audio_sampling_freq) + 5;
             }
         } else {
-            if(i2s_init_struct->mclk_output_enable == TRUE) {
-                frequency_index = (((i2s_sclk_index / 256) * 10) / i2s_init_struct->audio_sampling_freq) + 5;
+            if(i2s_Init_struct->mclk_OutPut_Enable == TRUE) {
+                frequency_index = (((i2s_sclk_index / 256) * 10) / i2s_Init_struct->audio_sampling_freq) + 5;
             } else {
-                if(i2s_init_struct->data_channel_format == I2S_DATA_16BIT_CHANNEL_16BIT)
-                    frequency_index = (((i2s_sclk_index / 32) * 10) / i2s_init_struct->audio_sampling_freq) + 5;
+                if(i2s_Init_struct->data_Channel_format == I2S_Data_16BIT_Channel_16BIT)
+                    frequency_index = (((i2s_sclk_index / 32) * 10) / i2s_Init_struct->audio_sampling_freq) + 5;
                 else
-                    frequency_index = (((i2s_sclk_index / 64) * 10) / i2s_init_struct->audio_sampling_freq) + 5;
+                    frequency_index = (((i2s_sclk_index / 64) * 10) / i2s_Init_struct->audio_sampling_freq) + 5;
             }
         }
     }
@@ -365,41 +365,41 @@ void i2s_init(spi_type* spi_x, i2s_init_type* i2s_init_struct) {
     }
 
     /* i2s audio_protocol set*/
-    if(i2s_init_struct->audio_protocol == I2S_AUDIO_PROTOCOL_PCM_LONG) {
+    if(i2s_Init_struct->audio_protocol == I2S_AUDIO_PROTOCOL_PCM_LONG) {
         spi_x->i2sctrl_bit.pcmfssel = 1;
         spi_x->i2sctrl_bit.stdsel = 3;
-    } else if(i2s_init_struct->audio_protocol == I2S_AUDIO_PROTOCOL_PCM_SHORT) {
+    } else if(i2s_Init_struct->audio_protocol == I2S_AUDIO_PROTOCOL_PCM_SHORT) {
         spi_x->i2sctrl_bit.pcmfssel = 0;
         spi_x->i2sctrl_bit.stdsel = 3;
-    } else if(i2s_init_struct->audio_protocol == I2S_AUDIO_PROTOCOL_LSB) {
+    } else if(i2s_Init_struct->audio_protocol == I2S_AUDIO_PROTOCOL_LSB) {
         spi_x->i2sctrl_bit.pcmfssel = 0;
         spi_x->i2sctrl_bit.stdsel = 2;
-    } else if(i2s_init_struct->audio_protocol == I2S_AUDIO_PROTOCOL_MSB) {
+    } else if(i2s_Init_struct->audio_protocol == I2S_AUDIO_PROTOCOL_MSB) {
         spi_x->i2sctrl_bit.pcmfssel = 0;
         spi_x->i2sctrl_bit.stdsel = 1;
-    } else if(i2s_init_struct->audio_protocol == I2S_AUDIO_PROTOCOL_PHILLIPS) {
+    } else if(i2s_Init_struct->audio_protocol == I2S_AUDIO_PROTOCOL_PHILLIPS) {
         spi_x->i2sctrl_bit.pcmfssel = 0;
         spi_x->i2sctrl_bit.stdsel = 0;
     }
 
-    /* i2s data_channel_format set*/
-    if(i2s_init_struct->data_channel_format == I2S_DATA_16BIT_CHANNEL_16BIT) {
+    /* i2s data_Channel_format set*/
+    if(i2s_Init_struct->data_Channel_format == I2S_Data_16BIT_Channel_16BIT) {
         spi_x->i2sctrl_bit.i2scbn = 0;
         spi_x->i2sctrl_bit.i2sdbn = 0;
-    } else if(i2s_init_struct->data_channel_format == I2S_DATA_16BIT_CHANNEL_32BIT) {
+    } else if(i2s_Init_struct->data_Channel_format == I2S_Data_16BIT_Channel_32BIT) {
         spi_x->i2sctrl_bit.i2scbn = 1;
         spi_x->i2sctrl_bit.i2sdbn = 0;
-    } else if(i2s_init_struct->data_channel_format == I2S_DATA_24BIT_CHANNEL_32BIT) {
+    } else if(i2s_Init_struct->data_Channel_format == I2S_Data_24BIT_Channel_32BIT) {
         spi_x->i2sctrl_bit.i2scbn = 1;
         spi_x->i2sctrl_bit.i2sdbn = 1;
-    } else if(i2s_init_struct->data_channel_format == I2S_DATA_32BIT_CHANNEL_32BIT) {
+    } else if(i2s_Init_struct->data_Channel_format == I2S_Data_32BIT_Channel_32BIT) {
         spi_x->i2sctrl_bit.i2scbn = 1;
         spi_x->i2sctrl_bit.i2sdbn = 2;
     }
 
-    spi_x->i2sctrl_bit.i2sclkpol = i2s_init_struct->clock_polarity;
-    spi_x->i2sclk_bit.i2smclkoe = i2s_init_struct->mclk_output_enable;
-    spi_x->i2sctrl_bit.opersel = i2s_init_struct->operation_mode;
+    spi_x->i2sctrl_bit.i2sclkpol = i2s_Init_struct->clock_polarity;
+    spi_x->i2sclk_bit.i2smclkoe = i2s_Init_struct->mclk_OutPut_Enable;
+    spi_x->i2sctrl_bit.opersel = i2s_Init_struct->operation_mode;
     spi_x->i2sctrl_bit.i2smsel = TRUE;
 }
 
@@ -412,7 +412,7 @@ void i2s_init(spi_type* spi_x, i2s_init_type* i2s_init_struct) {
   *         this parameter can be: TRUE or FALSE.
   * @retval none
   */
-void i2s_enable(spi_type* spi_x, confirm_state new_state) {
+void i2s_Enable(spi_Type* spi_x, confirm_state new_state) {
     spi_x->i2sctrl_bit.i2sen = new_state;
 }
 
@@ -423,14 +423,14 @@ void i2s_enable(spi_type* spi_x, confirm_state new_state) {
   *         SPI1, SPI2, SPI3 ,SPI4 , I2S2EXT, I2S3EXT
   * @param  spi_i2s_int: specifies the spi/i2s interrupt sources to be enabled or disabled.
   *         this parameter can be one of the following values:
-  *         - SPI_I2S_ERROR_INT
+  *         - SPI_I2S_Error_INT
   *         - SPI_I2S_RDBF_INT
   *         - SPI_I2S_TDBE_INT
   * @param  new_state: new state of the specified spi/i2s interrupts.
   *         this parameter can be: TRUE or FALSE.
   * @retval none
   */
-void spi_i2s_interrupt_enable(spi_type* spi_x, uint32_t spi_i2s_int, confirm_state new_state) {
+void spi_i2s_Interrupt_Enable(spi_Type* spi_x, uint32_t spi_i2s_int, confirm_state new_state) {
     if(new_state != FALSE) {
         spi_x->ctrl2 |= spi_i2s_int;
     } else {
@@ -447,7 +447,7 @@ void spi_i2s_interrupt_enable(spi_type* spi_x, uint32_t spi_i2s_int, confirm_sta
   *         this parameter can be: TRUE or FALSE.
   * @retval none
   */
-void spi_i2s_dma_transmitter_enable(spi_type* spi_x, confirm_state new_state) {
+void spi_i2s_DMA_transmitter_Enable(spi_Type* spi_x, confirm_state new_state) {
     spi_x->ctrl2_bit.dmaten = new_state;
 }
 
@@ -460,7 +460,7 @@ void spi_i2s_dma_transmitter_enable(spi_type* spi_x, confirm_state new_state) {
   *         this parameter can be: TRUE or FALSE.
   * @retval none
   */
-void spi_i2s_dma_receiver_enable(spi_type* spi_x, confirm_state new_state) {
+void spi_i2s_DMA_Receiver_Enable(spi_Type* spi_x, confirm_state new_state) {
     spi_x->ctrl2_bit.dmaren = new_state;
 }
 
@@ -474,7 +474,7 @@ void spi_i2s_dma_receiver_enable(spi_type* spi_x, confirm_state new_state) {
   *         - (0x0000~0xFFFF)
   * @retval none
   */
-void spi_i2s_data_transmit(spi_type* spi_x, uint16_t tx_data) {
+void spi_i2s_Data_transmit(spi_Type* spi_x, uint16_t tx_data) {
     spi_x->dt = tx_data;
 }
 
@@ -485,7 +485,7 @@ void spi_i2s_data_transmit(spi_type* spi_x, uint16_t tx_data) {
   *         SPI1, SPI2, SPI3 ,SPI4 , I2S2EXT, I2S3EXT
   * @retval the received data value
   */
-uint16_t spi_i2s_data_receive(spi_type* spi_x) {
+uint16_t spi_i2s_Data_receive(spi_Type* spi_x) {
     return (uint16_t)spi_x->dt;
 }
 
@@ -507,7 +507,7 @@ uint16_t spi_i2s_data_receive(spi_type* spi_x) {
   *         - SPI_CSPAS_FLAG
   * @retval the new state of spi/i2s flag
   */
-flag_status spi_i2s_flag_get(spi_type* spi_x, uint32_t spi_i2s_flag) {
+flag_status spi_i2s_Flag_Get(spi_Type* spi_x, uint32_t spi_i2s_flag) {
     flag_status status = RESET;
 
     if ((spi_x->sts & spi_i2s_flag) == RESET) {
@@ -538,7 +538,7 @@ flag_status spi_i2s_flag_get(spi_type* spi_x, uint32_t spi_i2s_flag) {
   *         SPI_I2S_BF_FLAG    this flag cann't cleared by software, it's set and cleared by hardware.
   * @retval none
   */
-void spi_i2s_flag_clear(spi_type* spi_x, uint32_t spi_i2s_flag) {
+void spi_i2s_Flag_Clear(spi_Type* spi_x, uint32_t spi_i2s_flag) {
     if(spi_i2s_flag == SPI_CCERR_FLAG)
         spi_x->sts = ~SPI_CCERR_FLAG;
     else if(spi_i2s_flag == SPI_I2S_RDBF_FLAG)

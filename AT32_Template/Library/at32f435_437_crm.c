@@ -33,7 +33,7 @@
   * @{
   */
 
-#ifdef CRM_MODULE_ENABLED
+#ifdef CRM_MODULE_EnableD
 
 /** @defgroup CRM_private_functions
   * @{
@@ -44,7 +44,7 @@
   * @param  none
   * @retval none
   */
-void crm_reset(void) {
+void crm_Reset(void) {
     /* reset the crm clock configuration to the default reset state(for debug purpose) */
     /* set hicken bit */
     CRM->ctrl_bit.hicken = TRUE;
@@ -101,22 +101,22 @@ void crm_hext_bypass(confirm_state new_state) {
   *         - CRM_PLL_STABLE_FLAG
   *         - CRM_LEXT_STABLE_FLAG
   *         - CRM_LICK_STABLE_FLAG
-  *         - CRM_PIN_RESET_FLAG
-  *         - CRM_POR_RESET_FLAG
-  *         - CRM_SW_RESET_FLAG
-  *         - CRM_WDT_RESET_FLAG
-  *         - CRM_WWDT_RESET_FLAG
-  *         - CRM_LOWPOWER_RESET_FLAG
+  *         - CRM_Pin_Reset_FLAG
+  *         - CRM_POR_Reset_FLAG
+  *         - CRM_SW_Reset_FLAG
+  *         - CRM_WDT_Reset_FLAG
+  *         - CRM_WWDT_Reset_FLAG
+  *         - CRM_LOWPOWER_Reset_FLAG
   *         interrupt flag:
-  *         - CRM_LICK_READY_INT_FLAG
-  *         - CRM_LEXT_READY_INT_FLAG
-  *         - CRM_HICK_READY_INT_FLAG
-  *         - CRM_HEXT_READY_INT_FLAG
-  *         - CRM_PLL_READY_INT_FLAG
-  *         - CRM_CLOCK_FAILURE_INT_FLAG
+  *         - CRM_LICK_ReadY_INT_FLAG
+  *         - CRM_LEXT_ReadY_INT_FLAG
+  *         - CRM_HICK_ReadY_INT_FLAG
+  *         - CRM_HEXT_ReadY_INT_FLAG
+  *         - CRM_PLL_ReadY_INT_FLAG
+  *         - CRM_Clock_FAILURE_INT_FLAG
   * @retval flag_status (SET or RESET)
   */
-flag_status crm_flag_get(uint32_t flag) {
+flag_status crm_Flag_Get(uint32_t flag) {
     flag_status status = RESET;
 
     if((CRM_REG(flag) & CRM_REG_BIT(flag)) != CRM_REG_BIT(flag)) {
@@ -137,11 +137,11 @@ error_status crm_hext_stable_wait(void) {
     uint32_t stable_cnt = 0;
     error_status status = ERROR;
 
-    while((crm_flag_get(CRM_HEXT_STABLE_FLAG) != SET) && (stable_cnt < HEXT_STARTUP_TIMEOUT)) {
+    while((crm_Flag_Get(CRM_HEXT_STABLE_FLAG) != SET) && (stable_cnt < HEXT_STARTUP_TIMEOUT)) {
         stable_cnt ++;
     }
 
-    if(crm_flag_get(CRM_HEXT_STABLE_FLAG) != SET) {
+    if(crm_Flag_Get(CRM_HEXT_STABLE_FLAG) != SET) {
         status = ERROR;
     } else {
         status = SUCCESS;
@@ -155,7 +155,7 @@ error_status crm_hext_stable_wait(void) {
   * @param  trim_value (0x00~0x3F)
   * @retval none
   */
-void crm_hick_clock_trimming_set(uint8_t trim_value) {
+void crm_hick_Clock_trimming_Set(uint8_t trim_value) {
     CRM->ctrl_bit.hicktrim = trim_value;
 }
 
@@ -164,7 +164,7 @@ void crm_hick_clock_trimming_set(uint8_t trim_value) {
   * @param  cali_value (0x00~0xFF)
   * @retval none
   */
-void crm_hick_clock_calibration_set(uint8_t cali_value) {
+void crm_hick_Clock_Calibration_Set(uint8_t cali_value) {
     /* enable write hick calibration */
     CRM->misc1_bit.hickcal_key = 0x5A;
 
@@ -198,7 +198,7 @@ void crm_hick_clock_calibration_set(uint8_t cali_value) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void crm_periph_clock_enable(crm_periph_clock_type value, confirm_state new_state) {
+void crm_periph_Clock_Enable(crm_periph_Clock_Type value, confirm_state new_state) {
     /* enable periph clock */
     if(TRUE == new_state) {
         CRM_REG(value) |= CRM_REG_BIT(value);
@@ -213,25 +213,25 @@ void crm_periph_clock_enable(crm_periph_clock_type value, confirm_state new_stat
   * @brief  enable or disable the peripheral reset
   * @param  value
   *         this parameter can be one of the following values:
-  *         - CRM_GPIOA_PERIPH_RESET        - CRM_GPIOB_PERIPH_RESET        - CRM_GPIOC_PERIPH_RESET       - CRM_GPIOD_PERIPH_RESET
-  *         - CRM_GPIOE_PERIPH_RESET        - CRM_GPIOF_PERIPH_RESET        - CRM_GPIOG_PERIPH_RESET       - CRM_GPIOH_PERIPH_RESET
-  *         - CRM_CRC_PERIPH_RESET          - CRM_EDMA_PERIPH_RESET         - CRM_DMA1_PERIPH_RESET        - CRM_DMA2_PERIPH_RESET
-  *         - CRM_EMAC_PERIPH_RESET         - CRM_OTGFS2_PERIPH_RESET       - CRM_DVP_PERIPH_RESET         - CRM_OTGFS1_PERIPH_RESET
-  *         - CRM_SDIO1_PERIPH_RESET        - CRM_XMC_PERIPH_RESET          - CRM_QSPI1_PERIPH_RESET       - CRM_QSPI2_PERIPH_RESET
-  *         - CRM_SDIO2_PERIPH_RESET        - CRM_TMR2_PERIPH_RESET         - CRM_TMR3_PERIPH_RESET        - CRM_TMR4_PERIPH_RESET
-  *         - CRM_TMR5_PERIPH_RESET         - CRM_TMR6_PERIPH_RESET         - CRM_TMR7_PERIPH_RESET        - CRM_TMR12_PERIPH_RESET
-  *         - CRM_TMR13_PERIPH_RESET        - CRM_TMR14_PERIPH_RESET        - CRM_WWDT_PERIPH_RESET        - CRM_SPI2_PERIPH_RESET
-  *         - CRM_SPI3_PERIPH_RESET         - CRM_USART2_PERIPH_RESET       - CRM_USART3_PERIPH_RESET      - CRM_UART4_PERIPH_RESET
-  *         - CRM_UART5_PERIPH_RESET        - CRM_I2C1_PERIPH_RESET         - CRM_I2C2_PERIPH_RESET        - CRM_I2C3_PERIPH_RESET
-  *         - CRM_CAN1_PERIPH_RESET         - CRM_CAN2_PERIPH_RESET         - CRM_PWC_PERIPH_RESET         - CRM_DAC_PERIPH_RESET
-  *         - CRM_UART7_PERIPH_RESET        - CRM_UART8_PERIPH_RESET        - CRM_TMR1_PERIPH_RESET        - CRM_TMR8_PERIPH_RESET
-  *         - CRM_USART1_PERIPH_RESET       - CRM_USART6_PERIPH_RESET       - CRM_ADC_PERIPH_RESET         - CRM_SPI1_PERIPH_RESET
-  *         - CRM_SPI4_PERIPH_RESET         - CRM_SCFG_PERIPH_RESET         - CRM_TMR9_PERIPH_RESET        - CRM_TMR10_PERIPH_RESET
-  *         - CRM_TMR11_PERIPH_RESET        - CRM_TMR20_PERIPH_RESET        - CRM_ACC_PERIPH_RESET
+  *         - CRM_GPIOA_PERIPH_Reset        - CRM_GPIOB_PERIPH_Reset        - CRM_GPIOC_PERIPH_Reset       - CRM_GPIOD_PERIPH_Reset
+  *         - CRM_GPIOE_PERIPH_Reset        - CRM_GPIOF_PERIPH_Reset        - CRM_GPIOG_PERIPH_Reset       - CRM_GPIOH_PERIPH_Reset
+  *         - CRM_CRC_PERIPH_Reset          - CRM_EDMA_PERIPH_Reset         - CRM_DMA1_PERIPH_Reset        - CRM_DMA2_PERIPH_Reset
+  *         - CRM_EMAC_PERIPH_Reset         - CRM_OTGFS2_PERIPH_Reset       - CRM_DVP_PERIPH_Reset         - CRM_OTGFS1_PERIPH_Reset
+  *         - CRM_SDIO1_PERIPH_Reset        - CRM_XMC_PERIPH_Reset          - CRM_QSPI1_PERIPH_Reset       - CRM_QSPI2_PERIPH_Reset
+  *         - CRM_SDIO2_PERIPH_Reset        - CRM_TMR2_PERIPH_Reset         - CRM_TMR3_PERIPH_Reset        - CRM_TMR4_PERIPH_Reset
+  *         - CRM_TMR5_PERIPH_Reset         - CRM_TMR6_PERIPH_Reset         - CRM_TMR7_PERIPH_Reset        - CRM_TMR12_PERIPH_Reset
+  *         - CRM_TMR13_PERIPH_Reset        - CRM_TMR14_PERIPH_Reset        - CRM_WWDT_PERIPH_Reset        - CRM_SPI2_PERIPH_Reset
+  *         - CRM_SPI3_PERIPH_Reset         - CRM_USART2_PERIPH_Reset       - CRM_USART3_PERIPH_Reset      - CRM_UART4_PERIPH_Reset
+  *         - CRM_UART5_PERIPH_Reset        - CRM_I2C1_PERIPH_Reset         - CRM_I2C2_PERIPH_Reset        - CRM_I2C3_PERIPH_Reset
+  *         - CRM_CAN1_PERIPH_Reset         - CRM_CAN2_PERIPH_Reset         - CRM_PWC_PERIPH_Reset         - CRM_DAC_PERIPH_Reset
+  *         - CRM_UART7_PERIPH_Reset        - CRM_UART8_PERIPH_Reset        - CRM_TMR1_PERIPH_Reset        - CRM_TMR8_PERIPH_Reset
+  *         - CRM_USART1_PERIPH_Reset       - CRM_USART6_PERIPH_Reset       - CRM_ADC_PERIPH_Reset         - CRM_SPI1_PERIPH_Reset
+  *         - CRM_SPI4_PERIPH_Reset         - CRM_SCFG_PERIPH_Reset         - CRM_TMR9_PERIPH_Reset        - CRM_TMR10_PERIPH_Reset
+  *         - CRM_TMR11_PERIPH_Reset        - CRM_TMR20_PERIPH_Reset        - CRM_ACC_PERIPH_Reset
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void crm_periph_reset(crm_periph_reset_type value, confirm_state new_state) {
+void crm_periph_Reset(crm_periph_Reset_Type value, confirm_state new_state) {
     /* enable periph reset */
     if(new_state == TRUE) {
         CRM_REG(value) |= (CRM_REG_BIT(value));
@@ -266,7 +266,7 @@ void crm_periph_reset(crm_periph_reset_type value, confirm_state new_state) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void crm_periph_lowpower_mode_enable(crm_periph_clock_lowpower_type value, confirm_state new_state) {
+void crm_periph_lowpower_Mode_Enable(crm_periph_Clock_lowpower_Type value, confirm_state new_state) {
     /* enable periph clock in lowpower mode */
     if(new_state == TRUE) {
         CRM_REG(value) |= (CRM_REG_BIT(value));
@@ -281,33 +281,33 @@ void crm_periph_lowpower_mode_enable(crm_periph_clock_lowpower_type value, confi
   * @brief  enable or disable the crm clock source
   * @param  source
   *         this parameter can be one of the following values:
-  *         - CRM_CLOCK_SOURCE_HICK
-  *         - CRM_CLOCK_SOURCE_HEXT
-  *         - CRM_CLOCK_SOURCE_PLL
-  *         - CRM_CLOCK_SOURCE_LEXT
-  *         - CRM_CLOCK_SOURCE_LICK
+  *         - CRM_Clock_Source_HICK
+  *         - CRM_Clock_Source_HEXT
+  *         - CRM_Clock_Source_PLL
+  *         - CRM_Clock_Source_LEXT
+  *         - CRM_Clock_Source_LICK
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void crm_clock_source_enable(crm_clock_source_type source, confirm_state new_state) {
+void crm_Clock_Source_Enable(crm_Clock_Source_Type source, confirm_state new_state) {
     switch(source) {
-        case CRM_CLOCK_SOURCE_HICK:
+        case CRM_Clock_Source_HICK:
             CRM->ctrl_bit.hicken = new_state;
             break;
 
-        case CRM_CLOCK_SOURCE_HEXT:
+        case CRM_Clock_Source_HEXT:
             CRM->ctrl_bit.hexten = new_state;
             break;
 
-        case CRM_CLOCK_SOURCE_PLL:
+        case CRM_Clock_Source_PLL:
             CRM->ctrl_bit.pllen = new_state;
             break;
 
-        case CRM_CLOCK_SOURCE_LEXT:
+        case CRM_Clock_Source_LEXT:
             CRM->bpdc_bit.lexten = new_state;
             break;
 
-        case CRM_CLOCK_SOURCE_LICK:
+        case CRM_Clock_Source_LICK:
             CRM->ctrlsts_bit.licken = new_state;
             break;
 
@@ -321,58 +321,58 @@ void crm_clock_source_enable(crm_clock_source_type source, confirm_state new_sta
   * @param  flag
   *         this parameter can be one of the following values:
   *         reset flag:
-  *         - CRM_PIN_RESET_FLAG
-  *         - CRM_POR_RESET_FLAG
-  *         - CRM_SW_RESET_FLAG
-  *         - CRM_WDT_RESET_FLAG
-  *         - CRM_WWDT_RESET_FLAG
-  *         - CRM_LOWPOWER_RESET_FLAG
-  *         - CRM_ALL_RESET_FLAG
+  *         - CRM_Pin_Reset_FLAG
+  *         - CRM_POR_Reset_FLAG
+  *         - CRM_SW_Reset_FLAG
+  *         - CRM_WDT_Reset_FLAG
+  *         - CRM_WWDT_Reset_FLAG
+  *         - CRM_LOWPOWER_Reset_FLAG
+  *         - CRM_All_Reset_FLAG
   *         interrupt flag:
-  *         - CRM_LICK_READY_INT_FLAG
-  *         - CRM_LEXT_READY_INT_FLAG
-  *         - CRM_HICK_READY_INT_FLAG
-  *         - CRM_HEXT_READY_INT_FLAG
-  *         - CRM_PLL_READY_INT_FLAG
-  *         - CRM_CLOCK_FAILURE_INT_FLAG
+  *         - CRM_LICK_ReadY_INT_FLAG
+  *         - CRM_LEXT_ReadY_INT_FLAG
+  *         - CRM_HICK_ReadY_INT_FLAG
+  *         - CRM_HEXT_ReadY_INT_FLAG
+  *         - CRM_PLL_ReadY_INT_FLAG
+  *         - CRM_Clock_FAILURE_INT_FLAG
   * @retval none
   */
-void crm_flag_clear(uint32_t flag) {
+void crm_Flag_Clear(uint32_t flag) {
     switch(flag) {
-        case CRM_NRST_RESET_FLAG:
-        case CRM_POR_RESET_FLAG:
-        case CRM_SW_RESET_FLAG:
-        case CRM_WDT_RESET_FLAG:
-        case CRM_WWDT_RESET_FLAG:
-        case CRM_LOWPOWER_RESET_FLAG:
-        case CRM_ALL_RESET_FLAG:
+        case CRM_NRST_Reset_FLAG:
+        case CRM_POR_Reset_FLAG:
+        case CRM_SW_Reset_FLAG:
+        case CRM_WDT_Reset_FLAG:
+        case CRM_WWDT_Reset_FLAG:
+        case CRM_LOWPOWER_Reset_FLAG:
+        case CRM_All_Reset_FLAG:
             CRM->ctrlsts_bit.rstfc = TRUE;
 
             while(CRM->ctrlsts_bit.rstfc == TRUE);
 
             break;
 
-        case CRM_LICK_READY_INT_FLAG:
+        case CRM_LICK_ReadY_INT_FLAG:
             CRM->clkint_bit.lickstblfc = TRUE;
             break;
 
-        case CRM_LEXT_READY_INT_FLAG:
+        case CRM_LEXT_ReadY_INT_FLAG:
             CRM->clkint_bit.lextstblfc = TRUE;
             break;
 
-        case CRM_HICK_READY_INT_FLAG:
+        case CRM_HICK_ReadY_INT_FLAG:
             CRM->clkint_bit.hickstblfc = TRUE;
             break;
 
-        case CRM_HEXT_READY_INT_FLAG:
+        case CRM_HEXT_ReadY_INT_FLAG:
             CRM->clkint_bit.hextstblfc = TRUE;
             break;
 
-        case CRM_PLL_READY_INT_FLAG:
+        case CRM_PLL_ReadY_INT_FLAG:
             CRM->clkint_bit.pllstblfc = TRUE;
             break;
 
-        case CRM_CLOCK_FAILURE_INT_FLAG:
+        case CRM_Clock_FAILURE_INT_FLAG:
             CRM->clkint_bit.cfdfc = TRUE;
             break;
 
@@ -385,42 +385,42 @@ void crm_flag_clear(uint32_t flag) {
   * @brief  select ertc clock
   * @param  value
   *         this parameter can be one of the following values:
-  *         - CRM_ERTC_CLOCK_NOCLK
-  *         - CRM_ERTC_CLOCK_LEXT
-  *         - CRM_ERTC_CLOCK_LICK
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_2
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_3
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_4
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_5
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_6
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_7
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_8
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_9
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_10
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_11
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_12
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_13
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_14
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_15
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_16
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_17
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_18
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_19
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_20
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_21
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_22
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_23
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_24
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_25
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_26
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_27
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_28
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_29
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_30
-  *         - CRM_ERTC_CLOCK_HEXT_DIV_31
+  *         - CRM_ERTC_Clock_NOCLK
+  *         - CRM_ERTC_Clock_LEXT
+  *         - CRM_ERTC_Clock_LICK
+  *         - CRM_ERTC_Clock_HEXT_DIV_2
+  *         - CRM_ERTC_Clock_HEXT_DIV_3
+  *         - CRM_ERTC_Clock_HEXT_DIV_4
+  *         - CRM_ERTC_Clock_HEXT_DIV_5
+  *         - CRM_ERTC_Clock_HEXT_DIV_6
+  *         - CRM_ERTC_Clock_HEXT_DIV_7
+  *         - CRM_ERTC_Clock_HEXT_DIV_8
+  *         - CRM_ERTC_Clock_HEXT_DIV_9
+  *         - CRM_ERTC_Clock_HEXT_DIV_10
+  *         - CRM_ERTC_Clock_HEXT_DIV_11
+  *         - CRM_ERTC_Clock_HEXT_DIV_12
+  *         - CRM_ERTC_Clock_HEXT_DIV_13
+  *         - CRM_ERTC_Clock_HEXT_DIV_14
+  *         - CRM_ERTC_Clock_HEXT_DIV_15
+  *         - CRM_ERTC_Clock_HEXT_DIV_16
+  *         - CRM_ERTC_Clock_HEXT_DIV_17
+  *         - CRM_ERTC_Clock_HEXT_DIV_18
+  *         - CRM_ERTC_Clock_HEXT_DIV_19
+  *         - CRM_ERTC_Clock_HEXT_DIV_20
+  *         - CRM_ERTC_Clock_HEXT_DIV_21
+  *         - CRM_ERTC_Clock_HEXT_DIV_22
+  *         - CRM_ERTC_Clock_HEXT_DIV_23
+  *         - CRM_ERTC_Clock_HEXT_DIV_24
+  *         - CRM_ERTC_Clock_HEXT_DIV_25
+  *         - CRM_ERTC_Clock_HEXT_DIV_26
+  *         - CRM_ERTC_Clock_HEXT_DIV_27
+  *         - CRM_ERTC_Clock_HEXT_DIV_28
+  *         - CRM_ERTC_Clock_HEXT_DIV_29
+  *         - CRM_ERTC_Clock_HEXT_DIV_30
+  *         - CRM_ERTC_Clock_HEXT_DIV_31
   * @retval none
   */
-void crm_ertc_clock_select(crm_ertc_clock_type value) {
+void crm_ERTC_Clock_Select(crm_ERTC_Clock_Type value) {
     CRM->cfg_bit.ertcdiv = ((value & 0x1F0) >> 4);
     CRM->bpdc_bit.ertcsel = (value & 0xF);
 }
@@ -430,7 +430,7 @@ void crm_ertc_clock_select(crm_ertc_clock_type value) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void crm_ertc_clock_enable(confirm_state new_state) {
+void crm_ERTC_Clock_Enable(confirm_state new_state) {
     CRM->bpdc_bit.ertcen = new_state;
 }
 
@@ -449,7 +449,7 @@ void crm_ertc_clock_enable(confirm_state new_state) {
   *         - CRM_AHB_DIV_512
   * @retval none
   */
-void crm_ahb_div_set(crm_ahb_div_type value) {
+void crm_ahb_div_Set(crm_ahb_div_Type value) {
     CRM->cfg_bit.ahbdiv = value;
 }
 
@@ -465,7 +465,7 @@ void crm_ahb_div_set(crm_ahb_div_type value) {
   *         - CRM_APB1_DIV_16
   * @retval none
   */
-void crm_apb1_div_set(crm_apb1_div_type value) {
+void crm_apb1_div_Set(crm_apb1_div_Type value) {
     CRM->cfg_bit.apb1div = value;
 }
 
@@ -481,7 +481,7 @@ void crm_apb1_div_set(crm_apb1_div_type value) {
   *         - CRM_APB2_DIV_16
   * @retval none
   */
-void crm_apb2_div_set(crm_apb2_div_type value) {
+void crm_apb2_div_Set(crm_apb2_div_Type value) {
     CRM->cfg_bit.apb2div = value;
 }
 
@@ -504,7 +504,7 @@ void crm_apb2_div_set(crm_apb2_div_type value) {
   *         - CRM_USB_DIV_7
   * @retval none
   */
-void crm_usb_clock_div_set(crm_usb_div_type value) {
+void crm_usb_Clock_div_Set(crm_usb_div_Type value) {
     CRM->misc2_bit.usbdiv = value;
 }
 
@@ -513,7 +513,7 @@ void crm_usb_clock_div_set(crm_usb_div_type value) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void crm_clock_failure_detection_enable(confirm_state new_state) {
+void crm_Clock_failure_detection_Enable(confirm_state new_state) {
     CRM->ctrl_bit.cfden = new_state;
 }
 
@@ -522,7 +522,7 @@ void crm_clock_failure_detection_enable(confirm_state new_state) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void crm_battery_powered_domain_reset(confirm_state new_state) {
+void crm_battery_powered_domain_Reset(confirm_state new_state) {
     CRM->bpdc_bit.bpdrst = new_state;
 }
 
@@ -531,11 +531,11 @@ void crm_battery_powered_domain_reset(confirm_state new_state) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void crm_auto_step_mode_enable(confirm_state new_state) {
+void crm_Auto_Step_Mode_Enable(confirm_state new_state) {
     if(new_state == TRUE)
-        CRM->misc2_bit.auto_step_en = CRM_AUTO_STEP_MODE_ENABLE;
+        CRM->misc2_bit.auto_Step_en = CRM_Auto_Step_Mode_Enable;
     else
-        CRM->misc2_bit.auto_step_en = CRM_AUTO_STEP_MODE_DISABLE;
+        CRM->misc2_bit.auto_Step_en = CRM_Auto_Step_Mode_Disable;
 }
 
 /**
@@ -546,7 +546,7 @@ void crm_auto_step_mode_enable(confirm_state new_state) {
   *         - CRM_HICK48_NODIV
   * @retval none
   */
-void crm_hick_divider_select(crm_hick_div_6_type value) {
+void crm_hick_divider_Select(crm_hick_div_6_Type value) {
     CRM->misc1_bit.hickdiv = value;
 }
 
@@ -558,8 +558,8 @@ void crm_hick_divider_select(crm_hick_div_6_type value) {
   *         - CRM_HICK_SCLK_48MHZ
   * @retval none
   */
-void crm_hick_sclk_frequency_select(crm_hick_sclk_frequency_type value) {
-    crm_hick_divider_select(CRM_HICK48_NODIV);
+void crm_hick_sclk_Frequency_Select(crm_hick_sclk_Frequency_Type value) {
+    crm_hick_divider_Select(CRM_HICK48_NODIV);
     CRM->misc1_bit.hick_to_sclk = value;
 }
 
@@ -567,13 +567,13 @@ void crm_hick_sclk_frequency_select(crm_hick_sclk_frequency_type value) {
   * @brief  usb 48 mhz clock source select
   * @param  value
   *         this parameter can be one of the following values:
-  *         - CRM_USB_CLOCK_SOURCE_PLL
-  *         - CRM_USB_CLOCK_SOURCE_HICK
+  *         - CRM_USB_Clock_Source_PLL
+  *         - CRM_USB_Clock_Source_HICK
   * @retval none
   */
-void crm_usb_clock_source_select(crm_usb_clock_source_type value) {
-    if(value == CRM_USB_CLOCK_SOURCE_HICK) {
-        crm_hick_sclk_frequency_select(CRM_HICK_SCLK_48MHZ);
+void crm_usb_Clock_Source_Select(crm_usb_Clock_Source_Type value) {
+    if(value == CRM_USB_Clock_Source_HICK) {
+        crm_hick_sclk_Frequency_Select(CRM_HICK_SCLK_48MHZ);
     }
 
     CRM->misc1_bit.hick_to_usb = value;
@@ -584,7 +584,7 @@ void crm_usb_clock_source_select(crm_usb_clock_source_type value) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void crm_clkout_to_tmr10_enable(confirm_state new_state) {
+void crm_clkout_to_tmr10_Enable(confirm_state new_state) {
     CRM->misc2_bit.clk_to_tmr = new_state;
 }
 
@@ -606,8 +606,8 @@ void crm_clkout_to_tmr10_enable(confirm_state new_state) {
   *                               pll_ms
   * @param  clock_source
   *         this parameter can be one of the following values:
-  *         - CRM_PLL_SOURCE_HICK
-  *         - CRM_PLL_SOURCE_HEXT
+  *         - CRM_PLL_Source_HICK
+  *         - CRM_PLL_Source_HEXT
   * @param  pll_ns (31~500)
   * @param  pll_ms (1~15)
   * @param  pll_fr
@@ -620,10 +620,10 @@ void crm_clkout_to_tmr10_enable(confirm_state new_state) {
   *         - CRM_PLL_FR_32
   * @retval none
   */
-void crm_pll_config(crm_pll_clock_source_type clock_source, uint16_t pll_ns, \
-                    uint16_t pll_ms, crm_pll_fr_type pll_fr) {
+void crm_pll_Config(crm_pll_Clock_Source_Type clock_source, uint16_t pll_ns, \
+                    uint16_t pll_ms, crm_pll_fr_Type pll_fr) {
     /* config pll clock source */
-    if(clock_source == CRM_PLL_SOURCE_HICK) {
+    if(clock_source == CRM_PLL_Source_HICK) {
         CRM->misc1_bit.hickdiv = CRM_HICK48_NODIV;
     }
 
@@ -644,7 +644,7 @@ void crm_pll_config(crm_pll_clock_source_type clock_source, uint16_t pll_ns, \
   *         - CRM_SCLK_PLL
   * @retval none
   */
-void crm_sysclk_switch(crm_sclk_type value) {
+void crm_sysclk_switch(crm_sclk_Type value) {
     CRM->cfg_bit.sclksel = value;
 }
 
@@ -657,20 +657,20 @@ void crm_sysclk_switch(crm_sclk_type value) {
   *         - CRM_SCLK_HEXT
   *         - CRM_SCLK_PLL
   */
-crm_sclk_type crm_sysclk_switch_status_get(void) {
-    return (crm_sclk_type)CRM->cfg_bit.sclksts;
+crm_sclk_Type crm_sysclk_switch_Status_Get(void) {
+    return (crm_sclk_Type)CRM->cfg_bit.sclksts;
 }
 
 /**
   * @brief  get crm clocks freqency
   * @param  clocks_struct
-  *         - pointer to the crm_clocks_freq_type structure
+  *         - pointer to the crm_clocks_Freq_Type structure
   * @retval none
   */
-void crm_clocks_freq_get(crm_clocks_freq_type *clocks_struct) {
-    uint32_t pll_ns = 0, pll_ms = 0, pll_fr = 0, pll_clock_source = 0, pllrcsfreq = 0;
+void crm_clocks_Freq_Get(crm_clocks_Freq_Type *clocks_struct) {
+    uint32_t pll_ns = 0, pll_ms = 0, pll_fr = 0, pll_Clock_source = 0, pllrcsfreq = 0;
     uint32_t temp = 0, div_value = 0;
-    crm_sclk_type sclk_source;
+    crm_sclk_Type sclk_source;
 
     static const uint8_t sclk_ahb_div_table[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
     static const uint8_t ahb_apb1_div_table[8] = {0, 0, 0, 0, 1, 2, 3, 4};
@@ -678,7 +678,7 @@ void crm_clocks_freq_get(crm_clocks_freq_type *clocks_struct) {
     static const uint8_t pll_fr_table[6] = {1, 2, 4, 8, 16, 32};
 
     /* get sclk source */
-    sclk_source = crm_sysclk_switch_status_get();
+    sclk_source = crm_sysclk_switch_Status_Get();
 
     switch(sclk_source) {
         case CRM_SCLK_HICK:
@@ -695,14 +695,14 @@ void crm_clocks_freq_get(crm_clocks_freq_type *clocks_struct) {
 
         case CRM_SCLK_PLL:
             /* get pll clock source */
-            pll_clock_source = CRM->pllcfg_bit.pllrcs;
+            pll_Clock_source = CRM->pllcfg_bit.pllrcs;
 
             /* get multiplication factor */
             pll_ns = CRM->pllcfg_bit.pllns;
             pll_ms = CRM->pllcfg_bit.pllms;
             pll_fr = pll_fr_table[CRM->pllcfg_bit.pllfr];
 
-            if (pll_clock_source == CRM_PLL_SOURCE_HICK) {
+            if (pll_Clock_source == CRM_PLL_Source_HICK) {
                 /* hick selected as pll clock entry */
                 pllrcsfreq = HICK_VALUE;
             } else {
@@ -748,7 +748,7 @@ void crm_clocks_freq_get(crm_clocks_freq_type *clocks_struct) {
   *         - CRM_CLKOUT1_PLL
   * @retval none
   */
-void crm_clock_out1_set(crm_clkout1_select_type clkout) {
+void crm_Clock_out1_Set(crm_clkout1_Select_Type clkout) {
     CRM->cfg_bit.clkout1_sel = clkout;
 }
 
@@ -766,7 +766,7 @@ void crm_clock_out1_set(crm_clkout1_select_type clkout) {
   *         - CRM_CLKOUT2_LEXT
   * @retval none
   */
-void crm_clock_out2_set(crm_clkout2_select_type clkout) {
+void crm_Clock_out2_Set(crm_clkout2_Select_Type clkout) {
     if(clkout < 0x10) {
         CRM->cfg_bit.clkout2_sel1 = (clkout & 0x3);
     } else {
@@ -801,7 +801,7 @@ void crm_clock_out2_set(crm_clkout2_select_type clkout) {
   *         - CRM_CLKOUT_DIV2_512
   * @retval none
   */
-void crm_clkout_div_set(crm_clkout_index_type index, crm_clkout_div1_type div1, crm_clkout_div2_type div2) {
+void crm_clkout_div_Set(crm_clkout_index_Type index, crm_clkout_div1_Type div1, crm_clkout_div2_Type div2) {
     if(index == CRM_CLKOUT_INDEX_1) {
         CRM->cfg_bit.clkout1div1 = div1;
         CRM->misc1_bit.clkout1div2 = div2;
@@ -819,8 +819,8 @@ void crm_clkout_div_set(crm_clkout_index_type index, crm_clkout_div1_type div1, 
   *         - CRM_EMAC_PULSE_1SCLK
   * @retval none
   */
-void crm_emac_output_pulse_set(crm_emac_output_pulse_type width) {
-    CRM->misc2_bit.emac_pps_sel = width;
+void crm_EMAC_OutPut_pulse_Set(crm_EMAC_OutPut_pulse_Type width) {
+    CRM->misc2_bit.EMAC_PPS_sel = width;
 }
 
 /**
@@ -835,7 +835,7 @@ void crm_emac_output_pulse_set(crm_emac_output_pulse_type width) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void crm_interrupt_enable(uint32_t crm_int, confirm_state new_state) {
+void crm_Interrupt_Enable(uint32_t crm_int, confirm_state new_state) {
     if(TRUE == new_state)
         CRM->clkint |= crm_int;
     else
@@ -860,15 +860,15 @@ void crm_interrupt_enable(uint32_t crm_int, confirm_state new_state) {
   *                               pll_ms
   * @param  pll_rcs
   *         this parameter can be one of the following values:
-  *         - CRM_PLL_SOURCE_HICK
-  *         - CRM_PLL_SOURCE_HEXT
+  *         - CRM_PLL_Source_HICK
+  *         - CRM_PLL_Source_HEXT
   * @param  target_sclk_freq: target pll output frequency, such as 200 mhz (target_sclk_freq: 200000000)
   * @param  ret_ms: pointer to ms value, return the pll_ms of pll parameters
   * @param  ret_ns: pointer to ns value, return the pll_ns of pll parameters
   * @param  ret_fr: pointer to fr value, return the pll_fr of pll parameters
   * @retval error_status (SUCCESS or ERROR)
   */
-error_status crm_pll_parameter_calculate(crm_pll_clock_source_type pll_rcs, uint32_t target_sclk_freq, \
+error_status crm_pll_parameter_calculate(crm_pll_Clock_Source_Type pll_rcs, uint32_t target_sclk_freq, \
         uint16_t *ret_ms, uint16_t *ret_ns, uint16_t *ret_fr) {
     int32_t pll_rcs_freq = 0, ns = 0, ms = 0, fr = 0;
     uint32_t ms_min = 0, ms_max = 0, error_min = 0xFFFFFFFF;
@@ -878,7 +878,7 @@ error_status crm_pll_parameter_calculate(crm_pll_clock_source_type pll_rcs, uint
     target_sclk_freq = target_sclk_freq / 1000;
 
     /* get pll reference clock frequency, accuracy with khz */
-    if(pll_rcs == CRM_PLL_SOURCE_HICK)
+    if(pll_rcs == CRM_PLL_Source_HICK)
         pll_rcs_freq = HICK_VALUE / 1000;
     else
         pll_rcs_freq = HEXT_VALUE / 1000;

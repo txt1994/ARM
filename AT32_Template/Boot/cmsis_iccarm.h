@@ -177,45 +177,45 @@
     #define __STATIC_FORCEINLINE  __FORCEINLINE __STATIC_INLINE
 #endif
 
-#ifndef __UNALIGNED_UINT16_READ
+#ifndef __UNALIGNED_UINT16_Read
 #pragma language=save
 #pragma language=extended
-__IAR_FT uint16_t __iar_uint16_read(void const *ptr) {
+__IAR_FT uint16_t __iar_uint16_Read(void const *ptr) {
     return *(__packed uint16_t*)(ptr);
 }
 #pragma language=restore
-#define __UNALIGNED_UINT16_READ(PTR) __iar_uint16_read(PTR)
+#define __UNALIGNED_UINT16_Read(PTR) __iar_uint16_Read(PTR)
 #endif
 
 
-#ifndef __UNALIGNED_UINT16_WRITE
+#ifndef __UNALIGNED_UINT16_Write
 #pragma language=save
 #pragma language=extended
-__IAR_FT void __iar_uint16_write(void const *ptr, uint16_t val) {
+__IAR_FT void __iar_uint16_Write(void const *ptr, uint16_t val) {
     *(__packed uint16_t*)(ptr) = val;;
 }
 #pragma language=restore
-#define __UNALIGNED_UINT16_WRITE(PTR,VAL) __iar_uint16_write(PTR,VAL)
+#define __UNALIGNED_UINT16_Write(PTR,VAL) __iar_uint16_Write(PTR,VAL)
 #endif
 
-#ifndef __UNALIGNED_UINT32_READ
+#ifndef __UNALIGNED_UINT32_Read
 #pragma language=save
 #pragma language=extended
-__IAR_FT uint32_t __iar_uint32_read(void const *ptr) {
+__IAR_FT uint32_t __iar_uint32_Read(void const *ptr) {
     return *(__packed uint32_t*)(ptr);
 }
 #pragma language=restore
-#define __UNALIGNED_UINT32_READ(PTR) __iar_uint32_read(PTR)
+#define __UNALIGNED_UINT32_Read(PTR) __iar_uint32_Read(PTR)
 #endif
 
-#ifndef __UNALIGNED_UINT32_WRITE
+#ifndef __UNALIGNED_UINT32_Write
 #pragma language=save
 #pragma language=extended
-__IAR_FT void __iar_uint32_write(void const *ptr, uint32_t val) {
+__IAR_FT void __iar_uint32_Write(void const *ptr, uint32_t val) {
     *(__packed uint32_t*)(ptr) = val;;
 }
 #pragma language=restore
-#define __UNALIGNED_UINT32_WRITE(PTR,VAL) __iar_uint32_write(PTR,VAL)
+#define __UNALIGNED_UINT32_Write(PTR,VAL) __iar_uint32_Write(PTR,VAL)
 #endif
 
 #ifndef __UNALIGNED_UINT32   /* deprecated */
@@ -248,8 +248,8 @@ __packed struct  __iar_u32 {
     #define __PROGRAM_START           __iar_program_start
 #endif
 
-#ifndef __INITIAL_SP
-    #define __INITIAL_SP              CSTACK$$Limit
+#ifndef __InitIAL_SP
+    #define __InitIAL_SP              CSTACK$$Limit
 #endif
 
 #ifndef __STACK_LIMIT
@@ -288,100 +288,100 @@ __packed struct  __iar_u32 {
 
 #include "iccarm_builtin.h"
 
-#define __disable_fault_irq __iar_builtin_disable_fiq
-#define __disable_irq       __iar_builtin_disable_interrupt
-#define __enable_fault_irq  __iar_builtin_enable_fiq
-#define __enable_irq        __iar_builtin_enable_interrupt
+#define __Disable_fault_irq __iar_builtin_Disable_fiq
+#define __Disable_irq       __iar_builtin_Disable_interrupt
+#define __Enable_fault_irq  __iar_builtin_Enable_fiq
+#define __Enable_irq        __iar_builtin_Enable_interrupt
 #define __arm_rsr           __iar_builtin_rsr
 #define __arm_wsr           __iar_builtin_wsr
 
 
-#define __get_APSR()                (__arm_rsr("APSR"))
-#define __get_BASEPRI()             (__arm_rsr("BASEPRI"))
-#define __get_CONTROL()             (__arm_rsr("CONTROL"))
-#define __get_FAULTMASK()           (__arm_rsr("FAULTMASK"))
+#define __Get_APSR()                (__arm_rsr("APSR"))
+#define __Get_BASEPRI()             (__arm_rsr("BASEPRI"))
+#define __Get_CONTROL()             (__arm_rsr("CONTROL"))
+#define __Get_FAULTMASK()           (__arm_rsr("FAULTMASK"))
 
 #if ((defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)) && \
 (defined (__FPU_USED   ) && (__FPU_USED    == 1U))     )
-#define __get_FPSCR()             (__arm_rsr("FPSCR"))
-#define __set_FPSCR(VALUE)        (__arm_wsr("FPSCR", (VALUE)))
+#define __Get_FPSCR()             (__arm_rsr("FPSCR"))
+#define __Set_FPSCR(VALUE)        (__arm_wsr("FPSCR", (VALUE)))
 #else
-#define __get_FPSCR()             ( 0 )
-#define __set_FPSCR(VALUE)        ((void)VALUE)
+#define __Get_FPSCR()             ( 0 )
+#define __Set_FPSCR(VALUE)        ((void)VALUE)
 #endif
 
-#define __get_IPSR()                (__arm_rsr("IPSR"))
-#define __get_MSP()                 (__arm_rsr("MSP"))
+#define __Get_IPSR()                (__arm_rsr("IPSR"))
+#define __Get_MSP()                 (__arm_rsr("MSP"))
 #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
 (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
 // without main extensions, the non-secure MSPLIM is RAZ/WI
-#define __get_MSPLIM()            (0U)
+#define __Get_MSPLIM()            (0U)
 #else
-#define __get_MSPLIM()            (__arm_rsr("MSPLIM"))
+#define __Get_MSPLIM()            (__arm_rsr("MSPLIM"))
 #endif
-#define __get_PRIMASK()             (__arm_rsr("PRIMASK"))
-#define __get_PSP()                 (__arm_rsr("PSP"))
+#define __Get_PRIMASK()             (__arm_rsr("PRIMASK"))
+#define __Get_PSP()                 (__arm_rsr("PSP"))
 
 #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
 (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
 // without main extensions, the non-secure PSPLIM is RAZ/WI
-#define __get_PSPLIM()            (0U)
+#define __Get_PSPLIM()            (0U)
 #else
-#define __get_PSPLIM()            (__arm_rsr("PSPLIM"))
+#define __Get_PSPLIM()            (__arm_rsr("PSPLIM"))
 #endif
 
-#define __get_xPSR()                (__arm_rsr("xPSR"))
+#define __Get_xPSR()                (__arm_rsr("xPSR"))
 
-#define __set_BASEPRI(VALUE)        (__arm_wsr("BASEPRI", (VALUE)))
-#define __set_BASEPRI_MAX(VALUE)    (__arm_wsr("BASEPRI_MAX", (VALUE)))
-#define __set_CONTROL(VALUE)        (__arm_wsr("CONTROL", (VALUE)))
-#define __set_FAULTMASK(VALUE)      (__arm_wsr("FAULTMASK", (VALUE)))
-#define __set_MSP(VALUE)            (__arm_wsr("MSP", (VALUE)))
+#define __Set_BASEPRI(VALUE)        (__arm_wsr("BASEPRI", (VALUE)))
+#define __Set_BASEPRI_MAX(VALUE)    (__arm_wsr("BASEPRI_MAX", (VALUE)))
+#define __Set_CONTROL(VALUE)        (__arm_wsr("CONTROL", (VALUE)))
+#define __Set_FAULTMASK(VALUE)      (__arm_wsr("FAULTMASK", (VALUE)))
+#define __Set_MSP(VALUE)            (__arm_wsr("MSP", (VALUE)))
 
 #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
 (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
 // without main extensions, the non-secure MSPLIM is RAZ/WI
-#define __set_MSPLIM(VALUE)       ((void)(VALUE))
+#define __Set_MSPLIM(VALUE)       ((void)(VALUE))
 #else
-#define __set_MSPLIM(VALUE)       (__arm_wsr("MSPLIM", (VALUE)))
+#define __Set_MSPLIM(VALUE)       (__arm_wsr("MSPLIM", (VALUE)))
 #endif
-#define __set_PRIMASK(VALUE)        (__arm_wsr("PRIMASK", (VALUE)))
-#define __set_PSP(VALUE)            (__arm_wsr("PSP", (VALUE)))
+#define __Set_PRIMASK(VALUE)        (__arm_wsr("PRIMASK", (VALUE)))
+#define __Set_PSP(VALUE)            (__arm_wsr("PSP", (VALUE)))
 #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
 (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
 // without main extensions, the non-secure PSPLIM is RAZ/WI
-#define __set_PSPLIM(VALUE)       ((void)(VALUE))
+#define __Set_PSPLIM(VALUE)       ((void)(VALUE))
 #else
-#define __set_PSPLIM(VALUE)       (__arm_wsr("PSPLIM", (VALUE)))
+#define __Set_PSPLIM(VALUE)       (__arm_wsr("PSPLIM", (VALUE)))
 #endif
 
-#define __TZ_get_CONTROL_NS()       (__arm_rsr("CONTROL_NS"))
-#define __TZ_set_CONTROL_NS(VALUE)  (__arm_wsr("CONTROL_NS", (VALUE)))
-#define __TZ_get_PSP_NS()           (__arm_rsr("PSP_NS"))
-#define __TZ_set_PSP_NS(VALUE)      (__arm_wsr("PSP_NS", (VALUE)))
-#define __TZ_get_MSP_NS()           (__arm_rsr("MSP_NS"))
-#define __TZ_set_MSP_NS(VALUE)      (__arm_wsr("MSP_NS", (VALUE)))
-#define __TZ_get_SP_NS()            (__arm_rsr("SP_NS"))
-#define __TZ_set_SP_NS(VALUE)       (__arm_wsr("SP_NS", (VALUE)))
-#define __TZ_get_PRIMASK_NS()       (__arm_rsr("PRIMASK_NS"))
-#define __TZ_set_PRIMASK_NS(VALUE)  (__arm_wsr("PRIMASK_NS", (VALUE)))
-#define __TZ_get_BASEPRI_NS()       (__arm_rsr("BASEPRI_NS"))
-#define __TZ_set_BASEPRI_NS(VALUE)  (__arm_wsr("BASEPRI_NS", (VALUE)))
-#define __TZ_get_FAULTMASK_NS()     (__arm_rsr("FAULTMASK_NS"))
-#define __TZ_set_FAULTMASK_NS(VALUE)(__arm_wsr("FAULTMASK_NS", (VALUE)))
+#define __TZ_Get_Control_NS()       (__arm_rsr("CONTROL_NS"))
+#define __TZ_Set_Control_NS(VALUE)  (__arm_wsr("CONTROL_NS", (VALUE)))
+#define __TZ_Get_PSP_NS()           (__arm_rsr("PSP_NS"))
+#define __TZ_Set_PSP_NS(VALUE)      (__arm_wsr("PSP_NS", (VALUE)))
+#define __TZ_Get_MSP_NS()           (__arm_rsr("MSP_NS"))
+#define __TZ_Set_MSP_NS(VALUE)      (__arm_wsr("MSP_NS", (VALUE)))
+#define __TZ_Get_SP_NS()            (__arm_rsr("SP_NS"))
+#define __TZ_Set_SP_NS(VALUE)       (__arm_wsr("SP_NS", (VALUE)))
+#define __TZ_Get_PRIMASK_NS()       (__arm_rsr("PRIMASK_NS"))
+#define __TZ_Set_PRIMASK_NS(VALUE)  (__arm_wsr("PRIMASK_NS", (VALUE)))
+#define __TZ_Get_BASEPRI_NS()       (__arm_rsr("BASEPRI_NS"))
+#define __TZ_Set_BASEPRI_NS(VALUE)  (__arm_wsr("BASEPRI_NS", (VALUE)))
+#define __TZ_Get_FAULTMASK_NS()     (__arm_rsr("FAULTMASK_NS"))
+#define __TZ_Set_FAULTMASK_NS(VALUE)(__arm_wsr("FAULTMASK_NS", (VALUE)))
 
 #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
 (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
 // without main extensions, the non-secure PSPLIM is RAZ/WI
-#define __TZ_get_PSPLIM_NS()      (0U)
-#define __TZ_set_PSPLIM_NS(VALUE) ((void)(VALUE))
+#define __TZ_Get_PSPLIM_NS()      (0U)
+#define __TZ_Set_PSPLIM_NS(VALUE) ((void)(VALUE))
 #else
-#define __TZ_get_PSPLIM_NS()      (__arm_rsr("PSPLIM_NS"))
-#define __TZ_set_PSPLIM_NS(VALUE) (__arm_wsr("PSPLIM_NS", (VALUE)))
+#define __TZ_Get_PSPLIM_NS()      (__arm_rsr("PSPLIM_NS"))
+#define __TZ_Set_PSPLIM_NS(VALUE) (__arm_wsr("PSPLIM_NS", (VALUE)))
 #endif
 
-#define __TZ_get_MSPLIM_NS()        (__arm_rsr("MSPLIM_NS"))
-#define __TZ_set_MSPLIM_NS(VALUE)   (__arm_wsr("MSPLIM_NS", (VALUE)))
+#define __TZ_Get_MSPLIM_NS()        (__arm_rsr("MSPLIM_NS"))
+#define __TZ_Set_MSPLIM_NS(VALUE)   (__arm_wsr("MSPLIM_NS", (VALUE)))
 
 #define __NOP     __iar_builtin_no_operation
 
@@ -497,14 +497,14 @@ __IAR_FT int16_t __REVSH(int16_t val) {
     #define __SSAT __cmsis_iar_ssat_not_active
     #define __USAT __cmsis_iar_usat_not_active
     #define __RBIT __cmsis_iar_rbit_not_active
-    #define __get_APSR  __cmsis_iar_get_APSR_not_active
+    #define __Get_APSR  __cmsis_iar_Get_APSR_not_active
 #endif
 
 
 #if (!((defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)) && \
 (defined (__FPU_USED   ) && (__FPU_USED    == 1U))     ))
-#define __get_FPSCR __cmsis_iar_get_FPSR_not_active
-#define __set_FPSCR __cmsis_iar_set_FPSR_not_active
+#define __Get_FPSCR __cmsis_iar_Get_FPSR_not_active
+#define __Set_FPSCR __cmsis_iar_Set_FPSR_not_active
 #endif
 
 #ifdef __INTRINSICS_INCLUDED
@@ -519,7 +519,7 @@ __IAR_FT int16_t __REVSH(int16_t val) {
 #undef __SSAT
 #undef __USAT
 #undef __RBIT
-#undef __get_APSR
+#undef __Get_APSR
 
 __STATIC_INLINE uint8_t __CLZ(uint32_t data) {
     if (data == 0U) {
@@ -550,7 +550,7 @@ __STATIC_INLINE uint32_t __RBIT(uint32_t v) {
     return (r << sc);
 }
 
-__STATIC_INLINE  uint32_t __get_APSR(void) {
+__STATIC_INLINE  uint32_t __Get_APSR(void) {
     uint32_t res;
     __asm("MRS      %0,APSR" : "=r" (res));
     return res;
@@ -560,20 +560,20 @@ __STATIC_INLINE  uint32_t __get_APSR(void) {
 
 #if (!((defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)) && \
 (defined (__FPU_USED   ) && (__FPU_USED    == 1U))     ))
-#undef __get_FPSCR
-#undef __set_FPSCR
-#define __get_FPSCR()       (0)
-#define __set_FPSCR(VALUE)  ((void)VALUE)
+#undef __Get_FPSCR
+#undef __Set_FPSCR
+#define __Get_FPSCR()       (0)
+#define __Set_FPSCR(VALUE)  ((void)VALUE)
 #endif
 
 #pragma diag_suppress=Pe940
 #pragma diag_suppress=Pe177
 
-#define __enable_irq    __enable_interrupt
-#define __disable_irq   __disable_interrupt
+#define __Enable_irq    __Enable_interrupt
+#define __Disable_irq   __Disable_interrupt
 #define __NOP           __no_operation
 
-#define __get_xPSR      __get_PSR
+#define __Get_xPSR      __Get_PSR
 
 #if (!defined(__ARM_ARCH_6M__) || __ARM_ARCH_6M__==0)
 
@@ -596,13 +596,13 @@ __IAR_FT uint32_t __RRX(uint32_t value) {
     return(result);
 }
 
-__IAR_FT void __set_BASEPRI_MAX(uint32_t value) {
+__IAR_FT void __Set_BASEPRI_MAX(uint32_t value) {
     __asm volatile("MSR      BASEPRI_MAX,%0"::"r" (value));
 }
 
 
-#define __enable_fault_irq  __enable_fiq
-#define __disable_fault_irq __disable_fiq
+#define __Enable_fault_irq  __Enable_fiq
+#define __Disable_fault_irq __Disable_fiq
 
 
 #endif /* (__CORTEX_M >= 0x03) */
@@ -614,7 +614,7 @@ __IAR_FT uint32_t __ROR(uint32_t op1, uint32_t op2) {
 #if ((defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
 (defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    )
 
-__IAR_FT uint32_t __get_MSPLIM(void) {
+__IAR_FT uint32_t __Get_MSPLIM(void) {
     uint32_t res;
     #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
     (!defined (__ARM_FEATURE_CMSE  ) || (__ARM_FEATURE_CMSE   < 3)))
@@ -626,7 +626,7 @@ __IAR_FT uint32_t __get_MSPLIM(void) {
     return res;
 }
 
-__IAR_FT void   __set_MSPLIM(uint32_t value) {
+__IAR_FT void   __Set_MSPLIM(uint32_t value) {
     #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
     (!defined (__ARM_FEATURE_CMSE  ) || (__ARM_FEATURE_CMSE   < 3)))
     // without main extensions, the non-secure MSPLIM is RAZ/WI
@@ -636,7 +636,7 @@ __IAR_FT void   __set_MSPLIM(uint32_t value) {
     #endif
 }
 
-__IAR_FT uint32_t __get_PSPLIM(void) {
+__IAR_FT uint32_t __Get_PSPLIM(void) {
     uint32_t res;
     #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
     (!defined (__ARM_FEATURE_CMSE  ) || (__ARM_FEATURE_CMSE   < 3)))
@@ -648,7 +648,7 @@ __IAR_FT uint32_t __get_PSPLIM(void) {
     return res;
 }
 
-__IAR_FT void   __set_PSPLIM(uint32_t value) {
+__IAR_FT void   __Set_PSPLIM(uint32_t value) {
     #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
     (!defined (__ARM_FEATURE_CMSE  ) || (__ARM_FEATURE_CMSE   < 3)))
     // without main extensions, the non-secure PSPLIM is RAZ/WI
@@ -658,76 +658,76 @@ __IAR_FT void   __set_PSPLIM(uint32_t value) {
     #endif
 }
 
-__IAR_FT uint32_t __TZ_get_CONTROL_NS(void) {
+__IAR_FT uint32_t __TZ_Get_Control_NS(void) {
     uint32_t res;
     __asm volatile("MRS      %0,CONTROL_NS" : "=r" (res));
     return res;
 }
 
-__IAR_FT void   __TZ_set_CONTROL_NS(uint32_t value) {
+__IAR_FT void   __TZ_Set_Control_NS(uint32_t value) {
     __asm volatile("MSR      CONTROL_NS,%0" :: "r" (value));
 }
 
-__IAR_FT uint32_t   __TZ_get_PSP_NS(void) {
+__IAR_FT uint32_t   __TZ_Get_PSP_NS(void) {
     uint32_t res;
     __asm volatile("MRS      %0,PSP_NS" : "=r" (res));
     return res;
 }
 
-__IAR_FT void   __TZ_set_PSP_NS(uint32_t value) {
+__IAR_FT void   __TZ_Set_PSP_NS(uint32_t value) {
     __asm volatile("MSR      PSP_NS,%0" :: "r" (value));
 }
 
-__IAR_FT uint32_t   __TZ_get_MSP_NS(void) {
+__IAR_FT uint32_t   __TZ_Get_MSP_NS(void) {
     uint32_t res;
     __asm volatile("MRS      %0,MSP_NS" : "=r" (res));
     return res;
 }
 
-__IAR_FT void   __TZ_set_MSP_NS(uint32_t value) {
+__IAR_FT void   __TZ_Set_MSP_NS(uint32_t value) {
     __asm volatile("MSR      MSP_NS,%0" :: "r" (value));
 }
 
-__IAR_FT uint32_t   __TZ_get_SP_NS(void) {
+__IAR_FT uint32_t   __TZ_Get_SP_NS(void) {
     uint32_t res;
     __asm volatile("MRS      %0,SP_NS" : "=r" (res));
     return res;
 }
-__IAR_FT void   __TZ_set_SP_NS(uint32_t value) {
+__IAR_FT void   __TZ_Set_SP_NS(uint32_t value) {
     __asm volatile("MSR      SP_NS,%0" :: "r" (value));
 }
 
-__IAR_FT uint32_t   __TZ_get_PRIMASK_NS(void) {
+__IAR_FT uint32_t   __TZ_Get_PRIMASK_NS(void) {
     uint32_t res;
     __asm volatile("MRS      %0,PRIMASK_NS" : "=r" (res));
     return res;
 }
 
-__IAR_FT void   __TZ_set_PRIMASK_NS(uint32_t value) {
+__IAR_FT void   __TZ_Set_PRIMASK_NS(uint32_t value) {
     __asm volatile("MSR      PRIMASK_NS,%0" :: "r" (value));
 }
 
-__IAR_FT uint32_t   __TZ_get_BASEPRI_NS(void) {
+__IAR_FT uint32_t   __TZ_Get_BASEPRI_NS(void) {
     uint32_t res;
     __asm volatile("MRS      %0,BASEPRI_NS" : "=r" (res));
     return res;
 }
 
-__IAR_FT void   __TZ_set_BASEPRI_NS(uint32_t value) {
+__IAR_FT void   __TZ_Set_BASEPRI_NS(uint32_t value) {
     __asm volatile("MSR      BASEPRI_NS,%0" :: "r" (value));
 }
 
-__IAR_FT uint32_t   __TZ_get_FAULTMASK_NS(void) {
+__IAR_FT uint32_t   __TZ_Get_FAULTMASK_NS(void) {
     uint32_t res;
     __asm volatile("MRS      %0,FAULTMASK_NS" : "=r" (res));
     return res;
 }
 
-__IAR_FT void   __TZ_set_FAULTMASK_NS(uint32_t value) {
+__IAR_FT void   __TZ_Set_FAULTMASK_NS(uint32_t value) {
     __asm volatile("MSR      FAULTMASK_NS,%0" :: "r" (value));
 }
 
-__IAR_FT uint32_t   __TZ_get_PSPLIM_NS(void) {
+__IAR_FT uint32_t   __TZ_Get_PSPLIM_NS(void) {
     uint32_t res;
     #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
     (!defined (__ARM_FEATURE_CMSE  ) || (__ARM_FEATURE_CMSE   < 3)))
@@ -739,7 +739,7 @@ __IAR_FT uint32_t   __TZ_get_PSPLIM_NS(void) {
     return res;
 }
 
-__IAR_FT void   __TZ_set_PSPLIM_NS(uint32_t value) {
+__IAR_FT void   __TZ_Set_PSPLIM_NS(uint32_t value) {
     #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
     (!defined (__ARM_FEATURE_CMSE  ) || (__ARM_FEATURE_CMSE   < 3)))
     // without main extensions, the non-secure PSPLIM is RAZ/WI
@@ -749,13 +749,13 @@ __IAR_FT void   __TZ_set_PSPLIM_NS(uint32_t value) {
     #endif
 }
 
-__IAR_FT uint32_t   __TZ_get_MSPLIM_NS(void) {
+__IAR_FT uint32_t   __TZ_Get_MSPLIM_NS(void) {
     uint32_t res;
     __asm volatile("MRS      %0,MSPLIM_NS" : "=r" (res));
     return res;
 }
 
-__IAR_FT void   __TZ_set_MSPLIM_NS(uint32_t value) {
+__IAR_FT void   __TZ_Set_MSPLIM_NS(uint32_t value) {
     __asm volatile("MSR      MSPLIM_NS,%0" :: "r" (value));
 }
 

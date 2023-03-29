@@ -33,7 +33,7 @@
   * @{
   */
 
-#ifdef DEBUG_MODULE_ENABLED
+#ifdef DEBUG_MODULE_EnableD
 
 /** @defgroup DEBUG_private_functions
   * @{
@@ -44,12 +44,12 @@
   * @param  none
   * @retval the debug device id
   */
-uint32_t debug_device_id_get(void) {
+uint32_t DEBUG_device_ID_Get(void) {
     return DEBUGMCU->pid;
 }
 /**
   * @brief  set periph debug mode
-  * @param  periph_debug_mode
+  * @param  periph_DEBUG_mode
   *         this parameter can be one of the following values:
   *         - DEBUG_SLEEP
   *         - DEBUG_DEEPSLEEP
@@ -57,7 +57,7 @@ uint32_t debug_device_id_get(void) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void debug_low_power_mode_set(uint32_t low_power_mode, confirm_state new_state) {
+void DEBUG_low_power_Mode_Set(uint32_t low_power_mode, confirm_state new_state) {
     if(new_state != FALSE) {
         DEBUGMCU->ctrl |= low_power_mode;
     } else {
@@ -66,7 +66,7 @@ void debug_low_power_mode_set(uint32_t low_power_mode, confirm_state new_state) 
 }
 /**
   * @brief  set apb1 periph debug mode
-  * @param  periph_debug_mode
+  * @param  periph_DEBUG_mode
   *         this parameter can be any combination of the following values:
   *         - DEBUG_TMR2_PAUSE                      - DEBUG_TMR3_PAUSE
   *         - DEBUG_TMR4_PAUSE                      - DEBUG_TMR5_PAUSE
@@ -74,13 +74,13 @@ void debug_low_power_mode_set(uint32_t low_power_mode, confirm_state new_state) 
   *         - DEBUG_TMR12_PAUSE                     - DEBUG_TMR13_PAUSE
   *         - DEBUG_TMR14_PAUSE                     - DEBUG_ERTC_PAUSE
   *         - DEBUG_WWDT_PAUSE                      - DEBUG_WDT_PAUSE
-  *         - DEBUG_ERTC_512_PAUSE                  - DEBUG_I2C1_SMBUS_TIMEOUT
-  *         - DEBUG_I2C2_SMBUS_TIMEOUT              - DEBUG_I2C3_SMBUS_TIMEOUT
+  *         - DEBUG_ERTC_512_PAUSE                  - DEBUG_I2C1_SmBus_TIMEOUT
+  *         - DEBUG_I2C2_SmBus_TIMEOUT              - DEBUG_I2C3_SmBus_TIMEOUT
   *         - DEBUG_CAN1_PAUSE                      - DEBUG_CAN2_PAUSE
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void debug_apb1_periph_mode_set(uint32_t apb1_periph, confirm_state new_state) {
+void DEBUG_apb1_periph_Mode_Set(uint32_t apb1_periph, confirm_state new_state) {
     if(new_state != FALSE) {
         DEBUGMCU->apb1_frz |= apb1_periph;
     } else {
@@ -89,7 +89,7 @@ void debug_apb1_periph_mode_set(uint32_t apb1_periph, confirm_state new_state) {
 }
 /**
   * @brief  set apb2 periph debug mode
-  * @param  periph_debug_mode
+  * @param  periph_DEBUG_mode
   *         this parameter can be any combination of the following values:
   *         - DEBUG_TMR1_PAUSE                      - DEBUG_TMR8_PAUSE
   *         - DEBUG_TMR20_PAUSE                     - DEBUG_TMR9_PAUSE
@@ -97,7 +97,7 @@ void debug_apb1_periph_mode_set(uint32_t apb1_periph, confirm_state new_state) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void debug_apb2_periph_mode_set(uint32_t apb2_periph, confirm_state new_state) {
+void DEBUG_apb2_periph_Mode_Set(uint32_t apb2_periph, confirm_state new_state) {
     if(new_state != FALSE) {
         DEBUGMCU->apb2_frz |= apb2_periph;
     } else {

@@ -43,7 +43,7 @@ extern "C" {
   */
 
 
-/** @defgroup CAN_timeout_count
+/** @defgroup CAN_TimeOut_count
   * @{
   */
 
@@ -124,7 +124,7 @@ extern "C" {
 #define CAN_RF1_RF1OF_VAL                ((uint32_t)0x00000010) /*!< rf1of bit value, it clear by writing 1 */
 #define CAN_RF1_RF1R_VAL                 ((uint32_t)0x00000020) /*!< rf1r bit value, it clear by writing 1 */
 
-/** @defgroup CAN_exported_types
+/** @defgroup CAN_exported_Types
   * @{
   */
 
@@ -132,44 +132,44 @@ extern "C" {
   * @brief  can filter fifo
   */
 typedef enum {
-    CAN_FILTER_FIFO0                       = 0x00, /*!< filter fifo 0 assignment for filter x */
-    CAN_FILTER_FIFO1                       = 0x01  /*!< filter fifo 1 assignment for filter x */
-} can_filter_fifo_type;
+    CAN_Filter_FIFO0                       = 0x00, /*!< filter fifo 0 assignment for filter x */
+    CAN_Filter_FIFO1                       = 0x01  /*!< filter fifo 1 assignment for filter x */
+} can_Filter_FIFO_Type;
 
 /**
   * @brief  can filter mode
   */
 typedef enum {
-    CAN_FILTER_MODE_ID_MASK                = 0x00, /*!< identifier mask mode */
-    CAN_FILTER_MODE_ID_LIST                = 0x01  /*!< identifier list mode */
-} can_filter_mode_type;
+    CAN_Filter_Mode_ID_MASK                = 0x00, /*!< identifier mask mode */
+    CAN_Filter_Mode_ID_LIST                = 0x01  /*!< identifier list mode */
+} can_Filter_Mode_Type;
 
 /**
   * @brief  can filter bit width select
   */
 typedef enum {
-    CAN_FILTER_16BIT                       = 0x00, /*!< two 16-bit filters */
-    CAN_FILTER_32BIT                       = 0x01  /*!< one 32-bit filter */
-} can_filter_bit_width_type;
+    CAN_Filter_16BIT                       = 0x00, /*!< two 16-bit filters */
+    CAN_Filter_32BIT                       = 0x01  /*!< one 32-bit filter */
+} can_Filter_Bit_width_Type;
 
 /**
   * @brief  can mode
   */
 typedef enum {
-    CAN_MODE_COMMUNICATE                   = 0x00, /*!< communication mode */
-    CAN_MODE_LOOPBACK                      = 0x01, /*!< loopback mode */
-    CAN_MODE_LISTENONLY                    = 0x02, /*!< listen-only mode */
-    CAN_MODE_LISTENONLY_LOOPBACK           = 0x03  /*!< loopback combined with listen-only mode */
-} can_mode_type;
+    CAN_Mode_COMMUNICATE                   = 0x00, /*!< communication mode */
+    CAN_Mode_LOOPBACK                      = 0x01, /*!< loopback mode */
+    CAN_Mode_LISTENONLY                    = 0x02, /*!< listen-only mode */
+    CAN_Mode_LISTENONLY_LOOPBACK           = 0x03  /*!< loopback combined with listen-only mode */
+} can_Mode_Type;
 
 /**
   * @brief  can operating mode
   */
 typedef enum {
-    CAN_OPERATINGMODE_FREEZE               = 0x00, /*!< freeze mode */
+    CAN_OPERATINGMODE_Freeze               = 0x00, /*!< freeze mode */
     CAN_OPERATINGMODE_DOZE                 = 0x01, /*!< doze mode */
     CAN_OPERATINGMODE_COMMUNICATE          = 0x02  /*!< communication mode */
-} can_operating_mode_type;
+} can_operating_Mode_Type;
 
 /**
   * @brief  can resynchronization adjust width
@@ -179,7 +179,7 @@ typedef enum {
     CAN_RSAW_2TQ                           = 0x01, /*!< 2 time quantum */
     CAN_RSAW_3TQ                           = 0x02, /*!< 3 time quantum */
     CAN_RSAW_4TQ                           = 0x03  /*!< 4 time quantum */
-} can_rsaw_type;
+} can_rsaw_Type;
 
 /**
   * @brief  can bit time segment 1
@@ -201,7 +201,7 @@ typedef enum {
     CAN_BTS1_14TQ                          = 0x0D, /*!< 14 time quantum */
     CAN_BTS1_15TQ                          = 0x0E, /*!< 15 time quantum */
     CAN_BTS1_16TQ                          = 0x0F  /*!< 16 time quantum */
-} can_bts1_type;
+} can_bts1_Type;
 
 /**
   * @brief  can bit time segment 2
@@ -215,7 +215,7 @@ typedef enum {
     CAN_BTS2_6TQ                           = 0x05, /*!< 6 time quantum */
     CAN_BTS2_7TQ                           = 0x06, /*!< 7 time quantum */
     CAN_BTS2_8TQ                           = 0x07  /*!< 8 time quantum */
-} can_bts2_type;
+} can_bts2_Type;
 
 /**
   * @brief  can identifier type
@@ -223,7 +223,7 @@ typedef enum {
 typedef enum {
     CAN_ID_STANDARD                        = 0x00, /*!< standard Id */
     CAN_ID_EXTENDED                        = 0x01  /*!< extended Id */
-} can_identifier_type;
+} can_identifier_Type;
 
 /**
   * @brief  can transmission frame type
@@ -231,7 +231,7 @@ typedef enum {
 typedef enum {
     CAN_TFT_DATA                           = 0x00, /*!< data frame */
     CAN_TFT_REMOTE                         = 0x01  /*!< remote frame */
-} can_trans_frame_type;
+} can_trans_frame_Type;
 
 /**
   * @brief  can tx mailboxes
@@ -240,7 +240,7 @@ typedef enum {
     CAN_TX_MAILBOX0                        = 0x00, /*!< can tx mailbox 0 */
     CAN_TX_MAILBOX1                        = 0x01, /*!< can tx mailbox 1 */
     CAN_TX_MAILBOX2                        = 0x02  /*!< can tx mailbox 2 */
-} can_tx_mailbox_num_type;
+} can_tx_mailbox_Num_Type;
 
 /**
   * @brief  can receive fifo
@@ -248,25 +248,25 @@ typedef enum {
 typedef enum {
     CAN_RX_FIFO0                           = 0x00, /*!< can fifo 0 used to receive */
     CAN_RX_FIFO1                           = 0x01  /*!< can fifo 1 used to receive */
-} can_rx_fifo_num_type;
+} can_rx_FIFO_Num_Type;
 
 /**
   * @brief  can transmit status
   */
 typedef enum {
-    CAN_TX_STATUS_FAILED                   = 0x00, /*!< can transmission failed */
-    CAN_TX_STATUS_SUCCESSFUL               = 0x01, /*!< can transmission successful */
-    CAN_TX_STATUS_PENDING                  = 0x02, /*!< can transmission pending */
-    CAN_TX_STATUS_NO_EMPTY                 = 0x04  /*!< can transmission no empty mailbox */
-} can_transmit_status_type;
+    CAN_TX_Status_FAILED                   = 0x00, /*!< can transmission failed */
+    CAN_TX_Status_SUCCESSFUL               = 0x01, /*!< can transmission successful */
+    CAN_TX_Status_PENDING                  = 0x02, /*!< can transmission pending */
+    CAN_TX_Status_NO_EMPTY                 = 0x04  /*!< can transmission no empty mailbox */
+} can_Transmit_Status_Type;
 
 /**
   * @brief  can enter doze mode status
   */
 typedef enum {
-    CAN_ENTER_DOZE_FAILED                  = 0x00, /*!< can enter the doze mode failed */
-    CAN_ENTER_DOZE_SUCCESSFUL              = 0x01  /*!< can enter the doze mode successful */
-} can_enter_doze_status_type;
+    CAN_Enter_DOZE_FAILED                  = 0x00, /*!< can enter the doze mode failed */
+    CAN_Enter_DOZE_SUCCESSFUL              = 0x01  /*!< can enter the doze mode successful */
+} can_Enter_doze_Status_Type;
 
 /**
   * @brief  can quit doze mode status
@@ -274,7 +274,7 @@ typedef enum {
 typedef enum {
     CAN_QUIT_DOZE_FAILED                   = 0x00, /*!< can quit doze mode failed */
     CAN_QUIT_DOZE_SUCCESSFUL               = 0x01  /*!< can quit doze mode successful */
-} can_quit_doze_status_type;
+} can_quit_doze_Status_Type;
 
 /**
   * @brief  can message discarding rule select when overflow
@@ -282,7 +282,7 @@ typedef enum {
 typedef enum {
     CAN_DISCARDING_FIRST_RECEIVED          = 0x00, /*!< can discarding the first received message */
     CAN_DISCARDING_LAST_RECEIVED           = 0x01  /*!< can discarding the last received message */
-} can_msg_discarding_rule_type;
+} can_msg_discarding_rule_Type;
 
 /**
   * @brief  can multiple message sending sequence rule
@@ -290,7 +290,7 @@ typedef enum {
 typedef enum {
     CAN_SENDING_BY_ID                      = 0x00, /*!< can sending the minimum id message first*/
     CAN_SENDING_BY_REQUEST                 = 0x01  /*!< can sending the first request message first */
-} can_msg_sending_rule_type;
+} can_msg_sending_rule_Type;
 
 /**
   * @brief  can error type record
@@ -304,27 +304,27 @@ typedef enum {
     CAN_ERRORRECORD_BITDOMINANTERR         = 0x05, /*!< bit dominant error */
     CAN_ERRORRECORD_CRCERR                 = 0x06, /*!< crc error */
     CAN_ERRORRECORD_SOFTWARESETERR         = 0x07  /*!< software set error */
-} can_error_record_type;
+} can_Error_record_Type;
 
 /**
   * @brief  can init structure definition
   */
 typedef struct {
-    can_mode_type mode_selection;          /*!< specifies the can mode.*/
+    can_Mode_Type mode_Selection;          /*!< specifies the can mode.*/
 
-    confirm_state ttc_enable;              /*!< time triggered communication mode enable */
+    confirm_state ttc_Enable;              /*!< time triggered communication mode enable */
 
-    confirm_state aebo_enable;             /*!< automatic exit bus-off enable */
+    confirm_state aebo_Enable;             /*!< automatic exit bus-off enable */
 
-    confirm_state aed_enable;              /*!< automatic exit doze mode enable */
+    confirm_state aed_Enable;              /*!< automatic exit doze mode enable */
 
-    confirm_state prsf_enable;             /*!< prohibit retransmission when sending fails enable */
+    confirm_state prsf_Enable;             /*!< prohibit retransmission when sending fails enable */
 
-    can_msg_discarding_rule_type mdrsel_selection; /*!< message discarding rule select when overflow */
+    can_msg_discarding_rule_Type mdrsel_Selection; /*!< message discarding rule select when overflow */
 
-    can_msg_sending_rule_type mmssr_selection;     /*!< multiple message sending sequence rule */
+    can_msg_sending_rule_Type mmssr_Selection;     /*!< multiple message sending sequence rule */
 
-} can_base_type;
+} can_base_Type;
 
 /**
   * @brief  can baudrate structure definition
@@ -332,40 +332,40 @@ typedef struct {
 typedef struct {
     uint16_t baudrate_div;                  /*!< baudrate division,this parameter can be 0x001~0x1000.*/
 
-    can_rsaw_type rsaw_size;                /*!< resynchronization adjust width */
+    can_rsaw_Type rsaw_size;                /*!< resynchronization adjust width */
 
-    can_bts1_type bts1_size;                /*!< bit time segment 1 */
+    can_bts1_Type bts1_size;                /*!< bit time segment 1 */
 
-    can_bts2_type bts2_size;                /*!< bit time segment 2 */
+    can_bts2_Type bts2_size;                /*!< bit time segment 2 */
 
-} can_baudrate_type;
+} can_baudrate_Type;
 
 /**
   * @brief  can filter init structure definition
   */
 typedef struct {
-    confirm_state filter_activate_enable;  /*!< enable or disable the filter activate.*/
+    confirm_state filter_activate_Enable;  /*!< enable or disable the filter activate.*/
 
-    can_filter_mode_type filter_mode;      /*!< config the filter mode mask or list.*/
+    can_Filter_Mode_Type filter_mode;      /*!< config the filter mode mask or list.*/
 
-    can_filter_fifo_type filter_fifo;      /*!< config the fifo which will be assigned to the filter. */
+    can_Filter_FIFO_Type filter_fifo;      /*!< config the fifo which will be assigned to the filter. */
 
-    uint8_t filter_number;                 /*!< config the filter number, parameter ranges from 0 to 13. */
+    uint8_t filter_Number;                 /*!< config the filter number, parameter ranges from 0 to 13. */
 
-    can_filter_bit_width_type filter_bit;  /*!< config the filter bit width 16bit or 32bit.*/
+    can_Filter_Bit_width_Type filter_bit;  /*!< config the filter bit width 16bit or 32bit.*/
 
-    uint16_t filter_id_high;               /*!< config the filter identification, for 32-bit configuration
+    uint16_t filter_ID_high;               /*!< config the filter identification, for 32-bit configuration
                                               it's high 16 bits, for 16-bit configuration it's first. */
 
-    uint16_t filter_id_low;                /*!< config the filter identification, for 32-bit configuration
+    uint16_t filter_ID_low;                /*!< config the filter identification, for 32-bit configuration
                                               it's low 16 bits, for 16-bit configuration it's second. */
 
-    uint16_t filter_mask_high;             /*!< config the filter mask or identification, according to the filtering mode,
+    uint16_t filter_Mask_high;             /*!< config the filter mask or identification, according to the filtering mode,
                                               for 32-bit configuration it's high 16 bits, for 16-bit configuration it's first. */
 
-    uint16_t filter_mask_low;              /*!< config the filter mask or identification, according to the filtering mode,
+    uint16_t filter_Mask_low;              /*!< config the filter mask or identification, according to the filtering mode,
                                               for 32-bit configuration it's low 16 bits, for 16-bit configuration it's second. */
-} can_filter_init_type;
+} can_Filter_Init_Type;
 
 /**
   * @brief  can tx message structure definition
@@ -377,16 +377,16 @@ typedef struct {
     uint32_t extended_id;                  /*!< specifies the 29 bits extended identifier.
                                               this parameter can be a value between 0 to 0x1FFFFFFF. */
 
-    can_identifier_type id_type;           /*!< specifies identifier type for the transmit message.*/
+    can_identifier_Type id_Type;           /*!< specifies identifier type for the transmit message.*/
 
-    can_trans_frame_type frame_type;       /*!< specifies frame type for the transmit message.*/
+    can_trans_frame_Type frame_Type;       /*!< specifies frame type for the transmit message.*/
 
     uint8_t dlc;                           /*!< specifies frame data length that will be transmitted.
                                               this parameter can be a value between 0 to 8 */
 
     uint8_t data[8];                       /*!< contains the transmit data. it ranges from 0 to 0xFF. */
 
-} can_tx_message_type;
+} can_tx_message_Type;
 
 /**
   * @brief  can rx message structure definition
@@ -398,9 +398,9 @@ typedef struct {
     uint32_t extended_id;                /*!< specifies the 29 bits extended identifier.
                                               this parameter can be a value between 0 to 0x1FFFFFFF. */
 
-    can_identifier_type id_type;         /*!< specifies identifier type for the receive message.*/
+    can_identifier_Type id_Type;         /*!< specifies identifier type for the receive message.*/
 
-    can_trans_frame_type frame_type;     /*!< specifies frame type for the receive message.*/
+    can_trans_frame_Type frame_Type;     /*!< specifies frame type for the receive message.*/
 
     uint8_t dlc;                         /*!< specifies the frame data length that will be received.
                                               this parameter can be a value between 0 to 8 */
@@ -409,7 +409,7 @@ typedef struct {
 
     uint8_t filter_index;                /*!< specifies the message stored in which filter
                                               this parameter can be a value between 0 to 0xFF */
-} can_rx_message_type;
+} can_rx_message_Type;
 
 /**
   * @brief can controller area network tx mailbox
@@ -468,7 +468,7 @@ typedef struct {
             __IO uint32_t tmdt7                : 8; /* [31:24] */
         } tmdth_bit;
     };
-} can_tx_mailbox_type;
+} can_tx_mailbox_Type;
 
 /**
   * @brief can controller area network fifo mailbox
@@ -526,7 +526,7 @@ typedef struct {
             __IO uint32_t rfdt7                : 8; /* [31:24] */
         } rfdth_bit;
     };
-} can_fifo_mailbox_type;
+} can_FIFO_mailbox_Type;
 
 /**
   * @brief can controller area network filter bit register
@@ -534,7 +534,7 @@ typedef struct {
 typedef struct {
     __IO uint32_t ffdb1;
     __IO uint32_t ffdb2;
-} can_filter_register_type;
+} can_Filter_Register_Type;
 
 /**
   * @brief type define can register all
@@ -715,12 +715,12 @@ typedef struct {
     /**
       * @brief can controller area network tx mailbox register, offset:0x180~0x1AC
       */
-    can_tx_mailbox_type tx_mailbox[3];
+    can_tx_mailbox_Type tx_mailbox[3];
 
     /**
       * @brief can controller area network fifo mailbox register, offset:0x1B0~0x1CC
       */
-    can_fifo_mailbox_type fifo_mailbox[2];
+    can_FIFO_mailbox_Type fifo_mailbox[2];
 
     /**
       * @brief can reserved register, offset:0x1D0~0x1FC
@@ -913,44 +913,44 @@ typedef struct {
     /**
       * @brief can ffb register, offset:0x240~0x2AC
       */
-    can_filter_register_type ffb[28];
-} can_type;
+    can_Filter_Register_Type ffb[28];
+} can_Type;
 
 /**
   * @}
   */
 
-#define CAN1                             ((can_type *) CAN1_BASE)
-#define CAN2                             ((can_type *) CAN2_BASE)
+#define CAN1                             ((can_Type *) CAN1_BASE)
+#define CAN2                             ((can_Type *) CAN2_BASE)
 
 /** @defgroup CAN_exported_functions
   * @{
   */
 
-void can_reset(can_type* can_x);
-void can_baudrate_default_para_init(can_baudrate_type* can_baudrate_struct);
-error_status can_baudrate_set(can_type* can_x, can_baudrate_type* can_baudrate_struct);
-void can_default_para_init(can_base_type* can_base_struct);
-error_status can_base_init(can_type* can_x, can_base_type* can_base_struct);
-void can_filter_default_para_init(can_filter_init_type* can_filter_init_struct);
-void can_filter_init(can_type* can_x, can_filter_init_type* can_filter_init_struct);
-void can_debug_transmission_prohibit(can_type* can_x, confirm_state new_state);
-void can_ttc_mode_enable(can_type* can_x, confirm_state new_state);
-uint8_t can_message_transmit(can_type* can_x, can_tx_message_type* tx_message_struct);
-can_transmit_status_type can_transmit_status_get(can_type* can_x, can_tx_mailbox_num_type transmit_mailbox);
-void can_transmit_cancel(can_type* can_x, can_tx_mailbox_num_type transmit_mailbox);
-void can_message_receive(can_type* can_x, can_rx_fifo_num_type fifo_number, can_rx_message_type* rx_message_struct);
-void can_receive_fifo_release(can_type* can_x, can_rx_fifo_num_type fifo_number);
-uint8_t can_receive_message_pending_get(can_type* can_x, can_rx_fifo_num_type fifo_number);
-error_status can_operating_mode_set(can_type* can_x, can_operating_mode_type can_operating_mode);
-can_enter_doze_status_type can_doze_mode_enter(can_type* can_x);
-can_quit_doze_status_type can_doze_mode_exit(can_type* can_x);
-can_error_record_type can_error_type_record_get(can_type* can_x);
-uint8_t can_receive_error_counter_get(can_type* can_x);
-uint8_t can_transmit_error_counter_get(can_type* can_x);
-void can_interrupt_enable(can_type* can_x, uint32_t can_int, confirm_state new_state);
-flag_status can_flag_get(can_type* can_x, uint32_t can_flag);
-void can_flag_clear(can_type* can_x, uint32_t can_flag);
+void can_Reset(can_Type* can_x);
+void can_baudrate_Default_Para_Init(can_baudrate_Type* can_baudrate_struct);
+error_status can_baudrate_Set(can_Type* can_x, can_baudrate_Type* can_baudrate_struct);
+void can_Default_Para_Init(can_base_Type* can_base_struct);
+error_status can_base_Init(can_Type* can_x, can_base_Type* can_base_struct);
+void can_Filter_Default_Para_Init(can_Filter_Init_Type* can_Filter_Init_struct);
+void can_Filter_Init(can_Type* can_x, can_Filter_Init_Type* can_Filter_Init_struct);
+void can_DEBUG_transmission_prohibit(can_Type* can_x, confirm_state new_state);
+void can_ttc_Mode_Enable(can_Type* can_x, confirm_state new_state);
+uint8_t can_message_transmit(can_Type* can_x, can_tx_message_Type* tx_message_struct);
+can_Transmit_Status_Type can_Transmit_Status_Get(can_Type* can_x, can_tx_mailbox_Num_Type transmit_mailbox);
+void can_Transmit_cancel(can_Type* can_x, can_tx_mailbox_Num_Type transmit_mailbox);
+void can_message_receive(can_Type* can_x, can_rx_FIFO_Num_Type fifo_Number, can_rx_message_Type* rx_message_struct);
+void can_receive_FIFO_release(can_Type* can_x, can_rx_FIFO_Num_Type fifo_Number);
+uint8_t can_receive_message_pending_Get(can_Type* can_x, can_rx_FIFO_Num_Type fifo_Number);
+error_status can_operating_Mode_Set(can_Type* can_x, can_operating_Mode_Type can_operating_mode);
+can_Enter_doze_Status_Type can_doze_Mode_Enter(can_Type* can_x);
+can_quit_doze_Status_Type can_doze_Mode_Exit(can_Type* can_x);
+can_Error_record_Type can_Error_Type_record_Get(can_Type* can_x);
+uint8_t can_receive_Error_Counter_Get(can_Type* can_x);
+uint8_t can_Transmit_Error_Counter_Get(can_Type* can_x);
+void can_Interrupt_Enable(can_Type* can_x, uint32_t can_int, confirm_state new_state);
+flag_status can_Flag_Get(can_Type* can_x, uint32_t can_flag);
+void can_Flag_Clear(can_Type* can_x, uint32_t can_flag);
 
 /**
   * @}

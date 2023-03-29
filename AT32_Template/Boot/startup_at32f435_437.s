@@ -15,7 +15,7 @@ Stack_Size      EQU     0x00000400
 
                 AREA    STACK, NOINIT, READWRITE, ALIGN=3
 Stack_Mem       SPACE   Stack_Size
-__initial_sp
+__Initial_sp
 
 ; <h> Heap Configuration
 ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
@@ -38,7 +38,7 @@ __heap_limit
                 EXPORT  __Vectors_End
                 EXPORT  __Vectors_Size
 
-__Vectors       DCD     __initial_sp                        ; Top of Stack
+__Vectors       DCD     __Initial_sp                        ; Top of Stack
                 DCD     Reset_Handler                       ; Reset Handler
                 DCD     NMI_Handler                         ; NMI Handler
                 DCD     HardFault_Handler                   ; Hard Fault Handler
@@ -436,16 +436,16 @@ DMA2_Channel7_IRQHandler
 ;*******************************************************************************
                  IF      :DEF:__MICROLIB
 
-                 EXPORT  __initial_sp
+                 EXPORT  __Initial_sp
                  EXPORT  __heap_base
                  EXPORT  __heap_limit
 
                  ELSE
 
                  IMPORT  __use_two_region_memory
-                 EXPORT  __user_initial_stackheap
+                 EXPORT  __User_Initial_stackheap
 
-__user_initial_stackheap
+__User_Initial_stackheap
 
                  LDR     R0, = Heap_Mem
                  LDR     R1, = (Stack_Mem + Stack_Size)

@@ -42,7 +42,7 @@ extern "C" {
   * @{
   */
 
-/** @defgroup MISC_vector_table_base_address
+/** @defgroup MISC_vector_table_base_Address
   * @{
   */
 
@@ -53,7 +53,7 @@ extern "C" {
   * @}
   */
 
-/** @defgroup MISC_exported_types
+/** @defgroup MISC_exported_Types
   * @{
   */
 
@@ -66,7 +66,7 @@ typedef enum {
     NVIC_PRIORITY_GROUP_2                  = ((uint32_t)0x5), /*!< 2 bits for preemption priority, 2 bits for subpriority */
     NVIC_PRIORITY_GROUP_3                  = ((uint32_t)0x4), /*!< 3 bits for preemption priority, 1 bits for subpriority */
     NVIC_PRIORITY_GROUP_4                  = ((uint32_t)0x3)  /*!< 4 bits for preemption priority, 0 bits for subpriority */
-} nvic_priority_group_type;
+} nvic_priority_group_Type;
 
 /**
   * @brief nvic low power mode
@@ -75,15 +75,15 @@ typedef enum {
     NVIC_LP_SLEEPONEXIT                    = 0x02, /*!< enable sleep-on-exit feature */
     NVIC_LP_SLEEPDEEP                      = 0x04, /*!< enable sleep-deep output signal when entering sleep mode */
     NVIC_LP_SEVONPEND                      = 0x10  /*!< send event on pending */
-} nvic_lowpower_mode_type;
+} nvic_lowpower_Mode_Type;
 
 /**
   * @brief systick clock source
   */
 typedef enum {
-    SYSTICK_CLOCK_SOURCE_AHBCLK_DIV8       = ((uint32_t)0x00000000), /*!< systick clock source from core clock div8 */
-    SYSTICK_CLOCK_SOURCE_AHBCLK_NODIV      = ((uint32_t)0x00000004)  /*!< systick clock source from core clock */
-} systick_clock_source_type;
+    SYSTICK_Clock_Source_AHBCLK_DIV8       = ((uint32_t)0x00000000), /*!< systick clock source from core clock div8 */
+    SYSTICK_Clock_Source_AHBCLK_NODIV      = ((uint32_t)0x00000004)  /*!< systick clock source from core clock */
+} systick_Clock_Source_Type;
 
 /**
   * @}
@@ -93,13 +93,13 @@ typedef enum {
   * @{
   */
 
-void nvic_system_reset(void);
-void nvic_irq_enable(IRQn_Type irqn, uint32_t preempt_priority, uint32_t sub_priority);
-void nvic_irq_disable(IRQn_Type irqn);
-void nvic_priority_group_config(nvic_priority_group_type priority_group);
-void nvic_vector_table_set(uint32_t base, uint32_t offset);
-void nvic_lowpower_mode_config(nvic_lowpower_mode_type lp_mode, confirm_state new_state);
-void systick_clock_source_config(systick_clock_source_type source);
+void nvic_System_Reset(void);
+void nvic_irq_Enable(IRQn_Type irqn, uint32_t preempt_priority, uint32_t sub_priority);
+void nvic_irq_Disable(IRQn_Type irqn);
+void nvic_priority_group_Config(nvic_priority_group_Type priority_group);
+void nvic_vector_table_Set(uint32_t base, uint32_t offset);
+void nvic_lowpower_Mode_Config(nvic_lowpower_Mode_Type lp_mode, confirm_state new_state);
+void systick_Clock_Source_Config(systick_Clock_Source_Type source);
 
 /**
   * @}

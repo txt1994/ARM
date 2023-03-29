@@ -74,37 +74,37 @@ struct __attribute__((packed)) T_UINT32 {
 #pragma clang diagnostic pop
 #define __UNALIGNED_UINT32(x)                  (((struct T_UINT32 *)(x))->v)
 #endif
-#ifndef   __UNALIGNED_UINT16_WRITE
+#ifndef   __UNALIGNED_UINT16_Write
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wpacked"
-/*lint -esym(9058, T_UINT16_WRITE)*/ /* disable MISRA 2012 Rule 2.4 for T_UINT16_WRITE */
-__PACKED_STRUCT T_UINT16_WRITE { uint16_t v; };
+/*lint -esym(9058, T_UINT16_Write)*/ /* disable MISRA 2012 Rule 2.4 for T_UINT16_Write */
+__PACKED_STRUCT T_UINT16_Write { uint16_t v; };
 #pragma clang diagnostic pop
-#define __UNALIGNED_UINT16_WRITE(addr, val)    (void)((((struct T_UINT16_WRITE *)(void *)(addr))->v) = (val))
+#define __UNALIGNED_UINT16_Write(addr, val)    (void)((((struct T_UINT16_Write *)(void *)(addr))->v) = (val))
 #endif
-#ifndef   __UNALIGNED_UINT16_READ
+#ifndef   __UNALIGNED_UINT16_Read
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wpacked"
-/*lint -esym(9058, T_UINT16_READ)*/ /* disable MISRA 2012 Rule 2.4 for T_UINT16_READ */
-__PACKED_STRUCT T_UINT16_READ { uint16_t v; };
+/*lint -esym(9058, T_UINT16_Read)*/ /* disable MISRA 2012 Rule 2.4 for T_UINT16_Read */
+__PACKED_STRUCT T_UINT16_Read { uint16_t v; };
 #pragma clang diagnostic pop
-#define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(addr))->v)
+#define __UNALIGNED_UINT16_Read(addr)          (((const struct T_UINT16_Read *)(const void *)(addr))->v)
 #endif
-#ifndef   __UNALIGNED_UINT32_WRITE
+#ifndef   __UNALIGNED_UINT32_Write
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wpacked"
-/*lint -esym(9058, T_UINT32_WRITE)*/ /* disable MISRA 2012 Rule 2.4 for T_UINT32_WRITE */
-__PACKED_STRUCT T_UINT32_WRITE { uint32_t v; };
+/*lint -esym(9058, T_UINT32_Write)*/ /* disable MISRA 2012 Rule 2.4 for T_UINT32_Write */
+__PACKED_STRUCT T_UINT32_Write { uint32_t v; };
 #pragma clang diagnostic pop
-#define __UNALIGNED_UINT32_WRITE(addr, val)    (void)((((struct T_UINT32_WRITE *)(void *)(addr))->v) = (val))
+#define __UNALIGNED_UINT32_Write(addr, val)    (void)((((struct T_UINT32_Write *)(void *)(addr))->v) = (val))
 #endif
-#ifndef   __UNALIGNED_UINT32_READ
+#ifndef   __UNALIGNED_UINT32_Read
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wpacked"
-/*lint -esym(9058, T_UINT32_READ)*/ /* disable MISRA 2012 Rule 2.4 for T_UINT32_READ */
-__PACKED_STRUCT T_UINT32_READ { uint32_t v; };
+/*lint -esym(9058, T_UINT32_Read)*/ /* disable MISRA 2012 Rule 2.4 for T_UINT32_Read */
+__PACKED_STRUCT T_UINT32_Read { uint32_t v; };
 #pragma clang diagnostic pop
-#define __UNALIGNED_UINT32_READ(addr)          (((const struct T_UINT32_READ *)(const void *)(addr))->v)
+#define __UNALIGNED_UINT32_Read(addr)          (((const struct T_UINT32_Read *)(const void *)(addr))->v)
 #endif
 #ifndef   __ALIGNED
     #define __ALIGNED(x)                           __attribute__((aligned(x)))
@@ -122,8 +122,8 @@ __PACKED_STRUCT T_UINT32_READ { uint32_t v; };
     #define __PROGRAM_START           __main
 #endif
 
-#ifndef __INITIAL_SP
-    #define __INITIAL_SP              Image$$ARM_LIB_STACK$$ZI$$Limit
+#ifndef __InitIAL_SP
+    #define __InitIAL_SP              Image$$ARM_LIB_STACK$$ZI$$Limit
 #endif
 
 #ifndef __STACK_LIMIT
@@ -149,7 +149,7 @@ __PACKED_STRUCT T_UINT32_READ { uint32_t v; };
   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
            Can only be executed in Privileged modes.
  */
-/* intrinsic void __enable_irq();  see arm_compat.h */
+/* intrinsic void __Enable_irq();  see arm_compat.h */
 
 
 /**
@@ -157,7 +157,7 @@ __PACKED_STRUCT T_UINT32_READ { uint32_t v; };
   \details Disables IRQ interrupts by setting the I-bit in the CPSR.
            Can only be executed in Privileged modes.
  */
-/* intrinsic void __disable_irq();  see arm_compat.h */
+/* intrinsic void __Disable_irq();  see arm_compat.h */
 
 
 /**
@@ -165,7 +165,7 @@ __PACKED_STRUCT T_UINT32_READ { uint32_t v; };
   \details Returns the content of the Control Register.
   \return               Control Register value
  */
-__STATIC_FORCEINLINE uint32_t __get_CONTROL(void) {
+__STATIC_FORCEINLINE uint32_t __Get_CONTROL(void) {
     uint32_t result;
 
     __ASM volatile ("MRS %0, control" : "=r" (result) );
@@ -179,7 +179,7 @@ __STATIC_FORCEINLINE uint32_t __get_CONTROL(void) {
   \details Returns the content of the non-secure Control Register when in secure mode.
   \return               non-secure Control Register value
  */
-__STATIC_FORCEINLINE uint32_t __TZ_get_CONTROL_NS(void) {
+__STATIC_FORCEINLINE uint32_t __TZ_Get_Control_NS(void) {
     uint32_t result;
 
     __ASM volatile ("MRS %0, control_ns" : "=r" (result) );
@@ -193,7 +193,7 @@ __STATIC_FORCEINLINE uint32_t __TZ_get_CONTROL_NS(void) {
   \details Writes the given value to the Control Register.
   \param [in]    control  Control Register value to set
  */
-__STATIC_FORCEINLINE void __set_CONTROL(uint32_t control) {
+__STATIC_FORCEINLINE void __Set_CONTROL(uint32_t control) {
     __ASM volatile ("MSR control, %0" : : "r" (control) : "memory");
 }
 
@@ -204,7 +204,7 @@ __STATIC_FORCEINLINE void __set_CONTROL(uint32_t control) {
   \details Writes the given value to the non-secure Control Register when in secure state.
   \param [in]    control  Control Register value to set
  */
-__STATIC_FORCEINLINE void __TZ_set_CONTROL_NS(uint32_t control) {
+__STATIC_FORCEINLINE void __TZ_Set_Control_NS(uint32_t control) {
     __ASM volatile ("MSR control_ns, %0" : : "r" (control) : "memory");
 }
 #endif
@@ -215,7 +215,7 @@ __STATIC_FORCEINLINE void __TZ_set_CONTROL_NS(uint32_t control) {
   \details Returns the content of the IPSR Register.
   \return               IPSR Register value
  */
-__STATIC_FORCEINLINE uint32_t __get_IPSR(void) {
+__STATIC_FORCEINLINE uint32_t __Get_IPSR(void) {
     uint32_t result;
 
     __ASM volatile ("MRS %0, ipsr" : "=r" (result) );
@@ -228,7 +228,7 @@ __STATIC_FORCEINLINE uint32_t __get_IPSR(void) {
   \details Returns the content of the APSR Register.
   \return               APSR Register value
  */
-__STATIC_FORCEINLINE uint32_t __get_APSR(void) {
+__STATIC_FORCEINLINE uint32_t __Get_APSR(void) {
     uint32_t result;
 
     __ASM volatile ("MRS %0, apsr" : "=r" (result) );
@@ -241,7 +241,7 @@ __STATIC_FORCEINLINE uint32_t __get_APSR(void) {
   \details Returns the content of the xPSR Register.
   \return               xPSR Register value
  */
-__STATIC_FORCEINLINE uint32_t __get_xPSR(void) {
+__STATIC_FORCEINLINE uint32_t __Get_xPSR(void) {
     uint32_t result;
 
     __ASM volatile ("MRS %0, xpsr" : "=r" (result) );
@@ -254,7 +254,7 @@ __STATIC_FORCEINLINE uint32_t __get_xPSR(void) {
   \details Returns the current value of the Process Stack Pointer (PSP).
   \return               PSP Register value
  */
-__STATIC_FORCEINLINE uint32_t __get_PSP(void) {
+__STATIC_FORCEINLINE uint32_t __Get_PSP(void) {
     uint32_t result;
 
     __ASM volatile ("MRS %0, psp"  : "=r" (result) );
@@ -268,7 +268,7 @@ __STATIC_FORCEINLINE uint32_t __get_PSP(void) {
   \details Returns the current value of the non-secure Process Stack Pointer (PSP) when in secure state.
   \return               PSP Register value
  */
-__STATIC_FORCEINLINE uint32_t __TZ_get_PSP_NS(void) {
+__STATIC_FORCEINLINE uint32_t __TZ_Get_PSP_NS(void) {
     uint32_t result;
 
     __ASM volatile ("MRS %0, psp_ns"  : "=r" (result) );
@@ -282,7 +282,7 @@ __STATIC_FORCEINLINE uint32_t __TZ_get_PSP_NS(void) {
   \details Assigns the given value to the Process Stack Pointer (PSP).
   \param [in]    topOfProcStack  Process Stack Pointer value to set
  */
-__STATIC_FORCEINLINE void __set_PSP(uint32_t topOfProcStack) {
+__STATIC_FORCEINLINE void __Set_PSP(uint32_t topOfProcStack) {
     __ASM volatile ("MSR psp, %0" : : "r" (topOfProcStack) : );
 }
 
@@ -293,7 +293,7 @@ __STATIC_FORCEINLINE void __set_PSP(uint32_t topOfProcStack) {
   \details Assigns the given value to the non-secure Process Stack Pointer (PSP) when in secure state.
   \param [in]    topOfProcStack  Process Stack Pointer value to set
  */
-__STATIC_FORCEINLINE void __TZ_set_PSP_NS(uint32_t topOfProcStack) {
+__STATIC_FORCEINLINE void __TZ_Set_PSP_NS(uint32_t topOfProcStack) {
     __ASM volatile ("MSR psp_ns, %0" : : "r" (topOfProcStack) : );
 }
 #endif
@@ -304,7 +304,7 @@ __STATIC_FORCEINLINE void __TZ_set_PSP_NS(uint32_t topOfProcStack) {
   \details Returns the current value of the Main Stack Pointer (MSP).
   \return               MSP Register value
  */
-__STATIC_FORCEINLINE uint32_t __get_MSP(void) {
+__STATIC_FORCEINLINE uint32_t __Get_MSP(void) {
     uint32_t result;
 
     __ASM volatile ("MRS %0, msp" : "=r" (result) );
@@ -318,7 +318,7 @@ __STATIC_FORCEINLINE uint32_t __get_MSP(void) {
   \details Returns the current value of the non-secure Main Stack Pointer (MSP) when in secure state.
   \return               MSP Register value
  */
-__STATIC_FORCEINLINE uint32_t __TZ_get_MSP_NS(void) {
+__STATIC_FORCEINLINE uint32_t __TZ_Get_MSP_NS(void) {
     uint32_t result;
 
     __ASM volatile ("MRS %0, msp_ns" : "=r" (result) );
@@ -332,7 +332,7 @@ __STATIC_FORCEINLINE uint32_t __TZ_get_MSP_NS(void) {
   \details Assigns the given value to the Main Stack Pointer (MSP).
   \param [in]    topOfMainStack  Main Stack Pointer value to set
  */
-__STATIC_FORCEINLINE void __set_MSP(uint32_t topOfMainStack) {
+__STATIC_FORCEINLINE void __Set_MSP(uint32_t topOfMainStack) {
     __ASM volatile ("MSR msp, %0" : : "r" (topOfMainStack) : );
 }
 
@@ -343,7 +343,7 @@ __STATIC_FORCEINLINE void __set_MSP(uint32_t topOfMainStack) {
   \details Assigns the given value to the non-secure Main Stack Pointer (MSP) when in secure state.
   \param [in]    topOfMainStack  Main Stack Pointer value to set
  */
-__STATIC_FORCEINLINE void __TZ_set_MSP_NS(uint32_t topOfMainStack) {
+__STATIC_FORCEINLINE void __TZ_Set_MSP_NS(uint32_t topOfMainStack) {
     __ASM volatile ("MSR msp_ns, %0" : : "r" (topOfMainStack) : );
 }
 #endif
@@ -355,7 +355,7 @@ __STATIC_FORCEINLINE void __TZ_set_MSP_NS(uint32_t topOfMainStack) {
   \details Returns the current value of the non-secure Stack Pointer (SP) when in secure state.
   \return               SP Register value
  */
-__STATIC_FORCEINLINE uint32_t __TZ_get_SP_NS(void) {
+__STATIC_FORCEINLINE uint32_t __TZ_Get_SP_NS(void) {
     uint32_t result;
 
     __ASM volatile ("MRS %0, sp_ns" : "=r" (result) );
@@ -368,7 +368,7 @@ __STATIC_FORCEINLINE uint32_t __TZ_get_SP_NS(void) {
   \details Assigns the given value to the non-secure Stack Pointer (SP) when in secure state.
   \param [in]    topOfStack  Stack Pointer value to set
  */
-__STATIC_FORCEINLINE void __TZ_set_SP_NS(uint32_t topOfStack) {
+__STATIC_FORCEINLINE void __TZ_Set_SP_NS(uint32_t topOfStack) {
     __ASM volatile ("MSR sp_ns, %0" : : "r" (topOfStack) : );
 }
 #endif
@@ -379,7 +379,7 @@ __STATIC_FORCEINLINE void __TZ_set_SP_NS(uint32_t topOfStack) {
   \details Returns the current state of the priority mask bit from the Priority Mask Register.
   \return               Priority Mask value
  */
-__STATIC_FORCEINLINE uint32_t __get_PRIMASK(void) {
+__STATIC_FORCEINLINE uint32_t __Get_PRIMASK(void) {
     uint32_t result;
 
     __ASM volatile ("MRS %0, primask" : "=r" (result) );
@@ -393,7 +393,7 @@ __STATIC_FORCEINLINE uint32_t __get_PRIMASK(void) {
   \details Returns the current state of the non-secure priority mask bit from the Priority Mask Register when in secure state.
   \return               Priority Mask value
  */
-__STATIC_FORCEINLINE uint32_t __TZ_get_PRIMASK_NS(void) {
+__STATIC_FORCEINLINE uint32_t __TZ_Get_PRIMASK_NS(void) {
     uint32_t result;
 
     __ASM volatile ("MRS %0, primask_ns" : "=r" (result) );
@@ -407,7 +407,7 @@ __STATIC_FORCEINLINE uint32_t __TZ_get_PRIMASK_NS(void) {
   \details Assigns the given value to the Priority Mask Register.
   \param [in]    priMask  Priority Mask
  */
-__STATIC_FORCEINLINE void __set_PRIMASK(uint32_t priMask) {
+__STATIC_FORCEINLINE void __Set_PRIMASK(uint32_t priMask) {
     __ASM volatile ("MSR primask, %0" : : "r" (priMask) : "memory");
 }
 
@@ -418,7 +418,7 @@ __STATIC_FORCEINLINE void __set_PRIMASK(uint32_t priMask) {
   \details Assigns the given value to the non-secure Priority Mask Register when in secure state.
   \param [in]    priMask  Priority Mask
  */
-__STATIC_FORCEINLINE void __TZ_set_PRIMASK_NS(uint32_t priMask) {
+__STATIC_FORCEINLINE void __TZ_Set_PRIMASK_NS(uint32_t priMask) {
     __ASM volatile ("MSR primask_ns, %0" : : "r" (priMask) : "memory");
 }
 #endif
@@ -433,7 +433,7 @@ __STATIC_FORCEINLINE void __TZ_set_PRIMASK_NS(uint32_t priMask) {
   \details Enables FIQ interrupts by clearing the F-bit in the CPSR.
            Can only be executed in Privileged modes.
  */
-#define __enable_fault_irq                __enable_fiq   /* see arm_compat.h */
+#define __Enable_fault_irq                __Enable_fiq   /* see arm_compat.h */
 
 
 /**
@@ -441,7 +441,7 @@ __STATIC_FORCEINLINE void __TZ_set_PRIMASK_NS(uint32_t priMask) {
   \details Disables FIQ interrupts by setting the F-bit in the CPSR.
            Can only be executed in Privileged modes.
  */
-#define __disable_fault_irq               __disable_fiq   /* see arm_compat.h */
+#define __Disable_fault_irq               __Disable_fiq   /* see arm_compat.h */
 
 
 /**
@@ -449,7 +449,7 @@ __STATIC_FORCEINLINE void __TZ_set_PRIMASK_NS(uint32_t priMask) {
   \details Returns the current value of the Base Priority register.
   \return               Base Priority register value
  */
-__STATIC_FORCEINLINE uint32_t __get_BASEPRI(void) {
+__STATIC_FORCEINLINE uint32_t __Get_BASEPRI(void) {
     uint32_t result;
 
     __ASM volatile ("MRS %0, basepri" : "=r" (result) );
@@ -463,7 +463,7 @@ __STATIC_FORCEINLINE uint32_t __get_BASEPRI(void) {
   \details Returns the current value of the non-secure Base Priority register when in secure state.
   \return               Base Priority register value
  */
-__STATIC_FORCEINLINE uint32_t __TZ_get_BASEPRI_NS(void) {
+__STATIC_FORCEINLINE uint32_t __TZ_Get_BASEPRI_NS(void) {
     uint32_t result;
 
     __ASM volatile ("MRS %0, basepri_ns" : "=r" (result) );
@@ -477,7 +477,7 @@ __STATIC_FORCEINLINE uint32_t __TZ_get_BASEPRI_NS(void) {
   \details Assigns the given value to the Base Priority register.
   \param [in]    basePri  Base Priority value to set
  */
-__STATIC_FORCEINLINE void __set_BASEPRI(uint32_t basePri) {
+__STATIC_FORCEINLINE void __Set_BASEPRI(uint32_t basePri) {
     __ASM volatile ("MSR basepri, %0" : : "r" (basePri) : "memory");
 }
 
@@ -488,7 +488,7 @@ __STATIC_FORCEINLINE void __set_BASEPRI(uint32_t basePri) {
   \details Assigns the given value to the non-secure Base Priority register when in secure state.
   \param [in]    basePri  Base Priority value to set
  */
-__STATIC_FORCEINLINE void __TZ_set_BASEPRI_NS(uint32_t basePri) {
+__STATIC_FORCEINLINE void __TZ_Set_BASEPRI_NS(uint32_t basePri) {
     __ASM volatile ("MSR basepri_ns, %0" : : "r" (basePri) : "memory");
 }
 #endif
@@ -500,7 +500,7 @@ __STATIC_FORCEINLINE void __TZ_set_BASEPRI_NS(uint32_t basePri) {
            or the new value increases the BASEPRI priority level.
   \param [in]    basePri  Base Priority value to set
  */
-__STATIC_FORCEINLINE void __set_BASEPRI_MAX(uint32_t basePri) {
+__STATIC_FORCEINLINE void __Set_BASEPRI_MAX(uint32_t basePri) {
     __ASM volatile ("MSR basepri_max, %0" : : "r" (basePri) : "memory");
 }
 
@@ -510,7 +510,7 @@ __STATIC_FORCEINLINE void __set_BASEPRI_MAX(uint32_t basePri) {
   \details Returns the current value of the Fault Mask register.
   \return               Fault Mask register value
  */
-__STATIC_FORCEINLINE uint32_t __get_FAULTMASK(void) {
+__STATIC_FORCEINLINE uint32_t __Get_FAULTMASK(void) {
     uint32_t result;
 
     __ASM volatile ("MRS %0, faultmask" : "=r" (result) );
@@ -524,7 +524,7 @@ __STATIC_FORCEINLINE uint32_t __get_FAULTMASK(void) {
   \details Returns the current value of the non-secure Fault Mask register when in secure state.
   \return               Fault Mask register value
  */
-__STATIC_FORCEINLINE uint32_t __TZ_get_FAULTMASK_NS(void) {
+__STATIC_FORCEINLINE uint32_t __TZ_Get_FAULTMASK_NS(void) {
     uint32_t result;
 
     __ASM volatile ("MRS %0, faultmask_ns" : "=r" (result) );
@@ -538,7 +538,7 @@ __STATIC_FORCEINLINE uint32_t __TZ_get_FAULTMASK_NS(void) {
   \details Assigns the given value to the Fault Mask register.
   \param [in]    faultMask  Fault Mask value to set
  */
-__STATIC_FORCEINLINE void __set_FAULTMASK(uint32_t faultMask) {
+__STATIC_FORCEINLINE void __Set_FAULTMASK(uint32_t faultMask) {
     __ASM volatile ("MSR faultmask, %0" : : "r" (faultMask) : "memory");
 }
 
@@ -549,7 +549,7 @@ __STATIC_FORCEINLINE void __set_FAULTMASK(uint32_t faultMask) {
   \details Assigns the given value to the non-secure Fault Mask register when in secure state.
   \param [in]    faultMask  Fault Mask value to set
  */
-__STATIC_FORCEINLINE void __TZ_set_FAULTMASK_NS(uint32_t faultMask) {
+__STATIC_FORCEINLINE void __TZ_Set_FAULTMASK_NS(uint32_t faultMask) {
     __ASM volatile ("MSR faultmask_ns, %0" : : "r" (faultMask) : "memory");
 }
 #endif
@@ -573,7 +573,7 @@ __STATIC_FORCEINLINE void __TZ_set_FAULTMASK_NS(uint32_t faultMask) {
   \details Returns the current value of the Process Stack Pointer Limit (PSPLIM).
   \return               PSPLIM Register value
  */
-__STATIC_FORCEINLINE uint32_t __get_PSPLIM(void) {
+__STATIC_FORCEINLINE uint32_t __Get_PSPLIM(void) {
     #if (!((defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
     (defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1))   ) && \
     (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
@@ -596,7 +596,7 @@ __STATIC_FORCEINLINE uint32_t __get_PSPLIM(void) {
   \details Returns the current value of the non-secure Process Stack Pointer Limit (PSPLIM) when in secure state.
   \return               PSPLIM Register value
  */
-__STATIC_FORCEINLINE uint32_t __TZ_get_PSPLIM_NS(void) {
+__STATIC_FORCEINLINE uint32_t __TZ_Get_PSPLIM_NS(void) {
     #if (!((defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
     (defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1))   ) )
     // without main extensions, the non-secure PSPLIM is RAZ/WI
@@ -619,7 +619,7 @@ __STATIC_FORCEINLINE uint32_t __TZ_get_PSPLIM_NS(void) {
   \details Assigns the given value to the Process Stack Pointer Limit (PSPLIM).
   \param [in]    ProcStackPtrLimit  Process Stack Pointer Limit value to set
  */
-__STATIC_FORCEINLINE void __set_PSPLIM(uint32_t ProcStackPtrLimit) {
+__STATIC_FORCEINLINE void __Set_PSPLIM(uint32_t ProcStackPtrLimit) {
     #if (!((defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
     (defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1))   ) && \
     (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
@@ -641,7 +641,7 @@ __STATIC_FORCEINLINE void __set_PSPLIM(uint32_t ProcStackPtrLimit) {
   \details Assigns the given value to the non-secure Process Stack Pointer Limit (PSPLIM) when in secure state.
   \param [in]    ProcStackPtrLimit  Process Stack Pointer Limit value to set
  */
-__STATIC_FORCEINLINE void __TZ_set_PSPLIM_NS(uint32_t ProcStackPtrLimit) {
+__STATIC_FORCEINLINE void __TZ_Set_PSPLIM_NS(uint32_t ProcStackPtrLimit) {
     #if (!((defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
     (defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1))   ) )
     // without main extensions, the non-secure PSPLIM is RAZ/WI
@@ -661,7 +661,7 @@ __STATIC_FORCEINLINE void __TZ_set_PSPLIM_NS(uint32_t ProcStackPtrLimit) {
   \details Returns the current value of the Main Stack Pointer Limit (MSPLIM).
   \return               MSPLIM Register value
  */
-__STATIC_FORCEINLINE uint32_t __get_MSPLIM(void) {
+__STATIC_FORCEINLINE uint32_t __Get_MSPLIM(void) {
     #if (!((defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
     (defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1))   ) && \
     (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
@@ -684,7 +684,7 @@ __STATIC_FORCEINLINE uint32_t __get_MSPLIM(void) {
   \details Returns the current value of the non-secure Main Stack Pointer Limit(MSPLIM) when in secure state.
   \return               MSPLIM Register value
  */
-__STATIC_FORCEINLINE uint32_t __TZ_get_MSPLIM_NS(void) {
+__STATIC_FORCEINLINE uint32_t __TZ_Get_MSPLIM_NS(void) {
     #if (!((defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
     (defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1))   ) )
     // without main extensions, the non-secure MSPLIM is RAZ/WI
@@ -706,7 +706,7 @@ __STATIC_FORCEINLINE uint32_t __TZ_get_MSPLIM_NS(void) {
   \details Assigns the given value to the Main Stack Pointer Limit (MSPLIM).
   \param [in]    MainStackPtrLimit  Main Stack Pointer Limit value to set
  */
-__STATIC_FORCEINLINE void __set_MSPLIM(uint32_t MainStackPtrLimit) {
+__STATIC_FORCEINLINE void __Set_MSPLIM(uint32_t MainStackPtrLimit) {
     #if (!((defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
     (defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1))   ) && \
     (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
@@ -727,7 +727,7 @@ __STATIC_FORCEINLINE void __set_MSPLIM(uint32_t MainStackPtrLimit) {
   \details Assigns the given value to the non-secure Main Stack Pointer Limit (MSPLIM) when in secure state.
   \param [in]    MainStackPtrLimit  Main Stack Pointer value to set
  */
-__STATIC_FORCEINLINE void __TZ_set_MSPLIM_NS(uint32_t MainStackPtrLimit) {
+__STATIC_FORCEINLINE void __TZ_Set_MSPLIM_NS(uint32_t MainStackPtrLimit) {
     #if (!((defined (__ARM_ARCH_8M_MAIN__   ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
     (defined (__ARM_ARCH_8_1M_MAIN__ ) && (__ARM_ARCH_8_1M_MAIN__ == 1))   ) )
     // without main extensions, the non-secure MSPLIM is RAZ/WI
@@ -749,9 +749,9 @@ __STATIC_FORCEINLINE void __TZ_set_MSPLIM_NS(uint32_t MainStackPtrLimit) {
  */
 #if ((defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)) && \
 (defined (__FPU_USED   ) && (__FPU_USED    == 1U))     )
-#define __get_FPSCR      (uint32_t)__builtin_arm_get_fpscr
+#define __Get_FPSCR      (uint32_t)__builtin_arm_Get_fpscr
 #else
-#define __get_FPSCR()      ((uint32_t)0U)
+#define __Get_FPSCR()      ((uint32_t)0U)
 #endif
 
 /**
@@ -761,9 +761,9 @@ __STATIC_FORCEINLINE void __TZ_set_MSPLIM_NS(uint32_t MainStackPtrLimit) {
  */
 #if ((defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)) && \
 (defined (__FPU_USED   ) && (__FPU_USED    == 1U))     )
-#define __set_FPSCR      __builtin_arm_set_fpscr
+#define __Set_FPSCR      __builtin_arm_Set_fpscr
 #else
-#define __set_FPSCR(x)      ((void)(x))
+#define __Set_FPSCR(x)      ((void)(x))
 #endif
 
 

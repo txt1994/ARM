@@ -54,7 +54,7 @@ extern "C" {
 #define TMR_C4_FLAG                      ((uint32_t)0x000010) /*!< tmr flag channel 4 */
 #define TMR_C5_FLAG                      ((uint32_t)0x010000) /*!< tmr flag channel 5 */
 #define TMR_HALL_FLAG                    ((uint32_t)0x000020) /*!< tmr flag hall */
-#define TMR_TRIGGER_FLAG                 ((uint32_t)0x000040) /*!< tmr flag trigger */
+#define TMR_Trigger_FLAG                 ((uint32_t)0x000040) /*!< tmr flag trigger */
 #define TMR_BRK_FLAG                     ((uint32_t)0x000080) /*!< tmr flag brake */
 #define TMR_C1_RECAPTURE_FLAG            ((uint32_t)0x000200) /*!< tmr flag channel 1 recapture */
 #define TMR_C2_RECAPTURE_FLAG            ((uint32_t)0x000400) /*!< tmr flag channel 2 recapture */
@@ -65,7 +65,7 @@ extern "C" {
   * @}
   */
 
-/** @defgroup TMR_interrupt_select_type_definition
+/** @defgroup TMR_Interrupt_Select_Type_definition
   * @brief tmr interrupt select type
   * @{
   */
@@ -76,14 +76,14 @@ extern "C" {
 #define TMR_C3_INT                       ((uint32_t)0x000008) /*!< tmr interrupt channel 3 */
 #define TMR_C4_INT                       ((uint32_t)0x000010) /*!< tmr interrupt channel 4 */
 #define TMR_HALL_INT                     ((uint32_t)0x000020) /*!< tmr interrupt hall */
-#define TMR_TRIGGER_INT                  ((uint32_t)0x000040) /*!< tmr interrupt trigger */
+#define TMR_Trigger_INT                  ((uint32_t)0x000040) /*!< tmr interrupt trigger */
 #define TMR_BRK_INT                      ((uint32_t)0x000080) /*!< tmr interrupt brake */
 
 /**
   * @}
   */
 
-/** @defgroup TMR_exported_types
+/** @defgroup TMR_exported_Types
   * @{
   */
 
@@ -91,10 +91,10 @@ extern "C" {
   * @brief tmr clock division type
   */
 typedef enum {
-    TMR_CLOCK_DIV1                         = 0x00, /*!< tmr clock division 1 */
-    TMR_CLOCK_DIV2                         = 0x01, /*!< tmr clock division 2 */
-    TMR_CLOCK_DIV4                         = 0x02  /*!< tmr clock division 4 */
-} tmr_clock_division_type;
+    TMR_Clock_DIV1                         = 0x00, /*!< tmr clock division 1 */
+    TMR_Clock_DIV2                         = 0x01, /*!< tmr clock division 2 */
+    TMR_Clock_DIV4                         = 0x02  /*!< tmr clock division 4 */
+} tmr_Clock_division_Type;
 
 /**
   * @brief tmr counter mode type
@@ -105,111 +105,111 @@ typedef enum {
     TMR_COUNT_TWO_WAY_1                    = 0x02, /*!< tmr counter mode two way 1 */
     TMR_COUNT_TWO_WAY_2                    = 0x04, /*!< tmr counter mode two way 2 */
     TMR_COUNT_TWO_WAY_3                    = 0x06  /*!< tmr counter mode two way 3 */
-} tmr_count_mode_type;
+} tmr_count_Mode_Type;
 
 /**
   * @brief tmr primary mode select type
   */
 typedef enum {
-    TMR_PRIMARY_SEL_RESET                  = 0x00, /*!< tmr primary mode select reset */
-    TMR_PRIMARY_SEL_ENABLE                 = 0x01, /*!< tmr primary mode select enable */
+    TMR_PRIMARY_SEL_Reset                  = 0x00, /*!< tmr primary mode select reset */
+    TMR_PRIMARY_SEL_Enable                 = 0x01, /*!< tmr primary mode select enable */
     TMR_PRIMARY_SEL_OVERFLOW               = 0x02, /*!< tmr primary mode select overflow */
     TMR_PRIMARY_SEL_COMPARE                = 0x03, /*!< tmr primary mode select compare */
     TMR_PRIMARY_SEL_C1ORAW                 = 0x04, /*!< tmr primary mode select c1oraw */
     TMR_PRIMARY_SEL_C2ORAW                 = 0x05, /*!< tmr primary mode select c2oraw */
     TMR_PRIMARY_SEL_C3ORAW                 = 0x06, /*!< tmr primary mode select c3oraw */
     TMR_PRIMARY_SEL_C4ORAW                 = 0x07  /*!< tmr primary mode select c4oraw */
-} tmr_primary_select_type;
+} tmr_primary_Select_Type;
 
 /**
   * @brief tmr subordinate mode input select type
   */
 typedef enum {
-    TMR_SUB_INPUT_SEL_IS0                  = 0x00, /*!< subordinate mode input select is0 */
-    TMR_SUB_INPUT_SEL_IS1                  = 0x01, /*!< subordinate mode input select is1 */
-    TMR_SUB_INPUT_SEL_IS2                  = 0x02, /*!< subordinate mode input select is2 */
-    TMR_SUB_INPUT_SEL_IS3                  = 0x03, /*!< subordinate mode input select is3 */
-    TMR_SUB_INPUT_SEL_C1INC                = 0x04, /*!< subordinate mode input select c1inc */
-    TMR_SUB_INPUT_SEL_C1DF1                = 0x05, /*!< subordinate mode input select c1df1 */
-    TMR_SUB_INPUT_SEL_C2DF2                = 0x06, /*!< subordinate mode input select c2df2 */
-    TMR_SUB_INPUT_SEL_EXTIN                = 0x07  /*!< subordinate mode input select extin */
-} sub_tmr_input_sel_type;
+    TMR_Sub_Input_SEL_IS0                  = 0x00, /*!< subordinate mode input select is0 */
+    TMR_Sub_Input_SEL_IS1                  = 0x01, /*!< subordinate mode input select is1 */
+    TMR_Sub_Input_SEL_IS2                  = 0x02, /*!< subordinate mode input select is2 */
+    TMR_Sub_Input_SEL_IS3                  = 0x03, /*!< subordinate mode input select is3 */
+    TMR_Sub_Input_SEL_C1INC                = 0x04, /*!< subordinate mode input select c1inc */
+    TMR_Sub_Input_SEL_C1DF1                = 0x05, /*!< subordinate mode input select c1df1 */
+    TMR_Sub_Input_SEL_C2DF2                = 0x06, /*!< subordinate mode input select c2df2 */
+    TMR_Sub_Input_SEL_EXTIN                = 0x07  /*!< subordinate mode input select extin */
+} sub_tmr_Input_sel_Type;
 
 /**
   * @brief tmr subordinate mode select type
   */
 typedef enum {
-    TMR_SUB_MODE_DIABLE                    = 0x00, /*!< subordinate mode disable */
-    TMR_SUB_ENCODER_MODE_A                 = 0x01, /*!< subordinate mode select encoder mode a */
-    TMR_SUB_ENCODER_MODE_B                 = 0x02, /*!< subordinate mode select encoder mode b */
-    TMR_SUB_ENCODER_MODE_C                 = 0x03, /*!< subordinate mode select encoder mode c */
-    TMR_SUB_RESET_MODE                     = 0x04, /*!< subordinate mode select reset */
-    TMR_SUB_HANG_MODE                      = 0x05, /*!< subordinate mode select hang */
-    TMR_SUB_TRIGGER_MODE                   = 0x06, /*!< subordinate mode select trigger */
-    TMR_SUB_EXTERNAL_CLOCK_MODE_A          = 0x07  /*!< subordinate mode external clock mode a */
-} tmr_sub_mode_select_type;
+    TMR_Sub_Mode_DIABLE                    = 0x00, /*!< subordinate mode disable */
+    TMR_Sub_ENCODER_Mode_A                 = 0x01, /*!< subordinate mode select encoder mode a */
+    TMR_Sub_ENCODER_Mode_B                 = 0x02, /*!< subordinate mode select encoder mode b */
+    TMR_Sub_ENCODER_Mode_C                 = 0x03, /*!< subordinate mode select encoder mode c */
+    TMR_Sub_Reset_MODE                     = 0x04, /*!< subordinate mode select reset */
+    TMR_Sub_HANG_MODE                      = 0x05, /*!< subordinate mode select hang */
+    TMR_Sub_Trigger_MODE                   = 0x06, /*!< subordinate mode select trigger */
+    TMR_Sub_EXTERNAL_Clock_Mode_A          = 0x07  /*!< subordinate mode external clock mode a */
+} tmr_Sub_Mode_Select_Type;
 
 /**
   * @brief tmr encoder mode type
   */
 typedef enum {
-    TMR_ENCODER_MODE_A                     = TMR_SUB_ENCODER_MODE_A, /*!< tmr encoder mode a */
-    TMR_ENCODER_MODE_B                     = TMR_SUB_ENCODER_MODE_B, /*!< tmr encoder mode b */
-    TMR_ENCODER_MODE_C                     = TMR_SUB_ENCODER_MODE_C  /*!< tmr encoder mode c */
-} tmr_encoder_mode_type;
+    TMR_ENCODER_Mode_A                     = TMR_Sub_ENCODER_Mode_A, /*!< tmr encoder mode a */
+    TMR_ENCODER_Mode_B                     = TMR_Sub_ENCODER_Mode_B, /*!< tmr encoder mode b */
+    TMR_ENCODER_Mode_C                     = TMR_Sub_ENCODER_Mode_C  /*!< tmr encoder mode c */
+} tmr_encoder_Mode_Type;
 
 /**
   * @brief tmr output control mode type
   */
 typedef enum {
-    TMR_OUTPUT_CONTROL_OFF                 = 0x00, /*!< tmr output control mode off */
-    TMR_OUTPUT_CONTROL_HIGH                = 0x01, /*!< tmr output control mode high */
-    TMR_OUTPUT_CONTROL_LOW                 = 0x02, /*!< tmr output control mode low */
-    TMR_OUTPUT_CONTROL_SWITCH              = 0x03, /*!< tmr output control mode switch */
-    TMR_OUTPUT_CONTROL_FORCE_LOW           = 0x04, /*!< tmr output control mode force low */
-    TMR_OUTPUT_CONTROL_FORCE_HIGH          = 0x05, /*!< tmr output control mode force high */
-    TMR_OUTPUT_CONTROL_PWM_MODE_A          = 0x06, /*!< tmr output control mode pwm a */
-    TMR_OUTPUT_CONTROL_PWM_MODE_B          = 0x07  /*!< tmr output control mode pwm b */
-} tmr_output_control_mode_type;
+    TMR_OutPut_Control_OFF                 = 0x00, /*!< tmr output control mode off */
+    TMR_OutPut_Control_HIGH                = 0x01, /*!< tmr output control mode high */
+    TMR_OutPut_Control_LOW                 = 0x02, /*!< tmr output control mode low */
+    TMR_OutPut_Control_SWITCH              = 0x03, /*!< tmr output control mode switch */
+    TMR_OutPut_Control_FORCE_LOW           = 0x04, /*!< tmr output control mode force low */
+    TMR_OutPut_Control_FORCE_HIGH          = 0x05, /*!< tmr output control mode force high */
+    TMR_OutPut_Control_PWM_Mode_A          = 0x06, /*!< tmr output control mode pwm a */
+    TMR_OutPut_Control_PWM_Mode_B          = 0x07  /*!< tmr output control mode pwm b */
+} tmr_OutPut_Control_Mode_Type;
 
 /**
   * @brief tmr force output type
   */
 typedef enum {
-    TMR_FORCE_OUTPUT_HIGH                  = TMR_OUTPUT_CONTROL_FORCE_HIGH, /*!< tmr force output high */
-    TMR_FORCE_OUTPUT_LOW                   = TMR_OUTPUT_CONTROL_FORCE_LOW   /*!< tmr force output low */
-} tmr_force_output_type;
+    TMR_FORCE_OutPut_HIGH                  = TMR_OutPut_Control_FORCE_HIGH, /*!< tmr force output high */
+    TMR_FORCE_OutPut_LOW                   = TMR_OutPut_Control_FORCE_LOW   /*!< tmr force output low */
+} tmr_force_OutPut_Type;
 
 /**
   * @brief tmr output channel polarity type
   */
 typedef enum {
-    TMR_OUTPUT_ACTIVE_HIGH                 = 0x00, /*!< tmr output channel polarity high */
-    TMR_OUTPUT_ACTIVE_LOW                  = 0x01  /*!< tmr output channel polarity low */
-} tmr_output_polarity_type;
+    TMR_OutPut_ACTIVE_HIGH                 = 0x00, /*!< tmr output channel polarity high */
+    TMR_OutPut_ACTIVE_LOW                  = 0x01  /*!< tmr output channel polarity low */
+} tmr_OutPut_polarity_Type;
 
 /**
   * @brief tmr input channel polarity type
   */
 typedef enum {
-    TMR_INPUT_RISING_EDGE                  = 0x00, /*!< tmr input channel polarity rising */
-    TMR_INPUT_FALLING_EDGE                 = 0x01, /*!< tmr input channel polarity falling */
-    TMR_INPUT_BOTH_EDGE                    = 0x03  /*!< tmr input channel polarity both edge */
-} tmr_input_polarity_type;
+    TMR_Input_RISING_EDGE                  = 0x00, /*!< tmr input channel polarity rising */
+    TMR_Input_FALLING_EDGE                 = 0x01, /*!< tmr input channel polarity falling */
+    TMR_Input_BOTH_EDGE                    = 0x03  /*!< tmr input channel polarity both edge */
+} tmr_Input_polarity_Type;
 
 /**
   * @brief tmr channel select type
   */
 typedef enum {
-    TMR_SELECT_CHANNEL_1                   = 0x00, /*!< tmr channel select channel 1 */
-    TMR_SELECT_CHANNEL_1C                  = 0x01, /*!< tmr channel select channel 1 complementary */
-    TMR_SELECT_CHANNEL_2                   = 0x02, /*!< tmr channel select channel 2 */
-    TMR_SELECT_CHANNEL_2C                  = 0x03, /*!< tmr channel select channel 2 complementary */
-    TMR_SELECT_CHANNEL_3                   = 0x04, /*!< tmr channel select channel 3 */
-    TMR_SELECT_CHANNEL_3C                  = 0x05, /*!< tmr channel select channel 3 complementary */
-    TMR_SELECT_CHANNEL_4                   = 0x06, /*!< tmr channel select channel 4 */
-    TMR_SELECT_CHANNEL_5                   = 0x07  /*!< tmr channel select channel 5 */
-} tmr_channel_select_type;
+    TMR_Select_Channel_1                   = 0x00, /*!< tmr channel select channel 1 */
+    TMR_Select_Channel_1C                  = 0x01, /*!< tmr channel select channel 1 complementary */
+    TMR_Select_Channel_2                   = 0x02, /*!< tmr channel select channel 2 */
+    TMR_Select_Channel_2C                  = 0x03, /*!< tmr channel select channel 2 complementary */
+    TMR_Select_Channel_3                   = 0x04, /*!< tmr channel select channel 3 */
+    TMR_Select_Channel_3C                  = 0x05, /*!< tmr channel select channel 3 complementary */
+    TMR_Select_Channel_4                   = 0x06, /*!< tmr channel select channel 4 */
+    TMR_Select_Channel_5                   = 0x07  /*!< tmr channel select channel 5 */
+} tmr_Channel_Select_Type;
 
 /**
   * @brief tmr channel1 input connected type
@@ -217,61 +217,61 @@ typedef enum {
 typedef enum {
     TMR_CHANEL1_CONNECTED_C1IRAW           = 0x00, /*!< channel1 pins is only connected to C1IRAW input */
     TMR_CHANEL1_2_3_CONNECTED_C1IRAW_XOR   = 0x01  /*!< channel1/2/3 pins are connected to C1IRAW input after xored */
-} tmr_channel1_input_connected_type;
+} tmr_channel1_Input_connected_Type;
 
 /**
   * @brief tmr input channel mapped type channel direction
   */
 typedef enum {
-    TMR_CC_CHANNEL_MAPPED_DIRECT           = 0x01, /*!< channel is configured as input, mapped direct */
-    TMR_CC_CHANNEL_MAPPED_INDIRECT         = 0x02, /*!< channel is configured as input, mapped indirect */
-    TMR_CC_CHANNEL_MAPPED_STI              = 0x03  /*!< channel is configured as input, mapped sti */
-} tmr_input_direction_mapped_type;
+    TMR_CC_Channel_MAPPED_DIRECT           = 0x01, /*!< channel is configured as input, mapped direct */
+    TMR_CC_Channel_MAPPED_INDIRECT         = 0x02, /*!< channel is configured as input, mapped indirect */
+    TMR_CC_Channel_MAPPED_STI              = 0x03  /*!< channel is configured as input, mapped sti */
+} tmr_Input_direction_mapped_Type;
 
 /**
   * @brief tmr input divider type
   */
 typedef enum {
-    TMR_CHANNEL_INPUT_DIV_1                = 0x00, /*!< tmr channel input divider 1 */
-    TMR_CHANNEL_INPUT_DIV_2                = 0x01, /*!< tmr channel input divider 2 */
-    TMR_CHANNEL_INPUT_DIV_4                = 0x02, /*!< tmr channel input divider 4 */
-    TMR_CHANNEL_INPUT_DIV_8                = 0x03  /*!< tmr channel input divider 8 */
-} tmr_channel_input_divider_type;
+    TMR_Channel_Input_DIV_1                = 0x00, /*!< tmr channel input divider 1 */
+    TMR_Channel_Input_DIV_2                = 0x01, /*!< tmr channel input divider 2 */
+    TMR_Channel_Input_DIV_4                = 0x02, /*!< tmr channel input divider 4 */
+    TMR_Channel_Input_DIV_8                = 0x03  /*!< tmr channel input divider 8 */
+} tmr_Channel_Input_divider_Type;
 
 /**
   * @brief tmr dma request source select type
   */
 typedef enum {
-    TMR_DMA_REQUEST_BY_CHANNEL             = 0x00, /*!< tmr dma request source select channel */
-    TMR_DMA_REQUEST_BY_OVERFLOW            = 0x01  /*!< tmr dma request source select overflow */
-} tmr_dma_request_source_type;
+    TMR_DMA_Request_BY_CHANNEL             = 0x00, /*!< tmr dma request source select channel */
+    TMR_DMA_Request_BY_OVERFLOW            = 0x01  /*!< tmr dma request source select overflow */
+} tmr_DMA_Request_Source_Type;
 
 /**
   * @brief tmr dma request type
   */
 typedef enum {
-    TMR_OVERFLOW_DMA_REQUEST               = 0x00000100, /*!< tmr dma request select overflow */
+    TMR_OverFlow_DMA_REQUEST               = 0x00000100, /*!< tmr dma request select overflow */
     TMR_C1_DMA_REQUEST                     = 0x00000200, /*!< tmr dma request select channel 1 */
     TMR_C2_DMA_REQUEST                     = 0x00000400, /*!< tmr dma request select channel 2 */
     TMR_C3_DMA_REQUEST                     = 0x00000800, /*!< tmr dma request select channel 3 */
     TMR_C4_DMA_REQUEST                     = 0x00001000, /*!< tmr dma request select channel 4 */
     TMR_HALL_DMA_REQUEST                   = 0x00002000, /*!< tmr dma request select hall */
-    TMR_TRIGGER_DMA_REQUEST                = 0x00004000  /*!< tmr dma request select trigger */
-} tmr_dma_request_type;
+    TMR_Trigger_DMA_REQUEST                = 0x00004000  /*!< tmr dma request select trigger */
+} tmr_DMA_Request_Type;
 
 /**
   * @brief tmr event triggered by software type
   */
 typedef enum {
-    TMR_OVERFLOW_SWTRIG                    = 0x00000001, /*!< tmr event triggered by software of overflow */
+    TMR_OverFlow_SWTRIG                    = 0x00000001, /*!< tmr event triggered by software of overflow */
     TMR_C1_SWTRIG                          = 0x00000002, /*!< tmr event triggered by software of channel 1 */
     TMR_C2_SWTRIG                          = 0x00000004, /*!< tmr event triggered by software of channel 2 */
     TMR_C3_SWTRIG                          = 0x00000008, /*!< tmr event triggered by software of channel 3 */
     TMR_C4_SWTRIG                          = 0x00000010, /*!< tmr event triggered by software of channel 4 */
     TMR_HALL_SWTRIG                        = 0x00000020, /*!< tmr event triggered by software of hall */
-    TMR_TRIGGER_SWTRIG                     = 0x00000040, /*!< tmr event triggered by software of trigger */
+    TMR_Trigger_SWTRIG                     = 0x00000040, /*!< tmr event triggered by software of trigger */
     TMR_BRK_SWTRIG                         = 0x00000080  /*!< tmr event triggered by software of brake */
-} tmr_event_trigger_type;
+} tmr_Event_Trigger_Type;
 
 /**
   * @brief tmr polarity active type
@@ -280,17 +280,17 @@ typedef enum {
     TMR_POLARITY_ACTIVE_HIGH               = 0x00, /*!< tmr polarity active high */
     TMR_POLARITY_ACTIVE_LOW                = 0x01, /*!< tmr polarity active low */
     TMR_POLARITY_ACTIVE_BOTH               = 0x02  /*!< tmr polarity active both high ande low */
-} tmr_polarity_active_type;
+} tmr_polarity_active_Type;
 
 /**
   * @brief tmr external signal divider type
   */
 typedef enum {
-    TMR_ES_FREQUENCY_DIV_1                 = 0x00, /*!< tmr external signal frequency divider 1 */
-    TMR_ES_FREQUENCY_DIV_2                 = 0x01, /*!< tmr external signal frequency divider 2 */
-    TMR_ES_FREQUENCY_DIV_4                 = 0x02, /*!< tmr external signal frequency divider 4 */
-    TMR_ES_FREQUENCY_DIV_8                 = 0x03  /*!< tmr external signal frequency divider 8 */
-} tmr_external_signal_divider_type;
+    TMR_ES_Frequency_DIV_1                 = 0x00, /*!< tmr external signal frequency divider 1 */
+    TMR_ES_Frequency_DIV_2                 = 0x01, /*!< tmr external signal frequency divider 2 */
+    TMR_ES_Frequency_DIV_4                 = 0x02, /*!< tmr external signal frequency divider 4 */
+    TMR_ES_Frequency_DIV_8                 = 0x03  /*!< tmr external signal frequency divider 8 */
+} tmr_external_signal_divider_Type;
 
 /**
   * @brief tmr external signal polarity type
@@ -298,64 +298,64 @@ typedef enum {
 typedef enum {
     TMR_ES_POLARITY_NON_INVERTED           = 0x00, /*!< tmr external signal polarity non-inerted */
     TMR_ES_POLARITY_INVERTED               = 0x01  /*!< tmr external signal polarity inerted */
-} tmr_external_signal_polarity_type;
+} tmr_external_signal_polarity_Type;
 
 /**
   * @brief tmr dma transfer length type
   */
 typedef enum {
-    TMR_DMA_TRANSFER_1BYTE                 = 0x00, /*!< tmr dma transfer length 1 byte */
-    TMR_DMA_TRANSFER_2BYTES                = 0x01, /*!< tmr dma transfer length 2 bytes */
-    TMR_DMA_TRANSFER_3BYTES                = 0x02, /*!< tmr dma transfer length 3 bytes */
-    TMR_DMA_TRANSFER_4BYTES                = 0x03, /*!< tmr dma transfer length 4 bytes */
-    TMR_DMA_TRANSFER_5BYTES                = 0x04, /*!< tmr dma transfer length 5 bytes */
-    TMR_DMA_TRANSFER_6BYTES                = 0x05, /*!< tmr dma transfer length 6 bytes */
-    TMR_DMA_TRANSFER_7BYTES                = 0x06, /*!< tmr dma transfer length 7 bytes */
-    TMR_DMA_TRANSFER_8BYTES                = 0x07, /*!< tmr dma transfer length 8 bytes */
-    TMR_DMA_TRANSFER_9BYTES                = 0x08, /*!< tmr dma transfer length 9 bytes */
-    TMR_DMA_TRANSFER_10BYTES               = 0x09, /*!< tmr dma transfer length 10 bytes */
-    TMR_DMA_TRANSFER_11BYTES               = 0x0A, /*!< tmr dma transfer length 11 bytes */
-    TMR_DMA_TRANSFER_12BYTES               = 0x0B, /*!< tmr dma transfer length 12 bytes */
-    TMR_DMA_TRANSFER_13BYTES               = 0x0C, /*!< tmr dma transfer length 13 bytes */
-    TMR_DMA_TRANSFER_14BYTES               = 0x0D, /*!< tmr dma transfer length 14 bytes */
-    TMR_DMA_TRANSFER_15BYTES               = 0x0E, /*!< tmr dma transfer length 15 bytes */
-    TMR_DMA_TRANSFER_16BYTES               = 0x0F, /*!< tmr dma transfer length 16 bytes */
-    TMR_DMA_TRANSFER_17BYTES               = 0x10, /*!< tmr dma transfer length 17 bytes */
-    TMR_DMA_TRANSFER_18BYTES               = 0x11  /*!< tmr dma transfer length 18 bytes */
-} tmr_dma_transfer_length_type;
+    TMR_DMA_Transfer_1BYTE                 = 0x00, /*!< tmr dma transfer length 1 byte */
+    TMR_DMA_Transfer_2BYTES                = 0x01, /*!< tmr dma transfer length 2 bytes */
+    TMR_DMA_Transfer_3BYTES                = 0x02, /*!< tmr dma transfer length 3 bytes */
+    TMR_DMA_Transfer_4BYTES                = 0x03, /*!< tmr dma transfer length 4 bytes */
+    TMR_DMA_Transfer_5BYTES                = 0x04, /*!< tmr dma transfer length 5 bytes */
+    TMR_DMA_Transfer_6BYTES                = 0x05, /*!< tmr dma transfer length 6 bytes */
+    TMR_DMA_Transfer_7BYTES                = 0x06, /*!< tmr dma transfer length 7 bytes */
+    TMR_DMA_Transfer_8BYTES                = 0x07, /*!< tmr dma transfer length 8 bytes */
+    TMR_DMA_Transfer_9BYTES                = 0x08, /*!< tmr dma transfer length 9 bytes */
+    TMR_DMA_Transfer_10BYTES               = 0x09, /*!< tmr dma transfer length 10 bytes */
+    TMR_DMA_Transfer_11BYTES               = 0x0A, /*!< tmr dma transfer length 11 bytes */
+    TMR_DMA_Transfer_12BYTES               = 0x0B, /*!< tmr dma transfer length 12 bytes */
+    TMR_DMA_Transfer_13BYTES               = 0x0C, /*!< tmr dma transfer length 13 bytes */
+    TMR_DMA_Transfer_14BYTES               = 0x0D, /*!< tmr dma transfer length 14 bytes */
+    TMR_DMA_Transfer_15BYTES               = 0x0E, /*!< tmr dma transfer length 15 bytes */
+    TMR_DMA_Transfer_16BYTES               = 0x0F, /*!< tmr dma transfer length 16 bytes */
+    TMR_DMA_Transfer_17BYTES               = 0x10, /*!< tmr dma transfer length 17 bytes */
+    TMR_DMA_Transfer_18BYTES               = 0x11  /*!< tmr dma transfer length 18 bytes */
+} tmr_DMA_Transfer_length_Type;
 
 /**
   * @brief tmr dma base address type
   */
 typedef enum {
-    TMR_CTRL1_ADDRESS                      = 0x0000, /*!< tmr dma base address ctrl1 */
-    TMR_CTRL2_ADDRESS                      = 0x0001, /*!< tmr dma base address ctrl2 */
-    TMR_STCTRL_ADDRESS                     = 0x0002, /*!< tmr dma base address stctrl */
-    TMR_IDEN_ADDRESS                       = 0x0003, /*!< tmr dma base address iden */
-    TMR_ISTS_ADDRESS                       = 0x0004, /*!< tmr dma base address ists */
-    TMR_SWEVT_ADDRESS                      = 0x0005, /*!< tmr dma base address swevt */
-    TMR_CM1_ADDRESS                        = 0x0006, /*!< tmr dma base address cm1 */
-    TMR_CM2_ADDRESS                        = 0x0007, /*!< tmr dma base address cm2 */
-    TMR_CCTRL_ADDRESS                      = 0x0008, /*!< tmr dma base address cctrl */
-    TMR_CVAL_ADDRESS                       = 0x0009, /*!< tmr dma base address cval */
-    TMR_DIV_ADDRESS                        = 0x000A, /*!< tmr dma base address div */
-    TMR_PR_ADDRESS                         = 0x000B, /*!< tmr dma base address pr */
-    TMR_RPR_ADDRESS                        = 0x000C, /*!< tmr dma base address rpr */
-    TMR_C1DT_ADDRESS                       = 0x000D, /*!< tmr dma base address c1dt */
-    TMR_C2DT_ADDRESS                       = 0x000E, /*!< tmr dma base address c2dt */
-    TMR_C3DT_ADDRESS                       = 0x000F, /*!< tmr dma base address c3dt */
-    TMR_C4DT_ADDRESS                       = 0x0010, /*!< tmr dma base address c4dt */
-    TMR_BRK_ADDRESS                        = 0x0011, /*!< tmr dma base address brake */
-    TMR_DMACTRL_ADDRESS                    = 0x0012  /*!< tmr dma base address dmactrl */
-} tmr_dma_address_type;
+    TMR_CTRL1_Address                      = 0x0000, /*!< tmr dma base address ctrl1 */
+    TMR_CTRL2_Address                      = 0x0001, /*!< tmr dma base address ctrl2 */
+    TMR_STCTRL_Address                     = 0x0002, /*!< tmr dma base address stctrl */
+    TMR_IDEN_Address                       = 0x0003, /*!< tmr dma base address iden */
+    TMR_ISTS_Address                       = 0x0004, /*!< tmr dma base address ists */
+    TMR_SWEVT_Address                      = 0x0005, /*!< tmr dma base address swevt */
+    TMR_CM1_Address                        = 0x0006, /*!< tmr dma base address cm1 */
+    TMR_CM2_Address                        = 0x0007, /*!< tmr dma base address cm2 */
+    TMR_CCTRL_Address                      = 0x0008, /*!< tmr dma base address cctrl */
+    TMR_CVAL_Address                       = 0x0009, /*!< tmr dma base address cval */
+    TMR_DIV_Address                        = 0x000A, /*!< tmr dma base address div */
+    TMR_PR_Address                         = 0x000B, /*!< tmr dma base address pr */
+    TMR_RPR_Address                        = 0x000C, /*!< tmr dma base address rpr */
+    TMR_C1DT_Address                       = 0x000D, /*!< tmr dma base address c1dt */
+    TMR_C2DT_Address                       = 0x000E, /*!< tmr dma base address c2dt */
+    TMR_C3DT_Address                       = 0x000F, /*!< tmr dma base address c3dt */
+    TMR_C4DT_Address                       = 0x0010, /*!< tmr dma base address c4dt */
+    TMR_BRK_Address                        = 0x0011, /*!< tmr dma base address brake */
+    TMR_DMACTRL_Address                    = 0x0012  /*!< tmr dma base address dmactrl */
+} tmr_DMA_Address_Type;
 
 /**
   * @brief tmr brk polarity type
   */
 typedef enum {
-    TMR_BRK_INPUT_ACTIVE_LOW               = 0x00, /*!< tmr brk input channel active low */
-    TMR_BRK_INPUT_ACTIVE_HIGH              = 0x01  /*!< tmr brk input channel active high */
-} tmr_brk_polarity_type;
+    TMR_BRK_Input_ACTIVE_LOW               = 0x00, /*!< tmr brk input channel active low */
+    TMR_BRK_Input_ACTIVE_HIGH              = 0x01  /*!< tmr brk input channel active high */
+} tmr_brk_polarity_Type;
 
 /**
   * @brief tmr write protect level type
@@ -365,7 +365,7 @@ typedef enum {
     TMR_WP_LEVEL_3                         = 0x01, /*!< tmr write protect level 3 */
     TMR_WP_LEVEL_2                         = 0x02, /*!< tmr write protect level 2 */
     TMR_WP_LEVEL_1                         = 0x03  /*!< tmr write protect level 1 */
-} tmr_wp_level_type;
+} tmr_wp_level_Type;
 
 /**
   * @brief tmr input remap type
@@ -375,43 +375,43 @@ typedef enum {
     TMR2_PTP_TMR5_LICK                     = 0x01, /*!< tmr2 input remap to ptp or tmr5 remap to lick */
     TMR2_OTG1FS_TMR5_LEXT                  = 0x02, /*!< tmr2 input remap to otg1fs or tmr5 remap to lext */
     TMR2_OTG2FS_TMR5_ERTC                  = 0x03  /*!< tmr2 input remap to otg2fs or tmr5 remap to ertc */
-} tmr_input_remap_type ;
+} tmr_Input_remap_Type ;
 /**
 
   * @brief tmr output config type
   */
 typedef struct {
-    tmr_output_control_mode_type           oc_mode;             /*!< output channel mode */
+    tmr_OutPut_Control_Mode_Type           oc_mode;             /*!< output channel mode */
     confirm_state                          oc_idle_state;       /*!< output channel idle state */
     confirm_state                          occ_idle_state;      /*!< output channel complementary idle state */
-    tmr_output_polarity_type               oc_polarity;         /*!< output channel polarity */
-    tmr_output_polarity_type               occ_polarity;        /*!< output channel complementary polarity */
-    confirm_state                          oc_output_state;     /*!< output channel enable */
-    confirm_state                          occ_output_state;    /*!< output channel complementary enable */
-} tmr_output_config_type;
+    tmr_OutPut_polarity_Type               oc_polarity;         /*!< output channel polarity */
+    tmr_OutPut_polarity_Type               occ_polarity;        /*!< output channel complementary polarity */
+    confirm_state                          oc_OutPut_state;     /*!< output channel enable */
+    confirm_state                          occ_OutPut_state;    /*!< output channel complementary enable */
+} tmr_OutPut_Config_Type;
 
 /**
   * @brief tmr input capture config type
   */
 typedef struct {
-    tmr_channel_select_type                input_channel_select;   /*!< tmr input channel select */
-    tmr_input_polarity_type                input_polarity_select;  /*!< tmr input polarity select */
-    tmr_input_direction_mapped_type        input_mapped_select;    /*!< tmr channel mapped direct or indirect */
-    uint8_t                                input_filter_value;     /*!< tmr channel filter value */
-} tmr_input_config_type;
+    tmr_Channel_Select_Type                input_Channel_Select;   /*!< tmr input channel select */
+    tmr_Input_polarity_Type                input_polarity_Select;  /*!< tmr input polarity select */
+    tmr_Input_direction_mapped_Type        input_mapped_Select;    /*!< tmr channel mapped direct or indirect */
+    uint8_t                                input_Filter_value;     /*!< tmr channel filter value */
+} tmr_Input_Config_Type;
 
 /**
   * @brief tmr brkdt config type
   */
 typedef struct {
     uint8_t                                deadtime;            /*!< dead-time generator setup */
-    tmr_brk_polarity_type                  brk_polarity;        /*!< tmr brake polarity */
-    tmr_wp_level_type                      wp_level;            /*!< write protect configuration */
-    confirm_state                          auto_output_enable;  /*!< automatic output enable */
+    tmr_brk_polarity_Type                  brk_polarity;        /*!< tmr brake polarity */
+    tmr_wp_level_Type                      wp_level;            /*!< write protect configuration */
+    confirm_state                          auto_OutPut_Enable;  /*!< automatic output enable */
     confirm_state                          fcsoen_state;        /*!< frozen channel status when output enable */
     confirm_state                          fcsodis_state;       /*!< frozen channel status when output disable */
-    confirm_state                          brk_enable;          /*!< tmr brk enale */
-} tmr_brkdt_config_type;
+    confirm_state                          brk_Enable;          /*!< tmr brk enale */
+} tmr_brkdt_Config_Type;
 
 /**
   * @brief type define tmr register all
@@ -564,7 +564,7 @@ typedef struct {
             __IO uint32_t c2octrl              : 3; /* [14:12] */
             __IO uint32_t c2osen               : 1; /* [15] */
             __IO uint32_t reserved1            : 16;/* [31:16] */
-        } cm1_output_bit;
+        } cm1_OutPut_bit;
 
         /**
           * @brief input capture mode
@@ -577,7 +577,7 @@ typedef struct {
             __IO uint32_t c2idiv               : 2; /* [11:10] */
             __IO uint32_t c2df                 : 4; /* [15:12] */
             __IO uint32_t reserved1            : 16;/* [31:16] */
-        } cm1_input_bit;
+        } cm1_Input_bit;
     };
 
     /**
@@ -601,7 +601,7 @@ typedef struct {
             __IO uint32_t c4octrl              : 3; /* [14:12] */
             __IO uint32_t c4osen               : 1; /* [15] */
             __IO uint32_t reserved1            : 16;/* [31:16] */
-        } cm2_output_bit;
+        } cm2_OutPut_bit;
 
         /**
           * @brief input capture mode
@@ -614,7 +614,7 @@ typedef struct {
             __IO uint32_t c4idiv               : 2; /* [11:10] */
             __IO uint32_t c4df                 : 4; /* [15:12] */
             __IO uint32_t reserved1            : 16;/* [31:16] */
-        } cm2_input_bit;
+        } cm2_Input_bit;
     };
 
     /**
@@ -795,7 +795,7 @@ typedef struct {
             __IO uint32_t c5octrl              : 3; /* [6:4] */
             __IO uint32_t c5osen               : 1; /* [7] */
             __IO uint32_t reserved2            : 24;/* [31:8] */
-        } cm3_output_bit;
+        } cm3_OutPut_bit;
     };
 
     /**
@@ -807,106 +807,106 @@ typedef struct {
             __IO uint32_t c5dt                 : 32;/* [31:0] */
         } c5dt_bit;
     };
-} tmr_type;
+} tmr_Type;
 
 /**
   * @}
   */
 
-#define TMR1                             ((tmr_type *) TMR1_BASE)
-#define TMR2                             ((tmr_type *) TMR2_BASE)
-#define TMR3                             ((tmr_type *) TMR3_BASE)
-#define TMR4                             ((tmr_type *) TMR4_BASE)
-#define TMR5                             ((tmr_type *) TMR5_BASE)
-#define TMR6                             ((tmr_type *) TMR6_BASE)
-#define TMR7                             ((tmr_type *) TMR7_BASE)
-#define TMR8                             ((tmr_type *) TMR8_BASE)
-#define TMR9                             ((tmr_type *) TMR9_BASE)
-#define TMR10                            ((tmr_type *) TMR10_BASE)
-#define TMR11                            ((tmr_type *) TMR11_BASE)
-#define TMR12                            ((tmr_type *) TMR12_BASE)
-#define TMR13                            ((tmr_type *) TMR13_BASE)
-#define TMR14                            ((tmr_type *) TMR14_BASE)
-#define TMR20                            ((tmr_type *) TMR20_BASE)
+#define TMR1                             ((tmr_Type *) TMR1_BASE)
+#define TMR2                             ((tmr_Type *) TMR2_BASE)
+#define TMR3                             ((tmr_Type *) TMR3_BASE)
+#define TMR4                             ((tmr_Type *) TMR4_BASE)
+#define TMR5                             ((tmr_Type *) TMR5_BASE)
+#define TMR6                             ((tmr_Type *) TMR6_BASE)
+#define TMR7                             ((tmr_Type *) TMR7_BASE)
+#define TMR8                             ((tmr_Type *) TMR8_BASE)
+#define TMR9                             ((tmr_Type *) TMR9_BASE)
+#define TMR10                            ((tmr_Type *) TMR10_BASE)
+#define TMR11                            ((tmr_Type *) TMR11_BASE)
+#define TMR12                            ((tmr_Type *) TMR12_BASE)
+#define TMR13                            ((tmr_Type *) TMR13_BASE)
+#define TMR14                            ((tmr_Type *) TMR14_BASE)
+#define TMR20                            ((tmr_Type *) TMR20_BASE)
 
 /** @defgroup TMR_exported_functions
   * @{
   */
 
-void tmr_reset(tmr_type *tmr_x);
-void tmr_counter_enable(tmr_type *tmr_x, confirm_state new_state);
-void tmr_output_default_para_init(tmr_output_config_type *tmr_output_struct);
-void tmr_input_default_para_init(tmr_input_config_type *tmr_input_struct);
-void tmr_brkdt_default_para_init(tmr_brkdt_config_type *tmr_brkdt_struct);
-void tmr_base_init(tmr_type* tmr_x, uint32_t tmr_pr, uint32_t tmr_div);
-void tmr_clock_source_div_set(tmr_type *tmr_x, tmr_clock_division_type tmr_clock_div);
-void tmr_cnt_dir_set(tmr_type *tmr_x, tmr_count_mode_type tmr_cnt_dir);
-void tmr_repetition_counter_set(tmr_type *tmr_x, uint8_t tmr_rpr_value);
-void tmr_counter_value_set(tmr_type *tmr_x, uint32_t tmr_cnt_value);
-uint32_t tmr_counter_value_get(tmr_type *tmr_x);
-void tmr_div_value_set(tmr_type *tmr_x, uint32_t tmr_div_value);
-uint32_t tmr_div_value_get(tmr_type *tmr_x);
-void tmr_output_channel_config(tmr_type *tmr_x, tmr_channel_select_type tmr_channel, \
-                               tmr_output_config_type *tmr_output_struct);
-void tmr_output_channel_mode_select(tmr_type *tmr_x, tmr_channel_select_type tmr_channel, \
-                                    tmr_output_control_mode_type oc_mode);
-void tmr_period_value_set(tmr_type *tmr_x, uint32_t tmr_pr_value);
-uint32_t tmr_period_value_get(tmr_type *tmr_x);
-void tmr_channel_value_set(tmr_type *tmr_x, tmr_channel_select_type tmr_channel, \
-                           uint32_t tmr_channel_value);
-uint32_t tmr_channel_value_get(tmr_type *tmr_x, tmr_channel_select_type tmr_channel);
-void tmr_period_buffer_enable(tmr_type *tmr_x, confirm_state new_state);
-void tmr_output_channel_buffer_enable(tmr_type *tmr_x, tmr_channel_select_type tmr_channel, \
+void tmr_Reset(tmr_Type *tmr_x);
+void tmr_Counter_Enable(tmr_Type *tmr_x, confirm_state new_state);
+void tmr_OutPut_Default_Para_Init(tmr_OutPut_Config_Type *tmr_OutPut_struct);
+void tmr_Input_Default_Para_Init(tmr_Input_Config_Type *tmr_Input_struct);
+void tmr_brkdt_Default_Para_Init(tmr_brkdt_Config_Type *tmr_brkdt_struct);
+void tmr_base_Init(tmr_Type* tmr_x, uint32_t tmr_pr, uint32_t tmr_div);
+void tmr_Clock_Source_div_Set(tmr_Type *tmr_x, tmr_Clock_division_Type tmr_Clock_div);
+void tmr_cnt_dir_Set(tmr_Type *tmr_x, tmr_count_Mode_Type tmr_cnt_dir);
+void tmr_repetition_Counter_Set(tmr_Type *tmr_x, uint8_t tmr_rpr_value);
+void tmr_Counter_value_Set(tmr_Type *tmr_x, uint32_t tmr_cnt_value);
+uint32_t tmr_Counter_value_Get(tmr_Type *tmr_x);
+void tmr_div_value_Set(tmr_Type *tmr_x, uint32_t tmr_div_value);
+uint32_t tmr_div_value_Get(tmr_Type *tmr_x);
+void tmr_OutPut_Channel_Config(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
+                               tmr_OutPut_Config_Type *tmr_OutPut_struct);
+void tmr_OutPut_Channel_Mode_Select(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
+                                    tmr_OutPut_Control_Mode_Type oc_mode);
+void tmr_period_value_Set(tmr_Type *tmr_x, uint32_t tmr_pr_value);
+uint32_t tmr_period_value_Get(tmr_Type *tmr_x);
+void tmr_Channel_value_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
+                           uint32_t tmr_Channel_value);
+uint32_t tmr_Channel_value_Get(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel);
+void tmr_period_buffer_Enable(tmr_Type *tmr_x, confirm_state new_state);
+void tmr_OutPut_Channel_buffer_Enable(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
                                       confirm_state new_state);
-void tmr_output_channel_immediately_set(tmr_type *tmr_x, tmr_channel_select_type tmr_channel, \
+void tmr_OutPut_Channel_immediately_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
                                         confirm_state new_state);
-void tmr_output_channel_switch_set(tmr_type *tmr_x, tmr_channel_select_type tmr_channel, \
+void tmr_OutPut_Channel_switch_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
                                    confirm_state new_state);
-void tmr_one_cycle_mode_enable(tmr_type *tmr_x, confirm_state new_state);
-void tmr_32_bit_function_enable (tmr_type *tmr_x, confirm_state new_state);
-void tmr_overflow_request_source_set(tmr_type *tmr_x, confirm_state new_state);
-void tmr_overflow_event_disable(tmr_type *tmr_x, confirm_state new_state);
-void tmr_input_channel_init(tmr_type *tmr_x, tmr_input_config_type *input_struct, \
-                            tmr_channel_input_divider_type divider_factor);
-void tmr_channel_enable(tmr_type *tmr_x, tmr_channel_select_type tmr_channel, confirm_state new_state);
-void tmr_input_channel_filter_set(tmr_type *tmr_x, tmr_channel_select_type tmr_channel, \
+void tmr_One_cycle_Mode_Enable(tmr_Type *tmr_x, confirm_state new_state);
+void tmr_32_Bit_function_Enable (tmr_Type *tmr_x, confirm_state new_state);
+void tmr_OverFlow_Request_Source_Set(tmr_Type *tmr_x, confirm_state new_state);
+void tmr_OverFlow_Event_Disable(tmr_Type *tmr_x, confirm_state new_state);
+void tmr_Input_Channel_Init(tmr_Type *tmr_x, tmr_Input_Config_Type *input_struct, \
+                            tmr_Channel_Input_divider_Type divider_factor);
+void tmr_Channel_Enable(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, confirm_state new_state);
+void tmr_Input_Channel_Filter_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
                                   uint16_t filter_value);
-void tmr_pwm_input_config(tmr_type *tmr_x, tmr_input_config_type *input_struct, \
-                          tmr_channel_input_divider_type divider_factor);
-void tmr_channel1_input_select(tmr_type *tmr_x, tmr_channel1_input_connected_type ch1_connect);
-void tmr_input_channel_divider_set(tmr_type *tmr_x, tmr_channel_select_type tmr_channel, \
-                                   tmr_channel_input_divider_type divider_factor);
-void tmr_primary_mode_select(tmr_type *tmr_x, tmr_primary_select_type primary_mode);
-void tmr_sub_mode_select(tmr_type *tmr_x, tmr_sub_mode_select_type sub_mode);
-void tmr_channel_dma_select(tmr_type *tmr_x, tmr_dma_request_source_type cc_dma_select);
-void tmr_hall_select(tmr_type *tmr_x,  confirm_state new_state);
-void tmr_channel_buffer_enable(tmr_type *tmr_x, confirm_state new_state);
-void tmr_trgout2_enable(tmr_type *tmr_x, confirm_state new_state);
-void tmr_trigger_input_select(tmr_type *tmr_x, sub_tmr_input_sel_type trigger_select);
-void tmr_sub_sync_mode_set(tmr_type *tmr_x, confirm_state new_state);
-void tmr_dma_request_enable(tmr_type *tmr_x, tmr_dma_request_type dma_request, confirm_state new_state);
-void tmr_interrupt_enable(tmr_type *tmr_x, uint32_t tmr_interrupt, confirm_state new_state);
-flag_status tmr_flag_get(tmr_type *tmr_x, uint32_t tmr_flag);
-void tmr_flag_clear(tmr_type *tmr_x, uint32_t tmr_flag);
-void tmr_event_sw_trigger(tmr_type *tmr_x, tmr_event_trigger_type tmr_event);
-void tmr_output_enable(tmr_type *tmr_x, confirm_state new_state);
-void tmr_internal_clock_set(tmr_type *tmr_x);
-void tmr_output_channel_polarity_set(tmr_type *tmr_x, tmr_channel_select_type tmr_channel, \
-                                     tmr_polarity_active_type oc_polarity);
-void tmr_external_clock_config(tmr_type *tmr_x, tmr_external_signal_divider_type es_divide, \
-                               tmr_external_signal_polarity_type  es_polarity, uint16_t es_filter);
-void tmr_external_clock_mode1_config(tmr_type *tmr_x, tmr_external_signal_divider_type es_divide, \
-                                     tmr_external_signal_polarity_type  es_polarity, uint16_t es_filter);
-void tmr_external_clock_mode2_config(tmr_type *tmr_x, tmr_external_signal_divider_type es_divide, \
-                                     tmr_external_signal_polarity_type  es_polarity, uint16_t es_filter);
-void tmr_encoder_mode_config(tmr_type *tmr_x, tmr_encoder_mode_type encoder_mode, tmr_input_polarity_type \
-                             ic1_polarity, tmr_input_polarity_type ic2_polarity);
-void tmr_force_output_set(tmr_type *tmr_x,  tmr_channel_select_type tmr_channel, \
-                          tmr_force_output_type force_output);
-void tmr_dma_control_config(tmr_type *tmr_x, tmr_dma_transfer_length_type dma_length, \
-                            tmr_dma_address_type dma_base_address);
-void tmr_brkdt_config(tmr_type *tmr_x, tmr_brkdt_config_type *brkdt_struct);
-void tmr_iremap_config(tmr_type *tmr_x, tmr_input_remap_type input_remap);
+void tmr_pwm_Input_Config(tmr_Type *tmr_x, tmr_Input_Config_Type *input_struct, \
+                          tmr_Channel_Input_divider_Type divider_factor);
+void tmr_channel1_Input_Select(tmr_Type *tmr_x, tmr_channel1_Input_connected_Type ch1_connect);
+void tmr_Input_Channel_divider_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
+                                   tmr_Channel_Input_divider_Type divider_factor);
+void tmr_primary_Mode_Select(tmr_Type *tmr_x, tmr_primary_Select_Type primary_mode);
+void tmr_Sub_Mode_Select(tmr_Type *tmr_x, tmr_Sub_Mode_Select_Type sub_mode);
+void tmr_Channel_DMA_Select(tmr_Type *tmr_x, tmr_DMA_Request_Source_Type cc_DMA_Select);
+void tmr_hall_Select(tmr_Type *tmr_x,  confirm_state new_state);
+void tmr_Channel_buffer_Enable(tmr_Type *tmr_x, confirm_state new_state);
+void tmr_trgout2_Enable(tmr_Type *tmr_x, confirm_state new_state);
+void tmr_Trigger_Input_Select(tmr_Type *tmr_x, sub_tmr_Input_sel_Type trigger_Select);
+void tmr_Sub_Sync_Mode_Set(tmr_Type *tmr_x, confirm_state new_state);
+void tmr_DMA_Request_Enable(tmr_Type *tmr_x, tmr_DMA_Request_Type DMA_request, confirm_state new_state);
+void tmr_Interrupt_Enable(tmr_Type *tmr_x, uint32_t tmr_interrupt, confirm_state new_state);
+flag_status tmr_Flag_Get(tmr_Type *tmr_x, uint32_t tmr_flag);
+void tmr_Flag_Clear(tmr_Type *tmr_x, uint32_t tmr_flag);
+void tmr_Event_sw_trigger(tmr_Type *tmr_x, tmr_Event_Trigger_Type tmr_event);
+void tmr_OutPut_Enable(tmr_Type *tmr_x, confirm_state new_state);
+void tmr_Internal_Clock_Set(tmr_Type *tmr_x);
+void tmr_OutPut_Channel_polarity_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
+                                     tmr_polarity_active_Type oc_polarity);
+void tmr_external_Clock_Config(tmr_Type *tmr_x, tmr_external_signal_divider_Type es_divide, \
+                               tmr_external_signal_polarity_Type  es_polarity, uint16_t es_filter);
+void tmr_external_Clock_mode1_Config(tmr_Type *tmr_x, tmr_external_signal_divider_Type es_divide, \
+                                     tmr_external_signal_polarity_Type  es_polarity, uint16_t es_filter);
+void tmr_external_Clock_mode2_Config(tmr_Type *tmr_x, tmr_external_signal_divider_Type es_divide, \
+                                     tmr_external_signal_polarity_Type  es_polarity, uint16_t es_filter);
+void tmr_encoder_Mode_Config(tmr_Type *tmr_x, tmr_encoder_Mode_Type encoder_mode, tmr_Input_polarity_Type \
+                             ic1_polarity, tmr_Input_polarity_Type ic2_polarity);
+void tmr_force_OutPut_Set(tmr_Type *tmr_x,  tmr_Channel_Select_Type tmr_channel, \
+                          tmr_force_OutPut_Type force_output);
+void tmr_DMA_Control_Config(tmr_Type *tmr_x, tmr_DMA_Transfer_length_Type DMA_length, \
+                            tmr_DMA_Address_Type DMA_base_Address);
+void tmr_brkdt_Config(tmr_Type *tmr_x, tmr_brkdt_Config_Type *brkdt_struct);
+void tmr_iremap_Config(tmr_Type *tmr_x, tmr_Input_remap_Type input_remap);
 
 /**
   * @}

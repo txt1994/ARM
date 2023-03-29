@@ -26,7 +26,7 @@
 #define _ARM_VEC_MATH_H
 
 #include "arm_math.h"
-#include "arm_common_tables.h"
+#include "arm_Common_tables.h"
 #include "arm_helium_utils.h"
 
 #ifdef   __cplusplus
@@ -36,7 +36,7 @@ extern "C"
 
 #if (defined(ARM_MATH_MVEF) || defined(ARM_MATH_HELIUM)) && !defined(ARM_MATH_AUTOVECTORIZE)
 
-#define INV_NEWTON_INIT_F32         0x7EF127EA
+#define INV_NEWTON_Init_F32         0x7EF127EA
 
 static const float32_t __logf_rng_f32 = 0.693147180f;
 
@@ -245,7 +245,7 @@ __STATIC_INLINE f32x4_t vrecip_f32(f32x4_t vecIn) {
     vecSx = vabsq(vecIn);
 
     v.f = vecIn;
-    v.i = vsubq(vdupq_n_s32(INV_NEWTON_INIT_F32), v.i);
+    v.i = vsubq(vdupq_n_s32(INV_NEWTON_Init_F32), v.i);
 
     vecW = vmulq(vecSx, v.f);
 

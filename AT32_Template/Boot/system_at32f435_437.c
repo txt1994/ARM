@@ -32,7 +32,7 @@
 
 #include "at32f435_437.h"
 
-/** @addtogroup AT32F435_437_system_private_defines
+/** @addtogroup AT32F435_437_System_private_defines
   * @{
   */
 #define VECT_TAB_OFFSET                  0x0 /*!< vector table base offset field. this value must be a multiple of 0x400. */
@@ -40,7 +40,7 @@
   * @}
   */
 
-/** @addtogroup AT32F435_437_system_private_variables
+/** @addtogroup AT32F435_437_System_private_variables
   * @{
   */
 unsigned int system_core_clock           = HICK_VALUE; /*!< system clock frequency (core clock) */
@@ -48,7 +48,7 @@ unsigned int system_core_clock           = HICK_VALUE; /*!< system clock frequen
   * @}
   */
 
-/** @addtogroup AT32F435_437_system_private_functions
+/** @addtogroup AT32F435_437_System_private_functions
   * @{
   */
 
@@ -108,16 +108,16 @@ void SystemInit (void) {
   * @param  none
   * @retval none
   */
-void system_core_clock_update(void) {
-    uint32_t pll_ns = 0, pll_ms = 0, pll_fr = 0, pll_clock_source = 0, pllrcsfreq = 0;
+void system_core_Clock_Update(void) {
+    uint32_t pll_ns = 0, pll_ms = 0, pll_fr = 0, pll_Clock_source = 0, pllrcsfreq = 0;
     uint32_t temp = 0, div_value = 0;
-    crm_sclk_type sclk_source;
+    crm_sclk_Type sclk_source;
 
     static const uint8_t sys_ahb_div_table[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
     static const uint8_t pll_fr_table[6] = {1, 2, 4, 8, 16, 32};
 
     /* get sclk source */
-    sclk_source = crm_sysclk_switch_status_get();
+    sclk_source = crm_sysclk_switch_Status_Get();
 
     switch(sclk_source) {
         case CRM_SCLK_HICK:
@@ -134,14 +134,14 @@ void system_core_clock_update(void) {
 
         case CRM_SCLK_PLL:
             /* get pll clock source */
-            pll_clock_source = CRM->pllcfg_bit.pllrcs;
+            pll_Clock_source = CRM->pllcfg_bit.pllrcs;
 
             /* get multiplication factor */
             pll_ns = CRM->pllcfg_bit.pllns;
             pll_ms = CRM->pllcfg_bit.pllms;
             pll_fr = pll_fr_table[CRM->pllcfg_bit.pllfr];
 
-            if (pll_clock_source == CRM_PLL_SOURCE_HICK) {
+            if (pll_Clock_source == CRM_PLL_Source_HICK) {
                 /* hick selected as pll clock entry */
                 pllrcsfreq = HICK_VALUE;
             } else {

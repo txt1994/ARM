@@ -75,7 +75,7 @@ extern "C" {
   * @}
   */
 
-/** @defgroup EXINT_exported_types
+/** @defgroup EXINT_exported_Types
   * @{
   */
 
@@ -85,26 +85,26 @@ extern "C" {
 typedef enum {
     EXINT_LINE_INTERRUPUT                  = 0x00, /*!< external interrupt line interrupt mode */
     EXINT_LINE_EVENT                       = 0x01  /*!< external interrupt line event mode */
-} exint_line_mode_type;
+} EXINT_line_Mode_Type;
 
 /**
   * @brief exint polarity configuration type
   */
 typedef enum {
-    EXINT_TRIGGER_RISING_EDGE              = 0x00, /*!< external interrupt line rising trigger mode */
-    EXINT_TRIGGER_FALLING_EDGE             = 0x01, /*!< external interrupt line falling trigger mode */
-    EXINT_TRIGGER_BOTH_EDGE                = 0x02  /*!< external interrupt line both rising and falling trigger mode */
-} exint_polarity_config_type;
+    EXINT_Trigger_RISING_EDGE              = 0x00, /*!< external interrupt line rising trigger mode */
+    EXINT_Trigger_FALLING_EDGE             = 0x01, /*!< external interrupt line falling trigger mode */
+    EXINT_Trigger_BOTH_EDGE                = 0x02  /*!< external interrupt line both rising and falling trigger mode */
+} EXINT_polarity_Config_Type;
 
 /**
   * @brief exint init type
   */
 typedef struct {
-    exint_line_mode_type                   line_mode;     /*!< choose mode event or interrupt mode */
-    uint32_t                               line_select;   /*!< select the exint line, availiable for single line or multiple lines */
-    exint_polarity_config_type             line_polarity; /*!< select the tregger polarity, with rising edge, falling edge or both edge */
-    confirm_state                          line_enable;   /*!< enable or disable exint */
-} exint_init_type;
+    EXINT_line_Mode_Type                   line_mode;     /*!< choose mode event or interrupt mode */
+    uint32_t                               line_Select;   /*!< select the exint line, availiable for single line or multiple lines */
+    EXINT_polarity_Config_Type             line_polarity; /*!< select the tregger polarity, with rising edge, falling edge or both edge */
+    confirm_state                          line_Enable;   /*!< enable or disable exint */
+} EXINT_Init_Type;
 
 /**
   * @brief type define exint register all
@@ -176,26 +176,26 @@ typedef struct {
             __IO uint32_t reserved1            : 9; /* [31:23] */
         } intsts_bit;
     };
-} exint_type;
+} EXINT_Type;
 
 /**
   * @}
   */
 
-#define EXINT                             ((exint_type *) EXINT_BASE)
+#define EXINT                             ((EXINT_Type *) EXINT_BASE)
 
 /** @defgroup EXINT_exported_functions
   * @{
   */
 
-void exint_reset(void);
-void exint_default_para_init(exint_init_type *exint_struct);
-void exint_init(exint_init_type *exint_struct);
-void exint_flag_clear(uint32_t exint_line);
-flag_status exint_flag_get(uint32_t exint_line);
-void exint_software_interrupt_event_generate(uint32_t exint_line);
-void exint_interrupt_enable(uint32_t exint_line, confirm_state new_state);
-void exint_event_enable(uint32_t exint_line, confirm_state new_state);
+void EXINT_Reset(void);
+void EXINT_Default_Para_Init(EXINT_Init_Type *EXINT_struct);
+void EXINT_Init(EXINT_Init_Type *EXINT_struct);
+void EXINT_Flag_Clear(uint32_t EXINT_line);
+flag_status EXINT_Flag_Get(uint32_t EXINT_line);
+void EXINT_Software_Interrupt_Event_Generate(uint32_t EXINT_line);
+void EXINT_Interrupt_Enable(uint32_t EXINT_line, confirm_state new_state);
+void EXINT_Event_Enable(uint32_t EXINT_line, confirm_state new_state);
 
 /**
   * @}

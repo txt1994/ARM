@@ -1,33 +1,30 @@
 ;******************** (C) COPYRIGHT 2016 STMicroelectronics ********************
 ;* File Name          : startup_stm32f40_41xxx.s
 ;* Author             : MCD Application Team
-;* @version           : V1.8.0
-;* @date              : 09-November-2016
+;* @version           : V1.8.1
+;* @date              : 27-January-2022
 ;* Description        : MDK-ARM工具链的STM32F40xxx/41xxx设备向量表。
-;*                      本模块执行：
+;*                      本模块执行:
 ;*                      - 设置初始SP
 ;*                      - 设置初始PC == Reset_Handler
 ;*                      - 设置具有异常ISR地址的向量表条目
 ;*                      - 将系统时钟和安装在STM324xG EVAL板上的外部
 ;*                        SRAM配置为用作数据存储器（可选，由用户启用）
-;*                      - 分支到C库中的__main(它最终调用main() )。
-;*                      Reset后，CortexM4处理器处于Thread模式，priority为privilege, Stack设置为Main。
+;*                      - 分支到C库中的__main(它最终调用main())。
+;*                      Reset后，CortexM4处理器处于Thread模式，
+;*                      priority为privilege, Stack设置为Main。
 ;* <<< 在上下文菜单中使用配置向导 >>>   
-;*******************************************************************************
-; 
-; Licensed under MCD-ST Liberty SW License Agreement V2, (the "License");
-; You may not use this file except in compliance with the License.
-; You may obtain a copy of the License at:
-; 
-;        http://www.st.com/software_license_agreement_liberty_v2
-; 
-; Unless required by applicable law or agreed to in writing, software 
-; distributed under the License is distributed on an "AS IS" BASIS, 
-; WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-; See the License for the specific language governing permissions and
-; limitations under the License.
-; 
-;*******************************************************************************
+;******************************************************************************
+;* @attention
+;*
+;* Copyright (c) 2016 STMicroelectronics.
+;* All rights reserved.
+;*
+;* This software is licensed under terms that can be found in the LICENSE file
+;* in the root directory of this software component.
+;* If no LICENSE file comes with this software, it is provided AS-IS.
+;*
+;******************************************************************************
 
 ; 为栈分配的内存量(以字节为单位)根据应用程序的需要定制此值
 ; <h> 栈配置
@@ -83,7 +80,7 @@ __Vectors       DCD     __initial_sp               ; 栈的顶部
                 DCD     WWDG_IRQHandler                   ; 窗口监视狗                                        
                 DCD     PVD_IRQHandler                    ; PVD通过EXTI测线检测                      
                 DCD     TAMP_STAMP_IRQHandler             ; 通过EXTI行篡改和TimeStamp           
-                DCD     RTC_WKUP_IRQHandler               ; RTC通过EXTI线路唤醒                     
+                DCD     RTC_WKUP_IRQHandler               ; RTC通过EXTI线路唤醒                      
                 DCD     FLASH_IRQHandler                  ; FLASH                                           
                 DCD     RCC_IRQHandler                    ; RCC                                             
                 DCD     EXTI0_IRQHandler                  ; EXTI Line0                                             
@@ -160,8 +157,8 @@ __Vectors       DCD     __initial_sp               ; 栈的顶部
                 DCD     OTG_HS_IRQHandler                 ; USB OTG HS                                      
                 DCD     DCMI_IRQHandler                   ; DCMI                                            
                 DCD     CRYP_IRQHandler                   ; CRYP crypto                                     
-                DCD     HASH_RNG_IRQHandler               ; 哈希和Rng
-                DCD     FPU_IRQHandler                    ; 浮点运算单元
+                DCD     HASH_RNG_IRQHandler               ; Hash and Rng
+                DCD     FPU_IRQHandler                    ; FPU
                                          
 __Vectors_End
 
@@ -427,4 +424,3 @@ __user_initial_stackheap
 
                  END
 
-;************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE*****

@@ -33,7 +33,7 @@
   * @{
   */
 
-#ifdef DAC_MODULE_ENABLED
+#ifdef DAC_MODULE_EnableD
 
 /** @defgroup DAC_private_functions
   * @{
@@ -44,27 +44,27 @@
   * @param  none
   * @retval none
   */
-void dac_reset(void) {
-    crm_periph_reset(CRM_DAC_PERIPH_RESET, TRUE);
-    crm_periph_reset(CRM_DAC_PERIPH_RESET, FALSE);
+void DAC_Reset(void) {
+    crm_periph_Reset(CRM_DAC_PERIPH_Reset, TRUE);
+    crm_periph_Reset(CRM_DAC_PERIPH_Reset, FALSE);
 }
 
 /**
   * @brief  enable or disable dac
-  * @param  dac_select
+  * @param  DAC_Select
   *         this parameter can be one of the following values:
-  *         - DAC1_SELECT
-  *         - DAC2_SELECT
+  *         - DAC1_Select
+  *         - DAC2_Select
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void dac_enable(dac_select_type dac_select, confirm_state new_state) {
-    switch(dac_select) {
-        case DAC1_SELECT:
+void DAC_Enable(DAC_Select_Type DAC_Select, confirm_state new_state) {
+    switch(DAC_Select) {
+        case DAC1_Select:
             DAC->ctrl_bit.d1en = new_state;
             break;
 
-        case DAC2_SELECT:
+        case DAC2_Select:
             DAC->ctrl_bit.d2en = new_state;
             break;
 
@@ -75,22 +75,22 @@ void dac_enable(dac_select_type dac_select, confirm_state new_state) {
 
 /**
   * @brief  enable or disable dac output buffer
-  * @param  dac_select
+  * @param  DAC_Select
   *         this parameter can be one of the following values:
-  *         - DAC1_SELECT
-  *         - DAC2_SELECT
+  *         - DAC1_Select
+  *         - DAC2_Select
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void dac_output_buffer_enable(dac_select_type dac_select, confirm_state new_state) {
+void DAC_OutPut_buffer_Enable(DAC_Select_Type DAC_Select, confirm_state new_state) {
     new_state = (confirm_state)!new_state;
 
-    switch(dac_select) {
-        case DAC1_SELECT:
+    switch(DAC_Select) {
+        case DAC1_Select:
             DAC->ctrl_bit.d1obdis = new_state;
             break;
 
-        case DAC2_SELECT:
+        case DAC2_Select:
             DAC->ctrl_bit.d2obdis = new_state;
             break;
 
@@ -101,20 +101,20 @@ void dac_output_buffer_enable(dac_select_type dac_select, confirm_state new_stat
 
 /**
   * @brief  enable or disable dac trigger
-  * @param  dac_select
+  * @param  DAC_Select
   *         this parameter can be one of the following values:
-  *         - DAC1_SELECT
-  *         - DAC2_SELECT
+  *         - DAC1_Select
+  *         - DAC2_Select
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void dac_trigger_enable(dac_select_type dac_select, confirm_state new_state) {
-    switch(dac_select) {
-        case DAC1_SELECT:
+void DAC_Trigger_Enable(DAC_Select_Type DAC_Select, confirm_state new_state) {
+    switch(DAC_Select) {
+        case DAC1_Select:
             DAC->ctrl_bit.d1trgen = new_state;
             break;
 
-        case DAC2_SELECT:
+        case DAC2_Select:
             DAC->ctrl_bit.d2trgen = new_state;
             break;
 
@@ -125,11 +125,11 @@ void dac_trigger_enable(dac_select_type dac_select, confirm_state new_state) {
 
 /**
   * @brief  select dac trigger
-  * @param  dac_select
+  * @param  DAC_Select
   *         this parameter can be one of the following values:
-  *         - DAC1_SELECT
-  *         - DAC2_SELECT
-  * @param  dac_trigger_source
+  *         - DAC1_Select
+  *         - DAC2_Select
+  * @param  DAC_Trigger_source
   *         this parameter can be one of the following values:
   *         - DAC_TMR6_TRGOUT_EVENT
   *         - DAC_TMR8_TRGOUT_EVENT
@@ -137,18 +137,18 @@ void dac_trigger_enable(dac_select_type dac_select, confirm_state new_state) {
   *         - DAC_TMR5_TRGOUT_EVENT
   *         - DAC_TMR2_TRGOUT_EVENT
   *         - DAC_TMR4_TRGOUT_EVENT
-  *         - DAC_EXTERNAL_INTERRUPT_LINE_9
-  *         - DAC_SOFTWARE_TRIGGER
+  *         - DAC_EXTERNAL_Interrupt_LINE_9
+  *         - DAC_Software_TRIGGER
   * @retval none
   */
-void dac_trigger_select(dac_select_type dac_select, dac_trigger_type dac_trigger_source) {
-    switch(dac_select) {
-        case DAC1_SELECT:
-            DAC->ctrl_bit.d1trgsel = dac_trigger_source;
+void DAC_Trigger_Select(DAC_Select_Type DAC_Select, DAC_Trigger_Type DAC_Trigger_source) {
+    switch(DAC_Select) {
+        case DAC1_Select:
+            DAC->ctrl_bit.d1trgsel = DAC_Trigger_source;
             break;
 
-        case DAC2_SELECT:
-            DAC->ctrl_bit.d2trgsel = dac_trigger_source;
+        case DAC2_Select:
+            DAC->ctrl_bit.d2trgsel = DAC_Trigger_source;
             break;
 
         default:
@@ -158,19 +158,19 @@ void dac_trigger_select(dac_select_type dac_select, dac_trigger_type dac_trigger
 
 /**
   * @brief  generate dac software trigger
-  * @param  dac_select
+  * @param  DAC_Select
   *         this parameter can be one of the following values:
-  *         - DAC1_SELECT
-  *         - DAC2_SELECT
+  *         - DAC1_Select
+  *         - DAC2_Select
   * @retval none
   */
-void dac_software_trigger_generate(dac_select_type dac_select) {
-    switch(dac_select) {
-        case DAC1_SELECT:
+void DAC_Software_Trigger_Generate(DAC_Select_Type DAC_Select) {
+    switch(DAC_Select) {
+        case DAC1_Select:
             DAC->swtrg_bit.d1swtrg = TRUE;
             break;
 
-        case DAC2_SELECT:
+        case DAC2_Select:
             DAC->swtrg_bit.d2swtrg = TRUE;
             break;
 
@@ -184,31 +184,31 @@ void dac_software_trigger_generate(dac_select_type dac_select) {
   * @param  none
   * @retval none
   */
-void dac_dual_software_trigger_generate(void) {
+void DAC_dual_Software_Trigger_Generate(void) {
     DAC->swtrg |= 0x03;
 }
 
 /**
   * @brief  generate dac wave
-  * @param  dac_select
+  * @param  DAC_Select
   *         this parameter can be one of the following values:
-  *         - DAC1_SELECT
-  *         - DAC2_SELECT
-  * @param  dac_wave
+  *         - DAC1_Select
+  *         - DAC2_Select
+  * @param  DAC_wave
   *         this parameter can be one of the following values:
-  *         - DAC_WAVE_GENERATE_NONE
-  *         - DAC_WAVE_GENERATE_NOISE
-  *         - DAC_WAVE_GENERATE_TRIANGLE
+  *         - DAC_WAVE_Generate_NONE
+  *         - DAC_WAVE_Generate_NOISE
+  *         - DAC_WAVE_Generate_TRIANGLE
   * @retval none
   */
-void dac_wave_generate(dac_select_type dac_select, dac_wave_type dac_wave) {
-    switch(dac_select) {
-        case DAC1_SELECT:
-            DAC->ctrl_bit.d1nm = dac_wave;
+void DAC_wave_Generate(DAC_Select_Type DAC_Select, DAC_wave_Type DAC_wave) {
+    switch(DAC_Select) {
+        case DAC1_Select:
+            DAC->ctrl_bit.d1nm = DAC_wave;
             break;
 
-        case DAC2_SELECT:
-            DAC->ctrl_bit.d2nm = dac_wave;
+        case DAC2_Select:
+            DAC->ctrl_bit.d2nm = DAC_wave;
             break;
 
         default:
@@ -218,11 +218,11 @@ void dac_wave_generate(dac_select_type dac_select, dac_wave_type dac_wave) {
 
 /**
   * @brief  select dac mask amplitude
-  * @param  dac_select
+  * @param  DAC_Select
   *         this parameter can be one of the following values:
-  *         - DAC1_SELECT
-  *         - DAC2_SELECT
-  * @param  dac_mask_amplitude
+  *         - DAC1_Select
+  *         - DAC2_Select
+  * @param  DAC_Mask_amplitude
   *         this parameter can be one of the following values:
   *         - DAC_LSFR_BIT0_AMPLITUDE_1
   *         - DAC_LSFR_BIT10_AMPLITUDE_3
@@ -238,14 +238,14 @@ void dac_wave_generate(dac_select_type dac_select, dac_wave_type dac_wave) {
   *         - DAC_LSFR_BITB0_AMPLITUDE_4095
   * @retval none
   */
-void dac_mask_amplitude_select(dac_select_type dac_select, dac_mask_amplitude_type dac_mask_amplitude) {
-    switch(dac_select) {
-        case DAC1_SELECT:
-            DAC->ctrl_bit.d1nbsel = dac_mask_amplitude;
+void DAC_Mask_amplitude_Select(DAC_Select_Type DAC_Select, DAC_Mask_amplitude_Type DAC_Mask_amplitude) {
+    switch(DAC_Select) {
+        case DAC1_Select:
+            DAC->ctrl_bit.d1nbsel = DAC_Mask_amplitude;
             break;
 
-        case DAC2_SELECT:
-            DAC->ctrl_bit.d2nbsel = dac_mask_amplitude;
+        case DAC2_Select:
+            DAC->ctrl_bit.d2nbsel = DAC_Mask_amplitude;
             break;
 
         default:
@@ -255,20 +255,20 @@ void dac_mask_amplitude_select(dac_select_type dac_select, dac_mask_amplitude_ty
 
 /**
   * @brief  enable or disable dac dma
-  * @param  dac_select
+  * @param  DAC_Select
   *         this parameter can be one of the following values:
-  *         - DAC1_SELECT
-  *         - DAC2_SELECT
+  *         - DAC1_Select
+  *         - DAC2_Select
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void dac_dma_enable(dac_select_type dac_select, confirm_state new_state) {
-    switch(dac_select) {
-        case DAC1_SELECT:
+void DAC_DMA_Enable(DAC_Select_Type DAC_Select, confirm_state new_state) {
+    switch(DAC_Select) {
+        case DAC1_Select:
             DAC->ctrl_bit.d1dmaen = new_state;
             break;
 
-        case DAC2_SELECT:
+        case DAC2_Select:
             DAC->ctrl_bit.d2dmaen = new_state;
             break;
 
@@ -279,21 +279,21 @@ void dac_dma_enable(dac_select_type dac_select, confirm_state new_state) {
 
 /**
   * @brief  get dac data output
-  * @param  dac_select
+  * @param  DAC_Select
   *         this parameter can be one of the following values:
-  *         - DAC1_SELECT
-  *         - DAC2_SELECT
+  *         - DAC1_Select
+  *         - DAC2_Select
   * @retval dac channel data output
   */
-uint16_t dac_data_output_get(dac_select_type dac_select) {
+uint16_t DAC_Data_OutPut_Get(DAC_Select_Type DAC_Select) {
     uint16_t data_output = 0;
 
-    switch(dac_select) {
-        case DAC1_SELECT:
+    switch(DAC_Select) {
+        case DAC1_Select:
             data_output = DAC->d1odt_bit.d1odt;
             break;
 
-        case DAC2_SELECT:
+        case DAC2_Select:
             data_output = DAC->d2odt_bit.d2odt;
             break;
 
@@ -314,7 +314,7 @@ uint16_t dac_data_output_get(dac_select_type dac_select) {
   * @param  dac1_data :indecate from selected data holding register
   * @retval none
   */
-void dac_1_data_set(dac1_aligned_data_type dac1_aligned, uint16_t dac1_data) {
+void DAC_1_Data_Set(dac1_aligned_Data_Type dac1_aligned, uint16_t dac1_data) {
     *(__IO uint32_t *) dac1_aligned = dac1_data;
 }
 
@@ -328,13 +328,13 @@ void dac_1_data_set(dac1_aligned_data_type dac1_aligned, uint16_t dac1_data) {
   * @param  dac2_data :indecate from selected data holding register
   * @retval none
   */
-void dac_2_data_set(dac2_aligned_data_type dac2_aligned, uint16_t dac2_data) {
+void DAC_2_Data_Set(dac2_aligned_Data_Type dac2_aligned, uint16_t dac2_data) {
     *(__IO uint32_t *) dac2_aligned = dac2_data;
 }
 
 /**
   * @brief  set dac dual data
-  * @param  dac_dual
+  * @param  DAC_dual
   *         this parameter can be one of the following values:
   *         DAC_DUAL_12BIT_RIGHT
   *         DAC_DUAL_12BIT_LEFT
@@ -343,18 +343,18 @@ void dac_2_data_set(dac2_aligned_data_type dac2_aligned, uint16_t dac2_data) {
   * @param  data2 :dac1 channel indecate from selected data holding register
   * @retval none
   */
-void dac_dual_data_set(dac_dual_data_type dac_dual, uint16_t data1, uint16_t data2) {
-    switch(dac_dual) {
+void DAC_dual_Data_Set(DAC_dual_Data_Type DAC_dual, uint16_t data1, uint16_t data2) {
+    switch(DAC_dual) {
         case DAC_DUAL_12BIT_RIGHT:
-            *(__IO uint32_t *) dac_dual = (uint32_t)(data1 | (data2 << 16));
+            *(__IO uint32_t *) DAC_dual = (uint32_t)(data1 | (data2 << 16));
             break;
 
         case DAC_DUAL_12BIT_LEFT:
-            *(__IO uint32_t *) dac_dual = (uint32_t)(data1 | (data2 << 16));
+            *(__IO uint32_t *) DAC_dual = (uint32_t)(data1 | (data2 << 16));
             break;
 
         case DAC_DUAL_8BIT_RIGHT:
-            *(__IO uint32_t *) dac_dual = (uint32_t)(data1 | (data2 << 8));
+            *(__IO uint32_t *) DAC_dual = (uint32_t)(data1 | (data2 << 8));
             break;
 
         default:
@@ -364,20 +364,20 @@ void dac_dual_data_set(dac_dual_data_type dac_dual, uint16_t data1, uint16_t dat
 
 /**
   * @brief  enable/disable dac dma udr interrupt
-  * @param  dac_select
+  * @param  DAC_Select
   *         this parameter can be one of the following values:
-  *         - DAC1_SELECT
-  *         - DAC2_SELECT
+  *         - DAC1_Select
+  *         - DAC2_Select
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void dac_udr_enable(dac_select_type dac_select, confirm_state new_state) {
-    switch(dac_select) {
-        case DAC1_SELECT:
+void DAC_udr_Enable(DAC_Select_Type DAC_Select, confirm_state new_state) {
+    switch(DAC_Select) {
+        case DAC1_Select:
             DAC->ctrl_bit.d1dmaudrien = new_state;
             break;
 
-        case DAC2_SELECT:
+        case DAC2_Select:
             DAC->ctrl_bit.d2dmaudrien = new_state;
             break;
 
@@ -388,23 +388,23 @@ void dac_udr_enable(dac_select_type dac_select, confirm_state new_state) {
 
 /**
   * @brief  get flag of the dac udr flag.
-  * @param  dac_select
+  * @param  DAC_Select
   *         this parameter can be one of the following values:
-  *         - DAC1_SELECT
-  *         - DAC2_SELECT
+  *         - DAC1_Select
+  *         - DAC2_Select
   * @retval the new state of dac udr flag status(SET or RESET).
   */
-flag_status dac_udr_flag_get(dac_select_type dac_select) {
+flag_status DAC_udr_Flag_Get(DAC_Select_Type DAC_Select) {
     flag_status status = RESET;
 
-    switch(dac_select) {
-        case DAC1_SELECT:
+    switch(DAC_Select) {
+        case DAC1_Select:
             if(DAC->sts_bit.d1dmaudrf != 0)
                 status = SET;
 
             break;
 
-        case DAC2_SELECT:
+        case DAC2_Select:
             if(DAC->sts_bit.d2dmaudrf != 0)
                 status = SET;
 
@@ -419,19 +419,19 @@ flag_status dac_udr_flag_get(dac_select_type dac_select) {
 
 /**
   * @brief  clear the dac udr flag.
-  * @param  dac_select
+  * @param  DAC_Select
   *         this parameter can be one of the following values:
-  *         - DAC1_SELECT
-  *         - DAC2_SELECT
+  *         - DAC1_Select
+  *         - DAC2_Select
   * @retval none
   */
-void dac_udr_flag_clear(dac_select_type dac_select) {
-    switch(dac_select) {
-        case DAC1_SELECT:
+void DAC_udr_Flag_Clear(DAC_Select_Type DAC_Select) {
+    switch(DAC_Select) {
+        case DAC1_Select:
             DAC->sts = DAC1_D1DMAUDRF;
             break;
 
-        case DAC2_SELECT:
+        case DAC2_Select:
             DAC->sts = DAC2_D2DMAUDRF;
             break;
 

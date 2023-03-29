@@ -33,7 +33,7 @@
   * @{
   */
 
-#ifdef ACC_MODULE_ENABLED
+#ifdef ACC_MODULE_EnableD
 
 /** @defgroup ACC_private_functions
   * @{
@@ -41,15 +41,15 @@
 
 /**
   * @brief  enable or disable the acc calibration mode.
-  * @param  acc_trim: specifies the acc calibration type.
+  * @param  ACC_trim: specifies the acc calibration type.
   *         this parameter can be one of the following values:
   *         - ACC_CAL_HICKCAL
   *         - ACC_CAL_HICKTRIM
   * @param  new_state: specifies the acc calibration to be enabled or disabled.(TRUE or FALSE)
   * @retval none
   */
-void acc_calibration_mode_enable(uint16_t acc_trim, confirm_state new_state) {
-    if(acc_trim == ACC_CAL_HICKCAL) {
+void ACC_Calibration_Mode_Enable(uint16_t ACC_trim, confirm_state new_state) {
+    if(ACC_trim == ACC_CAL_HICKCAL) {
         ACC->ctrl1_bit.entrim = FALSE;
     } else {
         ACC->ctrl1_bit.entrim = TRUE;
@@ -63,7 +63,7 @@ void acc_calibration_mode_enable(uint16_t acc_trim, confirm_state new_state) {
   * @param  step_value:  value to be stored in the acc's ctrl1 register
   * @retval none
   */
-void acc_step_set(uint8_t step_value) {
+void ACC_Step_Set(uint8_t step_value) {
     ACC->ctrl1_bit.step = step_value;
 }
 
@@ -75,21 +75,21 @@ void acc_step_set(uint8_t step_value) {
   *         @arg ACC_SOF_OTG2
   * @retval none
   */
-void acc_sof_select(uint16_t sof_sel) {
+void ACC_SOF_Select(uint16_t sof_sel) {
     ACC->ctrl1 |= sof_sel;
 }
 
 /**
   * @brief  enable or disable the specified acc interrupts.
-  * @param  acc_int: specifies the acc interrupt sources to be enabled or disabled.
+  * @param  ACC_int: specifies the acc interrupt sources to be enabled or disabled.
   *         this parameter can be one of the following values:
   *         - ACC_CALRDYIEN_INT
   *         - ACC_EIEN_INT
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void acc_interrupt_enable(uint16_t acc_int, confirm_state new_state) {
-    if(acc_int == ACC_CALRDYIEN_INT) {
+void ACC_Interrupt_Enable(uint16_t ACC_int, confirm_state new_state) {
+    if(ACC_int == ACC_CALRDYIEN_INT) {
         ACC->ctrl1_bit.calrdyien = new_state;
     } else {
         ACC->ctrl1_bit.eien = new_state;
@@ -101,7 +101,7 @@ void acc_interrupt_enable(uint16_t acc_int, confirm_state new_state) {
   * @param  none
   * @retval 8-bit hicktrim value.
   */
-uint8_t acc_hicktrim_get(void) {
+uint8_t ACC_Hicktrim_Get(void) {
     return ((uint8_t)(ACC->ctrl2_bit.hicktrim));
 }
 
@@ -110,35 +110,35 @@ uint8_t acc_hicktrim_get(void) {
   * @param  none
   * @retval 8-bit hicktrim value.
   */
-uint8_t acc_hickcal_get(void) {
+uint8_t ACC_Hickcal_Get(void) {
     return ((uint8_t)(ACC->ctrl2_bit.hickcal));
 }
 
 /**
   * @brief  wtire the value to  acc c1 register.
-  * @param  acc_c1_value
+  * @param  ACC_C1_value
   * @retval none.
   */
-void acc_write_c1(uint16_t acc_c1_value) {
-    ACC->c1 = acc_c1_value;
+void ACC_Write_C1(uint16_t ACC_C1_value) {
+    ACC->c1 = ACC_C1_value;
 }
 
 /**
   * @brief  wtire the value to  acc c2 register.
-  * @param  acc_c2_value
+  * @param  ACC_C2_value
   * @retval none.
   */
-void acc_write_c2(uint16_t acc_c2_value) {
-    ACC->c2 = acc_c2_value;
+void ACC_Write_C2(uint16_t ACC_C2_value) {
+    ACC->c2 = ACC_C2_value;
 }
 
 /**
   * @brief  wtire the value to  acc c3 register.
-  * @param  acc_c3_value
+  * @param  ACC_C3_value
   * @retval none.
   */
-void acc_write_c3(uint16_t acc_c3_value) {
-    ACC->c3 = acc_c3_value;
+void ACC_Write_C3(uint16_t ACC_C3_value) {
+    ACC->c3 = ACC_C3_value;
 }
 
 /**
@@ -146,7 +146,7 @@ void acc_write_c3(uint16_t acc_c3_value) {
   * @param  none
   * @retval 16-bit c1 value.
   */
-uint16_t acc_read_c1(void) {
+uint16_t ACC_Read_C1(void) {
     return ((uint16_t)(ACC->c1));
 }
 
@@ -155,7 +155,7 @@ uint16_t acc_read_c1(void) {
   * @param  none
   * @retval 16-bit c2 value.
   */
-uint16_t acc_read_c2(void) {
+uint16_t ACC_Read_C2(void) {
     return ((uint16_t)(ACC->c2));
 }
 
@@ -164,20 +164,20 @@ uint16_t acc_read_c2(void) {
   * @param  none
   * @retval 16-bit c3 value.
   */
-uint16_t acc_read_c3(void) {
+uint16_t ACC_Read_C3(void) {
     return ((uint16_t)(ACC->c3));
 }
 
 /**
   * @brief  check whether the specified acc flag is set or not.
-  * @param  acc_flag: specifies the flag to check.
+  * @param  ACC_flag: specifies the flag to check.
   *         this parameter can be one of the following values:
   *         - ACC_RSLOST_FLAG
   *         - ACC_CALRDY_FLAG
   * @retval  flag_status (SET or RESET)
   */
-flag_status acc_flag_get(uint16_t acc_flag) {
-    if(acc_flag == ACC_CALRDY_FLAG)
+flag_status ACC_Flag_Get(uint16_t ACC_flag) {
+    if(ACC_flag == ACC_CALRDY_FLAG)
         return (flag_status)(ACC->sts_bit.calrdy);
     else
         return (flag_status)(ACC->sts_bit.rslost);
@@ -185,14 +185,14 @@ flag_status acc_flag_get(uint16_t acc_flag) {
 
 /**
   * @brief  clear the specified acc flag is set or not.
-  * @param  acc_flag: specifies the flag to check.
+  * @param  ACC_flag: specifies the flag to check.
   *         this parameter can be any combination of the following values:
   *         - ACC_RSLOST_FLAG
   *         - ACC_CALRDY_FLAG
   * @retval  none
   */
-void acc_flag_clear(uint16_t acc_flag) {
-    ACC->sts = ~acc_flag;
+void ACC_Flag_Clear(uint16_t ACC_flag) {
+    ACC->sts = ~ACC_flag;
 }
 
 /**

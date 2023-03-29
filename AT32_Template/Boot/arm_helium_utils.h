@@ -58,7 +58,7 @@ __STATIC_FORCEINLINE float32_t vecAddAcrossF32Mve(float32x4_t in) {
 }
 
 /* newton initial guess */
-#define INVSQRT_MAGIC_F32           0x5f3759df
+#define INVSQRT_Magic_F32           0x5f3759df
 
 #define INVSQRT_NEWTON_MVE_F32(invSqrt, xHalf, xStart)\
     {                                                     \
@@ -82,7 +82,7 @@ Definitions available for MVEI only
 #if defined (ARM_MATH_HELIUM) || defined(ARM_MATH_MVEI)
 
 
-#include "arm_common_tables.h"
+#include "arm_Common_tables.h"
 
 /* Following functions are used to transpose matrix in f32 and q31 cases */
 __STATIC_INLINE arm_status arm_mat_trans_32bit_2x2_mve(
@@ -202,7 +202,7 @@ __STATIC_INLINE arm_status arm_mat_trans_32bit_generic_mve(
     return (ARM_MATH_SUCCESS);
 }
 
-#if !defined(ARM_DSP_CONFIG_TABLES) || defined(ARM_ALL_FAST_TABLES) || defined(ARM_TABLE_FAST_SQRT_Q31_MVE)
+#if !defined(ARM_DSP_Config_TABLES) || defined(ARM_All_FAST_TABLES) || defined(ARM_TABLE_FAST_SQRT_Q31_MVE)
 __STATIC_INLINE q31x4_t FAST_VSQRT_Q31(q31x4_t vecIn) {
     q63x2_t         vecTmpLL;
     q31x4_t         vecTmp0, vecTmp1;
@@ -214,7 +214,7 @@ __STATIC_INLINE q31x4_t FAST_VSQRT_Q31(q31x4_t vecIn) {
     vecSignBits = vclsq(vecIn);
     vecSignBits = vbicq(vecSignBits, 1);
     /*
-     * in = in << no_of_sign_bits;
+     * in = in << no_of_Sign_bits;
      */
     vecNrm = vshlq(vecIn, vecSignBits);
     /*
@@ -269,7 +269,7 @@ __STATIC_INLINE q31x4_t FAST_VSQRT_Q31(q31x4_t vecIn) {
 }
 #endif
 
-#if !defined(ARM_DSP_CONFIG_TABLES) || defined(ARM_ALL_FAST_TABLES) || defined(ARM_TABLE_FAST_SQRT_Q15_MVE)
+#if !defined(ARM_DSP_Config_TABLES) || defined(ARM_All_FAST_TABLES) || defined(ARM_TABLE_FAST_SQRT_Q15_MVE)
 __STATIC_INLINE q15x8_t FAST_VSQRT_Q15(q15x8_t vecIn) {
     q31x4_t         vecTmpLev, vecTmpLodd, vecSignL;
     q15x8_t         vecTmp0, vecTmp1;
@@ -280,7 +280,7 @@ __STATIC_INLINE q15x8_t FAST_VSQRT_Q15(q15x8_t vecIn) {
     vecSignBits = vclsq(vecIn);
     vecSignBits = vbicq(vecSignBits, 1);
     /*
-     * in = in << no_of_sign_bits;
+     * in = in << no_of_Sign_bits;
      */
     vecNrm = vshlq(vecIn, vecSignBits);
 

@@ -42,7 +42,7 @@ extern "C" {
   * @{
   */
 
-/** @defgroup WWDT_enable_bit_definition
+/** @defgroup WWDT_Enable_Bit_definition
   * @brief wwdt enable bit
   * @{
   */
@@ -53,7 +53,7 @@ extern "C" {
   * @}
   */
 
-/** @defgroup WWDT_exported_types
+/** @defgroup WWDT_exported_Types
   * @{
   */
 
@@ -65,7 +65,7 @@ typedef enum {
     WWDT_PCLK1_DIV_8192                    = 0x01, /*!< wwdt counter clock = (pclk1/4096)/2) */
     WWDT_PCLK1_DIV_16384                   = 0x02, /*!< wwdt counter clock = (pclk1/4096)/4) */
     WWDT_PCLK1_DIV_32768                   = 0x03  /*!< wwdt counter clock = (pclk1/4096)/8) */
-} wwdt_division_type;
+} wWDT_division_Type;
 
 /**
   * @brief type define wwdt register all
@@ -108,26 +108,26 @@ typedef struct {
         } sts_bit;
     };
 
-} wwdt_type;
+} wWDT_Type;
 
 /**
   * @}
   */
 
-#define WWDT                             ((wwdt_type *) WWDT_BASE)
+#define WWDT                             ((wWDT_Type *) WWDT_BASE)
 
 /** @defgroup WWDT_exported_functions
   * @{
   */
 
-void wwdt_reset(void);
-void wwdt_divider_set(wwdt_division_type division);
-void wwdt_flag_clear(void);
-void wwdt_enable(uint8_t wwdt_cnt);
-void wwdt_interrupt_enable(void);
-flag_status wwdt_flag_get(void);
-void wwdt_counter_set(uint8_t wwdt_cnt);
-void wwdt_window_counter_set(uint8_t window_cnt);
+void wWDT_Reset(void);
+void wWDT_divider_Set(wWDT_division_Type division);
+void wWDT_Flag_Clear(void);
+void wWDT_Enable(uint8_t wWDT_cnt);
+void wWDT_Interrupt_Enable(void);
+flag_status wWDT_Flag_Get(void);
+void wWDT_Counter_Set(uint8_t wWDT_cnt);
+void wWDT_window_Counter_Set(uint8_t window_cnt);
 
 /**
   * @}

@@ -42,7 +42,7 @@ extern "C" {
   * @{
   */
 
-/** @defgroup DVP_event_flags_definition
+/** @defgroup DVP_Event_flags_definition
   * @brief dvp event flag
   * @{
   */
@@ -57,7 +57,7 @@ extern "C" {
   * @}
   */
 
-/** @defgroup DVP_interrupt_flags_definition
+/** @defgroup DVP_Interrupt_flags_definition
   * @brief dvp interrupt flag
   * @{
   */
@@ -87,7 +87,7 @@ extern "C" {
   * @}
   */
 
-/** @defgroup DVP_exported_types
+/** @defgroup DVP_exported_Types
   * @{
   */
 
@@ -95,17 +95,17 @@ extern "C" {
   * @brief dvp cfm type
   */
 typedef enum {
-    DVP_CAP_FUNC_MODE_CONTINUOUS           = 0x00,
-    DVP_CAP_FUNC_MODE_SINGLE               = 0x01
-} dvp_cfm_type;
+    DVP_CAP_FUNC_Mode_CONTINUOUS           = 0x00,
+    DVP_CAP_FUNC_Mode_SINGLE               = 0x01
+} DVP_cfm_Type;
 
 /**
   * @brief dvp sm type
   */
 typedef enum {
-    DVP_SYNC_MODE_HARDWARE                 = 0x00,
-    DVP_SYNC_MODE_EMBEDDED                 = 0x01
-} dvp_sm_type;
+    DVP_Sync_Mode_HARDWARE                 = 0x00,
+    DVP_Sync_Mode_EMBEDDED                 = 0x01
+} DVP_sm_Type;
 
 /**
   * @brief dvp ckp type
@@ -113,7 +113,7 @@ typedef enum {
 typedef enum {
     DVP_CLK_POLARITY_RISING                = 0x00,
     DVP_CLK_POLARITY_FALLING               = 0x01
-} dvp_ckp_type;
+} DVP_ckp_Type;
 
 /**
   * @brief dvp hsp type
@@ -121,7 +121,7 @@ typedef enum {
 typedef enum {
     DVP_HSYNC_POLARITY_HIGH                = 0x00,
     DVP_HSYNC_POLARITY_LOW                 = 0x01
-} dvp_hsp_type;
+} DVP_hsp_Type;
 
 /**
   * @brief dvp vsp type
@@ -129,7 +129,7 @@ typedef enum {
 typedef enum {
     DVP_VSYNC_POLARITY_LOW                 = 0x00,
     DVP_VSYNC_POLARITY_HIGH                = 0x01
-} dvp_vsp_type;
+} DVP_vsp_Type;
 
 /**
   * @brief dvp bfrc type
@@ -138,27 +138,27 @@ typedef enum {
     DVP_BFRC_ALL                           = 0x00,
     DVP_BFRC_HALF                          = 0x01,
     DVP_BFRC_QUARTER                       = 0x02
-} dvp_bfrc_type;
+} DVP_bfrc_Type;
 
 /**
   * @brief dvp pdl type
   */
 typedef enum {
-    DVP_PIXEL_DATA_LENGTH_8                = 0x00,
-    DVP_PIXEL_DATA_LENGTH_10               = 0x01,
-    DVP_PIXEL_DATA_LENGTH_12               = 0x02,
-    DVP_PIXEL_DATA_LENGTH_14               = 0x03
-} dvp_pdl_type;
+    DVP_PIXEL_Data_LENGTH_8                = 0x00,
+    DVP_PIXEL_Data_LENGTH_10               = 0x01,
+    DVP_PIXEL_Data_LENGTH_12               = 0x02,
+    DVP_PIXEL_Data_LENGTH_14               = 0x03
+} DVP_pdl_Type;
 
 /**
   * @brief dvp pcdc type
   */
 typedef enum {
     DVP_PCDC_ALL                           = 0x00,
-    DVP_PCDC_ONE_IN_TWO                    = 0x01,
-    DVP_PCDC_ONE_IN_FOUR                   = 0x02,
+    DVP_PCDC_One_IN_TWO                    = 0x01,
+    DVP_PCDC_One_IN_FOUR                   = 0x02,
     DVP_PCDC_TWO_IN_FOUR                   = 0x03
-} dvp_pcdc_type;
+} DVP_pcdc_Type;
 
 /**
   * @brief dvp pcds type
@@ -166,15 +166,15 @@ typedef enum {
 typedef enum {
     DVP_PCDS_CAP_FIRST                     = 0x00,
     DVP_PCDS_DROP_FIRST                    = 0x01
-} dvp_pcds_type;
+} DVP_pcds_Type;
 
 /**
   * @brief dvp lcdc type
   */
 typedef enum {
     DVP_LCDC_ALL                           = 0x00,
-    DVP_LCDC_ONE_IN_TWO                    = 0x01
-} dvp_lcdc_type;
+    DVP_LCDC_One_IN_TWO                    = 0x01
+} DVP_lcdc_Type;
 
 /**
   * @brief dvp lcds type
@@ -182,16 +182,16 @@ typedef enum {
 typedef enum {
     DVP_LCDS_CAP_FIRST                     = 0x00,
     DVP_LCDS_DROP_FIRST                    = 0x01
-} dvp_lcds_type;
+} DVP_lcds_Type;
 
 /**
   * @brief dvp status basic type
   */
 typedef enum {
-    DVP_STATUS_HSYN                        = 0x00,
-    DVP_STATUS_VSYN                        = 0x01,
-    DVP_STATUS_OFNE                        = 0x02
-} dvp_status_basic_type;
+    DVP_Status_HSYN                        = 0x00,
+    DVP_Status_VSYN                        = 0x01,
+    DVP_Status_OFNE                        = 0x02
+} DVP_Status_basic_Type;
 
 /**
   * @brief dvp pcdes type
@@ -199,7 +199,7 @@ typedef enum {
 typedef enum {
     DVP_PCDES_CAP_FIRST                    = 0x00,
     DVP_PCDES_DROP_FIRST                   = 0x01
-} dvp_pcdes_type;
+} DVP_pcdes_Type;
 
 /**
   * @brief dvp efdf type
@@ -210,7 +210,7 @@ typedef enum {
     DVP_EFDF_YUV422_YUYV                   = 0x05,
     DVP_EFDF_RGB565_555                    = 0x06,
     DVP_EFDF_Y8                            = 0x07
-} dvp_efdf_type;
+} DVP_efdf_Type;
 
 /**
   * @brief dvp idus type
@@ -218,7 +218,7 @@ typedef enum {
 typedef enum {
     DVP_IDUS_MSB                           = 0x00,
     DVP_IDUS_LSB                           = 0x01
-} dvp_idus_type;
+} DVP_idus_Type;
 
 /**
   * @brief dvp dmabt type
@@ -226,7 +226,7 @@ typedef enum {
 typedef enum {
     DVP_DMABT_SINGLE                       = 0x00,
     DVP_DMABT_BURST                        = 0x01
-} dvp_dmabt_type;
+} DVP_dmabt_Type;
 
 /**
   * @brief dvp hseid type
@@ -234,7 +234,7 @@ typedef enum {
 typedef enum {
     DVP_HSEID_LINE_END                     = 0x00,
     DVP_HSEID_LINE_START                   = 0x01
-} dvp_hseid_type;
+} DVP_hseid_Type;
 
 /**
   * @brief dvp vseid type
@@ -242,7 +242,7 @@ typedef enum {
 typedef enum {
     DVP_VSEID_FRAME_END                    = 0x00,
     DVP_VSEID_FRMAE_START                  = 0x01
-} dvp_vseid_type;
+} DVP_vseid_Type;
 /**
   * @brief dvp idun type
   */
@@ -251,7 +251,7 @@ typedef enum {
     DVP_IDUN_2                             = 0x01,
     DVP_IDUN_4                             = 0x02,
     DVP_IDUN_6                             = 0x03
-} dvp_idun_type;
+} DVP_idun_Type;
 
 typedef struct {
     /**
@@ -506,48 +506,48 @@ typedef struct {
         } bth_bit;
     };
 
-} dvp_type;
+} DVP_Type;
 
 /**
   * @}
   */
 
-#define DVP                              ((dvp_type *) DVP_BASE)
+#define DVP                              ((DVP_Type *) DVP_BASE)
 
 /** @defgroup DVP_exported_functions
   * @{
   */
 
-void dvp_reset(void);
-void dvp_capture_enable(confirm_state new_state);
-void dvp_capture_enable(confirm_state new_state);
-void dvp_capture_mode_set(dvp_cfm_type cap_mode);
-void dvp_window_crop_enable(confirm_state new_state);
-void dvp_window_crop_set(uint16_t crop_x, uint16_t crop_y, uint16_t crop_w, uint16_t crop_h, uint8_t bytes);
-void dvp_jpeg_enable(confirm_state new_state);
-void dvp_sync_mode_set(dvp_sm_type sync_mode);
-void dvp_sync_code_set(uint8_t fmsc, uint8_t fmec, uint8_t lnsc, uint8_t lnec);
-void dvp_sync_unmask_set(uint8_t fmsu, uint8_t fmeu, uint8_t lnsu, uint8_t lneu);
-void dvp_pclk_polarity_set(dvp_ckp_type eage);
-void dvp_hsync_polarity_set(dvp_hsp_type hsync_pol);
-void dvp_vsync_polarity_set(dvp_vsp_type vsync_pol);
-void dvp_basic_frame_rate_control_set(dvp_bfrc_type dvp_bfrc);
-void dvp_pixel_data_length_set(dvp_pdl_type dvp_pdl);
-void dvp_enable(confirm_state new_state);
-void dvp_zoomout_select(dvp_pcdes_type dvp_pcdes);
-void dvp_zoomout_set(dvp_pcdc_type dvp_pcdc, dvp_pcds_type dvp_pcds, dvp_lcdc_type dvp_lcdc, dvp_lcds_type dvp_lcds);
-flag_status dvp_basic_status_get(dvp_status_basic_type dvp_status_basic);
-void dvp_interrupt_enable(uint32_t dvp_int, confirm_state new_state);
-flag_status dvp_flag_get(uint32_t flag);
-void dvp_flag_clear(uint32_t flag);
-void dvp_enhanced_scaling_resize_enable(confirm_state new_state);
-void dvp_enhanced_scaling_resize_set(uint16_t src_w, uint16_t des_w, uint16_t src_h, uint16_t des_h);
-void dvp_enhanced_framerate_set(uint16_t efrcsf, uint16_t efrctf, confirm_state new_state);
-void dvp_monochrome_image_binarization_set(uint8_t mibthd, confirm_state new_state);
-void dvp_enhanced_data_format_set(dvp_efdf_type dvp_efdf);
-void dvp_input_data_unused_set(dvp_idus_type dvp_idus, dvp_idun_type dvp_idun);
-void dvp_dma_burst_set(dvp_dmabt_type dvp_dmabt);
-void dvp_sync_event_interrupt_set(dvp_hseid_type dvp_hseid, dvp_vseid_type dvp_vseid);
+void DVP_Reset(void);
+void DVP_capture_Enable(confirm_state new_state);
+void DVP_capture_Enable(confirm_state new_state);
+void DVP_capture_Mode_Set(DVP_cfm_Type cap_mode);
+void DVP_window_crop_Enable(confirm_state new_state);
+void DVP_window_crop_Set(uint16_t crop_x, uint16_t crop_y, uint16_t crop_w, uint16_t crop_h, uint8_t bytes);
+void DVP_jpeg_Enable(confirm_state new_state);
+void DVP_Sync_Mode_Set(DVP_sm_Type sync_mode);
+void DVP_Sync_code_Set(uint8_t fmsc, uint8_t fmec, uint8_t lnsc, uint8_t lnec);
+void DVP_Sync_unmask_Set(uint8_t fmsu, uint8_t fmeu, uint8_t lnsu, uint8_t lneu);
+void DVP_pclk_polarity_Set(DVP_ckp_Type eage);
+void DVP_hsync_polarity_Set(DVP_hsp_Type hsync_pol);
+void DVP_vsync_polarity_Set(DVP_vsp_Type vsync_pol);
+void DVP_basic_frame_rate_Control_Set(DVP_bfrc_Type DVP_bfrc);
+void DVP_pixel_Data_length_Set(DVP_pdl_Type DVP_pdl);
+void DVP_Enable(confirm_state new_state);
+void DVP_zoomout_Select(DVP_pcdes_Type DVP_pcdes);
+void DVP_zoomout_Set(DVP_pcdc_Type DVP_pcdc, DVP_pcds_Type DVP_pcds, DVP_lcdc_Type DVP_lcdc, DVP_lcds_Type DVP_lcds);
+flag_status DVP_basic_Status_Get(DVP_Status_basic_Type DVP_Status_basic);
+void DVP_Interrupt_Enable(uint32_t DVP_int, confirm_state new_state);
+flag_status DVP_Flag_Get(uint32_t flag);
+void DVP_Flag_Clear(uint32_t flag);
+void DVP_enhanced_scaling_resize_Enable(confirm_state new_state);
+void DVP_enhanced_scaling_resize_Set(uint16_t src_w, uint16_t des_w, uint16_t src_h, uint16_t des_h);
+void DVP_enhanced_framerate_Set(uint16_t efrcsf, uint16_t efrctf, confirm_state new_state);
+void DVP_monochrome_image_binarization_Set(uint8_t mibthd, confirm_state new_state);
+void DVP_enhanced_Data_format_Set(DVP_efdf_Type DVP_efdf);
+void DVP_Input_Data_unused_Set(DVP_idus_Type DVP_idus, DVP_idun_Type DVP_idun);
+void DVP_DMA_burst_Set(DVP_dmabt_Type DVP_dmabt);
+void DVP_Sync_Event_Interrupt_Set(DVP_hseid_Type DVP_hseid, DVP_vseid_Type DVP_vseid);
 
 /**
   * @}

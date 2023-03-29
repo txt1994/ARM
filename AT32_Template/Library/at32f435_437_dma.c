@@ -33,7 +33,7 @@
   * @{
   */
 
-#ifdef DMA_MODULE_ENABLED
+#ifdef DMA_MODULE_EnableD
 
 /** @defgroup DMA_private_functions
   * @{
@@ -59,7 +59,7 @@
   *         - DMA2_CHANNEL7
   * @retval none.
   */
-void dma_reset(dma_channel_type *dmax_channely) {
+void DMA_Reset(DMA_Channel_Type *dmax_channely) {
     uint32_t temp = 0;
     dmax_channely->ctrl_bit.chen = FALSE;
     dmax_channely->ctrl = 0;
@@ -96,11 +96,11 @@ void dma_reset(dma_channel_type *dmax_channely) {
   *         - DMA2_CHANNEL5
   *         - DMA2_CHANNEL6
   *         - DMA2_CHANNEL7
-  * @param  data_number: the number of data to be transferred (0x0000~0xFFFF).
+  * @param  data_Number: the number of data to be transferred (0x0000~0xFFFF).
   * @retval none.
   */
-void dma_data_number_set(dma_channel_type *dmax_channely, uint16_t data_number) {
-    dmax_channely->dtcnt = data_number;
+void DMA_Data_Number_Set(DMA_Channel_Type *dmax_channely, uint16_t data_Number) {
+    dmax_channely->dtcnt = data_Number;
 }
 
 /**
@@ -123,7 +123,7 @@ void dma_data_number_set(dma_channel_type *dmax_channely, uint16_t data_number) 
   *         - DMA2_CHANNEL7
   * @retval the number value.
   */
-uint16_t dma_data_number_get(dma_channel_type *dmax_channely) {
+uint16_t DMA_Data_Number_Get(DMA_Channel_Type *dmax_channely) {
     return (uint16_t)dmax_channely->dtcnt;
 }
 
@@ -145,7 +145,7 @@ uint16_t dma_data_number_get(dma_channel_type *dmax_channely) {
   *         - DMA2_CHANNEL5
   *         - DMA2_CHANNEL6
   *         - DMA2_CHANNEL7
-  * @param  dma_int:
+  * @param  DMA_int:
   *         this parameter can be any combination of the following values:
   *         - DMA_FDT_INT
   *         - DMA_HDT_INT
@@ -153,11 +153,11 @@ uint16_t dma_data_number_get(dma_channel_type *dmax_channely) {
   * @param  new_state (TRUE or FALSE)
   * @retval none.
   */
-void dma_interrupt_enable(dma_channel_type *dmax_channely, uint32_t dma_int, confirm_state new_state) {
+void DMA_Interrupt_Enable(DMA_Channel_Type *dmax_channely, uint32_t DMA_int, confirm_state new_state) {
     if(new_state != FALSE) {
-        dmax_channely->ctrl |= dma_int;
+        dmax_channely->ctrl |= DMA_int;
     } else {
-        dmax_channely->ctrl &= ~dma_int;
+        dmax_channely->ctrl &= ~DMA_int;
     }
 }
 
@@ -182,13 +182,13 @@ void dma_interrupt_enable(dma_channel_type *dmax_channely, uint32_t dma_int, con
   * @param  new_state (TRUE or FALSE).
   * @retval none.
   */
-void dma_channel_enable(dma_channel_type *dmax_channely, confirm_state new_state) {
+void DMA_Channel_Enable(DMA_Channel_Type *dmax_channely, confirm_state new_state) {
     dmax_channely->ctrl_bit.chen = new_state;
 }
 
 /**
   * @brief  dma flag get.
-  * @param  dma_flag
+  * @param  DMA_flag
   *         - DMA1_GL1_FLAG        - DMA1_FDT1_FLAG        - DMA1_HDT1_FLAG        - DMA1_DTERR1_FLAG
   *         - DMA1_GL2_FLAG        - DMA1_FDT2_FLAG        - DMA1_HDT2_FLAG        - DMA1_DTERR2_FLAG
   *         - DMA1_GL3_FLAG        - DMA1_FDT3_FLAG        - DMA1_HDT3_FLAG        - DMA1_DTERR3_FLAG
@@ -205,7 +205,7 @@ void dma_channel_enable(dma_channel_type *dmax_channely, confirm_state new_state
   *         - DMA2_GL7_FLAG        - DMA2_FDT7_FLAG        - DMA2_HDT7_FLAG        - DMA2_DTERR7_FLAG
   * @retval state of dma flag.
   */
-flag_status dma_flag_get(uint32_t dmax_flag) {
+flag_status DMA_Flag_Get(uint32_t dmax_flag) {
     uint32_t temp = 0;
 
     if(dmax_flag > 0x10000000) {
@@ -223,7 +223,7 @@ flag_status dma_flag_get(uint32_t dmax_flag) {
 
 /**
   * @brief  dma flag clear.
-  * @param  dma_flag
+  * @param  DMA_flag
   *         this parameter can be one of the following values:
   *         - DMA1_GL1_FLAG        - DMA1_FDT1_FLAG        - DMA1_HDT1_FLAG        - DMA1_DTERR1_FLAG
   *         - DMA1_GL2_FLAG        - DMA1_FDT2_FLAG        - DMA1_HDT2_FLAG        - DMA1_DTERR2_FLAG
@@ -241,7 +241,7 @@ flag_status dma_flag_get(uint32_t dmax_flag) {
   *         - DMA2_GL7_FLAG        - DMA2_FDT7_FLAG        - DMA2_HDT7_FLAG        - DMA2_DTERR7_FLAG
   * @retval none.
   */
-void dma_flag_clear(uint32_t dmax_flag) {
+void DMA_Flag_Clear(uint32_t dmax_flag) {
     if(dmax_flag > ((uint32_t)0x10000000)) {
         DMA2->clr = (uint32_t)(dmax_flag & 0x0FFFFFFF);
     } else {
@@ -251,20 +251,20 @@ void dma_flag_clear(uint32_t dmax_flag) {
 
 /**
   * @brief  dma init config with its default value.
-  * @param  dma_init_struct: pointer to a dma_init_type structure which will be initialized.
+  * @param  DMA_Init_struct: pointer to a DMA_Init_Type structure which will be initialized.
   * @retval none.
   */
-void dma_default_para_init(dma_init_type *dma_init_struct) {
-    dma_init_struct->peripheral_base_addr = 0;
-    dma_init_struct->memory_base_addr = 0;
-    dma_init_struct->direction = DMA_DIR_PERIPHERAL_TO_MEMORY;
-    dma_init_struct->buffer_size = 0;
-    dma_init_struct->peripheral_inc_enable = FALSE;
-    dma_init_struct->memory_inc_enable = FALSE;
-    dma_init_struct->peripheral_data_width = DMA_PERIPHERAL_DATA_WIDTH_BYTE;
-    dma_init_struct->memory_data_width = DMA_MEMORY_DATA_WIDTH_BYTE;
-    dma_init_struct->loop_mode_enable = FALSE;
-    dma_init_struct->priority = DMA_PRIORITY_LOW;
+void DMA_Default_Para_Init(DMA_Init_Type *DMA_Init_struct) {
+    DMA_Init_struct->peripheral_base_addr = 0;
+    DMA_Init_struct->memory_base_addr = 0;
+    DMA_Init_struct->direction = DMA_DIR_PERIPHERAL_TO_MEMORY;
+    DMA_Init_struct->buffer_size = 0;
+    DMA_Init_struct->peripheral_inc_Enable = FALSE;
+    DMA_Init_struct->memory_inc_Enable = FALSE;
+    DMA_Init_struct->peripheral_Data_width = DMA_PERIPHERAL_Data_WIDTH_BYTE;
+    DMA_Init_struct->memory_Data_width = DMA_Memory_Data_WIDTH_BYTE;
+    DMA_Init_struct->loop_Mode_Enable = FALSE;
+    DMA_Init_struct->priority = DMA_PRIORITY_LOW;
 }
 
 /**
@@ -285,28 +285,28 @@ void dma_default_para_init(dma_init_type *dma_init_struct) {
   *         - DMA2_CHANNEL5
   *         - DMA2_CHANNEL6
   *         - DMA2_CHANNEL7
-  * @param  dma_init_struct: pointer to a dma_init_type structure.
+  * @param  DMA_Init_struct: pointer to a DMA_Init_Type structure.
   * @retval none.
   */
-void dma_init(dma_channel_type *dmax_channely, dma_init_type *dma_init_struct) {
+void DMA_Init(DMA_Channel_Type *dmax_channely, DMA_Init_Type *DMA_Init_struct) {
     /* clear ctrl register dtd bit and m2m bit */
     dmax_channely->ctrl &= 0xbfef;
-    dmax_channely->ctrl |= dma_init_struct->direction;
+    dmax_channely->ctrl |= DMA_Init_struct->direction;
 
-    dmax_channely->ctrl_bit.chpl = dma_init_struct->priority;
-    dmax_channely->ctrl_bit.mwidth = dma_init_struct->memory_data_width;
-    dmax_channely->ctrl_bit.pwidth = dma_init_struct->peripheral_data_width;
-    dmax_channely->ctrl_bit.mincm = dma_init_struct->memory_inc_enable;
-    dmax_channely->ctrl_bit.pincm = dma_init_struct->peripheral_inc_enable;
-    dmax_channely->ctrl_bit.lm = dma_init_struct->loop_mode_enable;
-    dmax_channely->dtcnt_bit.cnt = dma_init_struct->buffer_size;
-    dmax_channely->paddr = dma_init_struct->peripheral_base_addr;
-    dmax_channely->maddr = dma_init_struct->memory_base_addr;
+    dmax_channely->ctrl_bit.chpl = DMA_Init_struct->priority;
+    dmax_channely->ctrl_bit.mwidth = DMA_Init_struct->memory_Data_width;
+    dmax_channely->ctrl_bit.pwidth = DMA_Init_struct->peripheral_Data_width;
+    dmax_channely->ctrl_bit.mincm = DMA_Init_struct->memory_inc_Enable;
+    dmax_channely->ctrl_bit.pincm = DMA_Init_struct->peripheral_inc_Enable;
+    dmax_channely->ctrl_bit.lm = DMA_Init_struct->loop_Mode_Enable;
+    dmax_channely->dtcnt_bit.cnt = DMA_Init_struct->buffer_size;
+    dmax_channely->paddr = DMA_Init_struct->peripheral_base_addr;
+    dmax_channely->maddr = DMA_Init_struct->memory_base_addr;
 }
 /**
   * @brief  dmamux init.
-  * @param  dma_x: pointer to a dma_type structure, can be DMA1 or DMA2.
-  * @param  dmamux_channelx:
+  * @param  DMA_x: pointer to a DMA_Type structure, can be DMA1 or DMA2.
+  * @param  DMAMUX_channelx:
   *         this parameter can be one of the following values:
   *         - DMA1MUX_CHANNEL1
   *         - DMA1MUX_CHANNEL2
@@ -322,7 +322,7 @@ void dma_init(dma_channel_type *dmax_channely, dma_init_type *dma_init_struct) {
   *         - DMA2MUX_CHANNEL5
   *         - DMA2MUX_CHANNEL6
   *         - DMA2MUX_CHANNEL7
-  * @param  dmamux_req_sel:
+  * @param  DMAMUX_req_sel:
   *         this parameter can be one of the following values:
   *         - DMAMUX_DMAREQ_ID_REQ_G1       - DMAMUX_DMAREQ_ID_REQ_G2       - DMAMUX_DMAREQ_ID_REQ_G3       - DMAMUX_DMAREQ_ID_REQ_G4
   *         - DMAMUX_DMAREQ_ID_ADC1         - DMAMUX_DMAREQ_ID_ADC2         - DMAMUX_DMAREQ_ID_ADC3         - DMAMUX_DMAREQ_ID_DAC1
@@ -350,24 +350,24 @@ void dma_init(dma_channel_type *dmax_channely, dma_init_type *dma_init_struct) {
   *         - DMAMUX_DMAREQ_ID_TMR20_TRIG   - DMAMUX_DMAREQ_ID_TMR20_HALL   - DMAMUX_DMAREQ_ID_DVP
   * @retval none.
   */
-void dma_flexible_config(dma_type* dma_x, dmamux_channel_type *dmamux_channelx, dmamux_requst_id_sel_type dmamux_req_sel) {
-    dma_x->muxsel_bit.tblsel = TRUE;
-    dmamux_channelx->muxctrl_bit.reqsel = dmamux_req_sel;
+void DMA_Flexible_Config(DMA_Type* DMA_x, DMAMUX_Channel_Type *DMAMUX_channelx, DMAMUX_Requst_ID_sel_Type DMAMUX_req_sel) {
+    DMA_x->muxsel_bit.tblsel = TRUE;
+    DMAMUX_channelx->muxctrl_bit.reqsel = DMAMUX_req_sel;
 }
 
 /**
   * @brief  enable or disable the dmamux.
-  * @param  dma_x: pointer to a dma_type structure, can be DMA1 or DMA2.
+  * @param  DMA_x: pointer to a DMA_Type structure, can be DMA1 or DMA2.
   * @param  new_state (TRUE or FALSE) .
   * @retval none.
   */
-void dmamux_enable(dma_type *dma_x, confirm_state new_state) {
-    dma_x->muxsel_bit.tblsel = new_state;
+void DMAMUX_Enable(DMA_Type *DMA_x, confirm_state new_state) {
+    DMA_x->muxsel_bit.tblsel = new_state;
 }
 
 /**
   * @brief  dmamux init.
-  * @param  dmamux_channelx:
+  * @param  DMAMUX_channelx:
   *         this parameter can be one of the following values:
   *         - DMA1MUX_CHANNEL1
   *         - DMA1MUX_CHANNEL2
@@ -383,7 +383,7 @@ void dmamux_enable(dma_type *dma_x, confirm_state new_state) {
   *         - DMA2MUX_CHANNEL5
   *         - DMA2MUX_CHANNEL6
   *         - DMA2MUX_CHANNEL7
-  * @param  dmamux_req_sel:
+  * @param  DMAMUX_req_sel:
   *         this parameter can be one of the following values:
   *         - DMAMUX_DMAREQ_ID_REQ_G1       - DMAMUX_DMAREQ_ID_REQ_G2       - DMAMUX_DMAREQ_ID_REQ_G3       - DMAMUX_DMAREQ_ID_REQ_G4
   *         - DMAMUX_DMAREQ_ID_ADC1         - DMAMUX_DMAREQ_ID_ADC2         - DMAMUX_DMAREQ_ID_ADC3         - DMAMUX_DMAREQ_ID_DAC1
@@ -411,26 +411,26 @@ void dmamux_enable(dma_type *dma_x, confirm_state new_state) {
   *         - DMAMUX_DMAREQ_ID_TMR20_TRIG   - DMAMUX_DMAREQ_ID_TMR20_HALL   - DMAMUX_DMAREQ_ID_DVP
   * @retval none.
   */
-void dmamux_init(dmamux_channel_type *dmamux_channelx, dmamux_requst_id_sel_type dmamux_req_sel) {
-    dmamux_channelx->muxctrl_bit.reqsel = dmamux_req_sel;
+void DMAMUX_Init(DMAMUX_Channel_Type *DMAMUX_channelx, DMAMUX_Requst_ID_sel_Type DMAMUX_req_sel) {
+    DMAMUX_channelx->muxctrl_bit.reqsel = DMAMUX_req_sel;
 }
 
 /**
   * @brief  dmamux sync init struct config with its default value.
-  * @param  dmamux_sync_init_struct: pointer to a dmamux_sync_init_type structure which will be initialized.
+  * @param  DMAMUX_Sync_Init_struct: pointer to a DMAMUX_Sync_Init_Type structure which will be initialized.
   * @retval none.
   */
-void dmamux_sync_default_para_init(dmamux_sync_init_type *dmamux_sync_init_struct) {
-    dmamux_sync_init_struct->sync_enable = FALSE;
-    dmamux_sync_init_struct->sync_event_enable = FALSE;
-    dmamux_sync_init_struct->sync_polarity = DMAMUX_SYNC_POLARITY_DISABLE;
-    dmamux_sync_init_struct->sync_request_number = 0x0;
-    dmamux_sync_init_struct->sync_signal_sel = (dmamux_sync_id_sel_type)0;
+void DMAMUX_Sync_Default_Para_Init(DMAMUX_Sync_Init_Type *DMAMUX_Sync_Init_struct) {
+    DMAMUX_Sync_Init_struct->sync_Enable = FALSE;
+    DMAMUX_Sync_Init_struct->sync_Event_Enable = FALSE;
+    DMAMUX_Sync_Init_struct->sync_polarity = DMAMUX_Sync_POLARITY_Disable;
+    DMAMUX_Sync_Init_struct->sync_Request_Number = 0x0;
+    DMAMUX_Sync_Init_struct->sync_signal_sel = (DMAMUX_Sync_ID_sel_Type)0;
 }
 
 /**
   * @brief  dmamux synchronization config.
-  * @param  dmamux_channelx:
+  * @param  DMAMUX_channelx:
   *         this parameter can be one of the following values:
   *         - DMA1MUX_CHANNEL1
   *         - DMA1MUX_CHANNEL2
@@ -446,32 +446,32 @@ void dmamux_sync_default_para_init(dmamux_sync_init_type *dmamux_sync_init_struc
   *         - DMA2MUX_CHANNEL5
   *         - DMA2MUX_CHANNEL6
   *         - DMA2MUX_CHANNEL7
-  * @param  dmamux_sync_init_struct: ointer to a dmamux_sync_init_type structure.
+  * @param  DMAMUX_Sync_Init_struct: ointer to a DMAMUX_Sync_Init_Type structure.
   * @retval none.
   */
-void dmamux_sync_config(dmamux_channel_type *dmamux_channelx, dmamux_sync_init_type *dmamux_sync_init_struct) {
-    dmamux_channelx->muxctrl_bit.syncsel = dmamux_sync_init_struct->sync_signal_sel;
-    dmamux_channelx->muxctrl_bit.syncpol = dmamux_sync_init_struct->sync_polarity;
-    dmamux_channelx->muxctrl_bit.reqcnt  = dmamux_sync_init_struct->sync_request_number;
-    dmamux_channelx->muxctrl_bit.evtgen  = dmamux_sync_init_struct->sync_event_enable;
-    dmamux_channelx->muxctrl_bit.syncen  = dmamux_sync_init_struct->sync_enable;
+void DMAMUX_Sync_Config(DMAMUX_Channel_Type *DMAMUX_channelx, DMAMUX_Sync_Init_Type *DMAMUX_Sync_Init_struct) {
+    DMAMUX_channelx->muxctrl_bit.syncsel = DMAMUX_Sync_Init_struct->sync_signal_sel;
+    DMAMUX_channelx->muxctrl_bit.syncpol = DMAMUX_Sync_Init_struct->sync_polarity;
+    DMAMUX_channelx->muxctrl_bit.reqcnt  = DMAMUX_Sync_Init_struct->sync_Request_Number;
+    DMAMUX_channelx->muxctrl_bit.evtgen  = DMAMUX_Sync_Init_struct->sync_Event_Enable;
+    DMAMUX_channelx->muxctrl_bit.syncen  = DMAMUX_Sync_Init_struct->sync_Enable;
 }
 
 /**
   * @brief  dmamux request generator init struct config with its default value.
-  * @param  dmamux_gen_init_struct: pointer to a dmamux_gen_init_type structure which will be initialized.
+  * @param  DMAMUX_Gen_Init_struct: pointer to a DMAMUX_Gen_Init_Type structure which will be initialized.
   * @retval none.
   */
-void dmamux_generator_default_para_init(dmamux_gen_init_type *dmamux_gen_init_struct) {
-    dmamux_gen_init_struct->gen_enable         = FALSE;
-    dmamux_gen_init_struct->gen_polarity       = DMAMUX_GEN_POLARITY_DISABLE;
-    dmamux_gen_init_struct->gen_request_number = 0x0;
-    dmamux_gen_init_struct->gen_signal_sel     = (dmamux_gen_id_sel_type)0x0;
+void DMAMUX_Generator_Default_Para_Init(DMAMUX_Gen_Init_Type *DMAMUX_Gen_Init_struct) {
+    DMAMUX_Gen_Init_struct->gen_Enable         = FALSE;
+    DMAMUX_Gen_Init_struct->gen_polarity       = DMAMUX_Gen_POLARITY_Disable;
+    DMAMUX_Gen_Init_struct->gen_Request_Number = 0x0;
+    DMAMUX_Gen_Init_struct->gen_signal_sel     = (DMAMUX_Gen_ID_sel_Type)0x0;
 }
 
 /**
   * @brief  dmamux request generator init.
-  * @param  dmamux_gen_x :
+  * @param  DMAMUX_Gen_x :
   *         this parameter can be one of the following values:
   *         - DMA1MUX_GENERATOR1
   *         - DMA1MUX_GENERATOR2
@@ -481,19 +481,19 @@ void dmamux_generator_default_para_init(dmamux_gen_init_type *dmamux_gen_init_st
   *         - DMA2MUX_GENERATOR2
   *         - DMA2MUX_GENERATOR3
   *         - DMA2MUX_GENERATOR4
-  * @param  dmamux_gen_init_struct: pointer to a dmamux_gen_init_type structure which will be initialized.
+  * @param  DMAMUX_Gen_Init_struct: pointer to a DMAMUX_Gen_Init_Type structure which will be initialized.
   * @retval none.
   */
-void dmamux_generator_config(dmamux_generator_type *dmamux_gen_x, dmamux_gen_init_type *dmamux_gen_init_struct) {
-    dmamux_gen_x->gctrl_bit.sigsel  = dmamux_gen_init_struct->gen_signal_sel;
-    dmamux_gen_x->gctrl_bit.gpol    = dmamux_gen_init_struct->gen_polarity;
-    dmamux_gen_x->gctrl_bit.greqcnt = dmamux_gen_init_struct->gen_request_number;
-    dmamux_gen_x->gctrl_bit.gen     = dmamux_gen_init_struct->gen_enable;
+void DMAMUX_Generator_Config(DMAMUX_Generator_Type *DMAMUX_Gen_x, DMAMUX_Gen_Init_Type *DMAMUX_Gen_Init_struct) {
+    DMAMUX_Gen_x->gctrl_bit.sigsel  = DMAMUX_Gen_Init_struct->gen_signal_sel;
+    DMAMUX_Gen_x->gctrl_bit.gpol    = DMAMUX_Gen_Init_struct->gen_polarity;
+    DMAMUX_Gen_x->gctrl_bit.greqcnt = DMAMUX_Gen_Init_struct->gen_Request_Number;
+    DMAMUX_Gen_x->gctrl_bit.gen     = DMAMUX_Gen_Init_struct->gen_Enable;
 }
 
 /**
   * @brief  enable or disable the dmamux sync interrupts.
-  * @param  dmamux_channelx:
+  * @param  DMAMUX_channelx:
   *         this parameter can be one of the following values:
   *         - DMA1MUX_CHANNEL1
   *         - DMA1MUX_CHANNEL2
@@ -512,17 +512,17 @@ void dmamux_generator_config(dmamux_generator_type *dmamux_gen_x, dmamux_gen_ini
   * @param  new_state (TRUE or FALSE).
   * @retval none.
   */
-void dmamux_sync_interrupt_enable(dmamux_channel_type *dmamux_channelx, confirm_state new_state) {
+void DMAMUX_Sync_Interrupt_Enable(DMAMUX_Channel_Type *DMAMUX_channelx, confirm_state new_state) {
     if(new_state != FALSE) {
-        dmamux_channelx->muxctrl_bit.syncovien = TRUE;
+        DMAMUX_channelx->muxctrl_bit.syncovien = TRUE;
     } else {
-        dmamux_channelx->muxctrl_bit.syncovien = FALSE;
+        DMAMUX_channelx->muxctrl_bit.syncovien = FALSE;
     }
 }
 
 /**
   * @brief  enable or disable the dmamux request generator interrupts.
-  * @param  dmamux_gen_x : pointer to a dmamux_generator_type structure.
+  * @param  DMAMUX_Gen_x : pointer to a DMAMUX_Generator_Type structure.
   *         this parameter can be one of the following values:
   *         - DMA1MUX_GENERATOR1
   *         - DMA1MUX_GENERATOR2
@@ -535,30 +535,30 @@ void dmamux_sync_interrupt_enable(dmamux_channel_type *dmamux_channelx, confirm_
   * @param  new_state (TRUE or FALSE).
   * @retval none.
   */
-void dmamux_generator_interrupt_enable(dmamux_generator_type *dmamux_gen_x, confirm_state new_state) {
+void DMAMUX_Generator_Interrupt_Enable(DMAMUX_Generator_Type *DMAMUX_Gen_x, confirm_state new_state) {
     if(new_state != FALSE) {
-        dmamux_gen_x->gctrl_bit.trgovien = TRUE;
+        DMAMUX_Gen_x->gctrl_bit.trgovien = TRUE;
     } else {
-        dmamux_gen_x->gctrl_bit.trgovien = FALSE;
+        DMAMUX_Gen_x->gctrl_bit.trgovien = FALSE;
     }
 }
 
 /**
   * @brief  dmamux sync flag get.
-  * @param  dma_x : pointer to a dma_type structure, can be DMA1 or DMA2.
+  * @param  DMA_x : pointer to a DMA_Type structure, can be DMA1 or DMA2.
   * @param  flag
   *         this parameter can be any combination of the following values:
-  *         - DMAMUX_SYNC_OV1_FLAG
-  *         - DMAMUX_SYNC_OV2_FLAG
-  *         - DMAMUX_SYNC_OV3_FLAG
-  *         - DMAMUX_SYNC_OV4_FLAG
-  *         - DMAMUX_SYNC_OV5_FLAG
-  *         - DMAMUX_SYNC_OV6_FLAG
-  *         - DMAMUX_SYNC_OV7_FLAG
+  *         - DMAMUX_Sync_OV1_FLAG
+  *         - DMAMUX_Sync_OV2_FLAG
+  *         - DMAMUX_Sync_OV3_FLAG
+  *         - DMAMUX_Sync_OV4_FLAG
+  *         - DMAMUX_Sync_OV5_FLAG
+  *         - DMAMUX_Sync_OV6_FLAG
+  *         - DMAMUX_Sync_OV7_FLAG
   * @retval state of dmamux sync flag.
   */
-flag_status dmamux_sync_flag_get(dma_type *dma_x, uint32_t flag) {
-    if((dma_x->muxsyncsts & flag) != RESET) {
+flag_status DMAMUX_Sync_Flag_Get(DMA_Type *DMA_x, uint32_t flag) {
+    if((DMA_x->muxsyncsts & flag) != RESET) {
         return SET;
     } else {
         return RESET;
@@ -567,35 +567,35 @@ flag_status dmamux_sync_flag_get(dma_type *dma_x, uint32_t flag) {
 
 /**
   * @brief  dmamux sync flag clear.
-  * @param  dma_x : pointer to a dma_type structure, can be DMA1 or DMA2.
+  * @param  DMA_x : pointer to a DMA_Type structure, can be DMA1 or DMA2.
   * @param  flag
   *         this parameter can be any combination of the following values:
-  *         - DMAMUX_SYNC_OV1_FLAG
-  *         - DMAMUX_SYNC_OV2_FLAG
-  *         - DMAMUX_SYNC_OV3_FLAG
-  *         - DMAMUX_SYNC_OV4_FLAG
-  *         - DMAMUX_SYNC_OV5_FLAG
-  *         - DMAMUX_SYNC_OV6_FLAG
-  *         - DMAMUX_SYNC_OV7_FLAG
+  *         - DMAMUX_Sync_OV1_FLAG
+  *         - DMAMUX_Sync_OV2_FLAG
+  *         - DMAMUX_Sync_OV3_FLAG
+  *         - DMAMUX_Sync_OV4_FLAG
+  *         - DMAMUX_Sync_OV5_FLAG
+  *         - DMAMUX_Sync_OV6_FLAG
+  *         - DMAMUX_Sync_OV7_FLAG
   * @retval none.
   */
-void dmamux_sync_flag_clear(dma_type *dma_x, uint32_t flag) {
-    dma_x->muxsyncclr = flag;
+void DMAMUX_Sync_Flag_Clear(DMA_Type *DMA_x, uint32_t flag) {
+    DMA_x->muxsyncclr = flag;
 }
 
 /**
   * @brief  dmamux request generator flag get.
-  * @param  dma_x : pointer to a dma_type structure, can be DMA1 or DMA2.
+  * @param  DMA_x : pointer to a DMA_Type structure, can be DMA1 or DMA2.
   * @param  flag
   *         this parameter can be any combination of the following values:
-  *         - DMAMUX_GEN_TRIG_OV1_FLAG
-  *         - DMAMUX_GEN_TRIG_OV2_FLAG
-  *         - DMAMUX_GEN_TRIG_OV3_FLAG
-  *         - DMAMUX_GEN_TRIG_OV4_FLAG
+  *         - DMAMUX_Gen_TRIG_OV1_FLAG
+  *         - DMAMUX_Gen_TRIG_OV2_FLAG
+  *         - DMAMUX_Gen_TRIG_OV3_FLAG
+  *         - DMAMUX_Gen_TRIG_OV4_FLAG
   * @retval state of dmamux sync flag.
   */
-flag_status dmamux_generator_flag_get(dma_type *dma_x, uint32_t flag) {
-    if((dma_x->muxgsts & flag) != RESET) {
+flag_status DMAMUX_Generator_Flag_Get(DMA_Type *DMA_x, uint32_t flag) {
+    if((DMA_x->muxgsts & flag) != RESET) {
         return SET;
     } else {
         return RESET;
@@ -604,17 +604,17 @@ flag_status dmamux_generator_flag_get(dma_type *dma_x, uint32_t flag) {
 
 /**
   * @brief  dmamux request generator flag clear.
-  * @param  dma_x : pointer to a dma_type structure, can be DMA1 or DMA2.
+  * @param  DMA_x : pointer to a DMA_Type structure, can be DMA1 or DMA2.
   * @param  flag
   *         this parameter can be any combination of the following values:
-  *         - DMAMUX_GEN_TRIG_OV1_FLAG
-  *         - DMAMUX_GEN_TRIG_OV2_FLAG
-  *         - DMAMUX_GEN_TRIG_OV3_FLAG
-  *         - DMAMUX_GEN_TRIG_OV4_FLAG
+  *         - DMAMUX_Gen_TRIG_OV1_FLAG
+  *         - DMAMUX_Gen_TRIG_OV2_FLAG
+  *         - DMAMUX_Gen_TRIG_OV3_FLAG
+  *         - DMAMUX_Gen_TRIG_OV4_FLAG
   * @retval none.
   */
-void dmamux_generator_flag_clear(dma_type *dma_x, uint32_t flag) {
-    dma_x->muxgclr = flag;
+void DMAMUX_Generator_Flag_Clear(DMA_Type *DMA_x, uint32_t flag) {
+    DMA_x->muxgclr = flag;
 }
 
 /**

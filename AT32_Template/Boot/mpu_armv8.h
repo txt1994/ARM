@@ -43,7 +43,7 @@
 * \param RA Read Allocation: Set to 1 to use cache allocation on read miss.
 * \param WA Write Allocation: Set to 1 to use cache allocation on write miss.
 */
-#define ARM_MPU_ATTR_MEMORY_(NT, WB, RA, WA) \
+#define ARM_MPU_ATTR_Memory_(NT, WB, RA, WA) \
     ((((NT) & 1U) << 3U) | (((WB) & 1U) << 2U) | (((RA) & 1U) << 1U) | ((WA) & 1U))
 
 /** \brief Device memory type non Gathering, non Re-ordering, non Early Write Acknowledgement */
@@ -129,7 +129,7 @@ typedef struct {
 */
 __STATIC_INLINE void ARM_MPU_Enable(uint32_t MPU_Control) {
     __DMB();
-    MPU->CTRL = MPU_Control | MPU_CTRL_ENABLE_Msk;
+    MPU->CTRL = MPU_Control | MPU_CTRL_Enable_Msk;
     #ifdef SCB_SHCSR_MEMFAULTENA_Msk
     SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
     #endif
@@ -144,7 +144,7 @@ __STATIC_INLINE void ARM_MPU_Disable(void) {
     #ifdef SCB_SHCSR_MEMFAULTENA_Msk
     SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
     #endif
-    MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
+    MPU->CTRL  &= ~MPU_CTRL_Enable_Msk;
     __DSB();
     __ISB();
 }
@@ -155,7 +155,7 @@ __STATIC_INLINE void ARM_MPU_Disable(void) {
 */
 __STATIC_INLINE void ARM_MPU_Enable_NS(uint32_t MPU_Control) {
     __DMB();
-    MPU_NS->CTRL = MPU_Control | MPU_CTRL_ENABLE_Msk;
+    MPU_NS->CTRL = MPU_Control | MPU_CTRL_Enable_Msk;
     #ifdef SCB_SHCSR_MEMFAULTENA_Msk
     SCB_NS->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
     #endif
@@ -170,7 +170,7 @@ __STATIC_INLINE void ARM_MPU_Disable_NS(void) {
     #ifdef SCB_SHCSR_MEMFAULTENA_Msk
     SCB_NS->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
     #endif
-    MPU_NS->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
+    MPU_NS->CTRL  &= ~MPU_CTRL_Enable_Msk;
     __DSB();
     __ISB();
 }
@@ -294,18 +294,18 @@ __STATIC_INLINE void ARM_MPU_LoadEx(MPU_Type* mpu, uint32_t rnr, ARM_MPU_Region_
         mpu->RNR = rnr;
         ARM_MPU_OrderedMemcpy(&(mpu->RBAR), &(table->RBAR), rowWordSize);
     } else {
-        uint32_t rnrBase   = rnr & ~(MPU_TYPE_RALIASES - 1U);
-        uint32_t rnrOffset = rnr % MPU_TYPE_RALIASES;
+        uint32_t rnrBase   = rnr & ~(MPU_Type_RALIASES - 1U);
+        uint32_t rnrOffset = rnr % MPU_Type_RALIASES;
 
         mpu->RNR = rnrBase;
 
-        while ((rnrOffset + cnt) > MPU_TYPE_RALIASES) {
-            uint32_t c = MPU_TYPE_RALIASES - rnrOffset;
+        while ((rnrOffset + cnt) > MPU_Type_RALIASES) {
+            uint32_t c = MPU_Type_RALIASES - rnrOffset;
             ARM_MPU_OrderedMemcpy(&(mpu->RBAR) + (rnrOffset * 2U), &(table->RBAR), c * rowWordSize);
             table += c;
             cnt -= c;
             rnrOffset = 0U;
-            rnrBase += MPU_TYPE_RALIASES;
+            rnrBase += MPU_Type_RALIASES;
             mpu->RNR = rnrBase;
         }
 

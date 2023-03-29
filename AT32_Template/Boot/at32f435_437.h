@@ -42,7 +42,7 @@ extern "C" {
   * @{
   */
 
-/** @addtogroup Library_configuration_section
+/** @addtogroup Library_Configuration_section
   * @{
   */
 
@@ -160,7 +160,7 @@ defined (AT32F435CCT7) || defined (AT32F435CGT7) || defined (AT32F435CMT7)
 
 /**
   * @brief at32f435_437 interrupt number definition, according to the selected device
-  *        in @ref library_configuration_section
+  *        in @ref library_Configuration_section
   */
 typedef enum IRQn {
     /******  cortex-m4 processor exceptions numbers ***************************************************/
@@ -365,7 +365,7 @@ typedef enum IRQn {
 #include "system_at32f435_437.h"
 #include <stdint.h>
 
-/** @addtogroup Exported_types
+/** @addtogroup Exported_Types
   * @{
   */
 
@@ -424,7 +424,7 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} error_status;
 #define REG16(addr)                      *(volatile uint16_t *)(addr)
 #define REG32(addr)                      *(volatile uint32_t *)(addr)
 
-#define MAKE_VALUE(reg_offset, bit_num)  (((reg_offset) << 16) | (bit_num & 0x1f))
+#define MAKE_VALUE(reg_offset, bit_Num)  (((reg_offset) << 16) | (bit_Num & 0x1f))
 
 #define PERIPH_REG(periph_base, value)   REG32((periph_base + (value >> 16)))
 #define PERIPH_REG_BIT(value)            (0x1u << (value & 0x1f))
@@ -433,7 +433,7 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} error_status;
   * @}
   */
 
-/** @addtogroup Peripheral_memory_map
+/** @addtogroup Peripheral_Memory_map
   * @{
   */
 
@@ -443,8 +443,8 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} error_status;
 #define QSPI2_REG_BASE                   ((uint32_t)0xA0002000)
 #define QSPI1_REG_BASE                   ((uint32_t)0xA0001000)
 #define XMC_REG_BASE                     ((uint32_t)0xA0000000)
-#define XMC_BANK1_REG_BASE               (XMC_REG_BASE + 0x0000)
-#define XMC_BANK2_REG_BASE               (XMC_REG_BASE + 0x0060)
+#define XMC_Bank1_REG_BASE               (XMC_REG_BASE + 0x0000)
+#define XMC_Bank2_REG_BASE               (XMC_REG_BASE + 0x0060)
 #define XMC_BANK3_REG_BASE               (XMC_REG_BASE + 0x0080)
 #define XMC_BANK4_REG_BASE               (XMC_REG_BASE + 0x00A0)
 #define XMC_SDRAM_REG_BASE               (XMC_REG_BASE + 0x0140)

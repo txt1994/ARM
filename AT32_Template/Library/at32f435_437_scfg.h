@@ -45,7 +45,7 @@ extern "C" {
 #define SCFG_REG(value)                  PERIPH_REG(SCFG_BASE, value)
 #define SCFG_REG_BIT(value)              PERIPH_REG_BIT(value)
 
-/** @defgroup SCFG_exported_types
+/** @defgroup SCFG_exported_Types
   * @{
   */
 
@@ -57,16 +57,16 @@ typedef enum {
     SCFG_XMC_SWAP_MODE1                    = 0x01, /* sdram 0x60000000 and 0x70000000, nor psram sram nand2 0xC00000000 and 0xD0000000 */
     SCFG_XMC_SWAP_MODE2                    = 0x02, /* qspi2 0x80000000, nand3 0xB0000000 */
     SCFG_XMC_SWAP_MODE3                    = 0x03  /* sdram 0x60000000 and 0x70000000, nor psram sram nand2 0xC00000000 and 0xD0000000, qspi2 0x80000000, nand3 0xB0000000 */
-} scfg_xmc_swap_type;
+} scfg_xmc_swap_Type;
 
 /**
   * @brief scfg infrared modulation signal source selecting type
   */
 typedef enum {
-    SCFG_IR_SOURCE_TMR10                   = 0x00, /* infrared signal source select tmr10 */
-    SCFG_IR_SOURCE_USART1                  = 0x01, /* infrared signal source select usart1 */
-    SCFG_IR_SOURCE_USART2                  = 0x02  /* infrared signal source select usart2 */
-} scfg_ir_source_type;
+    SCFG_IR_Source_TMR10                   = 0x00, /* infrared signal source select tmr10 */
+    SCFG_IR_Source_USART1                  = 0x01, /* infrared signal source select usart1 */
+    SCFG_IR_Source_USART2                  = 0x02  /* infrared signal source select usart2 */
+} scfg_ir_Source_Type;
 
 /**
   * @brief scfg infrared output polarity selecting type
@@ -74,7 +74,7 @@ typedef enum {
 typedef enum {
     SCFG_IR_POLARITY_NO_AFFECTE            = 0x00, /* infrared output polarity no affecte */
     SCFG_IR_POLARITY_REVERSE               = 0x01  /* infrared output polarity reverse */
-} scfg_ir_polarity_type;
+} scfg_ir_polarity_Type;
 
 /**
   * @brief scfg memory address mapping selecting type
@@ -83,9 +83,9 @@ typedef enum {
     SCFG_MEM_MAP_MAIN_MEMORY               = 0x00, /* 0x00000000 address mapping from main memory */
     SCFG_MEM_MAP_BOOT_MEMORY               = 0x01, /* 0x00000000 address mapping from boot memory */
     SCFG_MEM_MAP_XMC_BANK1                 = 0x02, /* 0x00000000 address mapping from xmc bank1 */
-    SCFG_MEM_MAP_INTERNAL_SRAM             = 0x03, /* 0x00000000 address mapping from internal sram */
+    SCFG_MEM_MAP_Internal_SRAM             = 0x03, /* 0x00000000 address mapping from internal sram */
     SCFG_MEM_MAP_XMC_SDRAM_BANK1           = 0x04  /* 0x00000000 address mapping from xmc sdram bank1 */
-} scfg_mem_map_type;
+} scfg_mem_map_Type;
 
 /**
   * @brief scfg pin source type
@@ -107,29 +107,29 @@ typedef enum {
     SCFG_PINS_SOURCE13                     = 0x0D,
     SCFG_PINS_SOURCE14                     = 0x0E,
     SCFG_PINS_SOURCE15                     = 0x0F
-} scfg_pins_source_type;
+} scfg_pins_Source_Type;
 
 /**
   * @brief gpio port source type
   */
 typedef enum {
-    SCFG_PORT_SOURCE_GPIOA                 = 0x00,
-    SCFG_PORT_SOURCE_GPIOB                 = 0x01,
-    SCFG_PORT_SOURCE_GPIOC                 = 0x02,
-    SCFG_PORT_SOURCE_GPIOD                 = 0x03,
-    SCFG_PORT_SOURCE_GPIOE                 = 0x04,
-    SCFG_PORT_SOURCE_GPIOF                 = 0x05,
-    SCFG_PORT_SOURCE_GPIOG                 = 0x06,
-    SCFG_PORT_SOURCE_GPIOH                 = 0x07
-} scfg_port_source_type;
+    SCFG_PORT_Source_GPIOA                 = 0x00,
+    SCFG_PORT_Source_GPIOB                 = 0x01,
+    SCFG_PORT_Source_GPIOC                 = 0x02,
+    SCFG_PORT_Source_GPIOD                 = 0x03,
+    SCFG_PORT_Source_GPIOE                 = 0x04,
+    SCFG_PORT_Source_GPIOF                 = 0x05,
+    SCFG_PORT_Source_GPIOG                 = 0x06,
+    SCFG_PORT_Source_GPIOH                 = 0x07
+} scfg_port_Source_Type;
 
 /**
   * @brief scfg emac interface selecting type
   */
 typedef enum {
-    SCFG_EMAC_SELECT_MII                   = 0x00, /* emac interface select mii mode */
-    SCFG_EMAC_SELECT_RMII                  = 0x01  /* emac interface select rmii mode */
-} scfg_emac_interface_type;
+    SCFG_EMAC_Select_MII                   = 0x00, /* emac interface select mii mode */
+    SCFG_EMAC_Select_RMII                  = 0x01  /* emac interface select rmii mode */
+} scfg_EMAC_interface_Type;
 
 /**
   * @brief scfg ultra high sourcing/sinking strength pins type
@@ -144,7 +144,7 @@ typedef enum {
     SCFG_ULTRA_DRIVEN_PD15                 = MAKE_VALUE(0x2C, 8),
     SCFG_ULTRA_DRIVEN_PF14                 = MAKE_VALUE(0x2C, 9),
     SCFG_ULTRA_DRIVEN_PF15                 = MAKE_VALUE(0x2C, 10)
-} scfg_ultra_driven_pins_type;
+} scfg_ultra_driven_pins_Type;
 
 /**
   * @brief type define system config register all
@@ -259,25 +259,25 @@ typedef struct {
         } uhdrv_bit;
     };
 
-} scfg_type;
+} scfg_Type;
 
 /**
   * @}
   */
 
-#define SCFG                             ((scfg_type *) SCFG_BASE)
+#define SCFG                             ((scfg_Type *) SCFG_BASE)
 
 /** @defgroup SCFG_exported_functions
   * @{
   */
 
-void scfg_reset(void);
-void scfg_xmc_mapping_swap_set(scfg_xmc_swap_type xmc_swap);
-void scfg_infrared_config(scfg_ir_source_type source, scfg_ir_polarity_type polarity);
-void scfg_mem_map_set(scfg_mem_map_type mem_map);
-void scfg_emac_interface_set(scfg_emac_interface_type mode);
-void scfg_exint_line_config(scfg_port_source_type port_source, scfg_pins_source_type pin_source);
-void scfg_pins_ultra_driven_enable(scfg_ultra_driven_pins_type value, confirm_state new_state);
+void scfg_Reset(void);
+void scfg_xmc_mapping_swap_Set(scfg_xmc_swap_Type xmc_swap);
+void scfg_infrared_Config(scfg_ir_Source_Type source, scfg_ir_polarity_Type polarity);
+void scfg_mem_map_Set(scfg_mem_map_Type mem_map);
+void scfg_EMAC_interface_Set(scfg_EMAC_interface_Type mode);
+void scfg_EXINT_line_Config(scfg_port_Source_Type port_source, scfg_pins_Source_Type pin_source);
+void scfg_pins_ultra_driven_Enable(scfg_ultra_driven_pins_Type value, confirm_state new_state);
 
 /**
   * @}

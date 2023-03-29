@@ -42,7 +42,7 @@ extern "C" {
   * @{
   */
 
-/** @defgroup CRC_exported_types
+/** @defgroup CRC_exported_Types
   * @{
   */
 
@@ -50,19 +50,19 @@ extern "C" {
   * @brief crc reverse input data
   */
 typedef enum {
-    CRC_REVERSE_INPUT_NO_AFFECTE           = 0x00, /*!< input data no reverse */
-    CRC_REVERSE_INPUT_BY_BYTE              = 0x01, /*!< input data reverse by byte */
-    CRC_REVERSE_INPUT_BY_HALFWORD          = 0x02, /*!< input data reverse by half word */
-    CRC_REVERSE_INPUT_BY_WORD              = 0x03  /*!< input data reverse by word */
-} crc_reverse_input_type;
+    CRC_Reverse_Input_NO_AFFECTE           = 0x00, /*!< input data no reverse */
+    CRC_Reverse_Input_BY_BYTE              = 0x01, /*!< input data reverse by byte */
+    CRC_Reverse_Input_BY_HALFWORD          = 0x02, /*!< input data reverse by half word */
+    CRC_Reverse_Input_BY_WORD              = 0x03  /*!< input data reverse by word */
+} CRC_Reverse_Input_Type;
 
 /**
   * @brief crc reverse output data
   */
 typedef enum {
-    CRC_REVERSE_OUTPUT_NO_AFFECTE          = 0x00, /*!< output data no reverse */
-    CRC_REVERSE_OUTPUT_DATA                = 0x01  /*!< output data reverse by word */
-} crc_reverse_output_type;
+    CRC_Reverse_OutPut_NO_AFFECTE          = 0x00, /*!< output data no reverse */
+    CRC_Reverse_OutPut_DATA                = 0x01  /*!< output data reverse by word */
+} CRC_Reverse_OutPut_Type;
 
 /**
  * @brief type define crc register all
@@ -118,27 +118,27 @@ typedef struct {
         } idt_bit;
     };
 
-} crc_type;
+} CRC_Type;
 
 /**
   * @}
   */
 
-#define CRC                              ((crc_type *) CRC_BASE)
+#define CRC                              ((CRC_Type *) CRC_BASE)
 
 /** @defgroup CRC_exported_functions
   * @{
   */
 
-void crc_data_reset(void);
-uint32_t crc_one_word_calculate(uint32_t data);
-uint32_t crc_block_calculate(uint32_t *pbuffer, uint32_t length);
-uint32_t crc_data_get(void);
-void crc_common_data_set(uint8_t cdt_value);
-uint8_t crc_common_data_get(void);
-void crc_init_data_set(uint32_t value);
-void crc_reverse_input_data_set(crc_reverse_input_type value);
-void crc_reverse_output_data_set(crc_reverse_output_type value);
+void CRC_Data_Reset(void);
+uint32_t CRC_One_Word_calculate(uint32_t data);
+uint32_t CRC_Block_calculate(uint32_t *pbuffer, uint32_t length);
+uint32_t CRC_Data_Get(void);
+void CRC_Common_Data_Set(uint8_t cdt_value);
+uint8_t CRC_Common_Data_Get(void);
+void CRC_Init_Data_Set(uint32_t value);
+void CRC_Reverse_Input_Data_Set(CRC_Reverse_Input_Type value);
+void CRC_Reverse_OutPut_Data_Set(CRC_Reverse_OutPut_Type value);
 
 /**
   * @}

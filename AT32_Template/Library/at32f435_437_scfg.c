@@ -33,7 +33,7 @@
   * @{
   */
 
-#ifdef SCFG_MODULE_ENABLED
+#ifdef SCFG_MODULE_EnableD
 
 /** @defgroup SCFG_private_functions
   * @{
@@ -44,9 +44,9 @@
   * @param  none
   * @retval none
   */
-void scfg_reset(void) {
-    crm_periph_reset(CRM_SCFG_PERIPH_RESET, TRUE);
-    crm_periph_reset(CRM_SCFG_PERIPH_RESET, FALSE);
+void scfg_Reset(void) {
+    crm_periph_Reset(CRM_SCFG_PERIPH_Reset, TRUE);
+    crm_periph_Reset(CRM_SCFG_PERIPH_Reset, FALSE);
 }
 
 /**
@@ -59,7 +59,7 @@ void scfg_reset(void) {
   *         - SCFG_XMC_SWAP_MODE3
   * @retval none
   */
-void scfg_xmc_mapping_swap_set(scfg_xmc_swap_type xmc_swap) {
+void scfg_xmc_mapping_swap_Set(scfg_xmc_swap_Type xmc_swap) {
     SCFG->cfg1_bit.swap_xmc = xmc_swap;
 }
 
@@ -67,16 +67,16 @@ void scfg_xmc_mapping_swap_set(scfg_xmc_swap_type xmc_swap) {
   * @brief  scfg infrared config
   * @param  source
   *         this parameter can be one of the following values:
-  *         - SCFG_IR_SOURCE_TMR10
-  *         - SCFG_IR_SOURCE_USART1
-  *         - SCFG_IR_SOURCE_USART2
+  *         - SCFG_IR_Source_TMR10
+  *         - SCFG_IR_Source_USART1
+  *         - SCFG_IR_Source_USART2
   * @param  polarity
   *         this parameter can be one of the following values:
   *         - SCFG_IR_POLARITY_NO_AFFECTE
   *         - SCFG_IR_POLARITY_REVERSE
   * @retval none
   */
-void scfg_infrared_config(scfg_ir_source_type source, scfg_ir_polarity_type polarity) {
+void scfg_infrared_Config(scfg_ir_Source_Type source, scfg_ir_polarity_Type polarity) {
     SCFG->cfg1_bit.ir_src_sel = source;
     SCFG->cfg1_bit.ir_pol = polarity;
 }
@@ -88,11 +88,11 @@ void scfg_infrared_config(scfg_ir_source_type source, scfg_ir_polarity_type pola
   *         - SCFG_MEM_MAP_MAIN_MEMORY
   *         - SCFG_MEM_MAP_BOOT_MEMORY
   *         - SCFG_MEM_MAP_XMC_BANK1
-  *         - SCFG_MEM_MAP_INTERNAL_SRAM
+  *         - SCFG_MEM_MAP_Internal_SRAM
   *         - SCFG_MEM_MAP_XMC_SDRAM_BANK1
   * @retval none
   */
-void scfg_mem_map_set(scfg_mem_map_type mem_map) {
+void scfg_mem_map_Set(scfg_mem_map_Type mem_map) {
     SCFG->cfg1_bit.mem_map_sel = mem_map;
 }
 
@@ -100,11 +100,11 @@ void scfg_mem_map_set(scfg_mem_map_type mem_map) {
   * @brief  scfg emac interface set
   * @param  mode
   *         this parameter can be one of the following values:
-  *         - SCFG_EMAC_SELECT_MII
-  *         - SCFG_EMAC_SELECT_RMII
+  *         - SCFG_EMAC_Select_MII
+  *         - SCFG_EMAC_Select_RMII
   * @retval none
   */
-void scfg_emac_interface_set(scfg_emac_interface_type mode) {
+void scfg_EMAC_interface_Set(scfg_EMAC_interface_Type mode) {
     SCFG->cfg2_bit.mii_rmii_sel = mode;
 }
 
@@ -113,14 +113,14 @@ void scfg_emac_interface_set(scfg_emac_interface_type mode) {
   * @param  port_source:
   *         select the gpio port to be used as source for exint lines.
   *         this parameter can be one of the following values:
-  *         - SCFG_PORT_SOURCE_GPIOA
-  *         - SCFG_PORT_SOURCE_GPIOB
-  *         - SCFG_PORT_SOURCE_GPIOC
-  *         - SCFG_PORT_SOURCE_GPIOD
-  *         - SCFG_PORT_SOURCE_GPIOE
-  *         - SCFG_PORT_SOURCE_GPIOF
-  *         - SCFG_PORT_SOURCE_GPIOG
-  *         - SCFG_PORT_SOURCE_GPIOH
+  *         - SCFG_PORT_Source_GPIOA
+  *         - SCFG_PORT_Source_GPIOB
+  *         - SCFG_PORT_Source_GPIOC
+  *         - SCFG_PORT_Source_GPIOD
+  *         - SCFG_PORT_Source_GPIOE
+  *         - SCFG_PORT_Source_GPIOF
+  *         - SCFG_PORT_Source_GPIOG
+  *         - SCFG_PORT_Source_GPIOH
   * @param  pin_source:
   *         specifies the exint line to be configured.
   *         this parameter can be one of the following values:
@@ -142,7 +142,7 @@ void scfg_emac_interface_set(scfg_emac_interface_type mode) {
   *         - SCFG_PINS_SOURCE15
   * @retval none
   */
-void scfg_exint_line_config(scfg_port_source_type port_source, scfg_pins_source_type pin_source) {
+void scfg_EXINT_line_Config(scfg_port_Source_Type port_source, scfg_pins_Source_Type pin_source) {
     uint32_t tmp = 0x00;
     tmp = ((uint32_t)0x0F) << (0x04 * (pin_source & (uint8_t)0x03));
 
@@ -188,7 +188,7 @@ void scfg_exint_line_config(scfg_port_source_type port_source, scfg_pins_source_
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void scfg_pins_ultra_driven_enable(scfg_ultra_driven_pins_type value, confirm_state new_state) {
+void scfg_pins_ultra_driven_Enable(scfg_ultra_driven_pins_Type value, confirm_state new_state) {
     if(TRUE == new_state) {
         SCFG_REG(value) |= SCFG_REG_BIT(value);
     } else {

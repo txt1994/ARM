@@ -42,7 +42,7 @@ extern "C" {
   * @{
   */
 
-/** @defgroup DEBUG_mode_definition
+/** @defgroup DEBUG_Mode_definition
   * @{
   */
 
@@ -64,10 +64,10 @@ extern "C" {
 #define DEBUG_ERTC_PAUSE                 0x00000400 /*!< debug ertc pause */
 #define DEBUG_WWDT_PAUSE                 0x00000800 /*!< debug window watchdog timer pause */
 #define DEBUG_WDT_PAUSE                  0x00001000 /*!< debug watchdog timer pause */
-#define DEBUG_ERTC_512_PAUSE             0x00008000 /*!< debug ertc_512 pause */
-#define DEBUG_I2C1_SMBUS_TIMEOUT         0x01000000 /*!< debug i2c1 smbus timeout */
-#define DEBUG_I2C2_SMBUS_TIMEOUT         0x08000000 /*!< debug i2c2 smbus timeout */
-#define DEBUG_I2C3_SMBUS_TIMEOUT         0x10000000 /*!< debug i2c3 smbus timeout */
+#define DEBUG_ERTC_512_PAUSE             0x00008000 /*!< debug ERTC_512 pause */
+#define DEBUG_I2C1_SmBus_TIMEOUT         0x01000000 /*!< debug i2c1 smbus timeout */
+#define DEBUG_I2C2_SmBus_TIMEOUT         0x08000000 /*!< debug i2c2 smbus timeout */
+#define DEBUG_I2C3_SmBus_TIMEOUT         0x10000000 /*!< debug i2c3 smbus timeout */
 #define DEBUG_CAN1_PAUSE                 0x02000000 /*!< debug can1 pause */
 #define DEBUG_CAN2_PAUSE                 0x04000000 /*!< debug can2 pause */
 
@@ -83,7 +83,7 @@ extern "C" {
   * @}
   */
 
-/** @defgroup DEBUG_exported_types
+/** @defgroup DEBUG_exported_Types
   * @{
   */
 
@@ -129,17 +129,17 @@ typedef struct {
             __IO uint32_t tmr13_pause          : 1;/* [7] */
             __IO uint32_t tmr14_pause          : 1;/* [8] */
             __IO uint32_t reserved1            : 1;/* [9] */
-            __IO uint32_t ertc_pause           : 1;/* [10] */
-            __IO uint32_t wwdt_pause           : 1;/* [11] */
-            __IO uint32_t wdt_pause            : 1;/* [12] */
+            __IO uint32_t ERTC_pause           : 1;/* [10] */
+            __IO uint32_t wWDT_pause           : 1;/* [11] */
+            __IO uint32_t WDT_pause            : 1;/* [12] */
             __IO uint32_t reserved2            : 2;/* [14:13] */
-            __IO uint32_t ertc_512_pause       : 1;/* [15] */
+            __IO uint32_t ERTC_512_pause       : 1;/* [15] */
             __IO uint32_t reserved3            : 8;/* [23:16] */
-            __IO uint32_t i2c1_smbus_timeout   : 1;/* [24] */
+            __IO uint32_t i2c1_SmBus_timeout   : 1;/* [24] */
             __IO uint32_t can1_pause           : 1;/* [25] */
             __IO uint32_t can2_pause           : 1;/* [26] */
-            __IO uint32_t i2c2_smbus_timeout   : 1;/* [27] */
-            __IO uint32_t i2c3_smbus_timeout   : 1;/* [28] */
+            __IO uint32_t i2c2_SmBus_timeout   : 1;/* [27] */
+            __IO uint32_t i2c3_SmBus_timeout   : 1;/* [28] */
             __IO uint32_t reserved4            : 3;/* [31:29] */
         } apb1_frz_bit;
     };
@@ -161,22 +161,22 @@ typedef struct {
         } apb2_frz_bit;
     };
 
-} debug_type;
+} DEBUG_Type;
 
 /**
   * @}
   */
 
-#define DEBUGMCU                         ((debug_type *) DEBUG_BASE)
+#define DEBUGMCU                         ((DEBUG_Type *) DEBUG_BASE)
 
 /** @defgroup DEBUG_exported_functions
   * @{
   */
 
-uint32_t debug_device_id_get(void);
-void debug_low_power_mode_set(uint32_t low_power_mode, confirm_state new_state);
-void debug_apb1_periph_mode_set(uint32_t apb1_periph, confirm_state new_state);
-void debug_apb2_periph_mode_set(uint32_t apb2_periph, confirm_state new_state);
+uint32_t DEBUG_device_ID_Get(void);
+void DEBUG_low_power_Mode_Set(uint32_t low_power_mode, confirm_state new_state);
+void DEBUG_apb1_periph_Mode_Set(uint32_t apb1_periph, confirm_state new_state);
+void DEBUG_apb2_periph_Mode_Set(uint32_t apb2_periph, confirm_state new_state);
 
 /**
   * @}

@@ -118,25 +118,25 @@ extern "C" {
 /**
   * @brief edmamux flag
   */
-#define EDMAMUX_SYNC_OV1_FLAG            ((uint32_t)0x00000001) /*!< edmamux stream1 synchronization overrun event flag */
-#define EDMAMUX_SYNC_OV2_FLAG            ((uint32_t)0x00000002) /*!< edmamux stream2 synchronization overrun event flag */
-#define EDMAMUX_SYNC_OV3_FLAG            ((uint32_t)0x00000004) /*!< edmamux stream3 synchronization overrun event flag */
-#define EDMAMUX_SYNC_OV4_FLAG            ((uint32_t)0x00000008) /*!< edmamux stream4 synchronization overrun event flag */
-#define EDMAMUX_SYNC_OV5_FLAG            ((uint32_t)0x00000010) /*!< edmamux stream5 synchronization overrun event flag */
-#define EDMAMUX_SYNC_OV6_FLAG            ((uint32_t)0x00000020) /*!< edmamux stream6 synchronization overrun event flag */
-#define EDMAMUX_SYNC_OV7_FLAG            ((uint32_t)0x00000040) /*!< edmamux stream7 synchronization overrun event flag */
-#define EDMAMUX_SYNC_OV8_FLAG            ((uint32_t)0x00000080) /*!< edmamux stream8 synchronization overrun event flag */
+#define EDMAMUX_Sync_OV1_FLAG            ((uint32_t)0x00000001) /*!< edmamux stream1 synchronization overrun event flag */
+#define EDMAMUX_Sync_OV2_FLAG            ((uint32_t)0x00000002) /*!< edmamux stream2 synchronization overrun event flag */
+#define EDMAMUX_Sync_OV3_FLAG            ((uint32_t)0x00000004) /*!< edmamux stream3 synchronization overrun event flag */
+#define EDMAMUX_Sync_OV4_FLAG            ((uint32_t)0x00000008) /*!< edmamux stream4 synchronization overrun event flag */
+#define EDMAMUX_Sync_OV5_FLAG            ((uint32_t)0x00000010) /*!< edmamux stream5 synchronization overrun event flag */
+#define EDMAMUX_Sync_OV6_FLAG            ((uint32_t)0x00000020) /*!< edmamux stream6 synchronization overrun event flag */
+#define EDMAMUX_Sync_OV7_FLAG            ((uint32_t)0x00000040) /*!< edmamux stream7 synchronization overrun event flag */
+#define EDMAMUX_Sync_OV8_FLAG            ((uint32_t)0x00000080) /*!< edmamux stream8 synchronization overrun event flag */
 
-#define EDMAMUX_GEN_TRIG_OV1_FLAG        ((uint32_t)0x00000001) /*!< edmamux generator channel1 overrun event flag */
-#define EDMAMUX_GEN_TRIG_OV2_FLAG        ((uint32_t)0x00000002) /*!< edmamux generator channel2 overrun event flag */
-#define EDMAMUX_GEN_TRIG_OV3_FLAG        ((uint32_t)0x00000004) /*!< edmamux generator channel3 overrun event flag */
-#define EDMAMUX_GEN_TRIG_OV4_FLAG        ((uint32_t)0x00000008) /*!< edmamux generator channel4 overrun event flag */
+#define EDMAMUX_Gen_TRIG_OV1_FLAG        ((uint32_t)0x00000001) /*!< edmamux generator channel1 overrun event flag */
+#define EDMAMUX_Gen_TRIG_OV2_FLAG        ((uint32_t)0x00000002) /*!< edmamux generator channel2 overrun event flag */
+#define EDMAMUX_Gen_TRIG_OV3_FLAG        ((uint32_t)0x00000004) /*!< edmamux generator channel3 overrun event flag */
+#define EDMAMUX_Gen_TRIG_OV4_FLAG        ((uint32_t)0x00000008) /*!< edmamux generator channel4 overrun event flag */
 
 /**
   * @}
   */
 
-/** @defgroup EDMA_exported_types
+/** @defgroup EDMA_exported_Types
   * @{
   */
 
@@ -144,36 +144,36 @@ extern "C" {
   * @brief edma memory targets define
   */
 typedef enum {
-    EDMA_MEMORY_0                          = 0x00, /*!< current target is memory 0 */
-    EDMA_MEMORY_1                          = 0x01  /*!< current target is memory 1 */
-} edma_memory_type;
+    EDMA_Memory_0                          = 0x00, /*!< current target is memory 0 */
+    EDMA_Memory_1                          = 0x01  /*!< current target is memory 1 */
+} eDMA_Memory_Type;
 
 /**
   * @brief edma direction type
   */
 typedef enum {
     EDMA_DIR_PERIPHERAL_TO_MEMORY          = 0x00, /*!< data transfer direction: peripheral to memory */
-    EDMA_DIR_MEMORY_TO_PERIPHERAL          = 0x01, /*!< data transfer direction: memory to peripheral */
-    EDMA_DIR_MEMORY_TO_MEMORY              = 0x02  /*!< data transfer direction: memory to memory */
-} edma_dir_type;
+    EDMA_DIR_Memory_TO_PERIPHERAL          = 0x01, /*!< data transfer direction: memory to peripheral */
+    EDMA_DIR_Memory_TO_MEMORY              = 0x02  /*!< data transfer direction: memory to memory */
+} eDMA_dir_Type;
 
 /**
   * @brief edma peripheral data size type
   */
 typedef enum {
-    EDMA_PERIPHERAL_DATA_WIDTH_BYTE        = 0x00, /*!< peripheral data bus width is 8bit */
-    EDMA_PERIPHERAL_DATA_WIDTH_HALFWORD    = 0x01, /*!< peripheral data bus width is 16bit */
-    EDMA_PERIPHERAL_DATA_WIDTH_WORD        = 0x02  /*!< peripheral data bus width is 32bit */
-} edma_peripheral_data_size_type;
+    EDMA_PERIPHERAL_Data_WIDTH_BYTE        = 0x00, /*!< peripheral data bus width is 8bit */
+    EDMA_PERIPHERAL_Data_WIDTH_HALFWORD    = 0x01, /*!< peripheral data bus width is 16bit */
+    EDMA_PERIPHERAL_Data_WIDTH_WORD        = 0x02  /*!< peripheral data bus width is 32bit */
+} eDMA_peripheral_Data_size_Type;
 
 /**
   * @brief edma memory data size type
   */
 typedef enum {
-    EDMA_MEMORY_DATA_WIDTH_BYTE            = 0x00, /*!< memory data bus width is 8bit */
-    EDMA_MEMORY_DATA_WIDTH_HALFWORD        = 0x01, /*!< memory data bus width is 16bit */
-    EDMA_MEMORY_DATA_WIDTH_WORD            = 0x02  /*!< memory data bus width is 32bit */
-} edma_memory_data_size_type;
+    EDMA_Memory_Data_WIDTH_BYTE            = 0x00, /*!< memory data bus width is 8bit */
+    EDMA_Memory_Data_WIDTH_HALFWORD        = 0x01, /*!< memory data bus width is 16bit */
+    EDMA_Memory_Data_WIDTH_WORD            = 0x02  /*!< memory data bus width is 32bit */
+} eDMA_Memory_Data_size_Type;
 
 /**
   * @brief edma priority level type
@@ -183,7 +183,7 @@ typedef enum {
     EDMA_PRIORITY_MEDIUM                   = 0x01, /*!< stream priority: medium */
     EDMA_PRIORITY_HIGH                     = 0x02, /*!< stream priority: high */
     EDMA_PRIORITY_VERY_HIGH                = 0x03  /*!< stream priority: very high */
-} edma_priority_level_type;
+} eDMA_priority_level_Type;
 
 /**
   * @brief edma fifo threshold level type
@@ -193,29 +193,29 @@ typedef enum {
     EDMA_FIFO_THRESHOLD_HALF               = 0x01, /*!< fifo threshold level: half full */
     EDMA_FIFO_THRESHOLD_3QUARTER           = 0x02, /*!< fifo threshold level: 13quarter full */
     EDMA_FIFO_THRESHOLD_FULL               = 0x03  /*!< fifo threshold level: full */
-} edma_fifo_threshold_type;
+} eDMA_FIFO_Threshold_Type;
 
 /**
   * @brief edma fifo stutas level type
   */
 typedef enum {
-    EDMA_FIFO_STATUS_LESS_1QUARTER         = 0x00, /*!< fifo stutas level: less 1quarter full */
-    EDMA_FIFO_STATUS_1QUARTER              = 0x01, /*!< fifo stutas level: 1quarter full */
-    EDMA_FIFO_STATUS_HALF                  = 0x02, /*!< fifo stutas level: half full */
-    EDMA_FIFO_STATUS_3QUARTER              = 0x03, /*!< fifo stutas level: 3quarter full */
-    EDMA_FIFO_STATUS_EMPTY                 = 0x04, /*!< fifo stutas level: empty */
-    EDMA_FIFO_STATUS_FULL                  = 0x05  /*!< fifo stutas level: full */
-} edma_fifo_stutas_type;
+    EDMA_FIFO_Status_LESS_1QUARTER         = 0x00, /*!< fifo stutas level: less 1quarter full */
+    EDMA_FIFO_Status_1QUARTER              = 0x01, /*!< fifo stutas level: 1quarter full */
+    EDMA_FIFO_Status_HALF                  = 0x02, /*!< fifo stutas level: half full */
+    EDMA_FIFO_Status_3QUARTER              = 0x03, /*!< fifo stutas level: 3quarter full */
+    EDMA_FIFO_Status_EMPTY                 = 0x04, /*!< fifo stutas level: empty */
+    EDMA_FIFO_Status_FULL                  = 0x05  /*!< fifo stutas level: full */
+} eDMA_FIFO_stutas_Type;
 
 /**
   * @brief edma memory continuous mode type
   */
 typedef enum {
-    EDMA_MEMORY_SINGLE                     = 0x00, /*!< memory single transfer */
-    EDMA_MEMORY_BURST_4                    = 0x01, /*!< memory burst transfer 4 beats */
-    EDMA_MEMORY_BURST_8                    = 0x02, /*!< memory burst transfer 8 beats */
-    EDMA_MEMORY_BURST_16                   = 0x03  /*!< memory burst transfer 16 beats */
-} edma_memory_burst_type;
+    EDMA_Memory_SINGLE                     = 0x00, /*!< memory single transfer */
+    EDMA_Memory_BURST_4                    = 0x01, /*!< memory burst transfer 4 beats */
+    EDMA_Memory_BURST_8                    = 0x02, /*!< memory burst transfer 8 beats */
+    EDMA_Memory_BURST_16                   = 0x03  /*!< memory burst transfer 16 beats */
+} eDMA_Memory_burst_Type;
 
 /**
   * @brief edma peripheral continuous mode type
@@ -225,7 +225,7 @@ typedef enum {
     EDMA_PERIPHERAL_BURST_4                = 0x01, /*!< peripheral burst transfer 4 beats */
     EDMA_PERIPHERAL_BURST_8                = 0x02, /*!< peripheral burst transfer 8 beats */
     EDMA_PERIPHERAL_BURST_16               = 0x03  /*!< peripheral burst transfer 16 beats */
-} edma_peripheral_burst_type;
+} eDMA_peripheral_burst_Type;
 
 /**
   * @brief edma peripheral increment offset size type
@@ -233,7 +233,7 @@ typedef enum {
 typedef enum {
     EDMA_PERIPHERAL_INC_PSIZE              = 0x00, /*!< peripheral offset is related to psize*/
     EDMA_PERIPHERAL_INC_4_BYTE             = 0x01  /*!< peripheral offset is 4 byte*/
-} edma_peripheral_inc_offset_type;
+} eDMA_peripheral_inc_offset_Type;
 
 /**
   * @brief edmamux request id select type
@@ -334,87 +334,87 @@ typedef enum {
     EDMAMUX_DMAREQ_ID_TMR20_TRIG           = 0x5D, /*!< edmamux channel request inputs resources: timer20 trigger */
     EDMAMUX_DMAREQ_ID_TMR20_HALL           = 0x5E, /*!< edmamux channel request inputs resources: timer20 hall */
     EDMAMUX_DMAREQ_ID_DVP                  = 0x69  /*!< edmamux channel request inputs resources: dvp */
-} edmamux_requst_id_sel_type;
+} eDMAMUX_Requst_ID_sel_Type;
 
 /**
   * @brief dmamux sync id select type
   */
 typedef enum {
-    EDMAMUX_SYNC_ID_EXINT0                 = 0x00, /*!< edmamux channel synchronization inputs resources: exint line0 */
-    EDMAMUX_SYNC_ID_EXINT1                 = 0x01, /*!< edmamux channel synchronization inputs resources: exint line1 */
-    EDMAMUX_SYNC_ID_EXINT2                 = 0x02, /*!< edmamux channel synchronization inputs resources: exint line2 */
-    EDMAMUX_SYNC_ID_EXINT3                 = 0x03, /*!< edmamux channel synchronization inputs resources: exint line3 */
-    EDMAMUX_SYNC_ID_EXINT4                 = 0x04, /*!< edmamux channel synchronization inputs resources: exint line4 */
-    EDMAMUX_SYNC_ID_EXINT5                 = 0x05, /*!< edmamux channel synchronization inputs resources: exint line5 */
-    EDMAMUX_SYNC_ID_EXINT6                 = 0x06, /*!< edmamux channel synchronization inputs resources: exint line6 */
-    EDMAMUX_SYNC_ID_EXINT7                 = 0x07, /*!< edmamux channel synchronization inputs resources: exint line7 */
-    EDMAMUX_SYNC_ID_EXINT8                 = 0x08, /*!< edmamux channel synchronization inputs resources: exint line8 */
-    EDMAMUX_SYNC_ID_EXINT9                 = 0x09, /*!< edmamux channel synchronization inputs resources: exint line9 */
-    EDMAMUX_SYNC_ID_EXINT10                = 0x0A, /*!< edmamux channel synchronization inputs resources: exint line10 */
-    EDMAMUX_SYNC_ID_EXINT11                = 0x0B, /*!< edmamux channel synchronization inputs resources: exint line11 */
-    EDMAMUX_SYNC_ID_EXINT12                = 0x0C, /*!< edmamux channel synchronization inputs resources: exint line12 */
-    EDMAMUX_SYNC_ID_EXINT13                = 0x0D, /*!< edmamux channel synchronization inputs resources: exint line13 */
-    EDMAMUX_SYNC_ID_EXINT14                = 0x0E, /*!< edmamux channel synchronization inputs resources: exint line14 */
-    EDMAMUX_SYNC_ID_EXINT15                = 0x0F, /*!< edmamux channel synchronization inputs resources: exint line15 */
-    EDMAMUX_SYNC_ID_DMAMUX_CH1_EVT         = 0x10, /*!< edmamux channel synchronization inputs resources: dmamux channel1 event */
-    EDMAMUX_SYNC_ID_DMAMUX_CH2_EVT         = 0x11, /*!< edmamux channel synchronization inputs resources: dmamux channel2 event */
-    EDMAMUX_SYNC_ID_DMAMUX_CH3_EVT         = 0x12, /*!< edmamux channel synchronization inputs resources: dmamux channel3 event */
-    EDMAMUX_SYNC_ID_DMAMUX_CH4_EVT         = 0x13, /*!< edmamux channel synchronization inputs resources: dmamux channel4 event */
-    EDMAMUX_SYNC_ID_DMAMUX_CH5_EVT         = 0x14, /*!< edmamux channel synchronization inputs resources: dmamux channel5 event */
-    EDMAMUX_SYNC_ID_DMAMUX_CH6_EVT         = 0x15, /*!< edmamux channel synchronization inputs resources: dmamux channel6 event */
-    EDMAMUX_SYNC_ID_DMAMUX_CH7_EVT         = 0x16, /*!< edmamux channel synchronization inputs resources: dmamux channel7 event */
-    EDMAMUX_SYNC_ID_DMAMUX_CH8_EVT         = 0x17  /*!< edmamux channel synchronization inputs resources: dmamux channel8 event */
-} edmamux_sync_id_sel_type;
+    EDMAMUX_Sync_ID_EXINT0                 = 0x00, /*!< edmamux channel synchronization inputs resources: exint line0 */
+    EDMAMUX_Sync_ID_EXINT1                 = 0x01, /*!< edmamux channel synchronization inputs resources: exint line1 */
+    EDMAMUX_Sync_ID_EXINT2                 = 0x02, /*!< edmamux channel synchronization inputs resources: exint line2 */
+    EDMAMUX_Sync_ID_EXINT3                 = 0x03, /*!< edmamux channel synchronization inputs resources: exint line3 */
+    EDMAMUX_Sync_ID_EXINT4                 = 0x04, /*!< edmamux channel synchronization inputs resources: exint line4 */
+    EDMAMUX_Sync_ID_EXINT5                 = 0x05, /*!< edmamux channel synchronization inputs resources: exint line5 */
+    EDMAMUX_Sync_ID_EXINT6                 = 0x06, /*!< edmamux channel synchronization inputs resources: exint line6 */
+    EDMAMUX_Sync_ID_EXINT7                 = 0x07, /*!< edmamux channel synchronization inputs resources: exint line7 */
+    EDMAMUX_Sync_ID_EXINT8                 = 0x08, /*!< edmamux channel synchronization inputs resources: exint line8 */
+    EDMAMUX_Sync_ID_EXINT9                 = 0x09, /*!< edmamux channel synchronization inputs resources: exint line9 */
+    EDMAMUX_Sync_ID_EXINT10                = 0x0A, /*!< edmamux channel synchronization inputs resources: exint line10 */
+    EDMAMUX_Sync_ID_EXINT11                = 0x0B, /*!< edmamux channel synchronization inputs resources: exint line11 */
+    EDMAMUX_Sync_ID_EXINT12                = 0x0C, /*!< edmamux channel synchronization inputs resources: exint line12 */
+    EDMAMUX_Sync_ID_EXINT13                = 0x0D, /*!< edmamux channel synchronization inputs resources: exint line13 */
+    EDMAMUX_Sync_ID_EXINT14                = 0x0E, /*!< edmamux channel synchronization inputs resources: exint line14 */
+    EDMAMUX_Sync_ID_EXINT15                = 0x0F, /*!< edmamux channel synchronization inputs resources: exint line15 */
+    EDMAMUX_Sync_ID_DMAMUX_CH1_EVT         = 0x10, /*!< edmamux channel synchronization inputs resources: dmamux channel1 event */
+    EDMAMUX_Sync_ID_DMAMUX_CH2_EVT         = 0x11, /*!< edmamux channel synchronization inputs resources: dmamux channel2 event */
+    EDMAMUX_Sync_ID_DMAMUX_CH3_EVT         = 0x12, /*!< edmamux channel synchronization inputs resources: dmamux channel3 event */
+    EDMAMUX_Sync_ID_DMAMUX_CH4_EVT         = 0x13, /*!< edmamux channel synchronization inputs resources: dmamux channel4 event */
+    EDMAMUX_Sync_ID_DMAMUX_CH5_EVT         = 0x14, /*!< edmamux channel synchronization inputs resources: dmamux channel5 event */
+    EDMAMUX_Sync_ID_DMAMUX_CH6_EVT         = 0x15, /*!< edmamux channel synchronization inputs resources: dmamux channel6 event */
+    EDMAMUX_Sync_ID_DMAMUX_CH7_EVT         = 0x16, /*!< edmamux channel synchronization inputs resources: dmamux channel7 event */
+    EDMAMUX_Sync_ID_DMAMUX_CH8_EVT         = 0x17  /*!< edmamux channel synchronization inputs resources: dmamux channel8 event */
+} eDMAMUX_Sync_ID_sel_Type;
 
 /**
   * @brief dmamux sync polarity type
   */
 typedef enum {
-    EDMAMUX_SYNC_POLARITY_DISABLE          = 0x00, /*!< edmamux channel synchronization inputs resources polarity default value */
-    EDMAMUX_SYNC_POLARITY_RISING           = 0x01, /*!< edmamux channel synchronization inputs resources polarity: rising */
-    EDMAMUX_SYNC_POLARITY_FALLING          = 0x02, /*!< edmamux channel synchronization inputs resources polarity: falling */
-    EDMAMUX_SYNC_POLARITY_RISING_FALLING   = 0x03  /*!< edmamux channel synchronization inputs resources polarity: rising_falling */
-} edmamux_sync_pol_type;
+    EDMAMUX_Sync_POLARITY_Disable          = 0x00, /*!< edmamux channel synchronization inputs resources polarity default value */
+    EDMAMUX_Sync_POLARITY_RISING           = 0x01, /*!< edmamux channel synchronization inputs resources polarity: rising */
+    EDMAMUX_Sync_POLARITY_FALLING          = 0x02, /*!< edmamux channel synchronization inputs resources polarity: falling */
+    EDMAMUX_Sync_POLARITY_RISING_FALLING   = 0x03  /*!< edmamux channel synchronization inputs resources polarity: rising_falling */
+} eDMAMUX_Sync_pol_Type;
 
 /**
   * @brief dmamux generator id select type
   */
 typedef enum {
-    EDMAMUX_GEN_ID_EXINT0                  = 0x00, /*!< edmamux generator channel inputs resources: exint line0 */
-    EDMAMUX_GEN_ID_EXINT1                  = 0x01, /*!< edmamux generator channel inputs resources: exint line1 */
-    EDMAMUX_GEN_ID_EXINT2                  = 0x02, /*!< edmamux generator channel inputs resources: exint line2 */
-    EDMAMUX_GEN_ID_EXINT3                  = 0x03, /*!< edmamux generator channel inputs resources: exint line3 */
-    EDMAMUX_GEN_ID_EXINT4                  = 0x04, /*!< edmamux generator channel inputs resources: exint line4 */
-    EDMAMUX_GEN_ID_EXINT5                  = 0x05, /*!< edmamux generator channel inputs resources: exint line5 */
-    EDMAMUX_GEN_ID_EXINT6                  = 0x06, /*!< edmamux generator channel inputs resources: exint line6 */
-    EDMAMUX_GEN_ID_EXINT7                  = 0x07, /*!< edmamux generator channel inputs resources: exint line7 */
-    EDMAMUX_GEN_ID_EXINT8                  = 0x08, /*!< edmamux generator channel inputs resources: exint line8 */
-    EDMAMUX_GEN_ID_EXINT9                  = 0x09, /*!< edmamux generator channel inputs resources: exint line9 */
-    EDMAMUX_GEN_ID_EXINT10                 = 0x0A, /*!< edmamux generator channel inputs resources: exint line10 */
-    EDMAMUX_GEN_ID_EXINT11                 = 0x0B, /*!< edmamux generator channel inputs resources: exint line11 */
-    EDMAMUX_GEN_ID_EXINT12                 = 0x0C, /*!< edmamux generator channel inputs resources: exint line12 */
-    EDMAMUX_GEN_ID_EXINT13                 = 0x0D, /*!< edmamux generator channel inputs resources: exint line13 */
-    EDMAMUX_GEN_ID_EXINT14                 = 0x0E, /*!< edmamux generator channel inputs resources: exint line14 */
-    EDMAMUX_GEN_ID_EXINT15                 = 0x0F, /*!< edmamux generator channel inputs resources: exint line15 */
-    EDMAMUX_GEN_ID_DMAMUX_CH1_EVT          = 0x10, /*!< edmamux generator channel inputs resources: dmamux channel1 event */
-    EDMAMUX_GEN_ID_DMAMUX_CH2_EVT          = 0x11, /*!< edmamux generator channel inputs resources: dmamux channel2 event */
-    EDMAMUX_GEN_ID_DMAMUX_CH3_EVT          = 0x12, /*!< edmamux generator channel inputs resources: dmamux channel3 event */
-    EDMAMUX_GEN_ID_DMAMUX_CH4_EVT          = 0x13, /*!< edmamux generator channel inputs resources: dmamux channel4 event */
-    EDMAMUX_GEN_ID_DMAMUX_CH5_EVT          = 0x14, /*!< edmamux generator channel inputs resources: dmamux channel5 event */
-    EDMAMUX_GEN_ID_DMAMUX_CH6_EVT          = 0x15, /*!< edmamux generator channel inputs resources: dmamux channel6 event */
-    EDMAMUX_GEN_ID_DMAMUX_CH7_EVT          = 0x16, /*!< edmamux generator channel inputs resources: dmamux channel7 event */
-    EDMAMUX_GEN_ID_DMAMUX_CH8_EVT          = 0x17  /*!< edmamux generator channel inputs resources: dmamux channel8 event */
-} edmamux_gen_id_sel_type;
+    EDMAMUX_Gen_ID_EXINT0                  = 0x00, /*!< edmamux generator channel inputs resources: exint line0 */
+    EDMAMUX_Gen_ID_EXINT1                  = 0x01, /*!< edmamux generator channel inputs resources: exint line1 */
+    EDMAMUX_Gen_ID_EXINT2                  = 0x02, /*!< edmamux generator channel inputs resources: exint line2 */
+    EDMAMUX_Gen_ID_EXINT3                  = 0x03, /*!< edmamux generator channel inputs resources: exint line3 */
+    EDMAMUX_Gen_ID_EXINT4                  = 0x04, /*!< edmamux generator channel inputs resources: exint line4 */
+    EDMAMUX_Gen_ID_EXINT5                  = 0x05, /*!< edmamux generator channel inputs resources: exint line5 */
+    EDMAMUX_Gen_ID_EXINT6                  = 0x06, /*!< edmamux generator channel inputs resources: exint line6 */
+    EDMAMUX_Gen_ID_EXINT7                  = 0x07, /*!< edmamux generator channel inputs resources: exint line7 */
+    EDMAMUX_Gen_ID_EXINT8                  = 0x08, /*!< edmamux generator channel inputs resources: exint line8 */
+    EDMAMUX_Gen_ID_EXINT9                  = 0x09, /*!< edmamux generator channel inputs resources: exint line9 */
+    EDMAMUX_Gen_ID_EXINT10                 = 0x0A, /*!< edmamux generator channel inputs resources: exint line10 */
+    EDMAMUX_Gen_ID_EXINT11                 = 0x0B, /*!< edmamux generator channel inputs resources: exint line11 */
+    EDMAMUX_Gen_ID_EXINT12                 = 0x0C, /*!< edmamux generator channel inputs resources: exint line12 */
+    EDMAMUX_Gen_ID_EXINT13                 = 0x0D, /*!< edmamux generator channel inputs resources: exint line13 */
+    EDMAMUX_Gen_ID_EXINT14                 = 0x0E, /*!< edmamux generator channel inputs resources: exint line14 */
+    EDMAMUX_Gen_ID_EXINT15                 = 0x0F, /*!< edmamux generator channel inputs resources: exint line15 */
+    EDMAMUX_Gen_ID_DMAMUX_CH1_EVT          = 0x10, /*!< edmamux generator channel inputs resources: dmamux channel1 event */
+    EDMAMUX_Gen_ID_DMAMUX_CH2_EVT          = 0x11, /*!< edmamux generator channel inputs resources: dmamux channel2 event */
+    EDMAMUX_Gen_ID_DMAMUX_CH3_EVT          = 0x12, /*!< edmamux generator channel inputs resources: dmamux channel3 event */
+    EDMAMUX_Gen_ID_DMAMUX_CH4_EVT          = 0x13, /*!< edmamux generator channel inputs resources: dmamux channel4 event */
+    EDMAMUX_Gen_ID_DMAMUX_CH5_EVT          = 0x14, /*!< edmamux generator channel inputs resources: dmamux channel5 event */
+    EDMAMUX_Gen_ID_DMAMUX_CH6_EVT          = 0x15, /*!< edmamux generator channel inputs resources: dmamux channel6 event */
+    EDMAMUX_Gen_ID_DMAMUX_CH7_EVT          = 0x16, /*!< edmamux generator channel inputs resources: dmamux channel7 event */
+    EDMAMUX_Gen_ID_DMAMUX_CH8_EVT          = 0x17  /*!< edmamux generator channel inputs resources: dmamux channel8 event */
+} eDMAMUX_Gen_ID_sel_Type;
 
 /**
   * @brief dmamux generator polarity type
   */
 typedef enum {
-    EDMAMUX_GEN_POLARITY_DISABLE           = 0x00, /*!< edmamux generator channel inputs resources polarity default value */
-    EDMAMUX_GEN_POLARITY_RISING            = 0x01, /*!< edmamux generator channel inputs resources polarity: rising */
-    EDMAMUX_GEN_POLARITY_FALLING           = 0x02, /*!< edmamux generator channel inputs resources polarity: falling */
-    EDMAMUX_GEN_POLARITY_RISING_FALLING    = 0x03  /*!< edmamux generator channel inputs resources polarity: rising_falling */
-} edmamux_gen_pol_type;
+    EDMAMUX_Gen_POLARITY_Disable           = 0x00, /*!< edmamux generator channel inputs resources polarity default value */
+    EDMAMUX_Gen_POLARITY_RISING            = 0x01, /*!< edmamux generator channel inputs resources polarity: rising */
+    EDMAMUX_Gen_POLARITY_FALLING           = 0x02, /*!< edmamux generator channel inputs resources polarity: falling */
+    EDMAMUX_Gen_POLARITY_RISING_FALLING    = 0x03  /*!< edmamux generator channel inputs resources polarity: rising_falling */
+} eDMAMUX_Gen_pol_Type;
 
 /**
   * @brief edma init type
@@ -422,40 +422,40 @@ typedef enum {
 typedef struct {
     uint32_t                               peripheral_base_addr;       /*!< base addrress for peripheral */
     uint32_t                               memory0_base_addr;          /*!< base addrress for memory 0 */
-    edma_dir_type                          direction;                  /*!< edma transmit direction, peripheral as source or as destnation  */
+    eDMA_dir_Type                          direction;                  /*!< edma transmit direction, peripheral as source or as destnation  */
     uint16_t                               buffer_size;                /*!< counter to transfer (0~0xFFFF)*/
-    confirm_state                          peripheral_inc_enable;      /*!< periphera address increment after one transmit */
-    confirm_state                          memory_inc_enable;          /*!< memory address increment after one transmit */
-    edma_peripheral_data_size_type         peripheral_data_width;      /*!< peripheral data width for transmit */
-    edma_memory_data_size_type             memory_data_width;          /*!< memory data width for transmit */
-    confirm_state                          loop_mode_enable;           /*!< when loop mode enable, buffer size will reload if count to 0*/
-    edma_priority_level_type               priority;                   /*!< edma priority can choose from very high, high, dedium or low */
-    confirm_state                          fifo_mode_enable;           /*!< edma fifo mode enable */
-    edma_fifo_threshold_type               fifo_threshold;             /*!< edma fifo threshold vaule */
-    edma_memory_burst_type                 memory_burst_mode;          /*!< edma memory burst transfer */
-    edma_peripheral_burst_type             peripheral_burst_mode;      /*!< edma peripheral burst transfer */
-} edma_init_type;
+    confirm_state                          peripheral_inc_Enable;      /*!< periphera address increment after one transmit */
+    confirm_state                          memory_inc_Enable;          /*!< memory address increment after one transmit */
+    eDMA_peripheral_Data_size_Type         peripheral_Data_width;      /*!< peripheral data width for transmit */
+    eDMA_Memory_Data_size_Type             memory_Data_width;          /*!< memory data width for transmit */
+    confirm_state                          loop_Mode_Enable;           /*!< when loop mode enable, buffer size will reload if count to 0*/
+    eDMA_priority_level_Type               priority;                   /*!< edma priority can choose from very high, high, dedium or low */
+    confirm_state                          fifo_Mode_Enable;           /*!< edma fifo mode enable */
+    eDMA_FIFO_Threshold_Type               fifo_threshold;             /*!< edma fifo threshold vaule */
+    eDMA_Memory_burst_Type                 memory_burst_mode;          /*!< edma memory burst transfer */
+    eDMA_peripheral_burst_Type             peripheral_burst_mode;      /*!< edma peripheral burst transfer */
+} eDMA_Init_Type;
 
 /**
   * @brief edmamux sync init type
   */
 typedef struct {
-    edmamux_sync_id_sel_type               sync_signal_sel;     /*!< edma dmamux synchronization input select */
-    edmamux_sync_pol_type                  sync_polarity;       /*!< edma dmamux synchronization polarity */
-    uint32_t                               sync_request_number; /*!< edma dmamux number of dma requests before an output event is generated */
-    confirm_state                          sync_event_enable;   /*!< edma dmamux event generation disabled */
-    confirm_state                          sync_enable;         /*!< edma dmamux synchronization enable */
-} edmamux_sync_init_type;
+    eDMAMUX_Sync_ID_sel_Type               sync_signal_sel;     /*!< edma dmamux synchronization input select */
+    eDMAMUX_Sync_pol_Type                  sync_polarity;       /*!< edma dmamux synchronization polarity */
+    uint32_t                               sync_Request_Number; /*!< edma dmamux number of dma requests before an output event is generated */
+    confirm_state                          sync_Event_Enable;   /*!< edma dmamux event generation disabled */
+    confirm_state                          sync_Enable;         /*!< edma dmamux synchronization enable */
+} eDMAMUX_Sync_Init_Type;
 
 /**
   * @brief edmamux generator init type
   */
 typedef struct {
-    edmamux_gen_id_sel_type                gen_signal_sel;     /*!< edma dmamux generator dma request trigger input select */
-    edmamux_gen_pol_type                   gen_polarity;       /*!< edma dmamux generator trigger polarity */
-    uint32_t                               gen_request_number; /*!< edma dmamux the number of dma requests to be generated after a trigger event */
-    confirm_state                          gen_enable;         /*!< edma dmamux generator enable */
-} edmamux_gen_init_type;
+    eDMAMUX_Gen_ID_sel_Type                gen_signal_sel;     /*!< edma dmamux generator dma request trigger input select */
+    eDMAMUX_Gen_pol_Type                   gen_polarity;       /*!< edma dmamux generator trigger polarity */
+    uint32_t                               gen_Request_Number; /*!< edma dmamux the number of dma requests to be generated after a trigger event */
+    confirm_state                          gen_Enable;         /*!< edma dmamux generator enable */
+} eDMAMUX_Gen_Init_Type;
 
 /**
   * @brief type define edma register all
@@ -709,7 +709,7 @@ typedef struct {
         } muxgclr_bit;
     };
 
-} edma_type;
+} eDMA_Type;
 
 /**
   * @brief type define edma stream register all
@@ -795,7 +795,7 @@ typedef struct {
             __IO uint32_t reserved2            : 24;/* [31:8] */
         } fctrl_bit;
     };
-} edma_stream_type;
+} eDMA_Stream_Type;
 
 /**
   * @brief type define edma stream link list pointer register
@@ -810,7 +810,7 @@ typedef struct {
             __IO uint32_t llp                  : 32;/* [31:0] */
         } llp_bit;
     };
-} edma_stream_link_list_type;
+} eDMA_Stream_Link_List_Type;
 
 /**
   * @brief type define edma 2d register all
@@ -836,7 +836,7 @@ typedef struct {
             __IO uint32_t dststd               : 16;/* [31:16] */
         } stride_bit;
     };
-} edma_stream_2d_type;
+} eDMA_Stream_2D_Type;
 
 /**
   * @brief type define edmamux muxsctrl register
@@ -860,7 +860,7 @@ typedef struct {
             __IO uint32_t reserved3            : 3; /* [31:29] */
         } muxctrl_bit;
     };
-} edmamux_channel_type;
+} eDMAMUX_Channel_Type;
 
 /**
   * @brief type define edmamux request generator register all
@@ -882,98 +882,98 @@ typedef struct {
             __IO uint32_t reserved3            : 8; /* [31:24] */
         } gctrl_bit;
     };
-} edmamux_generator_type;
+} eDMAMUX_Generator_Type;
 
 /**
   * @}
   */
 
-#define EDMA                             ((edma_type *) EDMA_BASE)
-#define EDMA_STREAM1                     ((edma_stream_type *) EDMA_STREAM1_BASE)
-#define EDMA_STREAM2                     ((edma_stream_type *) EDMA_STREAM2_BASE)
-#define EDMA_STREAM3                     ((edma_stream_type *) EDMA_STREAM3_BASE)
-#define EDMA_STREAM4                     ((edma_stream_type *) EDMA_STREAM4_BASE)
-#define EDMA_STREAM5                     ((edma_stream_type *) EDMA_STREAM5_BASE)
-#define EDMA_STREAM6                     ((edma_stream_type *) EDMA_STREAM6_BASE)
-#define EDMA_STREAM7                     ((edma_stream_type *) EDMA_STREAM7_BASE)
-#define EDMA_STREAM8                     ((edma_stream_type *) EDMA_STREAM8_BASE)
+#define EDMA                             ((eDMA_Type *) EDMA_BASE)
+#define EDMA_STREAM1                     ((eDMA_Stream_Type *) EDMA_STREAM1_BASE)
+#define EDMA_STREAM2                     ((eDMA_Stream_Type *) EDMA_STREAM2_BASE)
+#define EDMA_STREAM3                     ((eDMA_Stream_Type *) EDMA_STREAM3_BASE)
+#define EDMA_STREAM4                     ((eDMA_Stream_Type *) EDMA_STREAM4_BASE)
+#define EDMA_STREAM5                     ((eDMA_Stream_Type *) EDMA_STREAM5_BASE)
+#define EDMA_STREAM6                     ((eDMA_Stream_Type *) EDMA_STREAM6_BASE)
+#define EDMA_STREAM7                     ((eDMA_Stream_Type *) EDMA_STREAM7_BASE)
+#define EDMA_STREAM8                     ((eDMA_Stream_Type *) EDMA_STREAM8_BASE)
 
-#define EDMA_STREAM1_2D                  ((edma_stream_2d_type *) EDMA_STREAM1_2D_BASE)
-#define EDMA_STREAM2_2D                  ((edma_stream_2d_type *) EDMA_STREAM2_2D_BASE)
-#define EDMA_STREAM3_2D                  ((edma_stream_2d_type *) EDMA_STREAM3_2D_BASE)
-#define EDMA_STREAM4_2D                  ((edma_stream_2d_type *) EDMA_STREAM4_2D_BASE)
-#define EDMA_STREAM5_2D                  ((edma_stream_2d_type *) EDMA_STREAM5_2D_BASE)
-#define EDMA_STREAM6_2D                  ((edma_stream_2d_type *) EDMA_STREAM6_2D_BASE)
-#define EDMA_STREAM7_2D                  ((edma_stream_2d_type *) EDMA_STREAM7_2D_BASE)
-#define EDMA_STREAM8_2D                  ((edma_stream_2d_type *) EDMA_STREAM8_2D_BASE)
+#define EDMA_STREAM1_2D                  ((eDMA_Stream_2D_Type *) EDMA_STREAM1_2D_BASE)
+#define EDMA_STREAM2_2D                  ((eDMA_Stream_2D_Type *) EDMA_STREAM2_2D_BASE)
+#define EDMA_STREAM3_2D                  ((eDMA_Stream_2D_Type *) EDMA_STREAM3_2D_BASE)
+#define EDMA_STREAM4_2D                  ((eDMA_Stream_2D_Type *) EDMA_STREAM4_2D_BASE)
+#define EDMA_STREAM5_2D                  ((eDMA_Stream_2D_Type *) EDMA_STREAM5_2D_BASE)
+#define EDMA_STREAM6_2D                  ((eDMA_Stream_2D_Type *) EDMA_STREAM6_2D_BASE)
+#define EDMA_STREAM7_2D                  ((eDMA_Stream_2D_Type *) EDMA_STREAM7_2D_BASE)
+#define EDMA_STREAM8_2D                  ((eDMA_Stream_2D_Type *) EDMA_STREAM8_2D_BASE)
 
-#define EDMA_STREAM1_LL                  ((edma_stream_link_list_type *) EDMA_STREAM1_LL_BASE)
-#define EDMA_STREAM2_LL                  ((edma_stream_link_list_type *) EDMA_STREAM2_LL_BASE)
-#define EDMA_STREAM3_LL                  ((edma_stream_link_list_type *) EDMA_STREAM3_LL_BASE)
-#define EDMA_STREAM4_LL                  ((edma_stream_link_list_type *) EDMA_STREAM4_LL_BASE)
-#define EDMA_STREAM5_LL                  ((edma_stream_link_list_type *) EDMA_STREAM5_LL_BASE)
-#define EDMA_STREAM6_LL                  ((edma_stream_link_list_type *) EDMA_STREAM6_LL_BASE)
-#define EDMA_STREAM7_LL                  ((edma_stream_link_list_type *) EDMA_STREAM7_LL_BASE)
-#define EDMA_STREAM8_LL                  ((edma_stream_link_list_type *) EDMA_STREAM8_LL_BASE)
+#define EDMA_STREAM1_LL                  ((eDMA_Stream_Link_List_Type *) EDMA_STREAM1_LL_BASE)
+#define EDMA_STREAM2_LL                  ((eDMA_Stream_Link_List_Type *) EDMA_STREAM2_LL_BASE)
+#define EDMA_STREAM3_LL                  ((eDMA_Stream_Link_List_Type *) EDMA_STREAM3_LL_BASE)
+#define EDMA_STREAM4_LL                  ((eDMA_Stream_Link_List_Type *) EDMA_STREAM4_LL_BASE)
+#define EDMA_STREAM5_LL                  ((eDMA_Stream_Link_List_Type *) EDMA_STREAM5_LL_BASE)
+#define EDMA_STREAM6_LL                  ((eDMA_Stream_Link_List_Type *) EDMA_STREAM6_LL_BASE)
+#define EDMA_STREAM7_LL                  ((eDMA_Stream_Link_List_Type *) EDMA_STREAM7_LL_BASE)
+#define EDMA_STREAM8_LL                  ((eDMA_Stream_Link_List_Type *) EDMA_STREAM8_LL_BASE)
 
-#define EDMAMUX_CHANNEL1                 ((edmamux_channel_type *) EDMAMUX_CHANNEL1_BASE)
-#define EDMAMUX_CHANNEL2                 ((edmamux_channel_type *) EDMAMUX_CHANNEL2_BASE)
-#define EDMAMUX_CHANNEL3                 ((edmamux_channel_type *) EDMAMUX_CHANNEL3_BASE)
-#define EDMAMUX_CHANNEL4                 ((edmamux_channel_type *) EDMAMUX_CHANNEL4_BASE)
-#define EDMAMUX_CHANNEL5                 ((edmamux_channel_type *) EDMAMUX_CHANNEL5_BASE)
-#define EDMAMUX_CHANNEL6                 ((edmamux_channel_type *) EDMAMUX_CHANNEL6_BASE)
-#define EDMAMUX_CHANNEL7                 ((edmamux_channel_type *) EDMAMUX_CHANNEL7_BASE)
-#define EDMAMUX_CHANNEL8                 ((edmamux_channel_type *) EDMAMUX_CHANNEL8_BASE)
+#define EDMAMUX_CHANNEL1                 ((eDMAMUX_Channel_Type *) EDMAMUX_CHANNEL1_BASE)
+#define EDMAMUX_CHANNEL2                 ((eDMAMUX_Channel_Type *) EDMAMUX_CHANNEL2_BASE)
+#define EDMAMUX_CHANNEL3                 ((eDMAMUX_Channel_Type *) EDMAMUX_CHANNEL3_BASE)
+#define EDMAMUX_CHANNEL4                 ((eDMAMUX_Channel_Type *) EDMAMUX_CHANNEL4_BASE)
+#define EDMAMUX_CHANNEL5                 ((eDMAMUX_Channel_Type *) EDMAMUX_CHANNEL5_BASE)
+#define EDMAMUX_CHANNEL6                 ((eDMAMUX_Channel_Type *) EDMAMUX_CHANNEL6_BASE)
+#define EDMAMUX_CHANNEL7                 ((eDMAMUX_Channel_Type *) EDMAMUX_CHANNEL7_BASE)
+#define EDMAMUX_CHANNEL8                 ((eDMAMUX_Channel_Type *) EDMAMUX_CHANNEL8_BASE)
 
-#define EDMAMUX_GENERATOR1               ((edmamux_generator_type *) EDMAMUX_GENERATOR1_BASE)
-#define EDMAMUX_GENERATOR2               ((edmamux_generator_type *) EDMAMUX_GENERATOR2_BASE)
-#define EDMAMUX_GENERATOR3               ((edmamux_generator_type *) EDMAMUX_GENERATOR3_BASE)
-#define EDMAMUX_GENERATOR4               ((edmamux_generator_type *) EDMAMUX_GENERATOR4_BASE)
+#define EDMAMUX_GENERATOR1               ((eDMAMUX_Generator_Type *) EDMAMUX_GENERATOR1_BASE)
+#define EDMAMUX_GENERATOR2               ((eDMAMUX_Generator_Type *) EDMAMUX_GENERATOR2_BASE)
+#define EDMAMUX_GENERATOR3               ((eDMAMUX_Generator_Type *) EDMAMUX_GENERATOR3_BASE)
+#define EDMAMUX_GENERATOR4               ((eDMAMUX_Generator_Type *) EDMAMUX_GENERATOR4_BASE)
 
 /** @defgroup EDMA_exported_functions
   * @{
   */
 
 /* edma controller function */
-void edma_reset(edma_stream_type *edma_streamx);
-void edma_init(edma_stream_type *edma_streamx, edma_init_type *edma_init_struct);
-void edma_default_para_init(edma_init_type *edma_init_struct);
-void edma_stream_enable(edma_stream_type *edma_streamx, confirm_state new_state);
-void edma_interrupt_enable(edma_stream_type *edma_streamx, uint32_t edma_int, confirm_state new_state);
-void edma_peripheral_inc_offset_set(edma_stream_type *edma_streamx, edma_peripheral_inc_offset_type offset);
-void edma_flow_controller_enable(edma_stream_type *edma_streamx, confirm_state new_state);
-void edma_data_number_set(edma_stream_type *edma_streamx, uint16_t data_number);
-uint16_t edma_data_number_get(edma_stream_type *edma_streamx);
-void edma_double_buffer_mode_init(edma_stream_type *edma_streamx, uint32_t memory1_addr, edma_memory_type current_memory);
-void edma_double_buffer_mode_enable(edma_stream_type *edma_streamx, confirm_state new_state);
-void edma_memory_addr_set(edma_stream_type *edma_streamx, uint32_t memory_addr, uint32_t memory_target);
-edma_memory_type edma_memory_target_get(edma_stream_type *edma_streamx);
-flag_status edma_stream_status_get(edma_stream_type *edma_streamx);
-uint8_t edma_fifo_status_get(edma_stream_type *edma_streamx);
-flag_status edma_flag_get(uint32_t edma_flag);
-void edma_flag_clear(uint32_t edma_flag);
+void eDMA_Reset(eDMA_Stream_Type *eDMA_streamx);
+void eDMA_Init(eDMA_Stream_Type *eDMA_streamx, eDMA_Init_Type *eDMA_Init_struct);
+void eDMA_Default_Para_Init(eDMA_Init_Type *eDMA_Init_struct);
+void eDMA_Stream_Enable(eDMA_Stream_Type *eDMA_streamx, confirm_state new_state);
+void eDMA_Interrupt_Enable(eDMA_Stream_Type *eDMA_streamx, uint32_t eDMA_int, confirm_state new_state);
+void eDMA_peripheral_inc_offset_Set(eDMA_Stream_Type *eDMA_streamx, eDMA_peripheral_inc_offset_Type offset);
+void eDMA_Flow_Controller_Enable(eDMA_Stream_Type *eDMA_streamx, confirm_state new_state);
+void eDMA_Data_Number_Set(eDMA_Stream_Type *eDMA_streamx, uint16_t data_Number);
+uint16_t eDMA_Data_Number_Get(eDMA_Stream_Type *eDMA_streamx);
+void eDMA_Double_buffer_Mode_Init(eDMA_Stream_Type *eDMA_streamx, uint32_t memory1_addr, eDMA_Memory_Type current_memory);
+void eDMA_Double_buffer_Mode_Enable(eDMA_Stream_Type *eDMA_streamx, confirm_state new_state);
+void eDMA_Memory_Addr_Set(eDMA_Stream_Type *eDMA_streamx, uint32_t memory_addr, uint32_t memory_target);
+eDMA_Memory_Type eDMA_Memory_Target_Get(eDMA_Stream_Type *eDMA_streamx);
+flag_status eDMA_Stream_Status_Get(eDMA_Stream_Type *eDMA_streamx);
+uint8_t eDMA_FIFO_Status_Get(eDMA_Stream_Type *eDMA_streamx);
+flag_status eDMA_Flag_Get(uint32_t eDMA_flag);
+void eDMA_Flag_Clear(uint32_t eDMA_flag);
 
 /* edma 2d controller function */
-void edma_2d_init(edma_stream_2d_type *edma_streamx_2d, int16_t src_stride, int16_t dst_stride, uint16_t xcnt, uint16_t ycnt);
-void edma_2d_enable(edma_stream_2d_type *edma_streamx_2d, confirm_state new_state);
+void eDMA_2D_Init(eDMA_Stream_2D_Type *eDMA_streamx_2d, int16_t src_stride, int16_t dst_stride, uint16_t xcnt, uint16_t ycnt);
+void eDMA_2D_Enable(eDMA_Stream_2D_Type *eDMA_streamx_2d, confirm_state new_state);
 
 /* dma link list controller function */
-void edma_link_list_init(edma_stream_link_list_type *edma_streamx_ll, uint32_t pointer);
-void edma_link_list_enable(edma_stream_link_list_type *edma_streamx_ll, confirm_state new_state);
+void eDMA_Link_List_Init(eDMA_Stream_Link_List_Type *eDMA_streamx_ll, uint32_t pointer);
+void eDMA_Link_List_Enable(eDMA_Stream_Link_List_Type *eDMA_streamx_ll, confirm_state new_state);
 
 /* edma requst multiplexer function */
-void edmamux_enable(confirm_state new_state);
-void edmamux_init(edmamux_channel_type *edmamux_channelx, edmamux_requst_id_sel_type edmamux_req_id);
-void edmamux_sync_default_para_init(edmamux_sync_init_type *edmamux_sync_init_struct);
-void edmamux_sync_config(edmamux_channel_type *edmamux_channelx, edmamux_sync_init_type *edmamux_sync_init_struct);
-void edmamux_generator_default_para_init(edmamux_gen_init_type *edmamux_gen_init_struct);
-void edmamux_generator_config(edmamux_generator_type *edmamux_gen_x, edmamux_gen_init_type *edmamux_gen_init_struct);
-void edmamux_sync_interrupt_enable(edmamux_channel_type *edmamux_channelx, confirm_state new_state);
-void edmamux_generator_interrupt_enable(edmamux_generator_type *edmamux_gen_x, confirm_state new_state);
-flag_status edmamux_sync_flag_get(uint32_t flag);
-void edmamux_sync_flag_clear(uint32_t flag);
-flag_status edmamux_generator_flag_get(uint32_t flag);
-void edmamux_generator_flag_clear(uint32_t flag);
+void eDMAMUX_Enable(confirm_state new_state);
+void eDMAMUX_Init(eDMAMUX_Channel_Type *eDMAMUX_channelx, eDMAMUX_Requst_ID_sel_Type eDMAMUX_req_id);
+void eDMAMUX_Sync_Default_Para_Init(eDMAMUX_Sync_Init_Type *eDMAMUX_Sync_Init_struct);
+void eDMAMUX_Sync_Config(eDMAMUX_Channel_Type *eDMAMUX_channelx, eDMAMUX_Sync_Init_Type *eDMAMUX_Sync_Init_struct);
+void eDMAMUX_Generator_Default_Para_Init(eDMAMUX_Gen_Init_Type *eDMAMUX_Gen_Init_struct);
+void eDMAMUX_Generator_Config(eDMAMUX_Generator_Type *eDMAMUX_Gen_x, eDMAMUX_Gen_Init_Type *eDMAMUX_Gen_Init_struct);
+void eDMAMUX_Sync_Interrupt_Enable(eDMAMUX_Channel_Type *eDMAMUX_channelx, confirm_state new_state);
+void eDMAMUX_Generator_Interrupt_Enable(eDMAMUX_Generator_Type *eDMAMUX_Gen_x, confirm_state new_state);
+flag_status eDMAMUX_Sync_Flag_Get(uint32_t flag);
+void eDMAMUX_Sync_Flag_Clear(uint32_t flag);
+flag_status eDMAMUX_Generator_Flag_Get(uint32_t flag);
+void eDMAMUX_Generator_Flag_Clear(uint32_t flag);
 
 /**
   * @}

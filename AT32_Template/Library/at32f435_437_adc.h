@@ -74,7 +74,7 @@ extern "C" {
   * @}
   */
 
-/** @defgroup ADC_exported_types
+/** @defgroup ADC_exported_Types
   * @{
   */
 
@@ -98,38 +98,38 @@ typedef enum {
     ADC_HCLK_DIV_15                        = 0x0D, /*!< adcclk is hclk/15 */
     ADC_HCLK_DIV_16                        = 0x0E, /*!< adcclk is hclk/16 */
     ADC_HCLK_DIV_17                        = 0x0F  /*!< adcclk is hclk/17 */
-} adc_div_type;
+} ADC_div_Type;
 
 /**
   * @brief adc combine mode type
   */
 typedef enum {
     ADC_INDEPENDENT_MODE                               = 0x00, /*!< independent mode */
-    ADC_ORDINARY_SMLT_PREEMPT_SMLT_ONESLAVE_MODE       = 0x01, /*!< single slaver combined ordinary simultaneous + preempt simultaneous mode */
-    ADC_ORDINARY_SMLT_PREEMPT_INTERLTRIG_ONESLAVE_MODE = 0x02, /*!< single slaver combined ordinary simultaneous + preempt interleaved trigger mode */
-    ADC_PREEMPT_SMLT_ONLY_ONESLAVE_MODE                = 0x05, /*!< single slaver preempt simultaneous mode only */
-    ADC_ORDINARY_SMLT_ONLY_ONESLAVE_MODE               = 0x06, /*!< single slaver ordinary simultaneous mode only */
-    ADC_ORDINARY_SHIFT_ONLY_ONESLAVE_MODE              = 0x07, /*!< single slaver ordinary shifting mode only */
-    ADC_PREEMPT_INTERLTRIG_ONLY_ONESLAVE_MODE          = 0x09, /*!< single slaver preempt interleaved trigger mode only */
-    ADC_ORDINARY_SMLT_PREEMPT_SMLT_TWOSLAVE_MODE       = 0x11, /*!< double slaver combined ordinary simultaneous + preempt simultaneous mode */
-    ADC_ORDINARY_SMLT_PREEMPT_INTERLTRIG_TWOSLAVE_MODE = 0x12, /*!< double slaver combined ordinary simultaneous + preempt interleaved trigger mode */
-    ADC_PREEMPT_SMLT_ONLY_TWOSLAVE_MODE                = 0x15, /*!< double slaver preempt simultaneous mode only */
-    ADC_ORDINARY_SMLT_ONLY_TWOSLAVE_MODE               = 0x16, /*!< double slaver ordinary simultaneous mode only */
-    ADC_ORDINARY_SHIFT_ONLY_TWOSLAVE_MODE              = 0x17, /*!< double slaver ordinary shifting mode only */
-    ADC_PREEMPT_INTERLTRIG_ONLY_TWOSLAVE_MODE          = 0x19  /*!< double slaver preempt interleaved trigger mode only */
-} adc_combine_mode_type;
+    ADC_Ordinary_SMLT_Preempt_SMLT_ONESLAVE_MODE       = 0x01, /*!< single slaver combined ordinary simultaneous + preempt simultaneous mode */
+    ADC_Ordinary_SMLT_Preempt_INTERLTRIG_ONESLAVE_MODE = 0x02, /*!< single slaver combined ordinary simultaneous + preempt interleaved trigger mode */
+    ADC_Preempt_SMLT_ONLY_ONESLAVE_MODE                = 0x05, /*!< single slaver preempt simultaneous mode only */
+    ADC_Ordinary_SMLT_ONLY_ONESLAVE_MODE               = 0x06, /*!< single slaver ordinary simultaneous mode only */
+    ADC_Ordinary_SHIFT_ONLY_ONESLAVE_MODE              = 0x07, /*!< single slaver ordinary shifting mode only */
+    ADC_Preempt_INTERLTRIG_ONLY_ONESLAVE_MODE          = 0x09, /*!< single slaver preempt interleaved trigger mode only */
+    ADC_Ordinary_SMLT_Preempt_SMLT_TWOSLAVE_MODE       = 0x11, /*!< double slaver combined ordinary simultaneous + preempt simultaneous mode */
+    ADC_Ordinary_SMLT_Preempt_INTERLTRIG_TWOSLAVE_MODE = 0x12, /*!< double slaver combined ordinary simultaneous + preempt interleaved trigger mode */
+    ADC_Preempt_SMLT_ONLY_TWOSLAVE_MODE                = 0x15, /*!< double slaver preempt simultaneous mode only */
+    ADC_Ordinary_SMLT_ONLY_TWOSLAVE_MODE               = 0x16, /*!< double slaver ordinary simultaneous mode only */
+    ADC_Ordinary_SHIFT_ONLY_TWOSLAVE_MODE              = 0x17, /*!< double slaver ordinary shifting mode only */
+    ADC_Preempt_INTERLTRIG_ONLY_TWOSLAVE_MODE          = 0x19  /*!< double slaver preempt interleaved trigger mode only */
+} ADC_Combine_Mode_Type;
 
 /**
   * @brief adc common dma mode type
   */
 typedef enum {
-    ADC_COMMON_DMAMODE_DISABLE             = 0x00, /*!< dma mode disabled */
-    ADC_COMMON_DMAMODE_1                   = 0x01, /*!< dma mode1: each dma request trans a half-word data(reference manual account the rule of data package) */
-    ADC_COMMON_DMAMODE_2                   = 0x02, /*!< dma mode2: each dma request trans two half-word data(reference manual account the rule of data package) */
-    ADC_COMMON_DMAMODE_3                   = 0x03, /*!< dma mode3: each dma request trans two bytes data(reference manual account the rule of data package) */
-    ADC_COMMON_DMAMODE_4                   = 0x04, /*!< dma mode4: each dma request trans three bytes data(reference manual account the rule of data package) */
-    ADC_COMMON_DMAMODE_5                   = 0x05  /*!< dma mode5: odd dma request trans two half-word data,even dma request trans a half-word data(reference manual account the rule of data package) */
-} adc_common_dma_mode_type;
+    ADC_Common_DMAMODE_Disable             = 0x00, /*!< dma mode disabled */
+    ADC_Common_DMAMODE_1                   = 0x01, /*!< dma mode1: each dma request trans a half-word data(reference manual account the rule of data package) */
+    ADC_Common_DMAMODE_2                   = 0x02, /*!< dma mode2: each dma request trans two half-word data(reference manual account the rule of data package) */
+    ADC_Common_DMAMODE_3                   = 0x03, /*!< dma mode3: each dma request trans two bytes data(reference manual account the rule of data package) */
+    ADC_Common_DMAMODE_4                   = 0x04, /*!< dma mode4: each dma request trans three bytes data(reference manual account the rule of data package) */
+    ADC_Common_DMAMODE_5                   = 0x05  /*!< dma mode5: odd dma request trans two half-word data,even dma request trans a half-word data(reference manual account the rule of data package) */
+} ADC_Common_DMA_Mode_Type;
 
 /**
   * @brief adc common sampling interval type
@@ -151,7 +151,7 @@ typedef enum {
     ADC_SAMPLING_INTERVAL_18CYCLES         = 0x0D, /*!< ordinary shifting mode adjacent adc sampling interval 18 adcclk */
     ADC_SAMPLING_INTERVAL_19CYCLES         = 0x0E, /*!< ordinary shifting mode adjacent adc sampling interval 19 adcclk */
     ADC_SAMPLING_INTERVAL_20CYCLES         = 0x0F  /*!< ordinary shifting mode adjacent adc sampling interval 20 adcclk */
-} adc_sampling_interval_type;
+} ADC_sampling_interval_Type;
 
 /**
   * @brief adc conversion resolution type
@@ -161,7 +161,7 @@ typedef enum {
     ADC_RESOLUTION_10B                     = 0x01, /*!< conversion resolution 10 bit */
     ADC_RESOLUTION_8B                      = 0x02, /*!< conversion resolution 8 bit */
     ADC_RESOLUTION_6B                      = 0x03  /*!< conversion resolution 6 bit */
-} adc_resolution_type;
+} ADC_resolution_Type;
 
 /**
   * @brief adc data align type
@@ -169,32 +169,32 @@ typedef enum {
 typedef enum {
     ADC_RIGHT_ALIGNMENT                    = 0x00, /*!< data right alignment */
     ADC_LEFT_ALIGNMENT                     = 0x01  /*!< data left alignment */
-} adc_data_align_type;
+} ADC_Data_align_Type;
 
 /**
   * @brief adc channel select type
   */
 typedef enum {
-    ADC_CHANNEL_0                          = 0x00, /*!< adc channel 0 */
-    ADC_CHANNEL_1                          = 0x01, /*!< adc channel 1 */
-    ADC_CHANNEL_2                          = 0x02, /*!< adc channel 2 */
-    ADC_CHANNEL_3                          = 0x03, /*!< adc channel 3 */
-    ADC_CHANNEL_4                          = 0x04, /*!< adc channel 4 */
-    ADC_CHANNEL_5                          = 0x05, /*!< adc channel 5 */
-    ADC_CHANNEL_6                          = 0x06, /*!< adc channel 6 */
-    ADC_CHANNEL_7                          = 0x07, /*!< adc channel 7 */
-    ADC_CHANNEL_8                          = 0x08, /*!< adc channel 8 */
-    ADC_CHANNEL_9                          = 0x09, /*!< adc channel 9 */
-    ADC_CHANNEL_10                         = 0x0A, /*!< adc channel 10 */
-    ADC_CHANNEL_11                         = 0x0B, /*!< adc channel 11 */
-    ADC_CHANNEL_12                         = 0x0C, /*!< adc channel 12 */
-    ADC_CHANNEL_13                         = 0x0D, /*!< adc channel 13 */
-    ADC_CHANNEL_14                         = 0x0E, /*!< adc channel 14 */
-    ADC_CHANNEL_15                         = 0x0F, /*!< adc channel 15 */
-    ADC_CHANNEL_16                         = 0x10, /*!< adc channel 16 */
-    ADC_CHANNEL_17                         = 0x11, /*!< adc channel 17 */
-    ADC_CHANNEL_18                         = 0x12  /*!< adc channel 18 */
-} adc_channel_select_type;
+    ADC_Channel_0                          = 0x00, /*!< adc channel 0 */
+    ADC_Channel_1                          = 0x01, /*!< adc channel 1 */
+    ADC_Channel_2                          = 0x02, /*!< adc channel 2 */
+    ADC_Channel_3                          = 0x03, /*!< adc channel 3 */
+    ADC_Channel_4                          = 0x04, /*!< adc channel 4 */
+    ADC_Channel_5                          = 0x05, /*!< adc channel 5 */
+    ADC_Channel_6                          = 0x06, /*!< adc channel 6 */
+    ADC_Channel_7                          = 0x07, /*!< adc channel 7 */
+    ADC_Channel_8                          = 0x08, /*!< adc channel 8 */
+    ADC_Channel_9                          = 0x09, /*!< adc channel 9 */
+    ADC_Channel_10                         = 0x0A, /*!< adc channel 10 */
+    ADC_Channel_11                         = 0x0B, /*!< adc channel 11 */
+    ADC_Channel_12                         = 0x0C, /*!< adc channel 12 */
+    ADC_Channel_13                         = 0x0D, /*!< adc channel 13 */
+    ADC_Channel_14                         = 0x0E, /*!< adc channel 14 */
+    ADC_Channel_15                         = 0x0F, /*!< adc channel 15 */
+    ADC_Channel_16                         = 0x10, /*!< adc channel 16 */
+    ADC_Channel_17                         = 0x11, /*!< adc channel 17 */
+    ADC_Channel_18                         = 0x12  /*!< adc channel 18 */
+} ADC_Channel_Select_Type;
 
 /**
   * @brief adc sampletime select type
@@ -208,109 +208,109 @@ typedef enum {
     ADC_SAMPLETIME_92_5                    = 0x05, /*!< adc sample time 92.5 cycle */
     ADC_SAMPLETIME_247_5                   = 0x06, /*!< adc sample time 247.5 cycle */
     ADC_SAMPLETIME_640_5                   = 0x07  /*!< adc sample time 640.5 cycle */
-} adc_sampletime_select_type;
+} ADC_sampletime_Select_Type;
 
 /**
   * @brief adc ordinary group trigger event select type
   */
 typedef enum {
-    ADC_ORDINARY_TRIG_TMR1CH1              = 0x00, /*!< timer1 ch1 event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR1CH2              = 0x01, /*!< timer1 ch2 event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR1CH3              = 0x02, /*!< timer1 ch3 event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR2CH2              = 0x03, /*!< timer2 ch2 event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR2CH3              = 0x04, /*!< timer2 ch3 event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR2CH4              = 0x05, /*!< timer2 ch4 event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR2TRGOUT           = 0x06, /*!< timer2 trgout event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR3CH1              = 0x07, /*!< timer3 ch1 event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR3TRGOUT           = 0x08, /*!< timer3 trgout event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR4CH4              = 0x09, /*!< timer4 ch4 event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR5CH1              = 0x0A, /*!< timer5 ch1 event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR5CH2              = 0x0B, /*!< timer5 ch2 event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR5CH3              = 0x0C, /*!< timer5 ch3 event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR8CH1              = 0x0D, /*!< timer8 ch1 event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR8TRGOUT           = 0x0E, /*!< timer8 trgout event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_EXINT11              = 0x0F, /*!< exint line11 event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR20TRGOUT          = 0x10, /*!< timer20 trgout event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR20TRGOUT2         = 0x11, /*!< timer20 trgout2 event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR20CH1             = 0x12, /*!< timer20 ch1 event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR20CH2             = 0x13, /*!< timer20 ch2 event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR20CH3             = 0x14, /*!< timer20 ch3 event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR8TRGOUT2          = 0x15, /*!< timer8 trgout2 event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR1TRGOUT2          = 0x16, /*!< timer1 trgout2 event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR4TRGOUT           = 0x17, /*!< timer4 trgout event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR6TRGOUT           = 0x18, /*!< timer6 trgout event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR3CH4              = 0x19, /*!< timer3 ch4 event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR4CH1              = 0x1A, /*!< timer4 ch1 event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR1TRGOUT           = 0x1B, /*!< timer1 trgout event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR2CH1              = 0x1C, /*!< timer2 ch1 event as trigger source of ordinary sequence */
-    ADC_ORDINARY_TRIG_TMR7TRGOUT           = 0x1E  /*!< timer7 trgout event as trigger source of ordinary sequence */
-} adc_ordinary_trig_select_type;
+    ADC_Ordinary_TRIG_TMR1CH1              = 0x00, /*!< timer1 ch1 event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR1CH2              = 0x01, /*!< timer1 ch2 event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR1CH3              = 0x02, /*!< timer1 ch3 event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR2CH2              = 0x03, /*!< timer2 ch2 event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR2CH3              = 0x04, /*!< timer2 ch3 event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR2CH4              = 0x05, /*!< timer2 ch4 event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR2TRGOUT           = 0x06, /*!< timer2 trgout event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR3CH1              = 0x07, /*!< timer3 ch1 event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR3TRGOUT           = 0x08, /*!< timer3 trgout event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR4CH4              = 0x09, /*!< timer4 ch4 event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR5CH1              = 0x0A, /*!< timer5 ch1 event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR5CH2              = 0x0B, /*!< timer5 ch2 event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR5CH3              = 0x0C, /*!< timer5 ch3 event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR8CH1              = 0x0D, /*!< timer8 ch1 event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR8TRGOUT           = 0x0E, /*!< timer8 trgout event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_EXINT11              = 0x0F, /*!< exint line11 event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR20TRGOUT          = 0x10, /*!< timer20 trgout event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR20TRGOUT2         = 0x11, /*!< timer20 trgout2 event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR20CH1             = 0x12, /*!< timer20 ch1 event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR20CH2             = 0x13, /*!< timer20 ch2 event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR20CH3             = 0x14, /*!< timer20 ch3 event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR8TRGOUT2          = 0x15, /*!< timer8 trgout2 event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR1TRGOUT2          = 0x16, /*!< timer1 trgout2 event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR4TRGOUT           = 0x17, /*!< timer4 trgout event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR6TRGOUT           = 0x18, /*!< timer6 trgout event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR3CH4              = 0x19, /*!< timer3 ch4 event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR4CH1              = 0x1A, /*!< timer4 ch1 event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR1TRGOUT           = 0x1B, /*!< timer1 trgout event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR2CH1              = 0x1C, /*!< timer2 ch1 event as trigger source of ordinary sequence */
+    ADC_Ordinary_TRIG_TMR7TRGOUT           = 0x1E  /*!< timer7 trgout event as trigger source of ordinary sequence */
+} ADC_Ordinary_trig_Select_Type;
 
 /**
-  * @brief adc ordinary channel conversion's external_trigger_edge type
+  * @brief adc ordinary channel conversion's external_Trigger_edge type
   */
 typedef enum {
-    ADC_ORDINARY_TRIG_EDGE_NONE            = 0x00, /*!< ordinary channels trigger detection disabled */
-    ADC_ORDINARY_TRIG_EDGE_RISING          = 0x01, /*!< ordinary channels trigger detection on the rising edge */
-    ADC_ORDINARY_TRIG_EDGE_FALLING         = 0x02, /*!< ordinary channels trigger detection on the falling edge */
-    ADC_ORDINARY_TRIG_EDGE_RISING_FALLING  = 0x03  /*!< ordinary channels trigger detection on both the rising and falling edges */
-} adc_ordinary_trig_edge_type;
+    ADC_Ordinary_TRIG_Edge_NONE            = 0x00, /*!< ordinary channels trigger detection disabled */
+    ADC_Ordinary_TRIG_Edge_RISING          = 0x01, /*!< ordinary channels trigger detection on the rising edge */
+    ADC_Ordinary_TRIG_Edge_FALLING         = 0x02, /*!< ordinary channels trigger detection on the falling edge */
+    ADC_Ordinary_TRIG_Edge_RISING_FALLING  = 0x03  /*!< ordinary channels trigger detection on both the rising and falling edges */
+} ADC_Ordinary_trig_Edge_Type;
 
 /**
   * @brief adc preempt group external trigger event select type
   */
 typedef enum {
-    ADC_PREEMPT_TRIG_TMR1CH4               = 0x00, /*!< timer1 ch4 event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR1TRGOUT            = 0x01, /*!< timer1 trgout event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR2CH1               = 0x02, /*!< timer2 ch1 event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR2TRGOUT            = 0x03, /*!< timer2 trgout event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR3CH2               = 0x04, /*!< timer3 ch2 event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR3CH4               = 0x05, /*!< timer3 ch4 event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR4CH1               = 0x06, /*!< timer4 ch1 event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR4CH2               = 0x07, /*!< timer4 ch2 event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR4CH3               = 0x08, /*!< timer4 ch3 event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR4TRGOUT            = 0x09, /*!< timer4 trgout event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR5CH4               = 0x0A, /*!< timer5 ch4 event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR5TRGOUT            = 0x0B, /*!< timer5 trgout event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR8CH2               = 0x0C, /*!< timer8 ch2 event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR8CH3               = 0x0D, /*!< timer8 ch3 event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR8CH4               = 0x0E, /*!< timer8 ch4 event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_EXINT15               = 0x0F, /*!< exint line15 event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR20TRGOUT           = 0x10, /*!< timer20 trgout event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR20TRGOUT2          = 0x11, /*!< timer20 trgout2 event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR20CH4              = 0x12, /*!< timer20 ch4 event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR1TRGOUT2           = 0x13, /*!< timer1 trgout2 event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR8TRGOUT            = 0x14, /*!< timer8 trgout event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR8TRGOUT2           = 0x15, /*!< timer8 trgout2 event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR3CH3               = 0x16, /*!< timer3 ch3 event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR3TRGOUT            = 0x17, /*!< timer3 trgout event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR3CH1               = 0x18, /*!< timer3 ch1 event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR6TRGOUT            = 0x19, /*!< timer6 trgout event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR4CH4               = 0x1A, /*!< timer4 ch4 event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR1CH3               = 0x1B, /*!< timer1 ch3 event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR20CH2              = 0x1C, /*!< timer20 ch2 event as trigger source of preempt sequence */
-    ADC_PREEMPT_TRIG_TMR7TRGOUT            = 0x1E  /*!< timer7 trgout event as trigger source of preempt sequence */
-} adc_preempt_trig_select_type;
+    ADC_Preempt_TRIG_TMR1CH4               = 0x00, /*!< timer1 ch4 event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR1TRGOUT            = 0x01, /*!< timer1 trgout event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR2CH1               = 0x02, /*!< timer2 ch1 event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR2TRGOUT            = 0x03, /*!< timer2 trgout event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR3CH2               = 0x04, /*!< timer3 ch2 event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR3CH4               = 0x05, /*!< timer3 ch4 event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR4CH1               = 0x06, /*!< timer4 ch1 event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR4CH2               = 0x07, /*!< timer4 ch2 event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR4CH3               = 0x08, /*!< timer4 ch3 event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR4TRGOUT            = 0x09, /*!< timer4 trgout event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR5CH4               = 0x0A, /*!< timer5 ch4 event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR5TRGOUT            = 0x0B, /*!< timer5 trgout event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR8CH2               = 0x0C, /*!< timer8 ch2 event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR8CH3               = 0x0D, /*!< timer8 ch3 event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR8CH4               = 0x0E, /*!< timer8 ch4 event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_EXINT15               = 0x0F, /*!< exint line15 event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR20TRGOUT           = 0x10, /*!< timer20 trgout event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR20TRGOUT2          = 0x11, /*!< timer20 trgout2 event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR20CH4              = 0x12, /*!< timer20 ch4 event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR1TRGOUT2           = 0x13, /*!< timer1 trgout2 event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR8TRGOUT            = 0x14, /*!< timer8 trgout event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR8TRGOUT2           = 0x15, /*!< timer8 trgout2 event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR3CH3               = 0x16, /*!< timer3 ch3 event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR3TRGOUT            = 0x17, /*!< timer3 trgout event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR3CH1               = 0x18, /*!< timer3 ch1 event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR6TRGOUT            = 0x19, /*!< timer6 trgout event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR4CH4               = 0x1A, /*!< timer4 ch4 event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR1CH3               = 0x1B, /*!< timer1 ch3 event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR20CH2              = 0x1C, /*!< timer20 ch2 event as trigger source of preempt sequence */
+    ADC_Preempt_TRIG_TMR7TRGOUT            = 0x1E  /*!< timer7 trgout event as trigger source of preempt sequence */
+} ADC_Preempt_trig_Select_Type;
 
 /**
-  * @brief adc preempt channel conversion's external_trigger_edge type
+  * @brief adc preempt channel conversion's external_Trigger_edge type
   */
 typedef enum {
-    ADC_PREEMPT_TRIG_EDGE_NONE             = 0x00, /*!< preempt channels trigger detection disabled */
-    ADC_PREEMPT_TRIG_EDGE_RISING           = 0x01, /*!< preempt channels trigger detection on the rising edge */
-    ADC_PREEMPT_TRIG_EDGE_FALLING          = 0x02, /*!< preempt channels trigger detection on the falling edge */
-    ADC_PREEMPT_TRIG_EDGE_RISING_FALLING   = 0x03  /*!< preempt channels trigger detection on both the rising and falling edges */
-} adc_preempt_trig_edge_type;
+    ADC_Preempt_TRIG_Edge_NONE             = 0x00, /*!< preempt channels trigger detection disabled */
+    ADC_Preempt_TRIG_Edge_RISING           = 0x01, /*!< preempt channels trigger detection on the rising edge */
+    ADC_Preempt_TRIG_Edge_FALLING          = 0x02, /*!< preempt channels trigger detection on the falling edge */
+    ADC_Preempt_TRIG_Edge_RISING_FALLING   = 0x03  /*!< preempt channels trigger detection on both the rising and falling edges */
+} ADC_Preempt_trig_Edge_Type;
 
 /**
   * @brief adc preempt channel type
   */
 typedef enum {
-    ADC_PREEMPT_CHANNEL_1                  = 0x00, /*!< adc preempt channel 1 */
-    ADC_PREEMPT_CHANNEL_2                  = 0x01, /*!< adc preempt channel 2 */
-    ADC_PREEMPT_CHANNEL_3                  = 0x02, /*!< adc preempt channel 3 */
-    ADC_PREEMPT_CHANNEL_4                  = 0x03  /*!< adc preempt channel 4 */
-} adc_preempt_channel_type;
+    ADC_Preempt_Channel_1                  = 0x00, /*!< adc preempt channel 1 */
+    ADC_Preempt_Channel_2                  = 0x01, /*!< adc preempt channel 2 */
+    ADC_Preempt_Channel_3                  = 0x02, /*!< adc preempt channel 3 */
+    ADC_Preempt_Channel_4                  = 0x03  /*!< adc preempt channel 4 */
+} ADC_Preempt_Channel_Type;
 
 /**
   * @brief adc voltage_monitoring type
@@ -318,62 +318,62 @@ typedef enum {
 typedef enum {
     ADC_VMONITOR_SINGLE_ORDINARY           = 0x00800200, /*!< voltage_monitoring on a single ordinary channel */
     ADC_VMONITOR_SINGLE_PREEMPT            = 0x00400200, /*!< voltage_monitoring on a single preempt channel */
-    ADC_VMONITOR_SINGLE_ORDINARY_PREEMPT   = 0x00C00200, /*!< voltage_monitoring on a single ordinary or preempt channel */
-    ADC_VMONITOR_ALL_ORDINARY              = 0x00800000, /*!< voltage_monitoring on all ordinary channel */
-    ADC_VMONITOR_ALL_PREEMPT               = 0x00400000, /*!< voltage_monitoring on all preempt channel */
-    ADC_VMONITOR_ALL_ORDINARY_PREEMPT      = 0x00C00000, /*!< voltage_monitoring on all ordinary and preempt channel */
+    ADC_VMONITOR_SINGLE_Ordinary_PREEMPT   = 0x00C00200, /*!< voltage_monitoring on a single ordinary or preempt channel */
+    ADC_VMONITOR_All_ORDINARY              = 0x00800000, /*!< voltage_monitoring on all ordinary channel */
+    ADC_VMONITOR_All_PREEMPT               = 0x00400000, /*!< voltage_monitoring on all preempt channel */
+    ADC_VMONITOR_All_Ordinary_PREEMPT      = 0x00C00000, /*!< voltage_monitoring on all ordinary and preempt channel */
     ADC_VMONITOR_NONE                      = 0x00000000  /*!< no channel guarded by the voltage_monitoring */
-} adc_voltage_monitoring_type;
+} ADC_voltage_monitoring_Type;
 
 /**
   * @brief adc oversample ratio type
   */
 typedef enum {
-    ADC_OVERSAMPLE_RATIO_2                 = 0x00, /*!< adc oversample ratio 2 */
-    ADC_OVERSAMPLE_RATIO_4                 = 0x01, /*!< adc oversample ratio 4 */
-    ADC_OVERSAMPLE_RATIO_8                 = 0x02, /*!< adc oversample ratio 8 */
-    ADC_OVERSAMPLE_RATIO_16                = 0x03, /*!< adc oversample ratio 16 */
-    ADC_OVERSAMPLE_RATIO_32                = 0x04, /*!< adc oversample ratio 32 */
-    ADC_OVERSAMPLE_RATIO_64                = 0x05, /*!< adc oversample ratio 64 */
-    ADC_OVERSAMPLE_RATIO_128               = 0x06, /*!< adc oversample ratio 128 */
-    ADC_OVERSAMPLE_RATIO_256               = 0x07  /*!< adc oversample ratio 256 */
-} adc_oversample_ratio_type;
+    ADC_OverSample_Ratio_2                 = 0x00, /*!< adc oversample ratio 2 */
+    ADC_OverSample_Ratio_4                 = 0x01, /*!< adc oversample ratio 4 */
+    ADC_OverSample_Ratio_8                 = 0x02, /*!< adc oversample ratio 8 */
+    ADC_OverSample_Ratio_16                = 0x03, /*!< adc oversample ratio 16 */
+    ADC_OverSample_Ratio_32                = 0x04, /*!< adc oversample ratio 32 */
+    ADC_OverSample_Ratio_64                = 0x05, /*!< adc oversample ratio 64 */
+    ADC_OverSample_Ratio_128               = 0x06, /*!< adc oversample ratio 128 */
+    ADC_OverSample_Ratio_256               = 0x07  /*!< adc oversample ratio 256 */
+} ADC_OverSample_Ratio_Type;
 
 /**
   * @brief adc oversample shift type
   */
 typedef enum {
-    ADC_OVERSAMPLE_SHIFT_0                 = 0x00, /*!< adc oversample shift 0 */
-    ADC_OVERSAMPLE_SHIFT_1                 = 0x01, /*!< adc oversample shift 1 */
-    ADC_OVERSAMPLE_SHIFT_2                 = 0x02, /*!< adc oversample shift 2 */
-    ADC_OVERSAMPLE_SHIFT_3                 = 0x03, /*!< adc oversample shift 3 */
-    ADC_OVERSAMPLE_SHIFT_4                 = 0x04, /*!< adc oversample shift 4 */
-    ADC_OVERSAMPLE_SHIFT_5                 = 0x05, /*!< adc oversample shift 5 */
-    ADC_OVERSAMPLE_SHIFT_6                 = 0x06, /*!< adc oversample shift 6 */
-    ADC_OVERSAMPLE_SHIFT_7                 = 0x07, /*!< adc oversample shift 7 */
-    ADC_OVERSAMPLE_SHIFT_8                 = 0x08  /*!< adc oversample shift 8 */
-} adc_oversample_shift_type;
+    ADC_OverSample_SHIFT_0                 = 0x00, /*!< adc oversample shift 0 */
+    ADC_OverSample_SHIFT_1                 = 0x01, /*!< adc oversample shift 1 */
+    ADC_OverSample_SHIFT_2                 = 0x02, /*!< adc oversample shift 2 */
+    ADC_OverSample_SHIFT_3                 = 0x03, /*!< adc oversample shift 3 */
+    ADC_OverSample_SHIFT_4                 = 0x04, /*!< adc oversample shift 4 */
+    ADC_OverSample_SHIFT_5                 = 0x05, /*!< adc oversample shift 5 */
+    ADC_OverSample_SHIFT_6                 = 0x06, /*!< adc oversample shift 6 */
+    ADC_OverSample_SHIFT_7                 = 0x07, /*!< adc oversample shift 7 */
+    ADC_OverSample_SHIFT_8                 = 0x08  /*!< adc oversample shift 8 */
+} ADC_OverSample_shift_Type;
 
 /**
   * @brief adc ordinary oversample recover type
   */
 typedef enum {
-    ADC_OVERSAMPLE_CONTINUE                = 0x00, /*!< continue mode:when preempt triggered,oversampling is temporary stopped and continued after preempt sequence */
-    ADC_OVERSAMPLE_RESTART                 = 0x01  /*!< restart mode:when preempt triggered,oversampling is aborted and resumed from start after preempt sequence */
-} adc_ordinary_oversample_restart_type;
+    ADC_OverSample_CONTINUE                = 0x00, /*!< continue mode:when preempt triggered,oversampling is temporary stopped and continued after preempt sequence */
+    ADC_OverSample_RESTART                 = 0x01  /*!< restart mode:when preempt triggered,oversampling is aborted and resumed from start after preempt sequence */
+} ADC_Ordinary_OverSample_restart_Type;
 
 /**
   * @brief adc common config type
   */
 typedef struct {
-    adc_combine_mode_type                  combine_mode;                    /*!< adc combine mode select */
-    adc_div_type                           div;                             /*!< adc division select */
-    adc_common_dma_mode_type               common_dma_mode;                 /*!< adc common dma mode select */
-    confirm_state                          common_dma_request_repeat_state; /*!< adc common dma repeat state */
-    adc_sampling_interval_type             sampling_interval;               /*!< ordinary shifting mode adjacent adc sampling interval select */
+    ADC_Combine_Mode_Type                  combine_mode;                    /*!< adc combine mode select */
+    ADC_div_Type                           div;                             /*!< adc division select */
+    ADC_Common_DMA_Mode_Type               common_DMA_mode;                 /*!< adc common dma mode select */
+    confirm_state                          common_DMA_Request_repeat_state; /*!< adc common dma repeat state */
+    ADC_sampling_interval_Type             sampling_interval;               /*!< ordinary shifting mode adjacent adc sampling interval select */
     confirm_state                          tempervintrv_state;              /*!< adc temperature sensor and vintrv state */
     confirm_state                          vbat_state;                      /*!< adc voltage battery state */
-} adc_common_config_type;
+} ADC_Common_Config_Type;
 
 /**
   * @brief adc base config type
@@ -381,9 +381,9 @@ typedef struct {
 typedef struct {
     confirm_state                          sequence_mode;           /*!< adc sequence mode */
     confirm_state                          repeat_mode;             /*!< adc repeat mode */
-    adc_data_align_type                    data_align;              /*!< adc data alignment */
-    uint8_t                                ordinary_channel_length; /*!< adc ordinary channel sequence length*/
-} adc_base_config_type;
+    ADC_Data_align_Type                    data_align;              /*!< adc data alignment */
+    uint8_t                                ordinary_Channel_length; /*!< adc ordinary channel sequence length*/
+} ADC_base_Config_Type;
 
 /**
   * @brief type define adc register all
@@ -712,7 +712,7 @@ typedef struct {
             __IO uint32_t reserved1            : 25; /* [31:7] */
         } calval_bit;
     };
-} adc_type;
+} ADC_Type;
 
 /**
   * @brief type define adc register all
@@ -784,67 +784,67 @@ typedef struct {
             __IO uint32_t codth                : 16; /* [31:16] */
         } codt_bit;
     };
-} adccom_type;
+} adccom_Type;
 
 /**
   * @}
   */
 
-#define ADC1                             ((adc_type *) ADC1_BASE)
-#define ADC2                             ((adc_type *) ADC2_BASE)
-#define ADC3                             ((adc_type *) ADC3_BASE)
-#define ADCCOM                           ((adccom_type *) ADCCOM_BASE)
+#define ADC1                             ((ADC_Type *) ADC1_BASE)
+#define ADC2                             ((ADC_Type *) ADC2_BASE)
+#define ADC3                             ((ADC_Type *) ADC3_BASE)
+#define ADCCOM                           ((adccom_Type *) ADCCOM_BASE)
 
 /** @defgroup ADC_exported_functions
   * @{
   */
 
-void adc_reset(void);
-void adc_enable(adc_type *adc_x, confirm_state new_state);
-void adc_base_default_para_init(adc_base_config_type *adc_base_struct);
-void adc_base_config(adc_type *adc_x, adc_base_config_type *adc_base_struct);
-void adc_common_default_para_init(adc_common_config_type *adc_common_struct);
-void adc_common_config(adc_common_config_type *adc_common_struct);
-void adc_resolution_set(adc_type *adc_x, adc_resolution_type resolution);
-void adc_voltage_battery_enable(confirm_state new_state);
-void adc_dma_mode_enable(adc_type *adc_x, confirm_state new_state);
-void adc_dma_request_repeat_enable(adc_type *adc_x, confirm_state new_state);
-void adc_interrupt_enable(adc_type *adc_x, uint32_t adc_int, confirm_state new_state);
-void adc_calibration_value_set(adc_type *adc_x, uint8_t adc_calibration_value);
-void adc_calibration_init(adc_type *adc_x);
-flag_status adc_calibration_init_status_get(adc_type *adc_x);
-void adc_calibration_start(adc_type *adc_x);
-flag_status adc_calibration_status_get(adc_type *adc_x);
-void adc_voltage_monitor_enable(adc_type *adc_x, adc_voltage_monitoring_type adc_voltage_monitoring);
-void adc_voltage_monitor_threshold_value_set(adc_type *adc_x, uint16_t adc_high_threshold, uint16_t adc_low_threshold);
-void adc_voltage_monitor_single_channel_select(adc_type *adc_x, adc_channel_select_type adc_channel);
-void adc_ordinary_channel_set(adc_type *adc_x, adc_channel_select_type adc_channel, uint8_t adc_sequence, adc_sampletime_select_type adc_sampletime);
-void adc_preempt_channel_length_set(adc_type *adc_x, uint8_t adc_channel_lenght);
-void adc_preempt_channel_set(adc_type *adc_x, adc_channel_select_type adc_channel, uint8_t adc_sequence, adc_sampletime_select_type adc_sampletime);
-void adc_ordinary_conversion_trigger_set(adc_type *adc_x, adc_ordinary_trig_select_type adc_ordinary_trig, adc_ordinary_trig_edge_type adc_ordinary_trig_edge);
-void adc_preempt_conversion_trigger_set(adc_type *adc_x, adc_preempt_trig_select_type adc_preempt_trig, adc_preempt_trig_edge_type adc_preempt_trig_edge);
-void adc_preempt_offset_value_set(adc_type *adc_x, adc_preempt_channel_type adc_preempt_channel, uint16_t adc_offset_value);
-void adc_ordinary_part_count_set(adc_type *adc_x, uint8_t adc_channel_count);
-void adc_ordinary_part_mode_enable(adc_type *adc_x, confirm_state new_state);
-void adc_preempt_part_mode_enable(adc_type *adc_x, confirm_state new_state);
-void adc_preempt_auto_mode_enable(adc_type *adc_x, confirm_state new_state);
-void adc_conversion_stop(adc_type *adc_x);
-flag_status adc_conversion_stop_status_get(adc_type *adc_x);
-void adc_occe_each_conversion_enable(adc_type *adc_x, confirm_state new_state);
-void adc_ordinary_software_trigger_enable(adc_type *adc_x, confirm_state new_state);
-flag_status adc_ordinary_software_trigger_status_get(adc_type *adc_x);
-void adc_preempt_software_trigger_enable(adc_type *adc_x, confirm_state new_state);
-flag_status adc_preempt_software_trigger_status_get(adc_type *adc_x);
-uint16_t adc_ordinary_conversion_data_get(adc_type *adc_x);
-uint32_t adc_combine_ordinary_conversion_data_get(void);
-uint16_t adc_preempt_conversion_data_get(adc_type *adc_x, adc_preempt_channel_type adc_preempt_channel);
-flag_status adc_flag_get(adc_type *adc_x, uint8_t adc_flag);
-void adc_flag_clear(adc_type *adc_x, uint32_t adc_flag);
-void adc_ordinary_oversample_enable(adc_type *adc_x, confirm_state new_state);
-void adc_preempt_oversample_enable(adc_type *adc_x, confirm_state new_state);
-void adc_oversample_ratio_shift_set(adc_type *adc_x, adc_oversample_ratio_type adc_oversample_ratio, adc_oversample_shift_type adc_oversample_shift);
-void adc_ordinary_oversample_trig_enable(adc_type *adc_x, confirm_state new_state);
-void adc_ordinary_oversample_restart_set(adc_type *adc_x, adc_ordinary_oversample_restart_type adc_ordinary_oversample_restart);
+void ADC_Reset(void);
+void ADC_Enable(ADC_Type *ADC_x, confirm_state new_state);
+void ADC_base_Default_Para_Init(ADC_base_Config_Type *ADC_base_struct);
+void ADC_base_Config(ADC_Type *ADC_x, ADC_base_Config_Type *ADC_base_struct);
+void ADC_Common_Default_Para_Init(ADC_Common_Config_Type *ADC_Common_struct);
+void ADC_Common_Config(ADC_Common_Config_Type *ADC_Common_struct);
+void ADC_resolution_Set(ADC_Type *ADC_x, ADC_resolution_Type resolution);
+void ADC_voltage_battery_Enable(confirm_state new_state);
+void ADC_DMA_Mode_Enable(ADC_Type *ADC_x, confirm_state new_state);
+void ADC_DMA_Request_repeat_Enable(ADC_Type *ADC_x, confirm_state new_state);
+void ADC_Interrupt_Enable(ADC_Type *ADC_x, uint32_t ADC_int, confirm_state new_state);
+void ADC_Calibration_value_Set(ADC_Type *ADC_x, uint8_t ADC_Calibration_value);
+void ADC_Calibration_Init(ADC_Type *ADC_x);
+flag_status ADC_Calibration_Init_Status_Get(ADC_Type *ADC_x);
+void ADC_Calibration_start(ADC_Type *ADC_x);
+flag_status ADC_Calibration_Status_Get(ADC_Type *ADC_x);
+void ADC_voltage_monitor_Enable(ADC_Type *ADC_x, ADC_voltage_monitoring_Type ADC_voltage_monitoring);
+void ADC_voltage_monitor_threshold_value_Set(ADC_Type *ADC_x, uint16_t ADC_high_threshold, uint16_t ADC_low_threshold);
+void ADC_voltage_monitor_single_Channel_Select(ADC_Type *ADC_x, ADC_Channel_Select_Type ADC_channel);
+void ADC_Ordinary_Channel_Set(ADC_Type *ADC_x, ADC_Channel_Select_Type ADC_channel, uint8_t ADC_sequence, ADC_sampletime_Select_Type ADC_sampletime);
+void ADC_Preempt_Channel_length_Set(ADC_Type *ADC_x, uint8_t ADC_Channel_lenght);
+void ADC_Preempt_Channel_Set(ADC_Type *ADC_x, ADC_Channel_Select_Type ADC_channel, uint8_t ADC_sequence, ADC_sampletime_Select_Type ADC_sampletime);
+void ADC_Ordinary_Conversion_Trigger_Set(ADC_Type *ADC_x, ADC_Ordinary_trig_Select_Type ADC_Ordinary_trig, ADC_Ordinary_trig_Edge_Type ADC_Ordinary_trig_edge);
+void ADC_Preempt_Conversion_Trigger_Set(ADC_Type *ADC_x, ADC_Preempt_trig_Select_Type ADC_Preempt_trig, ADC_Preempt_trig_Edge_Type ADC_Preempt_trig_edge);
+void ADC_Preempt_offset_value_Set(ADC_Type *ADC_x, ADC_Preempt_Channel_Type ADC_Preempt_channel, uint16_t ADC_offset_value);
+void ADC_Ordinary_part_count_Set(ADC_Type *ADC_x, uint8_t ADC_Channel_count);
+void ADC_Ordinary_part_Mode_Enable(ADC_Type *ADC_x, confirm_state new_state);
+void ADC_Preempt_part_Mode_Enable(ADC_Type *ADC_x, confirm_state new_state);
+void ADC_Preempt_Auto_Mode_Enable(ADC_Type *ADC_x, confirm_state new_state);
+void ADC_Conversion_stop(ADC_Type *ADC_x);
+flag_status ADC_Conversion_Stop_Status_Get(ADC_Type *ADC_x);
+void ADC_occe_each_Conversion_Enable(ADC_Type *ADC_x, confirm_state new_state);
+void ADC_Ordinary_Software_Trigger_Enable(ADC_Type *ADC_x, confirm_state new_state);
+flag_status ADC_Ordinary_Software_Trigger_Status_Get(ADC_Type *ADC_x);
+void ADC_Preempt_Software_Trigger_Enable(ADC_Type *ADC_x, confirm_state new_state);
+flag_status ADC_Preempt_Software_Trigger_Status_Get(ADC_Type *ADC_x);
+uint16_t ADC_Ordinary_Conversion_Data_Get(ADC_Type *ADC_x);
+uint32_t ADC_Combine_Ordinary_Conversion_Data_Get(void);
+uint16_t ADC_Preempt_Conversion_Data_Get(ADC_Type *ADC_x, ADC_Preempt_Channel_Type ADC_Preempt_channel);
+flag_status ADC_Flag_Get(ADC_Type *ADC_x, uint8_t ADC_flag);
+void ADC_Flag_Clear(ADC_Type *ADC_x, uint32_t ADC_flag);
+void ADC_Ordinary_OverSample_Enable(ADC_Type *ADC_x, confirm_state new_state);
+void ADC_Preempt_OverSample_Enable(ADC_Type *ADC_x, confirm_state new_state);
+void ADC_OverSample_Ratio_shift_Set(ADC_Type *ADC_x, ADC_OverSample_Ratio_Type ADC_OverSample_ratio, ADC_OverSample_shift_Type ADC_OverSample_shift);
+void ADC_Ordinary_OverSample_trig_Enable(ADC_Type *ADC_x, confirm_state new_state);
+void ADC_Ordinary_OverSample_restart_Set(ADC_Type *ADC_x, ADC_Ordinary_OverSample_restart_Type ADC_Ordinary_OverSample_restart);
 
 /**
   * @}

@@ -38,9 +38,9 @@
 #define STEP_DELAY_MS                    50
 
 /* at-start led resouce array */
-gpio_type *led_gpio_port[LED_NUM]        = {LED2_GPIO, LED3_GPIO, LED4_GPIO};
-uint16_t led_gpio_pin[LED_NUM]           = {LED2_PIN, LED3_PIN, LED4_PIN};
-crm_periph_clock_type led_gpio_crm_clk[LED_NUM] = {LED2_GPIO_CRM_CLK, LED3_GPIO_CRM_CLK, LED4_GPIO_CRM_CLK};
+gpio_Type *led_gpio_port[LED_Num]        = {LED2_GPIO, LED3_GPIO, LED4_GPIO};
+uint16_t led_gpio_pin[LED_Num]           = {LED2_PIN, LED3_PIN, LED4_PIN};
+crm_periph_Clock_Type led_gpio_crm_clk[LED_Num] = {LED2_GPIO_CRM_CLK, LED3_GPIO_CRM_CLK, LED4_GPIO_CRM_CLK};
 
 /* delay variable */
 static __IO uint32_t fac_us;
@@ -49,7 +49,7 @@ static __IO uint32_t fac_ms;
 /* support printf function, usemicrolib is unnecessary */
 #if (__ARMCC_VERSION > 6000000)
 __asm (".global __use_no_semihosting\n\t");
-void _sys_exit(int x) {
+void _sys_Exit(int x) {
     x = x;
 }
 /* __use_no_semihosting was requested, but _ttywrch was */
@@ -64,7 +64,7 @@ struct __FILE {
     int handle;
 };
 FILE __stdout;
-void _sys_exit(int x) {
+void _sys_Exit(int x) {
     x = x;
 }
 /* __use_no_semihosting was requested, but _ttywrch was */
@@ -86,14 +86,14 @@ void _ttywrch(int ch) {
   * @retval none
   */
 PUTCHAR_PROTOTYPE {
-    while(usart_flag_get(PRINT_UART, USART_TDBE_FLAG) == RESET);
+    while(usart_Flag_Get(PRINT_UART, USART_TDBE_FLAG) == RESET);
 
-    usart_data_transmit(PRINT_UART, ch);
+    usart_Data_transmit(PRINT_UART, ch);
     return ch;
 }
 
 #if defined (__GNUC__) && !defined (__clang__)
-int _write(int fd, char *pbuffer, int size) {
+int _Write(int fd, char *pbuffer, int size) {
     for(int i = 0; i < size; i ++) {
         __io_putchar(*pbuffer++);
     }
@@ -107,33 +107,33 @@ int _write(int fd, char *pbuffer, int size) {
   * @param  baudrate: uart baudrate
   * @retval none
   */
-void uart_print_init(uint32_t baudrate) {
-    gpio_init_type gpio_init_struct;
+void uart_print_Init(uint32_t baudrate) {
+    gpio_Init_Type gpio_Init_struct;
 
     #if defined (__GNUC__) && !defined (__clang__)
     setvbuf(stdout, NULL, _IONBF, 0);
     #endif
 
     /* enable the uart and gpio clock */
-    crm_periph_clock_enable(PRINT_UART_CRM_CLK, TRUE);
-    crm_periph_clock_enable(PRINT_UART_TX_GPIO_CRM_CLK, TRUE);
+    crm_periph_Clock_Enable(PRINT_UART_CRM_CLK, TRUE);
+    crm_periph_Clock_Enable(PRINT_UART_TX_GPIO_CRM_CLK, TRUE);
 
-    gpio_default_para_init(&gpio_init_struct);
+    GPIO_Default_Para_Init(&gpio_Init_struct);
 
     /* configure the uart tx pin */
-    gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_STRONGER;
-    gpio_init_struct.gpio_out_type  = GPIO_OUTPUT_PUSH_PULL;
-    gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
-    gpio_init_struct.gpio_pins = PRINT_UART_TX_PIN;
-    gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
-    gpio_init(PRINT_UART_TX_GPIO, &gpio_init_struct);
+    gpio_Init_struct.GPIO_Drive_Strength = GPIO_Drive_Strength_STRONGER;
+    gpio_Init_struct.GPIO_Out_Type  = GPIO_OutPut_PUSH_PULL;
+    gpio_Init_struct.GPIO_Mode = GPIO_Mode_MUX;
+    gpio_Init_struct.GPIO_Pins = PRINT_UART_TX_PIN;
+    gpio_Init_struct.GPIO_Pull = GPIO_Pull_NONE;
+    gpio_Init(PRINT_UART_TX_GPIO, &gpio_Init_struct);
 
-    gpio_pin_mux_config(PRINT_UART_TX_GPIO, PRINT_UART_TX_PIN_SOURCE, PRINT_UART_TX_PIN_MUX_NUM);
+    GPIO_Pin_Mux_Config(PRINT_UART_TX_GPIO, PRINT_UART_TX_Pin_SOURCE, PRINT_UART_TX_Pin_MUX_Num);
 
     /* configure uart param */
-    usart_init(PRINT_UART, baudrate, USART_DATA_8BITS, USART_STOP_1_BIT);
-    usart_transmitter_enable(PRINT_UART, TRUE);
-    usart_enable(PRINT_UART, TRUE);
+    usart_Init(PRINT_UART, baudrate, USART_Data_8BITS, USART_Stop_1_BIT);
+    usart_transmitter_Enable(PRINT_UART, TRUE);
+    usart_Enable(PRINT_UART, TRUE);
 }
 
 /**
@@ -141,20 +141,20 @@ void uart_print_init(uint32_t baudrate) {
   * @param  none
   * @retval none
   */
-void at32_board_init() {
+void at32_board_Init() {
     /* initialize delay function */
-    delay_init();
+    delay_Init();
 
-    /* configure led in at_start_board */
-    at32_led_init(LED2);
-    at32_led_init(LED3);
-    at32_led_init(LED4);
+    /* configure led in at_Start_board */
+    at32_led_Init(LED2);
+    at32_led_Init(LED3);
+    at32_led_Init(LED4);
     at32_led_off(LED2);
     at32_led_off(LED3);
     at32_led_off(LED4);
 
     /* configure button in at_start board */
-    at32_button_init();
+    at32_button_Init();
 }
 
 /**
@@ -162,22 +162,22 @@ void at32_board_init() {
   * @param  button: specifies the button to be configured.
   * @retval none
   */
-void at32_button_init(void) {
-    gpio_init_type gpio_init_struct;
+void at32_button_Init(void) {
+    gpio_Init_Type gpio_Init_struct;
 
     /* enable the button clock */
-    crm_periph_clock_enable(USER_BUTTON_CRM_CLK, TRUE);
+    crm_periph_Clock_Enable(USER_BUTTON_CRM_CLK, TRUE);
 
     /* set default parameter */
-    gpio_default_para_init(&gpio_init_struct);
+    GPIO_Default_Para_Init(&gpio_Init_struct);
 
     /* configure button pin as input with pull-up/pull-down */
-    gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_STRONGER;
-    gpio_init_struct.gpio_out_type  = GPIO_OUTPUT_PUSH_PULL;
-    gpio_init_struct.gpio_mode = GPIO_MODE_INPUT;
-    gpio_init_struct.gpio_pins = USER_BUTTON_PIN;
-    gpio_init_struct.gpio_pull = GPIO_PULL_DOWN;
-    gpio_init(USER_BUTTON_PORT, &gpio_init_struct);
+    gpio_Init_struct.GPIO_Drive_Strength = GPIO_Drive_Strength_STRONGER;
+    gpio_Init_struct.GPIO_Out_Type  = GPIO_OutPut_PUSH_PULL;
+    gpio_Init_struct.GPIO_Mode = GPIO_Mode_INPUT;
+    gpio_Init_struct.GPIO_Pins = USER_BUTTON_PIN;
+    gpio_Init_struct.GPIO_Pull = GPIO_Pull_DOWN;
+    gpio_Init(USER_BUTTON_PORT, &gpio_Init_struct);
 }
 
 /**
@@ -186,7 +186,7 @@ void at32_button_init(void) {
   * @retval the button gpio pin value
   */
 uint8_t at32_button_state(void) {
-    return gpio_input_data_bit_read(USER_BUTTON_PORT, USER_BUTTON_PIN);
+    return GPIO_Input_Data_Bit_Read(USER_BUTTON_PORT, USER_BUTTON_PIN);
 }
 
 /**
@@ -194,7 +194,7 @@ uint8_t at32_button_state(void) {
   * @param  none
   * @retval the button have press down
   */
-button_type at32_button_press() {
+button_Type at32_button_press() {
     static uint8_t pressed = 1;
 
     /* get button state in at_start board */
@@ -217,22 +217,22 @@ button_type at32_button_press() {
   * @param  led: specifies the led to be configured.
   * @retval none
   */
-void at32_led_init(led_type led) {
-    gpio_init_type gpio_init_struct;
+void at32_led_Init(led_Type led) {
+    gpio_Init_Type gpio_Init_struct;
 
     /* enable the led clock */
-    crm_periph_clock_enable(led_gpio_crm_clk[led], TRUE);
+    crm_periph_Clock_Enable(led_gpio_crm_clk[led], TRUE);
 
     /* set default parameter */
-    gpio_default_para_init(&gpio_init_struct);
+    GPIO_Default_Para_Init(&gpio_Init_struct);
 
     /* configure the led gpio */
-    gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_STRONGER;
-    gpio_init_struct.gpio_out_type  = GPIO_OUTPUT_PUSH_PULL;
-    gpio_init_struct.gpio_mode = GPIO_MODE_OUTPUT;
-    gpio_init_struct.gpio_pins = led_gpio_pin[led];
-    gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
-    gpio_init(led_gpio_port[led], &gpio_init_struct);
+    gpio_Init_struct.GPIO_Drive_Strength = GPIO_Drive_Strength_STRONGER;
+    gpio_Init_struct.GPIO_Out_Type  = GPIO_OutPut_PUSH_PULL;
+    gpio_Init_struct.GPIO_Mode = GPIO_Mode_OUTPUT;
+    gpio_Init_struct.GPIO_Pins = led_gpio_pin[led];
+    gpio_Init_struct.GPIO_Pull = GPIO_Pull_NONE;
+    gpio_Init(led_gpio_port[led], &gpio_Init_struct);
 }
 
 /**
@@ -244,8 +244,8 @@ void at32_led_init(led_type led) {
   *     @arg LED4
   * @retval none
   */
-void at32_led_on(led_type led) {
-    if(led > (LED_NUM - 1))
+void at32_led_on(led_Type led) {
+    if(led > (LED_Num - 1))
         return;
 
     if(led_gpio_pin[led])
@@ -261,8 +261,8 @@ void at32_led_on(led_type led) {
   *     @arg LED4
   * @retval none
   */
-void at32_led_off(led_type led) {
-    if(led > (LED_NUM - 1))
+void at32_led_off(led_Type led) {
+    if(led > (LED_Num - 1))
         return;
 
     if(led_gpio_pin[led])
@@ -278,8 +278,8 @@ void at32_led_off(led_type led) {
   *     @arg LED4
   * @retval none
   */
-void at32_led_toggle(led_type led) {
-    if(led > (LED_NUM - 1))
+void at32_led_toggle(led_Type led) {
+    if(led > (LED_Num - 1))
         return;
 
     if(led_gpio_pin[led])
@@ -291,9 +291,9 @@ void at32_led_toggle(led_type led) {
   * @param  none
   * @retval none
   */
-void delay_init() {
+void delay_Init() {
     /* configure systick */
-    systick_clock_source_config(SYSTICK_CLOCK_SOURCE_AHBCLK_NODIV);
+    systick_Clock_Source_Config(SYSTICK_Clock_Source_AHBCLK_NODIV);
     fac_us = system_core_clock / (1000000U);
     fac_ms = fac_us * (1000U);
 }
@@ -307,13 +307,13 @@ void delay_us(uint32_t nus) {
     uint32_t temp = 0;
     SysTick->LOAD = (uint32_t)(nus * fac_us);
     SysTick->VAL = 0x00;
-    SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk ;
+    SysTick->CTRL |= SysTick_CTRL_Enable_Msk ;
 
     do {
         temp = SysTick->CTRL;
     } while((temp & 0x01) && !(temp & (1 << 16)));
 
-    SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;
+    SysTick->CTRL &= ~SysTick_CTRL_Enable_Msk;
     SysTick->VAL = 0x00;
 }
 
@@ -335,13 +335,13 @@ void delay_ms(uint16_t nms) {
         }
 
         SysTick->VAL = 0x00;
-        SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
+        SysTick->CTRL |= SysTick_CTRL_Enable_Msk;
 
         do {
             temp = SysTick->CTRL;
         } while((temp & 0x01) && !(temp & (1 << 16)));
 
-        SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;
+        SysTick->CTRL &= ~SysTick_CTRL_Enable_Msk;
         SysTick->VAL = 0x00;
     }
 }

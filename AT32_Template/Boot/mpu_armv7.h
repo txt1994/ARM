@@ -73,9 +73,9 @@
 * \param BaseAddress The base address for the region.
 */
 #define ARM_MPU_RBAR(Region, BaseAddress) \
-    (((BaseAddress) & MPU_RBAR_ADDR_Msk) |  \
+    (((BaseAddress) & MPU_RBAR_Addr_Msk) |  \
      ((Region) & MPU_RBAR_REGION_Msk)    |  \
-     (MPU_RBAR_VALID_Msk))
+     (MPU_RBAR_Valid_Msk))
 
 /**
 * MPU Memory Access Attributes
@@ -106,7 +106,7 @@
      (((AccessAttributes) & (MPU_RASR_TEX_Msk | MPU_RASR_S_Msk | MPU_RASR_C_Msk | MPU_RASR_B_Msk))) | \
      (((SubRegionDisable) << MPU_RASR_SRD_Pos)  & MPU_RASR_SRD_Msk)                                 | \
      (((Size)             << MPU_RASR_SIZE_Pos) & MPU_RASR_SIZE_Msk)                                | \
-     (((MPU_RASR_ENABLE_Msk))))
+     (((MPU_RASR_Enable_Msk))))
 
 /**
 * MPU Region Attribute and Size Register Value
@@ -190,7 +190,7 @@ typedef struct {
 */
 __STATIC_INLINE void ARM_MPU_Enable(uint32_t MPU_Control) {
     __DMB();
-    MPU->CTRL = MPU_Control | MPU_CTRL_ENABLE_Msk;
+    MPU->CTRL = MPU_Control | MPU_CTRL_Enable_Msk;
     #ifdef SCB_SHCSR_MEMFAULTENA_Msk
     SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
     #endif
@@ -205,7 +205,7 @@ __STATIC_INLINE void ARM_MPU_Disable(void) {
     #ifdef SCB_SHCSR_MEMFAULTENA_Msk
     SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
     #endif
-    MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
+    MPU->CTRL  &= ~MPU_CTRL_Enable_Msk;
     __DSB();
     __ISB();
 }
@@ -258,10 +258,10 @@ __STATIC_INLINE void ARM_MPU_OrderedMemcpy(volatile uint32_t* dst, const uint32_
 __STATIC_INLINE void ARM_MPU_Load(ARM_MPU_Region_t const* table, uint32_t cnt) {
     const uint32_t rowWordSize = sizeof(ARM_MPU_Region_t) / 4U;
 
-    while (cnt > MPU_TYPE_RALIASES) {
-        ARM_MPU_OrderedMemcpy(&(MPU->RBAR), &(table->RBAR), MPU_TYPE_RALIASES * rowWordSize);
-        table += MPU_TYPE_RALIASES;
-        cnt -= MPU_TYPE_RALIASES;
+    while (cnt > MPU_Type_RALIASES) {
+        ARM_MPU_OrderedMemcpy(&(MPU->RBAR), &(table->RBAR), MPU_Type_RALIASES * rowWordSize);
+        table += MPU_Type_RALIASES;
+        cnt -= MPU_Type_RALIASES;
     }
 
     ARM_MPU_OrderedMemcpy(&(MPU->RBAR), &(table->RBAR), cnt * rowWordSize);

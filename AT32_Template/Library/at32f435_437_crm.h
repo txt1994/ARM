@@ -55,19 +55,19 @@ extern "C" {
 #define CRM_PLL_STABLE_FLAG              MAKE_VALUE(0x00, 25) /*!< phase locking loop stable flag */
 #define CRM_LEXT_STABLE_FLAG             MAKE_VALUE(0x70, 1)  /*!< low speed external crystal stable flag */
 #define CRM_LICK_STABLE_FLAG             MAKE_VALUE(0x74, 1)  /*!< low speed internal clock stable flag */
-#define CRM_ALL_RESET_FLAG               MAKE_VALUE(0x74, 24) /*!< all reset flag */
-#define CRM_NRST_RESET_FLAG              MAKE_VALUE(0x74, 26) /*!< nrst pin reset flag */
-#define CRM_POR_RESET_FLAG               MAKE_VALUE(0x74, 27) /*!< power on reset flag */
-#define CRM_SW_RESET_FLAG                MAKE_VALUE(0x74, 28) /*!< software reset flag */
-#define CRM_WDT_RESET_FLAG               MAKE_VALUE(0x74, 29) /*!< watchdog timer reset flag */
-#define CRM_WWDT_RESET_FLAG              MAKE_VALUE(0x74, 30) /*!< window watchdog timer reset flag */
-#define CRM_LOWPOWER_RESET_FLAG          MAKE_VALUE(0x74, 31) /*!< low-power reset flag */
-#define CRM_LICK_READY_INT_FLAG          MAKE_VALUE(0x0C, 0)  /*!< low speed internal clock stable interrupt ready flag */
-#define CRM_LEXT_READY_INT_FLAG          MAKE_VALUE(0x0C, 1)  /*!< low speed external crystal stable interrupt ready flag */
-#define CRM_HICK_READY_INT_FLAG          MAKE_VALUE(0x0C, 2)  /*!< high speed internal clock stable interrupt ready flag */
-#define CRM_HEXT_READY_INT_FLAG          MAKE_VALUE(0x0C, 3)  /*!< high speed external crystal stable interrupt ready flag */
-#define CRM_PLL_READY_INT_FLAG           MAKE_VALUE(0x0C, 4)  /*!< phase locking loop stable interrupt ready flag */
-#define CRM_CLOCK_FAILURE_INT_FLAG       MAKE_VALUE(0x0C, 7)  /*!< clock failure interrupt ready flag */
+#define CRM_All_Reset_FLAG               MAKE_VALUE(0x74, 24) /*!< all reset flag */
+#define CRM_NRST_Reset_FLAG              MAKE_VALUE(0x74, 26) /*!< nrst pin reset flag */
+#define CRM_POR_Reset_FLAG               MAKE_VALUE(0x74, 27) /*!< power on reset flag */
+#define CRM_SW_Reset_FLAG                MAKE_VALUE(0x74, 28) /*!< software reset flag */
+#define CRM_WDT_Reset_FLAG               MAKE_VALUE(0x74, 29) /*!< watchdog timer reset flag */
+#define CRM_WWDT_Reset_FLAG              MAKE_VALUE(0x74, 30) /*!< window watchdog timer reset flag */
+#define CRM_LOWPOWER_Reset_FLAG          MAKE_VALUE(0x74, 31) /*!< low-power reset flag */
+#define CRM_LICK_ReadY_INT_FLAG          MAKE_VALUE(0x0C, 0)  /*!< low speed internal clock stable interrupt ready flag */
+#define CRM_LEXT_ReadY_INT_FLAG          MAKE_VALUE(0x0C, 1)  /*!< low speed external crystal stable interrupt ready flag */
+#define CRM_HICK_ReadY_INT_FLAG          MAKE_VALUE(0x0C, 2)  /*!< high speed internal clock stable interrupt ready flag */
+#define CRM_HEXT_ReadY_INT_FLAG          MAKE_VALUE(0x0C, 3)  /*!< high speed external crystal stable interrupt ready flag */
+#define CRM_PLL_ReadY_INT_FLAG           MAKE_VALUE(0x0C, 4)  /*!< phase locking loop stable interrupt ready flag */
+#define CRM_Clock_FAILURE_INT_FLAG       MAKE_VALUE(0x0C, 7)  /*!< clock failure interrupt ready flag */
 
 /**
   * @}
@@ -83,13 +83,13 @@ extern "C" {
 #define CRM_HICK_STABLE_INT              ((uint32_t)0x00000400) /*!< high speed internal clock stable interrupt */
 #define CRM_HEXT_STABLE_INT              ((uint32_t)0x00000800) /*!< high speed external crystal stable interrupt */
 #define CRM_PLL_STABLE_INT               ((uint32_t)0x00001000) /*!< phase locking loop stable interrupt */
-#define CRM_CLOCK_FAILURE_INT            ((uint32_t)0x00800000) /*!< clock failure interrupt */
+#define CRM_Clock_FAILURE_INT            ((uint32_t)0x00800000) /*!< clock failure interrupt */
 
 /**
   * @}
   */
 
-/** @defgroup CRM_exported_types
+/** @defgroup CRM_exported_Types
   * @{
   */
 
@@ -237,7 +237,7 @@ typedef enum {
             CRM_ACC_PERIPH_CLOCK                   = MAKE_VALUE(0x44, 29)  /*!< acc periph clock */
             #endif
 
-} crm_periph_clock_type;
+} crm_periph_Clock_Type;
 
 /**
   * @brief crm periph reset
@@ -245,138 +245,138 @@ typedef enum {
 typedef enum {
     #if defined (AT32F435xx)
     /* ahb periph1 */
-    CRM_GPIOA_PERIPH_RESET                 = MAKE_VALUE(0x10, 0),  /*!< gpioa periph reset */
-    CRM_GPIOB_PERIPH_RESET                 = MAKE_VALUE(0x10, 1),  /*!< gpiob periph reset */
-    CRM_GPIOC_PERIPH_RESET                 = MAKE_VALUE(0x10, 2),  /*!< gpioc periph reset */
-    CRM_GPIOD_PERIPH_RESET                 = MAKE_VALUE(0x10, 3),  /*!< gpiod periph reset */
-    CRM_GPIOE_PERIPH_RESET                 = MAKE_VALUE(0x10, 4),  /*!< gpioe periph reset */
-    CRM_GPIOF_PERIPH_RESET                 = MAKE_VALUE(0x10, 5),  /*!< gpiof periph reset */
-    CRM_GPIOG_PERIPH_RESET                 = MAKE_VALUE(0x10, 6),  /*!< gpiog periph reset */
-    CRM_GPIOH_PERIPH_RESET                 = MAKE_VALUE(0x10, 7),  /*!< gpioh periph reset */
-    CRM_CRC_PERIPH_RESET                   = MAKE_VALUE(0x10, 12), /*!< crc periph reset */
-    CRM_EDMA_PERIPH_RESET                  = MAKE_VALUE(0x10, 21), /*!< edma periph reset */
-    CRM_DMA1_PERIPH_RESET                  = MAKE_VALUE(0x10, 22), /*!< dma1 periph reset */
-    CRM_DMA2_PERIPH_RESET                  = MAKE_VALUE(0x10, 24), /*!< dma2 periph reset */
-    CRM_OTGFS2_PERIPH_RESET                = MAKE_VALUE(0x10, 29), /*!< otgfs2 periph reset */
+    CRM_GPIOA_PERIPH_Reset                 = MAKE_VALUE(0x10, 0),  /*!< gpioa periph reset */
+    CRM_GPIOB_PERIPH_Reset                 = MAKE_VALUE(0x10, 1),  /*!< gpiob periph reset */
+    CRM_GPIOC_PERIPH_Reset                 = MAKE_VALUE(0x10, 2),  /*!< gpioc periph reset */
+    CRM_GPIOD_PERIPH_Reset                 = MAKE_VALUE(0x10, 3),  /*!< gpiod periph reset */
+    CRM_GPIOE_PERIPH_Reset                 = MAKE_VALUE(0x10, 4),  /*!< gpioe periph reset */
+    CRM_GPIOF_PERIPH_Reset                 = MAKE_VALUE(0x10, 5),  /*!< gpiof periph reset */
+    CRM_GPIOG_PERIPH_Reset                 = MAKE_VALUE(0x10, 6),  /*!< gpiog periph reset */
+    CRM_GPIOH_PERIPH_Reset                 = MAKE_VALUE(0x10, 7),  /*!< gpioh periph reset */
+    CRM_CRC_PERIPH_Reset                   = MAKE_VALUE(0x10, 12), /*!< crc periph reset */
+    CRM_EDMA_PERIPH_Reset                  = MAKE_VALUE(0x10, 21), /*!< edma periph reset */
+    CRM_DMA1_PERIPH_Reset                  = MAKE_VALUE(0x10, 22), /*!< dma1 periph reset */
+    CRM_DMA2_PERIPH_Reset                  = MAKE_VALUE(0x10, 24), /*!< dma2 periph reset */
+    CRM_OTGFS2_PERIPH_Reset                = MAKE_VALUE(0x10, 29), /*!< otgfs2 periph reset */
     /* ahb periph2 */
-    CRM_DVP_PERIPH_RESET                   = MAKE_VALUE(0x14, 0),  /*!< dvp periph reset */
-    CRM_OTGFS1_PERIPH_RESET                = MAKE_VALUE(0x14, 7),  /*!< otgfs1 periph reset */
-    CRM_SDIO1_PERIPH_RESET                 = MAKE_VALUE(0x14, 15), /*!< sdio1 periph reset */
+    CRM_DVP_PERIPH_Reset                   = MAKE_VALUE(0x14, 0),  /*!< dvp periph reset */
+    CRM_OTGFS1_PERIPH_Reset                = MAKE_VALUE(0x14, 7),  /*!< otgfs1 periph reset */
+    CRM_SDIO1_PERIPH_Reset                 = MAKE_VALUE(0x14, 15), /*!< sdio1 periph reset */
     /* ahb periph3 */
-    CRM_XMC_PERIPH_RESET                   = MAKE_VALUE(0x18, 0),  /*!< xmc periph reset */
-    CRM_QSPI1_PERIPH_RESET                 = MAKE_VALUE(0x18, 1),  /*!< qspi1 periph reset */
-    CRM_QSPI2_PERIPH_RESET                 = MAKE_VALUE(0x18, 14), /*!< qspi2 periph reset */
-    CRM_SDIO2_PERIPH_RESET                 = MAKE_VALUE(0x18, 15), /*!< sdio2 periph reset */
+    CRM_XMC_PERIPH_Reset                   = MAKE_VALUE(0x18, 0),  /*!< xmc periph reset */
+    CRM_QSPI1_PERIPH_Reset                 = MAKE_VALUE(0x18, 1),  /*!< qspi1 periph reset */
+    CRM_QSPI2_PERIPH_Reset                 = MAKE_VALUE(0x18, 14), /*!< qspi2 periph reset */
+    CRM_SDIO2_PERIPH_Reset                 = MAKE_VALUE(0x18, 15), /*!< sdio2 periph reset */
     /* apb1 periph */
-    CRM_TMR2_PERIPH_RESET                  = MAKE_VALUE(0x20, 0),  /*!< tmr2 periph reset */
-    CRM_TMR3_PERIPH_RESET                  = MAKE_VALUE(0x20, 1),  /*!< tmr3 periph reset */
-    CRM_TMR4_PERIPH_RESET                  = MAKE_VALUE(0x20, 2),  /*!< tmr4 periph reset */
-    CRM_TMR5_PERIPH_RESET                  = MAKE_VALUE(0x20, 3),  /*!< tmr5 periph reset */
-    CRM_TMR6_PERIPH_RESET                  = MAKE_VALUE(0x20, 4),  /*!< tmr6 periph reset */
-    CRM_TMR7_PERIPH_RESET                  = MAKE_VALUE(0x20, 5),  /*!< tmr7 periph reset */
-    CRM_TMR12_PERIPH_RESET                 = MAKE_VALUE(0x20, 6),  /*!< tmr12 periph reset */
-    CRM_TMR13_PERIPH_RESET                 = MAKE_VALUE(0x20, 7),  /*!< tmr13 periph reset */
-    CRM_TMR14_PERIPH_RESET                 = MAKE_VALUE(0x20, 8),  /*!< tmr14 periph reset */
-    CRM_WWDT_PERIPH_RESET                  = MAKE_VALUE(0x20, 11), /*!< wwdt periph reset */
-    CRM_SPI2_PERIPH_RESET                  = MAKE_VALUE(0x20, 14), /*!< spi2 periph reset */
-    CRM_SPI3_PERIPH_RESET                  = MAKE_VALUE(0x20, 15), /*!< spi3 periph reset */
-    CRM_USART2_PERIPH_RESET                = MAKE_VALUE(0x20, 17), /*!< usart2 periph reset */
-    CRM_USART3_PERIPH_RESET                = MAKE_VALUE(0x20, 18), /*!< usart3 periph reset */
-    CRM_UART4_PERIPH_RESET                 = MAKE_VALUE(0x20, 19), /*!< uart4 periph reset */
-    CRM_UART5_PERIPH_RESET                 = MAKE_VALUE(0x20, 20), /*!< uart5 periph reset */
-    CRM_I2C1_PERIPH_RESET                  = MAKE_VALUE(0x20, 21), /*!< i2c1 periph reset */
-    CRM_I2C2_PERIPH_RESET                  = MAKE_VALUE(0x20, 22), /*!< i2c2 periph reset */
-    CRM_I2C3_PERIPH_RESET                  = MAKE_VALUE(0x20, 23), /*!< i2c3 periph reset */
-    CRM_CAN1_PERIPH_RESET                  = MAKE_VALUE(0x20, 25), /*!< can1 periph reset */
-    CRM_CAN2_PERIPH_RESET                  = MAKE_VALUE(0x20, 26), /*!< can2 periph reset */
-    CRM_PWC_PERIPH_RESET                   = MAKE_VALUE(0x20, 28), /*!< pwc periph reset */
-    CRM_DAC_PERIPH_RESET                   = MAKE_VALUE(0x20, 29), /*!< dac periph reset */
-    CRM_UART7_PERIPH_RESET                 = MAKE_VALUE(0x20, 30), /*!< uart7 periph reset */
-    CRM_UART8_PERIPH_RESET                 = MAKE_VALUE(0x20, 31), /*!< uart8 periph reset */
+    CRM_TMR2_PERIPH_Reset                  = MAKE_VALUE(0x20, 0),  /*!< tmr2 periph reset */
+    CRM_TMR3_PERIPH_Reset                  = MAKE_VALUE(0x20, 1),  /*!< tmr3 periph reset */
+    CRM_TMR4_PERIPH_Reset                  = MAKE_VALUE(0x20, 2),  /*!< tmr4 periph reset */
+    CRM_TMR5_PERIPH_Reset                  = MAKE_VALUE(0x20, 3),  /*!< tmr5 periph reset */
+    CRM_TMR6_PERIPH_Reset                  = MAKE_VALUE(0x20, 4),  /*!< tmr6 periph reset */
+    CRM_TMR7_PERIPH_Reset                  = MAKE_VALUE(0x20, 5),  /*!< tmr7 periph reset */
+    CRM_TMR12_PERIPH_Reset                 = MAKE_VALUE(0x20, 6),  /*!< tmr12 periph reset */
+    CRM_TMR13_PERIPH_Reset                 = MAKE_VALUE(0x20, 7),  /*!< tmr13 periph reset */
+    CRM_TMR14_PERIPH_Reset                 = MAKE_VALUE(0x20, 8),  /*!< tmr14 periph reset */
+    CRM_WWDT_PERIPH_Reset                  = MAKE_VALUE(0x20, 11), /*!< wwdt periph reset */
+    CRM_SPI2_PERIPH_Reset                  = MAKE_VALUE(0x20, 14), /*!< spi2 periph reset */
+    CRM_SPI3_PERIPH_Reset                  = MAKE_VALUE(0x20, 15), /*!< spi3 periph reset */
+    CRM_USART2_PERIPH_Reset                = MAKE_VALUE(0x20, 17), /*!< usart2 periph reset */
+    CRM_USART3_PERIPH_Reset                = MAKE_VALUE(0x20, 18), /*!< usart3 periph reset */
+    CRM_UART4_PERIPH_Reset                 = MAKE_VALUE(0x20, 19), /*!< uart4 periph reset */
+    CRM_UART5_PERIPH_Reset                 = MAKE_VALUE(0x20, 20), /*!< uart5 periph reset */
+    CRM_I2C1_PERIPH_Reset                  = MAKE_VALUE(0x20, 21), /*!< i2c1 periph reset */
+    CRM_I2C2_PERIPH_Reset                  = MAKE_VALUE(0x20, 22), /*!< i2c2 periph reset */
+    CRM_I2C3_PERIPH_Reset                  = MAKE_VALUE(0x20, 23), /*!< i2c3 periph reset */
+    CRM_CAN1_PERIPH_Reset                  = MAKE_VALUE(0x20, 25), /*!< can1 periph reset */
+    CRM_CAN2_PERIPH_Reset                  = MAKE_VALUE(0x20, 26), /*!< can2 periph reset */
+    CRM_PWC_PERIPH_Reset                   = MAKE_VALUE(0x20, 28), /*!< pwc periph reset */
+    CRM_DAC_PERIPH_Reset                   = MAKE_VALUE(0x20, 29), /*!< dac periph reset */
+    CRM_UART7_PERIPH_Reset                 = MAKE_VALUE(0x20, 30), /*!< uart7 periph reset */
+    CRM_UART8_PERIPH_Reset                 = MAKE_VALUE(0x20, 31), /*!< uart8 periph reset */
     /* apb2 periph */
-    CRM_TMR1_PERIPH_RESET                  = MAKE_VALUE(0x24, 0),  /*!< tmr1 periph reset */
-    CRM_TMR8_PERIPH_RESET                  = MAKE_VALUE(0x24, 1),  /*!< tmr8 periph reset */
-    CRM_USART1_PERIPH_RESET                = MAKE_VALUE(0x24, 4),  /*!< usart1 periph reset */
-    CRM_USART6_PERIPH_RESET                = MAKE_VALUE(0x24, 5),  /*!< usart6 periph reset */
-    CRM_ADC_PERIPH_RESET                   = MAKE_VALUE(0x24, 8),  /*!< adc periph reset */
-    CRM_SPI1_PERIPH_RESET                  = MAKE_VALUE(0x24, 12), /*!< spi1 periph reset */
-    CRM_SPI4_PERIPH_RESET                  = MAKE_VALUE(0x24, 13), /*!< spi4 periph reset */
-    CRM_SCFG_PERIPH_RESET                  = MAKE_VALUE(0x24, 14), /*!< scfg periph reset */
-    CRM_TMR9_PERIPH_RESET                  = MAKE_VALUE(0x24, 16), /*!< tmr9 periph reset */
-    CRM_TMR10_PERIPH_RESET                 = MAKE_VALUE(0x24, 17), /*!< tmr10 periph reset */
-    CRM_TMR11_PERIPH_RESET                 = MAKE_VALUE(0x24, 18), /*!< tmr11 periph reset */
-    CRM_TMR20_PERIPH_RESET                 = MAKE_VALUE(0x24, 20), /*!< tmr20 periph reset */
-    CRM_ACC_PERIPH_RESET                   = MAKE_VALUE(0x24, 29)  /*!< acc periph reset */
+    CRM_TMR1_PERIPH_Reset                  = MAKE_VALUE(0x24, 0),  /*!< tmr1 periph reset */
+    CRM_TMR8_PERIPH_Reset                  = MAKE_VALUE(0x24, 1),  /*!< tmr8 periph reset */
+    CRM_USART1_PERIPH_Reset                = MAKE_VALUE(0x24, 4),  /*!< usart1 periph reset */
+    CRM_USART6_PERIPH_Reset                = MAKE_VALUE(0x24, 5),  /*!< usart6 periph reset */
+    CRM_ADC_PERIPH_Reset                   = MAKE_VALUE(0x24, 8),  /*!< adc periph reset */
+    CRM_SPI1_PERIPH_Reset                  = MAKE_VALUE(0x24, 12), /*!< spi1 periph reset */
+    CRM_SPI4_PERIPH_Reset                  = MAKE_VALUE(0x24, 13), /*!< spi4 periph reset */
+    CRM_SCFG_PERIPH_Reset                  = MAKE_VALUE(0x24, 14), /*!< scfg periph reset */
+    CRM_TMR9_PERIPH_Reset                  = MAKE_VALUE(0x24, 16), /*!< tmr9 periph reset */
+    CRM_TMR10_PERIPH_Reset                 = MAKE_VALUE(0x24, 17), /*!< tmr10 periph reset */
+    CRM_TMR11_PERIPH_Reset                 = MAKE_VALUE(0x24, 18), /*!< tmr11 periph reset */
+    CRM_TMR20_PERIPH_Reset                 = MAKE_VALUE(0x24, 20), /*!< tmr20 periph reset */
+    CRM_ACC_PERIPH_Reset                   = MAKE_VALUE(0x24, 29)  /*!< acc periph reset */
     #endif
 
             #if defined (AT32F437xx)
             /* ahb periph1 */
-            CRM_GPIOA_PERIPH_RESET                 = MAKE_VALUE(0x10, 0),  /*!< gpioa periph reset */
-            CRM_GPIOB_PERIPH_RESET                 = MAKE_VALUE(0x10, 1),  /*!< gpiob periph reset */
-            CRM_GPIOC_PERIPH_RESET                 = MAKE_VALUE(0x10, 2),  /*!< gpioc periph reset */
-            CRM_GPIOD_PERIPH_RESET                 = MAKE_VALUE(0x10, 3),  /*!< gpiod periph reset */
-            CRM_GPIOE_PERIPH_RESET                 = MAKE_VALUE(0x10, 4),  /*!< gpioe periph reset */
-            CRM_GPIOF_PERIPH_RESET                 = MAKE_VALUE(0x10, 5),  /*!< gpiof periph reset */
-            CRM_GPIOG_PERIPH_RESET                 = MAKE_VALUE(0x10, 6),  /*!< gpiog periph reset */
-            CRM_GPIOH_PERIPH_RESET                 = MAKE_VALUE(0x10, 7),  /*!< gpioh periph reset */
-            CRM_CRC_PERIPH_RESET                   = MAKE_VALUE(0x10, 12), /*!< crc periph reset */
-            CRM_EDMA_PERIPH_RESET                  = MAKE_VALUE(0x10, 21), /*!< edma periph reset */
-            CRM_DMA1_PERIPH_RESET                  = MAKE_VALUE(0x10, 22), /*!< dma1 periph reset */
-            CRM_DMA2_PERIPH_RESET                  = MAKE_VALUE(0x10, 24), /*!< dma2 periph reset */
-            CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x10, 25), /*!< emac periph reset */
-            CRM_OTGFS2_PERIPH_RESET                = MAKE_VALUE(0x10, 29), /*!< otgfs2 periph reset */
+            CRM_GPIOA_PERIPH_Reset                 = MAKE_VALUE(0x10, 0),  /*!< gpioa periph reset */
+            CRM_GPIOB_PERIPH_Reset                 = MAKE_VALUE(0x10, 1),  /*!< gpiob periph reset */
+            CRM_GPIOC_PERIPH_Reset                 = MAKE_VALUE(0x10, 2),  /*!< gpioc periph reset */
+            CRM_GPIOD_PERIPH_Reset                 = MAKE_VALUE(0x10, 3),  /*!< gpiod periph reset */
+            CRM_GPIOE_PERIPH_Reset                 = MAKE_VALUE(0x10, 4),  /*!< gpioe periph reset */
+            CRM_GPIOF_PERIPH_Reset                 = MAKE_VALUE(0x10, 5),  /*!< gpiof periph reset */
+            CRM_GPIOG_PERIPH_Reset                 = MAKE_VALUE(0x10, 6),  /*!< gpiog periph reset */
+            CRM_GPIOH_PERIPH_Reset                 = MAKE_VALUE(0x10, 7),  /*!< gpioh periph reset */
+            CRM_CRC_PERIPH_Reset                   = MAKE_VALUE(0x10, 12), /*!< crc periph reset */
+            CRM_EDMA_PERIPH_Reset                  = MAKE_VALUE(0x10, 21), /*!< edma periph reset */
+            CRM_DMA1_PERIPH_Reset                  = MAKE_VALUE(0x10, 22), /*!< dma1 periph reset */
+            CRM_DMA2_PERIPH_Reset                  = MAKE_VALUE(0x10, 24), /*!< dma2 periph reset */
+            CRM_EMAC_PERIPH_Reset                  = MAKE_VALUE(0x10, 25), /*!< emac periph reset */
+            CRM_OTGFS2_PERIPH_Reset                = MAKE_VALUE(0x10, 29), /*!< otgfs2 periph reset */
             /* ahb periph2 */
-            CRM_DVP_PERIPH_RESET                   = MAKE_VALUE(0x14, 0),  /*!< dvp periph reset */
-            CRM_OTGFS1_PERIPH_RESET                = MAKE_VALUE(0x14, 7),  /*!< otgfs1 periph reset */
-            CRM_SDIO1_PERIPH_RESET                 = MAKE_VALUE(0x14, 15), /*!< sdio1 periph reset */
+            CRM_DVP_PERIPH_Reset                   = MAKE_VALUE(0x14, 0),  /*!< dvp periph reset */
+            CRM_OTGFS1_PERIPH_Reset                = MAKE_VALUE(0x14, 7),  /*!< otgfs1 periph reset */
+            CRM_SDIO1_PERIPH_Reset                 = MAKE_VALUE(0x14, 15), /*!< sdio1 periph reset */
             /* ahb periph3 */
-            CRM_XMC_PERIPH_RESET                   = MAKE_VALUE(0x18, 0),  /*!< xmc periph reset */
-            CRM_QSPI1_PERIPH_RESET                 = MAKE_VALUE(0x18, 1),  /*!< qspi1 periph reset */
-            CRM_QSPI2_PERIPH_RESET                 = MAKE_VALUE(0x18, 14), /*!< qspi2 periph reset */
-            CRM_SDIO2_PERIPH_RESET                 = MAKE_VALUE(0x18, 15), /*!< sdio2 periph reset */
+            CRM_XMC_PERIPH_Reset                   = MAKE_VALUE(0x18, 0),  /*!< xmc periph reset */
+            CRM_QSPI1_PERIPH_Reset                 = MAKE_VALUE(0x18, 1),  /*!< qspi1 periph reset */
+            CRM_QSPI2_PERIPH_Reset                 = MAKE_VALUE(0x18, 14), /*!< qspi2 periph reset */
+            CRM_SDIO2_PERIPH_Reset                 = MAKE_VALUE(0x18, 15), /*!< sdio2 periph reset */
             /* apb1 periph */
-            CRM_TMR2_PERIPH_RESET                  = MAKE_VALUE(0x20, 0),  /*!< tmr2 periph reset */
-            CRM_TMR3_PERIPH_RESET                  = MAKE_VALUE(0x20, 1),  /*!< tmr3 periph reset */
-            CRM_TMR4_PERIPH_RESET                  = MAKE_VALUE(0x20, 2),  /*!< tmr4 periph reset */
-            CRM_TMR5_PERIPH_RESET                  = MAKE_VALUE(0x20, 3),  /*!< tmr5 periph reset */
-            CRM_TMR6_PERIPH_RESET                  = MAKE_VALUE(0x20, 4),  /*!< tmr6 periph reset */
-            CRM_TMR7_PERIPH_RESET                  = MAKE_VALUE(0x20, 5),  /*!< tmr7 periph reset */
-            CRM_TMR12_PERIPH_RESET                 = MAKE_VALUE(0x20, 6),  /*!< tmr12 periph reset */
-            CRM_TMR13_PERIPH_RESET                 = MAKE_VALUE(0x20, 7),  /*!< tmr13 periph reset */
-            CRM_TMR14_PERIPH_RESET                 = MAKE_VALUE(0x20, 8),  /*!< tmr14 periph reset */
-            CRM_WWDT_PERIPH_RESET                  = MAKE_VALUE(0x20, 11), /*!< wwdt periph reset */
-            CRM_SPI2_PERIPH_RESET                  = MAKE_VALUE(0x20, 14), /*!< spi2 periph reset */
-            CRM_SPI3_PERIPH_RESET                  = MAKE_VALUE(0x20, 15), /*!< spi3 periph reset */
-            CRM_USART2_PERIPH_RESET                = MAKE_VALUE(0x20, 17), /*!< usart2 periph reset */
-            CRM_USART3_PERIPH_RESET                = MAKE_VALUE(0x20, 18), /*!< usart3 periph reset */
-            CRM_UART4_PERIPH_RESET                 = MAKE_VALUE(0x20, 19), /*!< uart4 periph reset */
-            CRM_UART5_PERIPH_RESET                 = MAKE_VALUE(0x20, 20), /*!< uart5 periph reset */
-            CRM_I2C1_PERIPH_RESET                  = MAKE_VALUE(0x20, 21), /*!< i2c1 periph reset */
-            CRM_I2C2_PERIPH_RESET                  = MAKE_VALUE(0x20, 22), /*!< i2c2 periph reset */
-            CRM_I2C3_PERIPH_RESET                  = MAKE_VALUE(0x20, 23), /*!< i2c3 periph reset */
-            CRM_CAN1_PERIPH_RESET                  = MAKE_VALUE(0x20, 25), /*!< can1 periph reset */
-            CRM_CAN2_PERIPH_RESET                  = MAKE_VALUE(0x20, 26), /*!< can2 periph reset */
-            CRM_PWC_PERIPH_RESET                   = MAKE_VALUE(0x20, 28), /*!< pwc periph reset */
-            CRM_DAC_PERIPH_RESET                   = MAKE_VALUE(0x20, 29), /*!< dac periph reset */
-            CRM_UART7_PERIPH_RESET                 = MAKE_VALUE(0x20, 30), /*!< uart7 periph reset */
-            CRM_UART8_PERIPH_RESET                 = MAKE_VALUE(0x20, 31), /*!< uart8 periph reset */
+            CRM_TMR2_PERIPH_Reset                  = MAKE_VALUE(0x20, 0),  /*!< tmr2 periph reset */
+            CRM_TMR3_PERIPH_Reset                  = MAKE_VALUE(0x20, 1),  /*!< tmr3 periph reset */
+            CRM_TMR4_PERIPH_Reset                  = MAKE_VALUE(0x20, 2),  /*!< tmr4 periph reset */
+            CRM_TMR5_PERIPH_Reset                  = MAKE_VALUE(0x20, 3),  /*!< tmr5 periph reset */
+            CRM_TMR6_PERIPH_Reset                  = MAKE_VALUE(0x20, 4),  /*!< tmr6 periph reset */
+            CRM_TMR7_PERIPH_Reset                  = MAKE_VALUE(0x20, 5),  /*!< tmr7 periph reset */
+            CRM_TMR12_PERIPH_Reset                 = MAKE_VALUE(0x20, 6),  /*!< tmr12 periph reset */
+            CRM_TMR13_PERIPH_Reset                 = MAKE_VALUE(0x20, 7),  /*!< tmr13 periph reset */
+            CRM_TMR14_PERIPH_Reset                 = MAKE_VALUE(0x20, 8),  /*!< tmr14 periph reset */
+            CRM_WWDT_PERIPH_Reset                  = MAKE_VALUE(0x20, 11), /*!< wwdt periph reset */
+            CRM_SPI2_PERIPH_Reset                  = MAKE_VALUE(0x20, 14), /*!< spi2 periph reset */
+            CRM_SPI3_PERIPH_Reset                  = MAKE_VALUE(0x20, 15), /*!< spi3 periph reset */
+            CRM_USART2_PERIPH_Reset                = MAKE_VALUE(0x20, 17), /*!< usart2 periph reset */
+            CRM_USART3_PERIPH_Reset                = MAKE_VALUE(0x20, 18), /*!< usart3 periph reset */
+            CRM_UART4_PERIPH_Reset                 = MAKE_VALUE(0x20, 19), /*!< uart4 periph reset */
+            CRM_UART5_PERIPH_Reset                 = MAKE_VALUE(0x20, 20), /*!< uart5 periph reset */
+            CRM_I2C1_PERIPH_Reset                  = MAKE_VALUE(0x20, 21), /*!< i2c1 periph reset */
+            CRM_I2C2_PERIPH_Reset                  = MAKE_VALUE(0x20, 22), /*!< i2c2 periph reset */
+            CRM_I2C3_PERIPH_Reset                  = MAKE_VALUE(0x20, 23), /*!< i2c3 periph reset */
+            CRM_CAN1_PERIPH_Reset                  = MAKE_VALUE(0x20, 25), /*!< can1 periph reset */
+            CRM_CAN2_PERIPH_Reset                  = MAKE_VALUE(0x20, 26), /*!< can2 periph reset */
+            CRM_PWC_PERIPH_Reset                   = MAKE_VALUE(0x20, 28), /*!< pwc periph reset */
+            CRM_DAC_PERIPH_Reset                   = MAKE_VALUE(0x20, 29), /*!< dac periph reset */
+            CRM_UART7_PERIPH_Reset                 = MAKE_VALUE(0x20, 30), /*!< uart7 periph reset */
+            CRM_UART8_PERIPH_Reset                 = MAKE_VALUE(0x20, 31), /*!< uart8 periph reset */
             /* apb2 periph */
-            CRM_TMR1_PERIPH_RESET                  = MAKE_VALUE(0x24, 0),  /*!< tmr1 periph reset */
-            CRM_TMR8_PERIPH_RESET                  = MAKE_VALUE(0x24, 1),  /*!< tmr8 periph reset */
-            CRM_USART1_PERIPH_RESET                = MAKE_VALUE(0x24, 4),  /*!< usart1 periph reset */
-            CRM_USART6_PERIPH_RESET                = MAKE_VALUE(0x24, 5),  /*!< usart6 periph reset */
-            CRM_ADC_PERIPH_RESET                   = MAKE_VALUE(0x24, 8),  /*!< adc periph reset */
-            CRM_SPI1_PERIPH_RESET                  = MAKE_VALUE(0x24, 12), /*!< spi1 periph reset */
-            CRM_SPI4_PERIPH_RESET                  = MAKE_VALUE(0x24, 13), /*!< spi4 periph reset */
-            CRM_SCFG_PERIPH_RESET                  = MAKE_VALUE(0x24, 14), /*!< scfg periph reset */
-            CRM_TMR9_PERIPH_RESET                  = MAKE_VALUE(0x24, 16), /*!< tmr9 periph reset */
-            CRM_TMR10_PERIPH_RESET                 = MAKE_VALUE(0x24, 17), /*!< tmr10 periph reset */
-            CRM_TMR11_PERIPH_RESET                 = MAKE_VALUE(0x24, 18), /*!< tmr11 periph reset */
-            CRM_TMR20_PERIPH_RESET                 = MAKE_VALUE(0x24, 20), /*!< tmr20 periph reset */
-            CRM_ACC_PERIPH_RESET                   = MAKE_VALUE(0x24, 29)  /*!< acc periph reset */
+            CRM_TMR1_PERIPH_Reset                  = MAKE_VALUE(0x24, 0),  /*!< tmr1 periph reset */
+            CRM_TMR8_PERIPH_Reset                  = MAKE_VALUE(0x24, 1),  /*!< tmr8 periph reset */
+            CRM_USART1_PERIPH_Reset                = MAKE_VALUE(0x24, 4),  /*!< usart1 periph reset */
+            CRM_USART6_PERIPH_Reset                = MAKE_VALUE(0x24, 5),  /*!< usart6 periph reset */
+            CRM_ADC_PERIPH_Reset                   = MAKE_VALUE(0x24, 8),  /*!< adc periph reset */
+            CRM_SPI1_PERIPH_Reset                  = MAKE_VALUE(0x24, 12), /*!< spi1 periph reset */
+            CRM_SPI4_PERIPH_Reset                  = MAKE_VALUE(0x24, 13), /*!< spi4 periph reset */
+            CRM_SCFG_PERIPH_Reset                  = MAKE_VALUE(0x24, 14), /*!< scfg periph reset */
+            CRM_TMR9_PERIPH_Reset                  = MAKE_VALUE(0x24, 16), /*!< tmr9 periph reset */
+            CRM_TMR10_PERIPH_Reset                 = MAKE_VALUE(0x24, 17), /*!< tmr10 periph reset */
+            CRM_TMR11_PERIPH_Reset                 = MAKE_VALUE(0x24, 18), /*!< tmr11 periph reset */
+            CRM_TMR20_PERIPH_Reset                 = MAKE_VALUE(0x24, 20), /*!< tmr20 periph reset */
+            CRM_ACC_PERIPH_Reset                   = MAKE_VALUE(0x24, 29)  /*!< acc periph reset */
             #endif
 
-} crm_periph_reset_type;
+} crm_periph_Reset_Type;
 
 /**
   * @brief crm periph clock in low power mode
@@ -528,15 +528,15 @@ typedef enum {
             CRM_ACC_PERIPH_LOWPOWER                = MAKE_VALUE(0x64, 29)  /*!< acc sleep mode periph clock */
             #endif
 
-} crm_periph_clock_lowpower_type;
+} crm_periph_Clock_lowpower_Type;
 
 /**
   * @brief crm pll clock source
   */
 typedef enum {
-    CRM_PLL_SOURCE_HICK                    = 0x00, /*!< high speed internal clock as pll reference clock source */
-    CRM_PLL_SOURCE_HEXT                    = 0x01  /*!< high speed external crystal as pll reference clock source */
-} crm_pll_clock_source_type;
+    CRM_PLL_Source_HICK                    = 0x00, /*!< high speed internal clock as pll reference clock source */
+    CRM_PLL_Source_HEXT                    = 0x01  /*!< high speed external crystal as pll reference clock source */
+} crm_pll_Clock_Source_Type;
 
 /**
   * @brief crm pll fr
@@ -548,18 +548,18 @@ typedef enum {
     CRM_PLL_FR_8                           = 0x03, /*!< pll post-division div8 */
     CRM_PLL_FR_16                          = 0x04, /*!< pll post-division div16 */
     CRM_PLL_FR_32                          = 0x05  /*!< pll post-division div32 */
-} crm_pll_fr_type;
+} crm_pll_fr_Type;
 
 /**
   * @brief crm clock source
   */
 typedef enum {
-    CRM_CLOCK_SOURCE_HICK                  = 0x00, /*!< high speed internal clock */
-    CRM_CLOCK_SOURCE_HEXT                  = 0x01, /*!< high speed external crystal */
-    CRM_CLOCK_SOURCE_PLL                   = 0x02, /*!< phase locking loop */
-    CRM_CLOCK_SOURCE_LEXT                  = 0x03, /*!< low speed external crystal */
-    CRM_CLOCK_SOURCE_LICK                  = 0x04  /*!< low speed internal clock */
-} crm_clock_source_type;
+    CRM_Clock_Source_HICK                  = 0x00, /*!< high speed internal clock */
+    CRM_Clock_Source_HEXT                  = 0x01, /*!< high speed external crystal */
+    CRM_Clock_Source_PLL                   = 0x02, /*!< phase locking loop */
+    CRM_Clock_Source_LEXT                  = 0x03, /*!< low speed external crystal */
+    CRM_Clock_Source_LICK                  = 0x04  /*!< low speed internal clock */
+} crm_Clock_Source_Type;
 
 /**
   * @brief crm ahb division
@@ -574,7 +574,7 @@ typedef enum {
     CRM_AHB_DIV_128                        = 0x0D, /*!< sclk div128 to ahbclk */
     CRM_AHB_DIV_256                        = 0x0E, /*!< sclk div256 to ahbclk */
     CRM_AHB_DIV_512                        = 0x0F  /*!< sclk div512 to ahbclk */
-} crm_ahb_div_type;
+} crm_ahb_div_Type;
 
 /**
   * @brief crm apb1 division
@@ -585,7 +585,7 @@ typedef enum {
     CRM_APB1_DIV_4                         = 0x05, /*!< ahbclk div4 to apb1clk */
     CRM_APB1_DIV_8                         = 0x06, /*!< ahbclk div8 to apb1clk */
     CRM_APB1_DIV_16                        = 0x07  /*!< ahbclk div16 to apb1clk */
-} crm_apb1_div_type;
+} crm_apb1_div_Type;
 
 /**
   * @brief crm apb2 division
@@ -596,7 +596,7 @@ typedef enum {
     CRM_APB2_DIV_4                         = 0x05, /*!< ahbclk div4 to apb2clk */
     CRM_APB2_DIV_8                         = 0x06, /*!< ahbclk div8 to apb2clk */
     CRM_APB2_DIV_16                        = 0x07  /*!< ahbclk div16 to apb2clk */
-} crm_apb2_div_type;
+} crm_apb2_div_Type;
 
 /**
   * @brief crm usb division
@@ -615,46 +615,46 @@ typedef enum {
     CRM_USB_DIV_6_5                        = 0x0A, /*!< pllclk div6.5 to usbclk */
     CRM_USB_DIV_6                          = 0x0B, /*!< pllclk div6 to usbclk */
     CRM_USB_DIV_7                          = 0x0C  /*!< pllclk div7 to usbclk */
-} crm_usb_div_type;
+} crm_usb_div_Type;
 
 /**
   * @brief crm ertc clock
   */
 typedef enum {
-    CRM_ERTC_CLOCK_NOCLK                   = 0x000, /*!< no clock as ertc clock source */
-    CRM_ERTC_CLOCK_LEXT                    = 0x001, /*!< low speed external crystal as ertc clock source */
-    CRM_ERTC_CLOCK_LICK                    = 0x002, /*!< low speed internal clock as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_2              = 0x023, /*!< high speed external crystal div2 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_3              = 0x033, /*!< high speed external crystal div3 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_4              = 0x043, /*!< high speed external crystal div4 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_5              = 0x053, /*!< high speed external crystal div5 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_6              = 0x063, /*!< high speed external crystal div6 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_7              = 0x073, /*!< high speed external crystal div7 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_8              = 0x083, /*!< high speed external crystal div8 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_9              = 0x093, /*!< high speed external crystal div9 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_10             = 0x0A3, /*!< high speed external crystal div10 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_11             = 0x0B3, /*!< high speed external crystal div11 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_12             = 0x0C3, /*!< high speed external crystal div12 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_13             = 0x0D3, /*!< high speed external crystal div13 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_14             = 0x0E3, /*!< high speed external crystal div14 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_15             = 0x0F3, /*!< high speed external crystal div15 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_16             = 0x103, /*!< high speed external crystal div16 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_17             = 0x113, /*!< high speed external crystal div17 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_18             = 0x123, /*!< high speed external crystal div18 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_19             = 0x133, /*!< high speed external crystal div19 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_20             = 0x143, /*!< high speed external crystal div20 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_21             = 0x153, /*!< high speed external crystal div21 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_22             = 0x163, /*!< high speed external crystal div22 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_23             = 0x173, /*!< high speed external crystal div23 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_24             = 0x183, /*!< high speed external crystal div24 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_25             = 0x193, /*!< high speed external crystal div25 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_26             = 0x1A3, /*!< high speed external crystal div26 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_27             = 0x1B3, /*!< high speed external crystal div27 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_28             = 0x1C3, /*!< high speed external crystal div28 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_29             = 0x1D3, /*!< high speed external crystal div29 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_30             = 0x1E3, /*!< high speed external crystal div30 as ertc clock source */
-    CRM_ERTC_CLOCK_HEXT_DIV_31             = 0x1F3  /*!< high speed external crystal div31 as ertc clock source */
-} crm_ertc_clock_type;
+    CRM_ERTC_Clock_NOCLK                   = 0x000, /*!< no clock as ertc clock source */
+    CRM_ERTC_Clock_LEXT                    = 0x001, /*!< low speed external crystal as ertc clock source */
+    CRM_ERTC_Clock_LICK                    = 0x002, /*!< low speed internal clock as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_2              = 0x023, /*!< high speed external crystal div2 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_3              = 0x033, /*!< high speed external crystal div3 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_4              = 0x043, /*!< high speed external crystal div4 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_5              = 0x053, /*!< high speed external crystal div5 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_6              = 0x063, /*!< high speed external crystal div6 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_7              = 0x073, /*!< high speed external crystal div7 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_8              = 0x083, /*!< high speed external crystal div8 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_9              = 0x093, /*!< high speed external crystal div9 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_10             = 0x0A3, /*!< high speed external crystal div10 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_11             = 0x0B3, /*!< high speed external crystal div11 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_12             = 0x0C3, /*!< high speed external crystal div12 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_13             = 0x0D3, /*!< high speed external crystal div13 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_14             = 0x0E3, /*!< high speed external crystal div14 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_15             = 0x0F3, /*!< high speed external crystal div15 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_16             = 0x103, /*!< high speed external crystal div16 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_17             = 0x113, /*!< high speed external crystal div17 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_18             = 0x123, /*!< high speed external crystal div18 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_19             = 0x133, /*!< high speed external crystal div19 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_20             = 0x143, /*!< high speed external crystal div20 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_21             = 0x153, /*!< high speed external crystal div21 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_22             = 0x163, /*!< high speed external crystal div22 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_23             = 0x173, /*!< high speed external crystal div23 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_24             = 0x183, /*!< high speed external crystal div24 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_25             = 0x193, /*!< high speed external crystal div25 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_26             = 0x1A3, /*!< high speed external crystal div26 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_27             = 0x1B3, /*!< high speed external crystal div27 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_28             = 0x1C3, /*!< high speed external crystal div28 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_29             = 0x1D3, /*!< high speed external crystal div29 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_30             = 0x1E3, /*!< high speed external crystal div30 as ertc clock source */
+    CRM_ERTC_Clock_HEXT_DIV_31             = 0x1F3  /*!< high speed external crystal div31 as ertc clock source */
+} crm_ERTC_Clock_Type;
 
 /**
   * @brief crm hick 48mhz division
@@ -662,7 +662,7 @@ typedef enum {
 typedef enum {
     CRM_HICK48_DIV6                        = 0x00, /*!< fixed 8 mhz when hick is selected as sclk */
     CRM_HICK48_NODIV                       = 0x01  /*!< 8 mhz or 48 mhz depend on hickdiv when hick is selected as sclk */
-} crm_hick_div_6_type;
+} crm_hick_div_6_Type;
 
 /**
   * @brief crm sclk select
@@ -671,7 +671,7 @@ typedef enum {
     CRM_SCLK_HICK                          = 0x00, /*!< select high speed internal clock as sclk */
     CRM_SCLK_HEXT                          = 0x01, /*!< select high speed external crystal as sclk */
     CRM_SCLK_PLL                           = 0x02  /*!< select phase locking loop clock as sclk */
-} crm_sclk_type;
+} crm_sclk_Type;
 
 /**
   * @brief crm clkout index
@@ -679,7 +679,7 @@ typedef enum {
 typedef enum {
     CRM_CLKOUT_INDEX_1                     = 0x00, /*!< clkout1 */
     CRM_CLKOUT_INDEX_2                     = 0x01  /*!< clkout2 */
-} crm_clkout_index_type;
+} crm_clkout_index_Type;
 
 /**
   * @brief crm clkout1 select
@@ -689,7 +689,7 @@ typedef enum {
     CRM_CLKOUT1_LEXT                       = 0x01, /*!< output low speed external crystal to clkout1 pin */
     CRM_CLKOUT1_HEXT                       = 0x02, /*!< output high speed external crystal to clkout1 pin */
     CRM_CLKOUT1_PLL                        = 0x03  /*!< output phase locking loop clock to clkout1 pin */
-} crm_clkout1_select_type;
+} crm_clkout1_Select_Type;
 
 /**
   * @brief crm clkout2 select
@@ -703,7 +703,7 @@ typedef enum {
     CRM_CLKOUT2_HICK                       = 0x12, /*!< output high speed internal clock to clkout2 pin */
     CRM_CLKOUT2_LICK                       = 0x13, /*!< output low speed internal clock to clkout2 pin */
     CRM_CLKOUT2_LEXT                       = 0x14  /*!< output low speed external crystal to clkout2 pin */
-} crm_clkout2_select_type;
+} crm_clkout2_Select_Type;
 
 /**
   * @brief crm clkout division1
@@ -714,7 +714,7 @@ typedef enum {
     CRM_CLKOUT_DIV1_3                      = 0x05, /*!< clkout division1 div3 */
     CRM_CLKOUT_DIV1_4                      = 0x06, /*!< clkout division1 div4 */
     CRM_CLKOUT_DIV1_5                      = 0x07  /*!< clkout division1 div5 */
-} crm_clkout_div1_type;
+} crm_clkout_div1_Type;
 
 /**
   * @brief crm clkout division2
@@ -729,23 +729,23 @@ typedef enum {
     CRM_CLKOUT_DIV2_128                    = 0x0D, /*!< clkout division2 div128 */
     CRM_CLKOUT_DIV2_256                    = 0x0E, /*!< clkout division2 div256 */
     CRM_CLKOUT_DIV2_512                    = 0x0F  /*!< clkout division2 div512 */
-} crm_clkout_div2_type;
+} crm_clkout_div2_Type;
 
 /**
   * @brief crm auto step mode
   */
 typedef enum {
-    CRM_AUTO_STEP_MODE_DISABLE             = 0x00, /*!< disable auto step mode */
-    CRM_AUTO_STEP_MODE_ENABLE              = 0x03  /*!< enable auto step mode */
-} crm_auto_step_mode_type;
+    CRM_Auto_Step_Mode_Disable             = 0x00, /*!< disable auto step mode */
+    CRM_Auto_Step_Mode_Enable              = 0x03  /*!< enable auto step mode */
+} crm_Auto_Step_Mode_Type;
 
 /**
   * @brief crm usb 48 mhz clock source select
   */
 typedef enum {
-    CRM_USB_CLOCK_SOURCE_PLL               = 0x00, /*!< select phase locking loop clock as usb clock source */
-    CRM_USB_CLOCK_SOURCE_HICK              = 0x01  /*!< select high speed internal clock as usb clock source */
-} crm_usb_clock_source_type;
+    CRM_USB_Clock_Source_PLL               = 0x00, /*!< select phase locking loop clock as usb clock source */
+    CRM_USB_Clock_Source_HICK              = 0x01  /*!< select high speed internal clock as usb clock source */
+} crm_usb_Clock_Source_Type;
 
 /**
   * @brief crm hick as system clock frequency select
@@ -753,7 +753,7 @@ typedef enum {
 typedef enum {
     CRM_HICK_SCLK_8MHZ                     = 0x00, /*!< fixed 8 mhz when hick is selected as sclk */
     CRM_HICK_SCLK_48MHZ                    = 0x01  /*!< 8 mhz or 48 mhz depend on hickdiv when hick is selected as sclk */
-} crm_hick_sclk_frequency_type;
+} crm_hick_sclk_Frequency_Type;
 
 /**
   * @brief crm emac output pulse width
@@ -761,7 +761,7 @@ typedef enum {
 typedef enum {
     CRM_EMAC_PULSE_125MS                   = 0x00, /*!< emac output pulse width 125ms */
     CRM_EMAC_PULSE_1SCLK                   = 0x01  /*!< emac output pulse width 1 system clock */
-} crm_emac_output_pulse_type;
+} crm_EMAC_OutPut_pulse_Type;
 
 /**
   * @brief crm clocks freqency structure
@@ -771,7 +771,7 @@ typedef struct {
     uint32_t ahb_freq;  /*!< ahb bus clock frequency */
     uint32_t apb2_freq; /*!< apb2 bus clock frequency */
     uint32_t apb1_freq; /*!< apb1 bus clock frequency */
-} crm_clocks_freq_type;
+} crm_clocks_Freq_Type;
 
 /**
   * @brief type define crm register all
@@ -1418,64 +1418,64 @@ typedef struct {
         __IO uint32_t misc2;
         struct {
             __IO uint32_t reserved1            : 4; /* [3:0] */
-            __IO uint32_t auto_step_en         : 2; /* [5:4] */
+            __IO uint32_t auto_Step_en         : 2; /* [5:4] */
             __IO uint32_t reserved2            : 2; /* [7:6] */
             __IO uint32_t clk_to_tmr           : 1; /* [8] */
-            __IO uint32_t emac_pps_sel         : 1; /* [9] */
+            __IO uint32_t EMAC_PPS_sel         : 1; /* [9] */
             __IO uint32_t reserved3            : 2; /* [11:10] */
             __IO uint32_t usbdiv               : 4; /* [15:12] */
             __IO uint32_t reserved4            : 16;/* [31:16] */
         } misc2_bit;
     };
 
-} crm_type;
+} crm_Type;
 
 /**
   * @}
   */
 
-#define CRM                              ((crm_type *) CRM_BASE)
+#define CRM                              ((crm_Type *) CRM_BASE)
 
 /** @defgroup CRM_exported_functions
   * @{
   */
 
-void crm_reset(void);
+void crm_Reset(void);
 void crm_lext_bypass(confirm_state new_state);
 void crm_hext_bypass(confirm_state new_state);
-flag_status crm_flag_get(uint32_t flag);
+flag_status crm_Flag_Get(uint32_t flag);
 error_status crm_hext_stable_wait(void);
-void crm_hick_clock_trimming_set(uint8_t trim_value);
-void crm_hick_clock_calibration_set(uint8_t cali_value);
-void crm_periph_clock_enable(crm_periph_clock_type value, confirm_state new_state);
-void crm_periph_reset(crm_periph_reset_type value, confirm_state new_state);
-void crm_periph_lowpower_mode_enable(crm_periph_clock_lowpower_type value, confirm_state new_state);
-void crm_clock_source_enable(crm_clock_source_type source, confirm_state new_state);
-void crm_flag_clear(uint32_t flag);
-void crm_ertc_clock_select(crm_ertc_clock_type value);
-void crm_ertc_clock_enable(confirm_state new_state);
-void crm_ahb_div_set(crm_ahb_div_type value);
-void crm_apb1_div_set(crm_apb1_div_type value);
-void crm_apb2_div_set(crm_apb2_div_type value);
-void crm_usb_clock_div_set(crm_usb_div_type value);
-void crm_clock_failure_detection_enable(confirm_state new_state);
-void crm_battery_powered_domain_reset(confirm_state new_state);
-void crm_auto_step_mode_enable(confirm_state new_state);
-void crm_hick_divider_select(crm_hick_div_6_type value);
-void crm_hick_sclk_frequency_select(crm_hick_sclk_frequency_type value);
-void crm_usb_clock_source_select(crm_usb_clock_source_type value);
-void crm_clkout_to_tmr10_enable(confirm_state new_state);
-void crm_pll_config(crm_pll_clock_source_type clock_source, uint16_t pll_ns, \
-                    uint16_t pll_ms, crm_pll_fr_type pll_fr);
-void crm_sysclk_switch(crm_sclk_type value);
-crm_sclk_type crm_sysclk_switch_status_get(void);
-void crm_clocks_freq_get(crm_clocks_freq_type *clocks_struct);
-void crm_clock_out1_set(crm_clkout1_select_type clkout);
-void crm_clock_out2_set(crm_clkout2_select_type clkout);
-void crm_clkout_div_set(crm_clkout_index_type index, crm_clkout_div1_type div1, crm_clkout_div2_type div2);
-void crm_emac_output_pulse_set(crm_emac_output_pulse_type width);
-void crm_interrupt_enable(uint32_t crm_int, confirm_state new_state);
-error_status crm_pll_parameter_calculate(crm_pll_clock_source_type pll_rcs, uint32_t target_sclk_freq, \
+void crm_hick_Clock_trimming_Set(uint8_t trim_value);
+void crm_hick_Clock_Calibration_Set(uint8_t cali_value);
+void crm_periph_Clock_Enable(crm_periph_Clock_Type value, confirm_state new_state);
+void crm_periph_Reset(crm_periph_Reset_Type value, confirm_state new_state);
+void crm_periph_lowpower_Mode_Enable(crm_periph_Clock_lowpower_Type value, confirm_state new_state);
+void crm_Clock_Source_Enable(crm_Clock_Source_Type source, confirm_state new_state);
+void crm_Flag_Clear(uint32_t flag);
+void crm_ERTC_Clock_Select(crm_ERTC_Clock_Type value);
+void crm_ERTC_Clock_Enable(confirm_state new_state);
+void crm_ahb_div_Set(crm_ahb_div_Type value);
+void crm_apb1_div_Set(crm_apb1_div_Type value);
+void crm_apb2_div_Set(crm_apb2_div_Type value);
+void crm_usb_Clock_div_Set(crm_usb_div_Type value);
+void crm_Clock_failure_detection_Enable(confirm_state new_state);
+void crm_battery_powered_domain_Reset(confirm_state new_state);
+void crm_Auto_Step_Mode_Enable(confirm_state new_state);
+void crm_hick_divider_Select(crm_hick_div_6_Type value);
+void crm_hick_sclk_Frequency_Select(crm_hick_sclk_Frequency_Type value);
+void crm_usb_Clock_Source_Select(crm_usb_Clock_Source_Type value);
+void crm_clkout_to_tmr10_Enable(confirm_state new_state);
+void crm_pll_Config(crm_pll_Clock_Source_Type clock_source, uint16_t pll_ns, \
+                    uint16_t pll_ms, crm_pll_fr_Type pll_fr);
+void crm_sysclk_switch(crm_sclk_Type value);
+crm_sclk_Type crm_sysclk_switch_Status_Get(void);
+void crm_clocks_Freq_Get(crm_clocks_Freq_Type *clocks_struct);
+void crm_Clock_out1_Set(crm_clkout1_Select_Type clkout);
+void crm_Clock_out2_Set(crm_clkout2_Select_Type clkout);
+void crm_clkout_div_Set(crm_clkout_index_Type index, crm_clkout_div1_Type div1, crm_clkout_div2_Type div2);
+void crm_EMAC_OutPut_pulse_Set(crm_EMAC_OutPut_pulse_Type width);
+void crm_Interrupt_Enable(uint32_t crm_int, confirm_state new_state);
+error_status crm_pll_parameter_calculate(crm_pll_Clock_Source_Type pll_rcs, uint32_t target_sclk_freq, \
         uint16_t *ret_ms, uint16_t *ret_ns, uint16_t *ret_fr);
 
 /**

@@ -33,7 +33,7 @@
   * @{
   */
 
-#ifdef QSPI_MODULE_ENABLED
+#ifdef QSPI_MODULE_EnableD
 
 /** @defgroup QSPI_private_functions
   * @{
@@ -42,36 +42,36 @@
 /**
   * @brief  enable/disable encryption for qspi.
   * @note   the function must be configured only when qspi in command-port mode!!!
-  * @param  qspi_x: select the qspi peripheral.
+  * @param  QSPI_x: select the qspi peripheral.
   *         this parameter can be one of the following values:
   *         QSPI1,QSPI2.
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void qspi_encryption_enable(qspi_type* qspi_x, confirm_state new_state) {
-    qspi_x->ctrl_bit.keyen = new_state;
+void QSPI_encryption_Enable(QSPI_Type* QSPI_x, confirm_state new_state) {
+    QSPI_x->ctrl_bit.keyen = new_state;
 }
 
 /**
   * @brief  set qspi sck mode.
   * @note   the function must be configured only when qspi in command-port mode!!!
-  * @param  qspi_x: select the qspi peripheral.
+  * @param  QSPI_x: select the qspi peripheral.
   *         this parameter can be one of the following values:
   *         QSPI1,QSPI2.
   * @param  new_mode: new state to be set
   *         this parameter can be one of the following values:
-  *         - QSPI_SCK_MODE_0
-  *         - QSPI_SCK_MODE_3
+  *         - QSPI_SCK_Mode_0
+  *         - QSPI_SCK_Mode_3
   * @retval none
   */
-void qspi_sck_mode_set(qspi_type* qspi_x, qspi_clk_mode_type new_mode) {
-    qspi_x->ctrl_bit.sckmode = new_mode;
+void QSPI_sck_Mode_Set(QSPI_Type* QSPI_x, QSPI_clk_Mode_Type new_mode) {
+    QSPI_x->ctrl_bit.sckmode = new_mode;
 }
 
 /**
   * @brief  set qspi clock division
   * @note   the function must be configured only when qspi in command-port mode!!!
-  * @param  qspi_x: select the qspi peripheral.
+  * @param  QSPI_x: select the qspi peripheral.
   *         this parameter can be one of the following values:
   *         QSPI1,QSPI2.
   * @param  new_clkdiv: new division value
@@ -86,39 +86,39 @@ void qspi_sck_mode_set(qspi_type* qspi_x, qspi_clk_mode_type new_mode) {
   *         - QSPI_CLK_DIV_12
   * @retval none
   */
-void qspi_clk_division_set(qspi_type* qspi_x, qspi_clk_div_type new_clkdiv) {
-    qspi_x->ctrl_bit.clkdiv = new_clkdiv;
+void QSPI_clk_division_Set(QSPI_Type* QSPI_x, QSPI_clk_div_Type new_clkdiv) {
+    QSPI_x->ctrl_bit.clkdiv = new_clkdiv;
 }
 
 /**
   * @brief  enable/disable cache in xip mode
   * @note   the function must be configured only when qspi in command-port mode!!!
-  * @param  qspi_x: select the qspi peripheral.
+  * @param  QSPI_x: select the qspi peripheral.
   *         this parameter can be one of the following values:
   *         QSPI1,QSPI2.
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void qspi_xip_cache_bypass_set(qspi_type* qspi_x, confirm_state new_state) {
-    qspi_x->xip_cmd_w3_bit.bypassc = new_state;
+void QSPI_xip_cache_bypass_Set(QSPI_Type* QSPI_x, confirm_state new_state) {
+    QSPI_x->xip_cmd_w3_bit.bypassc = new_state;
 }
 
 /**
   * @brief  enable/disable interrupt when command is completed
   * @note   the function must be configured only when qspi in command-port mode!!!
-  * @param  qspi_x: select the qspi peripheral.
+  * @param  QSPI_x: select the qspi peripheral.
   *         this parameter can be one of the following values:
   *         QSPI1,QSPI2.
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void qspi_interrupt_enable(qspi_type* qspi_x, confirm_state new_state) {
-    qspi_x->ctrl2_bit.cmdie = new_state;
+void QSPI_Interrupt_Enable(QSPI_Type* QSPI_x, confirm_state new_state) {
+    QSPI_x->ctrl2_bit.cmdie = new_state;
 }
 
 /**
   * @brief  get status flags.
-  * @param  qspi_x: select the qspi peripheral.
+  * @param  QSPI_x: select the qspi peripheral.
   *         this parameter can be one of the following values:
   *         QSPI1,QSPI2.
   * @param  flag: specifies the flag to check.
@@ -128,20 +128,20 @@ void qspi_interrupt_enable(qspi_type* qspi_x, confirm_state new_state) {
   *         - QSPI_CMDSTS_FLAG
   * @retval the new state of usart_flag (SET or RESET).
   */
-flag_status qspi_flag_get(qspi_type* qspi_x, uint32_t flag) {
+flag_status QSPI_Flag_Get(QSPI_Type* QSPI_x, uint32_t flag) {
     flag_status bit_status = RESET;
 
     switch(flag) {
         case QSPI_RXFIFORDY_FLAG:
-            bit_status = (flag_status)qspi_x->fifosts_bit.rxfifordy;
+            bit_status = (flag_status)QSPI_x->fifosts_bit.rxfifordy;
             break;
 
         case QSPI_TXFIFORDY_FLAG:
-            bit_status = (flag_status)qspi_x->fifosts_bit.txfifordy;
+            bit_status = (flag_status)QSPI_x->fifosts_bit.txfifordy;
             break;
 
         case QSPI_CMDSTS_FLAG:
-            bit_status = (flag_status)qspi_x->cmdsts_bit.cmdsts;
+            bit_status = (flag_status)QSPI_x->cmdsts_bit.cmdsts;
             break;
 
         default:
@@ -153,7 +153,7 @@ flag_status qspi_flag_get(qspi_type* qspi_x, uint32_t flag) {
 
 /**
   * @brief  clear flags
-  * @param  qspi_x: select the qspi peripheral.
+  * @param  QSPI_x: select the qspi peripheral.
   *         this parameter can be one of the following values:
   *         QSPI1,QSPI2.
   * @param  flag: flags to be clear
@@ -161,14 +161,14 @@ flag_status qspi_flag_get(qspi_type* qspi_x, uint32_t flag) {
   *         - QSPI_CMDSTS_FLAG
   * @retval none
   */
-void qspi_flag_clear(qspi_type* qspi_x, uint32_t flag) {
-    qspi_x->cmdsts = QSPI_CMDSTS_FLAG;
+void QSPI_Flag_Clear(QSPI_Type* QSPI_x, uint32_t flag) {
+    QSPI_x->cmdsts = QSPI_CMDSTS_FLAG;
 }
 
 /**
   * @brief  set dma threshold for dma rx
   * @note   the function must be configured only when qspi in command-port mode!!!
-  * @param  qspi_x: select the qspi peripheral.
+  * @param  QSPI_x: select the qspi peripheral.
   *         this parameter can be one of the following values:
   *         QSPI1,QSPI2.
   * @param  new_threshold: value to set
@@ -178,14 +178,14 @@ void qspi_flag_clear(qspi_type* qspi_x, uint32_t flag) {
   *         - QSPI_DMA_FIFO_THOD_WORD32
   * @retval none
   */
-void qspi_dma_rx_threshold_set(qspi_type* qspi_x, qspi_dma_fifo_thod_type new_threshold) {
-    qspi_x->ctrl2_bit.rxfifo_thod = new_threshold;
+void QSPI_DMA_rx_threshold_Set(QSPI_Type* QSPI_x, QSPI_DMA_FIFO_thod_Type new_threshold) {
+    QSPI_x->ctrl2_bit.rxfifo_thod = new_threshold;
 }
 
 /**
   * @brief  set dma threshold for dma tx
   * @note   the function must be configured only when qspi in command-port mode!!!
-  * @param  qspi_x: select the qspi peripheral.
+  * @param  QSPI_x: select the qspi peripheral.
   *         this parameter can be one of the following values:
   *         QSPI1,QSPI2.
   * @param  new_threshold: value to set
@@ -195,27 +195,27 @@ void qspi_dma_rx_threshold_set(qspi_type* qspi_x, qspi_dma_fifo_thod_type new_th
   *         - QSPI_DMA_FIFO_THOD_WORD32
   * @retval none
   */
-void qspi_dma_tx_threshold_set(qspi_type* qspi_x, qspi_dma_fifo_thod_type new_threshold) {
-    qspi_x->ctrl2_bit.txfifo_thod = new_threshold;
+void QSPI_DMA_tx_threshold_Set(QSPI_Type* QSPI_x, QSPI_DMA_FIFO_thod_Type new_threshold) {
+    QSPI_x->ctrl2_bit.txfifo_thod = new_threshold;
 }
 
 /**
   * @brief  enable/disable dma transfer
   * @note   the function must be configured only when qspi in command-port mode!!!
-  * @param  qspi_x: select the qspi peripheral.
+  * @param  QSPI_x: select the qspi peripheral.
   *         this parameter can be one of the following values:
   *         QSPI1,QSPI2.
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void qspi_dma_enable(qspi_type* qspi_x, confirm_state new_state) {
-    qspi_x->ctrl2_bit.dmaen = new_state;
+void QSPI_DMA_Enable(QSPI_Type* QSPI_x, confirm_state new_state) {
+    QSPI_x->ctrl2_bit.dmaen = new_state;
 }
 
 /**
   * @brief  set wip position in status register of flash
   * @note   the function must be configured only when qspi in command-port mode!!!
-  * @param  qspi_x: select the qspi peripheral.
+  * @param  QSPI_x: select the qspi peripheral.
   *         this parameter can be one of the following values:
   *         QSPI1,QSPI2.
   * @param  busy_pos: value to set
@@ -230,168 +230,168 @@ void qspi_dma_enable(qspi_type* qspi_x, confirm_state new_state) {
   *         - QSPI_BUSY_OFFSET_7
   * @retval none
   */
-void qspi_busy_config(qspi_type* qspi_x, qspi_busy_pos_type busy_pos) {
-    qspi_x->ctrl_bit.busy = busy_pos;
+void QSPI_busy_Config(QSPI_Type* QSPI_x, QSPI_busy_pos_Type busy_pos) {
+    QSPI_x->ctrl_bit.busy = busy_pos;
 }
 
 /**
   * @brief  enable xip mode or command-port mode.
-  * @param  qspi_x: select the qspi peripheral.
+  * @param  QSPI_x: select the qspi peripheral.
   *         this parameter can be one of the following values:
   *         QSPI1,QSPI2.
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void qspi_xip_enable(qspi_type* qspi_x, confirm_state new_state) {
+void QSPI_xip_Enable(QSPI_Type* QSPI_x, confirm_state new_state) {
     /* skip if state is no change */
-    if(new_state == (confirm_state)(qspi_x->ctrl_bit.xipsel)) {
+    if(new_state == (confirm_state)(QSPI_x->ctrl_bit.xipsel)) {
         return;
     }
 
     /* wait until tx fifo emoty*/
-    while(qspi_x->fifosts_bit.txfifordy == 0);
+    while(QSPI_x->fifosts_bit.txfifordy == 0);
 
     /* flush and reset qspi state */
-    qspi_x->ctrl_bit.xiprcmdf = 1;
+    QSPI_x->ctrl_bit.xiprcmdf = 1;
 
     /* wait until action is finished */
-    while(qspi_x->ctrl_bit.abort);
+    while(QSPI_x->ctrl_bit.abort);
 
     /* set xip mode to new state */
-    qspi_x->ctrl_bit.xipsel = new_state;
+    QSPI_x->ctrl_bit.xipsel = new_state;
 
     /* wait until abort is not set */
-    while(qspi_x->ctrl_bit.abort);
+    while(QSPI_x->ctrl_bit.abort);
 
     /* wait until cache status valid*/
     if(new_state == TRUE) {
-        while( qspi_x->xip_cmd_w3_bit.csts );
+        while( QSPI_x->xip_cmd_w3_bit.csts );
     }
 }
 
 /**
-  * @brief  set command-port and qspi_x will start to work
-  * @param  qspi_x: select the qspi peripheral.
+  * @brief  set command-port and QSPI_x will start to work
+  * @param  QSPI_x: select the qspi peripheral.
   *         this parameter can be one of the following values:
   *         QSPI1,QSPI2.
-  * @param  qspi_cmd_struct: pointer to qspi cmd structure
+  * @param  QSPI_cmd_struct: pointer to qspi cmd structure
   * @retval none
   */
-void qspi_cmd_operation_kick(qspi_type* qspi_x, qspi_cmd_type* qspi_cmd_struct) {
+void QSPI_cmd_Operation_kick(QSPI_Type* QSPI_x, QSPI_cmd_Type* QSPI_cmd_struct) {
     uint32_t w1_val = 0, w3_val = 0;
 
     /* config analyse cmd_w0 register */
-    qspi_x->cmd_w0 = (uint32_t)qspi_cmd_struct->address_code;
+    QSPI_x->cmd_w0 = (uint32_t)QSPI_cmd_struct->address_code;
 
     /* config analyse cmd_w1 register */
-    w1_val = (uint32_t)qspi_cmd_struct->address_length;
-    w1_val |= (uint32_t)(qspi_cmd_struct->second_dummy_cycle_num << 16);
-    w1_val |= (uint32_t)(qspi_cmd_struct->instruction_length << 24);
-    w1_val |= (uint32_t)(qspi_cmd_struct->pe_mode_enable << 28);
-    qspi_x->cmd_w1 = w1_val;
+    w1_val = (uint32_t)QSPI_cmd_struct->address_length;
+    w1_val |= (uint32_t)(QSPI_cmd_struct->second_dummy_cycle_Num << 16);
+    w1_val |= (uint32_t)(QSPI_cmd_struct->instruction_length << 24);
+    w1_val |= (uint32_t)(QSPI_cmd_struct->pe_Mode_Enable << 28);
+    QSPI_x->cmd_w1 = w1_val;
 
     /* config analyse cmd_w2 register */
-    qspi_x->cmd_w2 = (uint32_t)qspi_cmd_struct->data_counter;
+    QSPI_x->cmd_w2 = (uint32_t)QSPI_cmd_struct->data_counter;
 
     /* config analyse cmd_w3 register */
-    w3_val = (uint32_t)(qspi_cmd_struct->write_data_enable << 1);
-    w3_val |= (uint32_t)(qspi_cmd_struct->read_status_enable << 2);
-    w3_val |= (uint32_t)(qspi_cmd_struct->read_status_config << 3);
-    w3_val |= (uint32_t)(qspi_cmd_struct->operation_mode << 5);
-    w3_val |= (uint32_t)(qspi_cmd_struct->pe_mode_operate_code << 16);
-    w3_val |= (uint32_t)(qspi_cmd_struct->instruction_code << 24);
-    qspi_x->cmd_w3 = w3_val;
+    w3_val = (uint32_t)(QSPI_cmd_struct->write_Data_Enable << 1);
+    w3_val |= (uint32_t)(QSPI_cmd_struct->read_Status_Enable << 2);
+    w3_val |= (uint32_t)(QSPI_cmd_struct->read_Status_Config << 3);
+    w3_val |= (uint32_t)(QSPI_cmd_struct->operation_mode << 5);
+    w3_val |= (uint32_t)(QSPI_cmd_struct->pe_Mode_operate_code << 16);
+    w3_val |= (uint32_t)(QSPI_cmd_struct->instruction_code << 24);
+    QSPI_x->cmd_w3 = w3_val;
 }
 
 /**
-  * @brief  initial xip mode for qspi_x
-  * @param  qspi_x: select the qspi peripheral.
+  * @brief  initial xip mode for QSPI_x
+  * @param  QSPI_x: select the qspi peripheral.
   *         this parameter can be one of the following values:
   *         QSPI1,QSPI2.
-  * @param  xip_init_struct: pointer to xip init structure.
+  * @param  xip_Init_struct: pointer to xip init structure.
   * @retval none.
   */
-void qspi_xip_init(qspi_type* qspi_x, qspi_xip_type* xip_init_struct) {
+void QSPI_xip_Init(QSPI_Type* QSPI_x, QSPI_xip_Type* xip_Init_struct) {
     uint32_t xc0_val = 0, xc1_val = 0, xc2_val = 0;
     /* config analyse xip_cmd_w0 register */
-    xc0_val = (uint32_t)xip_init_struct->read_second_dummy_cycle_num;
-    xc0_val |= (uint32_t)(xip_init_struct->read_operation_mode << 8);
-    xc0_val |= (uint32_t)(xip_init_struct->read_address_length << 11);
-    xc0_val |= (uint32_t)(xip_init_struct->read_instruction_code << 12);
-    qspi_x->xip_cmd_w0 = xc0_val;
+    xc0_val = (uint32_t)xip_Init_struct->read_Second_dummy_cycle_Num;
+    xc0_val |= (uint32_t)(xip_Init_struct->read_Operation_mode << 8);
+    xc0_val |= (uint32_t)(xip_Init_struct->read_Address_length << 11);
+    xc0_val |= (uint32_t)(xip_Init_struct->read_instruction_code << 12);
+    QSPI_x->xip_cmd_w0 = xc0_val;
 
     /* config analyse xip_cmd_w1 register */
-    xc1_val = (uint32_t)xip_init_struct->write_second_dummy_cycle_num;
-    xc1_val |= (uint32_t)(xip_init_struct->write_operation_mode << 8);
-    xc1_val |= (uint32_t)(xip_init_struct->write_address_length << 11);
-    xc1_val |= (uint32_t)(xip_init_struct->write_instruction_code << 12);
-    qspi_x->xip_cmd_w1 = xc1_val;
+    xc1_val = (uint32_t)xip_Init_struct->write_Second_dummy_cycle_Num;
+    xc1_val |= (uint32_t)(xip_Init_struct->write_Operation_mode << 8);
+    xc1_val |= (uint32_t)(xip_Init_struct->write_Address_length << 11);
+    xc1_val |= (uint32_t)(xip_Init_struct->write_instruction_code << 12);
+    QSPI_x->xip_cmd_w1 = xc1_val;
 
     /* config analyse xip_cmd_w2 register */
-    xc2_val = (uint32_t)xip_init_struct->read_data_counter;
-    xc2_val |= (uint32_t)(xip_init_struct->read_time_counter << 8);
-    xc2_val |= (uint32_t)(xip_init_struct->read_select_mode << 15);
-    xc2_val |= (uint32_t)(xip_init_struct->write_data_counter << 16);
-    xc2_val |= (uint32_t)(xip_init_struct->write_time_counter << 24);
-    xc2_val |= (uint32_t)(xip_init_struct->write_select_mode << 31);
-    qspi_x->xip_cmd_w2 = xc2_val;
+    xc2_val = (uint32_t)xip_Init_struct->read_Data_counter;
+    xc2_val |= (uint32_t)(xip_Init_struct->read_Time_counter << 8);
+    xc2_val |= (uint32_t)(xip_Init_struct->read_Select_mode << 15);
+    xc2_val |= (uint32_t)(xip_Init_struct->write_Data_counter << 16);
+    xc2_val |= (uint32_t)(xip_Init_struct->write_Time_counter << 24);
+    xc2_val |= (uint32_t)(xip_Init_struct->write_Select_mode << 31);
+    QSPI_x->xip_cmd_w2 = xc2_val;
 }
 
 /**
   * @brief  read one byte from qspi device in command mode
-  * @param  qspi_x: select the qspi peripheral.
+  * @param  QSPI_x: select the qspi peripheral.
   * @retval 8-bit data.
   */
-uint8_t qspi_byte_read(qspi_type* qspi_x) {
-    return qspi_x->dt_u8;
+uint8_t QSPI_Byte_Read(QSPI_Type* QSPI_x) {
+    return QSPI_x->dt_u8;
 }
 
 /**
   * @brief  read one half-word from qspi device in command mode
-  * @param  qspi_x: select the qspi peripheral.
+  * @param  QSPI_x: select the qspi peripheral.
   * @retval 16-bit data.
   */
-uint16_t qspi_half_word_read(qspi_type* qspi_x) {
-    return qspi_x->dt_u16;
+uint16_t QSPI_half_Word_Read(QSPI_Type* QSPI_x) {
+    return QSPI_x->dt_u16;
 }
 
 /**
   * @brief  read one word from qspi device in command mode
-  * @param  qspi_x: select the qspi peripheral.
+  * @param  QSPI_x: select the qspi peripheral.
   * @retval 32-bit data.
   */
-uint32_t qspi_word_read(qspi_type* qspi_x) {
-    return qspi_x->dt;
+uint32_t QSPI_Word_Read(QSPI_Type* QSPI_x) {
+    return QSPI_x->dt;
 }
 
 /**
   * @brief  write one byte to qspi device in command mode
-  * @param  qspi_x: select the qspi peripheral.
+  * @param  QSPI_x: select the qspi peripheral.
   * @param  value:  8-bit data.
   * @retval none.
   */
-void qspi_byte_write(qspi_type* qspi_x, uint8_t value) {
-    qspi_x->dt_u8 = value;
+void QSPI_Byte_Write(QSPI_Type* QSPI_x, uint8_t value) {
+    QSPI_x->dt_u8 = value;
 }
 
 /**
   * @brief  write one half-word to qspi device in command mode
-  * @param  qspi_x: select the qspi peripheral.
+  * @param  QSPI_x: select the qspi peripheral.
   * @param  value:  16-bit data.
   * @retval none.
   */
-void qspi_half_word_write(qspi_type* qspi_x, uint16_t value) {
-    qspi_x->dt_u16 = value;
+void QSPI_half_Word_Write(QSPI_Type* QSPI_x, uint16_t value) {
+    QSPI_x->dt_u16 = value;
 }
 
 /**
   * @brief  write one word to qspi device in command mode
-  * @param  qspi_x: select the qspi peripheral.
+  * @param  QSPI_x: select the qspi peripheral.
   * @param  value:  32-bit data.
   * @retval none.
   */
-void qspi_word_write(qspi_type* qspi_x, uint32_t value) {
-    qspi_x->dt = value;
+void QSPI_Word_Write(QSPI_Type* QSPI_x, uint32_t value) {
+    QSPI_x->dt = value;
 }
 
 /**

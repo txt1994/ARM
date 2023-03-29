@@ -33,7 +33,7 @@
   * @{
   */
 
-#ifdef SDIO_MODULE_ENABLED
+#ifdef SDIO_MODULE_EnableD
 
 /** @defgroup SDIO_private_functions
   * @{
@@ -46,7 +46,7 @@
   *         SDIO1, SDIO2.
   * @retval none
   */
-void sdio_reset(sdio_type *sdio_x) {
+void sdio_Reset(sdio_Type *sdio_x) {
     sdio_x->pwrctrl = 0x0;
     sdio_x->clkctrl = 0x0;
     sdio_x->argu = 0x0;
@@ -69,7 +69,7 @@ void sdio_reset(sdio_type *sdio_x) {
   *         - SDIO_POWER_ON
   * @retval none
   */
-void sdio_power_set(sdio_type *sdio_x, sdio_power_state_type power_state) {
+void sdio_power_Set(sdio_Type *sdio_x, sdio_power_state_Type power_state) {
     sdio_x->pwrctrl_bit.ps = power_state;
 }
 
@@ -78,10 +78,10 @@ void sdio_power_set(sdio_type *sdio_x, sdio_power_state_type power_state) {
   * @param  sdio_x: to select the sdio peripheral.
   *         this parameter can be one of the following values:
   *         SDIO1, SDIO2.
-  * @retval sdio_power_state_type (SDIO_POWER_ON or SDIO_POWER_OFF)
+  * @retval sdio_power_state_Type (SDIO_POWER_ON or SDIO_POWER_OFF)
   */
-sdio_power_state_type sdio_power_status_get(sdio_type *sdio_x) {
-    return (sdio_power_state_type)(sdio_x->pwrctrl_bit.ps);
+sdio_power_state_Type sdio_power_Status_Get(sdio_Type *sdio_x) {
+    return (sdio_power_state_Type)(sdio_x->pwrctrl_bit.ps);
 }
 
 /**
@@ -92,11 +92,11 @@ sdio_power_state_type sdio_power_status_get(sdio_type *sdio_x) {
   * @param  clk_div: sdio clock divide factor(frequency = sdio_clk / [clk_psc + 2]).
   * @param  clk_edg
   *         this parameter can be one of the following values:
-  *         - SDIO_CLOCK_EDGE_RISING
-  *         - SDIO_CLOCK_EDGE_FALLING
+  *         - SDIO_Clock_Edge_RISING
+  *         - SDIO_Clock_Edge_FALLING
   * @retval none
   */
-void sdio_clock_config(sdio_type *sdio_x, uint16_t clk_div, sdio_edge_phase_type clk_edg) {
+void sdio_Clock_Config(sdio_Type *sdio_x, uint16_t clk_div, sdio_Edge_phase_Type clk_edg) {
     /* config clock edge */
     sdio_x->clkctrl_bit.clkegs = clk_edg;
 
@@ -119,7 +119,7 @@ void sdio_clock_config(sdio_type *sdio_x, uint16_t clk_div, sdio_edge_phase_type
   *         - SDIO_BUS_WIDTH_D8
   * @retval none
   */
-void sdio_bus_width_config(sdio_type *sdio_x, sdio_bus_width_type width) {
+void sdio_bus_width_Config(sdio_Type *sdio_x, sdio_bus_width_Type width) {
     sdio_x->clkctrl_bit.busws = width;
 }
 
@@ -131,7 +131,7 @@ void sdio_bus_width_config(sdio_type *sdio_x, sdio_bus_width_type width) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void sdio_clock_bypass(sdio_type *sdio_x, confirm_state new_state) {
+void sdio_Clock_bypass(sdio_Type *sdio_x, confirm_state new_state) {
     sdio_x->clkctrl_bit.bypsen = new_state;
 }
 
@@ -144,7 +144,7 @@ void sdio_clock_bypass(sdio_type *sdio_x, confirm_state new_state) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void sdio_power_saving_mode_enable(sdio_type *sdio_x, confirm_state new_state) {
+void sdio_power_saving_Mode_Enable(sdio_Type *sdio_x, confirm_state new_state) {
     sdio_x->clkctrl_bit.pwrsven = new_state;
 }
 
@@ -156,7 +156,7 @@ void sdio_power_saving_mode_enable(sdio_type *sdio_x, confirm_state new_state) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void sdio_flow_control_enable(sdio_type *sdio_x, confirm_state new_state) {
+void sdio_flow_Control_Enable(sdio_Type *sdio_x, confirm_state new_state) {
     sdio_x->clkctrl_bit.hfcen = new_state;
 }
 
@@ -168,7 +168,7 @@ void sdio_flow_control_enable(sdio_type *sdio_x, confirm_state new_state) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void sdio_clock_enable(sdio_type *sdio_x, confirm_state new_state) {
+void sdio_Clock_Enable(sdio_Type *sdio_x, confirm_state new_state) {
     sdio_x->clkctrl_bit.clkoen = new_state;
 }
 
@@ -180,7 +180,7 @@ void sdio_clock_enable(sdio_type *sdio_x, confirm_state new_state) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void sdio_dma_enable(sdio_type *sdio_x, confirm_state new_state) {
+void sdio_DMA_Enable(sdio_Type *sdio_x, confirm_state new_state) {
     sdio_x->dtctrl_bit.dmaen = new_state;
 }
 
@@ -217,7 +217,7 @@ void sdio_dma_enable(sdio_type *sdio_x, confirm_state new_state) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void sdio_interrupt_enable(sdio_type *sdio_x, uint32_t int_opt,  confirm_state new_state) {
+void sdio_Interrupt_Enable(sdio_Type *sdio_x, uint32_t int_opt,  confirm_state new_state) {
     /* enable interrupt */
     if(TRUE == new_state) {
         sdio_x->inten |= int_opt;
@@ -260,7 +260,7 @@ void sdio_interrupt_enable(sdio_type *sdio_x, uint32_t int_opt,  confirm_state n
   *         - SDIO_SDIOIF_FLAG
   * @retval flag_status (SET or RESET)
   */
-flag_status sdio_flag_get(sdio_type *sdio_x, uint32_t flag) {
+flag_status sdio_Flag_Get(sdio_Type *sdio_x, uint32_t flag) {
     flag_status status = RESET;
 
     if((sdio_x->sts & flag) == flag) {
@@ -293,7 +293,7 @@ flag_status sdio_flag_get(sdio_type *sdio_x, uint32_t flag) {
   *         - SDIO_SDIOIF_FLAG
   * @retval none
   */
-void sdio_flag_clear(sdio_type *sdio_x, uint32_t flag) {
+void sdio_Flag_Clear(sdio_Type *sdio_x, uint32_t flag) {
     sdio_x->intclr = flag;
 }
 
@@ -302,11 +302,11 @@ void sdio_flag_clear(sdio_type *sdio_x, uint32_t flag) {
   * @param  sdio_x: to select the sdio peripheral.
   *         this parameter can be one of the following values:
   *         SDIO1, SDIO2.
-  * @param  command_struct : pointer to a sdio_command_struct_type structure
+  * @param  command_struct : pointer to a sdio_command_struct_Type structure
   *         that contains the configuration information for the sdio command.
   * @retval none
   */
-void sdio_command_config(sdio_type *sdio_x, sdio_command_struct_type *command_struct) {
+void sdio_command_Config(sdio_Type *sdio_x, sdio_command_struct_Type *command_struct) {
     /* disable command path state machine */
     sdio_x->cmdctrl_bit.ccsmen = FALSE;
 
@@ -315,9 +315,9 @@ void sdio_command_config(sdio_type *sdio_x, sdio_command_struct_type *command_st
 
     /* config command register */
     sdio_x->cmdctrl_bit.cmdidx = command_struct->cmd_index;
-    sdio_x->cmdctrl_bit.rspwt = command_struct->rsp_type;
-    sdio_x->cmdctrl_bit.intwt = (command_struct->wait_type & 0x1); /* [1:0] -> [0] */
-    sdio_x->cmdctrl_bit.pndwt = (command_struct->wait_type & 0x2) >> 1; /* [1:0] -> [1] */
+    sdio_x->cmdctrl_bit.rspwt = command_struct->rsp_Type;
+    sdio_x->cmdctrl_bit.intwt = (command_struct->wait_Type & 0x1); /* [1:0] -> [0] */
+    sdio_x->cmdctrl_bit.pndwt = (command_struct->wait_Type & 0x2) >> 1; /* [1:0] -> [1] */
 }
 
 /**
@@ -328,7 +328,7 @@ void sdio_command_config(sdio_type *sdio_x, sdio_command_struct_type *command_st
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void sdio_command_state_machine_enable(sdio_type *sdio_x, confirm_state new_state) {
+void sdio_command_state_machine_Enable(sdio_Type *sdio_x, confirm_state new_state) {
     sdio_x->cmdctrl_bit.ccsmen = new_state;
 }
 
@@ -340,7 +340,7 @@ void sdio_command_state_machine_enable(sdio_type *sdio_x, confirm_state new_stat
   * @param  new_state (TRUE or FALSE)
   * @retval uint8_t: command index
   */
-uint8_t sdio_command_response_get(sdio_type *sdio_x) {
+uint8_t sdio_command_response_Get(sdio_Type *sdio_x) {
     return sdio_x->rspcmd_bit.rspcmd;
 }
 
@@ -357,7 +357,7 @@ uint8_t sdio_command_response_get(sdio_type *sdio_x) {
   *         - SDIO_RSP4_INDEX
   * @retval uint32_t: response register value
   */
-uint32_t sdio_response_get(sdio_type *sdio_x, sdio_rsp_index_type reg_index) {
+uint32_t sdio_response_Get(sdio_Type *sdio_x, sdio_rsp_index_Type reg_index) {
     uint32_t response_value = 0;
 
     switch(reg_index) {
@@ -389,11 +389,11 @@ uint32_t sdio_response_get(sdio_type *sdio_x, sdio_rsp_index_type reg_index) {
   * @param  sdio_x: to select the sdio peripheral.
   *         this parameter can be one of the following values:
   *         SDIO1, SDIO2.
-  * @param  data_struct : pointer to a sdio_data_struct_type structure
+  * @param  data_struct : pointer to a sdio_Data_struct_Type structure
   *         that contains the configuration information for the sdio data.
   * @retval none
   */
-void sdio_data_config(sdio_type *sdio_x, sdio_data_struct_type *data_struct) {
+void sdio_Data_Config(sdio_Type *sdio_x, sdio_Data_struct_Type *data_struct) {
     /* disable data path state machine */
     sdio_x->dtctrl_bit.tfren = FALSE;
 
@@ -417,7 +417,7 @@ void sdio_data_config(sdio_type *sdio_x, sdio_data_struct_type *data_struct) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void sdio_data_state_machine_enable(sdio_type *sdio_x, confirm_state new_state) {
+void sdio_Data_state_machine_Enable(sdio_Type *sdio_x, confirm_state new_state) {
     sdio_x->dtctrl_bit.tfren = new_state;
 }
 
@@ -428,7 +428,7 @@ void sdio_data_state_machine_enable(sdio_type *sdio_x, confirm_state new_state) 
   *         SDIO1, SDIO2.
   * @retval uint32_t: number of bytes
   */
-uint32_t sdio_data_counter_get(sdio_type *sdio_x) {
+uint32_t sdio_Data_Counter_Get(sdio_Type *sdio_x) {
     return sdio_x->dtcnt;
 }
 
@@ -439,7 +439,7 @@ uint32_t sdio_data_counter_get(sdio_type *sdio_x) {
   *         SDIO1, SDIO2.
   * @retval uint32_t: data received
   */
-uint32_t sdio_data_read(sdio_type *sdio_x) {
+uint32_t sdio_Data_Read(sdio_Type *sdio_x) {
     return sdio_x->buf;
 }
 
@@ -450,7 +450,7 @@ uint32_t sdio_data_read(sdio_type *sdio_x) {
   *         SDIO1, SDIO2.
   * @retval uint32_t: number of words
   */
-uint32_t sdio_buffer_counter_get(sdio_type *sdio_x) {
+uint32_t sdio_buffer_Counter_Get(sdio_Type *sdio_x) {
     return sdio_x->bufcnt;
 }
 
@@ -462,7 +462,7 @@ uint32_t sdio_buffer_counter_get(sdio_type *sdio_x) {
   * @param  data: data to be transferred.
   * @retval none
   */
-void sdio_data_write(sdio_type *sdio_x, uint32_t data) {
+void sdio_Data_Write(sdio_Type *sdio_x, uint32_t data) {
     sdio_x->buf = data;
 }
 
@@ -473,11 +473,11 @@ void sdio_data_write(sdio_type *sdio_x, uint32_t data) {
   *         SDIO1, SDIO2.
   * @param  mode
   *         this parameter can be one of the following values:
-  *         - SDIO_READ_WAIT_CONTROLLED_BY_D2
-  *         - SDIO_READ_WAIT_CONTROLLED_BY_CK
+  *         - SDIO_Read_Wait_CONTROLLED_BY_D2
+  *         - SDIO_Read_Wait_CONTROLLED_BY_CK
   * @retval none
   */
-void sdio_read_wait_mode_set(sdio_type *sdio_x, sdio_read_wait_mode_type mode) {
+void sdio_Read_Wait_Mode_Set(sdio_Type *sdio_x, sdio_Read_Wait_Mode_Type mode) {
     sdio_x->dtctrl_bit.rdwtmode = mode;
 }
 
@@ -489,7 +489,7 @@ void sdio_read_wait_mode_set(sdio_type *sdio_x, sdio_read_wait_mode_type mode) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void sdio_read_wait_start(sdio_type *sdio_x, confirm_state new_state) {
+void sdio_Read_Wait_start(sdio_Type *sdio_x, confirm_state new_state) {
     sdio_x->dtctrl_bit.rdwtstart = new_state;
 }
 
@@ -501,7 +501,7 @@ void sdio_read_wait_start(sdio_type *sdio_x, confirm_state new_state) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void sdio_read_wait_stop(sdio_type *sdio_x, confirm_state new_state) {
+void sdio_Read_Wait_stop(sdio_Type *sdio_x, confirm_state new_state) {
     sdio_x->dtctrl_bit.rdwtstop = new_state;
 }
 
@@ -513,7 +513,7 @@ void sdio_read_wait_stop(sdio_type *sdio_x, confirm_state new_state) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void sdio_io_function_enable(sdio_type *sdio_x, confirm_state new_state) {
+void sdio_io_function_Enable(sdio_Type *sdio_x, confirm_state new_state) {
     sdio_x->dtctrl_bit.ioen = new_state;
 }
 
@@ -525,7 +525,7 @@ void sdio_io_function_enable(sdio_type *sdio_x, confirm_state new_state) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void sdio_io_suspend_command_set(sdio_type *sdio_x, confirm_state new_state) {
+void sdio_io_suspend_command_Set(sdio_Type *sdio_x, confirm_state new_state) {
     sdio_x->cmdctrl_bit.iosusp = new_state;
 }
 

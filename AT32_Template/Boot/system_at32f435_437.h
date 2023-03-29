@@ -22,8 +22,8 @@
   **************************************************************************
   */
 
-#ifndef __SYSTEM_AT32F435_437_H
-#define __SYSTEM_AT32F435_437_H
+#ifndef __System_AT32F435_437_H
+#define __System_AT32F435_437_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -39,7 +39,7 @@ extern "C" {
 
 #define SystemCoreClock                  system_core_clock
 
-/** @defgroup AT32F435_437_system_exported_variables
+/** @defgroup AT32F435_437_System_exported_variables
   * @{
   */
 extern unsigned int system_core_clock; /*!< system clock frequency (core clock) */
@@ -48,12 +48,12 @@ extern unsigned int system_core_clock; /*!< system clock frequency (core clock) 
   * @}
   */
 
-/** @defgroup AT32F435_437_system_exported_functions
+/** @defgroup AT32F435_437_System_exported_functions
   * @{
   */
 
 extern void SystemInit(void);
-extern void system_core_clock_update(void);
+extern void system_core_Clock_Update(void);
 
 /**
   * @}

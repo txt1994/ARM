@@ -48,15 +48,15 @@ extern "C" {
   * @{
   */
 
-#define WDT_DIVF_UPDATE_FLAG             ((uint16_t)0x0001) /*!< wdt division value update complete flag */
-#define WDT_RLDF_UPDATE_FLAG             ((uint16_t)0x0002) /*!< wdt reload value update complete flag */
-#define WDT_WINF_UPDATE_FLAG             ((uint16_t)0x0004) /*!< wdt window value update complete flag */
+#define WDT_DIVF_Update_FLAG             ((uint16_t)0x0001) /*!< wdt division value update complete flag */
+#define WDT_RLDF_Update_FLAG             ((uint16_t)0x0002) /*!< wdt reload value update complete flag */
+#define WDT_WINF_Update_FLAG             ((uint16_t)0x0004) /*!< wdt window value update complete flag */
 
 /**
   * @}
   */
 
-/** @defgroup WDT_exported_types
+/** @defgroup WDT_exported_Types
   * @{
   */
 
@@ -71,7 +71,7 @@ typedef enum {
     WDT_CLK_DIV_64                         = 0x04, /*!< wdt clock divider value is 64 */
     WDT_CLK_DIV_128                        = 0x05, /*!< wdt clock divider value is 128 */
     WDT_CLK_DIV_256                        = 0x06  /*!< wdt clock divider value is 256 */
-} wdt_division_type;
+} WDT_division_Type;
 
 /**
   * @brief wdt cmd value type
@@ -79,9 +79,9 @@ typedef enum {
 typedef enum {
     WDT_CMD_LOCK                           = 0x0000, /*!< disable write protection command */
     WDT_CMD_UNLOCK                         = 0x5555, /*!< enable write protection command */
-    WDT_CMD_ENABLE                         = 0xCCCC, /*!< enable wdt command */
+    WDT_CMD_Enable                         = 0xCCCC, /*!< enable wdt command */
     WDT_CMD_RELOAD                         = 0xAAAA  /*!< reload command */
-} wdt_cmd_value_type;
+} WDT_cmd_value_Type;
 
 /**
   * @brief type define wdt register all
@@ -143,25 +143,25 @@ typedef struct {
             __IO uint32_t reserved1            : 20;/* [31:12] */
         } win_bit;
     };
-} wdt_type;
+} WDT_Type;
 
 /**
   * @}
   */
 
-#define WDT                             ((wdt_type *) WDT_BASE)
+#define WDT                             ((WDT_Type *) WDT_BASE)
 
 /** @defgroup WDT_exported_functions
   * @{
   */
 
-void wdt_enable(void);
-void wdt_counter_reload(void);
-void wdt_reload_value_set(uint16_t reload_value);
-void wdt_divider_set(wdt_division_type division);
-void wdt_register_write_enable( confirm_state new_state);
-flag_status wdt_flag_get(uint16_t wdt_flag);
-void wdt_window_counter_set(uint16_t window_cnt);
+void WDT_Enable(void);
+void WDT_Counter_reload(void);
+void WDT_reload_value_Set(uint16_t reload_value);
+void WDT_divider_Set(WDT_division_Type division);
+void WDT_Register_Write_Enable( confirm_state new_state);
+flag_status WDT_Flag_Get(uint16_t WDT_flag);
+void WDT_window_Counter_Set(uint16_t window_cnt);
 
 /**
   * @}

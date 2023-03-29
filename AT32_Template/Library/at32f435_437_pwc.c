@@ -33,7 +33,7 @@
   * @{
   */
 
-#ifdef PWC_MODULE_ENABLED
+#ifdef PWC_MODULE_EnableD
 
 /** @defgroup PWC_private_functions
   * @{
@@ -44,9 +44,9 @@
   * @param  none
   * @retval none
   */
-void pwc_reset(void) {
-    crm_periph_reset(CRM_PWC_PERIPH_RESET, TRUE);
-    crm_periph_reset(CRM_PWC_PERIPH_RESET, FALSE);
+void pwc_Reset(void) {
+    crm_periph_Reset(CRM_PWC_PERIPH_Reset, TRUE);
+    crm_periph_Reset(CRM_PWC_PERIPH_Reset, FALSE);
 }
 
 /**
@@ -72,7 +72,7 @@ void pwc_battery_powered_domain_access(confirm_state new_state) {
   *         - PWC_PVM_VOLTAGE_2V9
   * @retval none
   */
-void pwc_pvm_level_select(pwc_pvm_voltage_type pvm_voltage) {
+void pwc_pvm_level_Select(pwc_pvm_voltage_Type pvm_voltage) {
     PWC->ctrl_bit.pvmsel = pvm_voltage;
 }
 
@@ -82,27 +82,27 @@ void pwc_pvm_level_select(pwc_pvm_voltage_type pvm_voltage) {
   *         this parameter can be: TRUE or FALSE.
   * @retval none
   */
-void pwc_power_voltage_monitor_enable(confirm_state new_state) {
+void pwc_power_voltage_monitor_Enable(confirm_state new_state) {
     PWC->ctrl_bit.pvmen = new_state;
 }
 
 /**
   * @brief  enable or disable pwc standby wakeup pin
-  * @param  pin_num: choose the wakeup pin.
+  * @param  pin_Num: choose the wakeup pin.
   *         this parameter can be be any combination of the following values:
-  *         - PWC_WAKEUP_PIN_1
-  *         - PWC_WAKEUP_PIN_2
+  *         - PWC_WakeUp_Pin_1
+  *         - PWC_WakeUp_Pin_2
   * @param  new_state: new state of the standby wakeup pin.
   *         this parameter can be one of the following values:
   *         - TRUE <wakeup pin is used for wake up cpu from standby mode>
   *         - FALSE <wakeup pin is used for general purpose I/O>
   * @retval none
   */
-void pwc_wakeup_pin_enable(uint32_t pin_num, confirm_state new_state) {
+void pwc_WakeUp_Pin_Enable(uint32_t pin_Num, confirm_state new_state) {
     if(new_state == TRUE) {
-        PWC->ctrlsts |= pin_num;
+        PWC->ctrlsts |= pin_Num;
     } else {
-        PWC->ctrlsts &= ~pin_num;
+        PWC->ctrlsts &= ~pin_Num;
     }
 }
 
@@ -110,16 +110,16 @@ void pwc_wakeup_pin_enable(uint32_t pin_num, confirm_state new_state) {
   * @brief  clear flag of pwc
   * @param  pwc_flag: select the pwc flag.
   *         this parameter can be any combination of the following values:
-  *         - PWC_WAKEUP_FLAG
+  *         - PWC_WakeUp_FLAG
   *         - PWC_STANDBY_FLAG
-  *         - note:"PWC_PVM_OUTPUT_FLAG" cannot be choose!this bit is readonly bit,it means the voltage monitoring output state
+  *         - note:"PWC_PVM_OutPut_FLAG" cannot be choose!this bit is readonly bit,it means the voltage monitoring output state
   * @retval none
   */
-void pwc_flag_clear(uint32_t pwc_flag) {
+void pwc_Flag_Clear(uint32_t pwc_flag) {
     if(pwc_flag & PWC_STANDBY_FLAG)
         PWC->ctrl_bit.clsef = TRUE;
 
-    if(pwc_flag & PWC_WAKEUP_FLAG)
+    if(pwc_flag & PWC_WakeUp_FLAG)
         PWC->ctrl_bit.clswef = TRUE;
 }
 
@@ -127,12 +127,12 @@ void pwc_flag_clear(uint32_t pwc_flag) {
   * @brief  get flag of pwc
   * @param  pwc_flag: select the pwc flag.
   *         this parameter can be one of the following values:
-  *         - PWC_WAKEUP_FLAG
+  *         - PWC_WakeUp_FLAG
   *         - PWC_STANDBY_FLAG
-  *         - PWC_PVM_OUTPUT_FLAG
+  *         - PWC_PVM_OutPut_FLAG
   * @retval state of select flag(SET or RESET).
   */
-flag_status pwc_flag_get(uint32_t pwc_flag) {
+flag_status pwc_Flag_Get(uint32_t pwc_flag) {
     flag_status status = RESET;
 
     if ((PWC->ctrlsts & pwc_flag) == RESET) {
@@ -146,40 +146,40 @@ flag_status pwc_flag_get(uint32_t pwc_flag) {
 
 /**
   * @brief  enter pwc sleep mode
-  * @param  sleep_mode_enter: choose the instruction to enter sleep mode.
+  * @param  sleep_Mode_Enter: choose the instruction to enter sleep mode.
   *         this parameter can be one of the following values:
-  *         - PWC_SLEEP_ENTER_WFI
-  *         - PWC_SLEEP_ENTER_WFE
+  *         - PWC_SLEEP_Enter_WFI
+  *         - PWC_SLEEP_Enter_WFE
   * @retval none
   */
-void pwc_sleep_mode_enter(pwc_sleep_enter_type pwc_sleep_enter) {
+void pwc_sleep_Mode_Enter(pwc_sleep_Enter_Type pwc_sleep_Enter) {
     SCB->SCR &= (uint32_t)~0x4;
 
-    if(pwc_sleep_enter == PWC_SLEEP_ENTER_WFE) {
+    if(pwc_sleep_Enter == PWC_SLEEP_Enter_WFE) {
         __SEV();
         __WFE();
         __WFE();
-    } else if(pwc_sleep_enter == PWC_SLEEP_ENTER_WFI) {
+    } else if(pwc_sleep_Enter == PWC_SLEEP_Enter_WFI) {
         __WFI();
     }
 }
 
 /**
   * @brief  enter pwc deep-sleep mode
-  * @param  pwc_deep_sleep_enter: choose the instruction to enter deep sleep mode.
+  * @param  pwc_deep_sleep_Enter: choose the instruction to enter deep sleep mode.
   *         this parameter can be one of the following values:
-  *         - PWC_DEEP_SLEEP_ENTER_WFI
-  *         - PWC_DEEP_SLEEP_ENTER_WFE
+  *         - PWC_DEEP_SLEEP_Enter_WFI
+  *         - PWC_DEEP_SLEEP_Enter_WFE
   * @retval none
   */
-void pwc_deep_sleep_mode_enter(pwc_deep_sleep_enter_type pwc_deep_sleep_enter) {
+void pwc_deep_sleep_Mode_Enter(pwc_deep_sleep_Enter_Type pwc_deep_sleep_Enter) {
     SCB->SCR |= 0x04;
 
-    if(pwc_deep_sleep_enter == PWC_DEEP_SLEEP_ENTER_WFE) {
+    if(pwc_deep_sleep_Enter == PWC_DEEP_SLEEP_Enter_WFE) {
         __SEV();
         __WFE();
         __WFE();
-    } else if(pwc_deep_sleep_enter == PWC_DEEP_SLEEP_ENTER_WFI) {
+    } else if(pwc_deep_sleep_Enter == PWC_DEEP_SLEEP_Enter_WFI) {
         __WFI();
     }
 
@@ -194,7 +194,7 @@ void pwc_deep_sleep_mode_enter(pwc_deep_sleep_enter_type pwc_deep_sleep_enter) {
   *         - PWC_REGULATOR_LOW_POWER
   * @retval none
   */
-void pwc_voltage_regulate_set(pwc_regulator_type pwc_regulator) {
+void pwc_voltage_regulate_Set(pwc_regulator_Type pwc_regulator) {
     PWC->ctrl_bit.vrsel = pwc_regulator;
 }
 
@@ -203,7 +203,7 @@ void pwc_voltage_regulate_set(pwc_regulator_type pwc_regulator) {
   * @param  none
   * @retval none
   */
-void pwc_standby_mode_enter(void) {
+void pwc_standby_Mode_Enter(void) {
     PWC->ctrl_bit.clswef = TRUE;
     PWC->ctrl_bit.lpsel = TRUE;
     SCB->SCR |= 0x04;

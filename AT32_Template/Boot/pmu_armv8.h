@@ -45,7 +45,7 @@
 #define ARM_PMU_INST_RETIRED                         0x0008             /*!< Instruction architecturally executed */
 #define ARM_PMU_EXC_TAKEN                            0x0009             /*!< Exception entry */
 #define ARM_PMU_EXC_RETURN                           0x000A             /*!< Exception return instruction architecturally executed and the condition code check pass */
-#define ARM_PMU_PC_WRITE_RETIRED                     0x000C             /*!< Software change to the Program Counter (PC). Instruction is architecturally executed and condition code check pass */
+#define ARM_PMU_PC_Write_RETIRED                     0x000C             /*!< Software change to the Program Counter (PC). Instruction is architecturally executed and condition code check pass */
 #define ARM_PMU_BR_IMMED_RETIRED                     0x000D             /*!< Immediate branch architecturally executed */
 #define ARM_PMU_BR_RETURN_RETIRED                    0x000E             /*!< Function return instruction architecturally executed and the condition code check pass */
 #define ARM_PMU_UNALIGNED_LDST_RETIRED               0x000F             /*!< Unaligned memory memory-reading or memory-writing instruction architecturally executed and condition code check pass */
@@ -59,7 +59,7 @@
 #define ARM_PMU_L2D_CACHE_REFILL                     0x0017             /*!< Level 2 data cache refill */
 #define ARM_PMU_L2D_CACHE_WB                         0x0018             /*!< Level 2 data cache write-back */
 #define ARM_PMU_BUS_ACCESS                           0x0019             /*!< Bus access */
-#define ARM_PMU_MEMORY_ERROR                         0x001A             /*!< Local memory error */
+#define ARM_PMU_Memory_ERROR                         0x001A             /*!< Local memory error */
 #define ARM_PMU_INST_SPEC                            0x001B             /*!< Instruction speculatively executed */
 #define ARM_PMU_BUS_CYCLES                           0x001D             /*!< Bus cycles */
 #define ARM_PMU_CHAIN                                0x001E             /*!< For an odd numbered counter, increment when an overflow occurs on the preceding even-numbered counter on the same PE */
@@ -176,7 +176,7 @@ __STATIC_INLINE void ARM_PMU_Disable(void);
 __STATIC_INLINE void ARM_PMU_Set_EVTYPER(uint32_t num, uint32_t type);
 
 __STATIC_INLINE void ARM_PMU_CYCCNT_Reset(void);
-__STATIC_INLINE void ARM_PMU_EVCNTR_ALL_Reset(void);
+__STATIC_INLINE void ARM_PMU_EVCNTR_All_Reset(void);
 
 __STATIC_INLINE void ARM_PMU_CNTR_Enable(uint32_t mask);
 __STATIC_INLINE void ARM_PMU_CNTR_Disable(uint32_t mask);
@@ -196,14 +196,14 @@ __STATIC_INLINE void ARM_PMU_CNTR_Increment(uint32_t mask);
   \brief   Enable the PMU
 */
 __STATIC_INLINE void ARM_PMU_Enable(void) {
-    PMU->CTRL |= PMU_CTRL_ENABLE_Msk;
+    PMU->CTRL |= PMU_CTRL_Enable_Msk;
 }
 
 /**
   \brief   Disable the PMU
 */
 __STATIC_INLINE void ARM_PMU_Disable(void) {
-    PMU->CTRL &= ~PMU_CTRL_ENABLE_Msk;
+    PMU->CTRL &= ~PMU_CTRL_Enable_Msk;
 }
 
 /**
@@ -219,14 +219,14 @@ __STATIC_INLINE void ARM_PMU_Set_EVTYPER(uint32_t num, uint32_t type) {
   \brief  Reset cycle counter
 */
 __STATIC_INLINE void ARM_PMU_CYCCNT_Reset(void) {
-    PMU->CTRL |= PMU_CTRL_CYCCNT_RESET_Msk;
+    PMU->CTRL |= PMU_CTRL_CYCCNT_Reset_Msk;
 }
 
 /**
   \brief  Reset all event counters
 */
-__STATIC_INLINE void ARM_PMU_EVCNTR_ALL_Reset(void) {
-    PMU->CTRL |= PMU_CTRL_EVENTCNT_RESET_Msk;
+__STATIC_INLINE void ARM_PMU_EVCNTR_All_Reset(void) {
+    PMU->CTRL |= PMU_CTRL_EVENTCNT_Reset_Msk;
 }
 
 /**

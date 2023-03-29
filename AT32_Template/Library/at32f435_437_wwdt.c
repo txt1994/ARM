@@ -33,7 +33,7 @@
   * @{
   */
 
-#ifdef WWDT_MODULE_ENABLED
+#ifdef WWDT_MODULE_EnableD
 
 /** @defgroup WWDT_private_functions
   * @{
@@ -43,9 +43,9 @@
   * @brief  wwdt reset by crm reset register
   * @retval none
   */
-void wwdt_reset(void) {
-    crm_periph_reset(CRM_WWDT_PERIPH_RESET, TRUE);
-    crm_periph_reset(CRM_WWDT_PERIPH_RESET, FALSE);
+void wWDT_Reset(void) {
+    crm_periph_Reset(CRM_WWDT_PERIPH_Reset, TRUE);
+    crm_periph_Reset(CRM_WWDT_PERIPH_Reset, FALSE);
 }
 
 /**
@@ -58,7 +58,7 @@ void wwdt_reset(void) {
   *         - WWDT_PCLK1_DIV_32768       (wwdt counter clock = (pclk1/4096)/8)
   * @retval none
   */
-void wwdt_divider_set(wwdt_division_type division) {
+void wWDT_divider_Set(wWDT_division_Type division) {
     WWDT->cfg_bit.div = division;
 }
 
@@ -67,17 +67,17 @@ void wwdt_divider_set(wwdt_division_type division) {
   * @param  none
   * @retval none
   */
-void wwdt_flag_clear(void) {
+void wWDT_Flag_Clear(void) {
     WWDT->sts = 0;
 }
 
 /**
   * @brief  wwdt enable and the counter value load
-  * @param  wwdt_cnt (0x40~0x7f)
+  * @param  wWDT_cnt (0x40~0x7f)
   * @retval none
   */
-void wwdt_enable(uint8_t wwdt_cnt) {
-    WWDT->ctrl = wwdt_cnt | WWDT_EN_BIT;
+void wWDT_Enable(uint8_t wWDT_cnt) {
+    WWDT->ctrl = wWDT_cnt | WWDT_EN_BIT;
 }
 
 /**
@@ -85,7 +85,7 @@ void wwdt_enable(uint8_t wwdt_cnt) {
   * @param  none
   * @retval none
   */
-void wwdt_interrupt_enable(void) {
+void wWDT_Interrupt_Enable(void) {
     WWDT->cfg_bit.rldien = TRUE;
 }
 
@@ -94,17 +94,17 @@ void wwdt_interrupt_enable(void) {
   * @param  none
   * @retval state of reload counter interrupt flag
   */
-flag_status wwdt_flag_get(void) {
+flag_status wWDT_Flag_Get(void) {
     return (flag_status)WWDT->sts_bit.rldf;
 }
 
 /**
   * @brief  wwdt counter value set
-  * @param  wwdt_cnt (0x40~0x7f)
+  * @param  wWDT_cnt (0x40~0x7f)
   * @retval none
   */
-void wwdt_counter_set(uint8_t wwdt_cnt) {
-    WWDT->ctrl_bit.cnt = wwdt_cnt;
+void wWDT_Counter_Set(uint8_t wWDT_cnt) {
+    WWDT->ctrl_bit.cnt = wWDT_cnt;
 }
 
 /**
@@ -112,7 +112,7 @@ void wwdt_counter_set(uint8_t wwdt_cnt) {
   * @param  window_cnt (0x40~0x7f)
   * @retval none
   */
-void wwdt_window_counter_set(uint8_t window_cnt) {
+void wWDT_window_Counter_Set(uint8_t window_cnt) {
     WWDT->cfg_bit.win = window_cnt;
 }
 

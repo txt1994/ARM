@@ -66,7 +66,7 @@ extern "C" {
 #define ERTC_ALBWF_FLAG                  ((uint32_t)0x00000002) /*!< ertc alarm b register allows write flag */
 #define ERTC_WATWF_FLAG                  ((uint32_t)0x00000004) /*!< ertc wakeup timer register allows write flag */
 #define ERTC_TADJF_FLAG                  ((uint32_t)0x00000008) /*!< ertc time adjustment flag */
-#define ERTC_INITF_FLAG                  ((uint32_t)0x00000010) /*!< ertc calendar initialization flag */
+#define ERTC_InitF_FLAG                  ((uint32_t)0x00000010) /*!< ertc calendar initialization flag */
 #define ERTC_UPDF_FLAG                   ((uint32_t)0x00000020) /*!< ertc calendar update flag */
 #define ERTC_IMF_FLAG                    ((uint32_t)0x00000040) /*!< ertc enter initialization mode flag */
 #define ERTC_ALAF_FLAG                   ((uint32_t)0x00000100) /*!< ertc alarm clock a flag */
@@ -81,12 +81,12 @@ extern "C" {
 /**
   * @brief ertc alarm mask
   */
-#define ERTC_ALARM_MASK_NONE             ((uint32_t)0x00000000) /*!< ertc alarm match all */
-#define ERTC_ALARM_MASK_SEC              ((uint32_t)0x00000080) /*!< ertc alarm don't match seconds */
-#define ERTC_ALARM_MASK_MIN              ((uint32_t)0x00008000) /*!< ertc alarm don't match minute */
-#define ERTC_ALARM_MASK_HOUR             ((uint32_t)0x00800000) /*!< ertc alarm don't match hour */
-#define ERTC_ALARM_MASK_DATE_WEEK        ((uint32_t)0x80000000) /*!< ertc alarm don't match date or week */
-#define ERTC_ALARM_MASK_ALL              ((uint32_t)0x80808080) /*!< ertc alarm don't match all */
+#define ERTC_Alarm_Mask_NONE             ((uint32_t)0x00000000) /*!< ertc alarm match all */
+#define ERTC_Alarm_Mask_SEC              ((uint32_t)0x00000080) /*!< ertc alarm don't match seconds */
+#define ERTC_Alarm_Mask_MIN              ((uint32_t)0x00008000) /*!< ertc alarm don't match minute */
+#define ERTC_Alarm_Mask_HOUR             ((uint32_t)0x00800000) /*!< ertc alarm don't match hour */
+#define ERTC_Alarm_Mask_Date_WEEK        ((uint32_t)0x80000000) /*!< ertc alarm don't match date or week */
+#define ERTC_Alarm_Mask_ALL              ((uint32_t)0x80808080) /*!< ertc alarm don't match all */
 
 /**
   * @}
@@ -102,7 +102,7 @@ extern "C" {
   * @}
   */
 
-/** @defgroup ERTC_exported_types
+/** @defgroup ERTC_exported_Types
   * @{
   */
 
@@ -110,9 +110,9 @@ extern "C" {
   * @brief ertc hour mode
   */
 typedef enum {
-    ERTC_HOUR_MODE_24                      = 0x00, /*!< 24-hour format */
-    ERTC_HOUR_MODE_12                      = 0x01  /*!< 12-hour format */
-} ertc_hour_mode_set_type;
+    ERTC_HOUR_Mode_24                      = 0x00, /*!< 24-hour format */
+    ERTC_HOUR_Mode_12                      = 0x01  /*!< 12-hour format */
+} ERTC_hour_Mode_Set_Type;
 
 /**
   * @brief ertc 12-hour format am/pm
@@ -121,7 +121,7 @@ typedef enum {
     ERTC_24H                               = 0x00, /*!< 24-hour format */
     ERTC_AM                                = 0x00, /*!< 12-hour format, ante meridiem */
     ERTC_PM                                = 0x01  /*!< 12-hour format, meridiem */
-} ertc_am_pm_type;
+} ERTC_am_pm_Type;
 
 /**
   * @brief ertc week or date select
@@ -129,7 +129,7 @@ typedef enum {
 typedef enum {
     ERTC_SLECT_DATE                        = 0x00, /*!< slect date mode */
     ERTC_SLECT_WEEK                        = 0x01  /*!< slect week mode */
-} ertc_week_date_select_type;
+} ERTC_week_Date_Select_Type;
 
 /**
   * @brief ertc alarm x select
@@ -137,29 +137,29 @@ typedef enum {
 typedef enum {
     ERTC_ALA                               = 0x00, /*!< select alarm a */
     ERTC_ALB                               = 0x01  /*!< select alarm b */
-} ertc_alarm_type;
+} ERTC_Alarm_Type;
 
 /**
   * @brief ertc alarm sub second mask
   */
 typedef enum {
-    ERTC_ALARM_SBS_MASK_ALL                = 0x00, /*!< do not match the sub-second */
-    ERTC_ALARM_SBS_MASK_14_1               = 0x01, /*!< only compare bit [0] */
-    ERTC_ALARM_SBS_MASK_14_2               = 0x02, /*!< only compare bit [1:0] */
-    ERTC_ALARM_SBS_MASK_14_3               = 0x03, /*!< only compare bit [2:0] */
-    ERTC_ALARM_SBS_MASK_14_4               = 0x04, /*!< only compare bit [3:0] */
-    ERTC_ALARM_SBS_MASK_14_5               = 0x05, /*!< only compare bit [4:0] */
-    ERTC_ALARM_SBS_MASK_14_6               = 0x06, /*!< only compare bit [5:0] */
-    ERTC_ALARM_SBS_MASK_14_7               = 0x07, /*!< only compare bit [6:0] */
-    ERTC_ALARM_SBS_MASK_14_8               = 0x08, /*!< only compare bit [7:0] */
-    ERTC_ALARM_SBS_MASK_14_9               = 0x09, /*!< only compare bit [8:0] */
-    ERTC_ALARM_SBS_MASK_14_10              = 0x0A, /*!< only compare bit [9:0] */
-    ERTC_ALARM_SBS_MASK_14_11              = 0x0B, /*!< only compare bit [10:0] */
-    ERTC_ALARM_SBS_MASK_14_12              = 0x0C, /*!< only compare bit [11:0] */
-    ERTC_ALARM_SBS_MASK_14_13              = 0x0D, /*!< only compare bit [12:0] */
-    ERTC_ALARM_SBS_MASK_14                 = 0x0E, /*!< only compare bit [13:0] */
-    ERTC_ALARM_SBS_MASK_NONE               = 0x0F  /*!< compare bit [14:0] */
-} ertc_alarm_sbs_mask_type;
+    ERTC_Alarm_SBS_Mask_ALL                = 0x00, /*!< do not match the sub-second */
+    ERTC_Alarm_SBS_Mask_14_1               = 0x01, /*!< only compare bit [0] */
+    ERTC_Alarm_SBS_Mask_14_2               = 0x02, /*!< only compare bit [1:0] */
+    ERTC_Alarm_SBS_Mask_14_3               = 0x03, /*!< only compare bit [2:0] */
+    ERTC_Alarm_SBS_Mask_14_4               = 0x04, /*!< only compare bit [3:0] */
+    ERTC_Alarm_SBS_Mask_14_5               = 0x05, /*!< only compare bit [4:0] */
+    ERTC_Alarm_SBS_Mask_14_6               = 0x06, /*!< only compare bit [5:0] */
+    ERTC_Alarm_SBS_Mask_14_7               = 0x07, /*!< only compare bit [6:0] */
+    ERTC_Alarm_SBS_Mask_14_8               = 0x08, /*!< only compare bit [7:0] */
+    ERTC_Alarm_SBS_Mask_14_9               = 0x09, /*!< only compare bit [8:0] */
+    ERTC_Alarm_SBS_Mask_14_10              = 0x0A, /*!< only compare bit [9:0] */
+    ERTC_Alarm_SBS_Mask_14_11              = 0x0B, /*!< only compare bit [10:0] */
+    ERTC_Alarm_SBS_Mask_14_12              = 0x0C, /*!< only compare bit [11:0] */
+    ERTC_Alarm_SBS_Mask_14_13              = 0x0D, /*!< only compare bit [12:0] */
+    ERTC_Alarm_SBS_Mask_14                 = 0x0E, /*!< only compare bit [13:0] */
+    ERTC_Alarm_SBS_Mask_NONE               = 0x0F  /*!< compare bit [14:0] */
+} ERTC_Alarm_sbs_Mask_Type;
 
 /**
   * @brief ertc wakeup timer clock select
@@ -171,24 +171,24 @@ typedef enum {
     ERTC_WAT_CLK_ERTCCLK_DIV2              = 0x03, /*!< the wake up timer clock is ERTC_CLK / 2 */
     ERTC_WAT_CLK_CK_B_16BITS               = 0x04, /*!< the wake up timer clock is CK_B, wakeup counter = ERTC_WAT */
     ERTC_WAT_CLK_CK_B_17BITS               = 0x06  /*!< the wake up timer clock is CK_B, wakeup counter = ERTC_WAT + 65535 */
-} ertc_wakeup_clock_type;
+} ERTC_WakeUp_Clock_Type;
 
 /**
   * @brief ertc smooth calibration period
   */
 typedef enum {
-    ERTC_SMOOTH_CAL_PERIOD_32              = 0x00, /*!< 32 second calibration period */
-    ERTC_SMOOTH_CAL_PERIOD_16              = 0x01, /*!< 16 second calibration period */
-    ERTC_SMOOTH_CAL_PERIOD_8               = 0x02  /*!< 8 second calibration period */
-} ertc_smooth_cal_period_type;
+    ERTC_Smooth_CAL_PERIOD_32              = 0x00, /*!< 32 second calibration period */
+    ERTC_Smooth_CAL_PERIOD_16              = 0x01, /*!< 16 second calibration period */
+    ERTC_Smooth_CAL_PERIOD_8               = 0x02  /*!< 8 second calibration period */
+} ERTC_Smooth_CAL_period_Type;
 
 /**
   * @brief ertc smooth calibration clock add mode
   */
 typedef enum {
-    ERTC_SMOOTH_CAL_CLK_ADD_0              = 0x00, /*!< do not increase clock */
-    ERTC_SMOOTH_CAL_CLK_ADD_512            = 0x01  /*!< add 512 clocks */
-} ertc_smooth_cal_clk_add_type;
+    ERTC_Smooth_CAL_CLK_ADD_0              = 0x00, /*!< do not increase clock */
+    ERTC_Smooth_CAL_CLK_ADD_512            = 0x01  /*!< add 512 clocks */
+} ERTC_Smooth_CAL_clk_add_Type;
 
 /**
   * @brief ertc calibration direction mode
@@ -196,23 +196,23 @@ typedef enum {
 typedef enum {
     ERTC_CAL_DIR_POSITIVE                  = 0x00, /*!< positive calibration */
     ERTC_CAL_DIR_NEGATIVE                  = 0x01  /*!< negative calibration */
-} ertc_cal_direction_type;
+} ERTC_CAL_direction_Type;
 
 /**
   * @brief ertc calibration output mode
   */
 typedef enum {
-    ERTC_CAL_OUTPUT_512HZ                  = 0x00, /*!< output 512 hz */
-    ERTC_CAL_OUTPUT_1HZ                    = 0x01  /*!< output 1 hz */
-} ertc_cal_output_select_type;
+    ERTC_CAL_OutPut_512HZ                  = 0x00, /*!< output 512 hz */
+    ERTC_CAL_OutPut_1HZ                    = 0x01  /*!< output 1 hz */
+} ERTC_CAL_OutPut_Select_Type;
 
 /**
   * @brief time adjust add mode
   */
 typedef enum {
-    ERTC_TIME_ADD_NONE                     = 0x00, /*!< none operation */
-    ERTC_TIME_ADD_1S                       = 0x01  /*!< add 1 second */
-} ertc_time_adjust_type;
+    ERTC_Time_ADD_NONE                     = 0x00, /*!< none operation */
+    ERTC_Time_ADD_1S                       = 0x01  /*!< add 1 second */
+} ERTC_Time_Adjust_Type;
 
 /**
   * @brief ertc daylight saving time hour adjustment mode
@@ -220,7 +220,7 @@ typedef enum {
 typedef enum {
     ERTC_DST_ADD_1H                        = 0x00, /*!< add 1 hour */
     ERTC_DST_DEC_1H                        = 0x01  /*!< dec 1 hour */
-} ertc_dst_operation_type;
+} ERTC_dst_Operation_Type;
 
 /**
   * @brief ertc daylight saving time store operation mode
@@ -228,101 +228,101 @@ typedef enum {
 typedef enum {
     ERTC_DST_SAVE_0                        = 0x00, /*!< set the bpr register value to 0 */
     ERTC_DST_SAVE_1                        = 0x01  /*!< set the bpr register value to 1 */
-} ertc_dst_save_type;
+} ERTC_dst_save_Type;
 
 /**
   * @brief output source
   */
 typedef enum {
-    ERTC_OUTPUT_DISABLE                    = 0x00, /*!< diable output */
-    ERTC_OUTPUT_ALARM_A                    = 0x01, /*!< output alarm a event */
-    ERTC_OUTPUT_ALARM_B                    = 0x02, /*!< output alarm b event */
-    ERTC_OUTPUT_WAKEUP                     = 0x03  /*!< output wakeup event */
-} ertc_output_source_type;
+    ERTC_OutPut_Disable                    = 0x00, /*!< diable output */
+    ERTC_OutPut_Alarm_A                    = 0x01, /*!< output alarm a event */
+    ERTC_OutPut_Alarm_B                    = 0x02, /*!< output alarm b event */
+    ERTC_OutPut_WAKEUP                     = 0x03  /*!< output wakeup event */
+} ERTC_OutPut_Source_Type;
 
 /**
   * @brief output polarity
   */
 typedef enum {
-    ERTC_OUTPUT_POLARITY_HIGH              = 0x00, /*!< when the event occurs, the output is high */
-    ERTC_OUTPUT_POLARITY_LOW               = 0x01  /*!< when the event occurs, the output is low */
-} ertc_output_polarity_type;
+    ERTC_OutPut_POLARITY_HIGH              = 0x00, /*!< when the event occurs, the output is high */
+    ERTC_OutPut_POLARITY_LOW               = 0x01  /*!< when the event occurs, the output is low */
+} ERTC_OutPut_polarity_Type;
 
 /**
   * @brief output type
   */
 typedef enum {
-    ERTC_OUTPUT_TYPE_OPEN_DRAIN            = 0x00, /*!< open drain output */
-    ERTC_OUTPUT_TYPE_PUSH_PULL             = 0x01  /*!< push pull output */
-} ertc_output_type;
+    ERTC_OutPut_Type_OPEN_DRAIN            = 0x00, /*!< open drain output */
+    ERTC_OutPut_Type_PUSH_PULL             = 0x01  /*!< push pull output */
+} ERTC_OutPut_Type;
 
 /**
   * @brief timestamp/ tamper detection pin selection
   */
 typedef enum {
-    ERTC_PIN_PC13                          = 0x00, /*!< pc13 is used as timestamp detection pin */
-    ERTC_PIN_PA0                           = 0x01  /*!< pa0 is used as timestamp detection pin */
-} ertc_pin_select_type;
+    ERTC_Pin_PC13                          = 0x00, /*!< pc13 is used as timestamp detection pin */
+    ERTC_Pin_PA0                           = 0x01  /*!< pa0 is used as timestamp detection pin */
+} ERTC_Pin_Select_Type;
 
 /**
   * @brief ertc timestamp valid edge
   */
 typedef enum {
-    ERTC_TIMESTAMP_EDGE_RISING             = 0x00, /*!< rising edge trigger */
-    ERTC_TIMESTAMP_EDGE_FALLING            = 0x01  /*!< falling edge trigger */
-} ertc_timestamp_valid_edge_type;
+    ERTC_TimeStamp_Edge_RISING             = 0x00, /*!< rising edge trigger */
+    ERTC_TimeStamp_Edge_FALLING            = 0x01  /*!< falling edge trigger */
+} ERTC_TimeStamp_Valid_Edge_Type;
 
 /**
   * @brief ertc tamper x select
   */
 typedef enum {
-    ERTC_TAMPER_1                          = 0x00, /*!< tamper 1 */
-    ERTC_TAMPER_2                          = 0x01  /*!< tamper 2 */
-} ertc_tamper_select_type;
+    ERTC_Tamper_1                          = 0x00, /*!< tamper 1 */
+    ERTC_Tamper_2                          = 0x01  /*!< tamper 2 */
+} ERTC_Tamper_Select_Type;
 
 /**
   * @brief tamper detection pre-charge time
   */
 typedef enum {
-    ERTC_TAMPER_PR_1_ERTCCLK               = 0x00, /*!< pre-charge time is 1 ERTC_CLK */
-    ERTC_TAMPER_PR_2_ERTCCLK               = 0x01, /*!< pre-charge time is 2 ERTC_CLK */
-    ERTC_TAMPER_PR_4_ERTCCLK               = 0x02, /*!< pre-charge time is 4 ERTC_CLK */
-    ERTC_TAMPER_PR_8_ERTCCLK               = 0x03  /*!< pre-charge time is 8 ERTC_CLK */
-} ertc_tamper_precharge_type;
+    ERTC_Tamper_PR_1_ERTCCLK               = 0x00, /*!< pre-charge time is 1 ERTC_CLK */
+    ERTC_Tamper_PR_2_ERTCCLK               = 0x01, /*!< pre-charge time is 2 ERTC_CLK */
+    ERTC_Tamper_PR_4_ERTCCLK               = 0x02, /*!< pre-charge time is 4 ERTC_CLK */
+    ERTC_Tamper_PR_8_ERTCCLK               = 0x03  /*!< pre-charge time is 8 ERTC_CLK */
+} ERTC_Tamper_precharge_Type;
 
 /**
   * @brief ertc tamper filter
   */
 typedef enum {
-    ERTC_TAMPER_FILTER_DISABLE             = 0x00, /*!< disable filter function */
-    ERTC_TAMPER_FILTER_2                   = 0x01, /*!< 2 consecutive samples arw valid, effective tamper event */
-    ERTC_TAMPER_FILTER_4                   = 0x02, /*!< 4 consecutive samples arw valid, effective tamper event */
-    ERTC_TAMPER_FILTER_8                   = 0x03  /*!< 8 consecutive samples arw valid, effective tamper event */
-} ertc_tamper_filter_type;
+    ERTC_Tamper_Filter_Disable             = 0x00, /*!< disable filter function */
+    ERTC_Tamper_Filter_2                   = 0x01, /*!< 2 consecutive samples arw valid, effective tamper event */
+    ERTC_Tamper_Filter_4                   = 0x02, /*!< 4 consecutive samples arw valid, effective tamper event */
+    ERTC_Tamper_Filter_8                   = 0x03  /*!< 8 consecutive samples arw valid, effective tamper event */
+} ERTC_Tamper_Filter_Type;
 
 /**
   * @brief ertc tamper detection frequency
   */
 typedef enum {
-    ERTC_TAMPER_FREQ_DIV_32768             = 0x00, /*!< ERTC_CLK / 32768 */
-    ERTC_TAMPER_FREQ_DIV_16384             = 0x01, /*!< ERTC_CLK / 16384 */
-    ERTC_TAMPER_FREQ_DIV_8192              = 0x02, /*!< ERTC_CLK / 8192 */
-    ERTC_TAMPER_FREQ_DIV_4096              = 0x03, /*!< ERTC_CLK / 4096 */
-    ERTC_TAMPER_FREQ_DIV_2048              = 0x04, /*!< ERTC_CLK / 2048 */
-    ERTC_TAMPER_FREQ_DIV_1024              = 0x05, /*!< ERTC_CLK / 1024 */
-    ERTC_TAMPER_FREQ_DIV_512               = 0x06, /*!< ERTC_CLK / 512 */
-    ERTC_TAMPER_FREQ_DIV_256               = 0x07  /*!< ERTC_CLK / 256 */
-} ertc_tamper_detect_freq_type;
+    ERTC_Tamper_Freq_DIV_32768             = 0x00, /*!< ERTC_CLK / 32768 */
+    ERTC_Tamper_Freq_DIV_16384             = 0x01, /*!< ERTC_CLK / 16384 */
+    ERTC_Tamper_Freq_DIV_8192              = 0x02, /*!< ERTC_CLK / 8192 */
+    ERTC_Tamper_Freq_DIV_4096              = 0x03, /*!< ERTC_CLK / 4096 */
+    ERTC_Tamper_Freq_DIV_2048              = 0x04, /*!< ERTC_CLK / 2048 */
+    ERTC_Tamper_Freq_DIV_1024              = 0x05, /*!< ERTC_CLK / 1024 */
+    ERTC_Tamper_Freq_DIV_512               = 0x06, /*!< ERTC_CLK / 512 */
+    ERTC_Tamper_Freq_DIV_256               = 0x07  /*!< ERTC_CLK / 256 */
+} ERTC_Tamper_Detect_Freq_Type;
 
 /**
   * @brief ertc tamper valid edge
   */
 typedef enum {
-    ERTC_TAMPER_EDGE_RISING                = 0x00, /*!< rising gedge */
-    ERTC_TAMPER_EDGE_FALLING               = 0x01, /*!< falling gedge */
-    ERTC_TAMPER_EDGE_LOW                   = 0x00, /*!< low level */
-    ERTC_TAMPER_EDGE_HIGH                  = 0x01  /*!< high level */
-} ertc_tamper_valid_edge_type;
+    ERTC_Tamper_Edge_RISING                = 0x00, /*!< rising gedge */
+    ERTC_Tamper_Edge_FALLING               = 0x01, /*!< falling gedge */
+    ERTC_Tamper_Edge_LOW                   = 0x00, /*!< low level */
+    ERTC_Tamper_Edge_HIGH                  = 0x01  /*!< high level */
+} ERTC_Tamper_Valid_Edge_Type;
 
 /**
   * @brief ertc bpr register
@@ -348,7 +348,7 @@ typedef enum {
     ERTC_DT18                              = 17, /*!< bpr data register 17 */
     ERTC_DT19                              = 18, /*!< bpr data register 18 */
     ERTC_DT20                              = 19  /*!< bpr data register 19 */
-} ertc_dt_type;
+} ERTC_dt_Type;
 
 /**
   * @brief ertc time
@@ -361,8 +361,8 @@ typedef struct {
     uint8_t min;                           /*!< minute */
     uint8_t sec;                           /*!< second */
     uint8_t week;                          /*!< week */
-    ertc_am_pm_type ampm;                  /*!< ante meridiem / post meridiem */
-} ertc_time_type;
+    ERTC_am_pm_Type ampm;                  /*!< ante meridiem / post meridiem */
+} ERTC_Time_Type;
 
 /**
   * @brief ertc alarm
@@ -372,11 +372,11 @@ typedef struct {
     uint8_t hour;                          /*!< hour */
     uint8_t min;                           /*!< minute */
     uint8_t sec;                           /*!< second */
-    ertc_am_pm_type ampm;                  /*!< ante meridiem / post meridiem */
+    ERTC_am_pm_Type ampm;                  /*!< ante meridiem / post meridiem */
     uint32_t mask;                         /*!< alarm mask*/
-    uint8_t week_date_sel;                 /*!< week or date mode */
+    uint8_t week_Date_sel;                 /*!< week or date mode */
     uint8_t week;                          /*!< week */
-} ertc_alarm_value_type;
+} ERTC_Alarm_value_Type;
 
 /**
   * @brief ertc time reg union
@@ -392,7 +392,7 @@ typedef union {
         __IO uint32_t ampm                   : 1; /* [22] */
         __IO uint32_t reserved3              : 9; /* [31:23] */
     } time_bit;
-} ertc_reg_time_type;
+} ERTC_reg_Time_Type;
 
 /**
   * @brief ertc date reg union
@@ -407,7 +407,7 @@ typedef union {
         __IO uint32_t y                      : 8; /* [23:16] */
         __IO uint32_t reserved2              : 8; /* [31:24] */
     } date_bit;
-} ertc_reg_date_type;
+} ERTC_reg_Date_Type;
 
 /**
   * @brief ertc alarm reg union
@@ -426,7 +426,7 @@ typedef union {
         __IO uint32_t wksel                  : 1; /* [30] */
         __IO uint32_t mask4                  : 1; /* [31] */
     } ala_bit;
-} ertc_reg_alarm_type;
+} ERTC_reg_Alarm_Type;
 
 /**
   * @brief ertc scal reg union
@@ -441,7 +441,7 @@ typedef union {
         __IO uint32_t add                    : 1; /* [15] */
         __IO uint32_t reserved2              : 16; /* [31:16] */
     } scal_bit;
-} ertc_reg_scal_type;
+} ERTC_reg_scal_Type;
 
 /**
   * @brief ertc tadj reg union
@@ -453,7 +453,7 @@ typedef union {
         __IO uint32_t reserved1              : 16; /* [30:15] */
         __IO uint32_t add1s                  : 1; /* [31] */
     } tadj_bit;
-} ertc_reg_tadj_type;
+} ERTC_reg_tadj_Type;
 
 /**
   * @brief ertc tstm reg union
@@ -469,7 +469,7 @@ typedef union {
         __IO uint32_t ampm                   : 1; /* [22] */
         __IO uint32_t reserved3              : 9; /* [31:23] */
     } tstm_bit;
-} ertc_reg_tstm_type;
+} ERTC_reg_tstm_Type;
 
 /**
   * @brief ertc tsdt register, offset:0x34
@@ -483,7 +483,7 @@ typedef union {
         __IO uint32_t wk                     : 3; /* [15:13] */
         __IO uint32_t reserved2              : 16; /* [31:16] */
     } tsdt_bit;
-} ertc_reg_tsdt_type;
+} ERTC_reg_tsdt_Type;
 
 /**
   * @brief type define ertc register all
@@ -1000,74 +1000,74 @@ typedef struct {
     };
 
 
-} ertc_type;
+} ERTC_Type;
 
 /**
   * @}
   */
 
-#define ERTC                              ((ertc_type *) ERTC_BASE)
+#define ERTC                              ((ERTC_Type *) ERTC_BASE)
 
 /** @defgroup ERTC_exported_functions
   * @{
   */
 
-uint8_t ertc_num_to_bcd(uint8_t num);
-uint8_t ertc_bcd_to_num(uint8_t bcd);
-void ertc_write_protect_enable(void);
-void ertc_write_protect_disable(void);
-error_status ertc_wait_update(void);
-error_status ertc_wait_flag(uint32_t flag, flag_status status);
-error_status ertc_init_mode_enter(void);
-void ertc_init_mode_exit(void);
-error_status ertc_reset(void);
-error_status ertc_divider_set(uint16_t div_a, uint16_t div_b);
-error_status ertc_hour_mode_set(ertc_hour_mode_set_type mode);
-error_status ertc_date_set(uint8_t year, uint8_t month, uint8_t date, uint8_t week);
-error_status ertc_time_set(uint8_t hour, uint8_t min, uint8_t sec, ertc_am_pm_type ampm);
-void ertc_calendar_get(ertc_time_type* time);
-uint32_t ertc_sub_second_get(void);
-void ertc_alarm_mask_set(ertc_alarm_type alarm_x, uint32_t mask);
-void ertc_alarm_week_date_select(ertc_alarm_type alarm_x, ertc_week_date_select_type wk);
-void ertc_alarm_set(ertc_alarm_type alarm_x, uint8_t week_date, uint8_t hour, uint8_t min, uint8_t sec, ertc_am_pm_type ampm);
-void ertc_alarm_sub_second_set(ertc_alarm_type alarm_x, uint32_t value, ertc_alarm_sbs_mask_type mask);
-error_status ertc_alarm_enable(ertc_alarm_type alarm_x, confirm_state new_state);
-void ertc_alarm_get(ertc_alarm_type alarm_x, ertc_alarm_value_type* alarm);
-uint32_t ertc_alarm_sub_second_get(ertc_alarm_type alarm_x);
-void ertc_wakeup_clock_set(ertc_wakeup_clock_type clock);
-void ertc_wakeup_counter_set(uint32_t counter);
-uint16_t ertc_wakeup_counter_get(void);
-error_status ertc_wakeup_enable(confirm_state new_state);
-error_status ertc_smooth_calibration_config(ertc_smooth_cal_period_type period, ertc_smooth_cal_clk_add_type clk_add, uint32_t clk_dec);
-error_status ertc_coarse_calibration_set(ertc_cal_direction_type dir, uint32_t value);
-error_status ertc_coarse_calibration_enable(confirm_state new_state);
-void ertc_cal_output_select(ertc_cal_output_select_type output);
-void ertc_cal_output_enable(confirm_state new_state);
-error_status ertc_time_adjust(ertc_time_adjust_type add1s, uint32_t decsbs);
-void ertc_daylight_set(ertc_dst_operation_type operation, ertc_dst_save_type save);
-uint8_t ertc_daylight_bpr_get(void);
-error_status ertc_refer_clock_detect_enable(confirm_state new_state);
-void ertc_direct_read_enable(confirm_state new_state);
-void ertc_output_set(ertc_output_source_type source, ertc_output_polarity_type polarity, ertc_output_type type);
-void ertc_timestamp_pin_select(ertc_pin_select_type pin);
-void ertc_timestamp_valid_edge_set(ertc_timestamp_valid_edge_type edge);
-void ertc_timestamp_enable(confirm_state new_state);
-void ertc_timestamp_get(ertc_time_type* time);
-uint32_t ertc_timestamp_sub_second_get(void);
-void ertc_tamper_1_pin_select(ertc_pin_select_type pin);
-void ertc_tamper_pull_up_enable(confirm_state new_state);
-void ertc_tamper_precharge_set(ertc_tamper_precharge_type precharge);
-void ertc_tamper_filter_set(ertc_tamper_filter_type filter);
-void ertc_tamper_detect_freq_set(ertc_tamper_detect_freq_type freq);
-void ertc_tamper_valid_edge_set(ertc_tamper_select_type tamper_x, ertc_tamper_valid_edge_type trigger);
-void ertc_tamper_timestamp_enable(confirm_state new_state);
-void ertc_tamper_enable(ertc_tamper_select_type tamper_x, confirm_state new_state);
-void ertc_interrupt_enable(uint32_t source, confirm_state new_state);
-flag_status ertc_interrupt_get(uint32_t source);
-flag_status ertc_flag_get(uint32_t flag);
-void ertc_flag_clear(uint32_t flag);
-void ertc_bpr_data_write(ertc_dt_type dt, uint32_t data);
-uint32_t ertc_bpr_data_read(ertc_dt_type dt);
+uint8_t ERTC_Num_To_BCD(uint8_t num);
+uint8_t ERTC_BCD_to_Num(uint8_t bcd);
+void ERTC_Write_Protect_Enable(void);
+void ERTC_Write_Protect_Disable(void);
+error_status ERTC_Wait_Update(void);
+error_status ERTC_Wait_flag(uint32_t flag, flag_status status);
+error_status ERTC_Init_Mode_Enter(void);
+void ERTC_Init_Mode_Exit(void);
+error_status ERTC_Reset(void);
+error_status ERTC_divider_Set(uint16_t div_a, uint16_t div_b);
+error_status ERTC_hour_Mode_Set(ERTC_hour_Mode_Set_Type mode);
+error_status ERTC_Date_Set(uint8_t year, uint8_t month, uint8_t date, uint8_t week);
+error_status ERTC_Time_Set(uint8_t hour, uint8_t min, uint8_t sec, ERTC_am_pm_Type ampm);
+void ERTC_Calendar_Get(ERTC_Time_Type* time);
+uint32_t ERTC_Sub_Second_Get(void);
+void ERTC_Alarm_Mask_Set(ERTC_Alarm_Type alarm_x, uint32_t mask);
+void ERTC_Alarm_week_Date_Select(ERTC_Alarm_Type alarm_x, ERTC_week_Date_Select_Type wk);
+void ERTC_Alarm_Set(ERTC_Alarm_Type alarm_x, uint8_t week_date, uint8_t hour, uint8_t min, uint8_t sec, ERTC_am_pm_Type ampm);
+void ERTC_Alarm_Sub_Second_Set(ERTC_Alarm_Type alarm_x, uint32_t value, ERTC_Alarm_sbs_Mask_Type mask);
+error_status ERTC_Alarm_Enable(ERTC_Alarm_Type alarm_x, confirm_state new_state);
+void ERTC_Alarm_Get(ERTC_Alarm_Type alarm_x, ERTC_Alarm_value_Type* alarm);
+uint32_t ERTC_Alarm_Sub_Second_Get(ERTC_Alarm_Type alarm_x);
+void ERTC_WakeUp_Clock_Set(ERTC_WakeUp_Clock_Type clock);
+void ERTC_WakeUp_Counter_Set(uint32_t counter);
+uint16_t ERTC_WakeUp_Counter_Get(void);
+error_status ERTC_WakeUp_Enable(confirm_state new_state);
+error_status ERTC_Smooth_Calibration_Config(ERTC_Smooth_CAL_period_Type period, ERTC_Smooth_CAL_clk_add_Type clk_add, uint32_t clk_dec);
+error_status ERTC_Coarse_Calibration_Set(ERTC_CAL_direction_Type dir, uint32_t value);
+error_status ERTC_Coarse_Calibration_Enable(confirm_state new_state);
+void ERTC_CAL_OutPut_Select(ERTC_CAL_OutPut_Select_Type output);
+void ERTC_CAL_OutPut_Enable(confirm_state new_state);
+error_status ERTC_Time_Adjust(ERTC_Time_Adjust_Type add1s, uint32_t decsbs);
+void ERTC_DayLight_Set(ERTC_dst_Operation_Type operation, ERTC_dst_save_Type save);
+uint8_t ERTC_DayLight_BPR_Get(void);
+error_status ERTC_refer_Clock_Detect_Enable(confirm_state new_state);
+void ERTC_direct_Read_Enable(confirm_state new_state);
+void ERTC_OutPut_Set(ERTC_OutPut_Source_Type source, ERTC_OutPut_polarity_Type polarity, ERTC_OutPut_Type type);
+void ERTC_TimeStamp_Pin_Select(ERTC_Pin_Select_Type pin);
+void ERTC_TimeStamp_Valid_Edge_Set(ERTC_TimeStamp_Valid_Edge_Type edge);
+void ERTC_TimeStamp_Enable(confirm_state new_state);
+void ERTC_TimeStamp_Get(ERTC_Time_Type* time);
+uint32_t ERTC_TimeStamp_Sub_Second_Get(void);
+void ERTC_Tamper_1_Pin_Select(ERTC_Pin_Select_Type pin);
+void ERTC_Tamper_Pull_up_Enable(confirm_state new_state);
+void ERTC_Tamper_precharge_Set(ERTC_Tamper_precharge_Type precharge);
+void ERTC_Tamper_Filter_Set(ERTC_Tamper_Filter_Type filter);
+void ERTC_Tamper_Detect_Freq_Set(ERTC_Tamper_Detect_Freq_Type freq);
+void ERTC_Tamper_Valid_Edge_Set(ERTC_Tamper_Select_Type tamper_x, ERTC_Tamper_Valid_Edge_Type trigger);
+void ERTC_Tamper_TimeStamp_Enable(confirm_state new_state);
+void ERTC_Tamper_Enable(ERTC_Tamper_Select_Type tamper_x, confirm_state new_state);
+void ERTC_Interrupt_Enable(uint32_t source, confirm_state new_state);
+flag_status ERTC_Interrupt_Get(uint32_t source);
+flag_status ERTC_Flag_Get(uint32_t flag);
+void ERTC_Flag_Clear(uint32_t flag);
+void ERTC_BPR_Data_Write(ERTC_dt_Type dt, uint32_t data);
+uint32_t ERTC_BPR_Data_Read(ERTC_dt_Type dt);
 
 /**
   * @}

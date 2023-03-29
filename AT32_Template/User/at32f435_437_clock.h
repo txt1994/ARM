@@ -23,8 +23,8 @@
   */
 
 /* define to prevent recursive inclusion -------------------------------------*/
-#ifndef __AT32F435_437_CLOCK_H
-#define __AT32F435_437_CLOCK_H
+#ifndef __AT32F435_437_Clock_H
+#define __AT32F435_437_Clock_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -34,7 +34,7 @@ extern "C" {
 #include "at32f435_437.h"
 
 /* exported functions ------------------------------------------------------- */
-void system_clock_config(void);
+void system_Clock_Config(void);
 
 #ifdef __cplusplus
 }

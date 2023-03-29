@@ -24,7 +24,7 @@
 
 #include "at32f435_437_conf.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -45,8 +45,8 @@
   * @retval none
   */
 void ADC_Reset(void) {
-    crm_periph_Reset(CRM_ADC_PERIPH_Reset, TRUE);
-    crm_periph_Reset(CRM_ADC_PERIPH_Reset, FALSE);
+    CRM_Periph_Reset(CRM_ADC_Periph_Reset, TRUE);
+    CRM_Periph_Reset(CRM_ADC_Periph_Reset, FALSE);
 }
 
 /**
@@ -77,11 +77,11 @@ void ADC_Enable(ADC_Type *ADC_x, confirm_state new_state) {
   *         - (0x1~0xf)
   * @retval none
   */
-void ADC_base_Default_Para_Init(ADC_base_Config_Type *ADC_base_struct) {
-    ADC_base_struct->sequence_Mode = FALSE;
-    ADC_base_struct->repeat_Mode = FALSE;
-    ADC_base_struct->data_align = ADC_RIGHT_ALIGNMENT;
-    ADC_base_struct->ordinary_Channel_length = 1;
+void ADC_Base_Default_Para_Init(ADC_Base_Config_Type *ADC_Base_struct) {
+    ADC_Base_struct->sequence_Mode = FALSE;
+    ADC_Base_struct->repeat_Mode = FALSE;
+    ADC_Base_struct->data_align = ADC_RIGHT_ALIGNMENT;
+    ADC_Base_struct->ordinary_Channel_length = 1;
 }
 
 /**
@@ -102,11 +102,11 @@ void ADC_base_Default_Para_Init(ADC_base_Config_Type *ADC_base_struct) {
   *         - (0x1~0xf)
   * @retval none
   */
-void ADC_base_Config(ADC_Type *ADC_x, ADC_base_Config_Type *ADC_base_struct) {
-    ADC_x->ctrl1_bit.sqen = ADC_base_struct->sequence_Mode;
-    ADC_x->ctrl2_bit.rpen = ADC_base_struct->repeat_Mode;
-    ADC_x->ctrl2_bit.dtalign = ADC_base_struct->data_align;
-    ADC_x->osq1_bit.oclen = ADC_base_struct->ordinary_Channel_length - 1;
+void ADC_Base_Config(ADC_Type *ADC_x, ADC_Base_Config_Type *ADC_Base_struct) {
+    ADC_x->ctrl1_bit.sqen = ADC_Base_struct->sequence_Mode;
+    ADC_x->ctrl2_bit.rpen = ADC_Base_struct->repeat_Mode;
+    ADC_x->ctrl2_bit.dtalign = ADC_Base_struct->data_align;
+    ADC_x->osq1_bit.oclen = ADC_Base_struct->ordinary_Channel_length - 1;
 }
 
 /**
@@ -114,16 +114,16 @@ void ADC_base_Config(ADC_Type *ADC_x, ADC_base_Config_Type *ADC_base_struct) {
   * @param  combine_Mode: configure the adc combine_Mode mode.
   *         this parameter can be one of the following values:
   *         - ADC_INDEPENDENT_Mode                       - ADC_Ordinary_SMLT_Preempt_SMLT_ONESLAVE_Mode   - ADC_Ordinary_SMLT_Preempt_INTERLTRIG_ONESLAVE_Mode
-  *         - ADC_Preempt_SMLT_ONLY_ONESLAVE_Mode        - ADC_Ordinary_SMLT_ONLY_ONESLAVE_Mode           - ADC_Ordinary_SHIFT_ONLY_ONESLAVE_Mode
+  *         - ADC_Preempt_SMLT_ONLY_ONESLAVE_Mode        - ADC_Ordinary_SMLT_ONLY_ONESLAVE_Mode           - ADC_Ordinary_Shift_ONLY_ONESLAVE_Mode
   *         - ADC_Preempt_INTERLTRIG_ONLY_ONESLAVE_Mode  - ADC_Ordinary_SMLT_Preempt_SMLT_TWOSLAVE_Mode   - ADC_Ordinary_SMLT_Preempt_INTERLTRIG_TWOSLAVE_Mode
-  *         - ADC_Preempt_SMLT_ONLY_TWOSLAVE_Mode        - ADC_Ordinary_SMLT_ONLY_TWOSLAVE_Mode           - ADC_Ordinary_SHIFT_ONLY_TWOSLAVE_Mode
+  *         - ADC_Preempt_SMLT_ONLY_TWOSLAVE_Mode        - ADC_Ordinary_SMLT_ONLY_TWOSLAVE_Mode           - ADC_Ordinary_Shift_ONLY_TWOSLAVE_Mode
   *         - ADC_Preempt_INTERLTRIG_ONLY_TWOSLAVE_Mode
   * @param  div: configure the adc division.
   *         this parameter can be one of the following values:
-  *         - ADC_HCLK_DIV_2             - ADC_HCLK_DIV_3             - ADC_HCLK_DIV_4             - ADC_HCLK_DIV_5
-  *         - ADC_HCLK_DIV_6             - ADC_HCLK_DIV_7             - ADC_HCLK_DIV_8             - ADC_HCLK_DIV_9
-  *         - ADC_HCLK_DIV_10            - ADC_HCLK_DIV_11            - ADC_HCLK_DIV_12            - ADC_HCLK_DIV_13
-  *         - ADC_HCLK_DIV_14            - ADC_HCLK_DIV_15            - ADC_HCLK_DIV_16            - ADC_HCLK_DIV_17
+  *         - ADC_HCLK_Div_2             - ADC_HCLK_Div_3             - ADC_HCLK_Div_4             - ADC_HCLK_Div_5
+  *         - ADC_HCLK_Div_6             - ADC_HCLK_Div_7             - ADC_HCLK_Div_8             - ADC_HCLK_Div_9
+  *         - ADC_HCLK_Div_10            - ADC_HCLK_Div_11            - ADC_HCLK_Div_12            - ADC_HCLK_Div_13
+  *         - ADC_HCLK_Div_14            - ADC_HCLK_Div_15            - ADC_HCLK_Div_16            - ADC_HCLK_Div_17
   * @param  common_DMA_Mode: configure the adc common dma mode.
   *         this parameter can be one of the following values:
   *         - ADC_Common_DMAMODE_Disable
@@ -132,7 +132,7 @@ void ADC_base_Config(ADC_Type *ADC_x, ADC_base_Config_Type *ADC_base_struct) {
   *         - ADC_Common_DMAMODE_3 <mode 3 can be used: one slaver ordinary simultaneous mode in 6/8 bit resolution,ordinary shifting mode in 6/8 bit resolution>
   *         - ADC_Common_DMAMODE_4 <mode 4 can be used: two slaver ordinary simultaneous mode in 6/8 bit resolution,two slave ordinary shifting mode in 6/8 bit resolution>
   *         - ADC_Common_DMAMODE_5 <mode 5 can be used: all two slaver ordinary simultaneous mode,all two slave ordinary shifting mode>
-  * @param  common_DMA_Request_repeat_state: set the adc common dma request repeat state.
+  * @param  common_DMA_Request_Repeat_state: set the adc common dma request repeat state.
   *         this parameter can be:TRUE or FALSE
   * @param  sampling_interval: configure the ordinary shifting mode adjacent adc sampling interval.
   *         this parameter can be one of the following values:
@@ -148,9 +148,9 @@ void ADC_base_Config(ADC_Type *ADC_x, ADC_base_Config_Type *ADC_base_struct) {
   */
 void ADC_Common_Default_Para_Init(ADC_Common_Config_Type *ADC_Common_struct) {
     ADC_Common_struct->combine_Mode = ADC_INDEPENDENT_Mode;
-    ADC_Common_struct->div = ADC_HCLK_DIV_2;
+    ADC_Common_struct->div = ADC_HCLK_Div_2;
     ADC_Common_struct->common_DMA_Mode = ADC_Common_DMAMODE_Disable;
-    ADC_Common_struct->common_DMA_Request_repeat_state = FALSE;
+    ADC_Common_struct->common_DMA_Request_Repeat_state = FALSE;
     ADC_Common_struct->sampling_interval = ADC_SAMPLING_INTERVAL_5CYCLES;
     ADC_Common_struct->tempervintrv_state = FALSE;
     ADC_Common_struct->vbat_state = FALSE;
@@ -161,16 +161,16 @@ void ADC_Common_Default_Para_Init(ADC_Common_Config_Type *ADC_Common_struct) {
   * @param  combine_Mode: configure the adc combine_Mode mode.
   *         this parameter can be one of the following values:
   *         - ADC_INDEPENDENT_Mode                       - ADC_Ordinary_SMLT_Preempt_SMLT_ONESLAVE_Mode   - ADC_Ordinary_SMLT_Preempt_INTERLTRIG_ONESLAVE_Mode
-  *         - ADC_Preempt_SMLT_ONLY_ONESLAVE_Mode        - ADC_Ordinary_SMLT_ONLY_ONESLAVE_Mode           - ADC_Ordinary_SHIFT_ONLY_ONESLAVE_Mode
+  *         - ADC_Preempt_SMLT_ONLY_ONESLAVE_Mode        - ADC_Ordinary_SMLT_ONLY_ONESLAVE_Mode           - ADC_Ordinary_Shift_ONLY_ONESLAVE_Mode
   *         - ADC_Preempt_INTERLTRIG_ONLY_ONESLAVE_Mode  - ADC_Ordinary_SMLT_Preempt_SMLT_TWOSLAVE_Mode   - ADC_Ordinary_SMLT_Preempt_INTERLTRIG_TWOSLAVE_Mode
-  *         - ADC_Preempt_SMLT_ONLY_TWOSLAVE_Mode        - ADC_Ordinary_SMLT_ONLY_TWOSLAVE_Mode           - ADC_Ordinary_SHIFT_ONLY_TWOSLAVE_Mode
+  *         - ADC_Preempt_SMLT_ONLY_TWOSLAVE_Mode        - ADC_Ordinary_SMLT_ONLY_TWOSLAVE_Mode           - ADC_Ordinary_Shift_ONLY_TWOSLAVE_Mode
   *         - ADC_Preempt_INTERLTRIG_ONLY_TWOSLAVE_Mode
   * @param  div: configure the adc division.
   *         this parameter can be one of the following values:
-  *         - ADC_HCLK_DIV_2             - ADC_HCLK_DIV_3             - ADC_HCLK_DIV_4             - ADC_HCLK_DIV_5
-  *         - ADC_HCLK_DIV_6             - ADC_HCLK_DIV_7             - ADC_HCLK_DIV_8             - ADC_HCLK_DIV_9
-  *         - ADC_HCLK_DIV_10            - ADC_HCLK_DIV_11            - ADC_HCLK_DIV_12            - ADC_HCLK_DIV_13
-  *         - ADC_HCLK_DIV_14            - ADC_HCLK_DIV_15            - ADC_HCLK_DIV_16            - ADC_HCLK_DIV_17
+  *         - ADC_HCLK_Div_2             - ADC_HCLK_Div_3             - ADC_HCLK_Div_4             - ADC_HCLK_Div_5
+  *         - ADC_HCLK_Div_6             - ADC_HCLK_Div_7             - ADC_HCLK_Div_8             - ADC_HCLK_Div_9
+  *         - ADC_HCLK_Div_10            - ADC_HCLK_Div_11            - ADC_HCLK_Div_12            - ADC_HCLK_Div_13
+  *         - ADC_HCLK_Div_14            - ADC_HCLK_Div_15            - ADC_HCLK_Div_16            - ADC_HCLK_Div_17
   * @param  common_DMA_Mode: configure the adc common dma mode.
   *         this parameter can be one of the following values:
   *         - ADC_Common_DMAMODE_Disable
@@ -179,7 +179,7 @@ void ADC_Common_Default_Para_Init(ADC_Common_Config_Type *ADC_Common_struct) {
   *         - ADC_Common_DMAMODE_3 <mode 3 can be used: one slaver ordinary simultaneous mode in 6/8 bit resolution,ordinary shifting mode in 6/8 bit resolution>
   *         - ADC_Common_DMAMODE_4 <mode 4 can be used: two slaver ordinary simultaneous mode in 6/8 bit resolution,two slave ordinary shifting mode in 6/8 bit resolution>
   *         - ADC_Common_DMAMODE_5 <mode 5 can be used: all two slaver ordinary simultaneous mode,all two slave ordinary shifting mode>
-  * @param  common_DMA_Request_repeat_state: set the adc common dma request repeat state.
+  * @param  common_DMA_Request_Repeat_state: set the adc common dma request repeat state.
   *         this parameter can be:TRUE or FALSE
   * @param  sampling_interval: configure the ordinary shifting mode adjacent adc sampling interval.
   *         this parameter can be one of the following values:
@@ -204,7 +204,7 @@ void ADC_Common_Config(ADC_Common_Config_Type *ADC_Common_struct) {
     }
 
     ADCCOM->cctrl_bit.msdmasel_l = ADC_Common_struct->common_DMA_Mode & 0x03;
-    ADCCOM->cctrl_bit.msdrcen = ADC_Common_struct->common_DMA_Request_repeat_state;
+    ADCCOM->cctrl_bit.msdrcen = ADC_Common_struct->common_DMA_Request_Repeat_state;
     ADCCOM->cctrl_bit.asisel = ADC_Common_struct->sampling_interval;
     ADCCOM->cctrl_bit.itsrven = ADC_Common_struct->tempervintrv_state;
     ADCCOM->cctrl_bit.vbaten = ADC_Common_struct->vbat_state;
@@ -217,13 +217,13 @@ void ADC_Common_Config(ADC_Common_Config_Type *ADC_Common_struct) {
   *         - ADC1, ADC2, ADC3.
   * @param  resolution: set the conversion resolution.
   *         this parameter can be one of the following values:
-  *         - ADC_RESOLUTION_12B
-  *         - ADC_RESOLUTION_10B
-  *         - ADC_RESOLUTION_8B
-  *         - ADC_RESOLUTION_6B
+  *         - ADC_Resolution_12B
+  *         - ADC_Resolution_10B
+  *         - ADC_Resolution_8B
+  *         - ADC_Resolution_6B
   * @retval none
   */
-void ADC_resolution_Set(ADC_Type *ADC_x, ADC_resolution_Type resolution) {
+void ADC_Resolution_Set(ADC_Type *ADC_x, ADC_Resolution_Type resolution) {
     ADC_x->ctrl1_bit.crsel = resolution;
 }
 
@@ -233,7 +233,7 @@ void ADC_resolution_Set(ADC_Type *ADC_x, ADC_resolution_Type resolution) {
   *         this parameter can be: TRUE or FALSE.
   * @retval none
   */
-void ADC_voltage_battery_Enable(confirm_state new_state) {
+void ADC_Voltage_Battery_Enable(confirm_state new_state) {
     ADCCOM->cctrl_bit.vbaten = new_state;
 }
 
@@ -259,7 +259,7 @@ void ADC_DMA_Mode_Enable(ADC_Type *ADC_x, confirm_state new_state) {
   *         this parameter can be: TRUE or FALSE.
   * @retval none
   */
-void ADC_DMA_Request_repeat_Enable(ADC_Type *ADC_x, confirm_state new_state) {
+void ADC_DMA_Request_Repeat_Enable(ADC_Type *ADC_x, confirm_state new_state) {
     ADC_x->ctrl2_bit.ocdrcen = new_state;
 }
 
@@ -270,7 +270,7 @@ void ADC_DMA_Request_repeat_Enable(ADC_Type *ADC_x, confirm_state new_state) {
   *         - ADC1, ADC2, ADC3.
   * @param  ADC_int: specifies the adc interrupt sources to be enabled or disabled.
   *         this parameter can be one of the following values:
-  *         - ADC_OCCE_INT
+  *         - ADC_Occe_INT
   *         - ADC_VMOR_INT
   *         - ADC_PCCE_INT
   *         - ADC_OCCO_INT
@@ -357,22 +357,22 @@ flag_status ADC_Calibration_Status_Get(ADC_Type *ADC_x) {
   * @param  ADC_x: select the adc peripheral.
   *         this parameter can be one of the following values:
   *         - ADC1, ADC2, ADC3.
-  * @param  ADC_voltage_monitoring: choose the ADC_voltage_monitoring config.
+  * @param  ADC_Voltage_monitoring: choose the ADC_Voltage_monitoring config.
   *         this parameter can be one of the following values:
-  *         - ADC_VMONITOR_SINGLE_ORDINARY
-  *         - ADC_VMONITOR_SINGLE_PREEMPT
-  *         - ADC_VMONITOR_SINGLE_Ordinary_PREEMPT
+  *         - ADC_VMONITOR_Single_ORDINARY
+  *         - ADC_VMONITOR_Single_PREEMPT
+  *         - ADC_VMONITOR_Single_Ordinary_PREEMPT
   *         - ADC_VMONITOR_All_ORDINARY
   *         - ADC_VMONITOR_All_PREEMPT
   *         - ADC_VMONITOR_All_Ordinary_PREEMPT
   *         - ADC_VMONITOR_NONE
   * @retval none
   */
-void ADC_voltage_monitor_Enable(ADC_Type *ADC_x, ADC_voltage_monitoring_Type ADC_voltage_monitoring) {
+void ADC_Voltage_Monitor_Enable(ADC_Type *ADC_x, ADC_Voltage_monitoring_Type ADC_Voltage_monitoring) {
     ADC_x->ctrl1_bit.ocvmen = FALSE;
     ADC_x->ctrl1_bit.pcvmen = FALSE;
     ADC_x->ctrl1_bit.vmsgen = FALSE;
-    ADC_x->ctrl1 |= ADC_voltage_monitoring;
+    ADC_x->ctrl1 |= ADC_Voltage_monitoring;
 }
 
 /**
@@ -383,14 +383,14 @@ void ADC_voltage_monitor_Enable(ADC_Type *ADC_x, ADC_voltage_monitoring_Type ADC
   * @param  ADC_high_threshold: voltage monitoring's high thresholds value.
   *         this parameter can be:
   *         - (0x000~0xFFF)
-  * @param  ADC_low_threshold: voltage monitoring's low thresholds value.
+  * @param  ADC_Low_threshold: voltage monitoring's low thresholds value.
   *         this parameter can be:
   *         - (0x000~0xFFF)
   * @retval none
   */
-void ADC_voltage_monitor_threshold_Value_Set(ADC_Type *ADC_x, uint16_t ADC_high_threshold, uint16_t ADC_low_threshold) {
+void ADC_Voltage_Monitor_Threshold_Value_Set(ADC_Type *ADC_x, uint16_t ADC_high_threshold, uint16_t ADC_Low_threshold) {
     ADC_x->vmhb_bit.vmhb = ADC_high_threshold;
-    ADC_x->vmlb_bit.vmlb = ADC_low_threshold;
+    ADC_x->vmlb_bit.vmlb = ADC_Low_threshold;
 }
 
 /**
@@ -398,7 +398,7 @@ void ADC_voltage_monitor_threshold_Value_Set(ADC_Type *ADC_x, uint16_t ADC_high_
   * @param  ADC_x: select the adc peripheral.
   *         this parameter can be one of the following values:
   *         - ADC1, ADC2, ADC3.
-  * @param  ADC_channel: select the channel.
+  * @param  ADC_Channel: select the channel.
   *         this parameter can be one of the following values:
   *         - ADC_Channel_0    - ADC_Channel_1    - ADC_Channel_2    - ADC_Channel_3
   *         - ADC_Channel_4    - ADC_Channel_5    - ADC_Channel_6    - ADC_Channel_7
@@ -407,8 +407,8 @@ void ADC_voltage_monitor_threshold_Value_Set(ADC_Type *ADC_x, uint16_t ADC_high_
   *         - ADC_Channel_16   - ADC_Channel_17   - ADC_Channel_18
   * @retval none
   */
-void ADC_voltage_monitor_single_Channel_Select(ADC_Type *ADC_x, ADC_Channel_Select_Type ADC_channel) {
-    ADC_x->ctrl1_bit.vmcsel = ADC_channel;
+void ADC_Voltage_Monitor_Single_Channel_Select(ADC_Type *ADC_x, ADC_Channel_Select_Type ADC_Channel) {
+    ADC_x->ctrl1_bit.vmcsel = ADC_Channel;
 }
 
 /**
@@ -416,7 +416,7 @@ void ADC_voltage_monitor_single_Channel_Select(ADC_Type *ADC_x, ADC_Channel_Sele
   * @param  ADC_x: select the adc peripheral.
   *         this parameter can be one of the following values:
   *         - ADC1, ADC2, ADC3.
-  * @param  ADC_channel: select the channel.
+  * @param  ADC_Channel: select the channel.
   *         this parameter can be one of the following values:
   *         - ADC_Channel_0    - ADC_Channel_1    - ADC_Channel_2    - ADC_Channel_3
   *         - ADC_Channel_4    - ADC_Channel_5    - ADC_Channel_6    - ADC_Channel_7
@@ -438,8 +438,8 @@ void ADC_voltage_monitor_single_Channel_Select(ADC_Type *ADC_x, ADC_Channel_Sele
   *         - ADC_SAMPLETIME_640_5
   * @retval none
   */
-void ADC_Ordinary_Channel_Set(ADC_Type *ADC_x, ADC_Channel_Select_Type ADC_channel, uint8_t ADC_sequence, ADC_sampletime_Select_Type ADC_sampletime) {
-    switch(ADC_channel) {
+void ADC_Ordinary_Channel_Set(ADC_Type *ADC_x, ADC_Channel_Select_Type ADC_Channel, uint8_t ADC_sequence, ADC_sampletime_Select_Type ADC_sampletime) {
+    switch(ADC_Channel) {
         case ADC_Channel_0:
             ADC_x->spt2_bit.cspt0 = ADC_sampletime;
             break;
@@ -522,67 +522,67 @@ void ADC_Ordinary_Channel_Set(ADC_Type *ADC_x, ADC_Channel_Select_Type ADC_chann
 
     switch(ADC_sequence) {
         case 1:
-            ADC_x->osq3_bit.osn1 = ADC_channel;
+            ADC_x->osq3_bit.osn1 = ADC_Channel;
             break;
 
         case 2:
-            ADC_x->osq3_bit.osn2 = ADC_channel;
+            ADC_x->osq3_bit.osn2 = ADC_Channel;
             break;
 
         case 3:
-            ADC_x->osq3_bit.osn3 = ADC_channel;
+            ADC_x->osq3_bit.osn3 = ADC_Channel;
             break;
 
         case 4:
-            ADC_x->osq3_bit.osn4 = ADC_channel;
+            ADC_x->osq3_bit.osn4 = ADC_Channel;
             break;
 
         case 5:
-            ADC_x->osq3_bit.osn5 = ADC_channel;
+            ADC_x->osq3_bit.osn5 = ADC_Channel;
             break;
 
         case 6:
-            ADC_x->osq3_bit.osn6 = ADC_channel;
+            ADC_x->osq3_bit.osn6 = ADC_Channel;
             break;
 
         case 7:
-            ADC_x->osq2_bit.osn7 = ADC_channel;
+            ADC_x->osq2_bit.osn7 = ADC_Channel;
             break;
 
         case 8:
-            ADC_x->osq2_bit.osn8 = ADC_channel;
+            ADC_x->osq2_bit.osn8 = ADC_Channel;
             break;
 
         case 9:
-            ADC_x->osq2_bit.osn9 = ADC_channel;
+            ADC_x->osq2_bit.osn9 = ADC_Channel;
             break;
 
         case 10:
-            ADC_x->osq2_bit.osn10 = ADC_channel;
+            ADC_x->osq2_bit.osn10 = ADC_Channel;
             break;
 
         case 11:
-            ADC_x->osq2_bit.osn11 = ADC_channel;
+            ADC_x->osq2_bit.osn11 = ADC_Channel;
             break;
 
         case 12:
-            ADC_x->osq2_bit.osn12 = ADC_channel;
+            ADC_x->osq2_bit.osn12 = ADC_Channel;
             break;
 
         case 13:
-            ADC_x->osq1_bit.osn13 = ADC_channel;
+            ADC_x->osq1_bit.osn13 = ADC_Channel;
             break;
 
         case 14:
-            ADC_x->osq1_bit.osn14 = ADC_channel;
+            ADC_x->osq1_bit.osn14 = ADC_Channel;
             break;
 
         case 15:
-            ADC_x->osq1_bit.osn15 = ADC_channel;
+            ADC_x->osq1_bit.osn15 = ADC_Channel;
             break;
 
         case 16:
-            ADC_x->osq1_bit.osn16 = ADC_channel;
+            ADC_x->osq1_bit.osn16 = ADC_Channel;
             break;
 
         default:
@@ -600,7 +600,7 @@ void ADC_Ordinary_Channel_Set(ADC_Type *ADC_x, ADC_Channel_Select_Type ADC_chann
   *         - (0x1~0x4)
   * @retval none
   */
-void ADC_Preempt_Channel_length_Set(ADC_Type *ADC_x, uint8_t ADC_Channel_lenght) {
+void ADC_Preempt_Channel_Length_Set(ADC_Type *ADC_x, uint8_t ADC_Channel_lenght) {
     ADC_x->psq_bit.pclen =  ADC_Channel_lenght - 1;
 }
 
@@ -609,7 +609,7 @@ void ADC_Preempt_Channel_length_Set(ADC_Type *ADC_x, uint8_t ADC_Channel_lenght)
   * @param  ADC_x: select the adc peripheral.
   *         this parameter can be one of the following values:
   *         - ADC1, ADC2, ADC3.
-  * @param  ADC_channel: select the channel.
+  * @param  ADC_Channel: select the channel.
   *         this parameter can be one of the following values:
   *         - ADC_Channel_0    - ADC_Channel_1    - ADC_Channel_2    - ADC_Channel_3
   *         - ADC_Channel_4    - ADC_Channel_5    - ADC_Channel_6    - ADC_Channel_7
@@ -631,10 +631,10 @@ void ADC_Preempt_Channel_length_Set(ADC_Type *ADC_x, uint8_t ADC_Channel_lenght)
   *         - ADC_SAMPLETIME_640_5
   * @retval none
   */
-void ADC_Preempt_Channel_Set(ADC_Type *ADC_x, ADC_Channel_Select_Type ADC_channel, uint8_t ADC_sequence, ADC_sampletime_Select_Type ADC_sampletime) {
+void ADC_Preempt_Channel_Set(ADC_Type *ADC_x, ADC_Channel_Select_Type ADC_Channel, uint8_t ADC_sequence, ADC_sampletime_Select_Type ADC_sampletime) {
     uint16_t sequence_index = 0;
 
-    switch(ADC_channel) {
+    switch(ADC_Channel) {
         case ADC_Channel_0:
             ADC_x->spt2_bit.cspt0 = ADC_sampletime;
             break;
@@ -719,19 +719,19 @@ void ADC_Preempt_Channel_Set(ADC_Type *ADC_x, ADC_Channel_Select_Type ADC_channe
 
     switch(sequence_index) {
         case 1:
-            ADC_x->psq_bit.psn1 = ADC_channel;
+            ADC_x->psq_bit.psn1 = ADC_Channel;
             break;
 
         case 2:
-            ADC_x->psq_bit.psn2 = ADC_channel;
+            ADC_x->psq_bit.psn2 = ADC_Channel;
             break;
 
         case 3:
-            ADC_x->psq_bit.psn3 = ADC_channel;
+            ADC_x->psq_bit.psn3 = ADC_Channel;
             break;
 
         case 4:
-            ADC_x->psq_bit.psn4 = ADC_channel;
+            ADC_x->psq_bit.psn4 = ADC_Channel;
             break;
 
         default:
@@ -747,24 +747,24 @@ void ADC_Preempt_Channel_Set(ADC_Type *ADC_x, ADC_Channel_Select_Type ADC_channe
   *         - ADC1, ADC2, ADC3.
   * @param  ADC_Ordinary_trig: select the external trigger event.
   *         this parameter can be one of the following values:
-  *         - ADC_Ordinary_TRIG_TMR1CH1     - ADC_Ordinary_TRIG_TMR1CH2      - ADC_Ordinary_TRIG_TMR1CH3      - ADC_Ordinary_TRIG_TMR2CH2
-  *         - ADC_Ordinary_TRIG_TMR2CH3     - ADC_Ordinary_TRIG_TMR2CH4      - ADC_Ordinary_TRIG_TMR2TRGOUT   - ADC_Ordinary_TRIG_TMR3CH1
-  *         - ADC_Ordinary_TRIG_TMR3TRGOUT  - ADC_Ordinary_TRIG_TMR4CH4      - ADC_Ordinary_TRIG_TMR5CH1      - ADC_Ordinary_TRIG_TMR5CH2
-  *         - ADC_Ordinary_TRIG_TMR5CH3     - ADC_Ordinary_TRIG_TMR8CH1      - ADC_Ordinary_TRIG_TMR8TRGOUT   - ADC_Ordinary_TRIG_EXINT11
-  *         - ADC_Ordinary_TRIG_TMR20TRGOUT - ADC_Ordinary_TRIG_TMR20TRGOUT2 - ADC_Ordinary_TRIG_TMR20CH1     - ADC_Ordinary_TRIG_TMR20CH2
-  *         - ADC_Ordinary_TRIG_TMR20CH3    - ADC_Ordinary_TRIG_TMR8TRGOUT2  - ADC_Ordinary_TRIG_TMR1TRGOUT2  - ADC_Ordinary_TRIG_TMR4TRGOUT
-  *         - ADC_Ordinary_TRIG_TMR6TRGOUT  - ADC_Ordinary_TRIG_TMR3CH4      - ADC_Ordinary_TRIG_TMR4CH1      - ADC_Ordinary_TRIG_TMR1TRGOUT
-  *         - ADC_Ordinary_TRIG_TMR2CH1     - ADC_Ordinary_TRIG_TMR7TRGOUT
-  * @param  ADC_Ordinary_trig_edge: ordinary channel conversion's external_Trigger_edge.
+  *         - ADC_Ordinary_Trig_TMR1CH1     - ADC_Ordinary_Trig_TMR1CH2      - ADC_Ordinary_Trig_TMR1CH3      - ADC_Ordinary_Trig_TMR2CH2
+  *         - ADC_Ordinary_Trig_TMR2CH3     - ADC_Ordinary_Trig_TMR2CH4      - ADC_Ordinary_Trig_TMR2TRGOUT   - ADC_Ordinary_Trig_TMR3CH1
+  *         - ADC_Ordinary_Trig_TMR3TRGOUT  - ADC_Ordinary_Trig_TMR4CH4      - ADC_Ordinary_Trig_TMR5CH1      - ADC_Ordinary_Trig_TMR5CH2
+  *         - ADC_Ordinary_Trig_TMR5CH3     - ADC_Ordinary_Trig_TMR8CH1      - ADC_Ordinary_Trig_TMR8TRGOUT   - ADC_Ordinary_Trig_EXINT11
+  *         - ADC_Ordinary_Trig_TMR20TRGOUT - ADC_Ordinary_Trig_TMR20TRGOUT2 - ADC_Ordinary_Trig_TMR20CH1     - ADC_Ordinary_Trig_TMR20CH2
+  *         - ADC_Ordinary_Trig_TMR20CH3    - ADC_Ordinary_Trig_TMR8TRGOUT2  - ADC_Ordinary_Trig_TMR1TRGOUT2  - ADC_Ordinary_Trig_TMR4TRGOUT
+  *         - ADC_Ordinary_Trig_TMR6TRGOUT  - ADC_Ordinary_Trig_TMR3CH4      - ADC_Ordinary_Trig_TMR4CH1      - ADC_Ordinary_Trig_TMR1TRGOUT
+  *         - ADC_Ordinary_Trig_TMR2CH1     - ADC_Ordinary_Trig_TMR7TRGOUT
+  * @param  ADC_Ordinary_Trig_edge: ordinary channel conversion's external_Trigger_edge.
   *         this parameter can be one of the following values:
-  *         - ADC_Ordinary_TRIG_Edge_NONE
-  *         - ADC_Ordinary_TRIG_Edge_RISING
-  *         - ADC_Ordinary_TRIG_Edge_FALLING
-  *         - ADC_Ordinary_TRIG_Edge_RISING_FALLING
+  *         - ADC_Ordinary_Trig_Edge_NONE
+  *         - ADC_Ordinary_Trig_Edge_RISING
+  *         - ADC_Ordinary_Trig_Edge_FALLING
+  *         - ADC_Ordinary_Trig_Edge_RISING_FALLING
   * @retval none
   */
-void ADC_Ordinary_Conversion_Trigger_Set(ADC_Type *ADC_x, ADC_Ordinary_trig_Select_Type ADC_Ordinary_trig, ADC_Ordinary_trig_Edge_Type ADC_Ordinary_trig_edge) {
-    if(ADC_Ordinary_trig > ADC_Ordinary_TRIG_EXINT11) {
+void ADC_Ordinary_Conversion_Trigger_Set(ADC_Type *ADC_x, ADC_Ordinary_Trig_Select_Type ADC_Ordinary_trig, ADC_Ordinary_Trig_Edge_Type ADC_Ordinary_Trig_edge) {
+    if(ADC_Ordinary_trig > ADC_Ordinary_Trig_EXINT11) {
         ADC_x->ctrl2_bit.octesel_h = 1;
         ADC_x->ctrl2_bit.octesel_l = ADC_Ordinary_trig & 0x0F;
     } else {
@@ -772,7 +772,7 @@ void ADC_Ordinary_Conversion_Trigger_Set(ADC_Type *ADC_x, ADC_Ordinary_trig_Sele
         ADC_x->ctrl2_bit.octesel_l = ADC_Ordinary_trig & 0x0F;
     }
 
-    ADC_x->ctrl2_bit.ocete = ADC_Ordinary_trig_edge;
+    ADC_x->ctrl2_bit.ocete = ADC_Ordinary_Trig_edge;
 }
 
 /**
@@ -783,24 +783,24 @@ void ADC_Ordinary_Conversion_Trigger_Set(ADC_Type *ADC_x, ADC_Ordinary_trig_Sele
   *         - ADC1, ADC2, ADC3.
   * @param  ADC_Preempt_trig: select the external trigger event.
   *         this parameter can be one of the following values:
-  *         - ADC_Preempt_TRIG_TMR1CH4      - ADC_Preempt_TRIG_TMR1TRGOUT   - ADC_Preempt_TRIG_TMR2CH1   - ADC_Preempt_TRIG_TMR2TRGOUT
-  *         - ADC_Preempt_TRIG_TMR3CH2      - ADC_Preempt_TRIG_TMR3CH4      - ADC_Preempt_TRIG_TMR4CH1   - ADC_Preempt_TRIG_TMR4CH2
-  *         - ADC_Preempt_TRIG_TMR4CH3      - ADC_Preempt_TRIG_TMR4TRGOUT   - ADC_Preempt_TRIG_TMR5CH4   - ADC_Preempt_TRIG_TMR5TRGOUT
-  *         - ADC_Preempt_TRIG_TMR8CH2      - ADC_Preempt_TRIG_TMR8CH3      - ADC_Preempt_TRIG_TMR8CH4   - ADC_Preempt_TRIG_EXINT15
-  *         - ADC_Preempt_TRIG_TMR20TRGOUT  - ADC_Preempt_TRIG_TMR20TRGOUT2 - ADC_Preempt_TRIG_TMR20CH4  - ADC_Preempt_TRIG_TMR1TRGOUT2
-  *         - ADC_Preempt_TRIG_TMR8TRGOUT   - ADC_Preempt_TRIG_TMR8TRGOUT2  - ADC_Preempt_TRIG_TMR3CH3   - ADC_Preempt_TRIG_TMR3TRGOUT
-  *         - ADC_Preempt_TRIG_TMR3CH1      - ADC_Preempt_TRIG_TMR6TRGOUT   - ADC_Preempt_TRIG_TMR4CH4   - ADC_Preempt_TRIG_TMR1CH3
-  *         - ADC_Preempt_TRIG_TMR20CH2     - ADC_Preempt_TRIG_TMR7TRGOUT
-  * @param  ADC_Preempt_trig_edge: preempt channel conversion's external_Trigger_edge.
+  *         - ADC_Preempt_Trig_TMR1CH4      - ADC_Preempt_Trig_TMR1TRGOUT   - ADC_Preempt_Trig_TMR2CH1   - ADC_Preempt_Trig_TMR2TRGOUT
+  *         - ADC_Preempt_Trig_TMR3CH2      - ADC_Preempt_Trig_TMR3CH4      - ADC_Preempt_Trig_TMR4CH1   - ADC_Preempt_Trig_TMR4CH2
+  *         - ADC_Preempt_Trig_TMR4CH3      - ADC_Preempt_Trig_TMR4TRGOUT   - ADC_Preempt_Trig_TMR5CH4   - ADC_Preempt_Trig_TMR5TRGOUT
+  *         - ADC_Preempt_Trig_TMR8CH2      - ADC_Preempt_Trig_TMR8CH3      - ADC_Preempt_Trig_TMR8CH4   - ADC_Preempt_Trig_EXINT15
+  *         - ADC_Preempt_Trig_TMR20TRGOUT  - ADC_Preempt_Trig_TMR20TRGOUT2 - ADC_Preempt_Trig_TMR20CH4  - ADC_Preempt_Trig_TMR1TRGOUT2
+  *         - ADC_Preempt_Trig_TMR8TRGOUT   - ADC_Preempt_Trig_TMR8TRGOUT2  - ADC_Preempt_Trig_TMR3CH3   - ADC_Preempt_Trig_TMR3TRGOUT
+  *         - ADC_Preempt_Trig_TMR3CH1      - ADC_Preempt_Trig_TMR6TRGOUT   - ADC_Preempt_Trig_TMR4CH4   - ADC_Preempt_Trig_TMR1CH3
+  *         - ADC_Preempt_Trig_TMR20CH2     - ADC_Preempt_Trig_TMR7TRGOUT
+  * @param  ADC_Preempt_Trig_edge: preempt channel conversion's external_Trigger_edge.
   *         this parameter can be one of the following values:
-  *         - ADC_Preempt_TRIG_Edge_NONE
-  *         - ADC_Preempt_TRIG_Edge_RISING
-  *         - ADC_Preempt_TRIG_Edge_FALLING
-  *         - ADC_Preempt_TRIG_Edge_RISING_FALLING
+  *         - ADC_Preempt_Trig_Edge_NONE
+  *         - ADC_Preempt_Trig_Edge_RISING
+  *         - ADC_Preempt_Trig_Edge_FALLING
+  *         - ADC_Preempt_Trig_Edge_RISING_FALLING
   * @retval none
   */
-void ADC_Preempt_Conversion_Trigger_Set(ADC_Type *ADC_x, ADC_Preempt_trig_Select_Type ADC_Preempt_trig, ADC_Preempt_trig_Edge_Type ADC_Preempt_trig_edge) {
-    if(ADC_Preempt_trig > ADC_Preempt_TRIG_EXINT15) {
+void ADC_Preempt_Conversion_Trigger_Set(ADC_Type *ADC_x, ADC_Preempt_Trig_Select_Type ADC_Preempt_trig, ADC_Preempt_Trig_Edge_Type ADC_Preempt_Trig_edge) {
+    if(ADC_Preempt_trig > ADC_Preempt_Trig_EXINT15) {
         ADC_x->ctrl2_bit.pctesel_h = 1;
         ADC_x->ctrl2_bit.pctesel_l = ADC_Preempt_trig & 0x0F;
     } else {
@@ -808,7 +808,7 @@ void ADC_Preempt_Conversion_Trigger_Set(ADC_Type *ADC_x, ADC_Preempt_trig_Select
         ADC_x->ctrl2_bit.pctesel_l = ADC_Preempt_trig & 0x0F;
     }
 
-    ADC_x->ctrl2_bit.pcete = ADC_Preempt_trig_edge;
+    ADC_x->ctrl2_bit.pcete = ADC_Preempt_Trig_edge;
 }
 
 /**
@@ -816,33 +816,33 @@ void ADC_Preempt_Conversion_Trigger_Set(ADC_Type *ADC_x, ADC_Preempt_trig_Select
   * @param  ADC_x: select the adc peripheral.
   *         this parameter can be one of the following values:
   *         - ADC1, ADC2, ADC3.
-  * @param  ADC_Preempt_channel: select the preempt channel.
+  * @param  ADC_Preempt_Channel: select the preempt channel.
   *         this parameter can be one of the following values:
   *         - ADC_Preempt_Channel_1
   *         - ADC_Preempt_Channel_2
   *         - ADC_Preempt_Channel_3
   *         - ADC_Preempt_Channel_4
-  * @param  ADC_offset_value: set the adc preempt channel's conversion value offset.
+  * @param  ADC_Offset_value: set the adc preempt channel's conversion value offset.
   *         this parameter can be:
   *         - (0x000~0xFFF)
   * @retval none
   */
-void ADC_Preempt_offset_Value_Set(ADC_Type *ADC_x, ADC_Preempt_Channel_Type ADC_Preempt_channel, uint16_t ADC_offset_value) {
-    switch(ADC_Preempt_channel) {
+void ADC_Preempt_Offset_Value_Set(ADC_Type *ADC_x, ADC_Preempt_Channel_Type ADC_Preempt_Channel, uint16_t ADC_Offset_value) {
+    switch(ADC_Preempt_Channel) {
         case ADC_Preempt_Channel_1:
-            ADC_x->pcdto1_bit.pcdto1 = ADC_offset_value;
+            ADC_x->pcdto1_bit.pcdto1 = ADC_Offset_value;
             break;
 
         case ADC_Preempt_Channel_2:
-            ADC_x->pcdto2_bit.pcdto2 = ADC_offset_value;
+            ADC_x->pcdto2_bit.pcdto2 = ADC_Offset_value;
             break;
 
         case ADC_Preempt_Channel_3:
-            ADC_x->pcdto3_bit.pcdto3 = ADC_offset_value;
+            ADC_x->pcdto3_bit.pcdto3 = ADC_Offset_value;
             break;
 
         case ADC_Preempt_Channel_4:
-            ADC_x->pcdto4_bit.pcdto4 = ADC_offset_value;
+            ADC_x->pcdto4_bit.pcdto4 = ADC_Offset_value;
             break;
 
         default:
@@ -860,7 +860,7 @@ void ADC_Preempt_offset_Value_Set(ADC_Type *ADC_x, ADC_Preempt_Channel_Type ADC_
   *         - (0x1~0x8)
   * @retval none
   */
-void ADC_Ordinary_part_count_Set(ADC_Type *ADC_x, uint8_t ADC_Channel_count) {
+void ADC_Ordinary_Part_Count_Set(ADC_Type *ADC_x, uint8_t ADC_Channel_count) {
 
     ADC_x->ctrl1_bit.ocpcnt =  ADC_Channel_count - 1;
 }
@@ -874,7 +874,7 @@ void ADC_Ordinary_part_count_Set(ADC_Type *ADC_x, uint8_t ADC_Channel_count) {
   *         this parameter can be: TRUE or FALSE.
   * @retval none
   */
-void ADC_Ordinary_part_Mode_Enable(ADC_Type *ADC_x, confirm_state new_state) {
+void ADC_Ordinary_Part_Mode_Enable(ADC_Type *ADC_x, confirm_state new_state) {
     ADC_x->ctrl1_bit.ocpen = new_state;
 }
 
@@ -887,7 +887,7 @@ void ADC_Ordinary_part_Mode_Enable(ADC_Type *ADC_x, confirm_state new_state) {
   *         this parameter can be: TRUE or FALSE.
   * @retval none
   */
-void ADC_Preempt_part_Mode_Enable(ADC_Type *ADC_x, confirm_state new_state) {
+void ADC_Preempt_Part_Mode_Enable(ADC_Type *ADC_x, confirm_state new_state) {
     ADC_x->ctrl1_bit.pcpen = new_state;
 }
 
@@ -939,7 +939,7 @@ flag_status ADC_Conversion_Stop_Status_Get(ADC_Type *ADC_x) {
   *         this parameter can be: TRUE or FALSE.
   * @retval none
   */
-void ADC_occe_each_Conversion_Enable(ADC_Type *ADC_x, confirm_state new_state) {
+void ADC_Occe_Each_Conversion_Enable(ADC_Type *ADC_x, confirm_state new_state) {
     ADC_x->ctrl2_bit.eocsfen = new_state;
 }
 
@@ -1023,7 +1023,7 @@ uint32_t ADC_Combine_Ordinary_Conversion_Data_Get(void) {
   * @param  ADC_x: select the adc peripheral.
   *         this parameter can be one of the following values:
   *         - ADC1, ADC2, ADC3.
-  * @param  ADC_Preempt_channel: select the preempt channel.
+  * @param  ADC_Preempt_Channel: select the preempt channel.
   *         this parameter can be one of the following values:
   *         - ADC_Preempt_Channel_1
   *         - ADC_Preempt_Channel_2
@@ -1031,10 +1031,10 @@ uint32_t ADC_Combine_Ordinary_Conversion_Data_Get(void) {
   *         - ADC_Preempt_Channel_4
   * @retval the conversion data for selection preempt channel.
   */
-uint16_t ADC_Preempt_Conversion_Data_Get(ADC_Type *ADC_x, ADC_Preempt_Channel_Type ADC_Preempt_channel) {
+uint16_t ADC_Preempt_Conversion_Data_Get(ADC_Type *ADC_x, ADC_Preempt_Channel_Type ADC_Preempt_Channel) {
     uint16_t preempt_conv_Data_index = 0;
 
-    switch(ADC_Preempt_channel) {
+    switch(ADC_Preempt_Channel) {
         case ADC_Preempt_Channel_1:
             preempt_conv_Data_index = (uint16_t)(ADC_x->pdt1_bit.pdt1);
             break;
@@ -1066,7 +1066,7 @@ uint16_t ADC_Preempt_Conversion_Data_Get(ADC_Type *ADC_x, ADC_Preempt_Channel_Ty
   * @param  ADC_flag: select the adc flag.
   *         this parameter can be one of the following values:
   *         - ADC_VMOR_FLAG
-  *         - ADC_OCCE_FLAG
+  *         - ADC_Occe_FLAG
   *         - ADC_PCCE_FLAG
   *         - ADC_PCCS_FLAG(no interrupt associated)
   *         - ADC_OCCS_FLAG(no interrupt associated)
@@ -1094,7 +1094,7 @@ flag_status ADC_Flag_Get(ADC_Type *ADC_x, uint8_t ADC_flag) {
   * @param  ADC_flag: select the adc flag.
   *         this parameter can be any combination of the following values:
   *         - ADC_VMOR_FLAG
-  *         - ADC_OCCE_FLAG(also can clear by reading the ADC_x->odt)
+  *         - ADC_Occe_FLAG(also can clear by reading the ADC_x->odt)
   *         - ADC_PCCE_FLAG
   *         - ADC_PCCS_FLAG
   *         - ADC_OCCS_FLAG
@@ -1149,18 +1149,18 @@ void ADC_Preempt_OverSample_Enable(ADC_Type *ADC_x, confirm_state new_state) {
   *         - ADC_OverSample_Ratio_256
   * @param  ADC_OverSample_shift: set the oversample shift.
   *         this parameter can be one of the following values:
-  *         - ADC_OverSample_SHIFT_0
-  *         - ADC_OverSample_SHIFT_1
-  *         - ADC_OverSample_SHIFT_2
-  *         - ADC_OverSample_SHIFT_3
-  *         - ADC_OverSample_SHIFT_4
-  *         - ADC_OverSample_SHIFT_5
-  *         - ADC_OverSample_SHIFT_6
-  *         - ADC_OverSample_SHIFT_7
-  *         - ADC_OverSample_SHIFT_8
+  *         - ADC_OverSample_Shift_0
+  *         - ADC_OverSample_Shift_1
+  *         - ADC_OverSample_Shift_2
+  *         - ADC_OverSample_Shift_3
+  *         - ADC_OverSample_Shift_4
+  *         - ADC_OverSample_Shift_5
+  *         - ADC_OverSample_Shift_6
+  *         - ADC_OverSample_Shift_7
+  *         - ADC_OverSample_Shift_8
   * @retval none
   */
-void ADC_OverSample_Ratio_shift_Set(ADC_Type *ADC_x, ADC_OverSample_Ratio_Type ADC_OverSample_ratio, ADC_OverSample_shift_Type ADC_OverSample_shift) {
+void ADC_OverSample_Ratio_Shift_Set(ADC_Type *ADC_x, ADC_OverSample_Ratio_Type ADC_OverSample_ratio, ADC_OverSample_Shift_Type ADC_OverSample_shift) {
     ADC_x->ovsp_bit.osrsel = ADC_OverSample_ratio;
     ADC_x->ovsp_bit.osssel = ADC_OverSample_shift;
 }
@@ -1174,7 +1174,7 @@ void ADC_OverSample_Ratio_shift_Set(ADC_Type *ADC_x, ADC_OverSample_Ratio_Type A
   *         this parameter can be: TRUE or FALSE.
   * @retval none
   */
-void ADC_Ordinary_OverSample_trig_Enable(ADC_Type *ADC_x, confirm_state new_state) {
+void ADC_Ordinary_OverSample_Trig_Enable(ADC_Type *ADC_x, confirm_state new_state) {
     ADC_x->ovsp_bit.oostren = new_state;
 }
 
@@ -1189,7 +1189,7 @@ void ADC_Ordinary_OverSample_trig_Enable(ADC_Type *ADC_x, confirm_state new_stat
   *         - ADC_OverSample_RESTART
   * @retval none
   */
-void ADC_Ordinary_OverSample_restart_Set(ADC_Type *ADC_x, ADC_Ordinary_OverSample_restart_Type ADC_Ordinary_OverSample_restart) {
+void ADC_Ordinary_OverSample_Restart_Set(ADC_Type *ADC_x, ADC_Ordinary_OverSample_Restart_Type ADC_Ordinary_OverSample_restart) {
     ADC_x->ovsp_bit.oosrsel = ADC_Ordinary_OverSample_restart;
 }
 

@@ -137,25 +137,25 @@ __STATIC_FORCEINLINE __NO_RETURN void __cmsis_Start(void) {
         uint32_t const* src;
         uint32_t* dest;
         uint32_t  wlen;
-    } __copy_table_t;
+    } __copy_Table_t;
 
     typedef struct {
         uint32_t* dest;
         uint32_t  wlen;
-    } __zero_table_t;
+    } __Zero_Table_t;
 
-    extern const __copy_table_t __copy_table_Start__;
-    extern const __copy_table_t __copy_table_End__;
-    extern const __zero_table_t __zero_table_Start__;
-    extern const __zero_table_t __zero_table_End__;
+    extern const __copy_Table_t __copy_Table_Start__;
+    extern const __copy_Table_t __copy_Table_End__;
+    extern const __Zero_Table_t __Zero_Table_Start__;
+    extern const __Zero_Table_t __Zero_Table_End__;
 
-    for (__copy_table_t const* pTable = &__copy_table_Start__; pTable < &__copy_table_End__; ++pTable) {
+    for (__copy_Table_t const* pTable = &__copy_Table_Start__; pTable < &__copy_Table_End__; ++pTable) {
         for(uint32_t i = 0u; i < pTable->wlen; ++i) {
             pTable->dest[i] = pTable->src[i];
         }
     }
 
-    for (__zero_table_t const* pTable = &__zero_table_Start__; pTable < &__zero_table_End__; ++pTable) {
+    for (__Zero_Table_t const* pTable = &__Zero_Table_Start__; pTable < &__Zero_Table_End__; ++pTable) {
         for(uint32_t i = 0u; i < pTable->wlen; ++i) {
             pTable->dest[i] = 0u;
         }
@@ -175,12 +175,12 @@ __STATIC_FORCEINLINE __NO_RETURN void __cmsis_Start(void) {
     #define __STACK_LIMIT             __StackLimit
 #endif
 
-#ifndef __VECTOR_TABLE
-    #define __VECTOR_TABLE            __Vectors
+#ifndef __Vector_TABLE
+    #define __Vector_TABLE            __Vectors
 #endif
 
-#ifndef __VECTOR_TABLE_ATTRIBUTE
-    #define __VECTOR_TABLE_ATTRIBUTE  __attribute__((used, section(".vectors")))
+#ifndef __Vector_Table_ATTRIBUTE
+    #define __Vector_Table_ATTRIBUTE  __attribute__((used, section(".vectors")))
 #endif
 
 /* ###########################  Core Function Access  ########################### */
@@ -612,7 +612,7 @@ __STATIC_FORCEINLINE void __TZ_Set_FAULTMASK_NS(uint32_t faultMask) {
 
 
 #if ((defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
-(defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    )
+(defined (__ARM_ARCH_8M_Base__ ) && (__ARM_ARCH_8M_Base__ == 1))    )
 
 /**
   \brief   Get Process Stack Pointer Limit
@@ -781,7 +781,7 @@ __STATIC_FORCEINLINE void __TZ_Set_MSPLIM_NS(uint32_t MainStackPtrLimit) {
 #endif
 
 #endif /* ((defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
-(defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    ) */
+(defined (__ARM_ARCH_8M_Base__ ) && (__ARM_ARCH_8M_Base__ == 1))    ) */
 
 
 /**
@@ -844,11 +844,11 @@ __ASM volatile ("VMSR fpscr, %0" : : "r" (fpscr) : "vfpcc", "memory");
  * For thumb1, use low register (r0-r7), specified by constraint "l"
  * Otherwise, use general registers, specified by constraint "r" */
 #if defined (__thumb__) && !defined (__thumb2__)
-    #define __CMSIS_GCC_OUT_REG(r) "=l" (r)
+    #define __CMSIS_GCC_Out_REG(r) "=l" (r)
     #define __CMSIS_GCC_RW_REG(r) "+l" (r)
     #define __CMSIS_GCC_USE_REG(r) "l" (r)
 #else
-    #define __CMSIS_GCC_OUT_REG(r) "=r" (r)
+    #define __CMSIS_GCC_Out_REG(r) "=r" (r)
     #define __CMSIS_GCC_RW_REG(r) "+r" (r)
     #define __CMSIS_GCC_USE_REG(r) "r" (r)
 #endif
@@ -924,7 +924,7 @@ __STATIC_FORCEINLINE uint32_t __REV(uint32_t value) {
     #else
     uint32_t result;
 
-    __ASM ("rev %0, %1" : __CMSIS_GCC_OUT_REG (result) : __CMSIS_GCC_USE_REG (value) );
+    __ASM ("rev %0, %1" : __CMSIS_GCC_Out_REG (result) : __CMSIS_GCC_USE_REG (value) );
     return result;
     #endif
 }
@@ -939,7 +939,7 @@ __STATIC_FORCEINLINE uint32_t __REV(uint32_t value) {
 __STATIC_FORCEINLINE uint32_t __REV16(uint32_t value) {
     uint32_t result;
 
-    __ASM ("rev16 %0, %1" : __CMSIS_GCC_OUT_REG (result) : __CMSIS_GCC_USE_REG (value) );
+    __ASM ("rev16 %0, %1" : __CMSIS_GCC_Out_REG (result) : __CMSIS_GCC_USE_REG (value) );
     return result;
 }
 
@@ -956,7 +956,7 @@ __STATIC_FORCEINLINE int16_t __REVSH(int16_t value) {
     #else
     int16_t result;
 
-    __ASM ("revsh %0, %1" : __CMSIS_GCC_OUT_REG (result) : __CMSIS_GCC_USE_REG (value) );
+    __ASM ("revsh %0, %1" : __CMSIS_GCC_Out_REG (result) : __CMSIS_GCC_USE_REG (value) );
     return result;
     #endif
 }
@@ -1047,7 +1047,7 @@ __ASM ("rbit %0, %1" : "=r" (result) : "r" (value) );
 #if ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
 (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
 (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
-(defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    )
+(defined (__ARM_ARCH_8M_Base__ ) && (__ARM_ARCH_8M_Base__ == 1))    )
 /**
   \brief   LDR Exclusive (8 bit)
   \details Executes a exclusive LDR instruction for 8 bit value.
@@ -1163,7 +1163,7 @@ __STATIC_FORCEINLINE void __CLREX(void) {
 #endif /* ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
 (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
 (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
-(defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    ) */
+(defined (__ARM_ARCH_8M_Base__ ) && (__ARM_ARCH_8M_Base__ == 1))    ) */
 
 
 #if ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
@@ -1211,7 +1211,7 @@ __STATIC_FORCEINLINE void __CLREX(void) {
 __STATIC_FORCEINLINE uint32_t __RRX(uint32_t value) {
     uint32_t result;
 
-    __ASM volatile ("rrx %0, %1" : __CMSIS_GCC_OUT_REG (result) : __CMSIS_GCC_USE_REG (value) );
+    __ASM volatile ("rrx %0, %1" : __CMSIS_GCC_Out_REG (result) : __CMSIS_GCC_USE_REG (value) );
     return(result);
 }
 
@@ -1357,7 +1357,7 @@ __STATIC_FORCEINLINE uint32_t __USAT(int32_t val, uint32_t sat) {
 
 
 #if ((defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
-(defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    )
+(defined (__ARM_ARCH_8M_Base__ ) && (__ARM_ARCH_8M_Base__ == 1))    )
 /**
   \brief   Load-Acquire (8 bit)
   \details Executes a LDAB instruction for 8 bit value.
@@ -1523,7 +1523,7 @@ __STATIC_FORCEINLINE uint32_t __STLEX(uint32_t value, volatile uint32_t *ptr) {
 }
 
 #endif /* ((defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
-(defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    ) */
+(defined (__ARM_ARCH_8M_Base__ ) && (__ARM_ARCH_8M_Base__ == 1))    ) */
 
 /*@}*/ /* end of group CMSIS_Core_InstructionInterface */
 

@@ -37,12 +37,12 @@ extern "C" {
   * @{
   */
 
-#define SystemCoreClock                  system_core_clock
+#define SystemCoreClock                  system_Core_clock
 
 /** @defgroup AT32F435_437_System_exported_variables
   * @{
   */
-extern unsigned int system_core_clock; /*!< system clock frequency (core clock) */
+extern unsigned int system_Core_clock; /*!< system clock frequency (core clock) */
 
 /**
   * @}
@@ -53,7 +53,7 @@ extern unsigned int system_core_clock; /*!< system clock frequency (core clock) 
   */
 
 extern void SystemInit(void);
-extern void system_core_Clock_Update(void);
+extern void system_Core_Clock_Update(void);
 
 /**
   * @}

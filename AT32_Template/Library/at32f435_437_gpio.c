@@ -24,7 +24,7 @@
 
 #include "at32f435_437_conf.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -48,29 +48,29 @@
   */
 void gpio_Reset(GPIO_Type *gpio_x) {
     if(gpio_x == GPIOA) {
-        crm_periph_Reset(CRM_GPIOA_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_GPIOA_PERIPH_Reset, FALSE);
+        CRM_Periph_Reset(CRM_GPIOA_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_GPIOA_Periph_Reset, FALSE);
     } else if(gpio_x == GPIOB) {
-        crm_periph_Reset(CRM_GPIOB_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_GPIOB_PERIPH_Reset, FALSE);
+        CRM_Periph_Reset(CRM_GPIOB_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_GPIOB_Periph_Reset, FALSE);
     } else if(gpio_x == GPIOC) {
-        crm_periph_Reset(CRM_GPIOC_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_GPIOC_PERIPH_Reset, FALSE);
+        CRM_Periph_Reset(CRM_GPIOC_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_GPIOC_Periph_Reset, FALSE);
     } else if(gpio_x == GPIOD) {
-        crm_periph_Reset(CRM_GPIOD_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_GPIOD_PERIPH_Reset, FALSE);
+        CRM_Periph_Reset(CRM_GPIOD_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_GPIOD_Periph_Reset, FALSE);
     } else if(gpio_x == GPIOE) {
-        crm_periph_Reset(CRM_GPIOE_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_GPIOE_PERIPH_Reset, FALSE);
+        CRM_Periph_Reset(CRM_GPIOE_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_GPIOE_Periph_Reset, FALSE);
     } else if(gpio_x == GPIOF) {
-        crm_periph_Reset(CRM_GPIOF_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_GPIOF_PERIPH_Reset, FALSE);
+        CRM_Periph_Reset(CRM_GPIOF_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_GPIOF_Periph_Reset, FALSE);
     } else if(gpio_x == GPIOG) {
-        crm_periph_Reset(CRM_GPIOG_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_GPIOG_PERIPH_Reset, FALSE);
+        CRM_Periph_Reset(CRM_GPIOG_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_GPIOG_Periph_Reset, FALSE);
     } else if(gpio_x == GPIOH) {
-        crm_periph_Reset(CRM_GPIOH_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_GPIOH_PERIPH_Reset, FALSE);
+        CRM_Periph_Reset(CRM_GPIOH_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_GPIOH_Periph_Reset, FALSE);
     }
 }
 

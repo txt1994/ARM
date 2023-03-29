@@ -44,7 +44,7 @@
     #define __ARM_ARCH_7EM__          1
 #endif
 
-/* __ARM_ARCH_8M_BASE__  not applicable */
+/* __ARM_ARCH_8M_Base__  not applicable */
 /* __ARM_ARCH_8M_MAIN__  not applicable */
 /* __ARM_ARCH_8_1M_MAIN__  not applicable */
 
@@ -123,12 +123,12 @@
     #define __STACK_LIMIT             Image$$ARM_LIB_STACK$$ZI$$Base
 #endif
 
-#ifndef __VECTOR_TABLE
-    #define __VECTOR_TABLE            __Vectors
+#ifndef __Vector_TABLE
+    #define __Vector_TABLE            __Vectors
 #endif
 
-#ifndef __VECTOR_TABLE_ATTRIBUTE
-    #define __VECTOR_TABLE_ATTRIBUTE  __attribute__((used, section("RESET")))
+#ifndef __Vector_Table_ATTRIBUTE
+    #define __Vector_Table_ATTRIBUTE  __attribute__((used, section("RESET")))
 #endif
 
 /* ###########################  Core Function Access  ########################### */

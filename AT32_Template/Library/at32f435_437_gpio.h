@@ -34,7 +34,7 @@ extern "C" {
 /* includes ------------------------------------------------------------------*/
 #include "at32f435_437.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -77,7 +77,7 @@ extern "C" {
   */
 typedef enum {
     GPIO_Mode_INPUT                        = 0x00, /*!< gpio input mode */
-    GPIO_Mode_OUTPUT                       = 0x01, /*!< gpio output mode */
+    GPIO_Mode_OutPUT                       = 0x01, /*!< gpio output mode */
     GPIO_Mode_MUX                          = 0x02, /*!< gpio mux function mode */
     GPIO_Mode_ANALOG                       = 0x03  /*!< gpio analog in/out mode */
 } GPIO_Mode_Type;
@@ -95,7 +95,7 @@ typedef enum {
   */
 typedef enum {
     GPIO_OutPut_PUSH_PULL                  = 0x00, /*!< output push-pull */
-    GPIO_OutPut_OPEN_DRAIN                 = 0x01  /*!< output open-drain */
+    GPIO_OutPut_Open_DRAIN                 = 0x01  /*!< output open-drain */
 } GPIO_OutPut_Type;
 
 /**

@@ -34,7 +34,7 @@ extern "C" {
 /* includes ------------------------------------------------------------------*/
 #include "at32f435_437.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -131,8 +131,8 @@ typedef struct {
   */
 
 void CRC_Data_Reset(void);
-uint32_t CRC_One_Word_calculate(uint32_t data);
-uint32_t CRC_Block_calculate(uint32_t *pbuffer, uint32_t length);
+uint32_t CRC_ONE_Word_Calculate(uint32_t data);
+uint32_t CRC_Block_Calculate(uint32_t *pbuffer, uint32_t length);
 uint32_t CRC_Data_Get(void);
 void CRC_Common_Data_Set(uint8_t cdt_value);
 uint8_t CRC_Common_Data_Get(void);

@@ -96,7 +96,7 @@ __STATIC_INLINE arm_status arm_mat_trans_32bit_2x2_mve(
      *
      */
     uint32x4_t vecIn = vldrwq_u32((uint32_t const *)pDataSrc);
-    vstrwq_scatter_shifted_offset_u32(pDataDest, vecOffs, vecIn);
+    vstrwq_scatter_shifted_Offset_u32(pDataDest, vecOffs, vecIn);
 
     return (ARM_MATH_SUCCESS);
 }
@@ -116,8 +116,8 @@ __STATIC_INLINE arm_status arm_mat_trans_32bit_3x3_mve(
     uint32x4_t vecIn1 = vldrwq_u32((uint32_t const *) pDataSrc);
     uint32x4_t vecIn2 = vldrwq_u32((uint32_t const *) &pDataSrc[4]);
 
-    vstrwq_scatter_shifted_offset_u32(pDataDest, vecOffs1, vecIn1);
-    vstrwq_scatter_shifted_offset_u32(pDataDest, vecOffs2, vecIn2);
+    vstrwq_scatter_shifted_Offset_u32(pDataDest, vecOffs1, vecIn1);
+    vstrwq_scatter_shifted_Offset_u32(pDataDest, vecOffs2, vecIn2);
 
     pDataDest[8] = pDataSrc[8];
 
@@ -174,7 +174,7 @@ __STATIC_INLINE arm_status arm_mat_trans_32bit_generic_mve(
         blkCnt = srcRows >> 2;
 
         while (blkCnt > 0U) {
-            vecIn = vldrwq_gather_shifted_offset_u32(pDataC, vecOffs);
+            vecIn = vldrwq_gather_shifted_Offset_u32(pDataC, vecOffs);
             vstrwq(pDataDestR, vecIn);
             pDataDestR += 4;
             pDataC = pDataC + srcCols * 4;
@@ -191,7 +191,7 @@ __STATIC_INLINE arm_status arm_mat_trans_32bit_generic_mve(
 
         if (blkCnt > 0U) {
             mve_pred16_t p0 = vctp32q(blkCnt);
-            vecIn = vldrwq_gather_shifted_offset_u32(pDataC, vecOffs);
+            vecIn = vldrwq_gather_shifted_Offset_u32(pDataC, vecOffs);
             vstrwq_p(pDataDestR, vecIn, p0);
         }
 
@@ -202,7 +202,7 @@ __STATIC_INLINE arm_status arm_mat_trans_32bit_generic_mve(
     return (ARM_MATH_SUCCESS);
 }
 
-#if !defined(ARM_DSP_Config_TABLES) || defined(ARM_All_FAST_TABLES) || defined(ARM_TABLE_FAST_SQRT_Q31_MVE)
+#if !defined(ARM_DSP_Config_TABLES) || defined(ARM_All_FAST_TABLES) || defined(ARM_Table_FAST_SQRT_Q31_MVE)
 __STATIC_INLINE q31x4_t FAST_VSQRT_Q31(q31x4_t vecIn) {
     q63x2_t         vecTmpLL;
     q31x4_t         vecTmp0, vecTmp1;
@@ -223,11 +223,11 @@ __STATIC_INLINE q31x4_t FAST_VSQRT_Q31(q31x4_t vecIn) {
     vecIdx = vecNrm >> 24;
     vecIdx = vecIdx << 1;
 
-    vecTmp0 = vldrwq_gather_shifted_offset_s32(sqrtTable_Q31, vecIdx);
+    vecTmp0 = vldrwq_gather_shifted_Offset_s32(sqrtTable_Q31, vecIdx);
 
     vecIdx = vecIdx + 1;
 
-    vecTmp1 = vldrwq_gather_shifted_offset_s32(sqrtTable_Q31, vecIdx);
+    vecTmp1 = vldrwq_gather_shifted_Offset_s32(sqrtTable_Q31, vecIdx);
 
     vecTmp1 = vqrdmulhq(vecTmp1, vecNrm);
     vecTmp0 = vecTmp0 - vecTmp1;
@@ -269,7 +269,7 @@ __STATIC_INLINE q31x4_t FAST_VSQRT_Q31(q31x4_t vecIn) {
 }
 #endif
 
-#if !defined(ARM_DSP_Config_TABLES) || defined(ARM_All_FAST_TABLES) || defined(ARM_TABLE_FAST_SQRT_Q15_MVE)
+#if !defined(ARM_DSP_Config_TABLES) || defined(ARM_All_FAST_TABLES) || defined(ARM_Table_FAST_SQRT_Q15_MVE)
 __STATIC_INLINE q15x8_t FAST_VSQRT_Q15(q15x8_t vecIn) {
     q31x4_t         vecTmpLev, vecTmpLodd, vecSignL;
     q15x8_t         vecTmp0, vecTmp1;
@@ -287,11 +287,11 @@ __STATIC_INLINE q15x8_t FAST_VSQRT_Q15(q15x8_t vecIn) {
     vecIdx = vecNrm >> 8;
     vecIdx = vecIdx << 1;
 
-    vecTmp0 = vldrhq_gather_shifted_offset_s16(sqrtTable_Q15, vecIdx);
+    vecTmp0 = vldrhq_gather_shifted_Offset_s16(sqrtTable_Q15, vecIdx);
 
     vecIdx = vecIdx + 1;
 
-    vecTmp1 = vldrhq_gather_shifted_offset_s16(sqrtTable_Q15, vecIdx);
+    vecTmp1 = vldrhq_gather_shifted_Offset_s16(sqrtTable_Q15, vecIdx);
 
     vecTmp1 = vqrdmulhq(vecTmp1, vecNrm);
     vecTmp0 = vecTmp0 - vecTmp1;

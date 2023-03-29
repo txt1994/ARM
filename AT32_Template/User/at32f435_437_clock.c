@@ -25,7 +25,7 @@
 /* includes ------------------------------------------------------------------*/
 #include "at32f435_437_clock.h"
 
-/** @addtogroup AT32F437_periph_template
+/** @addtogroup AT32F437_Periph_template
   * @{
   */
 
@@ -54,21 +54,21 @@
   */
 void system_Clock_Config(void) {
     /* reset crm */
-    crm_Reset();
+    CRM_Reset();
 
     /* enable pwc periph clock */
-    crm_periph_Clock_Enable(CRM_PWC_PERIPH_CLOCK, TRUE);
+    CRM_Periph_Clock_Enable(CRM_PWC_Periph_CLOCK, TRUE);
 
     /* config ldo voltage */
     PWC_Ldo_OutPut_Voltage_Set(PWC_LDO_OutPut_1V3);
 
     /* set the flash clock divider */
-    FLASH_Clock_Divider_Set(FLASH_Clock_DIV_3);
+    FLASH_Clock_Divider_Set(FLASH_Clock_Div_3);
 
-    crm_Clock_Source_Enable(CRM_Clock_Source_HEXT, TRUE);
+    CRM_Clock_Source_Enable(CRM_Clock_Source_HEXT, TRUE);
 
     /* wait till hext is ready */
-    while(crm_hext_stable_wait() == ERROR) {
+    while(CRM_Hext_Stable_Wait() == ERROR) {
     }
 
     /* config pll clock resource
@@ -87,39 +87,39 @@ void system_Clock_Config(void) {
 
     if pll clock source selects hext with other frequency values, or configure pll to other
     frequency values, please use the at32 new clock  configuration tool for configuration.  */
-    crm_pll_Config(CRM_PLL_Source_HEXT, 144, 1, CRM_PLL_FR_4);
+    CRM_PLL_Config(CRM_PLL_Source_HEXT, 144, 1, CRM_PLL_FR_4);
 
     /* enable pll */
-    crm_Clock_Source_Enable(CRM_Clock_Source_PLL, TRUE);
+    CRM_Clock_Source_Enable(CRM_Clock_Source_PLL, TRUE);
 
     /* wait till pll is ready */
-    while(crm_Flag_Get(CRM_PLL_STABLE_FLAG) != SET) {
+    while(CRM_Flag_Get(CRM_PLL_Stable_FLAG) != SET) {
     }
 
     /* config ahbclk */
-    crm_ahb_div_Set(CRM_AHB_DIV_1);
+    CRM_AHB_Div_Set(CRM_AHB_Div_1);
 
     /* config apb2clk, the maximum frequency of APB1/APB2 clock is 144 MHz  */
-    crm_apb2_div_Set(CRM_APB2_DIV_2);
+    CRM_APB2_Div_Set(CRM_APB2_Div_2);
 
     /* config apb1clk, the maximum frequency of APB1/APB2 clock is 144 MHz  */
-    crm_apb1_div_Set(CRM_APB1_DIV_2);
+    CRM_APB1_Div_Set(CRM_APB1_Div_2);
 
     /* enable auto step mode */
-    crm_Auto_Step_Mode_Enable(TRUE);
+    CRM_Auto_Step_Mode_Enable(TRUE);
 
     /* select pll as system clock source */
-    crm_sysclk_switch(CRM_SCLK_PLL);
+    CRM_SysCLK_Switch(CRM_SCLK_PLL);
 
     /* wait till pll is used as system clock source */
-    while(crm_sysclk_switch_Status_Get() != CRM_SCLK_PLL) {
+    while(CRM_SysCLK_Switch_Status_Get() != CRM_SCLK_PLL) {
     }
 
     /* disable auto step mode */
-    crm_Auto_Step_Mode_Enable(FALSE);
+    CRM_Auto_Step_Mode_Enable(FALSE);
 
-    /* update system_core_clock global variable */
-    system_core_Clock_Update();
+    /* update system_Core_clock global variable */
+    system_Core_Clock_Update();
 }
 
 /**

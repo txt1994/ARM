@@ -24,7 +24,7 @@
 
 #include "at32f435_437_conf.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -48,7 +48,7 @@
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void QSPI_encryption_Enable(QSPI_Type* QSPI_x, confirm_state new_state) {
+void QSPI_Encryption_Enable(QSPI_Type* QSPI_x, confirm_state new_state) {
     QSPI_x->ctrl_bit.keyen = new_state;
 }
 
@@ -64,7 +64,7 @@ void QSPI_encryption_Enable(QSPI_Type* QSPI_x, confirm_state new_state) {
   *         - QSPI_SCK_Mode_3
   * @retval none
   */
-void QSPI_sck_Mode_Set(QSPI_Type* QSPI_x, QSPI_clk_Mode_Type new_Mode) {
+void QSPI_SCK_Mode_Set(QSPI_Type* QSPI_x, QSPI_CLK_Mode_Type new_Mode) {
     QSPI_x->ctrl_bit.sckmode = new_Mode;
 }
 
@@ -74,20 +74,20 @@ void QSPI_sck_Mode_Set(QSPI_Type* QSPI_x, QSPI_clk_Mode_Type new_Mode) {
   * @param  QSPI_x: select the qspi peripheral.
   *         this parameter can be one of the following values:
   *         QSPI1,QSPI2.
-  * @param  new_clkdiv: new division value
+  * @param  new_CLKdiv: new division value
   *         this parameter can be one of the following values:
-  *         - QSPI_CLK_DIV_2
-  *         - QSPI_CLK_DIV_4
-  *         - QSPI_CLK_DIV_6
-  *         - QSPI_CLK_DIV_8
-  *         - QSPI_CLK_DIV_3
-  *         - QSPI_CLK_DIV_5
-  *         - QSPI_CLK_DIV_10
-  *         - QSPI_CLK_DIV_12
+  *         - QSPI_CLK_Div_2
+  *         - QSPI_CLK_Div_4
+  *         - QSPI_CLK_Div_6
+  *         - QSPI_CLK_Div_8
+  *         - QSPI_CLK_Div_3
+  *         - QSPI_CLK_Div_5
+  *         - QSPI_CLK_Div_10
+  *         - QSPI_CLK_Div_12
   * @retval none
   */
-void QSPI_clk_Division_Set(QSPI_Type* QSPI_x, QSPI_clk_div_Type new_clkdiv) {
-    QSPI_x->ctrl_bit.clkdiv = new_clkdiv;
+void QSPI_CLK_Division_Set(QSPI_Type* QSPI_x, QSPI_CLK_Div_Type new_CLKdiv) {
+    QSPI_x->ctrl_bit.clkdiv = new_CLKdiv;
 }
 
 /**
@@ -99,7 +99,7 @@ void QSPI_clk_Division_Set(QSPI_Type* QSPI_x, QSPI_clk_div_Type new_clkdiv) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void QSPI_xip_cache_bypass_Set(QSPI_Type* QSPI_x, confirm_state new_state) {
+void QSPI_Xip_Cache_ByPass_Set(QSPI_Type* QSPI_x, confirm_state new_state) {
     QSPI_x->xip_CMD_w3_bit.bypassc = new_state;
 }
 
@@ -126,7 +126,7 @@ void QSPI_Interrupt_Enable(QSPI_Type* QSPI_x, confirm_state new_state) {
   *         - QSPI_RXFIFORDY_FLAG
   *         - QSPI_TXFIFORDY_FLAG
   *         - QSPI_CMDSTS_FLAG
-  * @retval the new state of usart_flag (SET or RESET).
+  * @retval the new state of USART_flag (SET or RESET).
   */
 flag_status QSPI_Flag_Get(QSPI_Type* QSPI_x, uint32_t flag) {
     flag_status bit_status = RESET;
@@ -178,7 +178,7 @@ void QSPI_Flag_Clear(QSPI_Type* QSPI_x, uint32_t flag) {
   *         - QSPI_DMA_FIFO_THOD_WORD32
   * @retval none
   */
-void QSPI_DMA_RX_threshold_Set(QSPI_Type* QSPI_x, QSPI_DMA_FIFO_thod_Type new_threshold) {
+void QSPI_DMA_RX_Threshold_Set(QSPI_Type* QSPI_x, QSPI_DMA_FIFO_thod_Type new_threshold) {
     QSPI_x->ctrl2_bit.rxfifo_thod = new_threshold;
 }
 
@@ -195,7 +195,7 @@ void QSPI_DMA_RX_threshold_Set(QSPI_Type* QSPI_x, QSPI_DMA_FIFO_thod_Type new_th
   *         - QSPI_DMA_FIFO_THOD_WORD32
   * @retval none
   */
-void QSPI_DMA_TX_threshold_Set(QSPI_Type* QSPI_x, QSPI_DMA_FIFO_thod_Type new_threshold) {
+void QSPI_DMA_TX_Threshold_Set(QSPI_Type* QSPI_x, QSPI_DMA_FIFO_thod_Type new_threshold) {
     QSPI_x->ctrl2_bit.txfifo_thod = new_threshold;
 }
 
@@ -220,17 +220,17 @@ void QSPI_DMA_Enable(QSPI_Type* QSPI_x, confirm_state new_state) {
   *         QSPI1,QSPI2.
   * @param  busy_pos: value to set
   *         this parameter can be one of the following values:
-  *         - QSPI_BUSY_OFFSET_0
-  *         - QSPI_BUSY_OFFSET_1
-  *         - QSPI_BUSY_OFFSET_2
-  *         - QSPI_BUSY_OFFSET_3
-  *         - QSPI_BUSY_OFFSET_4
-  *         - QSPI_BUSY_OFFSET_5
-  *         - QSPI_BUSY_OFFSET_6
-  *         - QSPI_BUSY_OFFSET_7
+  *         - QSPI_Busy_Offset_0
+  *         - QSPI_Busy_Offset_1
+  *         - QSPI_Busy_Offset_2
+  *         - QSPI_Busy_Offset_3
+  *         - QSPI_Busy_Offset_4
+  *         - QSPI_Busy_Offset_5
+  *         - QSPI_Busy_Offset_6
+  *         - QSPI_Busy_Offset_7
   * @retval none
   */
-void QSPI_busy_Config(QSPI_Type* QSPI_x, QSPI_busy_pos_Type busy_pos) {
+void QSPI_Busy_Config(QSPI_Type* QSPI_x, QSPI_Busy_pos_Type busy_pos) {
     QSPI_x->ctrl_bit.busy = busy_pos;
 }
 
@@ -242,7 +242,7 @@ void QSPI_busy_Config(QSPI_Type* QSPI_x, QSPI_busy_pos_Type busy_pos) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void QSPI_xip_Enable(QSPI_Type* QSPI_x, confirm_state new_state) {
+void QSPI_Xip_Enable(QSPI_Type* QSPI_x, confirm_state new_state) {
     /* skip if state is no change */
     if(new_state == (confirm_state)(QSPI_x->ctrl_bit.xipsel)) {
         return;
@@ -285,7 +285,7 @@ void QSPI_CMD_Operation_kick(QSPI_Type* QSPI_x, QSPI_CMD_Type* QSPI_CMD_struct) 
 
     /* config analyse cmd_w1 register */
     w1_val = (uint32_t)QSPI_CMD_struct->address_length;
-    w1_val |= (uint32_t)(QSPI_CMD_struct->second_dummy_cycle_Num << 16);
+    w1_val |= (uint32_t)(QSPI_CMD_struct->second_dummy_Cycle_Num << 16);
     w1_val |= (uint32_t)(QSPI_CMD_struct->instruction_length << 24);
     w1_val |= (uint32_t)(QSPI_CMD_struct->pe_Mode_Enable << 28);
     QSPI_x->cmd_w1 = w1_val;
@@ -311,17 +311,17 @@ void QSPI_CMD_Operation_kick(QSPI_Type* QSPI_x, QSPI_CMD_Type* QSPI_CMD_struct) 
   * @param  xip_Init_struct: pointer to xip init structure.
   * @retval none.
   */
-void QSPI_xip_Init(QSPI_Type* QSPI_x, QSPI_xip_Type* xip_Init_struct) {
+void QSPI_Xip_Init(QSPI_Type* QSPI_x, QSPI_Xip_Type* xip_Init_struct) {
     uint32_t xc0_val = 0, xc1_val = 0, xc2_val = 0;
     /* config analyse xip_CMD_w0 register */
-    xc0_val = (uint32_t)xip_Init_struct->read_Second_dummy_cycle_Num;
+    xc0_val = (uint32_t)xip_Init_struct->read_Second_dummy_Cycle_Num;
     xc0_val |= (uint32_t)(xip_Init_struct->read_Operation_Mode << 8);
     xc0_val |= (uint32_t)(xip_Init_struct->read_Address_length << 11);
     xc0_val |= (uint32_t)(xip_Init_struct->read_instruction_code << 12);
     QSPI_x->xip_CMD_w0 = xc0_val;
 
     /* config analyse xip_CMD_w1 register */
-    xc1_val = (uint32_t)xip_Init_struct->write_Second_dummy_cycle_Num;
+    xc1_val = (uint32_t)xip_Init_struct->write_Second_dummy_Cycle_Num;
     xc1_val |= (uint32_t)(xip_Init_struct->write_Operation_Mode << 8);
     xc1_val |= (uint32_t)(xip_Init_struct->write_Address_length << 11);
     xc1_val |= (uint32_t)(xip_Init_struct->write_instruction_code << 12);
@@ -351,7 +351,7 @@ uint8_t QSPI_Byte_Read(QSPI_Type* QSPI_x) {
   * @param  QSPI_x: select the qspi peripheral.
   * @retval 16-bit data.
   */
-uint16_t QSPI_half_Word_Read(QSPI_Type* QSPI_x) {
+uint16_t QSPI_Half_Word_Read(QSPI_Type* QSPI_x) {
     return QSPI_x->dt_u16;
 }
 
@@ -380,7 +380,7 @@ void QSPI_Byte_Write(QSPI_Type* QSPI_x, uint8_t value) {
   * @param  value:  16-bit data.
   * @retval none.
   */
-void QSPI_half_Word_Write(QSPI_Type* QSPI_x, uint16_t value) {
+void QSPI_Half_Word_Write(QSPI_Type* QSPI_x, uint16_t value) {
     QSPI_x->dt_u16 = value;
 }
 

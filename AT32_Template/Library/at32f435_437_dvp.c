@@ -24,7 +24,7 @@
 
 #include "at32f435_437_conf.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -45,8 +45,8 @@
   * @retval none
   */
 void DVP_Reset(void) {
-    crm_periph_Reset(CRM_DVP_PERIPH_Reset, TRUE);
-    crm_periph_Reset(CRM_DVP_PERIPH_Reset, FALSE);
+    CRM_Periph_Reset(CRM_DVP_Periph_Reset, TRUE);
+    CRM_Periph_Reset(CRM_DVP_Periph_Reset, FALSE);
 }
 
 /**
@@ -54,7 +54,7 @@ void DVP_Reset(void) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void DVP_capture_Enable(confirm_state new_state) {
+void DVP_Capture_Enable(confirm_state new_state) {
     DVP->ctrl_bit.cap = new_state;
 }
 
@@ -66,7 +66,7 @@ void DVP_capture_Enable(confirm_state new_state) {
   *         - DVP_CAP_FUNC_Mode_SINGLE
   * @retval none
   */
-void DVP_capture_Mode_Set(DVP_cfm_Type cap_Mode) {
+void DVP_Capture_Mode_Set(DVP_cfm_Type cap_Mode) {
     DVP->ctrl_bit.cfm = cap_Mode;
 }
 
@@ -75,7 +75,7 @@ void DVP_capture_Mode_Set(DVP_cfm_Type cap_Mode) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void DVP_Window_crop_Enable(confirm_state new_state) {
+void DVP_Window_Crop_Enable(confirm_state new_state) {
     DVP->ctrl_bit.crp = new_state;
 }
 
@@ -89,7 +89,7 @@ void DVP_Window_crop_Enable(confirm_state new_state) {
   *         eg. y8:bytes = 1, rgb565:bytes = 2
   * @retval none
   */
-void DVP_Window_crop_Set(uint16_t crop_x, uint16_t crop_y, uint16_t crop_w, uint16_t crop_h, uint8_t bytes) {
+void DVP_Window_Crop_Set(uint16_t crop_x, uint16_t crop_y, uint16_t crop_w, uint16_t crop_h, uint8_t bytes) {
     DVP->cwst = ((crop_x * bytes) | (crop_y << 16));
     DVP->cwsz = ((crop_w * bytes - 1) | ((crop_h - 1) << 16));
 }
@@ -99,7 +99,7 @@ void DVP_Window_crop_Set(uint16_t crop_x, uint16_t crop_y, uint16_t crop_w, uint
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void DVP_jpeg_Enable(confirm_state new_state) {
+void DVP_Jpeg_Enable(confirm_state new_state) {
     DVP->ctrl_bit.jpeg = new_state;
 }
 
@@ -143,11 +143,11 @@ void DVP_Sync_unmask_Set(uint8_t fmsu, uint8_t fmeu, uint8_t lnsu, uint8_t lneu)
   * @brief  set dvp pixel clock polarity
   * @param  edge
   *         this parameter can be one of the following values:
-  *         - DVP_CLK_POLARITY_RISING
-  *         - DVP_CLK_POLARITY_FALLING
+  *         - DVP_CLK_Polarity_RISING
+  *         - DVP_CLK_Polarity_FALLING
   * @retval none
   */
-void DVP_pclk_polarity_Set(DVP_ckp_Type edge) {
+void DVP_PCLK_Polarity_Set(DVP_ckp_Type edge) {
     DVP->ctrl_bit.ckp = edge;
 }
 
@@ -155,11 +155,11 @@ void DVP_pclk_polarity_Set(DVP_ckp_Type edge) {
   * @brief  set dvp horizontal synchronization polarity
   * @param  hsync_pol
   *         this parameter can be one of the following values:
-  *         - DVP_HSYNC_POLARITY_HIGH
-  *         - DVP_HSYNC_POLARITY_LOW
+  *         - DVP_Hsync_Polarity_HIGH
+  *         - DVP_Hsync_Polarity_LOW
   * @retval none
   */
-void DVP_hsync_polarity_Set(DVP_hsp_Type hsync_pol) {
+void DVP_Hsync_Polarity_Set(DVP_hsp_Type hsync_pol) {
     DVP->ctrl_bit.hsp = hsync_pol;
 }
 
@@ -167,11 +167,11 @@ void DVP_hsync_polarity_Set(DVP_hsp_Type hsync_pol) {
   * @brief  set dvp vertical synchronization polarity
   * @param  vsync_pol
   *         this parameter can be one of the following values:
-  *         - DVP_VSYNC_POLARITY_LOW
-  *         - DVP_VSYNC_POLARITY_HIGH
+  *         - DVP_Vsync_Polarity_LOW
+  *         - DVP_Vsync_Polarity_HIGH
   * @retval none
   */
-void DVP_vsync_polarity_Set(DVP_vsp_Type vsync_pol) {
+void DVP_Vsync_Polarity_Set(DVP_vsp_Type vsync_pol) {
     DVP->ctrl_bit.vsp = vsync_pol;
 }
 
@@ -185,7 +185,7 @@ void DVP_vsync_polarity_Set(DVP_vsp_Type vsync_pol) {
   *         - DVP_BFRC_QUARTER
   * @retval none
   */
-void DVP_basic_frame_rate_Control_Set(DVP_bfrc_Type DVP_bfrc) {
+void DVP_Basic_Frame_rate_Control_Set(DVP_bfrc_Type DVP_bfrc) {
     DVP->ctrl_bit.bfrc = DVP_bfrc;
 }
 
@@ -193,13 +193,13 @@ void DVP_basic_frame_rate_Control_Set(DVP_bfrc_Type DVP_bfrc) {
   * @brief  config dvp pixel data length
   * @param  DVP_pdl
   *         this parameter can be one of the following values:
-  *         - DVP_PIXEL_Data_LENGTH_8
-  *         - DVP_PIXEL_Data_LENGTH_10
-  *         - DVP_PIXEL_Data_LENGTH_12
-  *         - DVP_PIXEL_Data_LENGTH_14
+  *         - DVP_Pixel_Data_Length_8
+  *         - DVP_Pixel_Data_Length_10
+  *         - DVP_Pixel_Data_Length_12
+  *         - DVP_Pixel_Data_Length_14
   * @retval none
   */
-void DVP_pixel_Data_length_Set(DVP_pdl_Type DVP_pdl) {
+void DVP_Pixel_Data_Length_Set(DVP_pdl_Type DVP_pdl) {
     DVP->ctrl_bit.pdl = DVP_pdl;
 }
 
@@ -220,7 +220,7 @@ void DVP_Enable(confirm_state new_state) {
   *         - DVP_PCDES_DROP_FIRST
   * @retval none
   */
-void DVP_zoomout_Select(DVP_pcdes_Type DVP_pcdes) {
+void DVP_ZoomOut_Select(DVP_pcdes_Type DVP_pcdes) {
     DVP->actrl_bit.pcdes = DVP_pcdes;
 }
 
@@ -229,9 +229,9 @@ void DVP_zoomout_Select(DVP_pcdes_Type DVP_pcdes) {
   * @param  DVP_pcdc: basic pixel capture/drop control
   *         this parameter can be one of the following values:
   *         - DVP_PCDC_ALL
-  *         - DVP_PCDC_One_IN_TWO
-  *         - DVP_PCDC_One_IN_FOUR
-  *         - DVP_PCDC_TWO_IN_FOUR
+  *         - DVP_PCDC_ONE_In_TWO
+  *         - DVP_PCDC_ONE_In_FOUR
+  *         - DVP_PCDC_TWO_In_FOUR
   * @param  DVP_pcds: pixel capture/drop selection
   *         this parameter can be one of the following values:
   *         - DVP_PCDS_CAP_FIRST
@@ -239,14 +239,14 @@ void DVP_zoomout_Select(DVP_pcdes_Type DVP_pcdes) {
   * @param  DVP_lcdc: line capture/drop control
   *         this parameter can be one of the following values:
   *         - DVP_LCDC_ALL
-  *         - DVP_LCDC_One_IN_TWO
+  *         - DVP_LCDC_ONE_In_TWO
   * @param  DVP_lcds: line capture/drop selection
   *         this parameter can be one of the following values:
   *         - DVP_LCDS_CAP_FIRST
   *         - DVP_LCDS_DROP_FIRST
   * @retval none
   */
-void DVP_zoomout_Set(DVP_pcdc_Type DVP_pcdc, DVP_pcds_Type DVP_pcds, DVP_lcdc_Type DVP_lcdc, DVP_lcds_Type DVP_lcds) {
+void DVP_ZoomOut_Set(DVP_pcdc_Type DVP_pcdc, DVP_pcds_Type DVP_pcds, DVP_lcdc_Type DVP_lcdc, DVP_lcds_Type DVP_lcds) {
     DVP->ctrl_bit.pcdc = DVP_pcdc;
     DVP->ctrl_bit.pcds = DVP_pcds;
     DVP->ctrl_bit.lcdc = DVP_lcdc;
@@ -255,14 +255,14 @@ void DVP_zoomout_Set(DVP_pcdc_Type DVP_pcdc, DVP_pcds_Type DVP_pcds, DVP_lcdc_Ty
 
 /**
   * @brief  get dvp basic status
-  * @param  DVP_Status_basic_Type:
+  * @param  DVP_Status_Basic_Type:
   *         this parameter can be one of the following values:
   *         - DVP_Status_HSYN
   *         - DVP_Status_VSYN
   *         - DVP_Status_OFNE
   * @retval flag_status (SET or RESET)
   */
-flag_status DVP_basic_Status_Get(DVP_Status_basic_Type DVP_Status_basic) {
+flag_status DVP_Basic_Status_Get(DVP_Status_Basic_Type DVP_Status_basic) {
     flag_status status = RESET;
 
     if ((DVP->sts & (0x1 << DVP_Status_basic)) != (uint16_t)RESET) {
@@ -360,7 +360,7 @@ void DVP_Flag_Clear(uint32_t flag) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void DVP_enhanced_scaling_resize_Enable(confirm_state new_state) {
+void DVP_Enhanced_Scaling_Resize_Enable(confirm_state new_state) {
     DVP->actrl_bit.eisre = new_state;
 }
 /**
@@ -371,7 +371,7 @@ void DVP_enhanced_scaling_resize_Enable(confirm_state new_state) {
   * @param  des_h(0x0001~0x1FFF): vertical scaling resize target size (target image height)
   * @retval none
   */
-void DVP_enhanced_scaling_resize_Set(uint16_t src_w, uint16_t des_w, uint16_t src_h, uint16_t des_h) {
+void DVP_Enhanced_Scaling_Resize_Set(uint16_t src_w, uint16_t des_w, uint16_t src_h, uint16_t des_h) {
     if((!DVP->ctrl_bit.pcdc) && (!DVP->ctrl_bit.lcdc) && DVP->actrl_bit.efdf) {
         DVP->hscf = (src_w | (des_w << 16));
         DVP->vscf = (src_h | (des_h << 16));
@@ -385,7 +385,7 @@ void DVP_enhanced_scaling_resize_Set(uint16_t src_w, uint16_t des_w, uint16_t sr
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void DVP_enhanced_framerate_Set(uint16_t efrcsf, uint16_t efrctf, confirm_state new_state) {
+void DVP_Enhanced_Framerate_Set(uint16_t efrcsf, uint16_t efrctf, confirm_state new_state) {
     if((!DVP->ctrl_bit.cfm) && (!DVP->ctrl_bit.bfrc) && (efrctf <= efrcsf)) {
         DVP->frf = (efrcsf | (efrctf << 8));
     }
@@ -399,7 +399,7 @@ void DVP_enhanced_framerate_Set(uint16_t efrcsf, uint16_t efrctf, confirm_state 
   * @param  new_state: (TRUE or FALSE)
   * @retval none
   */
-void DVP_monochrome_image_binarization_Set(uint8_t mibthd, confirm_state new_state) {
+void DVP_Monochrome_Image_Binarization_Set(uint8_t mibthd, confirm_state new_state) {
     DVP->bth_bit.mibthd = mibthd;
     DVP->actrl_bit.mibe = new_state;
 }
@@ -408,14 +408,14 @@ void DVP_monochrome_image_binarization_Set(uint8_t mibthd, confirm_state new_sta
   * @brief  set dvp enhanced function data format configuration
   * @param  DVP_efdf: enhanced function data format
   *         this parameter can be one of the following values:
-  *         - DVP_EFDF_BYPASS
+  *         - DVP_EFDF_ByPass
   *         - DVP_EFDF_YUV422_UYVY
   *         - DVP_EFDF_YUV422_YUYV
   *         - DVP_EFDF_RGB565_555
   *         - DVP_EFDF_Y8
   * @retval none
   */
-void DVP_enhanced_Data_format_Set(DVP_efdf_Type DVP_efdf) {
+void DVP_Enhanced_Data_Format_Set(DVP_efdf_Type DVP_efdf) {
     DVP->actrl_bit.efdf = DVP_efdf;
 }
 
@@ -433,7 +433,7 @@ void DVP_enhanced_Data_format_Set(DVP_efdf_Type DVP_efdf) {
   *         - DVP_IDUN_6
   * @retval none
   */
-void DVP_Input_Data_unused_Set(DVP_idus_Type DVP_idus, DVP_idun_Type DVP_idun) {
+void DVP_Input_Data_Unused_Set(DVP_idus_Type DVP_idus, DVP_idun_Type DVP_idun) {
     DVP->actrl_bit.idus = DVP_idus;
     DVP->actrl_bit.idun = DVP_idun;
 }
@@ -446,7 +446,7 @@ void DVP_Input_Data_unused_Set(DVP_idus_Type DVP_idus, DVP_idun_Type DVP_idun) {
   *         - DVP_DMABT_BURST
   * @retval none
   */
-void DVP_DMA_burst_Set(DVP_dmabt_Type DVP_dmabt) {
+void DVP_DMA_Burst_Set(DVP_dmabt_Type DVP_dmabt) {
     DVP->actrl_bit.dmabt = DVP_dmabt;
 }
 
@@ -454,11 +454,11 @@ void DVP_DMA_burst_Set(DVP_dmabt_Type DVP_dmabt) {
   * @brief  set dvp hsync/vsync event interrupt strategy configuration
   * @param  DVP_hseid: hsync event interrupt strategy
   *         this parameter can be one of the following values:
-  *         - DVP_HSEID_LINE_END
-  *         - DVP_HSEID_LINE_Start
+  *         - DVP_HSEID_Line_END
+  *         - DVP_HSEID_Line_Start
   * @param  DVP_vseid: vsync event interrupt strategy
   *         this parameter can be one of the following values:
-  *         - DVP_VSEID_FRAME_END
+  *         - DVP_VSEID_Frame_END
   *         - DVP_VSEID_FRMAE_Start
   * @retval none
   */

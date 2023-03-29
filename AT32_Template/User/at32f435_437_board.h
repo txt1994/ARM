@@ -41,7 +41,7 @@ extern "C" {
   * @{
   */
 
-/** @defgroup BOARD_pins_definition
+/** @defgroup BOARD_Pins_definition
   * @{
   */
 
@@ -69,23 +69,23 @@ typedef enum {
 #if defined (AT_Start_F435_V1) || defined (AT_Start_F437_V1)
 #define LED2_PIN                         GPIO_Pins_13
 #define LED2_GPIO                        GPIOD
-#define LED2_GPIO_CRM_CLK                CRM_GPIOD_PERIPH_CLOCK
+#define LED2_GPIO_CRM_CLK                CRM_GPIOD_Periph_CLOCK
 
 #define LED3_PIN                         GPIO_Pins_14
 #define LED3_GPIO                        GPIOD
-#define LED3_GPIO_CRM_CLK                CRM_GPIOD_PERIPH_CLOCK
+#define LED3_GPIO_CRM_CLK                CRM_GPIOD_Periph_CLOCK
 
 #define LED4_PIN                         GPIO_Pins_15
 #define LED4_GPIO                        GPIOD
-#define LED4_GPIO_CRM_CLK                CRM_GPIOD_PERIPH_CLOCK
+#define LED4_GPIO_CRM_CLK                CRM_GPIOD_Periph_CLOCK
 #endif
 
 /**************** define print uart ******************/
 #define PRINT_UART                       USART1
-#define PRINT_UART_CRM_CLK               CRM_USART1_PERIPH_CLOCK
+#define PRINT_UART_CRM_CLK               CRM_USART1_Periph_CLOCK
 #define PRINT_UART_TX_PIN                GPIO_Pins_9
 #define PRINT_UART_TX_GPIO               GPIOA
-#define PRINT_UART_TX_GPIO_CRM_CLK       CRM_GPIOA_PERIPH_CLOCK
+#define PRINT_UART_TX_GPIO_CRM_CLK       CRM_GPIOA_Periph_CLOCK
 #define PRINT_UART_TX_Pin_SOURCE         GPIO_Pins_SOURCE9
 #define PRINT_UART_TX_Pin_MUX_Num        GPIO_MUX_7
 
@@ -97,7 +97,7 @@ typedef enum {
 
 #define USER_BUTTON_PIN                  GPIO_Pins_0
 #define USER_BUTTON_PORT                 GPIOA
-#define USER_BUTTON_CRM_CLK              CRM_GPIOA_PERIPH_CLOCK
+#define USER_BUTTON_CRM_CLK              CRM_GPIOA_Periph_CLOCK
 
 /**
   * @}
@@ -112,7 +112,7 @@ void at32_board_Init(void);
 
 /* led operation function */
 void at32_led_Init(led_Type led);
-void at32_led_on(led_Type led);
+void at32_led_ON(led_Type led);
 void at32_led_off(led_Type led);
 void at32_led_toggle(led_Type led);
 

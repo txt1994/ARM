@@ -35,12 +35,12 @@
   */
 
 /* delay macros */
-#define STEP_DELAY_MS                    50
+#define STEP_Delay_MS                    50
 
 /* at-start led resouce array */
 gpio_Type *led_gpio_port[LED_Num]        = {LED2_GPIO, LED3_GPIO, LED4_GPIO};
 uint16_t led_gpio_pin[LED_Num]           = {LED2_PIN, LED3_PIN, LED4_PIN};
-crm_periph_Clock_Type led_gpio_crm_clk[LED_Num] = {LED2_GPIO_CRM_CLK, LED3_GPIO_CRM_CLK, LED4_GPIO_CRM_CLK};
+CRM_Periph_Clock_Type led_gpio_CRM_CLK[LED_Num] = {LED2_GPIO_CRM_CLK, LED3_GPIO_CRM_CLK, LED4_GPIO_CRM_CLK};
 
 /* delay variable */
 static __IO uint32_t fac_us;
@@ -75,7 +75,7 @@ void _ttywrch(int ch) {
 #endif
 
 #if defined (__GNUC__) && !defined (__clang__)
-    #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+    #define PUTCHAR_PROTOTYPE int __IO_putchar(int ch)
 #else
     #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
 #endif
@@ -86,16 +86,16 @@ void _ttywrch(int ch) {
   * @retval none
   */
 PUTCHAR_PROTOTYPE {
-    while(usart_Flag_Get(PRINT_UART, USART_TDBE_FLAG) == RESET);
+    while(USART_Flag_Get(PRINT_UART, USART_TDBE_FLAG) == RESET);
 
-    usart_Data_transmit(PRINT_UART, ch);
+    USART_Data_Transmit(PRINT_UART, ch);
     return ch;
 }
 
 #if defined (__GNUC__) && !defined (__clang__)
 int _Write(int fd, char *pbuffer, int size) {
     for(int i = 0; i < size; i ++) {
-        __io_putchar(*pbuffer++);
+        __IO_putchar(*pbuffer++);
     }
 
     return size;
@@ -115,8 +115,8 @@ void uart_print_Init(uint32_t baudrate) {
     #endif
 
     /* enable the uart and gpio clock */
-    crm_periph_Clock_Enable(PRINT_UART_CRM_CLK, TRUE);
-    crm_periph_Clock_Enable(PRINT_UART_TX_GPIO_CRM_CLK, TRUE);
+    CRM_Periph_Clock_Enable(PRINT_UART_CRM_CLK, TRUE);
+    CRM_Periph_Clock_Enable(PRINT_UART_TX_GPIO_CRM_CLK, TRUE);
 
     GPIO_Default_Para_Init(&gpio_Init_struct);
 
@@ -131,9 +131,9 @@ void uart_print_Init(uint32_t baudrate) {
     GPIO_Pin_Mux_Config(PRINT_UART_TX_GPIO, PRINT_UART_TX_Pin_SOURCE, PRINT_UART_TX_Pin_MUX_Num);
 
     /* configure uart param */
-    usart_Init(PRINT_UART, baudrate, USART_Data_8BITS, USART_Stop_1_BIT);
-    usart_transmitter_Enable(PRINT_UART, TRUE);
-    usart_Enable(PRINT_UART, TRUE);
+    USART_Init(PRINT_UART, baudrate, USART_Data_8BITS, USART_Stop_1_BIT);
+    USARTTransmitter_Enable(PRINT_UART, TRUE);
+    USART_Enable(PRINT_UART, TRUE);
 }
 
 /**
@@ -166,7 +166,7 @@ void at32_button_Init(void) {
     gpio_Init_Type gpio_Init_struct;
 
     /* enable the button clock */
-    crm_periph_Clock_Enable(USER_BUTTON_CRM_CLK, TRUE);
+    CRM_Periph_Clock_Enable(USER_BUTTON_CRM_CLK, TRUE);
 
     /* set default parameter */
     GPIO_Default_Para_Init(&gpio_Init_struct);
@@ -221,7 +221,7 @@ void at32_led_Init(led_Type led) {
     gpio_Init_Type gpio_Init_struct;
 
     /* enable the led clock */
-    crm_periph_Clock_Enable(led_gpio_crm_clk[led], TRUE);
+    CRM_Periph_Clock_Enable(led_gpio_CRM_CLK[led], TRUE);
 
     /* set default parameter */
     GPIO_Default_Para_Init(&gpio_Init_struct);
@@ -229,7 +229,7 @@ void at32_led_Init(led_Type led) {
     /* configure the led gpio */
     gpio_Init_struct.GPIO_Drive_Strength = GPIO_Drive_Strength_STRONGER;
     gpio_Init_struct.GPIO_Out_Type  = GPIO_OutPut_PUSH_PULL;
-    gpio_Init_struct.GPIO_Mode = GPIO_Mode_OUTPUT;
+    gpio_Init_struct.GPIO_Mode = GPIO_Mode_OutPUT;
     gpio_Init_struct.GPIO_Pins = led_gpio_pin[led];
     gpio_Init_struct.GPIO_Pull = GPIO_Pull_NONE;
     gpio_Init(led_gpio_port[led], &gpio_Init_struct);
@@ -244,7 +244,7 @@ void at32_led_Init(led_Type led) {
   *     @arg LED4
   * @retval none
   */
-void at32_led_on(led_Type led) {
+void at32_led_ON(led_Type led) {
     if(led > (LED_Num - 1))
         return;
 
@@ -293,8 +293,8 @@ void at32_led_toggle(led_Type led) {
   */
 void delay_Init() {
     /* configure systick */
-    systick_Clock_Source_Config(SYSTICK_Clock_Source_AHBCLK_NODIV);
-    fac_us = system_core_clock / (1000000U);
+    Systick_Clock_Source_Config(Systick_Clock_Source_AHBCLK_NODIV);
+    fac_us = system_Core_clock / (1000000U);
     fac_ms = fac_us * (1000U);
 }
 
@@ -307,13 +307,13 @@ void delay_us(uint32_t nus) {
     uint32_t temp = 0;
     SysTick->LOAD = (uint32_t)(nus * fac_us);
     SysTick->VAL = 0x00;
-    SysTick->CTRL |= SysTick_CTRL_Enable_Msk ;
+    SysTick->CTRL |= Systick_Ctrl_Enable_Msk ;
 
     do {
         temp = SysTick->CTRL;
     } while((temp & 0x01) && !(temp & (1 << 16)));
 
-    SysTick->CTRL &= ~SysTick_CTRL_Enable_Msk;
+    SysTick->CTRL &= ~Systick_Ctrl_Enable_Msk;
     SysTick->VAL = 0x00;
 }
 
@@ -326,22 +326,22 @@ void delay_ms(uint16_t nms) {
     uint32_t temp = 0;
 
     while(nms) {
-        if(nms > STEP_DELAY_MS) {
-            SysTick->LOAD = (uint32_t)(STEP_DELAY_MS * fac_ms);
-            nms -= STEP_DELAY_MS;
+        if(nms > STEP_Delay_MS) {
+            SysTick->LOAD = (uint32_t)(STEP_Delay_MS * fac_ms);
+            nms -= STEP_Delay_MS;
         } else {
             SysTick->LOAD = (uint32_t)(nms * fac_ms);
             nms = 0;
         }
 
         SysTick->VAL = 0x00;
-        SysTick->CTRL |= SysTick_CTRL_Enable_Msk;
+        SysTick->CTRL |= Systick_Ctrl_Enable_Msk;
 
         do {
             temp = SysTick->CTRL;
         } while((temp & 0x01) && !(temp & (1 << 16)));
 
-        SysTick->CTRL &= ~SysTick_CTRL_Enable_Msk;
+        SysTick->CTRL &= ~Systick_Ctrl_Enable_Msk;
         SysTick->VAL = 0x00;
     }
 }

@@ -34,7 +34,7 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "at32f435_437.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -42,7 +42,7 @@ extern "C" {
   * @{
   */
 
-/** @defgroup DMA_interrupts_definition
+/** @defgroup DMA_Interrupts_definition
   * @brief dma interrupt
   * @{
   */
@@ -129,10 +129,10 @@ extern "C" {
 #define DMAMUX_Sync_OV6_FLAG             ((uint32_t)0x00000020) /*!< dmamux channel6 synchronization overrun event flag */
 #define DMAMUX_Sync_OV7_FLAG             ((uint32_t)0x00000040) /*!< dmamux channel7 synchronization overrun event flag */
 
-#define DMAMUX_Gen_TRIG_OV1_FLAG         ((uint32_t)0x00000001) /*!< dmamux generator channel1 overrun event flag */
-#define DMAMUX_Gen_TRIG_OV2_FLAG         ((uint32_t)0x00000002) /*!< dmamux generator channel2 overrun event flag */
-#define DMAMUX_Gen_TRIG_OV3_FLAG         ((uint32_t)0x00000004) /*!< dmamux generator channel3 overrun event flag */
-#define DMAMUX_Gen_TRIG_OV4_FLAG         ((uint32_t)0x00000008) /*!< dmamux generator channel4 overrun event flag */
+#define DMAMUX_Gen_Trig_OV1_FLAG         ((uint32_t)0x00000001) /*!< dmamux generator channel1 overrun event flag */
+#define DMAMUX_Gen_Trig_OV2_FLAG         ((uint32_t)0x00000002) /*!< dmamux generator channel2 overrun event flag */
+#define DMAMUX_Gen_Trig_OV3_FLAG         ((uint32_t)0x00000004) /*!< dmamux generator channel3 overrun event flag */
+#define DMAMUX_Gen_Trig_OV4_FLAG         ((uint32_t)0x00000008) /*!< dmamux generator channel4 overrun event flag */
 
 /**
   * @}
@@ -146,38 +146,38 @@ extern "C" {
   * @brief dma direction type
   */
 typedef enum {
-    DMA_DIR_PERIPHERAL_TO_MEMORY           = 0x0000, /*!< dma data transfer direction: peripheral to memory */
-    DMA_DIR_Memory_TO_PERIPHERAL           = 0x0010, /*!< dma data transfer direction: memory to peripheral */
-    DMA_DIR_Memory_TO_MEMORY               = 0x4000  /*!< dma data transfer direction: memory to memory */
-} DMA_dir_Type;
+    DMA_Dir_PERIPHERAL_To_MEMORY           = 0x0000, /*!< dma data transfer direction: peripheral to memory */
+    DMA_Dir_Memory_To_PERIPHERAL           = 0x0010, /*!< dma data transfer direction: memory to peripheral */
+    DMA_Dir_Memory_To_MEMORY               = 0x4000  /*!< dma data transfer direction: memory to memory */
+} DMA_Dir_Type;
 
 /**
   * @brief dma peripheral data size type
   */
 typedef enum {
-    DMA_PERIPHERAL_Data_WIDTH_BYTE         = 0x00, /*!< dma peripheral databus width 8bit */
-    DMA_PERIPHERAL_Data_WIDTH_HALFWORD     = 0x01, /*!< dma peripheral databus width 16bit */
-    DMA_PERIPHERAL_Data_WIDTH_WORD         = 0x02  /*!< dma peripheral databus width 32bit */
+    DMA_PERIPHERAL_Data_Width_BYTE         = 0x00, /*!< dma peripheral databus width 8bit */
+    DMA_PERIPHERAL_Data_Width_HALFWORD     = 0x01, /*!< dma peripheral databus width 16bit */
+    DMA_PERIPHERAL_Data_Width_WORD         = 0x02  /*!< dma peripheral databus width 32bit */
 } DMA_peripheral_Data_size_Type;
 
 /**
   * @brief dma memory data size type
   */
 typedef enum {
-    DMA_Memory_Data_WIDTH_BYTE             = 0x00, /*!< dma memory databus width 8bit */
-    DMA_Memory_Data_WIDTH_HALFWORD         = 0x01, /*!< dma memory databus width 16bit */
-    DMA_Memory_Data_WIDTH_WORD             = 0x02  /*!< dma memory databus width 32bit */
+    DMA_Memory_Data_Width_BYTE             = 0x00, /*!< dma memory databus width 8bit */
+    DMA_Memory_Data_Width_HALFWORD         = 0x01, /*!< dma memory databus width 16bit */
+    DMA_Memory_Data_Width_WORD             = 0x02  /*!< dma memory databus width 32bit */
 } DMA_Memory_Data_size_Type;
 
 /**
   * @brief dma priority level type
   */
 typedef enum {
-    DMA_PRIORITY_LOW                       = 0x00, /*!< dma channel priority: low */
-    DMA_PRIORITY_MEDIUM                    = 0x01, /*!< dma channel priority: medium */
-    DMA_PRIORITY_HIGH                      = 0x02, /*!< dma channel priority: high */
-    DMA_PRIORITY_VERY_HIGH                 = 0x03  /*!< dma channel priority: very high */
-} DMA_priority_level_Type;
+    DMA_Priority_LOW                       = 0x00, /*!< dma channel priority: low */
+    DMA_Priority_MEDIUM                    = 0x01, /*!< dma channel priority: medium */
+    DMA_Priority_HIGH                      = 0x02, /*!< dma channel priority: high */
+    DMA_Priority_VERY_HIGH                 = 0x03  /*!< dma channel priority: very high */
+} DMA_Priority_level_Type;
 
 /**
   * @brief dmamux request type
@@ -202,10 +202,10 @@ typedef enum {
     DMAMUX_DMAREQ_ID_SPI3_TX               = 0x0F, /*!< dmamux channel dma request inputs resources: spi3 tx */
     DMAMUX_DMAREQ_ID_SPI4_RX               = 0x6A, /*!< dmamux channel dma request inputs resources: spi4 rx */
     DMAMUX_DMAREQ_ID_SPI4_TX               = 0x6B, /*!< dmamux channel dma request inputs resources: spi4 tx */
-    DMAMUX_DMAREQ_ID_I2S2_EXT_RX           = 0x6E, /*!< dmamux channel dma request inputs resources: i2s2_ext_rx */
-    DMAMUX_DMAREQ_ID_I2S2_EXT_TX           = 0x6F, /*!< dmamux channel dma request inputs resources: i2s2_ext_tx */
-    DMAMUX_DMAREQ_ID_I2S3_EXT_RX           = 0x70, /*!< dmamux channel dma request inputs resources: i2s3_ext_rx */
-    DMAMUX_DMAREQ_ID_I2S3_EXT_TX           = 0x71, /*!< dmamux channel dma request inputs resources: i2s3_ext_tx */
+    DMAMUX_DMAREQ_ID_I2S2_Ext_RX           = 0x6E, /*!< dmamux channel dma request inputs resources: i2s2_Ext_rx */
+    DMAMUX_DMAREQ_ID_I2S2_Ext_TX           = 0x6F, /*!< dmamux channel dma request inputs resources: i2s2_Ext_tx */
+    DMAMUX_DMAREQ_ID_I2S3_Ext_RX           = 0x70, /*!< dmamux channel dma request inputs resources: i2s3_Ext_rx */
+    DMAMUX_DMAREQ_ID_I2S3_Ext_TX           = 0x71, /*!< dmamux channel dma request inputs resources: i2s3_Ext_tx */
     DMAMUX_DMAREQ_ID_I2C1_RX               = 0x10, /*!< dmamux channel dma request inputs resources: i2c1_rx */
     DMAMUX_DMAREQ_ID_I2C1_TX               = 0x11, /*!< dmamux channel dma request inputs resources: i2c1_tx */
     DMAMUX_DMAREQ_ID_I2C2_RX               = 0x12, /*!< dmamux channel dma request inputs resources: i2c2_rx */
@@ -313,10 +313,10 @@ typedef enum {
   * @brief dmamux sync polarity type
   */
 typedef enum {
-    DMAMUX_Sync_POLARITY_Disable           = 0x00, /*!< dmamux channel synchronization inputs resources polarity default value */
-    DMAMUX_Sync_POLARITY_RISING            = 0x01, /*!< dmamux channel synchronization inputs resources polarity: rising */
-    DMAMUX_Sync_POLARITY_FALLING           = 0x02, /*!< dmamux channel synchronization inputs resources polarity: falling */
-    DMAMUX_Sync_POLARITY_RISING_FALLING    = 0x03  /*!< dmamux channel synchronization inputs resources polarity: rising_falling */
+    DMAMUX_Sync_Polarity_Disable           = 0x00, /*!< dmamux channel synchronization inputs resources polarity default value */
+    DMAMUX_Sync_Polarity_RISING            = 0x01, /*!< dmamux channel synchronization inputs resources polarity: rising */
+    DMAMUX_Sync_Polarity_FALLING           = 0x02, /*!< dmamux channel synchronization inputs resources polarity: falling */
+    DMAMUX_Sync_Polarity_RISING_FALLING    = 0x03  /*!< dmamux channel synchronization inputs resources polarity: rising_falling */
 } DMAMUX_Sync_pol_Type;
 
 /**
@@ -352,26 +352,26 @@ typedef enum {
   * @brief dmamux generator polarity type
   */
 typedef enum {
-    DMAMUX_Gen_POLARITY_Disable            = 0x00, /*!< dmamux generator channel inputs resources polarity default value */
-    DMAMUX_Gen_POLARITY_RISING             = 0x01, /*!< dmamux generator channel inputs resources polarity: rising */
-    DMAMUX_Gen_POLARITY_FALLING            = 0x02, /*!< dmamux generator channel inputs resources polarity: falling */
-    DMAMUX_Gen_POLARITY_RISING_FALLING     = 0x03  /*!< dmamux generator channel inputs resources polarity: rising_falling */
+    DMAMUX_Gen_Polarity_Disable            = 0x00, /*!< dmamux generator channel inputs resources polarity default value */
+    DMAMUX_Gen_Polarity_RISING             = 0x01, /*!< dmamux generator channel inputs resources polarity: rising */
+    DMAMUX_Gen_Polarity_FALLING            = 0x02, /*!< dmamux generator channel inputs resources polarity: falling */
+    DMAMUX_Gen_Polarity_RISING_FALLING     = 0x03  /*!< dmamux generator channel inputs resources polarity: rising_falling */
 } DMAMUX_Gen_pol_Type;
 
 /**
   * @brief dma init type
   */
 typedef struct {
-    uint32_t                               peripheral_base_addr;    /*!< base addrress for peripheral */
-    uint32_t                               memory_base_addr;        /*!< base addrress for memory */
-    DMA_dir_Type                           direction;               /*!< dma transmit direction, peripheral as source or as destnation  */
+    uint32_t                               peripheral_Base_Addr;    /*!< base addrress for peripheral */
+    uint32_t                               memory_Base_Addr;        /*!< base addrress for memory */
+    DMA_Dir_Type                           direction;               /*!< dma transmit direction, peripheral as source or as destnation  */
     uint16_t                               buffer_size;             /*!< counter to transfer (0~0xFFFF) */
     confirm_state                          peripheral_inc_Enable;   /*!< periphera address increment after one transmit */
     confirm_state                          memory_inc_Enable;       /*!< memory address increment after one transmit */
     DMA_peripheral_Data_size_Type          peripheral_Data_width;   /*!< peripheral data width for transmit */
     DMA_Memory_Data_size_Type              memory_Data_width;       /*!< memory data width for transmit */
     confirm_state                          loop_Mode_Enable;        /*!< when loop mode enable, buffer size will reload if count to 0*/
-    DMA_priority_level_Type                priority;                /*!< dma priority can choose from very high,high,dedium or low */
+    DMA_Priority_level_Type                priority;                /*!< dma priority can choose from very high,high,dedium or low */
 } DMA_Init_Type;
 
 /**
@@ -649,21 +649,21 @@ typedef struct {
   */
 
 #define DMA1                             ((DMA_Type *) DMA1_BASE)
-#define DMA1_CHANNEL1                    ((DMA_Channel_Type *) DMA1_CHANNEL1_BASE)
-#define DMA1_CHANNEL2                    ((DMA_Channel_Type *) DMA1_CHANNEL2_BASE)
-#define DMA1_CHANNEL3                    ((DMA_Channel_Type *) DMA1_CHANNEL3_BASE)
-#define DMA1_CHANNEL4                    ((DMA_Channel_Type *) DMA1_CHANNEL4_BASE)
-#define DMA1_CHANNEL5                    ((DMA_Channel_Type *) DMA1_CHANNEL5_BASE)
-#define DMA1_CHANNEL6                    ((DMA_Channel_Type *) DMA1_CHANNEL6_BASE)
-#define DMA1_CHANNEL7                    ((DMA_Channel_Type *) DMA1_CHANNEL7_BASE)
+#define DMA1_ChanneL1                    ((DMA_Channel_Type *) DMA1_ChanneL1_BASE)
+#define DMA1_ChanneL2                    ((DMA_Channel_Type *) DMA1_ChanneL2_BASE)
+#define DMA1_ChanneL3                    ((DMA_Channel_Type *) DMA1_ChanneL3_BASE)
+#define DMA1_ChanneL4                    ((DMA_Channel_Type *) DMA1_ChanneL4_BASE)
+#define DMA1_ChanneL5                    ((DMA_Channel_Type *) DMA1_ChanneL5_BASE)
+#define DMA1_ChanneL6                    ((DMA_Channel_Type *) DMA1_ChanneL6_BASE)
+#define DMA1_ChanneL7                    ((DMA_Channel_Type *) DMA1_ChanneL7_BASE)
 
-#define DMA1MUX_CHANNEL1                 ((DMAMUX_Channel_Type *) DMA1MUX_CHANNEL1_BASE)
-#define DMA1MUX_CHANNEL2                 ((DMAMUX_Channel_Type *) DMA1MUX_CHANNEL2_BASE)
-#define DMA1MUX_CHANNEL3                 ((DMAMUX_Channel_Type *) DMA1MUX_CHANNEL3_BASE)
-#define DMA1MUX_CHANNEL4                 ((DMAMUX_Channel_Type *) DMA1MUX_CHANNEL4_BASE)
-#define DMA1MUX_CHANNEL5                 ((DMAMUX_Channel_Type *) DMA1MUX_CHANNEL5_BASE)
-#define DMA1MUX_CHANNEL6                 ((DMAMUX_Channel_Type *) DMA1MUX_CHANNEL6_BASE)
-#define DMA1MUX_CHANNEL7                 ((DMAMUX_Channel_Type *) DMA1MUX_CHANNEL7_BASE)
+#define DMA1MUX_ChanneL1                 ((DMAMUX_Channel_Type *) DMA1MUX_ChanneL1_BASE)
+#define DMA1MUX_ChanneL2                 ((DMAMUX_Channel_Type *) DMA1MUX_ChanneL2_BASE)
+#define DMA1MUX_ChanneL3                 ((DMAMUX_Channel_Type *) DMA1MUX_ChanneL3_BASE)
+#define DMA1MUX_ChanneL4                 ((DMAMUX_Channel_Type *) DMA1MUX_ChanneL4_BASE)
+#define DMA1MUX_ChanneL5                 ((DMAMUX_Channel_Type *) DMA1MUX_ChanneL5_BASE)
+#define DMA1MUX_ChanneL6                 ((DMAMUX_Channel_Type *) DMA1MUX_ChanneL6_BASE)
+#define DMA1MUX_ChanneL7                 ((DMAMUX_Channel_Type *) DMA1MUX_ChanneL7_BASE)
 
 #define DMA1MUX_GENERATOR1               ((DMAMUX_Generator_Type *) DMA1MUX_GENERATOR1_BASE)
 #define DMA1MUX_GENERATOR2               ((DMAMUX_Generator_Type *) DMA1MUX_GENERATOR2_BASE)
@@ -671,21 +671,21 @@ typedef struct {
 #define DMA1MUX_GENERATOR4               ((DMAMUX_Generator_Type *) DMA1MUX_GENERATOR4_BASE)
 
 #define DMA2                             ((DMA_Type *) DMA2_BASE)
-#define DMA2_CHANNEL1                    ((DMA_Channel_Type *) DMA2_CHANNEL1_BASE)
-#define DMA2_CHANNEL2                    ((DMA_Channel_Type *) DMA2_CHANNEL2_BASE)
-#define DMA2_CHANNEL3                    ((DMA_Channel_Type *) DMA2_CHANNEL3_BASE)
-#define DMA2_CHANNEL4                    ((DMA_Channel_Type *) DMA2_CHANNEL4_BASE)
-#define DMA2_CHANNEL5                    ((DMA_Channel_Type *) DMA2_CHANNEL5_BASE)
-#define DMA2_CHANNEL6                    ((DMA_Channel_Type *) DMA2_CHANNEL6_BASE)
-#define DMA2_CHANNEL7                    ((DMA_Channel_Type *) DMA2_CHANNEL7_BASE)
+#define DMA2_ChanneL1                    ((DMA_Channel_Type *) DMA2_ChanneL1_BASE)
+#define DMA2_ChanneL2                    ((DMA_Channel_Type *) DMA2_ChanneL2_BASE)
+#define DMA2_ChanneL3                    ((DMA_Channel_Type *) DMA2_ChanneL3_BASE)
+#define DMA2_ChanneL4                    ((DMA_Channel_Type *) DMA2_ChanneL4_BASE)
+#define DMA2_ChanneL5                    ((DMA_Channel_Type *) DMA2_ChanneL5_BASE)
+#define DMA2_ChanneL6                    ((DMA_Channel_Type *) DMA2_ChanneL6_BASE)
+#define DMA2_ChanneL7                    ((DMA_Channel_Type *) DMA2_ChanneL7_BASE)
 
-#define DMA2MUX_CHANNEL1                 ((DMAMUX_Channel_Type *) DMA2MUX_CHANNEL1_BASE)
-#define DMA2MUX_CHANNEL2                 ((DMAMUX_Channel_Type *) DMA2MUX_CHANNEL2_BASE)
-#define DMA2MUX_CHANNEL3                 ((DMAMUX_Channel_Type *) DMA2MUX_CHANNEL3_BASE)
-#define DMA2MUX_CHANNEL4                 ((DMAMUX_Channel_Type *) DMA2MUX_CHANNEL4_BASE)
-#define DMA2MUX_CHANNEL5                 ((DMAMUX_Channel_Type *) DMA2MUX_CHANNEL5_BASE)
-#define DMA2MUX_CHANNEL6                 ((DMAMUX_Channel_Type *) DMA2MUX_CHANNEL6_BASE)
-#define DMA2MUX_CHANNEL7                 ((DMAMUX_Channel_Type *) DMA2MUX_CHANNEL7_BASE)
+#define DMA2MUX_ChanneL1                 ((DMAMUX_Channel_Type *) DMA2MUX_ChanneL1_BASE)
+#define DMA2MUX_ChanneL2                 ((DMAMUX_Channel_Type *) DMA2MUX_ChanneL2_BASE)
+#define DMA2MUX_ChanneL3                 ((DMAMUX_Channel_Type *) DMA2MUX_ChanneL3_BASE)
+#define DMA2MUX_ChanneL4                 ((DMAMUX_Channel_Type *) DMA2MUX_ChanneL4_BASE)
+#define DMA2MUX_ChanneL5                 ((DMAMUX_Channel_Type *) DMA2MUX_ChanneL5_BASE)
+#define DMA2MUX_ChanneL6                 ((DMAMUX_Channel_Type *) DMA2MUX_ChanneL6_BASE)
+#define DMA2MUX_ChanneL7                 ((DMAMUX_Channel_Type *) DMA2MUX_ChanneL7_BASE)
 
 #define DMA2MUX_GENERATOR1               ((DMAMUX_Generator_Type *) DMA2MUX_GENERATOR1_BASE)
 #define DMA2MUX_GENERATOR2               ((DMAMUX_Generator_Type *) DMA2MUX_GENERATOR2_BASE)
@@ -697,25 +697,25 @@ typedef struct {
   */
 
 /* dma controller function */
-void DMA_Reset(DMA_Channel_Type *dmax_channely);
-void DMA_Data_Number_Set(DMA_Channel_Type *dmax_channely, uint16_t data_Number);
-uint16_t DMA_Data_Number_Get(DMA_Channel_Type *dmax_channely);
-void DMA_Interrupt_Enable(DMA_Channel_Type *dmax_channely, uint32_t DMA_int, confirm_state new_state);
-void DMA_Channel_Enable(DMA_Channel_Type *dmax_channely, confirm_state new_state);
+void DMA_Reset(DMA_Channel_Type *dmax_Channely);
+void DMA_Data_Number_Set(DMA_Channel_Type *dmax_Channely, uint16_t data_Number);
+uint16_t DMA_Data_Number_Get(DMA_Channel_Type *dmax_Channely);
+void DMA_Interrupt_Enable(DMA_Channel_Type *dmax_Channely, uint32_t DMA_int, confirm_state new_state);
+void DMA_Channel_Enable(DMA_Channel_Type *dmax_Channely, confirm_state new_state);
 flag_status DMA_Flag_Get(uint32_t dmax_flag);
 void DMA_Flag_Clear(uint32_t dmax_flag);
 void DMA_Default_Para_Init(DMA_Init_Type *DMA_Init_struct);
-void DMA_Init(DMA_Channel_Type *dmax_channely, DMA_Init_Type *DMA_Init_struct);
+void DMA_Init(DMA_Channel_Type *dmax_Channely, DMA_Init_Type *DMA_Init_struct);
 
 /* dma requst multiplexer function */
-void DMA_Flexible_Config(DMA_Type* DMA_x, DMAMUX_Channel_Type *DMAMUX_channelx, DMAMUX_Requst_ID_sel_Type DMAMUX_req_sel);
+void DMA_Flexible_Config(DMA_Type* DMA_x, DMAMUX_Channel_Type *DMAMUX_Channelx, DMAMUX_Requst_ID_sel_Type DMAMUX_req_sel);
 void DMAMUX_Enable(DMA_Type *DMA_x, confirm_state new_state);
-void DMAMUX_Init(DMAMUX_Channel_Type *DMAMUX_channelx, DMAMUX_Requst_ID_sel_Type DMAMUX_req_sel);
+void DMAMUX_Init(DMAMUX_Channel_Type *DMAMUX_Channelx, DMAMUX_Requst_ID_sel_Type DMAMUX_req_sel);
 void DMAMUX_Sync_Default_Para_Init(DMAMUX_Sync_Init_Type *DMAMUX_Sync_Init_struct);
-void DMAMUX_Sync_Config(DMAMUX_Channel_Type *DMAMUX_channelx, DMAMUX_Sync_Init_Type *DMAMUX_Sync_Init_struct);
+void DMAMUX_Sync_Config(DMAMUX_Channel_Type *DMAMUX_Channelx, DMAMUX_Sync_Init_Type *DMAMUX_Sync_Init_struct);
 void DMAMUX_Generator_Default_Para_Init(DMAMUX_Gen_Init_Type *DMAMUX_Gen_Init_struct);
 void DMAMUX_Generator_Config(DMAMUX_Generator_Type *DMAMUX_Gen_x, DMAMUX_Gen_Init_Type *DMAMUX_Gen_Init_struct);
-void DMAMUX_Sync_Interrupt_Enable(DMAMUX_Channel_Type *DMAMUX_channelx, confirm_state new_state);
+void DMAMUX_Sync_Interrupt_Enable(DMAMUX_Channel_Type *DMAMUX_Channelx, confirm_state new_state);
 void DMAMUX_Generator_Interrupt_Enable(DMAMUX_Generator_Type *DMAMUX_Gen_x, confirm_state new_state);
 flag_status DMAMUX_Sync_Flag_Get(DMA_Type *DMA_x, uint32_t flag);
 void DMAMUX_Sync_Flag_Clear(DMA_Type *DMA_x, uint32_t flag);

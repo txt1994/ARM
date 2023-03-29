@@ -24,7 +24,7 @@
 
 #include "at32f435_437_conf.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -196,21 +196,21 @@ FLASH_Status_Type FLASH_Bank2_Operation_Status_Get(void) {
 
 /**
   * @brief  wait for flash operation complete or timeout.
-  * @param  time_out: flash operation timeout
+  * @param  time_Out: flash operation timeout
   * @retval status: the returned value can be: FLASH_PROGRAM_ERROR,
   *         FLASH_EPP_ERROR, FLASH_OPERATE_DONE or FLASH_OPERATE_TIMEOUT.
   */
-FLASH_Status_Type FLASH_Operation_Wait_For(uint32_t time_out) {
+FLASH_Status_Type FLASH_Operation_Wait_For(uint32_t time_Out) {
     FLASH_Status_Type status = FLASH_OPERATE_DONE;
     /* check for the flash status */
     status = FLASH_Operation_Status_Get();
 
-    while((status == FLASH_OPERATE_BUSY) && (time_out != 0x00)) {
+    while((status == FLASH_OPERATE_BUSY) && (time_Out != 0x00)) {
         status = FLASH_Operation_Status_Get();
-        time_out--;
+        time_Out--;
     }
 
-    if(time_out == 0x00) {
+    if(time_Out == 0x00) {
         status = FLASH_OPERATE_TIMEOUT;
     }
 
@@ -220,21 +220,21 @@ FLASH_Status_Type FLASH_Operation_Wait_For(uint32_t time_out) {
 
 /**
   * @brief  wait for flash bank1 operation complete or timeout.
-  * @param  time_out: flash operation timeout
+  * @param  time_Out: flash operation timeout
   * @retval status: the returned value can be: FLASH_PROGRAM_ERROR,
   *         FLASH_EPP_ERROR, FLASH_OPERATE_DONE or FLASH_OPERATE_TIMEOUT.
   */
-FLASH_Status_Type FLASH_Bank1_Operation_Wait_For(uint32_t time_out) {
+FLASH_Status_Type FLASH_Bank1_Operation_Wait_For(uint32_t time_Out) {
     FLASH_Status_Type status = FLASH_OPERATE_DONE;
     /* check for the flash status */
     status = FLASH_Bank1_Operation_Status_Get();
 
-    while((status == FLASH_OPERATE_BUSY) && (time_out != 0x00)) {
+    while((status == FLASH_OPERATE_BUSY) && (time_Out != 0x00)) {
         status = FLASH_Bank1_Operation_Status_Get();
-        time_out--;
+        time_Out--;
     }
 
-    if(time_out == 0x00) {
+    if(time_Out == 0x00) {
         status = FLASH_OPERATE_TIMEOUT;
     }
 
@@ -244,21 +244,21 @@ FLASH_Status_Type FLASH_Bank1_Operation_Wait_For(uint32_t time_out) {
 
 /**
   * @brief  wait for flash bank2 operation complete or timeout.
-  * @param  time_out: flash operation timeout
+  * @param  time_Out: flash operation timeout
   * @retval status: the returned value can be: FLASH_PROGRAM_ERROR,
   *         FLASH_EPP_ERROR, FLASH_OPERATE_DONE or FLASH_OPERATE_TIMEOUT.
   */
-FLASH_Status_Type FLASH_Bank2_Operation_Wait_For(uint32_t time_out) {
+FLASH_Status_Type FLASH_Bank2_Operation_Wait_For(uint32_t time_Out) {
     FLASH_Status_Type status = FLASH_OPERATE_DONE;
     /* check for the flash status */
     status = FLASH_Bank2_Operation_Status_Get();
 
-    while((status == FLASH_OPERATE_BUSY) && (time_out != 0x00)) {
+    while((status == FLASH_OPERATE_BUSY) && (time_Out != 0x00)) {
         status = FLASH_Bank2_Operation_Status_Get();
-        time_out--;
+        time_Out--;
     }
 
-    if(time_out == 0x00) {
+    if(time_Out == 0x00) {
         status = FLASH_OPERATE_TIMEOUT;
     }
 
@@ -335,7 +335,7 @@ void FLASH_Bank2_lock(void) {
 FLASH_Status_Type FLASH_Sector_Erase(uint32_t sector_Address) {
     FLASH_Status_Type status = FLASH_OPERATE_DONE;
 
-    if((sector_Address >= FLASH_Bank1_Start_ADDR) && (sector_Address <= FLASH_Bank1_End_ADDR)) {
+    if((sector_Address >= FLASH_Bank1_Start_Addr) && (sector_Address <= FLASH_Bank1_End_Addr)) {
         FLASH->ctrl_bit.secers = TRUE;
         FLASH->addr = sector_Address;
         FLASH->ctrl_bit.erstr = TRUE;
@@ -345,7 +345,7 @@ FLASH_Status_Type FLASH_Sector_Erase(uint32_t sector_Address) {
 
         /* disable the secers bit */
         FLASH->ctrl_bit.secers = FALSE;
-    } else if((sector_Address >= FLASH_Bank2_Start_ADDR) && (sector_Address <= FLASH_Bank2_End_ADDR)) {
+    } else if((sector_Address >= FLASH_Bank2_Start_Addr) && (sector_Address <= FLASH_Bank2_End_Addr)) {
         FLASH->ctrl2_bit.secers = TRUE;
         FLASH->addr2 = sector_Address;
         FLASH->ctrl2_bit.erstr = TRUE;
@@ -370,7 +370,7 @@ FLASH_Status_Type FLASH_Sector_Erase(uint32_t sector_Address) {
 FLASH_Status_Type FLASH_Block_Erase(uint32_t block_Address) {
     FLASH_Status_Type status = FLASH_OPERATE_DONE;
 
-    if((block_Address >= FLASH_Bank1_Start_ADDR) && (block_Address <= FLASH_Bank1_End_ADDR)) {
+    if((block_Address >= FLASH_Bank1_Start_Addr) && (block_Address <= FLASH_Bank1_End_Addr)) {
         FLASH->ctrl_bit.blkers = TRUE;
         FLASH->addr = block_Address;
         FLASH->ctrl_bit.erstr = TRUE;
@@ -380,7 +380,7 @@ FLASH_Status_Type FLASH_Block_Erase(uint32_t block_Address) {
 
         /* disable the blkers bit */
         FLASH->ctrl_bit.blkers = FALSE;
-    } else if((block_Address >= FLASH_Bank2_Start_ADDR) && (block_Address <= FLASH_Bank2_End_ADDR)) {
+    } else if((block_Address >= FLASH_Bank2_Start_Addr) && (block_Address <= FLASH_Bank2_End_Addr)) {
         FLASH->ctrl2_bit.blkers = TRUE;
         FLASH->addr2 = block_Address;
         FLASH->ctrl2_bit.erstr = TRUE;
@@ -576,7 +576,7 @@ FLASH_Status_Type FLASH_Eopb0_Config(FLASH_Usd_Eopb0_Type data) {
 FLASH_Status_Type FLASH_Word_program(uint32_t address, uint32_t data) {
     FLASH_Status_Type status = FLASH_OPERATE_DONE;
 
-    if((address >= FLASH_Bank1_Start_ADDR) && (address <= FLASH_Bank1_End_ADDR)) {
+    if((address >= FLASH_Bank1_Start_Addr) && (address <= FLASH_Bank1_End_Addr)) {
         FLASH->ctrl_bit.fprgm = TRUE;
         *(__IO uint32_t*)address = data;
         /* wait for operation to be completed */
@@ -584,7 +584,7 @@ FLASH_Status_Type FLASH_Word_program(uint32_t address, uint32_t data) {
 
         /* disable the fprgm bit */
         FLASH->ctrl_bit.fprgm = FALSE;
-    } else if((address >= FLASH_Bank2_Start_ADDR) && (address <= FLASH_Bank2_End_ADDR)) {
+    } else if((address >= FLASH_Bank2_Start_Addr) && (address <= FLASH_Bank2_End_Addr)) {
         FLASH->ctrl2_bit.fprgm = TRUE;
         *(__IO uint32_t*)address = data;
         /* wait for operation to be completed */
@@ -608,7 +608,7 @@ FLASH_Status_Type FLASH_Word_program(uint32_t address, uint32_t data) {
 FLASH_Status_Type FLASH_halfword_program(uint32_t address, uint16_t data) {
     FLASH_Status_Type status = FLASH_OPERATE_DONE;
 
-    if((address >= FLASH_Bank1_Start_ADDR) && (address <= FLASH_Bank1_End_ADDR)) {
+    if((address >= FLASH_Bank1_Start_Addr) && (address <= FLASH_Bank1_End_Addr)) {
         FLASH->ctrl_bit.fprgm = TRUE;
         *(__IO uint16_t*)address = data;
         /* wait for operation to be completed */
@@ -616,7 +616,7 @@ FLASH_Status_Type FLASH_halfword_program(uint32_t address, uint16_t data) {
 
         /* disable the fprgm bit */
         FLASH->ctrl_bit.fprgm = FALSE;
-    } else if((address >= FLASH_Bank2_Start_ADDR) && (address <= FLASH_Bank2_End_ADDR)) {
+    } else if((address >= FLASH_Bank2_Start_Addr) && (address <= FLASH_Bank2_End_Addr)) {
         FLASH->ctrl2_bit.fprgm = TRUE;
         *(__IO uint16_t*)address = data;
         /* wait for operation to be completed */
@@ -641,7 +641,7 @@ FLASH_Status_Type FLASH_halfword_program(uint32_t address, uint16_t data) {
 FLASH_Status_Type FLASH_Byte_program(uint32_t address, uint8_t data) {
     FLASH_Status_Type status = FLASH_OPERATE_DONE;
 
-    if((address >= FLASH_Bank1_Start_ADDR) && (address <= FLASH_Bank1_End_ADDR)) {
+    if((address >= FLASH_Bank1_Start_Addr) && (address <= FLASH_Bank1_End_Addr)) {
         FLASH->ctrl_bit.fprgm = TRUE;
         *(__IO uint8_t*)address = data;
         /* wait for operation to be completed */
@@ -649,7 +649,7 @@ FLASH_Status_Type FLASH_Byte_program(uint32_t address, uint8_t data) {
 
         /* disable the fprgm bit */
         FLASH->ctrl_bit.fprgm = FALSE;
-    } else if((address >= FLASH_Bank2_Start_ADDR) && (address <= FLASH_Bank2_End_ADDR)) {
+    } else if((address >= FLASH_Bank2_Start_Addr) && (address <= FLASH_Bank2_End_Addr)) {
         FLASH->ctrl2_bit.fprgm = TRUE;
         *(__IO uint8_t*)address = data;
         /* wait for operation to be completed */
@@ -1064,9 +1064,9 @@ uint16_t FLASH_sLib_End_Sector_Get(void) {
   * @retval uint32: crc calibration result
   */
 uint32_t FLASH_CRC_Calibrate(uint32_t start_sector, uint32_t sector_cnt) {
-    FLASH->CRC_ctrl_bit.CRC_ss = start_sector;
-    FLASH->CRC_ctrl_bit.CRC_sn = sector_cnt;
-    FLASH->CRC_ctrl_bit.CRC_strt = TRUE;
+    FLASH->CRC_Ctrl_bit.CRC_ss = start_sector;
+    FLASH->CRC_Ctrl_bit.CRC_sn = sector_cnt;
+    FLASH->CRC_Ctrl_bit.CRC_strt = TRUE;
     FLASH_Operation_Wait_For(OPERATION_TIMEOUT);
     return FLASH->CRC_chkr;
 }

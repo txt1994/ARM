@@ -34,7 +34,7 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "at32f435_437.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -61,7 +61,7 @@ extern "C" {
   * @}
   */
 
-/** @defgroup EMAC_interrupts_definition
+/** @defgroup EMAC_Interrupts_definition
   * @brief emac interrupts
   * @{
   */
@@ -84,9 +84,9 @@ extern "C" {
 #define MMC_RX_CRC_ERROR                 ((uint32_t)0x00000020) /*!< mmc error flag of rx crc */
 #define MMC_RX_ALIGN_ERROR               ((uint32_t)0x00000040) /*!< mmc error flag of rx alignment */
 #define MMC_RX_Good_UNICAST              ((uint32_t)0x00020000) /*!< mmc error flag of rx unicast good frames */
-#define MMC_TX_SINGLE_COL                ((uint32_t)0x00004000) /*!< mmc error flag of tx single collision */
+#define MMC_TX_Single_COL                ((uint32_t)0x00004000) /*!< mmc error flag of tx single collision */
 #define MMC_TX_MULTIPLE_COL              ((uint32_t)0x00008000) /*!< mmc error flag of tx multiple collision */
-#define MMC_TX_Good_FRAMES               ((uint32_t)0x00200000) /*!< mmc error flag of tx good frames */
+#define MMC_TX_Good_FrameS               ((uint32_t)0x00200000) /*!< mmc error flag of tx good frames */
 
 /**
   * @}
@@ -104,8 +104,8 @@ extern "C" {
 #define VLAN_TAG                         4    /*!< optional 802.1q vlan tag */
 #define EMAC_MIN_PAYLOAD                 46   /*!< minimum ethernet payload size */
 #define EMAC_MAX_PAYLOAD                 1500 /*!< maximum ethernet payload size */
-#define JUMBO_FRAME_PAYLOAD              9000 /*!< jumbo frame payload size */
-#define EMAC_DMARXDESC_FRAME_LENGTHSHIFT 16
+#define JUMBO_Frame_PAYLOAD              9000 /*!< jumbo frame payload size */
+#define EMAC_DMARXDESC_Frame_LENGTHSHIFT 16
 
 /**
   * @}
@@ -124,7 +124,7 @@ extern "C" {
 #define EMAC_DMATXDESC_DP                ((uint32_t)0x04000000) /*!< disable padding */
 #define EMAC_DMATXDESC_TTSE              ((uint32_t)0x02000000) /*!< transmit time stamp enable */
 #define EMAC_DMATXDESC_CIC               ((uint32_t)0x00C00000) /*!< checksum insertion control: 4 cases */
-#define EMAC_DMATXDESC_CIC_BYPASS        ((uint32_t)0x00000000) /*!< do nothing: checksum engine is bypassed */
+#define EMAC_DMATXDESC_CIC_ByPass        ((uint32_t)0x00000000) /*!< do nothing: checksum engine is bypassed */
 #define EMAC_DMATXDESC_CIC_IPV4HEADER    ((uint32_t)0x00400000) /*!< ipv4 header checksum insertion */
 #define EMAC_DMATXDESC_CIC_TUI_SEG       ((uint32_t)0x00800000) /*!< tcp/udp/icmp checksum insertion calculated over segment only */
 #define EMAC_DMATXDESC_CIC_TUI_FULL      ((uint32_t)0x00C00000) /*!< tcp/udp/icmp checksum insertion fully calculated */
@@ -253,7 +253,7 @@ extern "C" {
 /**
   * @brief  emac dma flag
   */
-#define EMAC_DMA_TI_FLAG                 ((uint32_t)0x00000001) /*!< emac dma transmit interrupt */
+#define EMAC_DMA_Ti_FLAG                 ((uint32_t)0x00000001) /*!< emac dma transmit interrupt */
 #define EMAC_DMA_TPS_FLAG                ((uint32_t)0x00000002) /*!< emac dma transmit process stopped */
 #define EMAC_DMA_TBU_FLAG                ((uint32_t)0x00000004) /*!< emac dma transmit buffer unavailable */
 #define EMAC_DMA_TJT_FLAG                ((uint32_t)0x00000008) /*!< emac dma transmit jabber timeout */
@@ -285,17 +285,17 @@ typedef enum {
   * @brief  emac back_off limit type
   */
 typedef enum {
-    EMAC_BACKOFF_LIMIT_0                   = 0x00, /*!< retransmission clock gap numbers betwenn n and 10 */
-    EMAC_BACKOFF_LIMIT_1                   = 0x01, /*!< retransmission clock gap numbers betwenn n and 8 */
-    EMAC_BACKOFF_LIMIT_2                   = 0x02, /*!< retransmission clock gap numbers betwenn n and 4 */
-    EMAC_BACKOFF_LIMIT_3                   = 0x03  /*!< retransmission clock gap numbers betwenn n and 1 */
+    EMAC_BackOff_Limit_0                   = 0x00, /*!< retransmission clock gap numbers betwenn n and 10 */
+    EMAC_BackOff_Limit_1                   = 0x01, /*!< retransmission clock gap numbers betwenn n and 8 */
+    EMAC_BackOff_Limit_2                   = 0x02, /*!< retransmission clock gap numbers betwenn n and 4 */
+    EMAC_BackOff_Limit_3                   = 0x03  /*!< retransmission clock gap numbers betwenn n and 1 */
 } EMAC_bol_Type;
 
 /**
   * @brief  emac duplex type
   */
 typedef enum {
-    EMAC_HALF_DUPLEX                       = 0x00, /*!< half duplex */
+    EMAC_Half_DUPLEX                       = 0x00, /*!< half duplex */
     EMAC_FULL_DUPLEX                       = 0x01  /*!< full duplex */
 } EMAC_Duplex_Type;
 
@@ -311,46 +311,46 @@ typedef enum {
   * @brief  emac interframe gap type
   */
 typedef enum {
-    EMAC_INTERFRAME_GAP_96BIT              = 0x00, /*!< 96-bit numbers between two frames */
-    EMAC_INTERFRAME_GAP_88BIT              = 0x01, /*!< 88-bit numbers between two frames */
-    EMAC_INTERFRAME_GAP_80BIT              = 0x02, /*!< 80-bit numbers between two frames */
-    EMAC_INTERFRAME_GAP_72BIT              = 0x03, /*!< 72-bit numbers between two frames */
-    EMAC_INTERFRAME_GAP_64BIT              = 0x04, /*!< 64-bit numbers between two frames */
-    EMAC_INTERFRAME_GAP_56BIT              = 0x05, /*!< 56-bit numbers between two frames */
-    EMAC_INTERFRAME_GAP_48BIT              = 0x06, /*!< 48-bit numbers between two frames */
-    EMAC_INTERFRAME_GAP_40BIT              = 0x07  /*!< 40-bit numbers between two frames */
-} EMAC_intergrame_gap_Type;
+    EMAC_INTERFRAME_Gap_96BIT              = 0x00, /*!< 96-bit numbers between two frames */
+    EMAC_INTERFRAME_Gap_88BIT              = 0x01, /*!< 88-bit numbers between two frames */
+    EMAC_INTERFRAME_Gap_80BIT              = 0x02, /*!< 80-bit numbers between two frames */
+    EMAC_INTERFRAME_Gap_72BIT              = 0x03, /*!< 72-bit numbers between two frames */
+    EMAC_INTERFRAME_Gap_64BIT              = 0x04, /*!< 64-bit numbers between two frames */
+    EMAC_INTERFRAME_Gap_56BIT              = 0x05, /*!< 56-bit numbers between two frames */
+    EMAC_INTERFRAME_Gap_48BIT              = 0x06, /*!< 48-bit numbers between two frames */
+    EMAC_INTERFRAME_Gap_40BIT              = 0x07  /*!< 40-bit numbers between two frames */
+} EMAC_intergrame_Gap_Type;
 
 /**
   * @brief  mdc clock range type
   */
 typedef enum {
-    EMAC_Clock_Range_60_TO_100             = 0x00, /*!< mdc is hclk/42 */
-    EMAC_Clock_Range_100_TO_150            = 0x01, /*!< mdc is hclk/62 */
-    EMAC_Clock_Range_20_TO_35              = 0x02, /*!< mdc is hclk/16 */
-    EMAC_Clock_Range_35_TO_60              = 0x03, /*!< mdc is hclk/26 */
-    EMAC_Clock_Range_150_TO_250            = 0x04, /*!< mdc is hclk/102 */
-    EMAC_Clock_Range_250_TO_288            = 0x05  /*!< mdc is hclk/102 */
+    EMAC_Clock_Range_60_To_100             = 0x00, /*!< mdc is hclk/42 */
+    EMAC_Clock_Range_100_To_150            = 0x01, /*!< mdc is hclk/62 */
+    EMAC_Clock_Range_20_To_35              = 0x02, /*!< mdc is hclk/16 */
+    EMAC_Clock_Range_35_To_60              = 0x03, /*!< mdc is hclk/26 */
+    EMAC_Clock_Range_150_To_250            = 0x04, /*!< mdc is hclk/102 */
+    EMAC_Clock_Range_250_To_288            = 0x05  /*!< mdc is hclk/102 */
 } EMAC_Clock_Range_Type;
 
 /**
   * @brief  emac control frames filter type
   */
 typedef enum {
-    EMAC_Control_FRAME_PASSING_NO          = 0x00, /*!< don't pass any control frame to application */
-    EMAC_Control_FRAME_PASSING_ALL         = 0x02, /*!< pass all control frames to application */
-    EMAC_Control_FRAME_PASSING_MATCH       = 0x03  /*!< only pass filtered control frames to application */
+    EMAC_Control_Frame_PASSING_NO          = 0x00, /*!< don't pass any control frame to application */
+    EMAC_Control_Frame_PASSING_ALL         = 0x02, /*!< pass all control frames to application */
+    EMAC_Control_Frame_PASSING_MATCH       = 0x03  /*!< only pass filtered control frames to application */
 } EMAC_Control_Frames_Filter_Type;
 
 /**
   * @brief  pause threshold type
   */
 typedef enum {
-    EMAC_PAUSE_4_SLOT_TIME                 = 0x00, /*!< pause time is 4 slot time */
-    EMAC_PAUSE_28_SLOT_TIME                = 0x01, /*!< pause time is 28 slot time */
-    EMAC_PAUSE_144_SLOT_TIME               = 0x02, /*!< pause time is 144 slot time */
-    EMAC_PAUSE_256_SLOT_TIME               = 0x03  /*!< pause time is 256 slot time */
-} EMAC_pause_slot_Threshold_Type;
+    EMAC_Pause_4_SLOT_TIME                 = 0x00, /*!< pause time is 4 slot time */
+    EMAC_Pause_28_SLOT_TIME                = 0x01, /*!< pause time is 28 slot time */
+    EMAC_Pause_144_SLOT_TIME               = 0x02, /*!< pause time is 144 slot time */
+    EMAC_Pause_256_SLOT_TIME               = 0x03  /*!< pause time is 256 slot time */
+} EMAC_Pause_slot_Threshold_Type;
 
 /**
   * @brief  interrupt mask type
@@ -415,8 +415,8 @@ typedef enum {
   * @brief  dma tx rx type
   */
 typedef enum {
-    EMAC_DMA_TRANSMIT                      = 0x00, /*!< transmit dma */
-    EMAC_DMA_RECEIVE                       = 0x01  /*!< receive dma */
+    EMAC_DMA_Transmit                      = 0x00, /*!< transmit dma */
+    EMAC_DMA_Receive                       = 0x01  /*!< receive dma */
 } EMAC_DMA_TX_RX_Type;
 
 /**
@@ -425,10 +425,10 @@ typedef enum {
 typedef enum {
     EMAC_DMA_RX_Reset_Stop_COMMAND         = 0x00, /*!< receive reset or stop command */
     EMAC_DMA_RX_FETCH_DESCRIPTOR           = 0x01, /*!< rx dma is fetching descriptor */
-    EMAC_DMA_RX_WAITING_Packet             = 0x03, /*!< rx dma is waiting for packets */
+    EMAC_DMA_RX_WaitING_Packet             = 0x03, /*!< rx dma is waiting for packets */
     EMAC_DMA_RX_DESCRIPTOR_UNAVAILABLE     = 0x04, /*!< rx dma descriptor is unavailable */
-    EMAC_DMA_RX_CLOSE_DESCRIPTOR           = 0x05, /*!< rx dma is closing descriptor */
-    EMAC_DMA_RX_FIFO_TO_HOST               = 0x07  /*!< rx dma is transferring data from fifo to host */
+    EMAC_DMA_RX_Close_DESCRIPTOR           = 0x05, /*!< rx dma is closing descriptor */
+    EMAC_DMA_RX_FIFO_To_HOST               = 0x07  /*!< rx dma is transferring data from fifo to host */
 } EMAC_DMA_Receive_Process_Status_Type;
 
 /**
@@ -437,25 +437,25 @@ typedef enum {
 typedef enum {
     EMAC_DMA_TX_Reset_Stop_COMMAND         = 0x00, /*!< receive reset or stop command */
     EMAC_DMA_TX_FETCH_DESCRIPTOR           = 0x01, /*!< tx dma is fetching descriptor */
-    EMAC_DMA_TX_WAITING_FOR_STATUS         = 0x02, /*!< tx dma is waiting for status message */
-    EMAC_DMA_TX_HOST_TO_FIFO               = 0x03, /*!< tx dma is reading data from host and forward data to fifo */
+    EMAC_DMA_TX_WaitING_FOR_STATUS         = 0x02, /*!< tx dma is waiting for status message */
+    EMAC_DMA_TX_HOST_To_FIFO               = 0x03, /*!< tx dma is reading data from host and forward data to fifo */
     EMAC_DMA_TX_DESCRIPTOR_UNAVAILABLE     = 0x06, /*!< tx dma is unavailable or fifo underflow */
-    EMAC_DMA_TX_CLOSE_DESCRIPTOR           = 0x07  /*!< tx dma is closing descriptor */
+    EMAC_DMA_TX_Close_DESCRIPTOR           = 0x07  /*!< tx dma is closing descriptor */
 } EMAC_DMA_Transmit_Process_Status_Type;
 
 /**
   * @brief  dma operations type
   */
 typedef enum {
-    EMAC_DMA_OPS_Start_Stop_RECEIVE        = 0x00, /*!< start/stop receive */
-    EMAC_DMA_OPS_Second_FRAME              = 0x01, /*!< operate on second frame */
+    EMAC_DMA_OPS_Start_Stop_Receive        = 0x00, /*!< start/stop receive */
+    EMAC_DMA_OPS_Second_Frame              = 0x01, /*!< operate on second frame */
     EMAC_DMA_OPS_FORWARD_UNDERSIZED        = 0x02, /*!< forward undersized good frames*/
     EMAC_DMA_OPS_FORWARD_ERROR             = 0x03, /*!< forward error frames */
-    EMAC_DMA_OPS_Start_Stop_TRANSMIT       = 0x04, /*!< start/stop transmission */
-    EMAC_DMA_OPS_FLUSH_Transmit_FIFO       = 0x05, /*!< flush transmit fifo */
+    EMAC_DMA_OPS_Start_Stop_Transmit       = 0x04, /*!< start/stop transmission */
+    EMAC_DMA_OPS_Flush_Transmit_FIFO       = 0x05, /*!< flush transmit fifo */
     EMAC_DMA_OPS_Transmit_STORE_FORWARD    = 0x06, /*!< transmit store and forward */
-    EMAC_DMA_OPS_RECEIVE_FLUSH_Disable     = 0x07, /*!< disable flushing of received frames */
-    EMAC_DMA_OPS_RECEIVE_STORE_FORWARD     = 0x08, /*!< receive store and forward */
+    EMAC_DMA_OPS_Receive_Flush_Disable     = 0x07, /*!< disable flushing of received frames */
+    EMAC_DMA_OPS_Receive_STORE_FORWARD     = 0x08, /*!< receive store and forward */
     EMAC_DMA_OPS_DROP_Error_Disable        = 0x09  /*!< disbale dropping of tcp/ip checksum error frames */
 } EMAC_DMA_Operations_Type;
 
@@ -463,24 +463,24 @@ typedef enum {
   * @brief  receive threshold control type
   */
 typedef enum {
-    EMAC_DMA_RX_THRESHOLD_64_BYTES         = 0x00, /*!< receive starts when the frame size within the receiv fifo is larger than 64 bytes */
-    EMAC_DMA_RX_THRESHOLD_32_BYTES         = 0x01, /*!< receive starts when the frame size within the receiv fifo is larger than 32 bytes */
-    EMAC_DMA_RX_THRESHOLD_96_BYTES         = 0x02, /*!< receive starts when the frame size within the receiv fifo is larger than 96 bytes */
-    EMAC_DMA_RX_THRESHOLD_128_BYTES        = 0x03  /*!< receive starts when the frame size within the receiv fifo is larger than 128 bytes */
+    EMAC_DMA_RX_Threshold_64_BYTES         = 0x00, /*!< receive starts when the frame size within the receiv fifo is larger than 64 bytes */
+    EMAC_DMA_RX_Threshold_32_BYTES         = 0x01, /*!< receive starts when the frame size within the receiv fifo is larger than 32 bytes */
+    EMAC_DMA_RX_Threshold_96_BYTES         = 0x02, /*!< receive starts when the frame size within the receiv fifo is larger than 96 bytes */
+    EMAC_DMA_RX_Threshold_128_BYTES        = 0x03  /*!< receive starts when the frame size within the receiv fifo is larger than 128 bytes */
 } EMAC_DMA_Receive_Threshold_Type;
 
 /**
   * @brief  transmit threshold control type
   */
 typedef enum {
-    EMAC_DMA_TX_THRESHOLD_64_BYTES         = 0x00, /*!< transmission starts when the frame size within the transmit FIFO is larger than 64 bytes */
-    EMAC_DMA_TX_THRESHOLD_128_BYTES        = 0x01, /*!< transmission starts when the frame size within the transmit FIFO is larger than 128 bytes */
-    EMAC_DMA_TX_THRESHOLD_192_BYTES        = 0x02, /*!< transmission starts when the frame size within the transmit FIFO is larger than 192 bytes */
-    EMAC_DMA_TX_THRESHOLD_256_BYTES        = 0x03, /*!< transmission starts when the frame size within the transmit FIFO is larger than 256 bytes */
-    EMAC_DMA_TX_THRESHOLD_40_BYTES         = 0x04, /*!< transmission starts when the frame size within the transmit FIFO is larger than 40 bytes */
-    EMAC_DMA_TX_THRESHOLD_32_BYTES         = 0x05, /*!< transmission starts when the frame size within the transmit FIFO is larger than 32 bytes */
-    EMAC_DMA_TX_THRESHOLD_24_BYTES         = 0x06, /*!< transmission starts when the frame size within the transmit FIFO is larger than 24 bytes */
-    EMAC_DMA_TX_THRESHOLD_16_BYTES         = 0x07  /*!< transmission starts when the frame size within the transmit FIFO is larger than 16 bytes */
+    EMAC_DMA_TX_Threshold_64_BYTES         = 0x00, /*!< transmission starts when the frame size within the transmit FIFO is larger than 64 bytes */
+    EMAC_DMA_TX_Threshold_128_BYTES        = 0x01, /*!< transmission starts when the frame size within the transmit FIFO is larger than 128 bytes */
+    EMAC_DMA_TX_Threshold_192_BYTES        = 0x02, /*!< transmission starts when the frame size within the transmit FIFO is larger than 192 bytes */
+    EMAC_DMA_TX_Threshold_256_BYTES        = 0x03, /*!< transmission starts when the frame size within the transmit FIFO is larger than 256 bytes */
+    EMAC_DMA_TX_Threshold_40_BYTES         = 0x04, /*!< transmission starts when the frame size within the transmit FIFO is larger than 40 bytes */
+    EMAC_DMA_TX_Threshold_32_BYTES         = 0x05, /*!< transmission starts when the frame size within the transmit FIFO is larger than 32 bytes */
+    EMAC_DMA_TX_Threshold_24_BYTES         = 0x06, /*!< transmission starts when the frame size within the transmit FIFO is larger than 24 bytes */
+    EMAC_DMA_TX_Threshold_16_BYTES         = 0x07  /*!< transmission starts when the frame size within the transmit FIFO is larger than 16 bytes */
 } EMAC_DMA_Transmit_Threshold_Type;
 
 /**
@@ -498,7 +498,7 @@ typedef enum {
     EMAC_DMA_Interrupt_RX_STOP             = 0x08, /*!< receive process stopped interrupt */
     EMAC_DMA_Interrupt_RX_TIMEOUT          = 0x09, /*!< receive watchdog timeout interrupt */
     EMAC_DMA_Interrupt_TX_EARLY            = 0x0A, /*!< early transmit interrupt */
-    EMAC_DMA_Interrupt_FATAL_BUS_ERROR     = 0x0B, /*!< fatal bus error interrupt */
+    EMAC_DMA_Interrupt_FATAL_Bus_ERROR     = 0x0B, /*!< fatal bus error interrupt */
     EMAC_DMA_Interrupt_RX_EARLY            = 0x0C, /*!< early receive interrupt */
     EMAC_DMA_Interrupt_ABNORMAL_SUMMARY    = 0x0D, /*!< abnormal interrupt summary */
     EMAC_DMA_Interrupt_NORMAL_SUMMARY      = 0x0E  /*!< normal interrupt summary */
@@ -520,8 +520,8 @@ typedef enum {
 typedef enum {
     EMAC_PTP_NORMAL_CLOCK                  = 0x00, /*!< normal clock node */
     EMAC_PTP_BOUNDARY_CLOCK                = 0x01, /*!< boundary clock node */
-    EMAC_PTP_End_TO_End_CLOCK              = 0x02, /*!< end to end transparent clock node */
-    EMAC_PTP_PEER_TO_PEER_CLOCK            = 0x03  /*!< peer to peer transparent clock node */
+    EMAC_PTP_End_To_End_CLOCK              = 0x02, /*!< end to end transparent clock node */
+    EMAC_PTP_PEER_To_PEER_CLOCK            = 0x03  /*!< peer to peer transparent clock node */
 } EMAC_PTP_Clock_Node_Type;
 
 /**
@@ -568,8 +568,8 @@ typedef struct {
     confirm_state                          loopback_Mode;         /*!< loopback mode enable */
     confirm_state                          receive_Own_Disable;   /*!< receive own disbale */
     EMAC_Speed_Type                        fast_ethernet_speed;   /*!< fast ethernet speed enable */
-    confirm_state                          carrier_sense_Disable; /*!< carrier sense disable*/
-    EMAC_intergrame_gap_Type               interframe_gap;        /*!< set interframe gap */
+    confirm_state                          carrier_Sense_Disable; /*!< carrier sense disable*/
+    EMAC_intergrame_Gap_Type               interframe_gap;        /*!< set interframe gap */
     confirm_state                          jabber_Disable;        /*!< jabber disbale */
     confirm_state                          watchdog_Disable;      /*!< watchdog disable */
 } EMAC_Control_Config_Type;
@@ -605,7 +605,7 @@ typedef struct  {
     uint32_t   controlsize;           /*!< control and buffer1, buffer2 lengths */
     uint32_t   buf1addr;              /*!< buffer1 address pointer */
     uint32_t   buf2nextdescaddr;      /*!< buffer2 or next descriptor address pointer */
-} EMAC_DMA_desc_Type;
+} EMAC_DMA_Desc_Type;
 
 /**
   * @brief type define emac mac register all
@@ -1435,46 +1435,46 @@ void EMAC_Control_Para_Init(EMAC_Control_Config_Type *control_para);
 void EMAC_Control_Config(EMAC_Control_Config_Type *control_struct);
 void EMAC_Receiver_Enable(confirm_state new_state);
 void EMAC_Trasmitter_Enable(confirm_state new_state);
-void EMAC_Deferral_check_Set(confirm_state new_state);
-void EMAC_backoff_limit_Set(EMAC_bol_Type slot_time);
-void EMAC_Auto_pad_CRC_stripping_Set(confirm_state new_state);
-void EMAC_retry_Disable(confirm_state new_state);
+void EMAC_Deferral_Check_Set(confirm_state new_state);
+void EMAC_BackOff_Limit_Set(EMAC_bol_Type slot_time);
+void EMAC_Auto_pad_CRC_Stripping_Set(confirm_state new_state);
+void EMAC_Retry_Disable(confirm_state new_state);
 void EMAC_Ipv4_checksum_offload_Set(confirm_state new_state);
 void EMAC_Loopback_Mode_Enable(confirm_state new_state);
 void EMAC_Receive_Own_Disable(confirm_state new_state);
-void EMAC_Carrier_sense_Disable(confirm_state new_state);
-void EMAC_Interframe_gap_Set(EMAC_intergrame_gap_Type number);
+void EMAC_Carrier_Sense_Disable(confirm_state new_state);
+void EMAC_Interframe_Gap_Set(EMAC_intergrame_Gap_Type number);
 void EMAC_Jabber_Disable(confirm_state new_state);
 void EMAC_WatchDog_Disable(confirm_state new_state);
 void EMAC_Fast_Speed_Set(EMAC_Speed_Type speed);
 void EMAC_Duplex_Mode_Set(EMAC_Duplex_Type duplex_Mode);
 void EMAC_Promiscuous_Mode_Set(confirm_state new_state);
 void EMAC_Hash_Unicast_Set(confirm_state new_state);
-void EMAC_Hash_multicast_Set(confirm_state new_state);
+void EMAC_Hash_MultiCast_Set(confirm_state new_state);
 void EMAC_Dstaddr_Inverse_Filter_Set(confirm_state new_state);
-void EMAC_pass_All_multicasting_Set(confirm_state new_state);
+void EMAC_Pass_All_MultiCasting_Set(confirm_state new_state);
 void EMAC_broadcast_Frames_Disable(confirm_state new_state);
-void EMAC_pass_Control_Frames_Set(EMAC_Control_Frames_Filter_Type condition);
-void EMAC_srcaddr_Inverse_Filter_Set(confirm_state new_state);
-void EMAC_srcaddr_Filter_Set(confirm_state new_state);
-void EMAC_Hash_perfect_Filter_Set(confirm_state new_state);
+void EMAC_Pass_Control_Frames_Set(EMAC_Control_Frames_Filter_Type condition);
+void EMAC_Srcaddr_Inverse_Filter_Set(confirm_state new_state);
+void EMAC_Srcaddr_Filter_Set(confirm_state new_state);
+void EMAC_Hash_Perfect_Filter_Set(confirm_state new_state);
 void EMAC_Receive_All_Set(confirm_state new_state);
-void EMAC_Hash_table_high32bits_Set(uint32_t high32bits);
-void EMAC_Hash_table_low32bits_Set(uint32_t low32bits);
-flag_status EMAC_mii_busy_Get(void);
-void EMAC_mii_Write(confirm_state new_state);
-void EMAC_fcb_bpa_Set(confirm_state new_state);
+void EMAC_Hash_Table_High32bits_Set(uint32_t high32bits);
+void EMAC_Hash_Table_Low32bits_Set(uint32_t low32bits);
+flag_status EMAC_MII_Busy_Get(void);
+void EMAC_MII_Write(confirm_state new_state);
+void EMAC_FCB_BPA_Set(confirm_state new_state);
 void EMAC_Transmit_Flow_Control_Enable(confirm_state new_state);
 void EMAC_Receive_Flow_Control_Enable(confirm_state new_state);
-void EMAC_Unicast_pause_Frame_detect(confirm_state new_state);
-void EMAC_pause_low_Threshold_Set(EMAC_pause_slot_Threshold_Type pasue_threshold);
-void EMAC_zero_quanta_pause_Disable(confirm_state new_state);
-void EMAC_pause_Time_Set(uint16_t pause_time);
-void EMAC_vlan_tag_identifier_Set(uint16_t identifier);
-void EMAC_vlan_tag_comparison_Set(confirm_state new_state);
+void EMAC_Unicast_Pause_Frame_Detect(confirm_state new_state);
+void EMAC_Pause_Low_Threshold_Set(EMAC_Pause_slot_Threshold_Type pasue_threshold);
+void EMAC_Zero_Quanta_Pause_Disable(confirm_state new_state);
+void EMAC_Pause_Time_Set(uint16_t pause_time);
+void EMAC_Vlan_Tag_Identifier_Set(uint16_t identifier);
+void EMAC_Vlan_Tag_Comparison_Set(confirm_state new_state);
 void EMAC_WakeUp_Frame_Set(uint32_t value);
 uint32_t EMAC_WakeUp_Frame_Get(void);
-void EMAC_Power_down_Set(confirm_state new_state);
+void EMAC_Power_Down_Set(confirm_state new_state);
 void EMAC_Magic_Packet_Enable(confirm_state new_state);
 void EMAC_WakeUp_Frame_Enable(confirm_state new_state);
 flag_status EMAC_Received_Magic_Packet_Get(void);
@@ -1486,10 +1486,10 @@ void EMAC_Interrupt_Mask_Set(EMAC_Interrupt_Mask_Type mask_Type, confirm_state n
 void EMAC_Local_Address_Set(uint8_t *address);
 void EMAC_Address_Filter_Set(EMAC_Address_Type mac, EMAC_Address_Filter_Type filter, EMAC_Address_Mask_Type mask_bit, confirm_state new_state);
 uint32_t EMAC_Received_Packet_size_Get(void);
-uint32_t EMAC_Dmarxdesc_Frame_Length_Get(EMAC_DMA_desc_Type *DMA_RX_desc);
-void EMAC_DMA_Descriptor_List_Address_Set(EMAC_DMA_TX_RX_Type transfer_Type, EMAC_DMA_desc_Type *DMA_desc_tab, uint8_t *buff, uint32_t buffer_count);
+uint32_t EMAC_Dmarxdesc_Frame_Length_Get(EMAC_DMA_Desc_Type *DMA_RX_desc);
+void EMAC_DMA_Descriptor_List_Address_Set(EMAC_DMA_TX_RX_Type transfer_Type, EMAC_DMA_Desc_Type *DMA_Desc_tab, uint8_t *buff, uint32_t buffer_count);
 uint32_t EMAC_DMA_Descriptor_List_Address_Get(EMAC_DMA_TX_RX_Type transfer_Type);
-void EMAC_DMA_RX_desc_Interrupt_Config(EMAC_DMA_desc_Type *DMA_RX_desc, confirm_state new_state);
+void EMAC_DMA_RX_Desc_Interrupt_Config(EMAC_DMA_Desc_Type *DMA_RX_desc, confirm_state new_state);
 void EMAC_DMA_Para_Init(EMAC_DMA_Config_Type *control_para);
 void EMAC_DMA_Config(EMAC_DMA_Config_Type *control_para);
 void EMAC_DMA_Arbitation_Set(EMAC_DMA_RX_TX_Ratio_Type ratio, confirm_state new_state);
@@ -1512,7 +1512,7 @@ uint8_t EMAC_DMA_FIFO_OverFlow_Bit_Get(void);
 uint32_t EMAC_DMA_tansfer_Address_Get(EMAC_DMA_Transfer_Address_Type transfer_Type);
 void EMAC_MMC_Counter_Reset(void);
 void EMAC_MMC_Rollover_Stop(confirm_state new_state);
-void EMAC_MMC_Reset_On_Read_Enable(confirm_state new_state);
+void EMAC_MMC_Reset_ON_Read_Enable(confirm_state new_state);
 void EMAC_MMC_Counter_Freeze(confirm_state new_state);
 flag_status EMAC_MMC_Received_Status_Get(uint32_t flag);
 flag_status EMAC_MMC_Transmit_Status_Get(uint32_t flag);

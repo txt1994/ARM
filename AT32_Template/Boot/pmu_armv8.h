@@ -37,8 +37,8 @@
  * */
 
 #define ARM_PMU_SW_INCR                              0x0000             /*!< Software update to the PMU_SWINC register, architecturally executed and condition code check pass */
-#define ARM_PMU_L1I_CACHE_REFILL                     0x0001             /*!< L1 I-Cache refill */
-#define ARM_PMU_L1D_CACHE_REFILL                     0x0003             /*!< L1 D-Cache refill */
+#define ARM_PMU_L1I_Cache_REFILL                     0x0001             /*!< L1 I-Cache refill */
+#define ARM_PMU_L1D_Cache_REFILL                     0x0003             /*!< L1 D-Cache refill */
 #define ARM_PMU_L1D_CACHE                            0x0004             /*!< L1 D-Cache access */
 #define ARM_PMU_LD_RETIRED                           0x0006             /*!< Memory-reading instruction architecturally executed and condition code check pass */
 #define ARM_PMU_ST_RETIRED                           0x0007             /*!< Memory-writing instruction architecturally executed and condition code check pass */
@@ -52,47 +52,47 @@
 #define ARM_PMU_BR_MIS_PRED                          0x0010             /*!< Mispredicted or not predicted branch speculatively executed */
 #define ARM_PMU_CPU_CYCLES                           0x0011             /*!< Cycle */
 #define ARM_PMU_BR_PRED                              0x0012             /*!< Predictable branch speculatively executed */
-#define ARM_PMU_MEM_ACCESS                           0x0013             /*!< Data memory access */
+#define ARM_PMU_Mem_Access                           0x0013             /*!< Data memory access */
 #define ARM_PMU_L1I_CACHE                            0x0014             /*!< Level 1 instruction cache access */
-#define ARM_PMU_L1D_CACHE_WB                         0x0015             /*!< Level 1 data cache write-back */
+#define ARM_PMU_L1D_Cache_WB                         0x0015             /*!< Level 1 data cache write-back */
 #define ARM_PMU_L2D_CACHE                            0x0016             /*!< Level 2 data cache access */
-#define ARM_PMU_L2D_CACHE_REFILL                     0x0017             /*!< Level 2 data cache refill */
-#define ARM_PMU_L2D_CACHE_WB                         0x0018             /*!< Level 2 data cache write-back */
-#define ARM_PMU_BUS_ACCESS                           0x0019             /*!< Bus access */
+#define ARM_PMU_L2D_Cache_REFILL                     0x0017             /*!< Level 2 data cache refill */
+#define ARM_PMU_L2D_Cache_WB                         0x0018             /*!< Level 2 data cache write-back */
+#define ARM_PMU_Bus_Access                           0x0019             /*!< Bus access */
 #define ARM_PMU_Memory_ERROR                         0x001A             /*!< Local memory error */
 #define ARM_PMU_INST_SPEC                            0x001B             /*!< Instruction speculatively executed */
-#define ARM_PMU_BUS_CYCLES                           0x001D             /*!< Bus cycles */
+#define ARM_PMU_Bus_CYCLES                           0x001D             /*!< Bus cycles */
 #define ARM_PMU_CHAIN                                0x001E             /*!< For an odd numbered counter, increment when an overflow occurs on the preceding even-numbered counter on the same PE */
-#define ARM_PMU_L1D_CACHE_ALLOCATE                   0x001F             /*!< Level 1 data cache allocation without refill */
-#define ARM_PMU_L2D_CACHE_ALLOCATE                   0x0020             /*!< Level 2 data cache allocation without refill */
+#define ARM_PMU_L1D_Cache_ALLOCATE                   0x001F             /*!< Level 1 data cache allocation without refill */
+#define ARM_PMU_L2D_Cache_ALLOCATE                   0x0020             /*!< Level 2 data cache allocation without refill */
 #define ARM_PMU_BR_RETIRED                           0x0021             /*!< Branch instruction architecturally executed */
 #define ARM_PMU_BR_MIS_PRED_RETIRED                  0x0022             /*!< Mispredicted branch instruction architecturally executed */
-#define ARM_PMU_STALL_FRONTEND                       0x0023             /*!< No operation issued because of the frontend */
-#define ARM_PMU_STALL_BACKEND                        0x0024             /*!< No operation issued because of the backend */
+#define ARM_PMU_Stall_FRONTEND                       0x0023             /*!< No operation issued because of the frontend */
+#define ARM_PMU_Stall_BACKEND                        0x0024             /*!< No operation issued because of the backend */
 #define ARM_PMU_L2I_CACHE                            0x0027             /*!< Level 2 instruction cache access */
-#define ARM_PMU_L2I_CACHE_REFILL                     0x0028             /*!< Level 2 instruction cache refill */
-#define ARM_PMU_L3D_CACHE_ALLOCATE                   0x0029             /*!< Level 3 data cache allocation without refill */
-#define ARM_PMU_L3D_CACHE_REFILL                     0x002A             /*!< Level 3 data cache refill */
+#define ARM_PMU_L2I_Cache_REFILL                     0x0028             /*!< Level 2 instruction cache refill */
+#define ARM_PMU_L3D_Cache_ALLOCATE                   0x0029             /*!< Level 3 data cache allocation without refill */
+#define ARM_PMU_L3D_Cache_REFILL                     0x002A             /*!< Level 3 data cache refill */
 #define ARM_PMU_L3D_CACHE                            0x002B             /*!< Level 3 data cache access */
-#define ARM_PMU_L3D_CACHE_WB                         0x002C             /*!< Level 3 data cache write-back */
-#define ARM_PMU_LL_CACHE_RD                          0x0036             /*!< Last level data cache read */
-#define ARM_PMU_LL_CACHE_MISS_RD                     0x0037             /*!< Last level data cache read miss */
-#define ARM_PMU_L1D_CACHE_MISS_RD                    0x0039             /*!< Level 1 data cache read miss */
+#define ARM_PMU_L3D_Cache_WB                         0x002C             /*!< Level 3 data cache write-back */
+#define ARM_PMU_LL_Cache_RD                          0x0036             /*!< Last level data cache read */
+#define ARM_PMU_LL_Cache_MISS_RD                     0x0037             /*!< Last level data cache read miss */
+#define ARM_PMU_L1D_Cache_MISS_RD                    0x0039             /*!< Level 1 data cache read miss */
 #define ARM_PMU_OP_COMPLETE                          0x003A             /*!< Operation retired */
 #define ARM_PMU_OP_SPEC                              0x003B             /*!< Operation speculatively executed */
-#define ARM_PMU_STALL                                0x003C             /*!< Stall cycle for instruction or operation not sent for execution */
-#define ARM_PMU_STALL_OP_BACKEND                     0x003D             /*!< Stall cycle for instruction or operation not sent for execution due to pipeline backend */
-#define ARM_PMU_STALL_OP_FRONTEND                    0x003E             /*!< Stall cycle for instruction or operation not sent for execution due to pipeline frontend */
-#define ARM_PMU_STALL_OP                             0x003F             /*!< Instruction or operation slots not occupied each cycle */
-#define ARM_PMU_L1D_CACHE_RD                         0x0040             /*!< Level 1 data cache read */
+#define ARM_PMU_Stall                                0x003C             /*!< Stall cycle for instruction or operation not sent for execution */
+#define ARM_PMU_Stall_OP_BACKEND                     0x003D             /*!< Stall cycle for instruction or operation not sent for execution due to pipeline backend */
+#define ARM_PMU_Stall_OP_FRONTEND                    0x003E             /*!< Stall cycle for instruction or operation not sent for execution due to pipeline frontend */
+#define ARM_PMU_Stall_OP                             0x003F             /*!< Instruction or operation slots not occupied each cycle */
+#define ARM_PMU_L1D_Cache_RD                         0x0040             /*!< Level 1 data cache read */
 #define ARM_PMU_LE_RETIRED                           0x0100             /*!< Loop end instruction executed */
 #define ARM_PMU_LE_SPEC                              0x0101             /*!< Loop end instruction speculatively executed */
 #define ARM_PMU_BF_RETIRED                           0x0104             /*!< Branch future instruction architecturally executed and condition code check pass */
 #define ARM_PMU_BF_SPEC                              0x0105             /*!< Branch future instruction speculatively executed and condition code check pass */
-#define ARM_PMU_LE_CANCEL                            0x0108             /*!< Loop end instruction not taken */
-#define ARM_PMU_BF_CANCEL                            0x0109             /*!< Branch future instruction not taken */
-#define ARM_PMU_SE_CALL_S                            0x0114             /*!< Call to secure function, resulting in Security state change */
-#define ARM_PMU_SE_CALL_NS                           0x0115             /*!< Call to non-secure function, resulting in Security state change */
+#define ARM_PMU_LE_Cancel                            0x0108             /*!< Loop end instruction not taken */
+#define ARM_PMU_BF_Cancel                            0x0109             /*!< Branch future instruction not taken */
+#define ARM_PMU_SE_Call_S                            0x0114             /*!< Call to secure function, resulting in Security state change */
+#define ARM_PMU_SE_Call_NS                           0x0115             /*!< Call to non-secure function, resulting in Security state change */
 #define ARM_PMU_DWT_CMPMATCH0                        0x0118             /*!< DWT comparator 0 match */
 #define ARM_PMU_DWT_CMPMATCH1                        0x0119             /*!< DWT comparator 1 match */
 #define ARM_PMU_DWT_CMPMATCH2                        0x011A             /*!< DWT comparator 2 match */
@@ -150,15 +150,15 @@
 #define ARM_PMU_MVE_VREDUCE_INT_RETIRED              0x02A8             /*!< MVE integer vector reduction instruction architecturally executed */
 #define ARM_PMU_MVE_VREDUCE_INT_SPEC                 0x02A9             /*!< MVE integer vector reduction instruction speculatively executed */
 #define ARM_PMU_MVE_PRED                             0x02B8             /*!< Cycles where one or more predicated beats architecturally executed */
-#define ARM_PMU_MVE_STALL                            0x02CC             /*!< Stall cycles caused by an MVE instruction */
-#define ARM_PMU_MVE_STALL_RESOURCE                   0x02CD             /*!< Stall cycles caused by an MVE instruction because of resource conflicts */
-#define ARM_PMU_MVE_STALL_RESOURCE_MEM               0x02CE             /*!< Stall cycles caused by an MVE instruction because of memory resource conflicts */
-#define ARM_PMU_MVE_STALL_RESOURCE_FP                0x02CF             /*!< Stall cycles caused by an MVE instruction because of floating-point resource conflicts */
-#define ARM_PMU_MVE_STALL_RESOURCE_INT               0x02D0             /*!< Stall cycles caused by an MVE instruction because of integer resource conflicts */
-#define ARM_PMU_MVE_STALL_BREAK                      0x02D3             /*!< Stall cycles caused by an MVE chain break */
-#define ARM_PMU_MVE_STALL_DEPENDENCY                 0x02D4             /*!< Stall cycles caused by MVE register dependency */
-#define ARM_PMU_ITCM_ACCESS                          0x4007             /*!< Instruction TCM access */
-#define ARM_PMU_DTCM_ACCESS                          0x4008             /*!< Data TCM access */
+#define ARM_PMU_MVE_Stall                            0x02CC             /*!< Stall cycles caused by an MVE instruction */
+#define ARM_PMU_MVE_Stall_RESOURCE                   0x02CD             /*!< Stall cycles caused by an MVE instruction because of resource conflicts */
+#define ARM_PMU_MVE_Stall_RESOURCE_MEM               0x02CE             /*!< Stall cycles caused by an MVE instruction because of memory resource conflicts */
+#define ARM_PMU_MVE_Stall_RESOURCE_FP                0x02CF             /*!< Stall cycles caused by an MVE instruction because of floating-point resource conflicts */
+#define ARM_PMU_MVE_Stall_RESOURCE_INT               0x02D0             /*!< Stall cycles caused by an MVE instruction because of integer resource conflicts */
+#define ARM_PMU_MVE_Stall_BREAK                      0x02D3             /*!< Stall cycles caused by an MVE chain break */
+#define ARM_PMU_MVE_Stall_DEPENDENCY                 0x02D4             /*!< Stall cycles caused by MVE register dependency */
+#define ARM_PMU_ITCM_Access                          0x4007             /*!< Instruction TCM access */
+#define ARM_PMU_DTCM_Access                          0x4008             /*!< Data TCM access */
 #define ARM_PMU_TRCEXTOUT0                           0x4010             /*!< ETM external output 0 */
 #define ARM_PMU_TRCEXTOUT1                           0x4011             /*!< ETM external output 1 */
 #define ARM_PMU_TRCEXTOUT2                           0x4012             /*!< ETM external output 2 */
@@ -196,14 +196,14 @@ __STATIC_INLINE void ARM_PMU_CNTR_Increment(uint32_t mask);
   \brief   Enable the PMU
 */
 __STATIC_INLINE void ARM_PMU_Enable(void) {
-    PMU->CTRL |= PMU_CTRL_Enable_Msk;
+    PMU->CTRL |= PMU_Ctrl_Enable_Msk;
 }
 
 /**
   \brief   Disable the PMU
 */
 __STATIC_INLINE void ARM_PMU_Disable(void) {
-    PMU->CTRL &= ~PMU_CTRL_Enable_Msk;
+    PMU->CTRL &= ~PMU_Ctrl_Enable_Msk;
 }
 
 /**
@@ -219,14 +219,14 @@ __STATIC_INLINE void ARM_PMU_Set_EVTYPER(uint32_t num, uint32_t type) {
   \brief  Reset cycle counter
 */
 __STATIC_INLINE void ARM_PMU_CYCCNT_Reset(void) {
-    PMU->CTRL |= PMU_CTRL_CYCCNT_Reset_Msk;
+    PMU->CTRL |= PMU_Ctrl_CYCCNT_Reset_Msk;
 }
 
 /**
   \brief  Reset all event counters
 */
 __STATIC_INLINE void ARM_PMU_EVCNTR_All_Reset(void) {
-    PMU->CTRL |= PMU_CTRL_EVENTCNT_Reset_Msk;
+    PMU->CTRL |= PMU_Ctrl_EVENTCNT_Reset_Msk;
 }
 
 /**

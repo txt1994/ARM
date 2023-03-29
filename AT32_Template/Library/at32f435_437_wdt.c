@@ -24,7 +24,7 @@
 
 #include "at32f435_437_conf.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -70,13 +70,13 @@ void WDT_Reload_Value_Set(uint16_t reload_value) {
   * @brief  set wdt division divider
   * @param  division
   *         this parameter can be one of the following values:
-  *         - WDT_CLK_DIV_4
-  *         - WDT_CLK_DIV_8
-  *         - WDT_CLK_DIV_16
-  *         - WDT_CLK_DIV_32
-  *         - WDT_CLK_DIV_64
-  *         - WDT_CLK_DIV_128
-  *         - WDT_CLK_DIV_256
+  *         - WDT_CLK_Div_4
+  *         - WDT_CLK_Div_8
+  *         - WDT_CLK_Div_16
+  *         - WDT_CLK_Div_32
+  *         - WDT_CLK_Div_64
+  *         - WDT_CLK_Div_128
+  *         - WDT_CLK_Div_256
   * @retval none
   */
 void WDT_Divider_Set(WDT_Division_Type division) {

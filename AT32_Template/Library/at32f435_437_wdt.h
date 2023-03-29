@@ -34,7 +34,7 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "at32f435_437.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -64,13 +64,13 @@ extern "C" {
   * @brief wdt division value type
   */
 typedef enum {
-    WDT_CLK_DIV_4                          = 0x00, /*!< wdt clock divider value is 4 */
-    WDT_CLK_DIV_8                          = 0x01, /*!< wdt clock divider value is 8 */
-    WDT_CLK_DIV_16                         = 0x02, /*!< wdt clock divider value is 16 */
-    WDT_CLK_DIV_32                         = 0x03, /*!< wdt clock divider value is 32 */
-    WDT_CLK_DIV_64                         = 0x04, /*!< wdt clock divider value is 64 */
-    WDT_CLK_DIV_128                        = 0x05, /*!< wdt clock divider value is 128 */
-    WDT_CLK_DIV_256                        = 0x06  /*!< wdt clock divider value is 256 */
+    WDT_CLK_Div_4                          = 0x00, /*!< wdt clock divider value is 4 */
+    WDT_CLK_Div_8                          = 0x01, /*!< wdt clock divider value is 8 */
+    WDT_CLK_Div_16                         = 0x02, /*!< wdt clock divider value is 16 */
+    WDT_CLK_Div_32                         = 0x03, /*!< wdt clock divider value is 32 */
+    WDT_CLK_Div_64                         = 0x04, /*!< wdt clock divider value is 64 */
+    WDT_CLK_Div_128                        = 0x05, /*!< wdt clock divider value is 128 */
+    WDT_CLK_Div_256                        = 0x06  /*!< wdt clock divider value is 256 */
 } WDT_Division_Type;
 
 /**

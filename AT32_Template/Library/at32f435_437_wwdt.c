@@ -24,7 +24,7 @@
 
 #include "at32f435_437_conf.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -44,18 +44,18 @@
   * @retval none
   */
 void wWDT_Reset(void) {
-    crm_periph_Reset(CRM_WWDT_PERIPH_Reset, TRUE);
-    crm_periph_Reset(CRM_WWDT_PERIPH_Reset, FALSE);
+    CRM_Periph_Reset(CRM_WWDT_Periph_Reset, TRUE);
+    CRM_Periph_Reset(CRM_WWDT_Periph_Reset, FALSE);
 }
 
 /**
   * @brief  wwdt division set
   * @param  division
   *         this parameter can be one of the following values:
-  *         - WWDT_PCLK1_DIV_4096        (wwdt counter clock = (pclk1/4096)/1)
-  *         - WWDT_PCLK1_DIV_8192        (wwdt counter clock = (pclk1/4096)/2)
-  *         - WWDT_PCLK1_DIV_16384       (wwdt counter clock = (pclk1/4096)/4)
-  *         - WWDT_PCLK1_DIV_32768       (wwdt counter clock = (pclk1/4096)/8)
+  *         - WWDT_PCLK1_Div_4096        (wwdt counter clock = (pclk1/4096)/1)
+  *         - WWDT_PCLK1_Div_8192        (wwdt counter clock = (pclk1/4096)/2)
+  *         - WWDT_PCLK1_Div_16384       (wwdt counter clock = (pclk1/4096)/4)
+  *         - WWDT_PCLK1_Div_32768       (wwdt counter clock = (pclk1/4096)/8)
   * @retval none
   */
 void wWDT_Divider_Set(wWDT_Division_Type division) {

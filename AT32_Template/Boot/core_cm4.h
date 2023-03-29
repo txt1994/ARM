@@ -28,8 +28,8 @@
     #pragma clang system_header   /* treat file as system include file */
 #endif
 
-#ifndef __CORE_CM4_H_GENERIC
-#define __CORE_CM4_H_GENERIC
+#ifndef __Core_CM4_H_GENERIC
+#define __Core_CM4_H_GENERIC
 
 #include <stdint.h>
 
@@ -121,8 +121,8 @@ extern "C" {
 #define __FPU_USED         0U
 #endif
 
-#elif defined ( __TI_ARM__ )
-#if defined __TI_VFP_SUPPORT__
+#elif defined ( __Ti_ARM__ )
+#if defined __Ti_VFP_SUPPORT__
 #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
 #define __FPU_USED       1U
 #else
@@ -166,19 +166,19 @@ extern "C" {
 }
 #endif
 
-#endif /* __CORE_CM4_H_GENERIC */
+#endif /* __Core_CM4_H_GENERIC */
 
 #ifndef __CMSIS_GENERIC
 
-#ifndef __CORE_CM4_H_DEPENDANT
-#define __CORE_CM4_H_DEPENDANT
+#ifndef __Core_CM4_H_DEPENDANT
+#define __Core_CM4_H_DEPENDANT
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 /* check device defines and use defaults */
-#if defined __CHECK_DEVICE_DEFINES
+#if defined __Check_Device_DEFINES
 #ifndef __CM4_REV
 #define __CM4_REV               0x0000U
 #warning "__CM4_REV not defined in device header file; using default!"
@@ -247,13 +247,13 @@ extern "C" {
   - Core FPU Register
  ******************************************************************************/
 /**
-  \defgroup CMSIS_core_register Defines and Type Definitions
+  \defgroup CMSIS_Core_register Defines and Type Definitions
   \brief Type definitions and defines for Cortex-M processor based devices.
 */
 
 /**
-  \ingroup    CMSIS_core_register
-  \defgroup   CMSIS_CORE  Status and Control Registers
+  \ingroup    CMSIS_Core_register
+  \defgroup   CMSIS_Core  Status and Control Registers
   \brief      Core Register type definitions.
   @{
  */
@@ -387,11 +387,11 @@ typedef union {
 #define CONTROL_nPRIV_Pos                   0U                                            /*!< CONTROL: nPRIV Position */
 #define CONTROL_nPRIV_Msk                  (1UL /*<< CONTROL_nPRIV_Pos*/)                 /*!< CONTROL: nPRIV Mask */
 
-/*@} end of group CMSIS_CORE */
+/*@} end of group CMSIS_Core */
 
 
 /**
-  \ingroup    CMSIS_core_register
+  \ingroup    CMSIS_Core_register
   \defgroup   CMSIS_NVIC  Nested Vectored Interrupt Controller (NVIC)
   \brief      Type definitions for the NVIC Registers
   @{
@@ -424,7 +424,7 @@ typedef struct {
 
 
 /**
-  \ingroup  CMSIS_core_register
+  \ingroup  CMSIS_Core_register
   \defgroup CMSIS_SCB     System Control Block (SCB)
   \brief    Type definitions for the System Control Block Registers
   @{
@@ -547,8 +547,8 @@ typedef struct {
 #define SCB_CCR_BFHFNMIGN_Pos               8U                                            /*!< SCB CCR: BFHFNMIGN Position */
 #define SCB_CCR_BFHFNMIGN_Msk              (1UL << SCB_CCR_BFHFNMIGN_Pos)                 /*!< SCB CCR: BFHFNMIGN Mask */
 
-#define SCB_CCR_DIV_0_TRP_Pos               4U                                            /*!< SCB CCR: DIV_0_TRP Position */
-#define SCB_CCR_DIV_0_TRP_Msk              (1UL << SCB_CCR_DIV_0_TRP_Pos)                 /*!< SCB CCR: DIV_0_TRP Mask */
+#define SCB_CCR_Div_0_TRP_Pos               4U                                            /*!< SCB CCR: DIV_0_TRP Position */
+#define SCB_CCR_Div_0_TRP_Msk              (1UL << SCB_CCR_Div_0_TRP_Pos)                 /*!< SCB CCR: DIV_0_TRP Mask */
 
 #define SCB_CCR_UNALIGN_TRP_Pos             3U                                            /*!< SCB CCR: UNALIGN_TRP Position */
 #define SCB_CCR_UNALIGN_TRP_Msk            (1UL << SCB_CCR_UNALIGN_TRP_Pos)               /*!< SCB CCR: UNALIGN_TRP Mask */
@@ -683,8 +683,8 @@ typedef struct {
 #define SCB_HFSR_VECTTBL_Msk               (1UL << SCB_HFSR_VECTTBL_Pos)                  /*!< SCB HFSR: VECTTBL Mask */
 
 /* SCB Debug Fault Status Register Definitions */
-#define SCB_DFSR_EXTERNAL_Pos               4U                                            /*!< SCB DFSR: EXTERNAL Position */
-#define SCB_DFSR_EXTERNAL_Msk              (1UL << SCB_DFSR_EXTERNAL_Pos)                 /*!< SCB DFSR: EXTERNAL Mask */
+#define SCB_DFSR_External_Pos               4U                                            /*!< SCB DFSR: EXTERNAL Position */
+#define SCB_DFSR_External_Msk              (1UL << SCB_DFSR_External_Pos)                 /*!< SCB DFSR: EXTERNAL Mask */
 
 #define SCB_DFSR_VCATCH_Pos                 3U                                            /*!< SCB DFSR: VCATCH Position */
 #define SCB_DFSR_VCATCH_Msk                (1UL << SCB_DFSR_VCATCH_Pos)                   /*!< SCB DFSR: VCATCH Mask */
@@ -695,14 +695,14 @@ typedef struct {
 #define SCB_DFSR_BKPT_Pos                   1U                                            /*!< SCB DFSR: BKPT Position */
 #define SCB_DFSR_BKPT_Msk                  (1UL << SCB_DFSR_BKPT_Pos)                     /*!< SCB DFSR: BKPT Mask */
 
-#define SCB_DFSR_HALTED_Pos                 0U                                            /*!< SCB DFSR: HALTED Position */
-#define SCB_DFSR_HALTED_Msk                (1UL /*<< SCB_DFSR_HALTED_Pos*/)               /*!< SCB DFSR: HALTED Mask */
+#define SCB_DFSR_HaltED_Pos                 0U                                            /*!< SCB DFSR: HALTED Position */
+#define SCB_DFSR_HaltED_Msk                (1UL /*<< SCB_DFSR_HaltED_Pos*/)               /*!< SCB DFSR: HALTED Mask */
 
 /*@} end of group CMSIS_SCB */
 
 
 /**
-  \ingroup  CMSIS_core_register
+  \ingroup  CMSIS_Core_register
   \defgroup CMSIS_SCnSCB System Controls not in SCB (SCnSCB)
   \brief    Type definitions for the System Control and ID Register not in the SCB
   @{
@@ -741,7 +741,7 @@ typedef struct {
 
 
 /**
-  \ingroup  CMSIS_core_register
+  \ingroup  CMSIS_Core_register
   \defgroup CMSIS_SysTick     System Tick Timer (SysTick)
   \brief    Type definitions for the System Timer Registers.
   @{
@@ -755,44 +755,44 @@ typedef struct {
     __IOM uint32_t LOAD;                   /*!< Offset: 0x004 (R/W)  SysTick Reload Value Register */
     __IOM uint32_t VAL;                    /*!< Offset: 0x008 (R/W)  SysTick Current Value Register */
     __IM  uint32_t CALIB;                  /*!< Offset: 0x00C (R/ )  SysTick Calibration Register */
-} SysTick_Type;
+} Systick_Type;
 
 /* SysTick Control / Status Register Definitions */
-#define SysTick_CTRL_COUNTFLAG_Pos         16U                                            /*!< SysTick CTRL: COUNTFLAG Position */
-#define SysTick_CTRL_COUNTFLAG_Msk         (1UL << SysTick_CTRL_COUNTFLAG_Pos)            /*!< SysTick CTRL: COUNTFLAG Mask */
+#define Systick_Ctrl_COUNTFLAG_Pos         16U                                            /*!< SysTick CTRL: COUNTFLAG Position */
+#define Systick_Ctrl_COUNTFLAG_Msk         (1UL << Systick_Ctrl_COUNTFLAG_Pos)            /*!< SysTick CTRL: COUNTFLAG Mask */
 
-#define SysTick_CTRL_CLKSOURCE_Pos          2U                                            /*!< SysTick CTRL: CLKSOURCE Position */
-#define SysTick_CTRL_CLKSOURCE_Msk         (1UL << SysTick_CTRL_CLKSOURCE_Pos)            /*!< SysTick CTRL: CLKSOURCE Mask */
+#define Systick_Ctrl_CLKSOURCE_Pos          2U                                            /*!< SysTick CTRL: CLKSOURCE Position */
+#define Systick_Ctrl_CLKSOURCE_Msk         (1UL << Systick_Ctrl_CLKSOURCE_Pos)            /*!< SysTick CTRL: CLKSOURCE Mask */
 
-#define SysTick_CTRL_TICKINT_Pos            1U                                            /*!< SysTick CTRL: TICKINT Position */
-#define SysTick_CTRL_TICKINT_Msk           (1UL << SysTick_CTRL_TICKINT_Pos)              /*!< SysTick CTRL: TICKINT Mask */
+#define Systick_Ctrl_TICKINT_Pos            1U                                            /*!< SysTick CTRL: TICKINT Position */
+#define Systick_Ctrl_TICKINT_Msk           (1UL << Systick_Ctrl_TICKINT_Pos)              /*!< SysTick CTRL: TICKINT Mask */
 
-#define SysTick_CTRL_Enable_Pos             0U                                            /*!< SysTick CTRL: ENABLE Position */
-#define SysTick_CTRL_Enable_Msk            (1UL /*<< SysTick_CTRL_Enable_Pos*/)           /*!< SysTick CTRL: ENABLE Mask */
+#define Systick_Ctrl_Enable_Pos             0U                                            /*!< SysTick CTRL: ENABLE Position */
+#define Systick_Ctrl_Enable_Msk            (1UL /*<< Systick_Ctrl_Enable_Pos*/)           /*!< SysTick CTRL: ENABLE Mask */
 
 /* SysTick Reload Register Definitions */
-#define SysTick_LOAD_Reload_Pos             0U                                            /*!< SysTick LOAD: RELOAD Position */
-#define SysTick_LOAD_Reload_Msk            (0xFFFFFFUL /*<< SysTick_LOAD_Reload_Pos*/)    /*!< SysTick LOAD: RELOAD Mask */
+#define Systick_LOAD_Reload_Pos             0U                                            /*!< SysTick LOAD: RELOAD Position */
+#define Systick_LOAD_Reload_Msk            (0xFFFFFFUL /*<< Systick_LOAD_Reload_Pos*/)    /*!< SysTick LOAD: RELOAD Mask */
 
 /* SysTick Current Register Definitions */
-#define SysTick_VAL_CURRENT_Pos             0U                                            /*!< SysTick VAL: CURRENT Position */
-#define SysTick_VAL_CURRENT_Msk            (0xFFFFFFUL /*<< SysTick_VAL_CURRENT_Pos*/)    /*!< SysTick VAL: CURRENT Mask */
+#define Systick_VAL_CURRENT_Pos             0U                                            /*!< SysTick VAL: CURRENT Position */
+#define Systick_VAL_CURRENT_Msk            (0xFFFFFFUL /*<< Systick_VAL_CURRENT_Pos*/)    /*!< SysTick VAL: CURRENT Mask */
 
 /* SysTick Calibration Register Definitions */
-#define SysTick_CALIB_NOREF_Pos            31U                                            /*!< SysTick CALIB: NOREF Position */
-#define SysTick_CALIB_NOREF_Msk            (1UL << SysTick_CALIB_NOREF_Pos)               /*!< SysTick CALIB: NOREF Mask */
+#define Systick_CALIB_NOREF_Pos            31U                                            /*!< SysTick CALIB: NOREF Position */
+#define Systick_CALIB_NOREF_Msk            (1UL << Systick_CALIB_NOREF_Pos)               /*!< SysTick CALIB: NOREF Mask */
 
-#define SysTick_CALIB_SKEW_Pos             30U                                            /*!< SysTick CALIB: SKEW Position */
-#define SysTick_CALIB_SKEW_Msk             (1UL << SysTick_CALIB_SKEW_Pos)                /*!< SysTick CALIB: SKEW Mask */
+#define Systick_CALIB_SKEW_Pos             30U                                            /*!< SysTick CALIB: SKEW Position */
+#define Systick_CALIB_SKEW_Msk             (1UL << Systick_CALIB_SKEW_Pos)                /*!< SysTick CALIB: SKEW Mask */
 
-#define SysTick_CALIB_TENMS_Pos             0U                                            /*!< SysTick CALIB: TENMS Position */
-#define SysTick_CALIB_TENMS_Msk            (0xFFFFFFUL /*<< SysTick_CALIB_TENMS_Pos*/)    /*!< SysTick CALIB: TENMS Mask */
+#define Systick_CALIB_TENMS_Pos             0U                                            /*!< SysTick CALIB: TENMS Position */
+#define Systick_CALIB_TENMS_Msk            (0xFFFFFFUL /*<< Systick_CALIB_TENMS_Pos*/)    /*!< SysTick CALIB: TENMS Mask */
 
 /*@} end of group CMSIS_SysTick */
 
 
 /**
-  \ingroup  CMSIS_core_register
+  \ingroup  CMSIS_Core_register
   \defgroup CMSIS_ITM     Instrumentation Trace Macrocell (ITM)
   \brief    Type definitions for the Instrumentation Trace Macrocell (ITM)
   @{
@@ -837,8 +837,8 @@ typedef struct {
 #define ITM_TPR_PRIVMASK_Msk               (0xFFFFFFFFUL /*<< ITM_TPR_PRIVMASK_Pos*/)     /*!< ITM TPR: PRIVMASK Mask */
 
 /* ITM Trace Control Register Definitions */
-#define ITM_TCR_BUSY_Pos                   23U                                            /*!< ITM TCR: BUSY Position */
-#define ITM_TCR_BUSY_Msk                   (1UL << ITM_TCR_BUSY_Pos)                      /*!< ITM TCR: BUSY Mask */
+#define ITM_TCR_Busy_Pos                   23U                                            /*!< ITM TCR: BUSY Position */
+#define ITM_TCR_Busy_Msk                   (1UL << ITM_TCR_Busy_Pos)                      /*!< ITM TCR: BUSY Mask */
 
 #define ITM_TCR_TraceBusID_Pos             16U                                            /*!< ITM TCR: ATBID Position */
 #define ITM_TCR_TraceBusID_Msk             (0x7FUL << ITM_TCR_TraceBusID_Pos)             /*!< ITM TCR: ATBID Mask */
@@ -878,7 +878,7 @@ typedef struct {
 
 
 /**
-  \ingroup  CMSIS_core_register
+  \ingroup  CMSIS_Core_register
   \defgroup CMSIS_DWT     Data Watchpoint and Trace (DWT)
   \brief    Type definitions for the Data Watchpoint and Trace (DWT)
   @{
@@ -914,59 +914,59 @@ typedef struct {
 } DWT_Type;
 
 /* DWT Control Register Definitions */
-#define DWT_CTRL_NumCOMP_Pos               28U                                         /*!< DWT CTRL: NUMCOMP Position */
-#define DWT_CTRL_NumCOMP_Msk               (0xFUL << DWT_CTRL_NumCOMP_Pos)             /*!< DWT CTRL: NUMCOMP Mask */
+#define DWT_Ctrl_NumCOMP_Pos               28U                                         /*!< DWT CTRL: NUMCOMP Position */
+#define DWT_Ctrl_NumCOMP_Msk               (0xFUL << DWT_Ctrl_NumCOMP_Pos)             /*!< DWT CTRL: NUMCOMP Mask */
 
-#define DWT_CTRL_NOTRCPKT_Pos              27U                                         /*!< DWT CTRL: NOTRCPKT Position */
-#define DWT_CTRL_NOTRCPKT_Msk              (0x1UL << DWT_CTRL_NOTRCPKT_Pos)            /*!< DWT CTRL: NOTRCPKT Mask */
+#define DWT_Ctrl_NOTRCPKT_Pos              27U                                         /*!< DWT CTRL: NOTRCPKT Position */
+#define DWT_Ctrl_NOTRCPKT_Msk              (0x1UL << DWT_Ctrl_NOTRCPKT_Pos)            /*!< DWT CTRL: NOTRCPKT Mask */
 
-#define DWT_CTRL_NOEXTTRIG_Pos             26U                                         /*!< DWT CTRL: NOEXTTRIG Position */
-#define DWT_CTRL_NOEXTTRIG_Msk             (0x1UL << DWT_CTRL_NOEXTTRIG_Pos)           /*!< DWT CTRL: NOEXTTRIG Mask */
+#define DWT_Ctrl_NOEXTTRIG_Pos             26U                                         /*!< DWT CTRL: NOEXTTRIG Position */
+#define DWT_Ctrl_NOEXTTRIG_Msk             (0x1UL << DWT_Ctrl_NOEXTTRIG_Pos)           /*!< DWT CTRL: NOEXTTRIG Mask */
 
-#define DWT_CTRL_NOCYCCNT_Pos              25U                                         /*!< DWT CTRL: NOCYCCNT Position */
-#define DWT_CTRL_NOCYCCNT_Msk              (0x1UL << DWT_CTRL_NOCYCCNT_Pos)            /*!< DWT CTRL: NOCYCCNT Mask */
+#define DWT_Ctrl_NOCYCCNT_Pos              25U                                         /*!< DWT CTRL: NOCYCCNT Position */
+#define DWT_Ctrl_NOCYCCNT_Msk              (0x1UL << DWT_Ctrl_NOCYCCNT_Pos)            /*!< DWT CTRL: NOCYCCNT Mask */
 
-#define DWT_CTRL_NOPRFCNT_Pos              24U                                         /*!< DWT CTRL: NOPRFCNT Position */
-#define DWT_CTRL_NOPRFCNT_Msk              (0x1UL << DWT_CTRL_NOPRFCNT_Pos)            /*!< DWT CTRL: NOPRFCNT Mask */
+#define DWT_Ctrl_NOPRFCNT_Pos              24U                                         /*!< DWT CTRL: NOPRFCNT Position */
+#define DWT_Ctrl_NOPRFCNT_Msk              (0x1UL << DWT_Ctrl_NOPRFCNT_Pos)            /*!< DWT CTRL: NOPRFCNT Mask */
 
-#define DWT_CTRL_CYCEVTENA_Pos             22U                                         /*!< DWT CTRL: CYCEVTENA Position */
-#define DWT_CTRL_CYCEVTENA_Msk             (0x1UL << DWT_CTRL_CYCEVTENA_Pos)           /*!< DWT CTRL: CYCEVTENA Mask */
+#define DWT_Ctrl_CYCEVTENA_Pos             22U                                         /*!< DWT CTRL: CYCEVTENA Position */
+#define DWT_Ctrl_CYCEVTENA_Msk             (0x1UL << DWT_Ctrl_CYCEVTENA_Pos)           /*!< DWT CTRL: CYCEVTENA Mask */
 
-#define DWT_CTRL_FOLDEVTENA_Pos            21U                                         /*!< DWT CTRL: FOLDEVTENA Position */
-#define DWT_CTRL_FOLDEVTENA_Msk            (0x1UL << DWT_CTRL_FOLDEVTENA_Pos)          /*!< DWT CTRL: FOLDEVTENA Mask */
+#define DWT_Ctrl_FOLDEVTENA_Pos            21U                                         /*!< DWT CTRL: FOLDEVTENA Position */
+#define DWT_Ctrl_FOLDEVTENA_Msk            (0x1UL << DWT_Ctrl_FOLDEVTENA_Pos)          /*!< DWT CTRL: FOLDEVTENA Mask */
 
-#define DWT_CTRL_LSUEVTENA_Pos             20U                                         /*!< DWT CTRL: LSUEVTENA Position */
-#define DWT_CTRL_LSUEVTENA_Msk             (0x1UL << DWT_CTRL_LSUEVTENA_Pos)           /*!< DWT CTRL: LSUEVTENA Mask */
+#define DWT_Ctrl_LSUEVTENA_Pos             20U                                         /*!< DWT CTRL: LSUEVTENA Position */
+#define DWT_Ctrl_LSUEVTENA_Msk             (0x1UL << DWT_Ctrl_LSUEVTENA_Pos)           /*!< DWT CTRL: LSUEVTENA Mask */
 
-#define DWT_CTRL_SLEEPEVTENA_Pos           19U                                         /*!< DWT CTRL: SLEEPEVTENA Position */
-#define DWT_CTRL_SLEEPEVTENA_Msk           (0x1UL << DWT_CTRL_SLEEPEVTENA_Pos)         /*!< DWT CTRL: SLEEPEVTENA Mask */
+#define DWT_Ctrl_SLEEPEVTENA_Pos           19U                                         /*!< DWT CTRL: SLEEPEVTENA Position */
+#define DWT_Ctrl_SLEEPEVTENA_Msk           (0x1UL << DWT_Ctrl_SLEEPEVTENA_Pos)         /*!< DWT CTRL: SLEEPEVTENA Mask */
 
-#define DWT_CTRL_EXCEVTENA_Pos             18U                                         /*!< DWT CTRL: EXCEVTENA Position */
-#define DWT_CTRL_EXCEVTENA_Msk             (0x1UL << DWT_CTRL_EXCEVTENA_Pos)           /*!< DWT CTRL: EXCEVTENA Mask */
+#define DWT_Ctrl_EXCEVTENA_Pos             18U                                         /*!< DWT CTRL: EXCEVTENA Position */
+#define DWT_Ctrl_EXCEVTENA_Msk             (0x1UL << DWT_Ctrl_EXCEVTENA_Pos)           /*!< DWT CTRL: EXCEVTENA Mask */
 
-#define DWT_CTRL_CPIEVTENA_Pos             17U                                         /*!< DWT CTRL: CPIEVTENA Position */
-#define DWT_CTRL_CPIEVTENA_Msk             (0x1UL << DWT_CTRL_CPIEVTENA_Pos)           /*!< DWT CTRL: CPIEVTENA Mask */
+#define DWT_Ctrl_CPIEVTENA_Pos             17U                                         /*!< DWT CTRL: CPIEVTENA Position */
+#define DWT_Ctrl_CPIEVTENA_Msk             (0x1UL << DWT_Ctrl_CPIEVTENA_Pos)           /*!< DWT CTRL: CPIEVTENA Mask */
 
-#define DWT_CTRL_EXCTRCENA_Pos             16U                                         /*!< DWT CTRL: EXCTRCENA Position */
-#define DWT_CTRL_EXCTRCENA_Msk             (0x1UL << DWT_CTRL_EXCTRCENA_Pos)           /*!< DWT CTRL: EXCTRCENA Mask */
+#define DWT_Ctrl_EXCTRCENA_Pos             16U                                         /*!< DWT CTRL: EXCTRCENA Position */
+#define DWT_Ctrl_EXCTRCENA_Msk             (0x1UL << DWT_Ctrl_EXCTRCENA_Pos)           /*!< DWT CTRL: EXCTRCENA Mask */
 
-#define DWT_CTRL_PCSAMPLENA_Pos            12U                                         /*!< DWT CTRL: PCSAMPLENA Position */
-#define DWT_CTRL_PCSAMPLENA_Msk            (0x1UL << DWT_CTRL_PCSAMPLENA_Pos)          /*!< DWT CTRL: PCSAMPLENA Mask */
+#define DWT_Ctrl_PCSAMPLENA_Pos            12U                                         /*!< DWT CTRL: PCSAMPLENA Position */
+#define DWT_Ctrl_PCSAMPLENA_Msk            (0x1UL << DWT_Ctrl_PCSAMPLENA_Pos)          /*!< DWT CTRL: PCSAMPLENA Mask */
 
-#define DWT_CTRL_SYNCTAP_Pos               10U                                         /*!< DWT CTRL: SYNCTAP Position */
-#define DWT_CTRL_SYNCTAP_Msk               (0x3UL << DWT_CTRL_SYNCTAP_Pos)             /*!< DWT CTRL: SYNCTAP Mask */
+#define DWT_Ctrl_SYNCTAP_Pos               10U                                         /*!< DWT CTRL: SYNCTAP Position */
+#define DWT_Ctrl_SYNCTAP_Msk               (0x3UL << DWT_Ctrl_SYNCTAP_Pos)             /*!< DWT CTRL: SYNCTAP Mask */
 
-#define DWT_CTRL_CYCTAP_Pos                 9U                                         /*!< DWT CTRL: CYCTAP Position */
-#define DWT_CTRL_CYCTAP_Msk                (0x1UL << DWT_CTRL_CYCTAP_Pos)              /*!< DWT CTRL: CYCTAP Mask */
+#define DWT_Ctrl_CYCTAP_Pos                 9U                                         /*!< DWT CTRL: CYCTAP Position */
+#define DWT_Ctrl_CYCTAP_Msk                (0x1UL << DWT_Ctrl_CYCTAP_Pos)              /*!< DWT CTRL: CYCTAP Mask */
 
-#define DWT_CTRL_POSTINIT_Pos               5U                                         /*!< DWT CTRL: POSTINIT Position */
-#define DWT_CTRL_POSTINIT_Msk              (0xFUL << DWT_CTRL_POSTINIT_Pos)            /*!< DWT CTRL: POSTINIT Mask */
+#define DWT_Ctrl_POSTINIT_Pos               5U                                         /*!< DWT CTRL: POSTINIT Position */
+#define DWT_Ctrl_POSTINIT_Msk              (0xFUL << DWT_Ctrl_POSTINIT_Pos)            /*!< DWT CTRL: POSTINIT Mask */
 
-#define DWT_CTRL_POSTPRESET_Pos             1U                                         /*!< DWT CTRL: POSTPRESET Position */
-#define DWT_CTRL_POSTPRESET_Msk            (0xFUL << DWT_CTRL_POSTPRESET_Pos)          /*!< DWT CTRL: POSTPRESET Mask */
+#define DWT_Ctrl_POSTPRESET_Pos             1U                                         /*!< DWT CTRL: POSTPRESET Position */
+#define DWT_Ctrl_POSTPRESET_Msk            (0xFUL << DWT_Ctrl_POSTPRESET_Pos)          /*!< DWT CTRL: POSTPRESET Mask */
 
-#define DWT_CTRL_CYCCNTENA_Pos              0U                                         /*!< DWT CTRL: CYCCNTENA Position */
-#define DWT_CTRL_CYCCNTENA_Msk             (0x1UL /*<< DWT_CTRL_CYCCNTENA_Pos*/)       /*!< DWT CTRL: CYCCNTENA Mask */
+#define DWT_Ctrl_CYCCNTENA_Pos              0U                                         /*!< DWT CTRL: CYCCNTENA Position */
+#define DWT_Ctrl_CYCCNTENA_Msk             (0x1UL /*<< DWT_Ctrl_CYCCNTENA_Pos*/)       /*!< DWT CTRL: CYCCNTENA Mask */
 
 /* DWT CPI Count Register Definitions */
 #define DWT_CPICNT_CPICNT_Pos               0U                                         /*!< DWT CPICNT: CPICNT Position */
@@ -993,38 +993,38 @@ typedef struct {
 #define DWT_Mask_MASK_Msk                  (0x1FUL /*<< DWT_Mask_MASK_Pos*/)           /*!< DWT MASK: MASK Mask */
 
 /* DWT Comparator Function Register Definitions */
-#define DWT_FUNCTION_Matched_Pos           24U                                         /*!< DWT FUNCTION: MATCHED Position */
-#define DWT_FUNCTION_Matched_Msk           (0x1UL << DWT_FUNCTION_Matched_Pos)         /*!< DWT FUNCTION: MATCHED Mask */
+#define DWT_Function_Matched_Pos           24U                                         /*!< DWT FUNCTION: MATCHED Position */
+#define DWT_Function_Matched_Msk           (0x1UL << DWT_Function_Matched_Pos)         /*!< DWT FUNCTION: MATCHED Mask */
 
-#define DWT_FUNCTION_DATAVADDR1_Pos        16U                                         /*!< DWT FUNCTION: DATAVADDR1 Position */
-#define DWT_FUNCTION_DATAVADDR1_Msk        (0xFUL << DWT_FUNCTION_DATAVADDR1_Pos)      /*!< DWT FUNCTION: DATAVADDR1 Mask */
+#define DWT_Function_DATAVADDR1_Pos        16U                                         /*!< DWT FUNCTION: DATAVADDR1 Position */
+#define DWT_Function_DATAVADDR1_Msk        (0xFUL << DWT_Function_DATAVADDR1_Pos)      /*!< DWT FUNCTION: DATAVADDR1 Mask */
 
-#define DWT_FUNCTION_DATAVADDR0_Pos        12U                                         /*!< DWT FUNCTION: DATAVADDR0 Position */
-#define DWT_FUNCTION_DATAVADDR0_Msk        (0xFUL << DWT_FUNCTION_DATAVADDR0_Pos)      /*!< DWT FUNCTION: DATAVADDR0 Mask */
+#define DWT_Function_DATAVADDR0_Pos        12U                                         /*!< DWT FUNCTION: DATAVADDR0 Position */
+#define DWT_Function_DATAVADDR0_Msk        (0xFUL << DWT_Function_DATAVADDR0_Pos)      /*!< DWT FUNCTION: DATAVADDR0 Mask */
 
-#define DWT_FUNCTION_DATAVSIZE_Pos         10U                                         /*!< DWT FUNCTION: DATAVSIZE Position */
-#define DWT_FUNCTION_DATAVSIZE_Msk         (0x3UL << DWT_FUNCTION_DATAVSIZE_Pos)       /*!< DWT FUNCTION: DATAVSIZE Mask */
+#define DWT_Function_DATAVSIZE_Pos         10U                                         /*!< DWT FUNCTION: DATAVSIZE Position */
+#define DWT_Function_DATAVSIZE_Msk         (0x3UL << DWT_Function_DATAVSIZE_Pos)       /*!< DWT FUNCTION: DATAVSIZE Mask */
 
-#define DWT_FUNCTION_LNK1ENA_Pos            9U                                         /*!< DWT FUNCTION: LNK1ENA Position */
-#define DWT_FUNCTION_LNK1ENA_Msk           (0x1UL << DWT_FUNCTION_LNK1ENA_Pos)         /*!< DWT FUNCTION: LNK1ENA Mask */
+#define DWT_Function_LNK1ENA_Pos            9U                                         /*!< DWT FUNCTION: LNK1ENA Position */
+#define DWT_Function_LNK1ENA_Msk           (0x1UL << DWT_Function_LNK1ENA_Pos)         /*!< DWT FUNCTION: LNK1ENA Mask */
 
-#define DWT_FUNCTION_DATAVMATCH_Pos         8U                                         /*!< DWT FUNCTION: DATAVMATCH Position */
-#define DWT_FUNCTION_DATAVMATCH_Msk        (0x1UL << DWT_FUNCTION_DATAVMATCH_Pos)      /*!< DWT FUNCTION: DATAVMATCH Mask */
+#define DWT_Function_DATAVMATCH_Pos         8U                                         /*!< DWT FUNCTION: DATAVMATCH Position */
+#define DWT_Function_DATAVMATCH_Msk        (0x1UL << DWT_Function_DATAVMATCH_Pos)      /*!< DWT FUNCTION: DATAVMATCH Mask */
 
-#define DWT_FUNCTION_CYCMATCH_Pos           7U                                         /*!< DWT FUNCTION: CYCMATCH Position */
-#define DWT_FUNCTION_CYCMATCH_Msk          (0x1UL << DWT_FUNCTION_CYCMATCH_Pos)        /*!< DWT FUNCTION: CYCMATCH Mask */
+#define DWT_Function_CYCMATCH_Pos           7U                                         /*!< DWT FUNCTION: CYCMATCH Position */
+#define DWT_Function_CYCMATCH_Msk          (0x1UL << DWT_Function_CYCMATCH_Pos)        /*!< DWT FUNCTION: CYCMATCH Mask */
 
-#define DWT_FUNCTION_EMITRANGE_Pos          5U                                         /*!< DWT FUNCTION: EMITRANGE Position */
-#define DWT_FUNCTION_EMITRANGE_Msk         (0x1UL << DWT_FUNCTION_EMITRANGE_Pos)       /*!< DWT FUNCTION: EMITRANGE Mask */
+#define DWT_Function_EMITRANGE_Pos          5U                                         /*!< DWT FUNCTION: EMITRANGE Position */
+#define DWT_Function_EMITRANGE_Msk         (0x1UL << DWT_Function_EMITRANGE_Pos)       /*!< DWT FUNCTION: EMITRANGE Mask */
 
-#define DWT_FUNCTION_FUNCTION_Pos           0U                                         /*!< DWT FUNCTION: FUNCTION Position */
-#define DWT_FUNCTION_FUNCTION_Msk          (0xFUL /*<< DWT_FUNCTION_FUNCTION_Pos*/)    /*!< DWT FUNCTION: FUNCTION Mask */
+#define DWT_Function_FUNCTION_Pos           0U                                         /*!< DWT FUNCTION: FUNCTION Position */
+#define DWT_Function_FUNCTION_Msk          (0xFUL /*<< DWT_Function_FUNCTION_Pos*/)    /*!< DWT FUNCTION: FUNCTION Mask */
 
 /*@}*/ /* end of group CMSIS_DWT */
 
 
 /**
-  \ingroup  CMSIS_core_register
+  \ingroup  CMSIS_Core_register
   \defgroup CMSIS_TPI     Trace Port Interface (TPI)
   \brief    Type definitions for the Trace Port Interface (TPI)
   @{
@@ -1185,7 +1185,7 @@ typedef struct {
 
 #if defined (__MPU_PRESENT) && (__MPU_PRESENT == 1U)
 /**
-  \ingroup  CMSIS_core_register
+  \ingroup  CMSIS_Core_register
   \defgroup CMSIS_MPU     Memory Protection Unit (MPU)
   \brief    Type definitions for the Memory Protection Unit (MPU)
   @{
@@ -1221,14 +1221,14 @@ typedef struct {
 #define MPU_Type_Separate_Msk              (1UL /*<< MPU_Type_Separate_Pos*/)             /*!< MPU TYPE: SEPARATE Mask */
 
 /* MPU Control Register Definitions */
-#define MPU_CTRL_PRIVDEFENA_Pos             2U                                            /*!< MPU CTRL: PRIVDEFENA Position */
-#define MPU_CTRL_PRIVDEFENA_Msk            (1UL << MPU_CTRL_PRIVDEFENA_Pos)               /*!< MPU CTRL: PRIVDEFENA Mask */
+#define MPU_Ctrl_PRIVDEFENA_Pos             2U                                            /*!< MPU CTRL: PRIVDEFENA Position */
+#define MPU_Ctrl_PRIVDEFENA_Msk            (1UL << MPU_Ctrl_PRIVDEFENA_Pos)               /*!< MPU CTRL: PRIVDEFENA Mask */
 
-#define MPU_CTRL_HFNMIENA_Pos               1U                                            /*!< MPU CTRL: HFNMIENA Position */
-#define MPU_CTRL_HFNMIENA_Msk              (1UL << MPU_CTRL_HFNMIENA_Pos)                 /*!< MPU CTRL: HFNMIENA Mask */
+#define MPU_Ctrl_HFNMIENA_Pos               1U                                            /*!< MPU CTRL: HFNMIENA Position */
+#define MPU_Ctrl_HFNMIENA_Msk              (1UL << MPU_Ctrl_HFNMIENA_Pos)                 /*!< MPU CTRL: HFNMIENA Mask */
 
-#define MPU_CTRL_Enable_Pos                 0U                                            /*!< MPU CTRL: ENABLE Position */
-#define MPU_CTRL_Enable_Msk                (1UL /*<< MPU_CTRL_Enable_Pos*/)               /*!< MPU CTRL: ENABLE Mask */
+#define MPU_Ctrl_Enable_Pos                 0U                                            /*!< MPU CTRL: ENABLE Position */
+#define MPU_Ctrl_Enable_Msk                (1UL /*<< MPU_Ctrl_Enable_Pos*/)               /*!< MPU CTRL: ENABLE Mask */
 
 /* MPU Region Number Register Definitions */
 #define MPU_RNR_REGION_Pos                  0U                                            /*!< MPU RNR: REGION Position */
@@ -1280,7 +1280,7 @@ typedef struct {
 
 
 /**
-  \ingroup  CMSIS_core_register
+  \ingroup  CMSIS_Core_register
   \defgroup CMSIS_FPU     Floating Point Unit (FPU)
   \brief    Type definitions for the Floating Point Unit (FPU)
   @{
@@ -1391,7 +1391,7 @@ typedef struct {
 
 
 /**
-  \ingroup  CMSIS_core_register
+  \ingroup  CMSIS_Core_register
   \defgroup CMSIS_CoreDebug       Core Debug Registers (CoreDebug)
   \brief    Type definitions for the Core Debug Registers
   @{
@@ -1420,11 +1420,11 @@ typedef struct {
 #define CoreDEBUG_DHCSR_S_LOCKUP_Pos       19U                                            /*!< CoreDebug DHCSR: S_LOCKUP Position */
 #define CoreDEBUG_DHCSR_S_LOCKUP_Msk       (1UL << CoreDEBUG_DHCSR_S_LOCKUP_Pos)          /*!< CoreDebug DHCSR: S_LOCKUP Mask */
 
-#define CoreDEBUG_DHCSR_S_SLEEP_Pos        18U                                            /*!< CoreDebug DHCSR: S_SLEEP Position */
-#define CoreDEBUG_DHCSR_S_SLEEP_Msk        (1UL << CoreDEBUG_DHCSR_S_SLEEP_Pos)           /*!< CoreDebug DHCSR: S_SLEEP Mask */
+#define CoreDEBUG_DHCSR_S_Sleep_Pos        18U                                            /*!< CoreDebug DHCSR: S_SLEEP Position */
+#define CoreDEBUG_DHCSR_S_Sleep_Msk        (1UL << CoreDEBUG_DHCSR_S_Sleep_Pos)           /*!< CoreDebug DHCSR: S_SLEEP Mask */
 
-#define CoreDEBUG_DHCSR_S_HALT_Pos         17U                                            /*!< CoreDebug DHCSR: S_HALT Position */
-#define CoreDEBUG_DHCSR_S_HALT_Msk         (1UL << CoreDEBUG_DHCSR_S_HALT_Pos)            /*!< CoreDebug DHCSR: S_HALT Mask */
+#define CoreDEBUG_DHCSR_S_Halt_Pos         17U                                            /*!< CoreDebug DHCSR: S_Halt Position */
+#define CoreDEBUG_DHCSR_S_Halt_Msk         (1UL << CoreDEBUG_DHCSR_S_Halt_Pos)            /*!< CoreDebug DHCSR: S_Halt Mask */
 
 #define CoreDEBUG_DHCSR_S_REGRDY_Pos       16U                                            /*!< CoreDebug DHCSR: S_REGRDY Position */
 #define CoreDEBUG_DHCSR_S_REGRDY_Msk       (1UL << CoreDEBUG_DHCSR_S_REGRDY_Pos)          /*!< CoreDebug DHCSR: S_REGRDY Mask */
@@ -1438,8 +1438,8 @@ typedef struct {
 #define CoreDEBUG_DHCSR_C_Step_Pos          2U                                            /*!< CoreDebug DHCSR: C_STEP Position */
 #define CoreDEBUG_DHCSR_C_Step_Msk         (1UL << CoreDEBUG_DHCSR_C_Step_Pos)            /*!< CoreDebug DHCSR: C_STEP Mask */
 
-#define CoreDEBUG_DHCSR_C_HALT_Pos          1U                                            /*!< CoreDebug DHCSR: C_HALT Position */
-#define CoreDEBUG_DHCSR_C_HALT_Msk         (1UL << CoreDEBUG_DHCSR_C_HALT_Pos)            /*!< CoreDebug DHCSR: C_HALT Mask */
+#define CoreDEBUG_DHCSR_C_Halt_Pos          1U                                            /*!< CoreDebug DHCSR: C_Halt Position */
+#define CoreDEBUG_DHCSR_C_Halt_Msk         (1UL << CoreDEBUG_DHCSR_C_Halt_Pos)            /*!< CoreDebug DHCSR: C_Halt Mask */
 
 #define CoreDEBUG_DHCSR_C_DEBUGEN_Pos       0U                                            /*!< CoreDebug DHCSR: C_DEBUGEN Position */
 #define CoreDEBUG_DHCSR_C_DEBUGEN_Msk      (1UL /*<< CoreDEBUG_DHCSR_C_DEBUGEN_Pos*/)     /*!< CoreDebug DHCSR: C_DEBUGEN Mask */
@@ -1488,15 +1488,15 @@ typedef struct {
 #define CoreDEBUG_DEMCR_VC_MMERR_Pos        4U                                            /*!< CoreDebug DEMCR: VC_MMERR Position */
 #define CoreDEBUG_DEMCR_VC_MMERR_Msk       (1UL << CoreDEBUG_DEMCR_VC_MMERR_Pos)          /*!< CoreDebug DEMCR: VC_MMERR Mask */
 
-#define CoreDEBUG_DEMCR_VC_CORERESET_Pos    0U                                            /*!< CoreDebug DEMCR: VC_CORERESET Position */
-#define CoreDEBUG_DEMCR_VC_CORERESET_Msk   (1UL /*<< CoreDEBUG_DEMCR_VC_CORERESET_Pos*/)  /*!< CoreDebug DEMCR: VC_CORERESET Mask */
+#define CoreDEBUG_DEMCR_VC_CoreRESET_Pos    0U                                            /*!< CoreDebug DEMCR: VC_CoreRESET Position */
+#define CoreDEBUG_DEMCR_VC_CoreRESET_Msk   (1UL /*<< CoreDEBUG_DEMCR_VC_CoreRESET_Pos*/)  /*!< CoreDebug DEMCR: VC_CoreRESET Mask */
 
 /*@} end of group CMSIS_CoreDebug */
 
 
 /**
-  \ingroup    CMSIS_core_register
-  \defgroup   CMSIS_core_bitfield     Core register bit field macros
+  \ingroup    CMSIS_Core_register
+  \defgroup   CMSIS_Core_bitfield     Core register bit field macros
   \brief      Macros for use with bit field definitions (xxx_Pos, xxx_Msk).
   @{
  */
@@ -1517,12 +1517,12 @@ typedef struct {
 */
 #define _FLD2VAL(field, value)    (((uint32_t)(value) & field ## _Msk) >> field ## _Pos)
 
-/*@} end of group CMSIS_core_bitfield */
+/*@} end of group CMSIS_Core_bitfield */
 
 
 /**
-  \ingroup    CMSIS_core_register
-  \defgroup   CMSIS_core_base     Core Definitions
+  \ingroup    CMSIS_Core_register
+  \defgroup   CMSIS_Core_base     Core Definitions
   \brief      Definitions for base addresses, unions, and structures.
   @{
  */
@@ -1533,13 +1533,13 @@ typedef struct {
 #define DWT_BASE            (0xE0001000UL)                            /*!< DWT Base Address */
 #define TPI_BASE            (0xE0040000UL)                            /*!< TPI Base Address */
 #define CoreDEBUG_BASE      (0xE000EDF0UL)                            /*!< Core Debug Base Address */
-#define SysTick_BASE        (SCS_BASE +  0x0010UL)                    /*!< SysTick Base Address */
+#define Systick_BASE        (SCS_BASE +  0x0010UL)                    /*!< SysTick Base Address */
 #define NVIC_BASE           (SCS_BASE +  0x0100UL)                    /*!< NVIC Base Address */
 #define SCB_BASE            (SCS_BASE +  0x0D00UL)                    /*!< System Control Block Base Address */
 
 #define SCnSCB              ((SCnSCB_Type    *)     SCS_BASE      )   /*!< System control Register not in SCB */
 #define SCB                 ((SCB_Type       *)     SCB_BASE      )   /*!< SCB configuration struct */
-#define SysTick             ((SysTick_Type   *)     SysTick_BASE  )   /*!< SysTick configuration struct */
+#define SysTick             ((Systick_Type   *)     Systick_BASE  )   /*!< SysTick configuration struct */
 #define NVIC                ((NVIC_Type      *)     NVIC_BASE     )   /*!< NVIC configuration struct */
 #define ITM                 ((ITM_Type       *)     ITM_BASE      )   /*!< ITM configuration struct */
 #define DWT                 ((DWT_Type       *)     DWT_BASE      )   /*!< DWT configuration struct */
@@ -1582,7 +1582,7 @@ typedef struct {
 
 #ifdef CMSIS_NVIC_VIRTUAL
 #ifndef CMSIS_NVIC_VIRTUAL_HEADER_FILE
-#define CMSIS_NVIC_VIRTUAL_HEADER_FILE "cmsis_nvic_virtual.h"
+#define CMSIS_NVIC_VIRTUAL_HEADER_FILE "cmsis_NVIC_virtual.h"
 #endif
 #include CMSIS_NVIC_VIRTUAL_HEADER_FILE
 #else
@@ -1958,20 +1958,20 @@ __STATIC_INLINE uint32_t SCB_GetFPUType(void) {
   \return          0  Function succeeded.
   \return          1  Function failed.
   \note    When the variable <b>__Vendor_SysTickConfig</b> is set to 1, then the
-           function <b>SysTick_Config</b> is not included. In this case, the file <b><i>device</i>.h</b>
+           function <b>Systick_Config</b> is not included. In this case, the file <b><i>device</i>.h</b>
            must contain a vendor-specific implementation of this function.
  */
-__STATIC_INLINE uint32_t SysTick_Config(uint32_t ticks) {
-    if ((ticks - 1UL) > SysTick_LOAD_Reload_Msk) {
+__STATIC_INLINE uint32_t Systick_Config(uint32_t ticks) {
+    if ((ticks - 1UL) > Systick_LOAD_Reload_Msk) {
         return (1UL);                                                   /* Reload value impossible */
     }
 
     SysTick->LOAD  = (uint32_t)(ticks - 1UL);                         /* set reload register */
-    NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL); /* set Priority for Systick Interrupt */
+    NVIC_SetPriority (Systick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL); /* set Priority for Systick Interrupt */
     SysTick->VAL   = 0UL;                                             /* Load the SysTick Counter Value */
-    SysTick->CTRL  = SysTick_CTRL_CLKSOURCE_Msk |
-                     SysTick_CTRL_TICKINT_Msk   |
-                     SysTick_CTRL_Enable_Msk;                         /* Enable SysTick IRQ and SysTick Timer */
+    SysTick->CTRL  = Systick_Ctrl_CLKSOURCE_Msk |
+                     Systick_Ctrl_TICKINT_Msk   |
+                     Systick_Ctrl_Enable_Msk;                         /* Enable SysTick IRQ and SysTick Timer */
     return (0UL);                                                     /* Function successful */
 }
 
@@ -1984,7 +1984,7 @@ __STATIC_INLINE uint32_t SysTick_Config(uint32_t ticks) {
 /* ##################################### Debug In/Output function ########################################### */
 /**
   \ingroup  CMSIS_Core_FunctionInterface
-  \defgroup CMSIS_core_DebugFunctions ITM Functions
+  \defgroup CMSIS_Core_DebugFunctions ITM Functions
   \brief    Functions that access the ITM debug interface.
   @{
  */
@@ -2048,7 +2048,7 @@ __STATIC_INLINE int32_t ITM_CheckChar (void) {
     }
 }
 
-/*@} end of CMSIS_core_DebugFunctions */
+/*@} end of CMSIS_Core_DebugFunctions */
 
 
 
@@ -2057,6 +2057,6 @@ __STATIC_INLINE int32_t ITM_CheckChar (void) {
 }
 #endif
 
-#endif /* __CORE_CM4_H_DEPENDANT */
+#endif /* __Core_CM4_H_DEPENDANT */
 
 #endif /* __CMSIS_GENERIC */

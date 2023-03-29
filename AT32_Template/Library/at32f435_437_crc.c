@@ -24,7 +24,7 @@
 
 #include "at32f435_437_conf.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -54,7 +54,7 @@ void CRC_Data_Reset(void) {
   * @param  data: data word(32-bit) to compute its crc
   * @retval 32-bit crc
   */
-uint32_t CRC_One_Word_calculate(uint32_t data) {
+uint32_t CRC_ONE_Word_Calculate(uint32_t data) {
     CRC->dt = data;
     return (CRC->dt);
 }
@@ -65,7 +65,7 @@ uint32_t CRC_One_Word_calculate(uint32_t data) {
   * @param  length: length of the buffer to be computed
   * @retval 32-bit crc
   */
-uint32_t CRC_Block_calculate(uint32_t *pbuffer, uint32_t length) {
+uint32_t CRC_Block_Calculate(uint32_t *pbuffer, uint32_t length) {
     uint32_t index = 0;
 
     for(index = 0; index < length; index++) {

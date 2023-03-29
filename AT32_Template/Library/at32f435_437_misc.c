@@ -25,7 +25,7 @@
 /* includes ------------------------------------------------------------------*/
 #include "at32f435_437_conf.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -47,7 +47,7 @@
   * @param  none
   * @retval none
   */
-void nvic_System_Reset(void) {
+void NVIC_System_Reset(void) {
     NVIC_SystemReset();
 }
 
@@ -58,7 +58,7 @@ void nvic_System_Reset(void) {
   * @param  sub_priority: subpriority value (starting from 0)
   * @retval none
   */
-void nvic_irq_Enable(IRQn_Type irqn, uint32_t preempt_priority, uint32_t sub_priority) {
+void NVIC_IRQ_Enable(IRQn_Type irqn, uint32_t preempt_priority, uint32_t sub_priority) {
     uint32_t temp_priority = 0;
 
     /* encode priority */
@@ -74,7 +74,7 @@ void nvic_irq_Enable(IRQn_Type irqn, uint32_t preempt_priority, uint32_t sub_pri
   * @param  irqn (IRQn_Type number)
   * @retval none
   */
-void nvic_irq_Disable(IRQn_Type irqn) {
+void NVIC_IRQ_Disable(IRQn_Type irqn) {
     NVIC_DisableIRQ(irqn);
 }
 
@@ -82,15 +82,15 @@ void nvic_irq_Disable(IRQn_Type irqn) {
   * @brief  config nvic priority group
   * @param  priority_group
   *         this parameter can be one of the following values:
-  *         - NVIC_PRIORITY_GROUP_0
-  *         - NVIC_PRIORITY_GROUP_1
-  *         - NVIC_PRIORITY_GROUP_2
-  *         - NVIC_PRIORITY_GROUP_3
-  *         - NVIC_PRIORITY_GROUP_4
+  *         - NVIC_Priority_Group_0
+  *         - NVIC_Priority_Group_1
+  *         - NVIC_Priority_Group_2
+  *         - NVIC_Priority_Group_3
+  *         - NVIC_Priority_Group_4
   * @retval none
   */
-void nvic_priority_group_Config(nvic_priority_group_Type priority_group) {
-    /* set the prigroup[10:8] bits according to nvic_prioritygroup value */
+void NVIC_Priority_Group_Config(NVIC_Priority_Group_Type priority_group) {
+    /* set the prigroup[10:8] bits according to NVIC_prioritygroup value */
     NVIC_SetPriorityGrouping(priority_group);
 }
 
@@ -103,7 +103,7 @@ void nvic_priority_group_Config(nvic_priority_group_Type priority_group) {
   * @param  offset (vector table base offset field. this value must be a multiple of 0x200)
   * @retval none
   */
-void nvic_vector_table_Set(uint32_t base, uint32_t offset) {
+void NVIC_Vector_Table_Set(uint32_t base, uint32_t offset) {
     SCB->VTOR = base | (offset & (uint32_t)0x1FFFFF80);
 }
 
@@ -117,7 +117,7 @@ void nvic_vector_table_Set(uint32_t base, uint32_t offset) {
   * @param  new_state (new state of lp condition. ENABLE or DISABLE)
   * @retval none
   */
-void nvic_lowpower_Mode_Config(nvic_lowpower_Mode_Type lp_Mode, confirm_state new_state) {
+void NVIC_LowPower_Mode_Config(NVIC_LowPower_Mode_Type lp_Mode, confirm_state new_state) {
     if(new_state != FALSE) {
         SCB->SCR |= lp_Mode;
     } else {
@@ -129,15 +129,15 @@ void nvic_lowpower_Mode_Config(nvic_lowpower_Mode_Type lp_Mode, confirm_state ne
   * @brief  config systick clock source
   * @param  source
   *         this parameter can be one of the following values:
-  *         - SYSTICK_Clock_Source_AHBCLK_DIV8
-  *         - SYSTICK_Clock_Source_AHBCLK_NODIV
+  *         - Systick_Clock_Source_AHBCLK_DIV8
+  *         - Systick_Clock_Source_AHBCLK_NODIV
   * @retval none
   */
-void systick_Clock_Source_Config(systick_Clock_Source_Type source) {
-    if(source == SYSTICK_Clock_Source_AHBCLK_NODIV) {
-        SysTick->CTRL |= SYSTICK_Clock_Source_AHBCLK_NODIV;
+void Systick_Clock_Source_Config(Systick_Clock_Source_Type source) {
+    if(source == Systick_Clock_Source_AHBCLK_NODIV) {
+        SysTick->CTRL |= Systick_Clock_Source_AHBCLK_NODIV;
     } else {
-        SysTick->CTRL &= ~(uint32_t)SYSTICK_Clock_Source_AHBCLK_NODIV;
+        SysTick->CTRL &= ~(uint32_t)Systick_Clock_Source_AHBCLK_NODIV;
     }
 }
 

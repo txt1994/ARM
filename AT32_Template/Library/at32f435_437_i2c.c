@@ -24,7 +24,7 @@
 
 #include "at32f435_437_conf.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -48,14 +48,14 @@
   */
 void I2C_Reset(I2C_Type *I2C_x) {
     if(I2C_x == I2C1) {
-        crm_periph_Reset(CRM_I2C1_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_I2C1_PERIPH_Reset, FALSE);
+        CRM_Periph_Reset(CRM_I2C1_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_I2C1_Periph_Reset, FALSE);
     } else if(I2C_x == I2C2) {
-        crm_periph_Reset(CRM_I2C2_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_I2C2_PERIPH_Reset, FALSE);
+        CRM_Periph_Reset(CRM_I2C2_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_I2C2_Periph_Reset, FALSE);
     } else if(I2C_x == I2C3) {
-        crm_periph_Reset(CRM_I2C3_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_I2C3_PERIPH_Reset, FALSE);
+        CRM_Periph_Reset(CRM_I2C3_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_I2C3_Periph_Reset, FALSE);
     }
 }
 
@@ -110,17 +110,17 @@ void I2C_Own_Address1_Set(I2C_Type *I2C_x, I2C_Address_Mode_Type mode, uint16_t 
   * @param  address: own address 1, such as 0xC0.
   * @param  mask: own address 2 mask.
   *         this parameter can be one of the following values:
-  *         - I2C_ADDR2_NOMASK: compare bit      [7:1].
-  *         - I2C_ADDR2_MASK01: only compare bit [7:2].
-  *         - I2C_ADDR2_MASK02: only compare bit [7:2].
-  *         - I2C_ADDR2_MASK03: only compare bit [7:3].
-  *         - I2C_ADDR2_MASK04: only compare bit [7:4].
-  *         - I2C_ADDR2_MASK05: only compare bit [7:5].
-  *         - I2C_ADDR2_MASK06: only compare bit [7:6].
-  *         - I2C_ADDR2_MASK07: only compare bit [7].
+  *         - I2C_Addr2_NOMASK: compare bit      [7:1].
+  *         - I2C_Addr2_MASK01: only compare bit [7:2].
+  *         - I2C_Addr2_MASK02: only compare bit [7:2].
+  *         - I2C_Addr2_MASK03: only compare bit [7:3].
+  *         - I2C_Addr2_MASK04: only compare bit [7:4].
+  *         - I2C_Addr2_MASK05: only compare bit [7:5].
+  *         - I2C_Addr2_MASK06: only compare bit [7:6].
+  *         - I2C_Addr2_MASK07: only compare bit [7].
   * @retval none
   */
-void I2C_Own_Address2_Set(I2C_Type *I2C_x, uint8_t address, I2C_addr2_Mask_Type mask) {
+void I2C_Own_Address2_Set(I2C_Type *I2C_x, uint8_t address, I2C_Addr2_Mask_Type mask) {
     I2C_x->oaddr2_bit.addr2mask = mask;
 
     I2C_x->oaddr2_bit.addr2 = (address >> 1) & 0x7F;
@@ -209,7 +209,7 @@ void I2C_ACK_Enable(I2C_Type *I2C_x, confirm_state new_state) {
   * @param  new_state (TRUE or FALSE).
   * @retval none
   */
-void I2C_addr10_Mode_Enable(I2C_Type *I2C_x, confirm_state new_state) {
+void I2C_Addr10_Mode_Enable(I2C_Type *I2C_x, confirm_state new_state) {
     I2C_x->ctrl2_bit.addr10 = new_state;
 }
 
@@ -243,11 +243,11 @@ uint16_t I2C_Transfer_Addr_Get(I2C_Type *I2C_x) {
   *         I2C1, I2C2, I2C3.
   * @param  I2C_direction: transfer request direction.
   *         this parameter can be one of the following values:
-  *         - I2C_DIR_TRANSMIT: master request a write transfer.
-  *         - I2C_DIR_RECEIVE: master request a read transfer.
+  *         - I2C_Dir_Transmit: master request a write transfer.
+  *         - I2C_Dir_Receive: master request a read transfer.
   * @retval none
   */
-void I2C_Transfer_dir_Set(I2C_Type *I2C_x, I2C_Transfer_dir_Type I2C_direction) {
+void I2C_Transfer_Dir_Set(I2C_Type *I2C_x, I2C_Transfer_Dir_Type I2C_direction) {
     I2C_x->ctrl2_bit.dir = I2C_direction;
 }
 
@@ -257,14 +257,14 @@ void I2C_Transfer_dir_Set(I2C_Type *I2C_x, I2C_Transfer_dir_Type I2C_direction) 
   *         this parameter can be one of the following values:
   *         I2C1, I2C2, I2C3.
   * @retval the value of the slave direction
-  *         - I2C_DIR_TRANSMIT: master request a write transfer, slave enters receiver mode.
-  *         - I2C_DIR_RECEIVE: master request a read transfer, slave enters transmitter mode.
+  *         - I2C_Dir_Transmit: master request a write transfer, slave enters receiver mode.
+  *         - I2C_Dir_Receive: master request a read transfer, slave enters transmitter mode.
   */
-I2C_Transfer_dir_Type I2C_Transfer_dir_Get(I2C_Type *I2C_x) {
+I2C_Transfer_Dir_Type I2C_Transfer_Dir_Get(I2C_Type *I2C_x) {
     if (I2C_x->sts_bit.sdir == 0) {
-        return I2C_DIR_TRANSMIT;
+        return I2C_Dir_Transmit;
     } else {
-        return I2C_DIR_RECEIVE;
+        return I2C_Dir_Receive;
     }
 }
 
@@ -311,7 +311,7 @@ void I2C_Reload_Enable(I2C_Type *I2C_x, confirm_state new_state) {
   * @param  cnt: transfer cnt.
   * @retval none
   */
-void I2C_cnt_Set(I2C_Type *I2C_x, uint8_t cnt) {
+void I2C_CNT_Set(I2C_Type *I2C_x, uint8_t cnt) {
     I2C_x->ctrl2_bit.cnt = cnt;
 }
 
@@ -324,7 +324,7 @@ void I2C_cnt_Set(I2C_Type *I2C_x, uint8_t cnt) {
   * @param  new_state (TRUE or FALSE).
   * @retval none
   */
-void I2C_addr10_header_Enable(I2C_Type *I2C_x, confirm_state new_state) {
+void I2C_Addr10_header_Enable(I2C_Type *I2C_x, confirm_state new_state) {
     I2C_x->ctrl2_bit.readh10 = new_state;
 }
 
@@ -336,7 +336,7 @@ void I2C_addr10_header_Enable(I2C_Type *I2C_x, confirm_state new_state) {
   * @param  new_state (TRUE or FALSE).
   * @retval none
   */
-void I2C_general_call_Enable(I2C_Type *I2C_x, confirm_state new_state) {
+void I2C_General_Call_Enable(I2C_Type *I2C_x, confirm_state new_state) {
     I2C_x->ctrl1_bit.gcaen = new_state;
 }
 
@@ -363,7 +363,7 @@ void I2C_SmBus_Alert_Set(I2C_Type *I2C_x, I2C_SmBus_Alert_Set_Type level) {
   * @param  new_state (TRUE or FALSE).
   * @retval none
   */
-void I2C_Slave_Data_ctrl_Enable(I2C_Type *I2C_x, confirm_state new_state) {
+void I2C_Slave_Data_Ctrl_Enable(I2C_Type *I2C_x, confirm_state new_state) {
     I2C_x->ctrl1_bit.sctrl = new_state;
 }
 
@@ -449,7 +449,7 @@ void I2C_TimeOut_Enable(I2C_Type *I2C_x, confirm_state new_state) {
   * @param  timeout: extend timeout (0x0000~0x0FFF).
   * @retval none
   */
-void I2C_ext_TimeOut_Set(I2C_Type *I2C_x, uint16_t timeout) {
+void I2C_Ext_TimeOut_Set(I2C_Type *I2C_x, uint16_t timeout) {
     I2C_x->timeout_bit.exttime = timeout;
 }
 
@@ -461,7 +461,7 @@ void I2C_ext_TimeOut_Set(I2C_Type *I2C_x, uint16_t timeout) {
   * @param  new_state (TRUE or FALSE).
   * @retval none
   */
-void I2C_ext_TimeOut_Enable(I2C_Type *I2C_x, confirm_state new_state) {
+void I2C_Ext_TimeOut_Enable(I2C_Type *I2C_x, confirm_state new_state) {
     I2C_x->timeout_bit.exten = new_state;
 }
 
@@ -602,7 +602,7 @@ void I2C_Stop_Generate(I2C_Type *I2C_x) {
   * @param  data: byte to be transmitted.
   * @retval none
   */
-void I2C_Data_send(I2C_Type *I2C_x, uint8_t data) {
+void I2C_Data_Send(I2C_Type *I2C_x, uint8_t data) {
     I2C_x->txdt = data;
 }
 
@@ -613,7 +613,7 @@ void I2C_Data_send(I2C_Type *I2C_x, uint8_t data) {
   *         I2C1, I2C2, I2C3.
   * @retval the value of the received data.
   */
-uint8_t I2C_Data_receive(I2C_Type *I2C_x) {
+uint8_t I2C_Data_Receive(I2C_Type *I2C_x) {
     return (uint8_t)I2C_x->rxdt;
 }
 
@@ -627,7 +627,7 @@ uint8_t I2C_Data_receive(I2C_Type *I2C_x) {
   *         - I2C_TDBE_FLAG: transmit data buffer empty flag.
   *         - I2C_TDIS_FLAG: send interrupt status.
   *         - I2C_RDBF_FLAG: receive data buffer full flag.
-  *         - I2C_ADDRF_FLAG: 0~7 bit address match flag.
+  *         - I2C_AddrF_FLAG: 0~7 bit address match flag.
   *         - I2C_ACKFAIL_FLAG: acknowledge failure flag.
   *         - I2C_STOPF_FLAG: stop condition generation complete flag.
   *         - I2C_TDC_FLAG: transmit data complete flag.
@@ -657,7 +657,7 @@ flag_status I2C_Flag_Get(I2C_Type *I2C_x, uint32_t flag) {
   *         I2C1, I2C2, I2C3.
   * @param  flag: specifies the flag to clear.
   *         this parameter can be any combination of the following values:
-  *         - I2C_ADDRF_FLAG: 0~7 bit address match flag.
+  *         - I2C_AddrF_FLAG: 0~7 bit address match flag.
   *         - I2C_ACKFAIL_FLAG: acknowledge failure flag.
   *         - I2C_STOPF_FLAG: stop condition generation complete flag.
   *         - I2C_BUSERR_FLAG: bus error flag.

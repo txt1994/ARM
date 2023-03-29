@@ -47,16 +47,16 @@
     ((((NT) & 1U) << 3U) | (((WB) & 1U) << 2U) | (((RA) & 1U) << 1U) | ((WA) & 1U))
 
 /** \brief Device memory type non Gathering, non Re-ordering, non Early Write Acknowledgement */
-#define ARM_MPU_ATTR_DEVICE_nGnRnE (0U)
+#define ARM_MPU_ATTR_Device_nGnRnE (0U)
 
 /** \brief Device memory type non Gathering, non Re-ordering, Early Write Acknowledgement */
-#define ARM_MPU_ATTR_DEVICE_nGnRE  (1U)
+#define ARM_MPU_ATTR_Device_nGnRE  (1U)
 
 /** \brief Device memory type non Gathering, Re-ordering, Early Write Acknowledgement */
-#define ARM_MPU_ATTR_DEVICE_nGRE   (2U)
+#define ARM_MPU_ATTR_Device_nGRE   (2U)
 
 /** \brief Device memory type Gathering, Re-ordering, Early Write Acknowledgement */
-#define ARM_MPU_ATTR_DEVICE_GRE    (3U)
+#define ARM_MPU_ATTR_Device_GRE    (3U)
 
 /** \brief Memory Attribute
 * \param O Outer memory attributes
@@ -68,7 +68,7 @@
 #define ARM_MPU_SH_NON   (0U)
 
 /** \brief Normal memory outer shareable  */
-#define ARM_MPU_SH_OUTER (2U)
+#define ARM_MPU_SH_OutER (2U)
 
 /** \brief Normal memory inner shareable  */
 #define ARM_MPU_SH_INNER (3U)
@@ -87,7 +87,7 @@
 * \oaram XN eXecute Never: Set to 1 for a non-executable memory region.
 */
 #define ARM_MPU_RBAR(BASE, SH, RO, NP, XN) \
-    (((BASE) & MPU_RBAR_BASE_Msk) | \
+    (((BASE) & MPU_RBAR_Base_Msk) | \
      (((SH) << MPU_RBAR_SH_Pos) & MPU_RBAR_SH_Msk) | \
      ((ARM_MPU_AP_(RO, NP) << MPU_RBAR_AP_Pos) & MPU_RBAR_AP_Msk) | \
      (((XN) << MPU_RBAR_XN_Pos) & MPU_RBAR_XN_Msk))
@@ -97,7 +97,7 @@
 * \param IDX The attribute index to be associated with this memory region.
 */
 #define ARM_MPU_RLAR(LIMIT, IDX) \
-    (((LIMIT) & MPU_RLAR_LIMIT_Msk) | \
+    (((LIMIT) & MPU_RLAR_Limit_Msk) | \
      (((IDX) << MPU_RLAR_AttrIndx_Pos) & MPU_RLAR_AttrIndx_Msk) | \
      (MPU_RLAR_EN_Msk))
 
@@ -109,7 +109,7 @@
 * \param IDX The attribute index to be associated with this memory region.
 */
 #define ARM_MPU_RLAR_PXN(LIMIT, PXN, IDX) \
-    (((LIMIT) & MPU_RLAR_LIMIT_Msk) | \
+    (((LIMIT) & MPU_RLAR_Limit_Msk) | \
      (((PXN) << MPU_RLAR_PXN_Pos) & MPU_RLAR_PXN_Msk) | \
      (((IDX) << MPU_RLAR_AttrIndx_Pos) & MPU_RLAR_AttrIndx_Msk) | \
      (MPU_RLAR_EN_Msk))
@@ -129,7 +129,7 @@ typedef struct {
 */
 __STATIC_INLINE void ARM_MPU_Enable(uint32_t MPU_Control) {
     __DMB();
-    MPU->CTRL = MPU_Control | MPU_CTRL_Enable_Msk;
+    MPU->CTRL = MPU_Control | MPU_Ctrl_Enable_Msk;
     #ifdef SCB_SHCSR_MEMFAULTENA_Msk
     SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
     #endif
@@ -144,7 +144,7 @@ __STATIC_INLINE void ARM_MPU_Disable(void) {
     #ifdef SCB_SHCSR_MEMFAULTENA_Msk
     SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
     #endif
-    MPU->CTRL  &= ~MPU_CTRL_Enable_Msk;
+    MPU->CTRL  &= ~MPU_Ctrl_Enable_Msk;
     __DSB();
     __ISB();
 }
@@ -155,7 +155,7 @@ __STATIC_INLINE void ARM_MPU_Disable(void) {
 */
 __STATIC_INLINE void ARM_MPU_Enable_NS(uint32_t MPU_Control) {
     __DMB();
-    MPU_NS->CTRL = MPU_Control | MPU_CTRL_Enable_Msk;
+    MPU_NS->CTRL = MPU_Control | MPU_Ctrl_Enable_Msk;
     #ifdef SCB_SHCSR_MEMFAULTENA_Msk
     SCB_NS->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
     #endif
@@ -170,7 +170,7 @@ __STATIC_INLINE void ARM_MPU_Disable_NS(void) {
     #ifdef SCB_SHCSR_MEMFAULTENA_Msk
     SCB_NS->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
     #endif
-    MPU_NS->CTRL  &= ~MPU_CTRL_Enable_Msk;
+    MPU_NS->CTRL  &= ~MPU_Ctrl_Enable_Msk;
     __DSB();
     __ISB();
 }

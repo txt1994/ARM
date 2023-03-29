@@ -358,7 +358,7 @@ extern "C"
 
 #elif defined ( __ICCARM__ )
 
-#elif defined ( __TI_ARM__ )
+#elif defined ( __Ti_ARM__ )
 
 #elif defined ( __CSMC__ )
 
@@ -479,7 +479,7 @@ extern "C"
  * @brief Macros required for SINE and COSINE Fast math approximations
  */
 
-#define FAST_MATH_TABLE_SIZE  512
+#define FAST_MATH_Table_SIZE  512
 #define FAST_MATH_Q31_SHIFT   (32 - 10)
 #define FAST_MATH_Q15_SHIFT   (16 - 10)
 #define CONTROLLER_Q31_SHIFT  (32 - 9)
@@ -507,7 +507,7 @@ extern "C"
 typedef enum {
     ARM_MATH_SUCCESS        =  0,        /**< No error */
     ARM_MATH_ARGUMENT_ERROR = -1,        /**< One or more arguments are incorrect */
-    ARM_MATH_LENGTH_ERROR   = -2,        /**< Length of data buffer is incorrect */
+    ARM_MATH_Length_ERROR   = -2,        /**< Length of data buffer is incorrect */
     ARM_MATH_SIZE_MISMATCH  = -3,        /**< Size of matrices is not compatible with the operation */
     ARM_MATH_NANINF         = -4,        /**< Not-a-number (NaN) or infinity is generated */
     ARM_MATH_SINGULAR       = -5,        /**< Input matrix is singular and cannot be inverted */
@@ -867,7 +867,7 @@ typedef int8x16_t status8x8_t;
 #define __SIMD32_Type int32_t
 #elif defined ( __ICCARM__ )
 #define __SIMD32_Type int32_t __packed
-#elif defined ( __TI_ARM__ )
+#elif defined ( __Ti_ARM__ )
 #define __SIMD32_Type int32_t
 #elif defined ( __CSMC__ )
 #define __SIMD32_Type int32_t
@@ -1136,7 +1136,7 @@ __STATIC_FORCEINLINE uint32_t __USAT(int32_t val, uint32_t sat) {
 /**
  * @brief Clips Q63 to Q31 values.
  */
-__STATIC_FORCEINLINE q31_t clip_q63_to_q31(
+__STATIC_FORCEINLINE q31_t clip_q63_To_q31(
     q63_t x) {
     return ((q31_t) (x >> 32) != ((q31_t) x >> 31)) ?
            ((0x7FFFFFFF ^ ((q31_t) (x >> 63)))) : (q31_t) x;
@@ -1145,7 +1145,7 @@ __STATIC_FORCEINLINE q31_t clip_q63_to_q31(
 /**
  * @brief Clips Q63 to Q15 values.
  */
-__STATIC_FORCEINLINE q15_t clip_q63_to_q15(
+__STATIC_FORCEINLINE q15_t clip_q63_To_q15(
     q63_t x) {
     return ((q31_t) (x >> 32) != ((q31_t) x >> 31)) ?
            ((0x7FFF ^ ((q15_t) (x >> 63)))) : (q15_t) (x >> 15);
@@ -1154,7 +1154,7 @@ __STATIC_FORCEINLINE q15_t clip_q63_to_q15(
 /**
  * @brief Clips Q31 to Q7 values.
  */
-__STATIC_FORCEINLINE q7_t clip_q31_to_q7(
+__STATIC_FORCEINLINE q7_t clip_q31_To_q7(
     q31_t x) {
     return ((q31_t) (x >> 24) != ((q31_t) x >> 23)) ?
            ((0x7F ^ ((q7_t) (x >> 31)))) : (q7_t) x;
@@ -1163,7 +1163,7 @@ __STATIC_FORCEINLINE q7_t clip_q31_to_q7(
 /**
  * @brief Clips Q31 to Q15 values.
  */
-__STATIC_FORCEINLINE q15_t clip_q31_to_q15(
+__STATIC_FORCEINLINE q15_t clip_q31_To_q15(
     q31_t x) {
     return ((q31_t) (x >> 16) != ((q31_t) x >> 15)) ?
            ((0x7FFF ^ ((q15_t) (x >> 31)))) : (q15_t) x;
@@ -1214,7 +1214,7 @@ __STATIC_FORCEINLINE uint32_t arm_recip_q31(
         tempVal = 0x7FFFFFFFu - tempVal;
         /*      1.31 with exp 1 */
         /* out = (q31_t) (((q63_t) out * tempVal) >> 30); */
-        out = clip_q63_to_q31(((q63_t) out * tempVal) >> 30);
+        out = clip_q63_To_q31(((q63_t) out * tempVal) >> 30);
     }
 
     /* write output */
@@ -1260,7 +1260,7 @@ __STATIC_FORCEINLINE uint32_t arm_recip_q15(
         tempVal = 0x7FFFu - tempVal;
         /*      1.15 with exp 1 */
         out = (q15_t) (((q31_t) out * tempVal) >> 14);
-        /* out = clip_q31_to_q15(((q31_t) out * tempVal) >> 14); */
+        /* out = clip_q31_To_q15(((q31_t) out * tempVal) >> 14); */
     }
 
     /* write output */
@@ -1295,7 +1295,7 @@ __STATIC_INLINE float32_t arm_exponent_f32(float32_t x, int32_t nb) {
  * @param[out] normalized   is the 32-bit normalized value
  * @param[out] norm         is norm scale
  */
-__STATIC_INLINE  void arm_norm_64_to_32u(uint64_t in, int32_t * normalized, int32_t *norm) {
+__STATIC_INLINE  void arm_norm_64_To_32u(uint64_t in, int32_t * normalized, int32_t *norm) {
     int32_t     n1;
     int32_t     hi = (int32_t) (in >> 32);
     int32_t     lo = (int32_t) ((in << 32) >> 32);
@@ -1342,7 +1342,7 @@ __STATIC_INLINE  void arm_norm_64_to_32u(uint64_t in, int32_t * normalized, int3
     }
 }
 
-__STATIC_INLINE q31_t arm_div_q63_to_q31(q63_t num, q31_t den) {
+__STATIC_INLINE q31_t arm_Div_q63_To_q31(q63_t num, q31_t den) {
     q31_t   result;
     uint64_t   absNum;
     int32_t   normalized;
@@ -1353,7 +1353,7 @@ __STATIC_INLINE q31_t arm_div_q63_to_q31(q63_t num, q31_t den) {
      * avoid costly 64-bit division
      */
     absNum = num > 0 ? num : -num;
-    arm_norm_64_to_32u(absNum, &normalized, &norm);
+    arm_norm_64_To_32u(absNum, &normalized, &norm);
 
     if (norm > 0)
         /*
@@ -1415,7 +1415,7 @@ __STATIC_FORCEINLINE uint32_t __QSUB8(
 __STATIC_FORCEINLINE uint32_t __QADD16(
     uint32_t x,
     uint32_t y) {
-    /*  q31_t r,     s;  without initialisation 'arm_offset_q15 test' fails  but 'intrinsic' tests pass! for armCC */
+    /*  q31_t r,     s;  without initialisation 'arm_Offset_q15 test' fails  but 'intrinsic' tests pass! for armCC */
     q31_t r = 0, s = 0;
 
     r = __SSAT(((((q31_t)x << 16) >> 16) + (((q31_t)y << 16) >> 16)), 16) & (int32_t)0x0000FFFF;
@@ -1557,7 +1557,7 @@ __STATIC_FORCEINLINE uint32_t __SMUADX(
 __STATIC_FORCEINLINE int32_t __QADD(
     int32_t x,
     int32_t y) {
-    return ((int32_t)(clip_q63_to_q31((q63_t)x + (q31_t)y)));
+    return ((int32_t)(clip_q63_To_q31((q63_t)x + (q31_t)y)));
 }
 
 
@@ -1567,7 +1567,7 @@ __STATIC_FORCEINLINE int32_t __QADD(
 __STATIC_FORCEINLINE int32_t __QSUB(
     int32_t x,
     int32_t y) {
-    return ((int32_t)(clip_q63_to_q31((q63_t)x - (q31_t)y)));
+    return ((int32_t)(clip_q63_To_q31((q63_t)x - (q31_t)y)));
 }
 
 
@@ -3655,7 +3655,7 @@ void arm_dot_prod_q31(
  * @param[out] pDst       points to the output vector
  * @param[in]  blockSize  number of samples in the vector
  */
-void arm_shift_q7(
+void arm_Shift_q7(
     const q7_t * pSrc,
     int8_t shiftBits,
     q7_t * pDst,
@@ -3669,7 +3669,7 @@ void arm_shift_q7(
  * @param[out] pDst       points to the output vector
  * @param[in]  blockSize  number of samples in the vector
  */
-void arm_shift_q15(
+void arm_Shift_q15(
     const q15_t * pSrc,
     int8_t shiftBits,
     q15_t * pDst,
@@ -3683,7 +3683,7 @@ void arm_shift_q15(
  * @param[out] pDst       points to the output vector
  * @param[in]  blockSize  number of samples in the vector
  */
-void arm_shift_q31(
+void arm_Shift_q31(
     const q31_t * pSrc,
     int8_t shiftBits,
     q31_t * pDst,
@@ -3697,7 +3697,7 @@ void arm_shift_q31(
  * @param[out] pDst       points to the output vector
  * @param[in]  blockSize  number of samples in the vector
  */
-void arm_offset_f32(
+void arm_Offset_f32(
     const float32_t * pSrc,
     float32_t offset,
     float32_t * pDst,
@@ -3711,7 +3711,7 @@ void arm_offset_f32(
  * @param[out] pDst       points to the output vector
  * @param[in]  blockSize  number of samples in the vector
  */
-void arm_offset_q7(
+void arm_Offset_q7(
     const q7_t * pSrc,
     q7_t offset,
     q7_t * pDst,
@@ -3725,7 +3725,7 @@ void arm_offset_q7(
  * @param[out] pDst       points to the output vector
  * @param[in]  blockSize  number of samples in the vector
  */
-void arm_offset_q15(
+void arm_Offset_q15(
     const q15_t * pSrc,
     q15_t offset,
     q15_t * pDst,
@@ -3739,7 +3739,7 @@ void arm_offset_q15(
  * @param[out] pDst       points to the output vector
  * @param[in]  blockSize  number of samples in the vector
  */
-void arm_offset_q31(
+void arm_Offset_q31(
     const q31_t * pSrc,
     q31_t offset,
     q31_t * pDst,
@@ -4302,7 +4302,7 @@ void arm_fir_decimate_f32(
   @param[in]     blockSize  number of input samples to process per call
   @return        execution status
                    - \ref ARM_MATH_SUCCESS      : Operation successful
-                   - \ref ARM_MATH_LENGTH_ERROR : <code>blockSize</code> is not a multiple of <code>M</code>
+                   - \ref ARM_MATH_Length_ERROR : <code>blockSize</code> is not a multiple of <code>M</code>
  */
 arm_status arm_fir_decimate_Init_f32(
     arm_fir_decimate_instance_f32 * S,
@@ -4349,7 +4349,7 @@ void arm_fir_decimate_fast_q15(
  * @param[in]     pCoeffs    points to the filter coefficients.
  * @param[in]     pState     points to the state buffer.
  * @param[in]     blockSize  number of input samples to process per call.
- * @return    The function returns ARM_MATH_SUCCESS if initialization is successful or ARM_MATH_LENGTH_ERROR if
+ * @return    The function returns ARM_MATH_SUCCESS if initialization is successful or ARM_MATH_Length_ERROR if
  * <code>blockSize</code> is not a multiple of <code>M</code>.
  */
 arm_status arm_fir_decimate_Init_q15(
@@ -4396,7 +4396,7 @@ void arm_fir_decimate_fast_q31(
  * @param[in]     pCoeffs    points to the filter coefficients.
  * @param[in]     pState     points to the state buffer.
  * @param[in]     blockSize  number of input samples to process per call.
- * @return    The function returns ARM_MATH_SUCCESS if initialization is successful or ARM_MATH_LENGTH_ERROR if
+ * @return    The function returns ARM_MATH_SUCCESS if initialization is successful or ARM_MATH_Length_ERROR if
  * <code>blockSize</code> is not a multiple of <code>M</code>.
  */
 arm_status arm_fir_decimate_Init_q31(
@@ -4461,7 +4461,7 @@ void arm_fir_interpolate_q15(
  * @param[in]     pCoeffs    points to the filter coefficient buffer.
  * @param[in]     pState     points to the state buffer.
  * @param[in]     blockSize  number of input samples to process per call.
- * @return        The function returns ARM_MATH_SUCCESS if initialization is successful or ARM_MATH_LENGTH_ERROR if
+ * @return        The function returns ARM_MATH_SUCCESS if initialization is successful or ARM_MATH_Length_ERROR if
  * the filter length <code>numTaps</code> is not a multiple of the interpolation factor <code>L</code>.
  */
 arm_status arm_fir_interpolate_Init_q15(
@@ -4495,7 +4495,7 @@ void arm_fir_interpolate_q31(
  * @param[in]     pCoeffs    points to the filter coefficient buffer.
  * @param[in]     pState     points to the state buffer.
  * @param[in]     blockSize  number of input samples to process per call.
- * @return        The function returns ARM_MATH_SUCCESS if initialization is successful or ARM_MATH_LENGTH_ERROR if
+ * @return        The function returns ARM_MATH_SUCCESS if initialization is successful or ARM_MATH_Length_ERROR if
  * the filter length <code>numTaps</code> is not a multiple of the interpolation factor <code>L</code>.
  */
 arm_status arm_fir_interpolate_Init_q31(
@@ -4529,7 +4529,7 @@ void arm_fir_interpolate_f32(
  * @param[in]     pCoeffs    points to the filter coefficient buffer.
  * @param[in]     pState     points to the state buffer.
  * @param[in]     blockSize  number of input samples to process per call.
- * @return        The function returns ARM_MATH_SUCCESS if initialization is successful or ARM_MATH_LENGTH_ERROR if
+ * @return        The function returns ARM_MATH_SUCCESS if initialization is successful or ARM_MATH_Length_ERROR if
  * the filter length <code>numTaps</code> is not a multiple of the interpolation factor <code>L</code>.
  */
 arm_status arm_fir_interpolate_Init_f32(
@@ -7525,7 +7525,7 @@ void arm_cmplx_mult_cmplx_f32(
  * @param[out] pDst       points to the Q31 output vector
  * @param[in]  blockSize  length of the input vector
  */
-void arm_float_to_q31(
+void arm_float_To_q31(
     const float32_t * pSrc,
     q31_t * pDst,
     uint32_t blockSize);
@@ -7537,7 +7537,7 @@ void arm_float_to_q31(
  * @param[out] pDst       points to the Q15 output vector
  * @param[in]  blockSize  length of the input vector
  */
-void arm_float_to_q15(
+void arm_float_To_q15(
     const float32_t * pSrc,
     q15_t * pDst,
     uint32_t blockSize);
@@ -7549,7 +7549,7 @@ void arm_float_to_q15(
  * @param[out] pDst       points to the Q7 output vector
  * @param[in]  blockSize  length of the input vector
  */
-void arm_float_to_q7(
+void arm_float_To_q7(
     const float32_t * pSrc,
     q7_t * pDst,
     uint32_t blockSize);
@@ -7561,7 +7561,7 @@ void arm_float_to_q7(
  * @param[out] pDst       is output pointer
  * @param[in]  blockSize  is the number of samples to process
  */
-void arm_q31_to_float(
+void arm_q31_To_float(
     const q31_t * pSrc,
     float32_t * pDst,
     uint32_t blockSize);
@@ -7573,7 +7573,7 @@ void arm_q31_to_float(
  * @param[out] pDst       is output pointer
  * @param[in]  blockSize  is the number of samples to process
  */
-void arm_q31_to_q15(
+void arm_q31_To_q15(
     const q31_t * pSrc,
     q15_t * pDst,
     uint32_t blockSize);
@@ -7585,7 +7585,7 @@ void arm_q31_to_q15(
  * @param[out] pDst       is output pointer
  * @param[in]  blockSize  is the number of samples to process
  */
-void arm_q31_to_q7(
+void arm_q31_To_q7(
     const q31_t * pSrc,
     q7_t * pDst,
     uint32_t blockSize);
@@ -7597,7 +7597,7 @@ void arm_q31_to_q7(
  * @param[out] pDst       is output pointer
  * @param[in]  blockSize  is the number of samples to process
  */
-void arm_q15_to_float(
+void arm_q15_To_float(
     const q15_t * pSrc,
     float32_t * pDst,
     uint32_t blockSize);
@@ -7609,7 +7609,7 @@ void arm_q15_to_float(
  * @param[out] pDst       is output pointer
  * @param[in]  blockSize  is the number of samples to process
  */
-void arm_q15_to_q31(
+void arm_q15_To_q31(
     const q15_t * pSrc,
     q31_t * pDst,
     uint32_t blockSize);
@@ -7621,7 +7621,7 @@ void arm_q15_to_q31(
  * @param[out] pDst       is output pointer
  * @param[in]  blockSize  is the number of samples to process
  */
-void arm_q15_to_q7(
+void arm_q15_To_q7(
     const q15_t * pSrc,
     q7_t * pDst,
     uint32_t blockSize);
@@ -7633,7 +7633,7 @@ void arm_q15_to_q7(
  * @param[out] pDst       is output pointer
  * @param[in]  blockSize  is the number of samples to process
  */
-void arm_q7_to_float(
+void arm_q7_To_float(
     const q7_t * pSrc,
     float32_t * pDst,
     uint32_t blockSize);
@@ -7645,7 +7645,7 @@ void arm_q7_to_float(
  * @param[out] pDst       output pointer
  * @param[in]  blockSize  number of samples to process
  */
-void arm_q7_to_q31(
+void arm_q7_To_q31(
     const q7_t * pSrc,
     q31_t * pDst,
     uint32_t blockSize);
@@ -7657,7 +7657,7 @@ void arm_q7_to_q31(
  * @param[out] pDst       output pointer
  * @param[in]  blockSize  number of samples to process
  */
-void arm_q7_to_q15(
+void arm_q7_To_q15(
     const q7_t * pSrc,
     q15_t * pDst,
     uint32_t blockSize);
@@ -7703,7 +7703,7 @@ typedef struct {
     int32_t         degree;                 /**< Polynomial degree */
     float32_t       coef0;                  /**< Polynomial constant */
     float32_t       gamma;                  /**< Gamma factor */
-} arm_svm_polynomial_instance_f32;
+} arm_svm_Polynomial_instance_f32;
 
 /**
  * @brief Instance structure for rbf SVM prediction function.
@@ -7785,7 +7785,7 @@ void arm_svm_linear_predict_f32(const arm_svm_linear_instance_f32 *S,
  */
 
 
-void arm_svm_polynomial_Init_f32(arm_svm_polynomial_instance_f32 *S,
+void arm_svm_Polynomial_Init_f32(arm_svm_Polynomial_instance_f32 *S,
                                  uint32_t nbOfSupportVectors,
                                  uint32_t vectorDimension,
                                  float32_t intercept,
@@ -7805,7 +7805,7 @@ void arm_svm_polynomial_Init_f32(arm_svm_polynomial_instance_f32 *S,
  * @return none.
  *
  */
-void arm_svm_polynomial_predict_f32(const arm_svm_polynomial_instance_f32 *S,
+void arm_svm_Polynomial_predict_f32(const arm_svm_Polynomial_instance_f32 *S,
                                     const float32_t * in,
                                     int32_t * pResult);
 
@@ -8670,23 +8670,23 @@ __STATIC_FORCEINLINE q7_t arm_bilinear_interp_q7(
 #endif
 
 /* Enter low optimization region - place directly above function definition */
-#define IAR_ONLY_LOW_OPTIMIZATION_Enter
+#define IAR_ONLY_Low_OPTIMIZATION_Enter
 
 /* Exit low optimization region - place directly after end of function definition */
-#define IAR_ONLY_LOW_OPTIMIZATION_Exit
+#define IAR_ONLY_Low_OPTIMIZATION_Exit
 
 #elif defined (__ARMCC_VERSION ) && ( __ARMCC_VERSION >= 6010050 )
 #define LOW_OPTIMIZATION_Enter
 #define LOW_OPTIMIZATION_Exit
-#define IAR_ONLY_LOW_OPTIMIZATION_Enter
-#define IAR_ONLY_LOW_OPTIMIZATION_Exit
+#define IAR_ONLY_Low_OPTIMIZATION_Enter
+#define IAR_ONLY_Low_OPTIMIZATION_Exit
 
 #elif defined ( __GNUC__ )
 #define LOW_OPTIMIZATION_Enter \
     __attribute__(( optimize("-O1") ))
 #define LOW_OPTIMIZATION_Exit
-#define IAR_ONLY_LOW_OPTIMIZATION_Enter
-#define IAR_ONLY_LOW_OPTIMIZATION_Exit
+#define IAR_ONLY_Low_OPTIMIZATION_Enter
+#define IAR_ONLY_Low_OPTIMIZATION_Exit
 
 #elif defined ( __ICCARM__ )
 /* Enter low optimization region - place directly above function definition */
@@ -8702,38 +8702,38 @@ __STATIC_FORCEINLINE q7_t arm_bilinear_interp_q7(
 
 /* Enter low optimization region - place directly above function definition */
 #if defined ( __ARM_ARCH_7EM__ )
-#define IAR_ONLY_LOW_OPTIMIZATION_Enter \
+#define IAR_ONLY_Low_OPTIMIZATION_Enter \
     _Pragma ("optimize=low")
 #else
-#define IAR_ONLY_LOW_OPTIMIZATION_Enter
+#define IAR_ONLY_Low_OPTIMIZATION_Enter
 #endif
 
 /* Exit low optimization region - place directly after end of function definition */
-#define IAR_ONLY_LOW_OPTIMIZATION_Exit
+#define IAR_ONLY_Low_OPTIMIZATION_Exit
 
-#elif defined ( __TI_ARM__ )
+#elif defined ( __Ti_ARM__ )
 #define LOW_OPTIMIZATION_Enter
 #define LOW_OPTIMIZATION_Exit
-#define IAR_ONLY_LOW_OPTIMIZATION_Enter
-#define IAR_ONLY_LOW_OPTIMIZATION_Exit
+#define IAR_ONLY_Low_OPTIMIZATION_Enter
+#define IAR_ONLY_Low_OPTIMIZATION_Exit
 
 #elif defined ( __CSMC__ )
 #define LOW_OPTIMIZATION_Enter
 #define LOW_OPTIMIZATION_Exit
-#define IAR_ONLY_LOW_OPTIMIZATION_Enter
-#define IAR_ONLY_LOW_OPTIMIZATION_Exit
+#define IAR_ONLY_Low_OPTIMIZATION_Enter
+#define IAR_ONLY_Low_OPTIMIZATION_Exit
 
 #elif defined ( __TASKING__ )
 #define LOW_OPTIMIZATION_Enter
 #define LOW_OPTIMIZATION_Exit
-#define IAR_ONLY_LOW_OPTIMIZATION_Enter
-#define IAR_ONLY_LOW_OPTIMIZATION_Exit
+#define IAR_ONLY_Low_OPTIMIZATION_Enter
+#define IAR_ONLY_Low_OPTIMIZATION_Exit
 
 #elif defined ( _MSC_VER ) || defined(__GNUC_PYTHON__)
 #define LOW_OPTIMIZATION_Enter
 #define LOW_OPTIMIZATION_Exit
-#define IAR_ONLY_LOW_OPTIMIZATION_Enter
-#define IAR_ONLY_LOW_OPTIMIZATION_Exit
+#define IAR_ONLY_Low_OPTIMIZATION_Enter
+#define IAR_ONLY_Low_OPTIMIZATION_Exit
 #endif
 
 
@@ -8748,7 +8748,7 @@ __STATIC_FORCEINLINE q7_t arm_bilinear_interp_q7(
 
 #elif defined ( __ICCARM__ )
 
-#elif defined ( __TI_ARM__ )
+#elif defined ( __Ti_ARM__ )
 
 #elif defined ( __CSMC__ )
 

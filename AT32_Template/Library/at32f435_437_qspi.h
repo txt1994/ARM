@@ -34,7 +34,7 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "at32f435_437.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -65,7 +65,7 @@ extern "C" {
 typedef enum {
     QSPI_XIPR_SEL_ModeD                    = 0x00, /*!< qspi xip read select mode d */
     QSPI_XIPR_SEL_ModeT                    = 0x01  /*!< qspi xip read select mode t */
-} QSPI_xip_Read_sel_Type;
+} QSPI_Xip_Read_sel_Type;
 
 /**
   * @brief qspi xip write access mode type
@@ -73,21 +73,21 @@ typedef enum {
 typedef enum {
     QSPI_XIPW_SEL_ModeD                    = 0x00, /*!< qspi xip write select mode d */
     QSPI_XIPW_SEL_ModeT                    = 0x01  /*!< qspi xip write select mode t */
-} QSPI_xip_Write_sel_Type;
+} QSPI_Xip_Write_sel_Type;
 
 /**
   * @brief qspi busy bit offset position in status register type
   */
 typedef enum {
-    QSPI_BUSY_OFFSET_0                     = 0x00, /*!< qspi busy bit offset position 0 */
-    QSPI_BUSY_OFFSET_1                     = 0x01, /*!< qspi busy bit offset position 1 */
-    QSPI_BUSY_OFFSET_2                     = 0x02, /*!< qspi busy bit offset position 2 */
-    QSPI_BUSY_OFFSET_3                     = 0x03, /*!< qspi busy bit offset position 3 */
-    QSPI_BUSY_OFFSET_4                     = 0x04, /*!< qspi busy bit offset position 4 */
-    QSPI_BUSY_OFFSET_5                     = 0x05, /*!< qspi busy bit offset position 5 */
-    QSPI_BUSY_OFFSET_6                     = 0x06, /*!< qspi busy bit offset position 6 */
-    QSPI_BUSY_OFFSET_7                     = 0x07  /*!< qspi busy bit offset position 7 */
-} QSPI_busy_pos_Type;
+    QSPI_Busy_Offset_0                     = 0x00, /*!< qspi busy bit offset position 0 */
+    QSPI_Busy_Offset_1                     = 0x01, /*!< qspi busy bit offset position 1 */
+    QSPI_Busy_Offset_2                     = 0x02, /*!< qspi busy bit offset position 2 */
+    QSPI_Busy_Offset_3                     = 0x03, /*!< qspi busy bit offset position 3 */
+    QSPI_Busy_Offset_4                     = 0x04, /*!< qspi busy bit offset position 4 */
+    QSPI_Busy_Offset_5                     = 0x05, /*!< qspi busy bit offset position 5 */
+    QSPI_Busy_Offset_6                     = 0x06, /*!< qspi busy bit offset position 6 */
+    QSPI_Busy_Offset_7                     = 0x07  /*!< qspi busy bit offset position 7 */
+} QSPI_Busy_pos_Type;
 
 /**
   * @brief qspi read status configure type
@@ -114,15 +114,15 @@ typedef enum {
   * @brief qspi clock division type
   */
 typedef enum {
-    QSPI_CLK_DIV_2                         = 0x00, /*!< qspi clk divide by 2 */
-    QSPI_CLK_DIV_4                         = 0x01, /*!< qspi clk divide by 4 */
-    QSPI_CLK_DIV_6                         = 0x02, /*!< qspi clk divide by 6 */
-    QSPI_CLK_DIV_8                         = 0x03, /*!< qspi clk divide by 8 */
-    QSPI_CLK_DIV_3                         = 0x04, /*!< qspi clk divide by 3 */
-    QSPI_CLK_DIV_5                         = 0x05, /*!< qspi clk divide by 5 */
-    QSPI_CLK_DIV_10                        = 0x06, /*!< qspi clk divide by 10 */
-    QSPI_CLK_DIV_12                        = 0x07  /*!< qspi clk divide by 12 */
-} QSPI_clk_div_Type;
+    QSPI_CLK_Div_2                         = 0x00, /*!< qspi clk divide by 2 */
+    QSPI_CLK_Div_4                         = 0x01, /*!< qspi clk divide by 4 */
+    QSPI_CLK_Div_6                         = 0x02, /*!< qspi clk divide by 6 */
+    QSPI_CLK_Div_8                         = 0x03, /*!< qspi clk divide by 8 */
+    QSPI_CLK_Div_3                         = 0x04, /*!< qspi clk divide by 3 */
+    QSPI_CLK_Div_5                         = 0x05, /*!< qspi clk divide by 5 */
+    QSPI_CLK_Div_10                        = 0x06, /*!< qspi clk divide by 10 */
+    QSPI_CLK_Div_12                        = 0x07  /*!< qspi clk divide by 12 */
+} QSPI_CLK_Div_Type;
 
 /**
   * @brief qspi command port address length type
@@ -148,9 +148,9 @@ typedef enum {
   * @brief qspi xip r/w address length type
   */
 typedef enum {
-    QSPI_XIP_ADDRLEN_3_BYTE                = 0x00, /*!< qspi xip address length 3 byte */
-    QSPI_XIP_ADDRLEN_4_BYTE                = 0x01  /*!< qspi xip address length 4 byte */
-} QSPI_xip_addrlen_Type;
+    QSPI_Xip_AddrLEN_3_BYTE                = 0x00, /*!< qspi xip address length 3 byte */
+    QSPI_Xip_AddrLEN_4_BYTE                = 0x01  /*!< qspi xip address length 4 byte */
+} QSPI_Xip_Addrlen_Type;
 
 /**
   * @brief qspi sckout mode type
@@ -158,7 +158,7 @@ typedef enum {
 typedef enum {
     QSPI_SCK_Mode_0                        = 0x00, /*!< qspi sck mode 0 */
     QSPI_SCK_Mode_3                        = 0x01  /*!< qspi sck mode 3 */
-} QSPI_clk_Mode_Type;
+} QSPI_CLK_Mode_Type;
 
 /**
   * @brief qspi dma tx/rx fifo threshold type
@@ -180,7 +180,7 @@ typedef struct {
     uint32_t                               address_code;            /*!< address code */
     QSPI_CMD_adrlen_Type                   address_length;          /*!< address legnth */
     uint32_t                               data_counter;            /*!< read/write data counter */
-    uint8_t                                second_dummy_cycle_Num;  /*!< number of second dummy state cycle 0~32 */
+    uint8_t                                second_dummy_Cycle_Num;  /*!< number of second dummy state cycle 0~32 */
     QSPI_operate_Mode_Type                 operation_Mode;          /*!< operation mode */
     QSPI_Read_Status_conf_Type             read_Status_Config;      /*!< config to read status */
     confirm_state                          read_Status_Enable;      /*!< config to read status */
@@ -192,20 +192,20 @@ typedef struct {
   */
 typedef struct {
     uint8_t                                read_instruction_code;         /*!< read instruction code */
-    QSPI_xip_addrlen_Type                  read_Address_length;           /*!< read address legnth */
+    QSPI_Xip_Addrlen_Type                  read_Address_length;           /*!< read address legnth */
     QSPI_operate_Mode_Type                 read_Operation_Mode;           /*!< read operation mode */
-    uint8_t                                read_Second_dummy_cycle_Num;   /*!< read number of second dummy state cycle 0~32 */
+    uint8_t                                read_Second_dummy_Cycle_Num;   /*!< read number of second dummy state cycle 0~32 */
     uint8_t                                write_instruction_code;        /*!< write instruction code */
-    QSPI_xip_addrlen_Type                  write_Address_length;          /*!< write address legnth */
+    QSPI_Xip_Addrlen_Type                  write_Address_length;          /*!< write address legnth */
     QSPI_operate_Mode_Type                 write_Operation_Mode;          /*!< write operation mode */
-    uint8_t                                write_Second_dummy_cycle_Num;  /*!< write number of second dummy state cycle 0~32 */
-    QSPI_xip_Write_sel_Type                write_Select_Mode;             /*!< write mode d or mode t selection */
+    uint8_t                                write_Second_dummy_Cycle_Num;  /*!< write number of second dummy state cycle 0~32 */
+    QSPI_Xip_Write_sel_Type                write_Select_Mode;             /*!< write mode d or mode t selection */
     uint8_t                                write_Time_counter;            /*!< write count for mode t */
     uint8_t                                write_Data_counter;            /*!< write count for mode d */
-    QSPI_xip_Read_sel_Type                 read_Select_Mode;              /*!< read mode d or mode t selection */
+    QSPI_Xip_Read_sel_Type                 read_Select_Mode;              /*!< read mode d or mode t selection */
     uint8_t                                read_Time_counter;             /*!< read count for mode t */
     uint8_t                                read_Data_counter;             /*!< read count for mode d */
-} QSPI_xip_Type;
+} QSPI_Xip_Type;
 
 /**
   * @brief type define qspi register all
@@ -466,25 +466,25 @@ typedef struct {
   * @{
   */
 
-void QSPI_encryption_Enable(QSPI_Type* QSPI_x, confirm_state new_state);
-void QSPI_sck_Mode_Set(QSPI_Type* QSPI_x, QSPI_clk_Mode_Type new_Mode);
-void QSPI_clk_Division_Set(QSPI_Type* QSPI_x, QSPI_clk_div_Type new_clkdiv);
-void QSPI_xip_cache_bypass_Set(QSPI_Type* QSPI_x, confirm_state new_state);
+void QSPI_Encryption_Enable(QSPI_Type* QSPI_x, confirm_state new_state);
+void QSPI_SCK_Mode_Set(QSPI_Type* QSPI_x, QSPI_CLK_Mode_Type new_Mode);
+void QSPI_CLK_Division_Set(QSPI_Type* QSPI_x, QSPI_CLK_Div_Type new_CLKdiv);
+void QSPI_Xip_Cache_ByPass_Set(QSPI_Type* QSPI_x, confirm_state new_state);
 void QSPI_Interrupt_Enable(QSPI_Type* QSPI_x, confirm_state new_state);
 flag_status QSPI_Flag_Get(QSPI_Type* QSPI_x, uint32_t flag);
 void QSPI_Flag_Clear(QSPI_Type* QSPI_x, uint32_t flag);
-void QSPI_DMA_RX_threshold_Set(QSPI_Type* QSPI_x, QSPI_DMA_FIFO_thod_Type new_threshold);
-void QSPI_DMA_TX_threshold_Set(QSPI_Type* QSPI_x, QSPI_DMA_FIFO_thod_Type new_threshold);
+void QSPI_DMA_RX_Threshold_Set(QSPI_Type* QSPI_x, QSPI_DMA_FIFO_thod_Type new_threshold);
+void QSPI_DMA_TX_Threshold_Set(QSPI_Type* QSPI_x, QSPI_DMA_FIFO_thod_Type new_threshold);
 void QSPI_DMA_Enable(QSPI_Type* QSPI_x, confirm_state new_state);
-void QSPI_busy_Config(QSPI_Type* QSPI_x, QSPI_busy_pos_Type busy_pos);
-void QSPI_xip_Enable(QSPI_Type* QSPI_x, confirm_state new_state);
+void QSPI_Busy_Config(QSPI_Type* QSPI_x, QSPI_Busy_pos_Type busy_pos);
+void QSPI_Xip_Enable(QSPI_Type* QSPI_x, confirm_state new_state);
 void QSPI_CMD_Operation_kick(QSPI_Type* QSPI_x, QSPI_CMD_Type* QSPI_CMD_struct);
-void QSPI_xip_Init(QSPI_Type* QSPI_x, QSPI_xip_Type* xip_Init_struct);
+void QSPI_Xip_Init(QSPI_Type* QSPI_x, QSPI_Xip_Type* xip_Init_struct);
 uint8_t QSPI_Byte_Read(QSPI_Type* QSPI_x);
-uint16_t QSPI_half_Word_Read(QSPI_Type* QSPI_x);
+uint16_t QSPI_Half_Word_Read(QSPI_Type* QSPI_x);
 uint32_t QSPI_Word_Read(QSPI_Type* QSPI_x);
 void QSPI_Word_Write(QSPI_Type* QSPI_x, uint32_t value);
-void QSPI_half_Word_Write(QSPI_Type* QSPI_x, uint16_t value);
+void QSPI_Half_Word_Write(QSPI_Type* QSPI_x, uint16_t value);
 void QSPI_Byte_Write(QSPI_Type* QSPI_x, uint8_t value);
 /**
   * @}

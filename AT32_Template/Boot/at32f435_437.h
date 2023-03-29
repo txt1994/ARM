@@ -123,7 +123,7 @@ defined (AT32F435CCT7) || defined (AT32F435CGT7) || defined (AT32F435CMT7)
   */
 #ifdef _RTE_
 #include "RTE_Components.h"
-#ifdef RTE_DEVICE_STDPERIPH_FRAMEWORK
+#ifdef RTE_Device_STDPERIPH_FrameWORK
 #define USE_STDPERIPH_DRIVER
 #endif
 #endif
@@ -173,7 +173,7 @@ typedef enum IRQn {
     SVCall_IRQn                 = -5,     /*!< 11 cortex-m4 sv call interrupt                       */
     DebugMonitor_IRQn           = -4,     /*!< 12 cortex-m4 debug monitor interrupt                 */
     PendSV_IRQn                 = -2,     /*!< 14 cortex-m4 pend sv interrupt                       */
-    SysTick_IRQn                = -1,     /*!< 15 cortex-m4 system tick interrupt                   */
+    Systick_IRQn                = -1,     /*!< 15 cortex-m4 system tick interrupt                   */
 
     /******  at32 specific interrupt numbers *********************************************************/
     WWDT_IRQn                   = 0,      /*!< window watchdog timer interrupt                      */
@@ -204,7 +204,7 @@ typedef enum IRQn {
     EXINT9_5_IRQn               = 23,     /*!< external line[9:5] interrupts                        */
     TMR1_BRK_TMR9_IRQn          = 24,     /*!< tmr1 brake interrupt                                 */
     TMR1_OVF_TMR10_IRQn         = 25,     /*!< tmr1 overflow interrupt                              */
-    TMR1_TRG_HALL_TMR11_IRQn    = 26,     /*!< tmr1 trigger and hall interrupt                      */
+    TMR1_TRG_Hall_TMR11_IRQn    = 26,     /*!< tmr1 trigger and hall interrupt                      */
     TMR1_CH_IRQn                = 27,     /*!< tmr1 channel interrupt                               */
     TMR2_Global_IRQn            = 28,     /*!< tmr2 global interrupt                                */
     TMR3_Global_IRQn            = 29,     /*!< tmr3 global interrupt                                */
@@ -223,7 +223,7 @@ typedef enum IRQn {
     OTGFS1_WKUP_IRQn            = 42,     /*!< otgfs1 wakeup from suspend through exint line interrupt */
     TMR8_BRK_TMR12_IRQn         = 43,     /*!< tmr8 brake interrupt                                 */
     TMR8_OVF_TMR13_IRQn         = 44,     /*!< tmr8 overflow interrupt                              */
-    TMR8_TRG_HALL_TMR14_IRQn    = 45,     /*!< tmr8 trigger and hall interrupt                      */
+    TMR8_TRG_Hall_TMR14_IRQn    = 45,     /*!< tmr8 trigger and hall interrupt                      */
     TMR8_CH_IRQn                = 46,     /*!< tmr8 channel interrupt                               */
     EDMA_Stream8_IRQn           = 47,     /*!< edma stream 8 global interrupt                       */
     XMC_IRQn                    = 48,     /*!< xmc global interrupt                                 */
@@ -263,7 +263,7 @@ typedef enum IRQn {
     ACC_IRQn                    = 103,    /*!< acc interrupt                                        */
     TMR20_BRK_IRQn              = 104,    /*!< tmr20 brake interrupt                                */
     TMR20_OVF_IRQn              = 105,    /*!< tmr20 overflow interrupt                             */
-    TMR20_TRG_HALL_IRQn         = 106,    /*!< tmr20 trigger and hall interrupt                     */
+    TMR20_TRG_Hall_IRQn         = 106,    /*!< tmr20 trigger and hall interrupt                     */
     TMR20_CH_IRQn               = 107,    /*!< tmr20 channel interrupt                              */
     DMA2_Channel1_IRQn          = 108,    /*!< dma2 channel 1 global interrupt                      */
     DMA2_Channel2_IRQn          = 109,    /*!< dma2 channel 2 global interrupt                      */
@@ -283,7 +283,7 @@ typedef enum IRQn {
     EXINT9_5_IRQn               = 23,     /*!< external line[9:5] interrupts                        */
     TMR1_BRK_TMR9_IRQn          = 24,     /*!< tmr1 brake interrupt                                 */
     TMR1_OVF_TMR10_IRQn         = 25,     /*!< tmr1 overflow interrupt                              */
-    TMR1_TRG_HALL_TMR11_IRQn    = 26,     /*!< tmr1 trigger and hall interrupt                      */
+    TMR1_TRG_Hall_TMR11_IRQn    = 26,     /*!< tmr1 trigger and hall interrupt                      */
     TMR1_CH_IRQn                = 27,     /*!< tmr1 channel interrupt                               */
     TMR2_Global_IRQn            = 28,     /*!< tmr2 global interrupt                                */
     TMR3_Global_IRQn            = 29,     /*!< tmr3 global interrupt                                */
@@ -302,7 +302,7 @@ typedef enum IRQn {
     OTGFS1_WKUP_IRQn            = 42,     /*!< otgfs1 wakeup from suspend through exint line interrupt */
     TMR8_BRK_TMR12_IRQn         = 43,     /*!< tmr8 brake interrupt                                 */
     TMR8_OVF_TMR13_IRQn         = 44,     /*!< tmr8 overflow interrupt                              */
-    TMR8_TRG_HALL_TMR14_IRQn    = 45,     /*!< tmr8 trigger and hall interrupt                      */
+    TMR8_TRG_Hall_TMR14_IRQn    = 45,     /*!< tmr8 trigger and hall interrupt                      */
     TMR8_CH_IRQn                = 46,     /*!< tmr8 channel interrupt                               */
     EDMA_Stream8_IRQn           = 47,     /*!< dma1 stream 8 global interrupt                       */
     XMC_IRQn                    = 48,     /*!< xmc global interrupt                                 */
@@ -344,7 +344,7 @@ typedef enum IRQn {
     ACC_IRQn                    = 103,    /*!< acc interrupt                                        */
     TMR20_BRK_IRQn              = 104,    /*!< tmr20 brake interrupt                                */
     TMR20_OVF_IRQn              = 105,    /*!< tmr20 overflow interrupt                             */
-    TMR20_TRG_HALL_IRQn         = 106,    /*!< tmr20 trigger and hall interrupt                     */
+    TMR20_TRG_Hall_IRQn         = 106,    /*!< tmr20 trigger and hall interrupt                     */
     TMR20_CH_IRQn               = 107,    /*!< tmr20 channel interrupt                              */
     DMA2_Channel1_IRQn          = 108,    /*!< dma2 channel 1 global interrupt                      */
     DMA2_Channel2_IRQn          = 109,    /*!< dma2 channel 2 global interrupt                      */
@@ -437,9 +437,9 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} error_status;
   * @{
   */
 
-#define XMC_SDRAM_MEM_BASE               ((uint32_t)0xC0000000)
-#define QSPI2_MEM_BASE                   ((uint32_t)0xB0000000)
-#define XMC_CARD_MEM_BASE                ((uint32_t)0xA8000000)
+#define XMC_SDRAM_Mem_BASE               ((uint32_t)0xC0000000)
+#define QSPI2_Mem_BASE                   ((uint32_t)0xB0000000)
+#define XMC_CARD_Mem_BASE                ((uint32_t)0xA8000000)
 #define QSPI2_REG_BASE                   ((uint32_t)0xA0002000)
 #define QSPI1_REG_BASE                   ((uint32_t)0xA0001000)
 #define XMC_REG_BASE                     ((uint32_t)0xA0000000)
@@ -448,8 +448,8 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} error_status;
 #define XMC_BANK3_REG_BASE               (XMC_REG_BASE + 0x0080)
 #define XMC_BANK4_REG_BASE               (XMC_REG_BASE + 0x00A0)
 #define XMC_SDRAM_REG_BASE               (XMC_REG_BASE + 0x0140)
-#define QSPI1_MEM_BASE                   ((uint32_t)0x90000000)
-#define XMC_MEM_BASE                     ((uint32_t)0x60000000)
+#define QSPI1_Mem_BASE                   ((uint32_t)0x90000000)
+#define XMC_Mem_BASE                     ((uint32_t)0x60000000)
 #define PERIPH_BASE                      ((uint32_t)0x40000000)
 #define SRAM_BB_BASE                     ((uint32_t)0x22000000)
 #define PERIPH_BB_BASE                   ((uint32_t)0x42000000)
@@ -526,22 +526,22 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} error_status;
 #define GPIOA_BASE                       (AHBPERIPH1_BASE + 0x0000)
 
 #define DMA1_BASE                        (AHBPERIPH1_BASE + 0x6400)
-#define DMA1_CHANNEL1_BASE               (DMA1_BASE + 0x0008)
-#define DMA1_CHANNEL2_BASE               (DMA1_BASE + 0x001C)
-#define DMA1_CHANNEL3_BASE               (DMA1_BASE + 0x0030)
-#define DMA1_CHANNEL4_BASE               (DMA1_BASE + 0x0044)
-#define DMA1_CHANNEL5_BASE               (DMA1_BASE + 0x0058)
-#define DMA1_CHANNEL6_BASE               (DMA1_BASE + 0x006C)
-#define DMA1_CHANNEL7_BASE               (DMA1_BASE + 0x0080)
+#define DMA1_ChanneL1_BASE               (DMA1_BASE + 0x0008)
+#define DMA1_ChanneL2_BASE               (DMA1_BASE + 0x001C)
+#define DMA1_ChanneL3_BASE               (DMA1_BASE + 0x0030)
+#define DMA1_ChanneL4_BASE               (DMA1_BASE + 0x0044)
+#define DMA1_ChanneL5_BASE               (DMA1_BASE + 0x0058)
+#define DMA1_ChanneL6_BASE               (DMA1_BASE + 0x006C)
+#define DMA1_ChanneL7_BASE               (DMA1_BASE + 0x0080)
 
 #define DMA1MUX_BASE                     (DMA1_BASE + 0x0104)
-#define DMA1MUX_CHANNEL1_BASE            (DMA1MUX_BASE)
-#define DMA1MUX_CHANNEL2_BASE            (DMA1MUX_BASE + 0x0004)
-#define DMA1MUX_CHANNEL3_BASE            (DMA1MUX_BASE + 0x0008)
-#define DMA1MUX_CHANNEL4_BASE            (DMA1MUX_BASE + 0x000C)
-#define DMA1MUX_CHANNEL5_BASE            (DMA1MUX_BASE + 0x0010)
-#define DMA1MUX_CHANNEL6_BASE            (DMA1MUX_BASE + 0x0014)
-#define DMA1MUX_CHANNEL7_BASE            (DMA1MUX_BASE + 0x0018)
+#define DMA1MUX_ChanneL1_BASE            (DMA1MUX_BASE)
+#define DMA1MUX_ChanneL2_BASE            (DMA1MUX_BASE + 0x0004)
+#define DMA1MUX_ChanneL3_BASE            (DMA1MUX_BASE + 0x0008)
+#define DMA1MUX_ChanneL4_BASE            (DMA1MUX_BASE + 0x000C)
+#define DMA1MUX_ChanneL5_BASE            (DMA1MUX_BASE + 0x0010)
+#define DMA1MUX_ChanneL6_BASE            (DMA1MUX_BASE + 0x0014)
+#define DMA1MUX_ChanneL7_BASE            (DMA1MUX_BASE + 0x0018)
 
 #define DMA1MUX_GENERATOR1_BASE          (DMA1_BASE + 0x0120)
 #define DMA1MUX_GENERATOR2_BASE          (DMA1_BASE + 0x0124)
@@ -549,22 +549,22 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} error_status;
 #define DMA1MUX_GENERATOR4_BASE          (DMA1_BASE + 0x012C)
 
 #define DMA2_BASE                        (AHBPERIPH1_BASE + 0x6600)
-#define DMA2_CHANNEL1_BASE               (DMA2_BASE + 0x0008)
-#define DMA2_CHANNEL2_BASE               (DMA2_BASE + 0x001C)
-#define DMA2_CHANNEL3_BASE               (DMA2_BASE + 0x0030)
-#define DMA2_CHANNEL4_BASE               (DMA2_BASE + 0x0044)
-#define DMA2_CHANNEL5_BASE               (DMA2_BASE + 0x0058)
-#define DMA2_CHANNEL6_BASE               (DMA2_BASE + 0x006C)
-#define DMA2_CHANNEL7_BASE               (DMA2_BASE + 0x0080)
+#define DMA2_ChanneL1_BASE               (DMA2_BASE + 0x0008)
+#define DMA2_ChanneL2_BASE               (DMA2_BASE + 0x001C)
+#define DMA2_ChanneL3_BASE               (DMA2_BASE + 0x0030)
+#define DMA2_ChanneL4_BASE               (DMA2_BASE + 0x0044)
+#define DMA2_ChanneL5_BASE               (DMA2_BASE + 0x0058)
+#define DMA2_ChanneL6_BASE               (DMA2_BASE + 0x006C)
+#define DMA2_ChanneL7_BASE               (DMA2_BASE + 0x0080)
 
 #define DMA2MUX_BASE                     (DMA2_BASE + 0x0104)
-#define DMA2MUX_CHANNEL1_BASE            (DMA2MUX_BASE)
-#define DMA2MUX_CHANNEL2_BASE            (DMA2MUX_BASE + 0x0004)
-#define DMA2MUX_CHANNEL3_BASE            (DMA2MUX_BASE + 0x0008)
-#define DMA2MUX_CHANNEL4_BASE            (DMA2MUX_BASE + 0x000C)
-#define DMA2MUX_CHANNEL5_BASE            (DMA2MUX_BASE + 0x0010)
-#define DMA2MUX_CHANNEL6_BASE            (DMA2MUX_BASE + 0x0014)
-#define DMA2MUX_CHANNEL7_BASE            (DMA2MUX_BASE + 0x0018)
+#define DMA2MUX_ChanneL1_BASE            (DMA2MUX_BASE)
+#define DMA2MUX_ChanneL2_BASE            (DMA2MUX_BASE + 0x0004)
+#define DMA2MUX_ChanneL3_BASE            (DMA2MUX_BASE + 0x0008)
+#define DMA2MUX_ChanneL4_BASE            (DMA2MUX_BASE + 0x000C)
+#define DMA2MUX_ChanneL5_BASE            (DMA2MUX_BASE + 0x0010)
+#define DMA2MUX_ChanneL6_BASE            (DMA2MUX_BASE + 0x0014)
+#define DMA2MUX_ChanneL7_BASE            (DMA2MUX_BASE + 0x0018)
 
 #define DMA2MUX_GENERATOR1_BASE          (DMA2_BASE + 0x0120)
 #define DMA2MUX_GENERATOR2_BASE          (DMA2_BASE + 0x0124)
@@ -602,14 +602,14 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} error_status;
 #define EDMA_STREAM8_LL_BASE             (EDMA_LL_BASE + 0x0020)
 
 #define EDMAMUX_BASE                     (EDMA_BASE + 0x0140)
-#define EDMAMUX_CHANNEL1_BASE            (EDMAMUX_BASE)
-#define EDMAMUX_CHANNEL2_BASE            (EDMAMUX_BASE + 0x0004)
-#define EDMAMUX_CHANNEL3_BASE            (EDMAMUX_BASE + 0x0008)
-#define EDMAMUX_CHANNEL4_BASE            (EDMAMUX_BASE + 0x000C)
-#define EDMAMUX_CHANNEL5_BASE            (EDMAMUX_BASE + 0x0010)
-#define EDMAMUX_CHANNEL6_BASE            (EDMAMUX_BASE + 0x0014)
-#define EDMAMUX_CHANNEL7_BASE            (EDMAMUX_BASE + 0x0018)
-#define EDMAMUX_CHANNEL8_BASE            (EDMAMUX_BASE + 0x001C)
+#define EDMAMUX_ChanneL1_BASE            (EDMAMUX_BASE)
+#define EDMAMUX_ChanneL2_BASE            (EDMAMUX_BASE + 0x0004)
+#define EDMAMUX_ChanneL3_BASE            (EDMAMUX_BASE + 0x0008)
+#define EDMAMUX_ChanneL4_BASE            (EDMAMUX_BASE + 0x000C)
+#define EDMAMUX_ChanneL5_BASE            (EDMAMUX_BASE + 0x0010)
+#define EDMAMUX_ChanneL6_BASE            (EDMAMUX_BASE + 0x0014)
+#define EDMAMUX_ChanneL7_BASE            (EDMAMUX_BASE + 0x0018)
+#define EDMAMUX_ChanneL8_BASE            (EDMAMUX_BASE + 0x001C)
 
 #define EDMAMUX_GENERATOR1_BASE          (EDMA_BASE + 0x0160)
 #define EDMAMUX_GENERATOR2_BASE          (EDMA_BASE + 0x0164)
@@ -687,22 +687,22 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} error_status;
 #define GPIOA_BASE                       (AHBPERIPH1_BASE + 0x0000)
 
 #define DMA1_BASE                        (AHBPERIPH1_BASE + 0x6400)
-#define DMA1_CHANNEL1_BASE               (DMA1_BASE + 0x0008)
-#define DMA1_CHANNEL2_BASE               (DMA1_BASE + 0x001C)
-#define DMA1_CHANNEL3_BASE               (DMA1_BASE + 0x0030)
-#define DMA1_CHANNEL4_BASE               (DMA1_BASE + 0x0044)
-#define DMA1_CHANNEL5_BASE               (DMA1_BASE + 0x0058)
-#define DMA1_CHANNEL6_BASE               (DMA1_BASE + 0x006C)
-#define DMA1_CHANNEL7_BASE               (DMA1_BASE + 0x0080)
+#define DMA1_ChanneL1_BASE               (DMA1_BASE + 0x0008)
+#define DMA1_ChanneL2_BASE               (DMA1_BASE + 0x001C)
+#define DMA1_ChanneL3_BASE               (DMA1_BASE + 0x0030)
+#define DMA1_ChanneL4_BASE               (DMA1_BASE + 0x0044)
+#define DMA1_ChanneL5_BASE               (DMA1_BASE + 0x0058)
+#define DMA1_ChanneL6_BASE               (DMA1_BASE + 0x006C)
+#define DMA1_ChanneL7_BASE               (DMA1_BASE + 0x0080)
 
 #define DMA1MUX_BASE                     (DMA1_BASE + 0x0104)
-#define DMA1MUX_CHANNEL1_BASE            (DMA1MUX_BASE)
-#define DMA1MUX_CHANNEL2_BASE            (DMA1MUX_BASE + 0x0004)
-#define DMA1MUX_CHANNEL3_BASE            (DMA1MUX_BASE + 0x0008)
-#define DMA1MUX_CHANNEL4_BASE            (DMA1MUX_BASE + 0x000C)
-#define DMA1MUX_CHANNEL5_BASE            (DMA1MUX_BASE + 0x0010)
-#define DMA1MUX_CHANNEL6_BASE            (DMA1MUX_BASE + 0x0014)
-#define DMA1MUX_CHANNEL7_BASE            (DMA1MUX_BASE + 0x0018)
+#define DMA1MUX_ChanneL1_BASE            (DMA1MUX_BASE)
+#define DMA1MUX_ChanneL2_BASE            (DMA1MUX_BASE + 0x0004)
+#define DMA1MUX_ChanneL3_BASE            (DMA1MUX_BASE + 0x0008)
+#define DMA1MUX_ChanneL4_BASE            (DMA1MUX_BASE + 0x000C)
+#define DMA1MUX_ChanneL5_BASE            (DMA1MUX_BASE + 0x0010)
+#define DMA1MUX_ChanneL6_BASE            (DMA1MUX_BASE + 0x0014)
+#define DMA1MUX_ChanneL7_BASE            (DMA1MUX_BASE + 0x0018)
 
 #define DMA1MUX_GENERATOR1_BASE          (DMA1_BASE + 0x0120)
 #define DMA1MUX_GENERATOR2_BASE          (DMA1_BASE + 0x0124)
@@ -710,22 +710,22 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} error_status;
 #define DMA1MUX_GENERATOR4_BASE          (DMA1_BASE + 0x012C)
 
 #define DMA2_BASE                        (AHBPERIPH1_BASE + 0x6600)
-#define DMA2_CHANNEL1_BASE               (DMA2_BASE + 0x0008)
-#define DMA2_CHANNEL2_BASE               (DMA2_BASE + 0x001C)
-#define DMA2_CHANNEL3_BASE               (DMA2_BASE + 0x0030)
-#define DMA2_CHANNEL4_BASE               (DMA2_BASE + 0x0044)
-#define DMA2_CHANNEL5_BASE               (DMA2_BASE + 0x0058)
-#define DMA2_CHANNEL6_BASE               (DMA2_BASE + 0x006C)
-#define DMA2_CHANNEL7_BASE               (DMA2_BASE + 0x0080)
+#define DMA2_ChanneL1_BASE               (DMA2_BASE + 0x0008)
+#define DMA2_ChanneL2_BASE               (DMA2_BASE + 0x001C)
+#define DMA2_ChanneL3_BASE               (DMA2_BASE + 0x0030)
+#define DMA2_ChanneL4_BASE               (DMA2_BASE + 0x0044)
+#define DMA2_ChanneL5_BASE               (DMA2_BASE + 0x0058)
+#define DMA2_ChanneL6_BASE               (DMA2_BASE + 0x006C)
+#define DMA2_ChanneL7_BASE               (DMA2_BASE + 0x0080)
 
 #define DMA2MUX_BASE                     (DMA2_BASE + 0x0104)
-#define DMA2MUX_CHANNEL1_BASE            (DMA2MUX_BASE)
-#define DMA2MUX_CHANNEL2_BASE            (DMA2MUX_BASE + 0x0004)
-#define DMA2MUX_CHANNEL3_BASE            (DMA2MUX_BASE + 0x0008)
-#define DMA2MUX_CHANNEL4_BASE            (DMA2MUX_BASE + 0x000C)
-#define DMA2MUX_CHANNEL5_BASE            (DMA2MUX_BASE + 0x0010)
-#define DMA2MUX_CHANNEL6_BASE            (DMA2MUX_BASE + 0x0014)
-#define DMA2MUX_CHANNEL7_BASE            (DMA2MUX_BASE + 0x0018)
+#define DMA2MUX_ChanneL1_BASE            (DMA2MUX_BASE)
+#define DMA2MUX_ChanneL2_BASE            (DMA2MUX_BASE + 0x0004)
+#define DMA2MUX_ChanneL3_BASE            (DMA2MUX_BASE + 0x0008)
+#define DMA2MUX_ChanneL4_BASE            (DMA2MUX_BASE + 0x000C)
+#define DMA2MUX_ChanneL5_BASE            (DMA2MUX_BASE + 0x0010)
+#define DMA2MUX_ChanneL6_BASE            (DMA2MUX_BASE + 0x0014)
+#define DMA2MUX_ChanneL7_BASE            (DMA2MUX_BASE + 0x0018)
 
 #define DMA2MUX_GENERATOR1_BASE          (DMA2_BASE + 0x0120)
 #define DMA2MUX_GENERATOR2_BASE          (DMA2_BASE + 0x0124)
@@ -763,14 +763,14 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} error_status;
 #define EDMA_STREAM8_LL_BASE             (EDMA_LL_BASE + 0x0020)
 
 #define EDMAMUX_BASE                     (EDMA_BASE + 0x0140)
-#define EDMAMUX_CHANNEL1_BASE            (EDMAMUX_BASE)
-#define EDMAMUX_CHANNEL2_BASE            (EDMAMUX_BASE + 0x0004)
-#define EDMAMUX_CHANNEL3_BASE            (EDMAMUX_BASE + 0x0008)
-#define EDMAMUX_CHANNEL4_BASE            (EDMAMUX_BASE + 0x000C)
-#define EDMAMUX_CHANNEL5_BASE            (EDMAMUX_BASE + 0x0010)
-#define EDMAMUX_CHANNEL6_BASE            (EDMAMUX_BASE + 0x0014)
-#define EDMAMUX_CHANNEL7_BASE            (EDMAMUX_BASE + 0x0018)
-#define EDMAMUX_CHANNEL8_BASE            (EDMAMUX_BASE + 0x001C)
+#define EDMAMUX_ChanneL1_BASE            (EDMAMUX_BASE)
+#define EDMAMUX_ChanneL2_BASE            (EDMAMUX_BASE + 0x0004)
+#define EDMAMUX_ChanneL3_BASE            (EDMAMUX_BASE + 0x0008)
+#define EDMAMUX_ChanneL4_BASE            (EDMAMUX_BASE + 0x000C)
+#define EDMAMUX_ChanneL5_BASE            (EDMAMUX_BASE + 0x0010)
+#define EDMAMUX_ChanneL6_BASE            (EDMAMUX_BASE + 0x0014)
+#define EDMAMUX_ChanneL7_BASE            (EDMAMUX_BASE + 0x0018)
+#define EDMAMUX_ChanneL8_BASE            (EDMAMUX_BASE + 0x001C)
 
 #define EDMAMUX_GENERATOR1_BASE          (EDMA_BASE + 0x0160)
 #define EDMAMUX_GENERATOR2_BASE          (EDMA_BASE + 0x0164)

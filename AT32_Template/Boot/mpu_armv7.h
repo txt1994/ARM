@@ -85,7 +85,7 @@
 * \param IsCacheable       Region is cacheable, i.e. its value may be kept in cache.
 * \param IsBufferable      Region is bufferable, i.e. using write-back caching. Cacheable but non-bufferable regions use write-through policy.
 */
-#define ARM_MPU_ACCESS_(TypeExtField, IsShareable, IsCacheable, IsBufferable)   \
+#define ARM_MPU_Access_(TypeExtField, IsShareable, IsCacheable, IsBufferable)   \
     ((((TypeExtField) << MPU_RASR_TEX_Pos) & MPU_RASR_TEX_Msk)                  | \
      (((IsShareable)  << MPU_RASR_S_Pos)   & MPU_RASR_S_Msk)                    | \
      (((IsCacheable)  << MPU_RASR_C_Pos)   & MPU_RASR_C_Msk)                    | \
@@ -96,7 +96,7 @@
 *
 * \param DisableExec       Instruction access disable bit, 1= disable instruction fetches.
 * \param AccessPermission  Data access permissions, allows you to configure read/write access for User and Privileged mode.
-* \param AccessAttributes  Memory access attribution, see \ref ARM_MPU_ACCESS_.
+* \param AccessAttributes  Memory access attribution, see \ref ARM_MPU_Access_.
 * \param SubRegionDisable  Sub-region disable field.
 * \param Size              Region size of the region to be configured, for example 4K, 8K.
 */
@@ -121,7 +121,7 @@
 * \param Size              Region size of the region to be configured, for example 4K, 8K.
 */
 #define ARM_MPU_RASR(DisableExec, AccessPermission, TypeExtField, IsShareable, IsCacheable, IsBufferable, SubRegionDisable, Size) \
-    ARM_MPU_RASR_EX(DisableExec, AccessPermission, ARM_MPU_ACCESS_(TypeExtField, IsShareable, IsCacheable, IsBufferable), SubRegionDisable, Size)
+    ARM_MPU_RASR_EX(DisableExec, AccessPermission, ARM_MPU_Access_(TypeExtField, IsShareable, IsCacheable, IsBufferable), SubRegionDisable, Size)
 
 /**
 * MPU Memory Access Attribute for strongly ordered memory.
@@ -130,7 +130,7 @@
 *  - Non-cacheable
 *  - Non-bufferable
 */
-#define ARM_MPU_ACCESS_ORDERED ARM_MPU_ACCESS_(0U, 1U, 0U, 0U)
+#define ARM_MPU_Access_ORDERED ARM_MPU_Access_(0U, 1U, 0U, 0U)
 
 /**
 * MPU Memory Access Attribute for device memory.
@@ -141,7 +141,7 @@
 *
 * \param IsShareable Configures the device memory as shareable or non-shareable.
 */
-#define ARM_MPU_ACCESS_DEVICE(IsShareable) ((IsShareable) ? ARM_MPU_ACCESS_(0U, 1U, 0U, 1U) : ARM_MPU_ACCESS_(2U, 0U, 0U, 0U))
+#define ARM_MPU_Access_DEVICE(IsShareable) ((IsShareable) ? ARM_MPU_Access_(0U, 1U, 0U, 1U) : ARM_MPU_Access_(2U, 0U, 0U, 0U))
 
 /**
 * MPU Memory Access Attribute for normal memory.
@@ -154,7 +154,7 @@
 * \param InnerCp Configures the inner cache policy.
 * \param IsShareable Configures the memory as shareable or non-shareable.
 */
-#define ARM_MPU_ACCESS_NORMAL(OuterCp, InnerCp, IsShareable) ARM_MPU_ACCESS_((4U | (OuterCp)), IsShareable, ((InnerCp) >> 1U), ((InnerCp) & 1U))
+#define ARM_MPU_Access_NORMAL(OuterCp, InnerCp, IsShareable) ARM_MPU_Access_((4U | (OuterCp)), IsShareable, ((InnerCp) >> 1U), ((InnerCp) & 1U))
 
 /**
 * MPU Memory Access Attribute non-cacheable policy.
@@ -190,7 +190,7 @@ typedef struct {
 */
 __STATIC_INLINE void ARM_MPU_Enable(uint32_t MPU_Control) {
     __DMB();
-    MPU->CTRL = MPU_Control | MPU_CTRL_Enable_Msk;
+    MPU->CTRL = MPU_Control | MPU_Ctrl_Enable_Msk;
     #ifdef SCB_SHCSR_MEMFAULTENA_Msk
     SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
     #endif
@@ -205,7 +205,7 @@ __STATIC_INLINE void ARM_MPU_Disable(void) {
     #ifdef SCB_SHCSR_MEMFAULTENA_Msk
     SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
     #endif
-    MPU->CTRL  &= ~MPU_CTRL_Enable_Msk;
+    MPU->CTRL  &= ~MPU_Ctrl_Enable_Msk;
     __DSB();
     __ISB();
 }

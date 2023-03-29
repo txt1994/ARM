@@ -58,13 +58,13 @@
 
 /* Define compiler macros for CPU architecture, used in CMSIS 5.
  */
-#if __ARM_ARCH_6M__ || __ARM_ARCH_7M__ || __ARM_ARCH_7EM__ || __ARM_ARCH_8M_BASE__ || __ARM_ARCH_8M_MAIN__
+#if __ARM_ARCH_6M__ || __ARM_ARCH_7M__ || __ARM_ARCH_7EM__ || __ARM_ARCH_8M_Base__ || __ARM_ARCH_8M_MAIN__
     /* Macros already defined */
 #else
     #if defined(__ARM8M_MAINLINE__) || defined(__ARM8EM_MAINLINE__)
         #define __ARM_ARCH_8M_MAIN__ 1
     #elif defined(__ARM8M_BASELINE__)
-        #define __ARM_ARCH_8M_BASE__ 1
+        #define __ARM_ARCH_8M_Base__ 1
     #elif defined(__ARM_ARCH_PROFILE) && __ARM_ARCH_PROFILE == 'M'
         #if __ARM_ARCH == 6
             #define __ARM_ARCH_6M__ 1
@@ -80,18 +80,18 @@
 
 /* Alternativ core deduction for older ICCARM's */
 #if !defined(__ARM_ARCH_6M__) && !defined(__ARM_ARCH_7M__) && !defined(__ARM_ARCH_7EM__) && \
-    !defined(__ARM_ARCH_8M_BASE__) && !defined(__ARM_ARCH_8M_MAIN__)
-    #if defined(__ARM6M__) && (__CORE__ == __ARM6M__)
+    !defined(__ARM_ARCH_8M_Base__) && !defined(__ARM_ARCH_8M_MAIN__)
+    #if defined(__ARM6M__) && (__Core__ == __ARM6M__)
         #define __ARM_ARCH_6M__ 1
-    #elif defined(__ARM7M__) && (__CORE__ == __ARM7M__)
+    #elif defined(__ARM7M__) && (__Core__ == __ARM7M__)
         #define __ARM_ARCH_7M__ 1
-    #elif defined(__ARM7EM__) && (__CORE__ == __ARM7EM__)
+    #elif defined(__ARM7EM__) && (__Core__ == __ARM7EM__)
         #define __ARM_ARCH_7EM__  1
-    #elif defined(__ARM8M_BASELINE__) && (__CORE == __ARM8M_BASELINE__)
-        #define __ARM_ARCH_8M_BASE__ 1
-    #elif defined(__ARM8M_MAINLINE__) && (__CORE == __ARM8M_MAINLINE__)
+    #elif defined(__ARM8M_BASELINE__) && (__Core == __ARM8M_BASELINE__)
+        #define __ARM_ARCH_8M_Base__ 1
+    #elif defined(__ARM8M_MAINLINE__) && (__Core == __ARM8M_MAINLINE__)
         #define __ARM_ARCH_8M_MAIN__ 1
-    #elif defined(__ARM8EM_MAINLINE__) && (__CORE == __ARM8EM_MAINLINE__)
+    #elif defined(__ARM8EM_MAINLINE__) && (__Core == __ARM8EM_MAINLINE__)
         #define __ARM_ARCH_8M_MAIN__ 1
     #else
         #error "Unknown target."
@@ -102,7 +102,7 @@
 
 #if defined(__ARM_ARCH_6M__) && __ARM_ARCH_6M__==1
     #define __IAR_M0_FAMILY  1
-#elif defined(__ARM_ARCH_8M_BASE__) && __ARM_ARCH_8M_BASE__==1
+#elif defined(__ARM_ARCH_8M_Base__) && __ARM_ARCH_8M_Base__==1
     #define __IAR_M0_FAMILY  1
 #else
     #define __IAR_M0_FAMILY  0
@@ -256,12 +256,12 @@ __packed struct  __iar_u32 {
     #define __STACK_LIMIT             CSTACK$$Base
 #endif
 
-#ifndef __VECTOR_TABLE
-    #define __VECTOR_TABLE            __vector_table
+#ifndef __Vector_TABLE
+    #define __Vector_TABLE            __Vector_table
 #endif
 
-#ifndef __VECTOR_TABLE_ATTRIBUTE
-    #define __VECTOR_TABLE_ATTRIBUTE  @".intvec"
+#ifndef __Vector_Table_ATTRIBUTE
+    #define __Vector_Table_ATTRIBUTE  @".intvec"
 #endif
 
 #ifndef __ICCARM_INTRINSICS_VERSION__
@@ -289,9 +289,9 @@ __packed struct  __iar_u32 {
 #include "iccarm_builtin.h"
 
 #define __Disable_fault_irq __iar_builtin_Disable_fiq
-#define __Disable_irq       __iar_builtin_Disable_interrupt
+#define __Disable_irq       __iar_builtin_Disable_Interrupt
 #define __Enable_fault_irq  __iar_builtin_Enable_fiq
-#define __Enable_irq        __iar_builtin_Enable_interrupt
+#define __Enable_irq        __iar_builtin_Enable_Interrupt
 #define __arm_rsr           __iar_builtin_rsr
 #define __arm_wsr           __iar_builtin_wsr
 
@@ -569,8 +569,8 @@ __STATIC_INLINE  uint32_t __Get_APSR(void) {
 #pragma diag_suppress=Pe940
 #pragma diag_suppress=Pe177
 
-#define __Enable_irq    __Enable_interrupt
-#define __Disable_irq   __Disable_interrupt
+#define __Enable_irq    __Enable_Interrupt
+#define __Disable_irq   __Disable_Interrupt
 #define __NOP           __no_operation
 
 #define __Get_xPSR      __Get_PSR
@@ -612,7 +612,7 @@ __IAR_FT uint32_t __ROR(uint32_t op1, uint32_t op2) {
 }
 
 #if ((defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
-(defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    )
+(defined (__ARM_ARCH_8M_Base__ ) && (__ARM_ARCH_8M_Base__ == 1))    )
 
 __IAR_FT uint32_t __Get_MSPLIM(void) {
     uint32_t res;
@@ -759,7 +759,7 @@ __IAR_FT void   __TZ_Set_MSPLIM_NS(uint32_t value) {
     __asm volatile("MSR      MSPLIM_NS,%0" :: "r" (value));
 }
 
-#endif /* __ARM_ARCH_8M_MAIN__ or __ARM_ARCH_8M_BASE__ */
+#endif /* __ARM_ARCH_8M_MAIN__ or __ARM_ARCH_8M_Base__ */
 
 #endif   /* __ICCARM_INTRINSICS_VERSION__ == 2 */
 
@@ -831,7 +831,7 @@ __IAR_FT void __STRT(uint32_t value, volatile uint32_t *addr) {
 #endif /* (__CORTEX_M >= 0x03) */
 
 #if ((defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
-(defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    )
+(defined (__ARM_ARCH_8M_Base__ ) && (__ARM_ARCH_8M_Base__ == 1))    )
 
 
 __IAR_FT uint8_t __LDAB(volatile uint8_t *ptr) {
@@ -900,7 +900,7 @@ __IAR_FT uint32_t __STLEX(uint32_t value, volatile uint32_t *ptr) {
     return res;
 }
 
-#endif /* __ARM_ARCH_8M_MAIN__ or __ARM_ARCH_8M_BASE__ */
+#endif /* __ARM_ARCH_8M_MAIN__ or __ARM_ARCH_8M_Base__ */
 
 #undef __IAR_FT
 #undef __IAR_M0_FAMILY

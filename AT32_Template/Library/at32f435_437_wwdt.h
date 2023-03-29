@@ -34,7 +34,7 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "at32f435_437.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -61,10 +61,10 @@ extern "C" {
   * @brief wwdt division type
   */
 typedef enum {
-    WWDT_PCLK1_DIV_4096                    = 0x00, /*!< wwdt counter clock = (pclk1/4096)/1) */
-    WWDT_PCLK1_DIV_8192                    = 0x01, /*!< wwdt counter clock = (pclk1/4096)/2) */
-    WWDT_PCLK1_DIV_16384                   = 0x02, /*!< wwdt counter clock = (pclk1/4096)/4) */
-    WWDT_PCLK1_DIV_32768                   = 0x03  /*!< wwdt counter clock = (pclk1/4096)/8) */
+    WWDT_PCLK1_Div_4096                    = 0x00, /*!< wwdt counter clock = (pclk1/4096)/1) */
+    WWDT_PCLK1_Div_8192                    = 0x01, /*!< wwdt counter clock = (pclk1/4096)/2) */
+    WWDT_PCLK1_Div_16384                   = 0x02, /*!< wwdt counter clock = (pclk1/4096)/4) */
+    WWDT_PCLK1_Div_32768                   = 0x03  /*!< wwdt counter clock = (pclk1/4096)/8) */
 } wWDT_Division_Type;
 
 /**

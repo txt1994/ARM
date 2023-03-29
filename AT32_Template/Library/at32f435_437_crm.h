@@ -34,7 +34,7 @@ extern "C" {
 /* includes ------------------------------------------------------------------*/
 #include "at32f435_437.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -50,40 +50,40 @@ extern "C" {
   * @{
   */
 
-#define CRM_HICK_STABLE_FLAG             MAKE_VALUE(0x00, 1)  /*!< high speed internal clock stable flag */
-#define CRM_HEXT_STABLE_FLAG             MAKE_VALUE(0x00, 17) /*!< high speed external crystal stable flag */
-#define CRM_PLL_STABLE_FLAG              MAKE_VALUE(0x00, 25) /*!< phase locking loop stable flag */
-#define CRM_LEXT_STABLE_FLAG             MAKE_VALUE(0x70, 1)  /*!< low speed external crystal stable flag */
-#define CRM_LICK_STABLE_FLAG             MAKE_VALUE(0x74, 1)  /*!< low speed internal clock stable flag */
+#define CRM_HICK_Stable_FLAG             MAKE_VALUE(0x00, 1)  /*!< high speed internal clock stable flag */
+#define CRM_Hext_Stable_FLAG             MAKE_VALUE(0x00, 17) /*!< high speed external crystal stable flag */
+#define CRM_PLL_Stable_FLAG              MAKE_VALUE(0x00, 25) /*!< phase locking loop stable flag */
+#define CRM_Lext_Stable_FLAG             MAKE_VALUE(0x70, 1)  /*!< low speed external crystal stable flag */
+#define CRM_LICK_Stable_FLAG             MAKE_VALUE(0x74, 1)  /*!< low speed internal clock stable flag */
 #define CRM_All_Reset_FLAG               MAKE_VALUE(0x74, 24) /*!< all reset flag */
 #define CRM_NRST_Reset_FLAG              MAKE_VALUE(0x74, 26) /*!< nrst pin reset flag */
 #define CRM_POR_Reset_FLAG               MAKE_VALUE(0x74, 27) /*!< power on reset flag */
 #define CRM_SW_Reset_FLAG                MAKE_VALUE(0x74, 28) /*!< software reset flag */
 #define CRM_WDT_Reset_FLAG               MAKE_VALUE(0x74, 29) /*!< watchdog timer reset flag */
 #define CRM_WWDT_Reset_FLAG              MAKE_VALUE(0x74, 30) /*!< window watchdog timer reset flag */
-#define CRM_LOWPOWER_Reset_FLAG          MAKE_VALUE(0x74, 31) /*!< low-power reset flag */
+#define CRM_LowPower_Reset_FLAG          MAKE_VALUE(0x74, 31) /*!< low-power reset flag */
 #define CRM_LICK_ReadY_INT_FLAG          MAKE_VALUE(0x0C, 0)  /*!< low speed internal clock stable interrupt ready flag */
-#define CRM_LEXT_ReadY_INT_FLAG          MAKE_VALUE(0x0C, 1)  /*!< low speed external crystal stable interrupt ready flag */
+#define CRM_Lext_ReadY_INT_FLAG          MAKE_VALUE(0x0C, 1)  /*!< low speed external crystal stable interrupt ready flag */
 #define CRM_HICK_ReadY_INT_FLAG          MAKE_VALUE(0x0C, 2)  /*!< high speed internal clock stable interrupt ready flag */
-#define CRM_HEXT_ReadY_INT_FLAG          MAKE_VALUE(0x0C, 3)  /*!< high speed external crystal stable interrupt ready flag */
+#define CRM_Hext_ReadY_INT_FLAG          MAKE_VALUE(0x0C, 3)  /*!< high speed external crystal stable interrupt ready flag */
 #define CRM_PLL_ReadY_INT_FLAG           MAKE_VALUE(0x0C, 4)  /*!< phase locking loop stable interrupt ready flag */
-#define CRM_Clock_FAILURE_INT_FLAG       MAKE_VALUE(0x0C, 7)  /*!< clock failure interrupt ready flag */
+#define CRM_Clock_Failure_INT_FLAG       MAKE_VALUE(0x0C, 7)  /*!< clock failure interrupt ready flag */
 
 /**
   * @}
   */
 
-/** @defgroup CRM_interrupts_definition
+/** @defgroup CRM_Interrupts_definition
   * @brief crm interrupt
   * @{
   */
 
-#define CRM_LICK_STABLE_INT              ((uint32_t)0x00000100) /*!< low speed internal clock stable interrupt */
-#define CRM_LEXT_STABLE_INT              ((uint32_t)0x00000200) /*!< low speed external crystal stable interrupt */
-#define CRM_HICK_STABLE_INT              ((uint32_t)0x00000400) /*!< high speed internal clock stable interrupt */
-#define CRM_HEXT_STABLE_INT              ((uint32_t)0x00000800) /*!< high speed external crystal stable interrupt */
-#define CRM_PLL_STABLE_INT               ((uint32_t)0x00001000) /*!< phase locking loop stable interrupt */
-#define CRM_Clock_FAILURE_INT            ((uint32_t)0x00800000) /*!< clock failure interrupt */
+#define CRM_LICK_Stable_INT              ((uint32_t)0x00000100) /*!< low speed internal clock stable interrupt */
+#define CRM_Lext_Stable_INT              ((uint32_t)0x00000200) /*!< low speed external crystal stable interrupt */
+#define CRM_HICK_Stable_INT              ((uint32_t)0x00000400) /*!< high speed internal clock stable interrupt */
+#define CRM_Hext_Stable_INT              ((uint32_t)0x00000800) /*!< high speed external crystal stable interrupt */
+#define CRM_PLL_Stable_INT               ((uint32_t)0x00001000) /*!< phase locking loop stable interrupt */
+#define CRM_Clock_Failure_INT            ((uint32_t)0x00800000) /*!< clock failure interrupt */
 
 /**
   * @}
@@ -99,145 +99,145 @@ extern "C" {
 typedef enum {
     #if defined (AT32F435xx)
     /* ahb periph1 */
-    CRM_GPIOA_PERIPH_CLOCK                 = MAKE_VALUE(0x30, 0),  /*!< gpioa periph clock */
-    CRM_GPIOB_PERIPH_CLOCK                 = MAKE_VALUE(0x30, 1),  /*!< gpiob periph clock */
-    CRM_GPIOC_PERIPH_CLOCK                 = MAKE_VALUE(0x30, 2),  /*!< gpioc periph clock */
-    CRM_GPIOD_PERIPH_CLOCK                 = MAKE_VALUE(0x30, 3),  /*!< gpiod periph clock */
-    CRM_GPIOE_PERIPH_CLOCK                 = MAKE_VALUE(0x30, 4),  /*!< gpioe periph clock */
-    CRM_GPIOF_PERIPH_CLOCK                 = MAKE_VALUE(0x30, 5),  /*!< gpiof periph clock */
-    CRM_GPIOG_PERIPH_CLOCK                 = MAKE_VALUE(0x30, 6),  /*!< gpiog periph clock */
-    CRM_GPIOH_PERIPH_CLOCK                 = MAKE_VALUE(0x30, 7),  /*!< gpioh periph clock */
-    CRM_CRC_PERIPH_CLOCK                   = MAKE_VALUE(0x30, 12), /*!< crc periph clock */
-    CRM_EDMA_PERIPH_CLOCK                  = MAKE_VALUE(0x30, 21), /*!< edma periph clock */
-    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x30, 22), /*!< dma1 periph clock */
-    CRM_DMA2_PERIPH_CLOCK                  = MAKE_VALUE(0x30, 24), /*!< dma2 periph clock */
-    CRM_OTGFS2_PERIPH_CLOCK                = MAKE_VALUE(0x30, 29), /*!< otgfs2 periph clock */
+    CRM_GPIOA_Periph_CLOCK                 = MAKE_VALUE(0x30, 0),  /*!< gpioa periph clock */
+    CRM_GPIOB_Periph_CLOCK                 = MAKE_VALUE(0x30, 1),  /*!< gpiob periph clock */
+    CRM_GPIOC_Periph_CLOCK                 = MAKE_VALUE(0x30, 2),  /*!< gpioc periph clock */
+    CRM_GPIOD_Periph_CLOCK                 = MAKE_VALUE(0x30, 3),  /*!< gpiod periph clock */
+    CRM_GPIOE_Periph_CLOCK                 = MAKE_VALUE(0x30, 4),  /*!< gpioe periph clock */
+    CRM_GPIOF_Periph_CLOCK                 = MAKE_VALUE(0x30, 5),  /*!< gpiof periph clock */
+    CRM_GPIOG_Periph_CLOCK                 = MAKE_VALUE(0x30, 6),  /*!< gpiog periph clock */
+    CRM_GPIOH_Periph_CLOCK                 = MAKE_VALUE(0x30, 7),  /*!< gpioh periph clock */
+    CRM_CRC_Periph_CLOCK                   = MAKE_VALUE(0x30, 12), /*!< crc periph clock */
+    CRM_EDMA_Periph_CLOCK                  = MAKE_VALUE(0x30, 21), /*!< edma periph clock */
+    CRM_DMA1_Periph_CLOCK                  = MAKE_VALUE(0x30, 22), /*!< dma1 periph clock */
+    CRM_DMA2_Periph_CLOCK                  = MAKE_VALUE(0x30, 24), /*!< dma2 periph clock */
+    CRM_OTGFS2_Periph_CLOCK                = MAKE_VALUE(0x30, 29), /*!< otgfs2 periph clock */
     /* ahb periph2 */
-    CRM_DVP_PERIPH_CLOCK                   = MAKE_VALUE(0x34, 0),  /*!< dvp periph clock */
-    CRM_OTGFS1_PERIPH_CLOCK                = MAKE_VALUE(0x34, 7),  /*!< otgfs1 periph clock */
-    CRM_SDIO1_PERIPH_CLOCK                 = MAKE_VALUE(0x34, 15), /*!< sdio1 periph clock */
+    CRM_DVP_Periph_CLOCK                   = MAKE_VALUE(0x34, 0),  /*!< dvp periph clock */
+    CRM_OTGFS1_Periph_CLOCK                = MAKE_VALUE(0x34, 7),  /*!< otgfs1 periph clock */
+    CRM_SDIO1_Periph_CLOCK                 = MAKE_VALUE(0x34, 15), /*!< sdio1 periph clock */
     /* ahb periph3 */
-    CRM_XMC_PERIPH_CLOCK                   = MAKE_VALUE(0x38, 0),  /*!< xmc periph clock */
-    CRM_QSPI1_PERIPH_CLOCK                 = MAKE_VALUE(0x38, 1),  /*!< qspi1 periph clock */
-    CRM_QSPI2_PERIPH_CLOCK                 = MAKE_VALUE(0x38, 14), /*!< qspi2 periph clock */
-    CRM_SDIO2_PERIPH_CLOCK                 = MAKE_VALUE(0x38, 15), /*!< sdio2 periph clock */
+    CRM_XMC_Periph_CLOCK                   = MAKE_VALUE(0x38, 0),  /*!< xmc periph clock */
+    CRM_QSPI1_Periph_CLOCK                 = MAKE_VALUE(0x38, 1),  /*!< qspi1 periph clock */
+    CRM_QSPI2_Periph_CLOCK                 = MAKE_VALUE(0x38, 14), /*!< qspi2 periph clock */
+    CRM_SDIO2_Periph_CLOCK                 = MAKE_VALUE(0x38, 15), /*!< sdio2 periph clock */
     /* apb1 periph */
-    CRM_TMR2_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 0),  /*!< tmr2 periph clock */
-    CRM_TMR3_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 1),  /*!< tmr3 periph clock */
-    CRM_TMR4_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 2),  /*!< tmr4 periph clock */
-    CRM_TMR5_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 3),  /*!< tmr5 periph clock */
-    CRM_TMR6_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 4),  /*!< tmr6 periph clock */
-    CRM_TMR7_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 5),  /*!< tmr7 periph clock */
-    CRM_TMR12_PERIPH_CLOCK                 = MAKE_VALUE(0x40, 6),  /*!< tmr12 periph clock */
-    CRM_TMR13_PERIPH_CLOCK                 = MAKE_VALUE(0x40, 7),  /*!< tmr13 periph clock */
-    CRM_TMR14_PERIPH_CLOCK                 = MAKE_VALUE(0x40, 8),  /*!< tmr14 periph clock */
-    CRM_WWDT_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 11), /*!< wwdt periph clock */
-    CRM_SPI2_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 14), /*!< spi2 periph clock */
-    CRM_SPI3_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 15), /*!< spi3 periph clock */
-    CRM_USART2_PERIPH_CLOCK                = MAKE_VALUE(0x40, 17), /*!< usart2 periph clock */
-    CRM_USART3_PERIPH_CLOCK                = MAKE_VALUE(0x40, 18), /*!< usart3 periph clock */
-    CRM_UART4_PERIPH_CLOCK                 = MAKE_VALUE(0x40, 19), /*!< uart4 periph clock */
-    CRM_UART5_PERIPH_CLOCK                 = MAKE_VALUE(0x40, 20), /*!< uart5 periph clock */
-    CRM_I2C1_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 21), /*!< i2c1 periph clock */
-    CRM_I2C2_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 22), /*!< i2c2 periph clock */
-    CRM_I2C3_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 23), /*!< i2c3 periph clock */
-    CRM_CAN1_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 25), /*!< can1 periph clock */
-    CRM_CAN2_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 26), /*!< can2 periph clock */
-    CRM_PWC_PERIPH_CLOCK                   = MAKE_VALUE(0x40, 28), /*!< pwc periph clock */
-    CRM_DAC_PERIPH_CLOCK                   = MAKE_VALUE(0x40, 29), /*!< dac periph clock */
-    CRM_UART7_PERIPH_CLOCK                 = MAKE_VALUE(0x40, 30), /*!< uart7 periph clock */
-    CRM_UART8_PERIPH_CLOCK                 = MAKE_VALUE(0x40, 31), /*!< uart8 periph clock */
+    CRM_TMR2_Periph_CLOCK                  = MAKE_VALUE(0x40, 0),  /*!< tmr2 periph clock */
+    CRM_TMR3_Periph_CLOCK                  = MAKE_VALUE(0x40, 1),  /*!< tmr3 periph clock */
+    CRM_TMR4_Periph_CLOCK                  = MAKE_VALUE(0x40, 2),  /*!< tmr4 periph clock */
+    CRM_TMR5_Periph_CLOCK                  = MAKE_VALUE(0x40, 3),  /*!< tmr5 periph clock */
+    CRM_TMR6_Periph_CLOCK                  = MAKE_VALUE(0x40, 4),  /*!< tmr6 periph clock */
+    CRM_TMR7_Periph_CLOCK                  = MAKE_VALUE(0x40, 5),  /*!< tmr7 periph clock */
+    CRM_TMR12_Periph_CLOCK                 = MAKE_VALUE(0x40, 6),  /*!< tmr12 periph clock */
+    CRM_TMR13_Periph_CLOCK                 = MAKE_VALUE(0x40, 7),  /*!< tmr13 periph clock */
+    CRM_TMR14_Periph_CLOCK                 = MAKE_VALUE(0x40, 8),  /*!< tmr14 periph clock */
+    CRM_WWDT_Periph_CLOCK                  = MAKE_VALUE(0x40, 11), /*!< wwdt periph clock */
+    CRM_SPI2_Periph_CLOCK                  = MAKE_VALUE(0x40, 14), /*!< spi2 periph clock */
+    CRM_SPI3_Periph_CLOCK                  = MAKE_VALUE(0x40, 15), /*!< spi3 periph clock */
+    CRM_USART2_Periph_CLOCK                = MAKE_VALUE(0x40, 17), /*!< usart2 periph clock */
+    CRM_USART3_Periph_CLOCK                = MAKE_VALUE(0x40, 18), /*!< usart3 periph clock */
+    CRM_UART4_Periph_CLOCK                 = MAKE_VALUE(0x40, 19), /*!< uart4 periph clock */
+    CRM_UART5_Periph_CLOCK                 = MAKE_VALUE(0x40, 20), /*!< uart5 periph clock */
+    CRM_I2C1_Periph_CLOCK                  = MAKE_VALUE(0x40, 21), /*!< i2c1 periph clock */
+    CRM_I2C2_Periph_CLOCK                  = MAKE_VALUE(0x40, 22), /*!< i2c2 periph clock */
+    CRM_I2C3_Periph_CLOCK                  = MAKE_VALUE(0x40, 23), /*!< i2c3 periph clock */
+    CRM_CAN1_Periph_CLOCK                  = MAKE_VALUE(0x40, 25), /*!< can1 periph clock */
+    CRM_CAN2_Periph_CLOCK                  = MAKE_VALUE(0x40, 26), /*!< can2 periph clock */
+    CRM_PWC_Periph_CLOCK                   = MAKE_VALUE(0x40, 28), /*!< pwc periph clock */
+    CRM_DAC_Periph_CLOCK                   = MAKE_VALUE(0x40, 29), /*!< dac periph clock */
+    CRM_UART7_Periph_CLOCK                 = MAKE_VALUE(0x40, 30), /*!< uart7 periph clock */
+    CRM_UART8_Periph_CLOCK                 = MAKE_VALUE(0x40, 31), /*!< uart8 periph clock */
     /* apb2 periph */
-    CRM_TMR1_PERIPH_CLOCK                  = MAKE_VALUE(0x44, 0),  /*!< tmr1 periph clock */
-    CRM_TMR8_PERIPH_CLOCK                  = MAKE_VALUE(0x44, 1),  /*!< tmr8 periph clock */
-    CRM_USART1_PERIPH_CLOCK                = MAKE_VALUE(0x44, 4),  /*!< usart1 periph clock */
-    CRM_USART6_PERIPH_CLOCK                = MAKE_VALUE(0x44, 5),  /*!< usart6 periph clock */
-    CRM_ADC1_PERIPH_CLOCK                  = MAKE_VALUE(0x44, 8),  /*!< adc1 periph clock */
-    CRM_ADC2_PERIPH_CLOCK                  = MAKE_VALUE(0x44, 9),  /*!< adc2 periph clock */
-    CRM_ADC3_PERIPH_CLOCK                  = MAKE_VALUE(0x44, 10), /*!< adc3 periph clock */
-    CRM_SPI1_PERIPH_CLOCK                  = MAKE_VALUE(0x44, 12), /*!< spi1 periph clock */
-    CRM_SPI4_PERIPH_CLOCK                  = MAKE_VALUE(0x44, 13), /*!< spi4 periph clock */
-    CRM_SCFG_PERIPH_CLOCK                  = MAKE_VALUE(0x44, 14), /*!< scfg periph clock */
-    CRM_TMR9_PERIPH_CLOCK                  = MAKE_VALUE(0x44, 16), /*!< tmr9 periph clock */
-    CRM_TMR10_PERIPH_CLOCK                 = MAKE_VALUE(0x44, 17), /*!< tmr10 periph clock */
-    CRM_TMR11_PERIPH_CLOCK                 = MAKE_VALUE(0x44, 18), /*!< tmr11 periph clock */
-    CRM_TMR20_PERIPH_CLOCK                 = MAKE_VALUE(0x44, 20), /*!< tmr20 periph clock */
-    CRM_ACC_PERIPH_CLOCK                   = MAKE_VALUE(0x44, 29)  /*!< acc periph clock */
+    CRM_TMR1_Periph_CLOCK                  = MAKE_VALUE(0x44, 0),  /*!< tmr1 periph clock */
+    CRM_TMR8_Periph_CLOCK                  = MAKE_VALUE(0x44, 1),  /*!< tmr8 periph clock */
+    CRM_USART1_Periph_CLOCK                = MAKE_VALUE(0x44, 4),  /*!< usart1 periph clock */
+    CRM_USART6_Periph_CLOCK                = MAKE_VALUE(0x44, 5),  /*!< usart6 periph clock */
+    CRM_ADC1_Periph_CLOCK                  = MAKE_VALUE(0x44, 8),  /*!< adc1 periph clock */
+    CRM_ADC2_Periph_CLOCK                  = MAKE_VALUE(0x44, 9),  /*!< adc2 periph clock */
+    CRM_ADC3_Periph_CLOCK                  = MAKE_VALUE(0x44, 10), /*!< adc3 periph clock */
+    CRM_SPI1_Periph_CLOCK                  = MAKE_VALUE(0x44, 12), /*!< spi1 periph clock */
+    CRM_SPI4_Periph_CLOCK                  = MAKE_VALUE(0x44, 13), /*!< spi4 periph clock */
+    CRM_SCFG_Periph_CLOCK                  = MAKE_VALUE(0x44, 14), /*!< scfg periph clock */
+    CRM_TMR9_Periph_CLOCK                  = MAKE_VALUE(0x44, 16), /*!< tmr9 periph clock */
+    CRM_TMR10_Periph_CLOCK                 = MAKE_VALUE(0x44, 17), /*!< tmr10 periph clock */
+    CRM_TMR11_Periph_CLOCK                 = MAKE_VALUE(0x44, 18), /*!< tmr11 periph clock */
+    CRM_TMR20_Periph_CLOCK                 = MAKE_VALUE(0x44, 20), /*!< tmr20 periph clock */
+    CRM_ACC_Periph_CLOCK                   = MAKE_VALUE(0x44, 29)  /*!< acc periph clock */
     #endif
 
             #if defined (AT32F437xx)
             /* ahb periph1 */
-            CRM_GPIOA_PERIPH_CLOCK                 = MAKE_VALUE(0x30, 0),  /*!< gpioa periph clock */
-            CRM_GPIOB_PERIPH_CLOCK                 = MAKE_VALUE(0x30, 1),  /*!< gpiob periph clock */
-            CRM_GPIOC_PERIPH_CLOCK                 = MAKE_VALUE(0x30, 2),  /*!< gpioc periph clock */
-            CRM_GPIOD_PERIPH_CLOCK                 = MAKE_VALUE(0x30, 3),  /*!< gpiod periph clock */
-            CRM_GPIOE_PERIPH_CLOCK                 = MAKE_VALUE(0x30, 4),  /*!< gpioe periph clock */
-            CRM_GPIOF_PERIPH_CLOCK                 = MAKE_VALUE(0x30, 5),  /*!< gpiof periph clock */
-            CRM_GPIOG_PERIPH_CLOCK                 = MAKE_VALUE(0x30, 6),  /*!< gpiog periph clock */
-            CRM_GPIOH_PERIPH_CLOCK                 = MAKE_VALUE(0x30, 7),  /*!< gpioh periph clock */
-            CRM_CRC_PERIPH_CLOCK                   = MAKE_VALUE(0x30, 12), /*!< crc periph clock */
-            CRM_EDMA_PERIPH_CLOCK                  = MAKE_VALUE(0x30, 21), /*!< edma periph clock */
-            CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x30, 22), /*!< dma1 periph clock */
-            CRM_DMA2_PERIPH_CLOCK                  = MAKE_VALUE(0x30, 24), /*!< dma2 periph clock */
-            CRM_EMAC_PERIPH_CLOCK                  = MAKE_VALUE(0x30, 25), /*!< emac periph clock */
-            CRM_EMACTX_PERIPH_CLOCK                = MAKE_VALUE(0x30, 26), /*!< emac tx periph clock */
-            CRM_EMACRX_PERIPH_CLOCK                = MAKE_VALUE(0x30, 27), /*!< emac rx periph clock */
-            CRM_EMACPTP_PERIPH_CLOCK               = MAKE_VALUE(0x30, 28), /*!< emac ptp periph clock */
-            CRM_OTGFS2_PERIPH_CLOCK                = MAKE_VALUE(0x30, 29), /*!< otgfs2 periph clock */
+            CRM_GPIOA_Periph_CLOCK                 = MAKE_VALUE(0x30, 0),  /*!< gpioa periph clock */
+            CRM_GPIOB_Periph_CLOCK                 = MAKE_VALUE(0x30, 1),  /*!< gpiob periph clock */
+            CRM_GPIOC_Periph_CLOCK                 = MAKE_VALUE(0x30, 2),  /*!< gpioc periph clock */
+            CRM_GPIOD_Periph_CLOCK                 = MAKE_VALUE(0x30, 3),  /*!< gpiod periph clock */
+            CRM_GPIOE_Periph_CLOCK                 = MAKE_VALUE(0x30, 4),  /*!< gpioe periph clock */
+            CRM_GPIOF_Periph_CLOCK                 = MAKE_VALUE(0x30, 5),  /*!< gpiof periph clock */
+            CRM_GPIOG_Periph_CLOCK                 = MAKE_VALUE(0x30, 6),  /*!< gpiog periph clock */
+            CRM_GPIOH_Periph_CLOCK                 = MAKE_VALUE(0x30, 7),  /*!< gpioh periph clock */
+            CRM_CRC_Periph_CLOCK                   = MAKE_VALUE(0x30, 12), /*!< crc periph clock */
+            CRM_EDMA_Periph_CLOCK                  = MAKE_VALUE(0x30, 21), /*!< edma periph clock */
+            CRM_DMA1_Periph_CLOCK                  = MAKE_VALUE(0x30, 22), /*!< dma1 periph clock */
+            CRM_DMA2_Periph_CLOCK                  = MAKE_VALUE(0x30, 24), /*!< dma2 periph clock */
+            CRM_EMAC_Periph_CLOCK                  = MAKE_VALUE(0x30, 25), /*!< emac periph clock */
+            CRM_EMACTX_Periph_CLOCK                = MAKE_VALUE(0x30, 26), /*!< emac tx periph clock */
+            CRM_EMACRX_Periph_CLOCK                = MAKE_VALUE(0x30, 27), /*!< emac rx periph clock */
+            CRM_EMACPTP_Periph_CLOCK               = MAKE_VALUE(0x30, 28), /*!< emac ptp periph clock */
+            CRM_OTGFS2_Periph_CLOCK                = MAKE_VALUE(0x30, 29), /*!< otgfs2 periph clock */
             /* ahb periph2 */
-            CRM_DVP_PERIPH_CLOCK                   = MAKE_VALUE(0x34, 0),  /*!< dvp periph clock */
-            CRM_OTGFS1_PERIPH_CLOCK                = MAKE_VALUE(0x34, 7),  /*!< otgfs1 periph clock */
-            CRM_SDIO1_PERIPH_CLOCK                 = MAKE_VALUE(0x34, 15), /*!< sdio1 periph clock */
+            CRM_DVP_Periph_CLOCK                   = MAKE_VALUE(0x34, 0),  /*!< dvp periph clock */
+            CRM_OTGFS1_Periph_CLOCK                = MAKE_VALUE(0x34, 7),  /*!< otgfs1 periph clock */
+            CRM_SDIO1_Periph_CLOCK                 = MAKE_VALUE(0x34, 15), /*!< sdio1 periph clock */
             /* ahb periph3 */
-            CRM_XMC_PERIPH_CLOCK                   = MAKE_VALUE(0x38, 0),  /*!< xmc periph clock */
-            CRM_QSPI1_PERIPH_CLOCK                 = MAKE_VALUE(0x38, 1),  /*!< qspi1 periph clock */
-            CRM_QSPI2_PERIPH_CLOCK                 = MAKE_VALUE(0x38, 14), /*!< qspi2 periph clock */
-            CRM_SDIO2_PERIPH_CLOCK                 = MAKE_VALUE(0x38, 15), /*!< sdio2 periph clock */
+            CRM_XMC_Periph_CLOCK                   = MAKE_VALUE(0x38, 0),  /*!< xmc periph clock */
+            CRM_QSPI1_Periph_CLOCK                 = MAKE_VALUE(0x38, 1),  /*!< qspi1 periph clock */
+            CRM_QSPI2_Periph_CLOCK                 = MAKE_VALUE(0x38, 14), /*!< qspi2 periph clock */
+            CRM_SDIO2_Periph_CLOCK                 = MAKE_VALUE(0x38, 15), /*!< sdio2 periph clock */
             /* apb1 periph */
-            CRM_TMR2_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 0),  /*!< tmr2 periph clock */
-            CRM_TMR3_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 1),  /*!< tmr3 periph clock */
-            CRM_TMR4_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 2),  /*!< tmr4 periph clock */
-            CRM_TMR5_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 3),  /*!< tmr5 periph clock */
-            CRM_TMR6_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 4),  /*!< tmr6 periph clock */
-            CRM_TMR7_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 5),  /*!< tmr7 periph clock */
-            CRM_TMR12_PERIPH_CLOCK                 = MAKE_VALUE(0x40, 6),  /*!< tmr12 periph clock */
-            CRM_TMR13_PERIPH_CLOCK                 = MAKE_VALUE(0x40, 7),  /*!< tmr13 periph clock */
-            CRM_TMR14_PERIPH_CLOCK                 = MAKE_VALUE(0x40, 8),  /*!< tmr14 periph clock */
-            CRM_WWDT_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 11), /*!< wwdt periph clock */
-            CRM_SPI2_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 14), /*!< spi2 periph clock */
-            CRM_SPI3_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 15), /*!< spi3 periph clock */
-            CRM_USART2_PERIPH_CLOCK                = MAKE_VALUE(0x40, 17), /*!< usart2 periph clock */
-            CRM_USART3_PERIPH_CLOCK                = MAKE_VALUE(0x40, 18), /*!< usart3 periph clock */
-            CRM_UART4_PERIPH_CLOCK                 = MAKE_VALUE(0x40, 19), /*!< uart4 periph clock */
-            CRM_UART5_PERIPH_CLOCK                 = MAKE_VALUE(0x40, 20), /*!< uart5 periph clock */
-            CRM_I2C1_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 21), /*!< i2c1 periph clock */
-            CRM_I2C2_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 22), /*!< i2c2 periph clock */
-            CRM_I2C3_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 23), /*!< i2c3 periph clock */
-            CRM_CAN1_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 25), /*!< can1 periph clock */
-            CRM_CAN2_PERIPH_CLOCK                  = MAKE_VALUE(0x40, 26), /*!< can2 periph clock */
-            CRM_PWC_PERIPH_CLOCK                   = MAKE_VALUE(0x40, 28), /*!< pwc periph clock */
-            CRM_DAC_PERIPH_CLOCK                   = MAKE_VALUE(0x40, 29), /*!< dac periph clock */
-            CRM_UART7_PERIPH_CLOCK                 = MAKE_VALUE(0x40, 30), /*!< uart7 periph clock */
-            CRM_UART8_PERIPH_CLOCK                 = MAKE_VALUE(0x40, 31), /*!< uart8 periph clock */
+            CRM_TMR2_Periph_CLOCK                  = MAKE_VALUE(0x40, 0),  /*!< tmr2 periph clock */
+            CRM_TMR3_Periph_CLOCK                  = MAKE_VALUE(0x40, 1),  /*!< tmr3 periph clock */
+            CRM_TMR4_Periph_CLOCK                  = MAKE_VALUE(0x40, 2),  /*!< tmr4 periph clock */
+            CRM_TMR5_Periph_CLOCK                  = MAKE_VALUE(0x40, 3),  /*!< tmr5 periph clock */
+            CRM_TMR6_Periph_CLOCK                  = MAKE_VALUE(0x40, 4),  /*!< tmr6 periph clock */
+            CRM_TMR7_Periph_CLOCK                  = MAKE_VALUE(0x40, 5),  /*!< tmr7 periph clock */
+            CRM_TMR12_Periph_CLOCK                 = MAKE_VALUE(0x40, 6),  /*!< tmr12 periph clock */
+            CRM_TMR13_Periph_CLOCK                 = MAKE_VALUE(0x40, 7),  /*!< tmr13 periph clock */
+            CRM_TMR14_Periph_CLOCK                 = MAKE_VALUE(0x40, 8),  /*!< tmr14 periph clock */
+            CRM_WWDT_Periph_CLOCK                  = MAKE_VALUE(0x40, 11), /*!< wwdt periph clock */
+            CRM_SPI2_Periph_CLOCK                  = MAKE_VALUE(0x40, 14), /*!< spi2 periph clock */
+            CRM_SPI3_Periph_CLOCK                  = MAKE_VALUE(0x40, 15), /*!< spi3 periph clock */
+            CRM_USART2_Periph_CLOCK                = MAKE_VALUE(0x40, 17), /*!< usart2 periph clock */
+            CRM_USART3_Periph_CLOCK                = MAKE_VALUE(0x40, 18), /*!< usart3 periph clock */
+            CRM_UART4_Periph_CLOCK                 = MAKE_VALUE(0x40, 19), /*!< uart4 periph clock */
+            CRM_UART5_Periph_CLOCK                 = MAKE_VALUE(0x40, 20), /*!< uart5 periph clock */
+            CRM_I2C1_Periph_CLOCK                  = MAKE_VALUE(0x40, 21), /*!< i2c1 periph clock */
+            CRM_I2C2_Periph_CLOCK                  = MAKE_VALUE(0x40, 22), /*!< i2c2 periph clock */
+            CRM_I2C3_Periph_CLOCK                  = MAKE_VALUE(0x40, 23), /*!< i2c3 periph clock */
+            CRM_CAN1_Periph_CLOCK                  = MAKE_VALUE(0x40, 25), /*!< can1 periph clock */
+            CRM_CAN2_Periph_CLOCK                  = MAKE_VALUE(0x40, 26), /*!< can2 periph clock */
+            CRM_PWC_Periph_CLOCK                   = MAKE_VALUE(0x40, 28), /*!< pwc periph clock */
+            CRM_DAC_Periph_CLOCK                   = MAKE_VALUE(0x40, 29), /*!< dac periph clock */
+            CRM_UART7_Periph_CLOCK                 = MAKE_VALUE(0x40, 30), /*!< uart7 periph clock */
+            CRM_UART8_Periph_CLOCK                 = MAKE_VALUE(0x40, 31), /*!< uart8 periph clock */
             /* apb2 periph */
-            CRM_TMR1_PERIPH_CLOCK                  = MAKE_VALUE(0x44, 0),  /*!< tmr1 periph clock */
-            CRM_TMR8_PERIPH_CLOCK                  = MAKE_VALUE(0x44, 1),  /*!< tmr8 periph clock */
-            CRM_USART1_PERIPH_CLOCK                = MAKE_VALUE(0x44, 4),  /*!< usart1 periph clock */
-            CRM_USART6_PERIPH_CLOCK                = MAKE_VALUE(0x44, 5),  /*!< usart6 periph clock */
-            CRM_ADC1_PERIPH_CLOCK                  = MAKE_VALUE(0x44, 8),  /*!< adc1 periph clock */
-            CRM_ADC2_PERIPH_CLOCK                  = MAKE_VALUE(0x44, 9),  /*!< adc2 periph clock */
-            CRM_ADC3_PERIPH_CLOCK                  = MAKE_VALUE(0x44, 10), /*!< adc3 periph clock */
-            CRM_SPI1_PERIPH_CLOCK                  = MAKE_VALUE(0x44, 12), /*!< spi1 periph clock */
-            CRM_SPI4_PERIPH_CLOCK                  = MAKE_VALUE(0x44, 13), /*!< spi4 periph clock */
-            CRM_SCFG_PERIPH_CLOCK                  = MAKE_VALUE(0x44, 14), /*!< scfg periph clock */
-            CRM_TMR9_PERIPH_CLOCK                  = MAKE_VALUE(0x44, 16), /*!< tmr9 periph clock */
-            CRM_TMR10_PERIPH_CLOCK                 = MAKE_VALUE(0x44, 17), /*!< tmr10 periph clock */
-            CRM_TMR11_PERIPH_CLOCK                 = MAKE_VALUE(0x44, 18), /*!< tmr11 periph clock */
-            CRM_TMR20_PERIPH_CLOCK                 = MAKE_VALUE(0x44, 20), /*!< tmr20 periph clock */
-            CRM_ACC_PERIPH_CLOCK                   = MAKE_VALUE(0x44, 29)  /*!< acc periph clock */
+            CRM_TMR1_Periph_CLOCK                  = MAKE_VALUE(0x44, 0),  /*!< tmr1 periph clock */
+            CRM_TMR8_Periph_CLOCK                  = MAKE_VALUE(0x44, 1),  /*!< tmr8 periph clock */
+            CRM_USART1_Periph_CLOCK                = MAKE_VALUE(0x44, 4),  /*!< usart1 periph clock */
+            CRM_USART6_Periph_CLOCK                = MAKE_VALUE(0x44, 5),  /*!< usart6 periph clock */
+            CRM_ADC1_Periph_CLOCK                  = MAKE_VALUE(0x44, 8),  /*!< adc1 periph clock */
+            CRM_ADC2_Periph_CLOCK                  = MAKE_VALUE(0x44, 9),  /*!< adc2 periph clock */
+            CRM_ADC3_Periph_CLOCK                  = MAKE_VALUE(0x44, 10), /*!< adc3 periph clock */
+            CRM_SPI1_Periph_CLOCK                  = MAKE_VALUE(0x44, 12), /*!< spi1 periph clock */
+            CRM_SPI4_Periph_CLOCK                  = MAKE_VALUE(0x44, 13), /*!< spi4 periph clock */
+            CRM_SCFG_Periph_CLOCK                  = MAKE_VALUE(0x44, 14), /*!< scfg periph clock */
+            CRM_TMR9_Periph_CLOCK                  = MAKE_VALUE(0x44, 16), /*!< tmr9 periph clock */
+            CRM_TMR10_Periph_CLOCK                 = MAKE_VALUE(0x44, 17), /*!< tmr10 periph clock */
+            CRM_TMR11_Periph_CLOCK                 = MAKE_VALUE(0x44, 18), /*!< tmr11 periph clock */
+            CRM_TMR20_Periph_CLOCK                 = MAKE_VALUE(0x44, 20), /*!< tmr20 periph clock */
+            CRM_ACC_Periph_CLOCK                   = MAKE_VALUE(0x44, 29)  /*!< acc periph clock */
             #endif
 
-} crm_periph_Clock_Type;
+} CRM_Periph_Clock_Type;
 
 /**
   * @brief crm periph reset
@@ -245,138 +245,138 @@ typedef enum {
 typedef enum {
     #if defined (AT32F435xx)
     /* ahb periph1 */
-    CRM_GPIOA_PERIPH_Reset                 = MAKE_VALUE(0x10, 0),  /*!< gpioa periph reset */
-    CRM_GPIOB_PERIPH_Reset                 = MAKE_VALUE(0x10, 1),  /*!< gpiob periph reset */
-    CRM_GPIOC_PERIPH_Reset                 = MAKE_VALUE(0x10, 2),  /*!< gpioc periph reset */
-    CRM_GPIOD_PERIPH_Reset                 = MAKE_VALUE(0x10, 3),  /*!< gpiod periph reset */
-    CRM_GPIOE_PERIPH_Reset                 = MAKE_VALUE(0x10, 4),  /*!< gpioe periph reset */
-    CRM_GPIOF_PERIPH_Reset                 = MAKE_VALUE(0x10, 5),  /*!< gpiof periph reset */
-    CRM_GPIOG_PERIPH_Reset                 = MAKE_VALUE(0x10, 6),  /*!< gpiog periph reset */
-    CRM_GPIOH_PERIPH_Reset                 = MAKE_VALUE(0x10, 7),  /*!< gpioh periph reset */
-    CRM_CRC_PERIPH_Reset                   = MAKE_VALUE(0x10, 12), /*!< crc periph reset */
-    CRM_EDMA_PERIPH_Reset                  = MAKE_VALUE(0x10, 21), /*!< edma periph reset */
-    CRM_DMA1_PERIPH_Reset                  = MAKE_VALUE(0x10, 22), /*!< dma1 periph reset */
-    CRM_DMA2_PERIPH_Reset                  = MAKE_VALUE(0x10, 24), /*!< dma2 periph reset */
-    CRM_OTGFS2_PERIPH_Reset                = MAKE_VALUE(0x10, 29), /*!< otgfs2 periph reset */
+    CRM_GPIOA_Periph_Reset                 = MAKE_VALUE(0x10, 0),  /*!< gpioa periph reset */
+    CRM_GPIOB_Periph_Reset                 = MAKE_VALUE(0x10, 1),  /*!< gpiob periph reset */
+    CRM_GPIOC_Periph_Reset                 = MAKE_VALUE(0x10, 2),  /*!< gpioc periph reset */
+    CRM_GPIOD_Periph_Reset                 = MAKE_VALUE(0x10, 3),  /*!< gpiod periph reset */
+    CRM_GPIOE_Periph_Reset                 = MAKE_VALUE(0x10, 4),  /*!< gpioe periph reset */
+    CRM_GPIOF_Periph_Reset                 = MAKE_VALUE(0x10, 5),  /*!< gpiof periph reset */
+    CRM_GPIOG_Periph_Reset                 = MAKE_VALUE(0x10, 6),  /*!< gpiog periph reset */
+    CRM_GPIOH_Periph_Reset                 = MAKE_VALUE(0x10, 7),  /*!< gpioh periph reset */
+    CRM_CRC_Periph_Reset                   = MAKE_VALUE(0x10, 12), /*!< crc periph reset */
+    CRM_EDMA_Periph_Reset                  = MAKE_VALUE(0x10, 21), /*!< edma periph reset */
+    CRM_DMA1_Periph_Reset                  = MAKE_VALUE(0x10, 22), /*!< dma1 periph reset */
+    CRM_DMA2_Periph_Reset                  = MAKE_VALUE(0x10, 24), /*!< dma2 periph reset */
+    CRM_OTGFS2_Periph_Reset                = MAKE_VALUE(0x10, 29), /*!< otgfs2 periph reset */
     /* ahb periph2 */
-    CRM_DVP_PERIPH_Reset                   = MAKE_VALUE(0x14, 0),  /*!< dvp periph reset */
-    CRM_OTGFS1_PERIPH_Reset                = MAKE_VALUE(0x14, 7),  /*!< otgfs1 periph reset */
-    CRM_SDIO1_PERIPH_Reset                 = MAKE_VALUE(0x14, 15), /*!< sdio1 periph reset */
+    CRM_DVP_Periph_Reset                   = MAKE_VALUE(0x14, 0),  /*!< dvp periph reset */
+    CRM_OTGFS1_Periph_Reset                = MAKE_VALUE(0x14, 7),  /*!< otgfs1 periph reset */
+    CRM_SDIO1_Periph_Reset                 = MAKE_VALUE(0x14, 15), /*!< sdio1 periph reset */
     /* ahb periph3 */
-    CRM_XMC_PERIPH_Reset                   = MAKE_VALUE(0x18, 0),  /*!< xmc periph reset */
-    CRM_QSPI1_PERIPH_Reset                 = MAKE_VALUE(0x18, 1),  /*!< qspi1 periph reset */
-    CRM_QSPI2_PERIPH_Reset                 = MAKE_VALUE(0x18, 14), /*!< qspi2 periph reset */
-    CRM_SDIO2_PERIPH_Reset                 = MAKE_VALUE(0x18, 15), /*!< sdio2 periph reset */
+    CRM_XMC_Periph_Reset                   = MAKE_VALUE(0x18, 0),  /*!< xmc periph reset */
+    CRM_QSPI1_Periph_Reset                 = MAKE_VALUE(0x18, 1),  /*!< qspi1 periph reset */
+    CRM_QSPI2_Periph_Reset                 = MAKE_VALUE(0x18, 14), /*!< qspi2 periph reset */
+    CRM_SDIO2_Periph_Reset                 = MAKE_VALUE(0x18, 15), /*!< sdio2 periph reset */
     /* apb1 periph */
-    CRM_TMR2_PERIPH_Reset                  = MAKE_VALUE(0x20, 0),  /*!< tmr2 periph reset */
-    CRM_TMR3_PERIPH_Reset                  = MAKE_VALUE(0x20, 1),  /*!< tmr3 periph reset */
-    CRM_TMR4_PERIPH_Reset                  = MAKE_VALUE(0x20, 2),  /*!< tmr4 periph reset */
-    CRM_TMR5_PERIPH_Reset                  = MAKE_VALUE(0x20, 3),  /*!< tmr5 periph reset */
-    CRM_TMR6_PERIPH_Reset                  = MAKE_VALUE(0x20, 4),  /*!< tmr6 periph reset */
-    CRM_TMR7_PERIPH_Reset                  = MAKE_VALUE(0x20, 5),  /*!< tmr7 periph reset */
-    CRM_TMR12_PERIPH_Reset                 = MAKE_VALUE(0x20, 6),  /*!< tmr12 periph reset */
-    CRM_TMR13_PERIPH_Reset                 = MAKE_VALUE(0x20, 7),  /*!< tmr13 periph reset */
-    CRM_TMR14_PERIPH_Reset                 = MAKE_VALUE(0x20, 8),  /*!< tmr14 periph reset */
-    CRM_WWDT_PERIPH_Reset                  = MAKE_VALUE(0x20, 11), /*!< wwdt periph reset */
-    CRM_SPI2_PERIPH_Reset                  = MAKE_VALUE(0x20, 14), /*!< spi2 periph reset */
-    CRM_SPI3_PERIPH_Reset                  = MAKE_VALUE(0x20, 15), /*!< spi3 periph reset */
-    CRM_USART2_PERIPH_Reset                = MAKE_VALUE(0x20, 17), /*!< usart2 periph reset */
-    CRM_USART3_PERIPH_Reset                = MAKE_VALUE(0x20, 18), /*!< usart3 periph reset */
-    CRM_UART4_PERIPH_Reset                 = MAKE_VALUE(0x20, 19), /*!< uart4 periph reset */
-    CRM_UART5_PERIPH_Reset                 = MAKE_VALUE(0x20, 20), /*!< uart5 periph reset */
-    CRM_I2C1_PERIPH_Reset                  = MAKE_VALUE(0x20, 21), /*!< i2c1 periph reset */
-    CRM_I2C2_PERIPH_Reset                  = MAKE_VALUE(0x20, 22), /*!< i2c2 periph reset */
-    CRM_I2C3_PERIPH_Reset                  = MAKE_VALUE(0x20, 23), /*!< i2c3 periph reset */
-    CRM_CAN1_PERIPH_Reset                  = MAKE_VALUE(0x20, 25), /*!< can1 periph reset */
-    CRM_CAN2_PERIPH_Reset                  = MAKE_VALUE(0x20, 26), /*!< can2 periph reset */
-    CRM_PWC_PERIPH_Reset                   = MAKE_VALUE(0x20, 28), /*!< pwc periph reset */
-    CRM_DAC_PERIPH_Reset                   = MAKE_VALUE(0x20, 29), /*!< dac periph reset */
-    CRM_UART7_PERIPH_Reset                 = MAKE_VALUE(0x20, 30), /*!< uart7 periph reset */
-    CRM_UART8_PERIPH_Reset                 = MAKE_VALUE(0x20, 31), /*!< uart8 periph reset */
+    CRM_TMR2_Periph_Reset                  = MAKE_VALUE(0x20, 0),  /*!< tmr2 periph reset */
+    CRM_TMR3_Periph_Reset                  = MAKE_VALUE(0x20, 1),  /*!< tmr3 periph reset */
+    CRM_TMR4_Periph_Reset                  = MAKE_VALUE(0x20, 2),  /*!< tmr4 periph reset */
+    CRM_TMR5_Periph_Reset                  = MAKE_VALUE(0x20, 3),  /*!< tmr5 periph reset */
+    CRM_TMR6_Periph_Reset                  = MAKE_VALUE(0x20, 4),  /*!< tmr6 periph reset */
+    CRM_TMR7_Periph_Reset                  = MAKE_VALUE(0x20, 5),  /*!< tmr7 periph reset */
+    CRM_TMR12_Periph_Reset                 = MAKE_VALUE(0x20, 6),  /*!< tmr12 periph reset */
+    CRM_TMR13_Periph_Reset                 = MAKE_VALUE(0x20, 7),  /*!< tmr13 periph reset */
+    CRM_TMR14_Periph_Reset                 = MAKE_VALUE(0x20, 8),  /*!< tmr14 periph reset */
+    CRM_WWDT_Periph_Reset                  = MAKE_VALUE(0x20, 11), /*!< wwdt periph reset */
+    CRM_SPI2_Periph_Reset                  = MAKE_VALUE(0x20, 14), /*!< spi2 periph reset */
+    CRM_SPI3_Periph_Reset                  = MAKE_VALUE(0x20, 15), /*!< spi3 periph reset */
+    CRM_USART2_Periph_Reset                = MAKE_VALUE(0x20, 17), /*!< usart2 periph reset */
+    CRM_USART3_Periph_Reset                = MAKE_VALUE(0x20, 18), /*!< usart3 periph reset */
+    CRM_UART4_Periph_Reset                 = MAKE_VALUE(0x20, 19), /*!< uart4 periph reset */
+    CRM_UART5_Periph_Reset                 = MAKE_VALUE(0x20, 20), /*!< uart5 periph reset */
+    CRM_I2C1_Periph_Reset                  = MAKE_VALUE(0x20, 21), /*!< i2c1 periph reset */
+    CRM_I2C2_Periph_Reset                  = MAKE_VALUE(0x20, 22), /*!< i2c2 periph reset */
+    CRM_I2C3_Periph_Reset                  = MAKE_VALUE(0x20, 23), /*!< i2c3 periph reset */
+    CRM_CAN1_Periph_Reset                  = MAKE_VALUE(0x20, 25), /*!< can1 periph reset */
+    CRM_CAN2_Periph_Reset                  = MAKE_VALUE(0x20, 26), /*!< can2 periph reset */
+    CRM_PWC_Periph_Reset                   = MAKE_VALUE(0x20, 28), /*!< pwc periph reset */
+    CRM_DAC_Periph_Reset                   = MAKE_VALUE(0x20, 29), /*!< dac periph reset */
+    CRM_UART7_Periph_Reset                 = MAKE_VALUE(0x20, 30), /*!< uart7 periph reset */
+    CRM_UART8_Periph_Reset                 = MAKE_VALUE(0x20, 31), /*!< uart8 periph reset */
     /* apb2 periph */
-    CRM_TMR1_PERIPH_Reset                  = MAKE_VALUE(0x24, 0),  /*!< tmr1 periph reset */
-    CRM_TMR8_PERIPH_Reset                  = MAKE_VALUE(0x24, 1),  /*!< tmr8 periph reset */
-    CRM_USART1_PERIPH_Reset                = MAKE_VALUE(0x24, 4),  /*!< usart1 periph reset */
-    CRM_USART6_PERIPH_Reset                = MAKE_VALUE(0x24, 5),  /*!< usart6 periph reset */
-    CRM_ADC_PERIPH_Reset                   = MAKE_VALUE(0x24, 8),  /*!< adc periph reset */
-    CRM_SPI1_PERIPH_Reset                  = MAKE_VALUE(0x24, 12), /*!< spi1 periph reset */
-    CRM_SPI4_PERIPH_Reset                  = MAKE_VALUE(0x24, 13), /*!< spi4 periph reset */
-    CRM_SCFG_PERIPH_Reset                  = MAKE_VALUE(0x24, 14), /*!< scfg periph reset */
-    CRM_TMR9_PERIPH_Reset                  = MAKE_VALUE(0x24, 16), /*!< tmr9 periph reset */
-    CRM_TMR10_PERIPH_Reset                 = MAKE_VALUE(0x24, 17), /*!< tmr10 periph reset */
-    CRM_TMR11_PERIPH_Reset                 = MAKE_VALUE(0x24, 18), /*!< tmr11 periph reset */
-    CRM_TMR20_PERIPH_Reset                 = MAKE_VALUE(0x24, 20), /*!< tmr20 periph reset */
-    CRM_ACC_PERIPH_Reset                   = MAKE_VALUE(0x24, 29)  /*!< acc periph reset */
+    CRM_TMR1_Periph_Reset                  = MAKE_VALUE(0x24, 0),  /*!< tmr1 periph reset */
+    CRM_TMR8_Periph_Reset                  = MAKE_VALUE(0x24, 1),  /*!< tmr8 periph reset */
+    CRM_USART1_Periph_Reset                = MAKE_VALUE(0x24, 4),  /*!< usart1 periph reset */
+    CRM_USART6_Periph_Reset                = MAKE_VALUE(0x24, 5),  /*!< usart6 periph reset */
+    CRM_ADC_Periph_Reset                   = MAKE_VALUE(0x24, 8),  /*!< adc periph reset */
+    CRM_SPI1_Periph_Reset                  = MAKE_VALUE(0x24, 12), /*!< spi1 periph reset */
+    CRM_SPI4_Periph_Reset                  = MAKE_VALUE(0x24, 13), /*!< spi4 periph reset */
+    CRM_SCFG_Periph_Reset                  = MAKE_VALUE(0x24, 14), /*!< scfg periph reset */
+    CRM_TMR9_Periph_Reset                  = MAKE_VALUE(0x24, 16), /*!< tmr9 periph reset */
+    CRM_TMR10_Periph_Reset                 = MAKE_VALUE(0x24, 17), /*!< tmr10 periph reset */
+    CRM_TMR11_Periph_Reset                 = MAKE_VALUE(0x24, 18), /*!< tmr11 periph reset */
+    CRM_TMR20_Periph_Reset                 = MAKE_VALUE(0x24, 20), /*!< tmr20 periph reset */
+    CRM_ACC_Periph_Reset                   = MAKE_VALUE(0x24, 29)  /*!< acc periph reset */
     #endif
 
             #if defined (AT32F437xx)
             /* ahb periph1 */
-            CRM_GPIOA_PERIPH_Reset                 = MAKE_VALUE(0x10, 0),  /*!< gpioa periph reset */
-            CRM_GPIOB_PERIPH_Reset                 = MAKE_VALUE(0x10, 1),  /*!< gpiob periph reset */
-            CRM_GPIOC_PERIPH_Reset                 = MAKE_VALUE(0x10, 2),  /*!< gpioc periph reset */
-            CRM_GPIOD_PERIPH_Reset                 = MAKE_VALUE(0x10, 3),  /*!< gpiod periph reset */
-            CRM_GPIOE_PERIPH_Reset                 = MAKE_VALUE(0x10, 4),  /*!< gpioe periph reset */
-            CRM_GPIOF_PERIPH_Reset                 = MAKE_VALUE(0x10, 5),  /*!< gpiof periph reset */
-            CRM_GPIOG_PERIPH_Reset                 = MAKE_VALUE(0x10, 6),  /*!< gpiog periph reset */
-            CRM_GPIOH_PERIPH_Reset                 = MAKE_VALUE(0x10, 7),  /*!< gpioh periph reset */
-            CRM_CRC_PERIPH_Reset                   = MAKE_VALUE(0x10, 12), /*!< crc periph reset */
-            CRM_EDMA_PERIPH_Reset                  = MAKE_VALUE(0x10, 21), /*!< edma periph reset */
-            CRM_DMA1_PERIPH_Reset                  = MAKE_VALUE(0x10, 22), /*!< dma1 periph reset */
-            CRM_DMA2_PERIPH_Reset                  = MAKE_VALUE(0x10, 24), /*!< dma2 periph reset */
-            CRM_EMAC_PERIPH_Reset                  = MAKE_VALUE(0x10, 25), /*!< emac periph reset */
-            CRM_OTGFS2_PERIPH_Reset                = MAKE_VALUE(0x10, 29), /*!< otgfs2 periph reset */
+            CRM_GPIOA_Periph_Reset                 = MAKE_VALUE(0x10, 0),  /*!< gpioa periph reset */
+            CRM_GPIOB_Periph_Reset                 = MAKE_VALUE(0x10, 1),  /*!< gpiob periph reset */
+            CRM_GPIOC_Periph_Reset                 = MAKE_VALUE(0x10, 2),  /*!< gpioc periph reset */
+            CRM_GPIOD_Periph_Reset                 = MAKE_VALUE(0x10, 3),  /*!< gpiod periph reset */
+            CRM_GPIOE_Periph_Reset                 = MAKE_VALUE(0x10, 4),  /*!< gpioe periph reset */
+            CRM_GPIOF_Periph_Reset                 = MAKE_VALUE(0x10, 5),  /*!< gpiof periph reset */
+            CRM_GPIOG_Periph_Reset                 = MAKE_VALUE(0x10, 6),  /*!< gpiog periph reset */
+            CRM_GPIOH_Periph_Reset                 = MAKE_VALUE(0x10, 7),  /*!< gpioh periph reset */
+            CRM_CRC_Periph_Reset                   = MAKE_VALUE(0x10, 12), /*!< crc periph reset */
+            CRM_EDMA_Periph_Reset                  = MAKE_VALUE(0x10, 21), /*!< edma periph reset */
+            CRM_DMA1_Periph_Reset                  = MAKE_VALUE(0x10, 22), /*!< dma1 periph reset */
+            CRM_DMA2_Periph_Reset                  = MAKE_VALUE(0x10, 24), /*!< dma2 periph reset */
+            CRM_EMAC_Periph_Reset                  = MAKE_VALUE(0x10, 25), /*!< emac periph reset */
+            CRM_OTGFS2_Periph_Reset                = MAKE_VALUE(0x10, 29), /*!< otgfs2 periph reset */
             /* ahb periph2 */
-            CRM_DVP_PERIPH_Reset                   = MAKE_VALUE(0x14, 0),  /*!< dvp periph reset */
-            CRM_OTGFS1_PERIPH_Reset                = MAKE_VALUE(0x14, 7),  /*!< otgfs1 periph reset */
-            CRM_SDIO1_PERIPH_Reset                 = MAKE_VALUE(0x14, 15), /*!< sdio1 periph reset */
+            CRM_DVP_Periph_Reset                   = MAKE_VALUE(0x14, 0),  /*!< dvp periph reset */
+            CRM_OTGFS1_Periph_Reset                = MAKE_VALUE(0x14, 7),  /*!< otgfs1 periph reset */
+            CRM_SDIO1_Periph_Reset                 = MAKE_VALUE(0x14, 15), /*!< sdio1 periph reset */
             /* ahb periph3 */
-            CRM_XMC_PERIPH_Reset                   = MAKE_VALUE(0x18, 0),  /*!< xmc periph reset */
-            CRM_QSPI1_PERIPH_Reset                 = MAKE_VALUE(0x18, 1),  /*!< qspi1 periph reset */
-            CRM_QSPI2_PERIPH_Reset                 = MAKE_VALUE(0x18, 14), /*!< qspi2 periph reset */
-            CRM_SDIO2_PERIPH_Reset                 = MAKE_VALUE(0x18, 15), /*!< sdio2 periph reset */
+            CRM_XMC_Periph_Reset                   = MAKE_VALUE(0x18, 0),  /*!< xmc periph reset */
+            CRM_QSPI1_Periph_Reset                 = MAKE_VALUE(0x18, 1),  /*!< qspi1 periph reset */
+            CRM_QSPI2_Periph_Reset                 = MAKE_VALUE(0x18, 14), /*!< qspi2 periph reset */
+            CRM_SDIO2_Periph_Reset                 = MAKE_VALUE(0x18, 15), /*!< sdio2 periph reset */
             /* apb1 periph */
-            CRM_TMR2_PERIPH_Reset                  = MAKE_VALUE(0x20, 0),  /*!< tmr2 periph reset */
-            CRM_TMR3_PERIPH_Reset                  = MAKE_VALUE(0x20, 1),  /*!< tmr3 periph reset */
-            CRM_TMR4_PERIPH_Reset                  = MAKE_VALUE(0x20, 2),  /*!< tmr4 periph reset */
-            CRM_TMR5_PERIPH_Reset                  = MAKE_VALUE(0x20, 3),  /*!< tmr5 periph reset */
-            CRM_TMR6_PERIPH_Reset                  = MAKE_VALUE(0x20, 4),  /*!< tmr6 periph reset */
-            CRM_TMR7_PERIPH_Reset                  = MAKE_VALUE(0x20, 5),  /*!< tmr7 periph reset */
-            CRM_TMR12_PERIPH_Reset                 = MAKE_VALUE(0x20, 6),  /*!< tmr12 periph reset */
-            CRM_TMR13_PERIPH_Reset                 = MAKE_VALUE(0x20, 7),  /*!< tmr13 periph reset */
-            CRM_TMR14_PERIPH_Reset                 = MAKE_VALUE(0x20, 8),  /*!< tmr14 periph reset */
-            CRM_WWDT_PERIPH_Reset                  = MAKE_VALUE(0x20, 11), /*!< wwdt periph reset */
-            CRM_SPI2_PERIPH_Reset                  = MAKE_VALUE(0x20, 14), /*!< spi2 periph reset */
-            CRM_SPI3_PERIPH_Reset                  = MAKE_VALUE(0x20, 15), /*!< spi3 periph reset */
-            CRM_USART2_PERIPH_Reset                = MAKE_VALUE(0x20, 17), /*!< usart2 periph reset */
-            CRM_USART3_PERIPH_Reset                = MAKE_VALUE(0x20, 18), /*!< usart3 periph reset */
-            CRM_UART4_PERIPH_Reset                 = MAKE_VALUE(0x20, 19), /*!< uart4 periph reset */
-            CRM_UART5_PERIPH_Reset                 = MAKE_VALUE(0x20, 20), /*!< uart5 periph reset */
-            CRM_I2C1_PERIPH_Reset                  = MAKE_VALUE(0x20, 21), /*!< i2c1 periph reset */
-            CRM_I2C2_PERIPH_Reset                  = MAKE_VALUE(0x20, 22), /*!< i2c2 periph reset */
-            CRM_I2C3_PERIPH_Reset                  = MAKE_VALUE(0x20, 23), /*!< i2c3 periph reset */
-            CRM_CAN1_PERIPH_Reset                  = MAKE_VALUE(0x20, 25), /*!< can1 periph reset */
-            CRM_CAN2_PERIPH_Reset                  = MAKE_VALUE(0x20, 26), /*!< can2 periph reset */
-            CRM_PWC_PERIPH_Reset                   = MAKE_VALUE(0x20, 28), /*!< pwc periph reset */
-            CRM_DAC_PERIPH_Reset                   = MAKE_VALUE(0x20, 29), /*!< dac periph reset */
-            CRM_UART7_PERIPH_Reset                 = MAKE_VALUE(0x20, 30), /*!< uart7 periph reset */
-            CRM_UART8_PERIPH_Reset                 = MAKE_VALUE(0x20, 31), /*!< uart8 periph reset */
+            CRM_TMR2_Periph_Reset                  = MAKE_VALUE(0x20, 0),  /*!< tmr2 periph reset */
+            CRM_TMR3_Periph_Reset                  = MAKE_VALUE(0x20, 1),  /*!< tmr3 periph reset */
+            CRM_TMR4_Periph_Reset                  = MAKE_VALUE(0x20, 2),  /*!< tmr4 periph reset */
+            CRM_TMR5_Periph_Reset                  = MAKE_VALUE(0x20, 3),  /*!< tmr5 periph reset */
+            CRM_TMR6_Periph_Reset                  = MAKE_VALUE(0x20, 4),  /*!< tmr6 periph reset */
+            CRM_TMR7_Periph_Reset                  = MAKE_VALUE(0x20, 5),  /*!< tmr7 periph reset */
+            CRM_TMR12_Periph_Reset                 = MAKE_VALUE(0x20, 6),  /*!< tmr12 periph reset */
+            CRM_TMR13_Periph_Reset                 = MAKE_VALUE(0x20, 7),  /*!< tmr13 periph reset */
+            CRM_TMR14_Periph_Reset                 = MAKE_VALUE(0x20, 8),  /*!< tmr14 periph reset */
+            CRM_WWDT_Periph_Reset                  = MAKE_VALUE(0x20, 11), /*!< wwdt periph reset */
+            CRM_SPI2_Periph_Reset                  = MAKE_VALUE(0x20, 14), /*!< spi2 periph reset */
+            CRM_SPI3_Periph_Reset                  = MAKE_VALUE(0x20, 15), /*!< spi3 periph reset */
+            CRM_USART2_Periph_Reset                = MAKE_VALUE(0x20, 17), /*!< usart2 periph reset */
+            CRM_USART3_Periph_Reset                = MAKE_VALUE(0x20, 18), /*!< usart3 periph reset */
+            CRM_UART4_Periph_Reset                 = MAKE_VALUE(0x20, 19), /*!< uart4 periph reset */
+            CRM_UART5_Periph_Reset                 = MAKE_VALUE(0x20, 20), /*!< uart5 periph reset */
+            CRM_I2C1_Periph_Reset                  = MAKE_VALUE(0x20, 21), /*!< i2c1 periph reset */
+            CRM_I2C2_Periph_Reset                  = MAKE_VALUE(0x20, 22), /*!< i2c2 periph reset */
+            CRM_I2C3_Periph_Reset                  = MAKE_VALUE(0x20, 23), /*!< i2c3 periph reset */
+            CRM_CAN1_Periph_Reset                  = MAKE_VALUE(0x20, 25), /*!< can1 periph reset */
+            CRM_CAN2_Periph_Reset                  = MAKE_VALUE(0x20, 26), /*!< can2 periph reset */
+            CRM_PWC_Periph_Reset                   = MAKE_VALUE(0x20, 28), /*!< pwc periph reset */
+            CRM_DAC_Periph_Reset                   = MAKE_VALUE(0x20, 29), /*!< dac periph reset */
+            CRM_UART7_Periph_Reset                 = MAKE_VALUE(0x20, 30), /*!< uart7 periph reset */
+            CRM_UART8_Periph_Reset                 = MAKE_VALUE(0x20, 31), /*!< uart8 periph reset */
             /* apb2 periph */
-            CRM_TMR1_PERIPH_Reset                  = MAKE_VALUE(0x24, 0),  /*!< tmr1 periph reset */
-            CRM_TMR8_PERIPH_Reset                  = MAKE_VALUE(0x24, 1),  /*!< tmr8 periph reset */
-            CRM_USART1_PERIPH_Reset                = MAKE_VALUE(0x24, 4),  /*!< usart1 periph reset */
-            CRM_USART6_PERIPH_Reset                = MAKE_VALUE(0x24, 5),  /*!< usart6 periph reset */
-            CRM_ADC_PERIPH_Reset                   = MAKE_VALUE(0x24, 8),  /*!< adc periph reset */
-            CRM_SPI1_PERIPH_Reset                  = MAKE_VALUE(0x24, 12), /*!< spi1 periph reset */
-            CRM_SPI4_PERIPH_Reset                  = MAKE_VALUE(0x24, 13), /*!< spi4 periph reset */
-            CRM_SCFG_PERIPH_Reset                  = MAKE_VALUE(0x24, 14), /*!< scfg periph reset */
-            CRM_TMR9_PERIPH_Reset                  = MAKE_VALUE(0x24, 16), /*!< tmr9 periph reset */
-            CRM_TMR10_PERIPH_Reset                 = MAKE_VALUE(0x24, 17), /*!< tmr10 periph reset */
-            CRM_TMR11_PERIPH_Reset                 = MAKE_VALUE(0x24, 18), /*!< tmr11 periph reset */
-            CRM_TMR20_PERIPH_Reset                 = MAKE_VALUE(0x24, 20), /*!< tmr20 periph reset */
-            CRM_ACC_PERIPH_Reset                   = MAKE_VALUE(0x24, 29)  /*!< acc periph reset */
+            CRM_TMR1_Periph_Reset                  = MAKE_VALUE(0x24, 0),  /*!< tmr1 periph reset */
+            CRM_TMR8_Periph_Reset                  = MAKE_VALUE(0x24, 1),  /*!< tmr8 periph reset */
+            CRM_USART1_Periph_Reset                = MAKE_VALUE(0x24, 4),  /*!< usart1 periph reset */
+            CRM_USART6_Periph_Reset                = MAKE_VALUE(0x24, 5),  /*!< usart6 periph reset */
+            CRM_ADC_Periph_Reset                   = MAKE_VALUE(0x24, 8),  /*!< adc periph reset */
+            CRM_SPI1_Periph_Reset                  = MAKE_VALUE(0x24, 12), /*!< spi1 periph reset */
+            CRM_SPI4_Periph_Reset                  = MAKE_VALUE(0x24, 13), /*!< spi4 periph reset */
+            CRM_SCFG_Periph_Reset                  = MAKE_VALUE(0x24, 14), /*!< scfg periph reset */
+            CRM_TMR9_Periph_Reset                  = MAKE_VALUE(0x24, 16), /*!< tmr9 periph reset */
+            CRM_TMR10_Periph_Reset                 = MAKE_VALUE(0x24, 17), /*!< tmr10 periph reset */
+            CRM_TMR11_Periph_Reset                 = MAKE_VALUE(0x24, 18), /*!< tmr11 periph reset */
+            CRM_TMR20_Periph_Reset                 = MAKE_VALUE(0x24, 20), /*!< tmr20 periph reset */
+            CRM_ACC_Periph_Reset                   = MAKE_VALUE(0x24, 29)  /*!< acc periph reset */
             #endif
 
-} crm_periph_Reset_Type;
+} CRM_Periph_Reset_Type;
 
 /**
   * @brief crm periph clock in low power mode
@@ -384,151 +384,151 @@ typedef enum {
 typedef enum {
     #if defined (AT32F435xx)
     /* ahb periph1 */
-    CRM_GPIOA_PERIPH_LOWPOWER              = MAKE_VALUE(0x50, 0),  /*!< gpioa sleep mode periph clock */
-    CRM_GPIOB_PERIPH_LOWPOWER              = MAKE_VALUE(0x50, 1),  /*!< gpiob sleep mode periph clock */
-    CRM_GPIOC_PERIPH_LOWPOWER              = MAKE_VALUE(0x50, 2),  /*!< gpioc sleep mode periph clock */
-    CRM_GPIOD_PERIPH_LOWPOWER              = MAKE_VALUE(0x50, 3),  /*!< gpiod sleep mode periph clock */
-    CRM_GPIOE_PERIPH_LOWPOWER              = MAKE_VALUE(0x50, 4),  /*!< gpioe sleep mode periph clock */
-    CRM_GPIOF_PERIPH_LOWPOWER              = MAKE_VALUE(0x50, 5),  /*!< gpiof sleep mode periph clock */
-    CRM_GPIOG_PERIPH_LOWPOWER              = MAKE_VALUE(0x50, 6),  /*!< gpiog sleep mode periph clock */
-    CRM_GPIOH_PERIPH_LOWPOWER              = MAKE_VALUE(0x50, 7),  /*!< gpioh sleep mode periph clock */
-    CRM_CRC_PERIPH_LOWPOWER                = MAKE_VALUE(0x50, 12), /*!< crc sleep mode periph clock */
-    CRM_FLASH_PERIPH_LOWPOWER              = MAKE_VALUE(0x50, 15), /*!< flash sleep mode periph clock */
-    CRM_SRAM1_PERIPH_LOWPOWER              = MAKE_VALUE(0x50, 16), /*!< sram1 sleep mode periph clock */
-    CRM_SRAM2_PERIPH_LOWPOWER              = MAKE_VALUE(0x50, 17), /*!< sram2 sleep mode periph clock */
-    CRM_EDMA_PERIPH_LOWPOWER               = MAKE_VALUE(0x50, 21), /*!< edma sleep mode periph clock */
-    CRM_DMA1_PERIPH_LOWPOWER               = MAKE_VALUE(0x50, 22), /*!< dma1 sleep mode periph clock */
-    CRM_DMA2_PERIPH_LOWPOWER               = MAKE_VALUE(0x50, 24), /*!< dma2 sleep mode periph clock */
-    CRM_OTGFS2_PERIPH_LOWPOWER             = MAKE_VALUE(0x50, 29), /*!< otgfs2 sleep mode periph clock */
+    CRM_GPIOA_Periph_LOWPOWER              = MAKE_VALUE(0x50, 0),  /*!< gpioa sleep mode periph clock */
+    CRM_GPIOB_Periph_LOWPOWER              = MAKE_VALUE(0x50, 1),  /*!< gpiob sleep mode periph clock */
+    CRM_GPIOC_Periph_LOWPOWER              = MAKE_VALUE(0x50, 2),  /*!< gpioc sleep mode periph clock */
+    CRM_GPIOD_Periph_LOWPOWER              = MAKE_VALUE(0x50, 3),  /*!< gpiod sleep mode periph clock */
+    CRM_GPIOE_Periph_LOWPOWER              = MAKE_VALUE(0x50, 4),  /*!< gpioe sleep mode periph clock */
+    CRM_GPIOF_Periph_LOWPOWER              = MAKE_VALUE(0x50, 5),  /*!< gpiof sleep mode periph clock */
+    CRM_GPIOG_Periph_LOWPOWER              = MAKE_VALUE(0x50, 6),  /*!< gpiog sleep mode periph clock */
+    CRM_GPIOH_Periph_LOWPOWER              = MAKE_VALUE(0x50, 7),  /*!< gpioh sleep mode periph clock */
+    CRM_CRC_Periph_LOWPOWER                = MAKE_VALUE(0x50, 12), /*!< crc sleep mode periph clock */
+    CRM_FLASH_Periph_LOWPOWER              = MAKE_VALUE(0x50, 15), /*!< flash sleep mode periph clock */
+    CRM_SRAM1_Periph_LOWPOWER              = MAKE_VALUE(0x50, 16), /*!< sram1 sleep mode periph clock */
+    CRM_SRAM2_Periph_LOWPOWER              = MAKE_VALUE(0x50, 17), /*!< sram2 sleep mode periph clock */
+    CRM_EDMA_Periph_LOWPOWER               = MAKE_VALUE(0x50, 21), /*!< edma sleep mode periph clock */
+    CRM_DMA1_Periph_LOWPOWER               = MAKE_VALUE(0x50, 22), /*!< dma1 sleep mode periph clock */
+    CRM_DMA2_Periph_LOWPOWER               = MAKE_VALUE(0x50, 24), /*!< dma2 sleep mode periph clock */
+    CRM_OTGFS2_Periph_LOWPOWER             = MAKE_VALUE(0x50, 29), /*!< otgfs2 sleep mode periph clock */
     /* ahb periph2 */
-    CRM_DVP_PERIPH_LOWPOWER                = MAKE_VALUE(0x54, 0),  /*!< dvp sleep mode periph clock */
-    CRM_OTGFS1_PERIPH_LOWPOWER             = MAKE_VALUE(0x54, 7),  /*!< otgfs1 sleep mode periph clock */
-    CRM_SDIO1_PERIPH_LOWPOWER              = MAKE_VALUE(0x54, 15), /*!< sdio1 sleep mode periph clock */
+    CRM_DVP_Periph_LOWPOWER                = MAKE_VALUE(0x54, 0),  /*!< dvp sleep mode periph clock */
+    CRM_OTGFS1_Periph_LOWPOWER             = MAKE_VALUE(0x54, 7),  /*!< otgfs1 sleep mode periph clock */
+    CRM_SDIO1_Periph_LOWPOWER              = MAKE_VALUE(0x54, 15), /*!< sdio1 sleep mode periph clock */
     /* ahb periph3 */
-    CRM_XMC_PERIPH_LOWPOWER                = MAKE_VALUE(0x58, 0),  /*!< xmc sleep mode periph clock */
-    CRM_QSPI1_PERIPH_LOWPOWER              = MAKE_VALUE(0x58, 1),  /*!< qspi1 sleep mode periph clock */
-    CRM_QSPI2_PERIPH_LOWPOWER              = MAKE_VALUE(0x58, 14), /*!< qspi2 sleep mode periph clock */
-    CRM_SDIO2_PERIPH_LOWPOWER              = MAKE_VALUE(0x58, 15), /*!< sdio2 sleep mode periph clock */
+    CRM_XMC_Periph_LOWPOWER                = MAKE_VALUE(0x58, 0),  /*!< xmc sleep mode periph clock */
+    CRM_QSPI1_Periph_LOWPOWER              = MAKE_VALUE(0x58, 1),  /*!< qspi1 sleep mode periph clock */
+    CRM_QSPI2_Periph_LOWPOWER              = MAKE_VALUE(0x58, 14), /*!< qspi2 sleep mode periph clock */
+    CRM_SDIO2_Periph_LOWPOWER              = MAKE_VALUE(0x58, 15), /*!< sdio2 sleep mode periph clock */
     /* apb1 periph */
-    CRM_TMR2_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 0),  /*!< tmr2 sleep mode periph clock */
-    CRM_TMR3_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 1),  /*!< tmr3 sleep mode periph clock */
-    CRM_TMR4_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 2),  /*!< tmr4 sleep mode periph clock */
-    CRM_TMR5_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 3),  /*!< tmr5 sleep mode periph clock */
-    CRM_TMR6_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 4),  /*!< tmr6 sleep mode periph clock */
-    CRM_TMR7_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 5),  /*!< tmr7 sleep mode periph clock */
-    CRM_TMR12_PERIPH_LOWPOWER              = MAKE_VALUE(0x60, 6),  /*!< tmr12 sleep mode periph clock */
-    CRM_TMR13_PERIPH_LOWPOWER              = MAKE_VALUE(0x60, 7),  /*!< tmr13 sleep mode periph clock */
-    CRM_TMR14_PERIPH_LOWPOWER              = MAKE_VALUE(0x60, 8),  /*!< tmr14 sleep mode periph clock */
-    CRM_WWDT_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 11), /*!< wwdt sleep mode periph clock */
-    CRM_SPI2_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 14), /*!< spi2 sleep mode periph clock */
-    CRM_SPI3_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 15), /*!< spi3 sleep mode periph clock */
-    CRM_USART2_PERIPH_LOWPOWER             = MAKE_VALUE(0x60, 17), /*!< usart2 sleep mode periph clock */
-    CRM_USART3_PERIPH_LOWPOWER             = MAKE_VALUE(0x60, 18), /*!< usart3 sleep mode periph clock */
-    CRM_UART4_PERIPH_LOWPOWER              = MAKE_VALUE(0x60, 19), /*!< uart4 sleep mode periph clock */
-    CRM_UART5_PERIPH_LOWPOWER              = MAKE_VALUE(0x60, 20), /*!< uart5 sleep mode periph clock */
-    CRM_I2C1_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 21), /*!< i2c1 sleep mode periph clock */
-    CRM_I2C2_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 22), /*!< i2c2 sleep mode periph clock */
-    CRM_I2C3_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 23), /*!< i2c3 sleep mode periph clock */
-    CRM_CAN1_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 25), /*!< can1 sleep mode periph clock */
-    CRM_CAN2_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 26), /*!< can2 sleep mode periph clock */
-    CRM_PWC_PERIPH_LOWPOWER                = MAKE_VALUE(0x60, 28), /*!< pwc sleep mode periph clock */
-    CRM_DAC_PERIPH_LOWPOWER                = MAKE_VALUE(0x60, 29), /*!< dac sleep mode periph clock */
-    CRM_UART7_PERIPH_LOWPOWER              = MAKE_VALUE(0x60, 30), /*!< uart7 sleep mode periph clock */
-    CRM_UART8_PERIPH_LOWPOWER              = MAKE_VALUE(0x60, 31), /*!< uart8 sleep mode periph clock */
+    CRM_TMR2_Periph_LOWPOWER               = MAKE_VALUE(0x60, 0),  /*!< tmr2 sleep mode periph clock */
+    CRM_TMR3_Periph_LOWPOWER               = MAKE_VALUE(0x60, 1),  /*!< tmr3 sleep mode periph clock */
+    CRM_TMR4_Periph_LOWPOWER               = MAKE_VALUE(0x60, 2),  /*!< tmr4 sleep mode periph clock */
+    CRM_TMR5_Periph_LOWPOWER               = MAKE_VALUE(0x60, 3),  /*!< tmr5 sleep mode periph clock */
+    CRM_TMR6_Periph_LOWPOWER               = MAKE_VALUE(0x60, 4),  /*!< tmr6 sleep mode periph clock */
+    CRM_TMR7_Periph_LOWPOWER               = MAKE_VALUE(0x60, 5),  /*!< tmr7 sleep mode periph clock */
+    CRM_TMR12_Periph_LOWPOWER              = MAKE_VALUE(0x60, 6),  /*!< tmr12 sleep mode periph clock */
+    CRM_TMR13_Periph_LOWPOWER              = MAKE_VALUE(0x60, 7),  /*!< tmr13 sleep mode periph clock */
+    CRM_TMR14_Periph_LOWPOWER              = MAKE_VALUE(0x60, 8),  /*!< tmr14 sleep mode periph clock */
+    CRM_WWDT_Periph_LOWPOWER               = MAKE_VALUE(0x60, 11), /*!< wwdt sleep mode periph clock */
+    CRM_SPI2_Periph_LOWPOWER               = MAKE_VALUE(0x60, 14), /*!< spi2 sleep mode periph clock */
+    CRM_SPI3_Periph_LOWPOWER               = MAKE_VALUE(0x60, 15), /*!< spi3 sleep mode periph clock */
+    CRM_USART2_Periph_LOWPOWER             = MAKE_VALUE(0x60, 17), /*!< usart2 sleep mode periph clock */
+    CRM_USART3_Periph_LOWPOWER             = MAKE_VALUE(0x60, 18), /*!< usart3 sleep mode periph clock */
+    CRM_UART4_Periph_LOWPOWER              = MAKE_VALUE(0x60, 19), /*!< uart4 sleep mode periph clock */
+    CRM_UART5_Periph_LOWPOWER              = MAKE_VALUE(0x60, 20), /*!< uart5 sleep mode periph clock */
+    CRM_I2C1_Periph_LOWPOWER               = MAKE_VALUE(0x60, 21), /*!< i2c1 sleep mode periph clock */
+    CRM_I2C2_Periph_LOWPOWER               = MAKE_VALUE(0x60, 22), /*!< i2c2 sleep mode periph clock */
+    CRM_I2C3_Periph_LOWPOWER               = MAKE_VALUE(0x60, 23), /*!< i2c3 sleep mode periph clock */
+    CRM_CAN1_Periph_LOWPOWER               = MAKE_VALUE(0x60, 25), /*!< can1 sleep mode periph clock */
+    CRM_CAN2_Periph_LOWPOWER               = MAKE_VALUE(0x60, 26), /*!< can2 sleep mode periph clock */
+    CRM_PWC_Periph_LOWPOWER                = MAKE_VALUE(0x60, 28), /*!< pwc sleep mode periph clock */
+    CRM_DAC_Periph_LOWPOWER                = MAKE_VALUE(0x60, 29), /*!< dac sleep mode periph clock */
+    CRM_UART7_Periph_LOWPOWER              = MAKE_VALUE(0x60, 30), /*!< uart7 sleep mode periph clock */
+    CRM_UART8_Periph_LOWPOWER              = MAKE_VALUE(0x60, 31), /*!< uart8 sleep mode periph clock */
     /* apb2 periph */
-    CRM_TMR1_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 0),  /*!< tmr1 sleep mode periph clock */
-    CRM_TMR8_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 1),  /*!< tmr8 sleep mode periph clock */
-    CRM_USART1_PERIPH_LOWPOWER             = MAKE_VALUE(0x64, 4),  /*!< usart1 sleep mode periph clock */
-    CRM_USART6_PERIPH_LOWPOWER             = MAKE_VALUE(0x64, 5),  /*!< usart6 sleep mode periph clock */
-    CRM_ADC1_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 8),  /*!< adc1 sleep mode periph clock */
-    CRM_ADC2_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 9),  /*!< adc2 sleep mode periph clock */
-    CRM_ADC3_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 10), /*!< adc3 sleep mode periph clock */
-    CRM_SPI1_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 12), /*!< spi1 sleep mode periph clock */
-    CRM_SPI4_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 13), /*!< spi4 sleep mode periph clock */
-    CRM_SCFG_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 14), /*!< scfg sleep mode periph clock */
-    CRM_TMR9_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 16), /*!< tmr9 sleep mode periph clock */
-    CRM_TMR10_PERIPH_LOWPOWER              = MAKE_VALUE(0x64, 17), /*!< tmr10 sleep mode periph clock */
-    CRM_TMR11_PERIPH_LOWPOWER              = MAKE_VALUE(0x64, 18), /*!< tmr11 sleep mode periph clock */
-    CRM_TMR20_PERIPH_LOWPOWER              = MAKE_VALUE(0x64, 20), /*!< tmr20 sleep mode periph clock */
-    CRM_ACC_PERIPH_LOWPOWER                = MAKE_VALUE(0x64, 29)  /*!< acc sleep mode periph clock */
+    CRM_TMR1_Periph_LOWPOWER               = MAKE_VALUE(0x64, 0),  /*!< tmr1 sleep mode periph clock */
+    CRM_TMR8_Periph_LOWPOWER               = MAKE_VALUE(0x64, 1),  /*!< tmr8 sleep mode periph clock */
+    CRM_USART1_Periph_LOWPOWER             = MAKE_VALUE(0x64, 4),  /*!< usart1 sleep mode periph clock */
+    CRM_USART6_Periph_LOWPOWER             = MAKE_VALUE(0x64, 5),  /*!< usart6 sleep mode periph clock */
+    CRM_ADC1_Periph_LOWPOWER               = MAKE_VALUE(0x64, 8),  /*!< adc1 sleep mode periph clock */
+    CRM_ADC2_Periph_LOWPOWER               = MAKE_VALUE(0x64, 9),  /*!< adc2 sleep mode periph clock */
+    CRM_ADC3_Periph_LOWPOWER               = MAKE_VALUE(0x64, 10), /*!< adc3 sleep mode periph clock */
+    CRM_SPI1_Periph_LOWPOWER               = MAKE_VALUE(0x64, 12), /*!< spi1 sleep mode periph clock */
+    CRM_SPI4_Periph_LOWPOWER               = MAKE_VALUE(0x64, 13), /*!< spi4 sleep mode periph clock */
+    CRM_SCFG_Periph_LOWPOWER               = MAKE_VALUE(0x64, 14), /*!< scfg sleep mode periph clock */
+    CRM_TMR9_Periph_LOWPOWER               = MAKE_VALUE(0x64, 16), /*!< tmr9 sleep mode periph clock */
+    CRM_TMR10_Periph_LOWPOWER              = MAKE_VALUE(0x64, 17), /*!< tmr10 sleep mode periph clock */
+    CRM_TMR11_Periph_LOWPOWER              = MAKE_VALUE(0x64, 18), /*!< tmr11 sleep mode periph clock */
+    CRM_TMR20_Periph_LOWPOWER              = MAKE_VALUE(0x64, 20), /*!< tmr20 sleep mode periph clock */
+    CRM_ACC_Periph_LOWPOWER                = MAKE_VALUE(0x64, 29)  /*!< acc sleep mode periph clock */
     #endif
 
             #if defined (AT32F437xx)
             /* ahb periph1 */
-            CRM_GPIOA_PERIPH_LOWPOWER              = MAKE_VALUE(0x50, 0),  /*!< gpioa sleep mode periph clock */
-            CRM_GPIOB_PERIPH_LOWPOWER              = MAKE_VALUE(0x50, 1),  /*!< gpiob sleep mode periph clock */
-            CRM_GPIOC_PERIPH_LOWPOWER              = MAKE_VALUE(0x50, 2),  /*!< gpioc sleep mode periph clock */
-            CRM_GPIOD_PERIPH_LOWPOWER              = MAKE_VALUE(0x50, 3),  /*!< gpiod sleep mode periph clock */
-            CRM_GPIOE_PERIPH_LOWPOWER              = MAKE_VALUE(0x50, 4),  /*!< gpioe sleep mode periph clock */
-            CRM_GPIOF_PERIPH_LOWPOWER              = MAKE_VALUE(0x50, 5),  /*!< gpiof sleep mode periph clock */
-            CRM_GPIOG_PERIPH_LOWPOWER              = MAKE_VALUE(0x50, 6),  /*!< gpiog sleep mode periph clock */
-            CRM_GPIOH_PERIPH_LOWPOWER              = MAKE_VALUE(0x50, 7),  /*!< gpioh sleep mode periph clock */
-            CRM_CRC_PERIPH_LOWPOWER                = MAKE_VALUE(0x50, 12), /*!< crc sleep mode periph clock */
-            CRM_FLASH_PERIPH_LOWPOWER              = MAKE_VALUE(0x50, 15), /*!< flash sleep mode periph clock */
-            CRM_SRAM1_PERIPH_LOWPOWER              = MAKE_VALUE(0x50, 16), /*!< sram1 sleep mode periph clock */
-            CRM_SRAM2_PERIPH_LOWPOWER              = MAKE_VALUE(0x50, 17), /*!< sram2 sleep mode periph clock */
-            CRM_EDMA_PERIPH_LOWPOWER               = MAKE_VALUE(0x50, 21), /*!< edma sleep mode periph clock */
-            CRM_DMA1_PERIPH_LOWPOWER               = MAKE_VALUE(0x50, 22), /*!< dma1 sleep mode periph clock */
-            CRM_DMA2_PERIPH_LOWPOWER               = MAKE_VALUE(0x50, 24), /*!< dma2 sleep mode periph clock */
-            CRM_EMAC_PERIPH_LOWPOWER               = MAKE_VALUE(0x50, 25), /*!< emac sleep mode periph clock */
-            CRM_EMACTX_PERIPH_LOWPOWER             = MAKE_VALUE(0x50, 26), /*!< emac tx sleep mode periph clock */
-            CRM_EMACRX_PERIPH_LOWPOWER             = MAKE_VALUE(0x50, 27), /*!< emac rx sleep mode periph clock */
-            CRM_EMACPTP_PERIPH_LOWPOWER            = MAKE_VALUE(0x50, 28), /*!< emac ptp sleep mode periph clock */
-            CRM_OTGFS2_PERIPH_LOWPOWER             = MAKE_VALUE(0x50, 29), /*!< otgfs2 sleep mode periph clock */
+            CRM_GPIOA_Periph_LOWPOWER              = MAKE_VALUE(0x50, 0),  /*!< gpioa sleep mode periph clock */
+            CRM_GPIOB_Periph_LOWPOWER              = MAKE_VALUE(0x50, 1),  /*!< gpiob sleep mode periph clock */
+            CRM_GPIOC_Periph_LOWPOWER              = MAKE_VALUE(0x50, 2),  /*!< gpioc sleep mode periph clock */
+            CRM_GPIOD_Periph_LOWPOWER              = MAKE_VALUE(0x50, 3),  /*!< gpiod sleep mode periph clock */
+            CRM_GPIOE_Periph_LOWPOWER              = MAKE_VALUE(0x50, 4),  /*!< gpioe sleep mode periph clock */
+            CRM_GPIOF_Periph_LOWPOWER              = MAKE_VALUE(0x50, 5),  /*!< gpiof sleep mode periph clock */
+            CRM_GPIOG_Periph_LOWPOWER              = MAKE_VALUE(0x50, 6),  /*!< gpiog sleep mode periph clock */
+            CRM_GPIOH_Periph_LOWPOWER              = MAKE_VALUE(0x50, 7),  /*!< gpioh sleep mode periph clock */
+            CRM_CRC_Periph_LOWPOWER                = MAKE_VALUE(0x50, 12), /*!< crc sleep mode periph clock */
+            CRM_FLASH_Periph_LOWPOWER              = MAKE_VALUE(0x50, 15), /*!< flash sleep mode periph clock */
+            CRM_SRAM1_Periph_LOWPOWER              = MAKE_VALUE(0x50, 16), /*!< sram1 sleep mode periph clock */
+            CRM_SRAM2_Periph_LOWPOWER              = MAKE_VALUE(0x50, 17), /*!< sram2 sleep mode periph clock */
+            CRM_EDMA_Periph_LOWPOWER               = MAKE_VALUE(0x50, 21), /*!< edma sleep mode periph clock */
+            CRM_DMA1_Periph_LOWPOWER               = MAKE_VALUE(0x50, 22), /*!< dma1 sleep mode periph clock */
+            CRM_DMA2_Periph_LOWPOWER               = MAKE_VALUE(0x50, 24), /*!< dma2 sleep mode periph clock */
+            CRM_EMAC_Periph_LOWPOWER               = MAKE_VALUE(0x50, 25), /*!< emac sleep mode periph clock */
+            CRM_EMACTX_Periph_LOWPOWER             = MAKE_VALUE(0x50, 26), /*!< emac tx sleep mode periph clock */
+            CRM_EMACRX_Periph_LOWPOWER             = MAKE_VALUE(0x50, 27), /*!< emac rx sleep mode periph clock */
+            CRM_EMACPTP_Periph_LOWPOWER            = MAKE_VALUE(0x50, 28), /*!< emac ptp sleep mode periph clock */
+            CRM_OTGFS2_Periph_LOWPOWER             = MAKE_VALUE(0x50, 29), /*!< otgfs2 sleep mode periph clock */
             /* ahb periph2 */
-            CRM_DVP_PERIPH_LOWPOWER                = MAKE_VALUE(0x54, 0),  /*!< dvp sleep mode periph clock */
-            CRM_OTGFS1_PERIPH_LOWPOWER             = MAKE_VALUE(0x54, 7),  /*!< otgfs1 sleep mode periph clock */
-            CRM_SDIO1_PERIPH_LOWPOWER              = MAKE_VALUE(0x54, 15), /*!< sdio1 sleep mode periph clock */
+            CRM_DVP_Periph_LOWPOWER                = MAKE_VALUE(0x54, 0),  /*!< dvp sleep mode periph clock */
+            CRM_OTGFS1_Periph_LOWPOWER             = MAKE_VALUE(0x54, 7),  /*!< otgfs1 sleep mode periph clock */
+            CRM_SDIO1_Periph_LOWPOWER              = MAKE_VALUE(0x54, 15), /*!< sdio1 sleep mode periph clock */
             /* ahb periph3 */
-            CRM_XMC_PERIPH_LOWPOWER                = MAKE_VALUE(0x58, 0),  /*!< xmc sleep mode periph clock */
-            CRM_QSPI1_PERIPH_LOWPOWER              = MAKE_VALUE(0x58, 1),  /*!< qspi1 sleep mode periph clock */
-            CRM_QSPI2_PERIPH_LOWPOWER              = MAKE_VALUE(0x58, 14), /*!< qspi2 sleep mode periph clock */
-            CRM_SDIO2_PERIPH_LOWPOWER              = MAKE_VALUE(0x58, 15), /*!< sdio2 sleep mode periph clock */
+            CRM_XMC_Periph_LOWPOWER                = MAKE_VALUE(0x58, 0),  /*!< xmc sleep mode periph clock */
+            CRM_QSPI1_Periph_LOWPOWER              = MAKE_VALUE(0x58, 1),  /*!< qspi1 sleep mode periph clock */
+            CRM_QSPI2_Periph_LOWPOWER              = MAKE_VALUE(0x58, 14), /*!< qspi2 sleep mode periph clock */
+            CRM_SDIO2_Periph_LOWPOWER              = MAKE_VALUE(0x58, 15), /*!< sdio2 sleep mode periph clock */
             /* apb1 periph */
-            CRM_TMR2_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 0),  /*!< tmr2 sleep mode periph clock */
-            CRM_TMR3_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 1),  /*!< tmr3 sleep mode periph clock */
-            CRM_TMR4_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 2),  /*!< tmr4 sleep mode periph clock */
-            CRM_TMR5_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 3),  /*!< tmr5 sleep mode periph clock */
-            CRM_TMR6_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 4),  /*!< tmr6 sleep mode periph clock */
-            CRM_TMR7_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 5),  /*!< tmr7 sleep mode periph clock */
-            CRM_TMR12_PERIPH_LOWPOWER              = MAKE_VALUE(0x60, 6),  /*!< tmr12 sleep mode periph clock */
-            CRM_TMR13_PERIPH_LOWPOWER              = MAKE_VALUE(0x60, 7),  /*!< tmr13 sleep mode periph clock */
-            CRM_TMR14_PERIPH_LOWPOWER              = MAKE_VALUE(0x60, 8),  /*!< tmr14 sleep mode periph clock */
-            CRM_WWDT_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 11), /*!< wwdt sleep mode periph clock */
-            CRM_SPI2_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 14), /*!< spi2 sleep mode periph clock */
-            CRM_SPI3_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 15), /*!< spi3 sleep mode periph clock */
-            CRM_USART2_PERIPH_LOWPOWER             = MAKE_VALUE(0x60, 17), /*!< usart2 sleep mode periph clock */
-            CRM_USART3_PERIPH_LOWPOWER             = MAKE_VALUE(0x60, 18), /*!< usart3 sleep mode periph clock */
-            CRM_UART4_PERIPH_LOWPOWER              = MAKE_VALUE(0x60, 19), /*!< uart4 sleep mode periph clock */
-            CRM_UART5_PERIPH_LOWPOWER              = MAKE_VALUE(0x60, 20), /*!< uart5 sleep mode periph clock */
-            CRM_I2C1_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 21), /*!< i2c1 sleep mode periph clock */
-            CRM_I2C2_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 22), /*!< i2c2 sleep mode periph clock */
-            CRM_I2C3_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 23), /*!< i2c3 sleep mode periph clock */
-            CRM_CAN1_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 25), /*!< can1 sleep mode periph clock */
-            CRM_CAN2_PERIPH_LOWPOWER               = MAKE_VALUE(0x60, 26), /*!< can2 sleep mode periph clock */
-            CRM_PWC_PERIPH_LOWPOWER                = MAKE_VALUE(0x60, 28), /*!< pwc sleep mode periph clock */
-            CRM_DAC_PERIPH_LOWPOWER                = MAKE_VALUE(0x60, 29), /*!< dac sleep mode periph clock */
-            CRM_UART7_PERIPH_LOWPOWER              = MAKE_VALUE(0x60, 30), /*!< uart7 sleep mode periph clock */
-            CRM_UART8_PERIPH_LOWPOWER              = MAKE_VALUE(0x60, 31), /*!< uart8 sleep mode periph clock */
+            CRM_TMR2_Periph_LOWPOWER               = MAKE_VALUE(0x60, 0),  /*!< tmr2 sleep mode periph clock */
+            CRM_TMR3_Periph_LOWPOWER               = MAKE_VALUE(0x60, 1),  /*!< tmr3 sleep mode periph clock */
+            CRM_TMR4_Periph_LOWPOWER               = MAKE_VALUE(0x60, 2),  /*!< tmr4 sleep mode periph clock */
+            CRM_TMR5_Periph_LOWPOWER               = MAKE_VALUE(0x60, 3),  /*!< tmr5 sleep mode periph clock */
+            CRM_TMR6_Periph_LOWPOWER               = MAKE_VALUE(0x60, 4),  /*!< tmr6 sleep mode periph clock */
+            CRM_TMR7_Periph_LOWPOWER               = MAKE_VALUE(0x60, 5),  /*!< tmr7 sleep mode periph clock */
+            CRM_TMR12_Periph_LOWPOWER              = MAKE_VALUE(0x60, 6),  /*!< tmr12 sleep mode periph clock */
+            CRM_TMR13_Periph_LOWPOWER              = MAKE_VALUE(0x60, 7),  /*!< tmr13 sleep mode periph clock */
+            CRM_TMR14_Periph_LOWPOWER              = MAKE_VALUE(0x60, 8),  /*!< tmr14 sleep mode periph clock */
+            CRM_WWDT_Periph_LOWPOWER               = MAKE_VALUE(0x60, 11), /*!< wwdt sleep mode periph clock */
+            CRM_SPI2_Periph_LOWPOWER               = MAKE_VALUE(0x60, 14), /*!< spi2 sleep mode periph clock */
+            CRM_SPI3_Periph_LOWPOWER               = MAKE_VALUE(0x60, 15), /*!< spi3 sleep mode periph clock */
+            CRM_USART2_Periph_LOWPOWER             = MAKE_VALUE(0x60, 17), /*!< usart2 sleep mode periph clock */
+            CRM_USART3_Periph_LOWPOWER             = MAKE_VALUE(0x60, 18), /*!< usart3 sleep mode periph clock */
+            CRM_UART4_Periph_LOWPOWER              = MAKE_VALUE(0x60, 19), /*!< uart4 sleep mode periph clock */
+            CRM_UART5_Periph_LOWPOWER              = MAKE_VALUE(0x60, 20), /*!< uart5 sleep mode periph clock */
+            CRM_I2C1_Periph_LOWPOWER               = MAKE_VALUE(0x60, 21), /*!< i2c1 sleep mode periph clock */
+            CRM_I2C2_Periph_LOWPOWER               = MAKE_VALUE(0x60, 22), /*!< i2c2 sleep mode periph clock */
+            CRM_I2C3_Periph_LOWPOWER               = MAKE_VALUE(0x60, 23), /*!< i2c3 sleep mode periph clock */
+            CRM_CAN1_Periph_LOWPOWER               = MAKE_VALUE(0x60, 25), /*!< can1 sleep mode periph clock */
+            CRM_CAN2_Periph_LOWPOWER               = MAKE_VALUE(0x60, 26), /*!< can2 sleep mode periph clock */
+            CRM_PWC_Periph_LOWPOWER                = MAKE_VALUE(0x60, 28), /*!< pwc sleep mode periph clock */
+            CRM_DAC_Periph_LOWPOWER                = MAKE_VALUE(0x60, 29), /*!< dac sleep mode periph clock */
+            CRM_UART7_Periph_LOWPOWER              = MAKE_VALUE(0x60, 30), /*!< uart7 sleep mode periph clock */
+            CRM_UART8_Periph_LOWPOWER              = MAKE_VALUE(0x60, 31), /*!< uart8 sleep mode periph clock */
             /* apb2 periph */
-            CRM_TMR1_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 0),  /*!< tmr1 sleep mode periph clock */
-            CRM_TMR8_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 1),  /*!< tmr8 sleep mode periph clock */
-            CRM_USART1_PERIPH_LOWPOWER             = MAKE_VALUE(0x64, 4),  /*!< usart1 sleep mode periph clock */
-            CRM_USART6_PERIPH_LOWPOWER             = MAKE_VALUE(0x64, 5),  /*!< usart6 sleep mode periph clock */
-            CRM_ADC1_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 8),  /*!< adc1 sleep mode periph clock */
-            CRM_ADC2_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 9),  /*!< adc2 sleep mode periph clock */
-            CRM_ADC3_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 10), /*!< adc3 sleep mode periph clock */
-            CRM_SPI1_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 12), /*!< spi1 sleep mode periph clock */
-            CRM_SPI4_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 13), /*!< spi4 sleep mode periph clock */
-            CRM_SCFG_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 14), /*!< scfg sleep mode periph clock */
-            CRM_TMR9_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 16), /*!< tmr9 sleep mode periph clock */
-            CRM_TMR10_PERIPH_LOWPOWER              = MAKE_VALUE(0x64, 17), /*!< tmr10 sleep mode periph clock */
-            CRM_TMR11_PERIPH_LOWPOWER              = MAKE_VALUE(0x64, 18), /*!< tmr11 sleep mode periph clock */
-            CRM_TMR20_PERIPH_LOWPOWER              = MAKE_VALUE(0x64, 20), /*!< tmr20 sleep mode periph clock */
-            CRM_ACC_PERIPH_LOWPOWER                = MAKE_VALUE(0x64, 29)  /*!< acc sleep mode periph clock */
+            CRM_TMR1_Periph_LOWPOWER               = MAKE_VALUE(0x64, 0),  /*!< tmr1 sleep mode periph clock */
+            CRM_TMR8_Periph_LOWPOWER               = MAKE_VALUE(0x64, 1),  /*!< tmr8 sleep mode periph clock */
+            CRM_USART1_Periph_LOWPOWER             = MAKE_VALUE(0x64, 4),  /*!< usart1 sleep mode periph clock */
+            CRM_USART6_Periph_LOWPOWER             = MAKE_VALUE(0x64, 5),  /*!< usart6 sleep mode periph clock */
+            CRM_ADC1_Periph_LOWPOWER               = MAKE_VALUE(0x64, 8),  /*!< adc1 sleep mode periph clock */
+            CRM_ADC2_Periph_LOWPOWER               = MAKE_VALUE(0x64, 9),  /*!< adc2 sleep mode periph clock */
+            CRM_ADC3_Periph_LOWPOWER               = MAKE_VALUE(0x64, 10), /*!< adc3 sleep mode periph clock */
+            CRM_SPI1_Periph_LOWPOWER               = MAKE_VALUE(0x64, 12), /*!< spi1 sleep mode periph clock */
+            CRM_SPI4_Periph_LOWPOWER               = MAKE_VALUE(0x64, 13), /*!< spi4 sleep mode periph clock */
+            CRM_SCFG_Periph_LOWPOWER               = MAKE_VALUE(0x64, 14), /*!< scfg sleep mode periph clock */
+            CRM_TMR9_Periph_LOWPOWER               = MAKE_VALUE(0x64, 16), /*!< tmr9 sleep mode periph clock */
+            CRM_TMR10_Periph_LOWPOWER              = MAKE_VALUE(0x64, 17), /*!< tmr10 sleep mode periph clock */
+            CRM_TMR11_Periph_LOWPOWER              = MAKE_VALUE(0x64, 18), /*!< tmr11 sleep mode periph clock */
+            CRM_TMR20_Periph_LOWPOWER              = MAKE_VALUE(0x64, 20), /*!< tmr20 sleep mode periph clock */
+            CRM_ACC_Periph_LOWPOWER                = MAKE_VALUE(0x64, 29)  /*!< acc sleep mode periph clock */
             #endif
 
-} crm_periph_Clock_lowpower_Type;
+} CRM_Periph_Clock_LowPower_Type;
 
 /**
   * @brief crm pll clock source
@@ -536,7 +536,7 @@ typedef enum {
 typedef enum {
     CRM_PLL_Source_HICK                    = 0x00, /*!< high speed internal clock as pll reference clock source */
     CRM_PLL_Source_HEXT                    = 0x01  /*!< high speed external crystal as pll reference clock source */
-} crm_pll_Clock_Source_Type;
+} CRM_PLL_Clock_Source_Type;
 
 /**
   * @brief crm pll fr
@@ -548,7 +548,7 @@ typedef enum {
     CRM_PLL_FR_8                           = 0x03, /*!< pll post-division div8 */
     CRM_PLL_FR_16                          = 0x04, /*!< pll post-division div16 */
     CRM_PLL_FR_32                          = 0x05  /*!< pll post-division div32 */
-} crm_pll_fr_Type;
+} CRM_PLL_FR_Type;
 
 /**
   * @brief crm clock source
@@ -559,63 +559,63 @@ typedef enum {
     CRM_Clock_Source_PLL                   = 0x02, /*!< phase locking loop */
     CRM_Clock_Source_LEXT                  = 0x03, /*!< low speed external crystal */
     CRM_Clock_Source_LICK                  = 0x04  /*!< low speed internal clock */
-} crm_Clock_Source_Type;
+} CRM_Clock_Source_Type;
 
 /**
   * @brief crm ahb division
   */
 typedef enum {
-    CRM_AHB_DIV_1                          = 0x00, /*!< sclk div1 to ahbclk */
-    CRM_AHB_DIV_2                          = 0x08, /*!< sclk div2 to ahbclk */
-    CRM_AHB_DIV_4                          = 0x09, /*!< sclk div4 to ahbclk */
-    CRM_AHB_DIV_8                          = 0x0A, /*!< sclk div8 to ahbclk */
-    CRM_AHB_DIV_16                         = 0x0B, /*!< sclk div16 to ahbclk */
-    CRM_AHB_DIV_64                         = 0x0C, /*!< sclk div64 to ahbclk */
-    CRM_AHB_DIV_128                        = 0x0D, /*!< sclk div128 to ahbclk */
-    CRM_AHB_DIV_256                        = 0x0E, /*!< sclk div256 to ahbclk */
-    CRM_AHB_DIV_512                        = 0x0F  /*!< sclk div512 to ahbclk */
-} crm_ahb_div_Type;
+    CRM_AHB_Div_1                          = 0x00, /*!< sclk div1 to ahbclk */
+    CRM_AHB_Div_2                          = 0x08, /*!< sclk div2 to ahbclk */
+    CRM_AHB_Div_4                          = 0x09, /*!< sclk div4 to ahbclk */
+    CRM_AHB_Div_8                          = 0x0A, /*!< sclk div8 to ahbclk */
+    CRM_AHB_Div_16                         = 0x0B, /*!< sclk div16 to ahbclk */
+    CRM_AHB_Div_64                         = 0x0C, /*!< sclk div64 to ahbclk */
+    CRM_AHB_Div_128                        = 0x0D, /*!< sclk div128 to ahbclk */
+    CRM_AHB_Div_256                        = 0x0E, /*!< sclk div256 to ahbclk */
+    CRM_AHB_Div_512                        = 0x0F  /*!< sclk div512 to ahbclk */
+} CRM_AHB_Div_Type;
 
 /**
   * @brief crm apb1 division
   */
 typedef enum {
-    CRM_APB1_DIV_1                         = 0x00, /*!< ahbclk div1 to apb1clk */
-    CRM_APB1_DIV_2                         = 0x04, /*!< ahbclk div2 to apb1clk */
-    CRM_APB1_DIV_4                         = 0x05, /*!< ahbclk div4 to apb1clk */
-    CRM_APB1_DIV_8                         = 0x06, /*!< ahbclk div8 to apb1clk */
-    CRM_APB1_DIV_16                        = 0x07  /*!< ahbclk div16 to apb1clk */
-} crm_apb1_div_Type;
+    CRM_APB1_Div_1                         = 0x00, /*!< ahbclk div1 to apb1clk */
+    CRM_APB1_Div_2                         = 0x04, /*!< ahbclk div2 to apb1clk */
+    CRM_APB1_Div_4                         = 0x05, /*!< ahbclk div4 to apb1clk */
+    CRM_APB1_Div_8                         = 0x06, /*!< ahbclk div8 to apb1clk */
+    CRM_APB1_Div_16                        = 0x07  /*!< ahbclk div16 to apb1clk */
+} CRM_APB1_Div_Type;
 
 /**
   * @brief crm apb2 division
   */
 typedef enum {
-    CRM_APB2_DIV_1                         = 0x00, /*!< ahbclk div1 to apb2clk */
-    CRM_APB2_DIV_2                         = 0x04, /*!< ahbclk div2 to apb2clk */
-    CRM_APB2_DIV_4                         = 0x05, /*!< ahbclk div4 to apb2clk */
-    CRM_APB2_DIV_8                         = 0x06, /*!< ahbclk div8 to apb2clk */
-    CRM_APB2_DIV_16                        = 0x07  /*!< ahbclk div16 to apb2clk */
-} crm_apb2_div_Type;
+    CRM_APB2_Div_1                         = 0x00, /*!< ahbclk div1 to apb2clk */
+    CRM_APB2_Div_2                         = 0x04, /*!< ahbclk div2 to apb2clk */
+    CRM_APB2_Div_4                         = 0x05, /*!< ahbclk div4 to apb2clk */
+    CRM_APB2_Div_8                         = 0x06, /*!< ahbclk div8 to apb2clk */
+    CRM_APB2_Div_16                        = 0x07  /*!< ahbclk div16 to apb2clk */
+} CRM_APB2_Div_Type;
 
 /**
   * @brief crm usb division
   */
 typedef enum {
-    CRM_USB_DIV_1_5                        = 0x00, /*!< pllclk div1.5 to usbclk */
-    CRM_USB_DIV_1                          = 0x01, /*!< pllclk div1 to usbclk */
-    CRM_USB_DIV_2_5                        = 0x02, /*!< pllclk div2.5 to usbclk */
-    CRM_USB_DIV_2                          = 0x03, /*!< pllclk div2 to usbclk */
-    CRM_USB_DIV_3_5                        = 0x04, /*!< pllclk div3.5 to usbclk */
-    CRM_USB_DIV_3                          = 0x05, /*!< pllclk div3 to usbclk */
-    CRM_USB_DIV_4_5                        = 0x06, /*!< pllclk div4.5 to usbclk */
-    CRM_USB_DIV_4                          = 0x07, /*!< pllclk div4 to usbclk */
-    CRM_USB_DIV_5_5                        = 0x08, /*!< pllclk div5.5 to usbclk */
-    CRM_USB_DIV_5                          = 0x09, /*!< pllclk div5 to usbclk */
-    CRM_USB_DIV_6_5                        = 0x0A, /*!< pllclk div6.5 to usbclk */
-    CRM_USB_DIV_6                          = 0x0B, /*!< pllclk div6 to usbclk */
-    CRM_USB_DIV_7                          = 0x0C  /*!< pllclk div7 to usbclk */
-} crm_USB_div_Type;
+    CRM_USB_Div_1_5                        = 0x00, /*!< pllclk div1.5 to usbclk */
+    CRM_USB_Div_1                          = 0x01, /*!< pllclk div1 to usbclk */
+    CRM_USB_Div_2_5                        = 0x02, /*!< pllclk div2.5 to usbclk */
+    CRM_USB_Div_2                          = 0x03, /*!< pllclk div2 to usbclk */
+    CRM_USB_Div_3_5                        = 0x04, /*!< pllclk div3.5 to usbclk */
+    CRM_USB_Div_3                          = 0x05, /*!< pllclk div3 to usbclk */
+    CRM_USB_Div_4_5                        = 0x06, /*!< pllclk div4.5 to usbclk */
+    CRM_USB_Div_4                          = 0x07, /*!< pllclk div4 to usbclk */
+    CRM_USB_Div_5_5                        = 0x08, /*!< pllclk div5.5 to usbclk */
+    CRM_USB_Div_5                          = 0x09, /*!< pllclk div5 to usbclk */
+    CRM_USB_Div_6_5                        = 0x0A, /*!< pllclk div6.5 to usbclk */
+    CRM_USB_Div_6                          = 0x0B, /*!< pllclk div6 to usbclk */
+    CRM_USB_Div_7                          = 0x0C  /*!< pllclk div7 to usbclk */
+} CRM_USB_Div_Type;
 
 /**
   * @brief crm ertc clock
@@ -624,37 +624,37 @@ typedef enum {
     CRM_ERTC_Clock_NOCLK                   = 0x000, /*!< no clock as ertc clock source */
     CRM_ERTC_Clock_LEXT                    = 0x001, /*!< low speed external crystal as ertc clock source */
     CRM_ERTC_Clock_LICK                    = 0x002, /*!< low speed internal clock as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_2              = 0x023, /*!< high speed external crystal div2 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_3              = 0x033, /*!< high speed external crystal div3 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_4              = 0x043, /*!< high speed external crystal div4 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_5              = 0x053, /*!< high speed external crystal div5 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_6              = 0x063, /*!< high speed external crystal div6 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_7              = 0x073, /*!< high speed external crystal div7 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_8              = 0x083, /*!< high speed external crystal div8 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_9              = 0x093, /*!< high speed external crystal div9 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_10             = 0x0A3, /*!< high speed external crystal div10 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_11             = 0x0B3, /*!< high speed external crystal div11 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_12             = 0x0C3, /*!< high speed external crystal div12 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_13             = 0x0D3, /*!< high speed external crystal div13 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_14             = 0x0E3, /*!< high speed external crystal div14 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_15             = 0x0F3, /*!< high speed external crystal div15 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_16             = 0x103, /*!< high speed external crystal div16 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_17             = 0x113, /*!< high speed external crystal div17 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_18             = 0x123, /*!< high speed external crystal div18 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_19             = 0x133, /*!< high speed external crystal div19 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_20             = 0x143, /*!< high speed external crystal div20 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_21             = 0x153, /*!< high speed external crystal div21 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_22             = 0x163, /*!< high speed external crystal div22 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_23             = 0x173, /*!< high speed external crystal div23 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_24             = 0x183, /*!< high speed external crystal div24 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_25             = 0x193, /*!< high speed external crystal div25 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_26             = 0x1A3, /*!< high speed external crystal div26 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_27             = 0x1B3, /*!< high speed external crystal div27 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_28             = 0x1C3, /*!< high speed external crystal div28 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_29             = 0x1D3, /*!< high speed external crystal div29 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_30             = 0x1E3, /*!< high speed external crystal div30 as ertc clock source */
-    CRM_ERTC_Clock_HEXT_DIV_31             = 0x1F3  /*!< high speed external crystal div31 as ertc clock source */
-} crm_ERTC_Clock_Type;
+    CRM_ERTC_Clock_Hext_Div_2              = 0x023, /*!< high speed external crystal div2 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_3              = 0x033, /*!< high speed external crystal div3 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_4              = 0x043, /*!< high speed external crystal div4 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_5              = 0x053, /*!< high speed external crystal div5 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_6              = 0x063, /*!< high speed external crystal div6 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_7              = 0x073, /*!< high speed external crystal div7 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_8              = 0x083, /*!< high speed external crystal div8 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_9              = 0x093, /*!< high speed external crystal div9 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_10             = 0x0A3, /*!< high speed external crystal div10 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_11             = 0x0B3, /*!< high speed external crystal div11 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_12             = 0x0C3, /*!< high speed external crystal div12 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_13             = 0x0D3, /*!< high speed external crystal div13 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_14             = 0x0E3, /*!< high speed external crystal div14 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_15             = 0x0F3, /*!< high speed external crystal div15 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_16             = 0x103, /*!< high speed external crystal div16 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_17             = 0x113, /*!< high speed external crystal div17 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_18             = 0x123, /*!< high speed external crystal div18 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_19             = 0x133, /*!< high speed external crystal div19 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_20             = 0x143, /*!< high speed external crystal div20 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_21             = 0x153, /*!< high speed external crystal div21 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_22             = 0x163, /*!< high speed external crystal div22 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_23             = 0x173, /*!< high speed external crystal div23 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_24             = 0x183, /*!< high speed external crystal div24 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_25             = 0x193, /*!< high speed external crystal div25 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_26             = 0x1A3, /*!< high speed external crystal div26 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_27             = 0x1B3, /*!< high speed external crystal div27 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_28             = 0x1C3, /*!< high speed external crystal div28 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_29             = 0x1D3, /*!< high speed external crystal div29 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_30             = 0x1E3, /*!< high speed external crystal div30 as ertc clock source */
+    CRM_ERTC_Clock_Hext_Div_31             = 0x1F3  /*!< high speed external crystal div31 as ertc clock source */
+} CRM_ERTC_Clock_Type;
 
 /**
   * @brief crm hick 48mhz division
@@ -662,7 +662,7 @@ typedef enum {
 typedef enum {
     CRM_HICK48_DIV6                        = 0x00, /*!< fixed 8 mhz when hick is selected as sclk */
     CRM_HICK48_NODIV                       = 0x01  /*!< 8 mhz or 48 mhz depend on hickdiv when hick is selected as sclk */
-} crm_hick_div_6_Type;
+} CRM_HICK_Div_6_Type;
 
 /**
   * @brief crm sclk select
@@ -671,7 +671,7 @@ typedef enum {
     CRM_SCLK_HICK                          = 0x00, /*!< select high speed internal clock as sclk */
     CRM_SCLK_HEXT                          = 0x01, /*!< select high speed external crystal as sclk */
     CRM_SCLK_PLL                           = 0x02  /*!< select phase locking loop clock as sclk */
-} crm_sclk_Type;
+} CRM_SCLK_Type;
 
 /**
   * @brief crm clkout index
@@ -679,7 +679,7 @@ typedef enum {
 typedef enum {
     CRM_CLKOUT_INDEX_1                     = 0x00, /*!< clkout1 */
     CRM_CLKOUT_INDEX_2                     = 0x01  /*!< clkout2 */
-} crm_clkout_index_Type;
+} CRM_CLKout_index_Type;
 
 /**
   * @brief crm clkout1 select
@@ -689,7 +689,7 @@ typedef enum {
     CRM_CLKOUT1_LEXT                       = 0x01, /*!< output low speed external crystal to clkout1 pin */
     CRM_CLKOUT1_HEXT                       = 0x02, /*!< output high speed external crystal to clkout1 pin */
     CRM_CLKOUT1_PLL                        = 0x03  /*!< output phase locking loop clock to clkout1 pin */
-} crm_clkout1_Select_Type;
+} CRM_CLKout1_Select_Type;
 
 /**
   * @brief crm clkout2 select
@@ -703,7 +703,7 @@ typedef enum {
     CRM_CLKOUT2_HICK                       = 0x12, /*!< output high speed internal clock to clkout2 pin */
     CRM_CLKOUT2_LICK                       = 0x13, /*!< output low speed internal clock to clkout2 pin */
     CRM_CLKOUT2_LEXT                       = 0x14  /*!< output low speed external crystal to clkout2 pin */
-} crm_clkout2_Select_Type;
+} CRM_CLKout2_Select_Type;
 
 /**
   * @brief crm clkout division1
@@ -714,30 +714,30 @@ typedef enum {
     CRM_CLKOUT_DIV1_3                      = 0x05, /*!< clkout division1 div3 */
     CRM_CLKOUT_DIV1_4                      = 0x06, /*!< clkout division1 div4 */
     CRM_CLKOUT_DIV1_5                      = 0x07  /*!< clkout division1 div5 */
-} crm_clkout_div1_Type;
+} CRM_CLKout_div1_Type;
 
 /**
   * @brief crm clkout division2
   */
 typedef enum {
-    CRM_CLKOUT_DIV2_1                      = 0x00, /*!< clkout division2 div1 */
-    CRM_CLKOUT_DIV2_2                      = 0x08, /*!< clkout division2 div2 */
-    CRM_CLKOUT_DIV2_4                      = 0x09, /*!< clkout division2 div4 */
-    CRM_CLKOUT_DIV2_8                      = 0x0A, /*!< clkout division2 div8 */
-    CRM_CLKOUT_DIV2_16                     = 0x0B, /*!< clkout division2 div16 */
-    CRM_CLKOUT_DIV2_64                     = 0x0C, /*!< clkout division2 div64 */
-    CRM_CLKOUT_DIV2_128                    = 0x0D, /*!< clkout division2 div128 */
-    CRM_CLKOUT_DIV2_256                    = 0x0E, /*!< clkout division2 div256 */
-    CRM_CLKOUT_DIV2_512                    = 0x0F  /*!< clkout division2 div512 */
-} crm_clkout_div2_Type;
+    CRM_CLKOUT_Div2_1                      = 0x00, /*!< clkout division2 div1 */
+    CRM_CLKOUT_Div2_2                      = 0x08, /*!< clkout division2 div2 */
+    CRM_CLKOUT_Div2_4                      = 0x09, /*!< clkout division2 div4 */
+    CRM_CLKOUT_Div2_8                      = 0x0A, /*!< clkout division2 div8 */
+    CRM_CLKOUT_Div2_16                     = 0x0B, /*!< clkout division2 div16 */
+    CRM_CLKOUT_Div2_64                     = 0x0C, /*!< clkout division2 div64 */
+    CRM_CLKOUT_Div2_128                    = 0x0D, /*!< clkout division2 div128 */
+    CRM_CLKOUT_Div2_256                    = 0x0E, /*!< clkout division2 div256 */
+    CRM_CLKOUT_Div2_512                    = 0x0F  /*!< clkout division2 div512 */
+} CRM_CLKout_Div2_Type;
 
 /**
   * @brief crm auto step mode
   */
 typedef enum {
-    CRM_Auto_Step_Mode_Disable             = 0x00, /*!< disable auto step mode */
-    CRM_Auto_Step_Mode_Enable              = 0x03  /*!< enable auto step mode */
-} crm_Auto_Step_Mode_Type;
+    CRM_Auto_Step_Mode_DISABLE             = 0x00, /*!< disable auto step mode */
+    CRM_Auto_Step_Mode_ENABLE              = 0x03  /*!< enable auto step mode */
+} CRM_Auto_Step_Mode_Type;
 
 /**
   * @brief crm usb 48 mhz clock source select
@@ -745,7 +745,7 @@ typedef enum {
 typedef enum {
     CRM_USB_Clock_Source_PLL               = 0x00, /*!< select phase locking loop clock as usb clock source */
     CRM_USB_Clock_Source_HICK              = 0x01  /*!< select high speed internal clock as usb clock source */
-} crm_USB_Clock_Source_Type;
+} CRM_USB_Clock_Source_Type;
 
 /**
   * @brief crm hick as system clock frequency select
@@ -753,15 +753,15 @@ typedef enum {
 typedef enum {
     CRM_HICK_SCLK_8MHZ                     = 0x00, /*!< fixed 8 mhz when hick is selected as sclk */
     CRM_HICK_SCLK_48MHZ                    = 0x01  /*!< 8 mhz or 48 mhz depend on hickdiv when hick is selected as sclk */
-} crm_hick_sclk_Frequency_Type;
+} CRM_HICK_SCLK_Frequency_Type;
 
 /**
   * @brief crm emac output pulse width
   */
 typedef enum {
-    CRM_EMAC_PULSE_125MS                   = 0x00, /*!< emac output pulse width 125ms */
-    CRM_EMAC_PULSE_1SCLK                   = 0x01  /*!< emac output pulse width 1 system clock */
-} crm_EMAC_OutPut_pulse_Type;
+    CRM_EMAC_Pulse_125MS                   = 0x00, /*!< emac output pulse width 125ms */
+    CRM_EMAC_Pulse_1SCLK                   = 0x01  /*!< emac output pulse width 1 system clock */
+} CRM_EMAC_OutPut_Pulse_Type;
 
 /**
   * @brief crm clocks freqency structure
@@ -771,7 +771,7 @@ typedef struct {
     uint32_t ahb_freq;  /*!< ahb bus clock frequency */
     uint32_t apb2_freq; /*!< apb2 bus clock frequency */
     uint32_t apb1_freq; /*!< apb1 bus clock frequency */
-} crm_clocks_Freq_Type;
+} CRM_Clocks_Freq_Type;
 
 /**
   * @brief type define crm register all
@@ -1401,8 +1401,8 @@ typedef struct {
             __IO uint32_t hickcal_key          : 8; /* [7:0] */
             __IO uint32_t reserved1            : 4; /* [11:8] */
             __IO uint32_t hickdiv              : 1; /* [12] */
-            __IO uint32_t hick_to_usb          : 1; /* [13] */
-            __IO uint32_t hick_to_sclk         : 1; /* [14] */
+            __IO uint32_t hick_To_usb          : 1; /* [13] */
+            __IO uint32_t hick_To_sclk         : 1; /* [14] */
             __IO uint32_t reserved2            : 1; /* [15] */
             __IO uint32_t clkout2_sel2         : 4; /* [19:16] */
             __IO uint32_t reserved3            : 4; /* [23:20] */
@@ -1420,7 +1420,7 @@ typedef struct {
             __IO uint32_t reserved1            : 4; /* [3:0] */
             __IO uint32_t auto_Step_en         : 2; /* [5:4] */
             __IO uint32_t reserved2            : 2; /* [7:6] */
-            __IO uint32_t clk_to_tmr           : 1; /* [8] */
+            __IO uint32_t clk_To_tmr           : 1; /* [8] */
             __IO uint32_t EMAC_PPS_sel         : 1; /* [9] */
             __IO uint32_t reserved3            : 2; /* [11:10] */
             __IO uint32_t usbdiv               : 4; /* [15:12] */
@@ -1428,54 +1428,54 @@ typedef struct {
         } misc2_bit;
     };
 
-} crm_Type;
+} CRM_Type;
 
 /**
   * @}
   */
 
-#define CRM                              ((crm_Type *) CRM_BASE)
+#define CRM                              ((CRM_Type *) CRM_BASE)
 
 /** @defgroup CRM_exported_functions
   * @{
   */
 
-void crm_Reset(void);
-void crm_lext_bypass(confirm_state new_state);
-void crm_hext_bypass(confirm_state new_state);
-flag_status crm_Flag_Get(uint32_t flag);
-error_status crm_hext_stable_wait(void);
-void crm_hick_Clock_trimming_Set(uint8_t trim_value);
-void crm_hick_Clock_Calibration_Set(uint8_t cali_value);
-void crm_periph_Clock_Enable(crm_periph_Clock_Type value, confirm_state new_state);
-void crm_periph_Reset(crm_periph_Reset_Type value, confirm_state new_state);
-void crm_periph_lowpower_Mode_Enable(crm_periph_Clock_lowpower_Type value, confirm_state new_state);
-void crm_Clock_Source_Enable(crm_Clock_Source_Type source, confirm_state new_state);
-void crm_Flag_Clear(uint32_t flag);
-void crm_ERTC_Clock_Select(crm_ERTC_Clock_Type value);
-void crm_ERTC_Clock_Enable(confirm_state new_state);
-void crm_ahb_div_Set(crm_ahb_div_Type value);
-void crm_apb1_div_Set(crm_apb1_div_Type value);
-void crm_apb2_div_Set(crm_apb2_div_Type value);
-void crm_USB_Clock_div_Set(crm_USB_div_Type value);
-void crm_Clock_failure_detection_Enable(confirm_state new_state);
-void crm_battery_powered_domain_Reset(confirm_state new_state);
-void crm_Auto_Step_Mode_Enable(confirm_state new_state);
-void crm_hick_Divider_Select(crm_hick_div_6_Type value);
-void crm_hick_sclk_Frequency_Select(crm_hick_sclk_Frequency_Type value);
-void crm_USB_Clock_Source_Select(crm_USB_Clock_Source_Type value);
-void crm_clkout_to_tmr10_Enable(confirm_state new_state);
-void crm_pll_Config(crm_pll_Clock_Source_Type clock_source, uint16_t pll_ns, \
-                    uint16_t pll_ms, crm_pll_fr_Type pll_fr);
-void crm_sysclk_switch(crm_sclk_Type value);
-crm_sclk_Type crm_sysclk_switch_Status_Get(void);
-void crm_clocks_Freq_Get(crm_clocks_Freq_Type *clocks_struct);
-void crm_Clock_out1_Set(crm_clkout1_Select_Type clkout);
-void crm_Clock_out2_Set(crm_clkout2_Select_Type clkout);
-void crm_clkout_div_Set(crm_clkout_index_Type index, crm_clkout_div1_Type div1, crm_clkout_div2_Type div2);
-void crm_EMAC_OutPut_pulse_Set(crm_EMAC_OutPut_pulse_Type width);
-void crm_Interrupt_Enable(uint32_t crm_int, confirm_state new_state);
-error_status crm_pll_parameter_calculate(crm_pll_Clock_Source_Type pll_rcs, uint32_t target_sclk_freq, \
+void CRM_Reset(void);
+void CRM_Lext_ByPass(confirm_state new_state);
+void CRM_Hext_ByPass(confirm_state new_state);
+flag_status CRM_Flag_Get(uint32_t flag);
+error_status CRM_Hext_Stable_Wait(void);
+void CRM_HICK_Clock_Trimming_Set(uint8_t trim_value);
+void CRM_HICK_Clock_Calibration_Set(uint8_t cali_value);
+void CRM_Periph_Clock_Enable(CRM_Periph_Clock_Type value, confirm_state new_state);
+void CRM_Periph_Reset(CRM_Periph_Reset_Type value, confirm_state new_state);
+void CRM_Periph_LowPower_Mode_Enable(CRM_Periph_Clock_LowPower_Type value, confirm_state new_state);
+void CRM_Clock_Source_Enable(CRM_Clock_Source_Type source, confirm_state new_state);
+void CRM_Flag_Clear(uint32_t flag);
+void CRM_ERTC_Clock_Select(CRM_ERTC_Clock_Type value);
+void CRM_ERTC_Clock_Enable(confirm_state new_state);
+void CRM_AHB_Div_Set(CRM_AHB_Div_Type value);
+void CRM_APB1_Div_Set(CRM_APB1_Div_Type value);
+void CRM_APB2_Div_Set(CRM_APB2_Div_Type value);
+void CRM_USB_Clock_Div_Set(CRM_USB_Div_Type value);
+void CRM_Clock_Failure_Detection_Enable(confirm_state new_state);
+void CRM_Battery_Powered_Domain_Reset(confirm_state new_state);
+void CRM_Auto_Step_Mode_Enable(confirm_state new_state);
+void CRM_HICK_Divider_Select(CRM_HICK_Div_6_Type value);
+void CRM_HICK_SCLK_Frequency_Select(CRM_HICK_SCLK_Frequency_Type value);
+void CRM_USB_Clock_Source_Select(CRM_USB_Clock_Source_Type value);
+void CRM_CLKout_To_TMR10_Enable(confirm_state new_state);
+void CRM_PLL_Config(CRM_PLL_Clock_Source_Type clock_source, uint16_t pll_ns, \
+                    uint16_t pll_ms, CRM_PLL_FR_Type pll_fr);
+void CRM_SysCLK_Switch(CRM_SCLK_Type value);
+CRM_SCLK_Type CRM_SysCLK_Switch_Status_Get(void);
+void CRM_Clocks_Freq_Get(CRM_Clocks_Freq_Type *clocks_struct);
+void CRM_Clock_Out1_Set(CRM_CLKout1_Select_Type clkout);
+void CRM_Clock_Out2_Set(CRM_CLKout2_Select_Type clkout);
+void CRM_CLKout_Div_Set(CRM_CLKout_index_Type index, CRM_CLKout_div1_Type div1, CRM_CLKout_Div2_Type div2);
+void CRM_EMAC_OutPut_Pulse_Set(CRM_EMAC_OutPut_Pulse_Type width);
+void CRM_Interrupt_Enable(uint32_t CRM_int, confirm_state new_state);
+error_status CRM_PLL_Parameter_Calculate(CRM_PLL_Clock_Source_Type pll_rcs, uint32_t target_SCLK_freq, \
         uint16_t *ret_ms, uint16_t *ret_ns, uint16_t *ret_fr);
 
 /**

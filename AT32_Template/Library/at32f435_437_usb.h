@@ -34,7 +34,7 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "at32f435_437.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -42,7 +42,7 @@ extern "C" {
   * @{
   */
 
-/** @defgroup USB_Global_interrupts_definition
+/** @defgroup USB_Global_Interrupts_definition
   * @brief usb global interrupt mask
   * @{
   */
@@ -133,17 +133,17 @@ extern "C" {
 /**
   * @brief usb host packet status
   */
-#define PKTSTS_IN_Data_Packet_RECV       0x2 /*!< usb host in data packet received */
-#define PKTSTS_IN_Transfer_COMPLETE      0x3 /*!< usb host in transfer completed */
+#define PKTSTS_In_Data_Packet_RECV       0x2 /*!< usb host in data packet received */
+#define PKTSTS_In_Transfer_COMPLETE      0x3 /*!< usb host in transfer completed */
 #define PKTSTS_Data_Bit_ERROR            0x5 /*!< usb host data toggle error */
 #define PKTSTS_Channel_STOP              0x7 /*!< usb host channel halted */
 
 /**
   * @brief usb device  packet status
   */
-#define USB_OUT_STS_NAK                  0x1 /*!< usb device global out nak */
-#define USB_OUT_STS_DATA                 0x2 /*!< usb device out data packet received */
-#define USB_OUT_STS_COMP                 0x3 /*!< usb device out transfer completed */
+#define USB_Out_STS_NAK                  0x1 /*!< usb device global out nak */
+#define USB_Out_STS_DATA                 0x2 /*!< usb device out data packet received */
+#define USB_Out_STS_COMP                 0x3 /*!< usb device out transfer completed */
 #define USB_SetUP_STS_COMP               0x4 /*!< usb device setup transcation completed */
 #define USB_SetUP_STS_DATA               0x6 /*!< usb device setup data packet received */
 
@@ -151,7 +151,7 @@ extern "C" {
   * @}
   */
 
-/** @defgroup USB_host_Config_definition
+/** @defgroup USB_HOST_Config_definition
   * @{
   */
 
@@ -183,7 +183,7 @@ extern "C" {
   */
 #define USB_PRTSPD_HIGH_SPEED            0 /*!< usb host port high speed */
 #define USB_PRTSPD_FULL_SPEED            1 /*!< usb host port full speed */
-#define USB_PRTSPD_LOW_SPEED             2 /*!< usb host port low speed */
+#define USB_PRTSPD_Low_SPEED             2 /*!< usb host port low speed */
 
 /**
   * @brief usb host register hcchar bit define
@@ -211,7 +211,7 @@ extern "C" {
   */
 #define USB_OTG_HC_XFERCM_INT            ((uint32_t)0x00000001) /*!< channel transfer complete interrupt */
 #define USB_OTG_HC_CHHLTDM_INT           ((uint32_t)0x00000002) /*!< channel halted interrupt */
-#define USB_OTG_HC_STALLM_INT            ((uint32_t)0x00000008) /*!< channel stall interrupt */
+#define USB_OTG_HC_StallM_INT            ((uint32_t)0x00000008) /*!< channel stall interrupt */
 #define USB_OTG_HC_NAKM_INT              ((uint32_t)0x00000010) /*!< channel nak interrupt */
 #define USB_OTG_HC_ACKM_INT              ((uint32_t)0x00000020) /*!< channel ack interrupt */
 #define USB_OTG_HC_NYETM_INT             ((uint32_t)0x00000040) /*!< channel nyet interrupt */
@@ -225,7 +225,7 @@ extern "C" {
   */
 #define USB_OTG_HC_XFERC_FLAG            ((uint32_t)0x00000001) /*!< channel transfer complete flag */
 #define USB_OTG_HC_CHHLTD_FLAG           ((uint32_t)0x00000002) /*!< channel halted flag */
-#define USB_OTG_HC_STALL_FLAG            ((uint32_t)0x00000008) /*!< channel stall flag */
+#define USB_OTG_HC_Stall_FLAG            ((uint32_t)0x00000008) /*!< channel stall flag */
 #define USB_OTG_HC_NAK_FLAG              ((uint32_t)0x00000010) /*!< channel nak flag */
 #define USB_OTG_HC_ACK_FLAG              ((uint32_t)0x00000020) /*!< channel ack flag */
 #define USB_OTG_HC_NYET_FLAG             ((uint32_t)0x00000040) /*!< channel nyet flag */
@@ -239,7 +239,7 @@ extern "C" {
   */
 
 
-/** @defgroup USB_device_Config_definition
+/** @defgroup USB_Device_Config_definition
   * @{
   */
 /**
@@ -287,7 +287,7 @@ typedef enum {
 #define USB_OTG_DOEPINT_XFERC_FLAG       ((uint32_t)0x00000001) /*!< usb device out transfer completed flag */
 #define USB_OTG_DOEPINT_EPTDISD_FLAG     ((uint32_t)0x00000002) /*!< usb device endpoint disable flag */
 #define USB_OTG_DOEPINT_SetUP_FLAG       ((uint32_t)0x00000008) /*!< usb device setup flag */
-#define USB_OTG_DOEPINT_OUTTEPD_FLAG     ((uint32_t)0x00000010) /*!< usb device out token recevied when endpoint disable flag */
+#define USB_OTG_DOEPINT_OutTEPD_FLAG     ((uint32_t)0x00000010) /*!< usb device out token recevied when endpoint disable flag */
 #define USB_OTG_DOEPINT_B2BSTUP_FLAG     ((uint32_t)0x00000040) /*!< back-to-back setup packets received */
 
 /**
@@ -329,7 +329,7 @@ typedef enum {
   * @brief usb mode define(device, host, drd)
   */
 typedef enum {
-    OTG_DEVICE_Mode, /*!< usb device mode */
+    OTG_Device_Mode, /*!< usb device mode */
     OTG_HOST_Mode,   /*!< usb host mode */
     OTG_DRD_Mode     /*!< usb drd mode */
 } OTG_Mode_Type;
@@ -375,9 +375,9 @@ typedef enum {
   * @brief endpoint trans dir type
   */
 typedef enum {
-    EPT_DIR_IN                             = 0x00, /*!< usb transfer direction in */
-    EPT_DIR_OUT                            = 0x01  /*!< usb transfer direction out */
-} endpoint_dir_Type;
+    EPT_Dir_IN                             = 0x00, /*!< usb transfer direction in */
+    EPT_Dir_Out                            = 0x01  /*!< usb transfer direction out */
+} endpoint_Dir_Type;
 
 /**
   * @brief otgfs1 and otgfs2 select type
@@ -393,7 +393,7 @@ typedef enum {
 typedef enum {
     USB_CLK_HICK,  /*!< usb clock use hick */
     USB_CLK_HEXT   /*!< usb clock use hext */
-} USB_clk48_s;
+} USB_CLK48_s;
 
 /**
   * @}
@@ -411,11 +411,11 @@ typedef enum {
 typedef struct {
     uint8_t                                eptn;                        /*!< endpoint register number (0~7) */
     uint8_t                                ept_Address;                 /*!< endpoint address */
-    uint8_t                                inout;                       /*!< endpoint dir EPT_DIR_IN or EPT_DIR_OUT */
+    uint8_t                                inout;                       /*!< endpoint dir EPT_Dir_IN or EPT_Dir_Out */
     uint8_t                                trans_Type;                  /*!< endpoint type:
                                                                          EPT_Control_Type, EPT_BULK_Type, EPT_INT_Type, EPT_ISO_Type*/
-    uint16_t                               tx_addr;                     /*!< endpoint tx buffer offset address */
-    uint16_t                               rx_addr;                     /*!< endpoint rx buffer offset address */
+    uint16_t                               tx_Addr;                     /*!< endpoint tx buffer offset address */
+    uint16_t                               rx_Addr;                     /*!< endpoint rx buffer offset address */
     uint32_t                               maxpacket;                   /*!< endpoint max packet*/
     uint8_t                                is_Double_buffer;            /*!< endpoint double buffer flag */
     uint8_t                                stall;                       /*!< endpoint is stall state */
@@ -450,13 +450,13 @@ typedef struct {
     uint32_t                               urb_sts;                     /*!< usb channel request block state */
 
     uint8_t                                toggle_in;                   /*!< channel in transfer toggle */
-    uint8_t                                toggle_out;                  /*!< channel out transfer toggle */
+    uint8_t                                toggle_Out;                  /*!< channel out transfer toggle */
 
     /* transmission buffer and count */
     uint8_t                                *trans_buf;                  /* host channel buffer */
     uint32_t                               trans_len;                   /* host channel transmission len */
     uint32_t                               trans_count;                 /* host channel transmission count*/
-} USB_hch_Type;
+} USB_HCH_Type;
 
 
 typedef struct {
@@ -825,7 +825,7 @@ typedef struct {
 
         } hprt_bit;
     };
-} OTG_host_Type;
+} OTG_HOST_Type;
 
 typedef struct {
     /**
@@ -1049,7 +1049,7 @@ typedef struct {
         } diepempmsk_bit;
     };
 
-} OTG_device_Type;
+} OTG_Device_Type;
 
 typedef struct {
     /**
@@ -1210,9 +1210,9 @@ typedef struct {
   */
 #define OTG_HOST_Addr_OFFSET             0x400  /*!< usb host register offset address */
 #define OTG_HOST_Channel_Addr_OFFSET     0x500  /*!< usb host channel register offset address */
-#define OTG_DEVICE_Addr_OFFSET           0x800  /*!< usb device register offset address */
-#define OTG_DEVICE_EPTIN_Addr_OFFSET     0x900  /*!< usb device endpoint in register offset address */
-#define OTG_DEVICE_EPTOUT_Addr_OFFSET    0xB00  /*!< usb device endpoint out register offset address */
+#define OTG_Device_Addr_OFFSET           0x800  /*!< usb device register offset address */
+#define OTG_Device_EPTIN_Addr_OFFSET     0x900  /*!< usb device endpoint in register offset address */
+#define OTG_Device_EPTOUT_Addr_OFFSET    0xB00  /*!< usb device endpoint out register offset address */
 #define OTG_PCGCCTL_Addr_OFFSET          0xE00  /*!< usb power and clock control register offset address */
 #define OTG_FIFO_Addr_OFFSET             0x1000 /*!< usb fifo offset address */
 
@@ -1222,11 +1222,11 @@ typedef struct {
 #define OTG1_GLOBAL ((OTG_Global_Type *)(OTGFS1_BASE)) /*!< usb otg1 global register */
 #define OTG2_GLOBAL ((OTG_Global_Type *)(OTGFS2_BASE)) /*!< usb otg2 global register */
 #define OTG_PCGCCTL(usbx) ((OTG_pcgcctl_Type *)((uint32_t)usbx + OTG_PCGCCTL_Addr_OFFSET))                             /*!< usb power and clock control register */
-#define OTG_DEVICE(usbx) ((OTG_device_Type *)((uint32_t)usbx + OTG_DEVICE_Addr_OFFSET))                                /*!< usb device register */
-#define OTG_HOST(usbx) ((OTG_host_Type *)((uint32_t)usbx + OTG_HOST_Addr_OFFSET))                                      /*!< usb host register */
+#define OTG_DEVICE(usbx) ((OTG_Device_Type *)((uint32_t)usbx + OTG_Device_Addr_OFFSET))                                /*!< usb device register */
+#define OTG_HOST(usbx) ((OTG_HOST_Type *)((uint32_t)usbx + OTG_HOST_Addr_OFFSET))                                      /*!< usb host register */
 #define USB_CHL(usbx, n) ((OTG_hchannel_Type *)((uint32_t)usbx + OTG_HOST_Channel_Addr_OFFSET + n * 0x20))             /*!< usb channel n register */
-#define USB_INEPT(usbx, eptn) ((OTG_eptin_Type *)((uint32_t)usbx + OTG_DEVICE_EPTIN_Addr_OFFSET + eptn * 0x20))        /*!< usb device endpoint in register */
-#define USB_OUTEPT(usbx, eptn) ((OTG_eptout_Type *)((uint32_t)usbx + OTG_DEVICE_EPTOUT_Addr_OFFSET + eptn * 0x20))     /*!< usb device endpoint out register */
+#define USB_INEPT(usbx, eptn) ((OTG_eptin_Type *)((uint32_t)usbx + OTG_Device_EPTIN_Addr_OFFSET + eptn * 0x20))        /*!< usb device endpoint in register */
+#define USB_OutEPT(usbx, eptn) ((OTG_eptout_Type *)((uint32_t)usbx + OTG_Device_EPTOUT_Addr_OFFSET + eptn * 0x20))     /*!< usb device endpoint out register */
 #define USB_FIFO(usbx, eptn) *(__IO uint32_t *)((uint32_t)usbx + OTG_FIFO_Addr_OFFSET + eptn * 0x1000)                 /*!< usb fifo address */
 
 
@@ -1240,59 +1240,59 @@ typedef OTG_Global_Type USB_reg_Type;
 #ifdef OTGFS_USB_GLOBAL
 error_status USB_Global_Reset(OTG_Global_Type *usbx);
 void USB_Global_Init(OTG_Global_Type *usbx);
-OTG_Global_Type *USB_Global_Select_core(uint8_t USB_id);
-void USB_flush_TX_FIFO(OTG_Global_Type *usbx, uint32_t fifo_Num);
-void USB_flush_RX_FIFO(OTG_Global_Type *usbx);
+OTG_Global_Type *USB_Global_Select_Core(uint8_t USB_id);
+void USB_Flush_TX_FIFO(OTG_Global_Type *usbx, uint32_t fifo_Num);
+void USB_Flush_RX_FIFO(OTG_Global_Type *usbx);
 void USB_Global_Interrupt_Enable(OTG_Global_Type *usbx, uint16_t interrupt, confirm_state new_state);
-uint32_t USB_Global_Get_All_interrupt(OTG_Global_Type *usbx);
-void USB_Global_Clear_interrupt(OTG_Global_Type *usbx, uint32_t flag);
+uint32_t USB_Global_Get_All_Interrupt(OTG_Global_Type *usbx);
+void USB_Global_Clear_Interrupt(OTG_Global_Type *usbx, uint32_t flag);
 void USB_Interrupt_Enable(OTG_Global_Type *usbx);
 void USB_Interrupt_Disable(OTG_Global_Type *usbx);
 void USB_Set_RX_FIFO(OTG_Global_Type *usbx, uint16_t size);
 void USB_Set_TX_FIFO(OTG_Global_Type *usbx, uint8_t txfifo, uint16_t size);
 void USB_Global_Set_Mode(OTG_Global_Type *usbx, uint32_t mode);
-void USB_Global_Power_on(OTG_Global_Type *usbx);
+void USB_Global_Power_ON(OTG_Global_Type *usbx);
 void USB_Write_Packet(OTG_Global_Type *usbx, uint8_t *pusr_buf, uint16_t num, uint16_t nbytes);
 void USB_Read_Packet(OTG_Global_Type *usbx, uint8_t *pusr_buf, uint16_t num, uint16_t nbytes);
-void USB_Stop_PHY_clk(OTG_Global_Type *usbx);
-void USB_open_PHY_clk(OTG_Global_Type *usbx);
+void USB_Stop_PHY_CLK(OTG_Global_Type *usbx);
+void USB_Open_PHY_CLK(OTG_Global_Type *usbx);
 #endif
 
 #ifdef OTGFS_USB_DEVICE
-void USB_EPT_open(OTG_Global_Type *usbx, USB_EPT_info *ept_info);
-void USB_EPT_close(OTG_Global_Type *usbx, USB_EPT_info *ept_info);
-void USB_EPT_stall(OTG_Global_Type *usbx, USB_EPT_info *ept_info);
-void USB_EPT_Clear_stall(OTG_Global_Type *usbx, USB_EPT_info *ept_info);
-uint32_t USB_Get_All_out_interrupt(OTG_Global_Type *usbx);
-uint32_t USB_Get_All_in_interrupt(OTG_Global_Type *usbx);
-uint32_t USB_EPT_out_interrupt(OTG_Global_Type *usbx, uint32_t eptn);
-uint32_t USB_EPT_in_interrupt(OTG_Global_Type *usbx, uint32_t eptn);
-void USB_EPT_out_Clear(OTG_Global_Type *usbx, uint32_t eptn, uint32_t flag);
-void USB_EPT_in_Clear(OTG_Global_Type *usbx, uint32_t eptn, uint32_t flag);
+void USB_EPT_Open(OTG_Global_Type *usbx, USB_EPT_info *ept_info);
+void USB_EPT_Close(OTG_Global_Type *usbx, USB_EPT_info *ept_info);
+void USB_EPT_Stall(OTG_Global_Type *usbx, USB_EPT_info *ept_info);
+void USB_EPT_Clear_Stall(OTG_Global_Type *usbx, USB_EPT_info *ept_info);
+uint32_t USB_Get_All_Out_Interrupt(OTG_Global_Type *usbx);
+uint32_t USB_Get_All_In_Interrupt(OTG_Global_Type *usbx);
+uint32_t USB_EPT_Out_Interrupt(OTG_Global_Type *usbx, uint32_t eptn);
+uint32_t USB_EPT_In_Interrupt(OTG_Global_Type *usbx, uint32_t eptn);
+void USB_EPT_Out_Clear(OTG_Global_Type *usbx, uint32_t eptn, uint32_t flag);
+void USB_EPT_In_Clear(OTG_Global_Type *usbx, uint32_t eptn, uint32_t flag);
 void USB_Set_Address(OTG_Global_Type *usbx, uint8_t address);
-void USB_ept0_Start(OTG_Global_Type *usbx);
-void USB_ept0_Setup(OTG_Global_Type *usbx);
+void USB_EPT0_Start(OTG_Global_Type *usbx);
+void USB_EPT0_Setup(OTG_Global_Type *usbx);
 void USB_Connect(OTG_Global_Type *usbx);
 void USB_Disconnect(OTG_Global_Type *usbx);
 void USB_Remote_wkup_Set(OTG_Global_Type *usbx);
 void USB_Remote_wkup_Clear(OTG_Global_Type *usbx);
-uint8_t USB_suspend_Status_Get(OTG_Global_Type *usbx);
+uint8_t USB_Suspend_Status_Get(OTG_Global_Type *usbx);
 #endif
 
 #ifdef OTGFS_USB_HOST
-void USB_Port_Power_on(OTG_Global_Type *usbx, confirm_state state);
-uint32_t usbh_Get_frame(OTG_Global_Type *usbx);
-void USB_hc_Enable(OTG_Global_Type *usbx,
+void USB_Port_Power_ON(OTG_Global_Type *usbx, confirm_state state);
+uint32_t USBH_Get_Frame(OTG_Global_Type *usbx);
+void USB_HC_Enable(OTG_Global_Type *usbx,
                    uint8_t chn,
                    uint8_t ept_Num,
                    uint8_t dev_Address,
                    uint8_t type,
                    uint16_t maxpacket,
                    uint8_t speed);
-uint32_t USB_hch_Read_interrupt(OTG_Global_Type *usbx);
-void USB_host_Disable(OTG_Global_Type *usbx);
-void USB_hch_halt(OTG_Global_Type *usbx, uint8_t chn);
-void usbh_fsls_clksel(OTG_Global_Type *usbx, uint8_t clk);
+uint32_t USB_HCH_Read_Interrupt(OTG_Global_Type *usbx);
+void USB_HOST_Disable(OTG_Global_Type *usbx);
+void USB_HCH_Halt(OTG_Global_Type *usbx, uint8_t chn);
+void USBH_Fsls_CLKsel(OTG_Global_Type *usbx, uint8_t clk);
 #endif
 /**
   * @}

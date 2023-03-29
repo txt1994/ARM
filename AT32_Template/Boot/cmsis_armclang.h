@@ -130,12 +130,12 @@ __PACKED_STRUCT T_UINT32_Read { uint32_t v; };
     #define __STACK_LIMIT             Image$$ARM_LIB_STACK$$ZI$$Base
 #endif
 
-#ifndef __VECTOR_TABLE
-    #define __VECTOR_TABLE            __Vectors
+#ifndef __Vector_TABLE
+    #define __Vector_TABLE            __Vectors
 #endif
 
-#ifndef __VECTOR_TABLE_ATTRIBUTE
-    #define __VECTOR_TABLE_ATTRIBUTE  __attribute__((used, section("RESET")))
+#ifndef __Vector_Table_ATTRIBUTE
+    #define __Vector_Table_ATTRIBUTE  __attribute__((used, section("RESET")))
 #endif
 
 /* ###########################  Core Function Access  ########################### */
@@ -561,7 +561,7 @@ __STATIC_FORCEINLINE void __TZ_Set_FAULTMASK_NS(uint32_t faultMask) {
 
 
 #if ((defined (__ARM_ARCH_8M_MAIN__  ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
-(defined (__ARM_ARCH_8M_BASE__  ) && (__ARM_ARCH_8M_BASE__   == 1)) || \
+(defined (__ARM_ARCH_8M_Base__  ) && (__ARM_ARCH_8M_Base__   == 1)) || \
 (defined (__ARM_ARCH_8_1M_MAIN__) && (__ARM_ARCH_8_1M_MAIN__ == 1))     )
 
 /**
@@ -739,7 +739,7 @@ __STATIC_FORCEINLINE void __TZ_Set_MSPLIM_NS(uint32_t MainStackPtrLimit) {
 #endif
 
 #endif /* ((defined (__ARM_ARCH_8M_MAIN__  ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
-(defined (__ARM_ARCH_8M_BASE__  ) && (__ARM_ARCH_8M_BASE__   == 1)) || \
+(defined (__ARM_ARCH_8M_Base__  ) && (__ARM_ARCH_8M_Base__   == 1)) || \
 (defined (__ARM_ARCH_8_1M_MAIN__) && (__ARM_ARCH_8_1M_MAIN__ == 1))     ) */
 
 /**
@@ -780,11 +780,11 @@ __STATIC_FORCEINLINE void __TZ_Set_MSPLIM_NS(uint32_t MainStackPtrLimit) {
  * For thumb1, use low register (r0-r7), specified by constraint "l"
  * Otherwise, use general registers, specified by constraint "r" */
 #if defined (__thumb__) && !defined (__thumb2__)
-    #define __CMSIS_GCC_OUT_REG(r) "=l" (r)
+    #define __CMSIS_GCC_Out_REG(r) "=l" (r)
     #define __CMSIS_GCC_RW_REG(r) "+l" (r)
     #define __CMSIS_GCC_USE_REG(r) "l" (r)
 #else
-    #define __CMSIS_GCC_OUT_REG(r) "=r" (r)
+    #define __CMSIS_GCC_Out_REG(r) "=r" (r)
     #define __CMSIS_GCC_RW_REG(r) "+r" (r)
     #define __CMSIS_GCC_USE_REG(r) "r" (r)
 #endif
@@ -931,7 +931,7 @@ __STATIC_FORCEINLINE uint8_t __CLZ(uint32_t value) {
 #if ((defined (__ARM_ARCH_7M__       ) && (__ARM_ARCH_7M__        == 1)) || \
 (defined (__ARM_ARCH_7EM__      ) && (__ARM_ARCH_7EM__       == 1)) || \
 (defined (__ARM_ARCH_8M_MAIN__  ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
-(defined (__ARM_ARCH_8M_BASE__  ) && (__ARM_ARCH_8M_BASE__   == 1)) || \
+(defined (__ARM_ARCH_8M_Base__  ) && (__ARM_ARCH_8M_Base__   == 1)) || \
 (defined (__ARM_ARCH_8_1M_MAIN__) && (__ARM_ARCH_8_1M_MAIN__ == 1))     )
 
 /**
@@ -1003,7 +1003,7 @@ __STATIC_FORCEINLINE uint8_t __CLZ(uint32_t value) {
 #endif /* ((defined (__ARM_ARCH_7M__       ) && (__ARM_ARCH_7M__        == 1)) || \
 (defined (__ARM_ARCH_7EM__      ) && (__ARM_ARCH_7EM__       == 1)) || \
 (defined (__ARM_ARCH_8M_MAIN__  ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
-(defined (__ARM_ARCH_8M_BASE__  ) && (__ARM_ARCH_8M_BASE__   == 1)) || \
+(defined (__ARM_ARCH_8M_Base__  ) && (__ARM_ARCH_8M_Base__   == 1)) || \
 (defined (__ARM_ARCH_8_1M_MAIN__) && (__ARM_ARCH_8_1M_MAIN__ == 1))     ) */
 
 
@@ -1042,7 +1042,7 @@ __STATIC_FORCEINLINE uint8_t __CLZ(uint32_t value) {
 __STATIC_FORCEINLINE uint32_t __RRX(uint32_t value) {
     uint32_t result;
 
-    __ASM volatile ("rrx %0, %1" : __CMSIS_GCC_OUT_REG (result) : __CMSIS_GCC_USE_REG (value) );
+    __ASM volatile ("rrx %0, %1" : __CMSIS_GCC_Out_REG (result) : __CMSIS_GCC_USE_REG (value) );
     return(result);
 }
 
@@ -1176,7 +1176,7 @@ __STATIC_FORCEINLINE uint32_t __USAT(int32_t val, uint32_t sat) {
 
 
 #if ((defined (__ARM_ARCH_8M_MAIN__  ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
-(defined (__ARM_ARCH_8M_BASE__  ) && (__ARM_ARCH_8M_BASE__   == 1)) || \
+(defined (__ARM_ARCH_8M_Base__  ) && (__ARM_ARCH_8M_Base__   == 1)) || \
 (defined (__ARM_ARCH_8_1M_MAIN__) && (__ARM_ARCH_8_1M_MAIN__ == 1))     )
 
 /**
@@ -1314,7 +1314,7 @@ __STATIC_FORCEINLINE void __STL(uint32_t value, volatile uint32_t *ptr) {
 #define     __STLEX                  (uint32_t)__builtin_arm_stlex
 
 #endif /* ((defined (__ARM_ARCH_8M_MAIN__  ) && (__ARM_ARCH_8M_MAIN__   == 1)) || \
-(defined (__ARM_ARCH_8M_BASE__  ) && (__ARM_ARCH_8M_BASE__   == 1)) || \
+(defined (__ARM_ARCH_8M_Base__  ) && (__ARM_ARCH_8M_Base__   == 1)) || \
 (defined (__ARM_ARCH_8_1M_MAIN__) && (__ARM_ARCH_8_1M_MAIN__ == 1))     ) */
 
 /*@}*/ /* end of group CMSIS_Core_InstructionInterface */

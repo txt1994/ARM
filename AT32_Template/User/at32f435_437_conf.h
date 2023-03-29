@@ -31,7 +31,7 @@ extern "C" {
 #endif
 
 
-/** @addtogroup AT32F437_periph_template
+/** @addtogroup AT32F437_Periph_template
   * @{
   */
 

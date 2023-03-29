@@ -34,7 +34,7 @@ extern "C" {
 /* includes ------------------------------------------------------------------*/
 #include "at32f435_437.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -42,7 +42,7 @@ extern "C" {
   * @{
   */
 
-/** @defgroup MISC_vector_table_base_Address
+/** @defgroup MISC_Vector_Table_Base_Address
   * @{
   */
 
@@ -61,12 +61,12 @@ extern "C" {
   * @brief nvic interrupt priority group
   */
 typedef enum {
-    NVIC_PRIORITY_GROUP_0                  = ((uint32_t)0x7), /*!< 0 bits for preemption priority, 4 bits for subpriority */
-    NVIC_PRIORITY_GROUP_1                  = ((uint32_t)0x6), /*!< 1 bits for preemption priority, 3 bits for subpriority */
-    NVIC_PRIORITY_GROUP_2                  = ((uint32_t)0x5), /*!< 2 bits for preemption priority, 2 bits for subpriority */
-    NVIC_PRIORITY_GROUP_3                  = ((uint32_t)0x4), /*!< 3 bits for preemption priority, 1 bits for subpriority */
-    NVIC_PRIORITY_GROUP_4                  = ((uint32_t)0x3)  /*!< 4 bits for preemption priority, 0 bits for subpriority */
-} nvic_priority_group_Type;
+    NVIC_Priority_Group_0                  = ((uint32_t)0x7), /*!< 0 bits for preemption priority, 4 bits for subpriority */
+    NVIC_Priority_Group_1                  = ((uint32_t)0x6), /*!< 1 bits for preemption priority, 3 bits for subpriority */
+    NVIC_Priority_Group_2                  = ((uint32_t)0x5), /*!< 2 bits for preemption priority, 2 bits for subpriority */
+    NVIC_Priority_Group_3                  = ((uint32_t)0x4), /*!< 3 bits for preemption priority, 1 bits for subpriority */
+    NVIC_Priority_Group_4                  = ((uint32_t)0x3)  /*!< 4 bits for preemption priority, 0 bits for subpriority */
+} NVIC_Priority_Group_Type;
 
 /**
   * @brief nvic low power mode
@@ -75,15 +75,15 @@ typedef enum {
     NVIC_LP_SLEEPONEXIT                    = 0x02, /*!< enable sleep-on-exit feature */
     NVIC_LP_SLEEPDEEP                      = 0x04, /*!< enable sleep-deep output signal when entering sleep mode */
     NVIC_LP_SEVONPEND                      = 0x10  /*!< send event on pending */
-} nvic_lowpower_Mode_Type;
+} NVIC_LowPower_Mode_Type;
 
 /**
   * @brief systick clock source
   */
 typedef enum {
-    SYSTICK_Clock_Source_AHBCLK_DIV8       = ((uint32_t)0x00000000), /*!< systick clock source from core clock div8 */
-    SYSTICK_Clock_Source_AHBCLK_NODIV      = ((uint32_t)0x00000004)  /*!< systick clock source from core clock */
-} systick_Clock_Source_Type;
+    Systick_Clock_Source_AHBCLK_DIV8       = ((uint32_t)0x00000000), /*!< systick clock source from core clock div8 */
+    Systick_Clock_Source_AHBCLK_NODIV      = ((uint32_t)0x00000004)  /*!< systick clock source from core clock */
+} Systick_Clock_Source_Type;
 
 /**
   * @}
@@ -93,13 +93,13 @@ typedef enum {
   * @{
   */
 
-void nvic_System_Reset(void);
-void nvic_irq_Enable(IRQn_Type irqn, uint32_t preempt_priority, uint32_t sub_priority);
-void nvic_irq_Disable(IRQn_Type irqn);
-void nvic_priority_group_Config(nvic_priority_group_Type priority_group);
-void nvic_vector_table_Set(uint32_t base, uint32_t offset);
-void nvic_lowpower_Mode_Config(nvic_lowpower_Mode_Type lp_Mode, confirm_state new_state);
-void systick_Clock_Source_Config(systick_Clock_Source_Type source);
+void NVIC_System_Reset(void);
+void NVIC_IRQ_Enable(IRQn_Type irqn, uint32_t preempt_priority, uint32_t sub_priority);
+void NVIC_IRQ_Disable(IRQn_Type irqn);
+void NVIC_Priority_Group_Config(NVIC_Priority_Group_Type priority_group);
+void NVIC_Vector_Table_Set(uint32_t base, uint32_t offset);
+void NVIC_LowPower_Mode_Config(NVIC_LowPower_Mode_Type lp_Mode, confirm_state new_state);
+void Systick_Clock_Source_Config(Systick_Clock_Source_Type source);
 
 /**
   * @}

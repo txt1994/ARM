@@ -43,7 +43,7 @@
 /** @addtogroup AT32F435_437_System_private_variables
   * @{
   */
-unsigned int system_core_clock           = HICK_VALUE; /*!< system clock frequency (core clock) */
+unsigned int system_Core_clock           = HICK_VALUE; /*!< system clock frequency (core clock) */
 /**
   * @}
   */
@@ -101,35 +101,35 @@ void SystemInit (void) {
 }
 
 /**
-  * @brief  update system_core_clock variable according to clock register values.
-  *         the system_core_clock variable contains the core clock (hclk), it can
+  * @brief  update system_Core_clock variable according to clock register values.
+  *         the system_Core_clock variable contains the core clock (hclk), it can
   *         be used by the user application to setup the systick timer or configure
   *         other parameters.
   * @param  none
   * @retval none
   */
-void system_core_Clock_Update(void) {
+void system_Core_Clock_Update(void) {
     uint32_t pll_ns = 0, pll_ms = 0, pll_fr = 0, pll_Clock_source = 0, pllrcsfreq = 0;
     uint32_t temp = 0, div_value = 0;
-    crm_sclk_Type sclk_source;
+    CRM_SCLK_Type sclk_source;
 
-    static const uint8_t sys_ahb_div_table[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
-    static const uint8_t pll_fr_table[6] = {1, 2, 4, 8, 16, 32};
+    static const uint8_t sys_AHB_Div_table[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
+    static const uint8_t pll_FR_table[6] = {1, 2, 4, 8, 16, 32};
 
     /* get sclk source */
-    sclk_source = crm_sysclk_switch_Status_Get();
+    sclk_source = CRM_SysCLK_Switch_Status_Get();
 
     switch(sclk_source) {
         case CRM_SCLK_HICK:
-            if(((CRM->misc1_bit.hick_to_sclk) != RESET) && ((CRM->misc1_bit.hickdiv) != RESET))
-                system_core_clock = HICK_VALUE * 6;
+            if(((CRM->misc1_bit.hick_To_sclk) != RESET) && ((CRM->misc1_bit.hickdiv) != RESET))
+                system_Core_clock = HICK_VALUE * 6;
             else
-                system_core_clock = HICK_VALUE;
+                system_Core_clock = HICK_VALUE;
 
             break;
 
         case CRM_SCLK_HEXT:
-            system_core_clock = HEXT_VALUE;
+            system_Core_clock = HEXT_VALUE;
             break;
 
         case CRM_SCLK_PLL:
@@ -139,7 +139,7 @@ void system_core_Clock_Update(void) {
             /* get multiplication factor */
             pll_ns = CRM->pllcfg_bit.pllns;
             pll_ms = CRM->pllcfg_bit.pllms;
-            pll_fr = pll_fr_table[CRM->pllcfg_bit.pllfr];
+            pll_fr = pll_FR_table[CRM->pllcfg_bit.pllfr];
 
             if (pll_Clock_source == CRM_PLL_Source_HICK) {
                 /* hick selected as pll clock entry */
@@ -149,20 +149,20 @@ void system_core_Clock_Update(void) {
                 pllrcsfreq = HEXT_VALUE;
             }
 
-            system_core_clock = (uint32_t)(((uint64_t)pllrcsfreq * pll_ns) / (pll_ms * pll_fr));
+            system_Core_clock = (uint32_t)(((uint64_t)pllrcsfreq * pll_ns) / (pll_ms * pll_fr));
             break;
 
         default:
-            system_core_clock = HICK_VALUE;
+            system_Core_clock = HICK_VALUE;
             break;
     }
 
     /* compute sclk, ahbclk frequency */
     /* get ahb division */
     temp = CRM->cfg_bit.ahbdiv;
-    div_value = sys_ahb_div_table[temp];
+    div_value = sys_AHB_Div_table[temp];
     /* ahbclk frequency */
-    system_core_clock = system_core_clock >> div_value;
+    system_Core_clock = system_Core_clock >> div_value;
 }
 /**
   * @}

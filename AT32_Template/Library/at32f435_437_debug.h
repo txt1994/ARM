@@ -34,7 +34,7 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "at32f435_437.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -173,10 +173,10 @@ typedef struct {
   * @{
   */
 
-uint32_t DEBUG_device_ID_Get(void);
-void DEBUG_low_Power_Mode_Set(uint32_t low_Power_Mode, confirm_state new_state);
-void DEBUG_apb1_periph_Mode_Set(uint32_t apb1_periph, confirm_state new_state);
-void DEBUG_apb2_periph_Mode_Set(uint32_t apb2_periph, confirm_state new_state);
+uint32_t DEBUG_Device_ID_Get(void);
+void DEBUG_Low_Power_Mode_Set(uint32_t low_Power_Mode, confirm_state new_state);
+void DEBUG_APB1_Periph_Mode_Set(uint32_t apb1_periph, confirm_state new_state);
+void DEBUG_APB2_Periph_Mode_Set(uint32_t apb2_periph, confirm_state new_state);
 
 /**
   * @}

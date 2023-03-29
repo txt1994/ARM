@@ -24,7 +24,7 @@
 
 #include "at32f435_437_conf.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -85,10 +85,10 @@ void XMC_NOR_SRAM_Init(XMC_NORSRAM_Init_Type* XMC_NORSRAM_Init_struct) {
         XMC_NORSRAM_Init_struct->write_Enable |
         XMC_NORSRAM_Init_struct->wait_signal_Enable |
         XMC_NORSRAM_Init_struct->write_Timing_Enable |
-        XMC_NORSRAM_Init_struct->write_burst_syn;
+        XMC_NORSRAM_Init_struct->write_Burst_syn;
 
     /* if nor flash device */
-    if(XMC_NORSRAM_Init_struct->device == XMC_DEVICE_NOR) {
+    if(XMC_NORSRAM_Init_struct->device == XMC_Device_NOR) {
         XMC_BANK1->ctrl_tmg_group[XMC_NORSRAM_Init_struct->subbank].bk1ctrl_bit.noren = 0x1;
     }
 }
@@ -141,9 +141,9 @@ void XMC_NORSRAM_Default_Para_Init(XMC_NORSRAM_Init_Type* XMC_NOR_SRAM_Init_stru
     /* reset nor/sram init structure parameters values */
     XMC_NOR_SRAM_Init_struct->subbank = XMC_Bank1_NOR_SRAM1;
     XMC_NOR_SRAM_Init_struct->data_Addr_multiplex = XMC_Data_Addr_MUX_Enable;
-    XMC_NOR_SRAM_Init_struct->device = XMC_DEVICE_SRAM;
+    XMC_NOR_SRAM_Init_struct->device = XMC_Device_SRAM;
     XMC_NOR_SRAM_Init_struct->bus_Type = XMC_BUSTYPE_8_BITS;
-    XMC_NOR_SRAM_Init_struct->burst_Mode_Enable = XMC_BURST_Mode_Disable;
+    XMC_NOR_SRAM_Init_struct->burst_Mode_Enable = XMC_Burst_Mode_Disable;
     XMC_NOR_SRAM_Init_struct->asynwait_Enable = XMC_ASYN_Wait_Disable;
     XMC_NOR_SRAM_Init_struct->wait_signal_lv = XMC_Wait_SIGNAL_LEVEL_LOW;
     XMC_NOR_SRAM_Init_struct->wrapped_Mode_Enable = XMC_WRAPPED_Mode_Disable;
@@ -151,7 +151,7 @@ void XMC_NORSRAM_Default_Para_Init(XMC_NORSRAM_Init_Type* XMC_NOR_SRAM_Init_stru
     XMC_NOR_SRAM_Init_struct->write_Enable = XMC_Write_Operation_Enable;
     XMC_NOR_SRAM_Init_struct->wait_signal_Enable = XMC_Wait_SIGNAL_Enable;
     XMC_NOR_SRAM_Init_struct->write_Timing_Enable = XMC_Write_Timing_Disable;
-    XMC_NOR_SRAM_Init_struct->write_burst_syn = XMC_Write_BURST_SYN_Disable;
+    XMC_NOR_SRAM_Init_struct->write_Burst_syn = XMC_Write_Burst_SYN_Disable;
 }
 
 /**
@@ -172,7 +172,7 @@ void XMC_NORSRAM_Timing_Default_Para_Init(XMC_NORSRAM_Timing_Init_Type* XMC_rw_T
     XMC_rw_Timing_struct->bus_latency_time = 0xF;
     XMC_rw_Timing_struct->clk_psc = 0xF;
     XMC_rw_Timing_struct->data_latency_time = 0xF;
-    XMC_rw_Timing_struct->mode = XMC_ACCESS_Mode_A;
+    XMC_rw_Timing_struct->mode = XMC_Access_Mode_A;
     XMC_w_Timing_struct->subbank = XMC_Bank1_NOR_SRAM1;
     XMC_w_Timing_struct->write_Timing_Enable = XMC_Write_Timing_Disable;
     XMC_w_Timing_struct->addr_Setup_time = 0xF;
@@ -181,7 +181,7 @@ void XMC_NORSRAM_Timing_Default_Para_Init(XMC_NORSRAM_Timing_Init_Type* XMC_rw_T
     XMC_w_Timing_struct->bus_latency_time = 0xF;
     XMC_w_Timing_struct->clk_psc = 0xF;
     XMC_w_Timing_struct->data_latency_time = 0xF;
-    XMC_w_Timing_struct->mode = XMC_ACCESS_Mode_A;
+    XMC_w_Timing_struct->mode = XMC_Access_Mode_A;
 }
 
 /**
@@ -211,7 +211,7 @@ void XMC_NOR_SRAM_Enable(XMC_NOR_SRAM_SubBank_Type XMC_subbank, confirm_state ne
   * @param  r2r_timing :read timing
   * @retval none
   */
-void XMC_ext_Timing_Config(XMC_NOR_SRAM_SubBank_Type XMC_Sub_bank, uint16_t w2w_timing, uint16_t r2r_timing) {
+void XMC_Ext_Timing_Config(XMC_NOR_SRAM_SubBank_Type XMC_Sub_bank, uint16_t w2w_timing, uint16_t r2r_timing) {
     XMC_BANK1->ext_bit[XMC_Sub_bank].buslatr2r = r2r_timing;
     XMC_BANK1->ext_bit[XMC_Sub_bank].buslatw2w = w2w_timing;
 }
@@ -288,13 +288,13 @@ void XMC_NAND_Timing_Config(XMC_NAND_PcCard_TimingInit_Type* XMC_regular_spaceti
 
     /* set the tempmem value according to XMC_NAND_Init_struct parameters */
     tempmem = (uint32_t)XMC_regular_spacetiming_struct->mem_Setup_time |
-              (XMC_regular_spacetiming_struct->mem_waite_time << 8) |
+              (XMC_regular_spacetiming_struct->mem_Waite_time << 8) |
               (XMC_regular_spacetiming_struct->mem_hold_time << 16) |
               (XMC_regular_spacetiming_struct->mem_hiz_time << 24);
 
     /* set the tempatt value according to XMC_NAND_Init_struct parameters */
     tempatt = (uint32_t)XMC_special_spacetiming_struct->mem_Setup_time |
-              (XMC_special_spacetiming_struct->mem_waite_time << 8) |
+              (XMC_special_spacetiming_struct->mem_Waite_time << 8) |
               (XMC_special_spacetiming_struct->mem_hold_time << 16) |
               (XMC_special_spacetiming_struct->mem_hiz_time << 24);
 
@@ -337,12 +337,12 @@ void XMC_NAND_Timing_Default_Para_Init(XMC_NAND_PcCard_TimingInit_Type* XMC_regu
                                        XMC_NAND_PcCard_TimingInit_Type* XMC_special_spacetiming_struct) {
     XMC_regular_spacetiming_struct->class_bank = XMC_Bank2_NAND;
     XMC_regular_spacetiming_struct->mem_hold_time  = 0xFC;
-    XMC_regular_spacetiming_struct->mem_waite_time = 0xFC;
+    XMC_regular_spacetiming_struct->mem_Waite_time = 0xFC;
     XMC_regular_spacetiming_struct->mem_Setup_time = 0xFC;
     XMC_regular_spacetiming_struct->mem_hiz_time = 0xFC;
     XMC_special_spacetiming_struct->class_bank = XMC_Bank2_NAND;
     XMC_special_spacetiming_struct->mem_hold_time = 0xFC;
-    XMC_special_spacetiming_struct->mem_waite_time = 0xFC;
+    XMC_special_spacetiming_struct->mem_Waite_time = 0xFC;
     XMC_special_spacetiming_struct->mem_Setup_time = 0xFC;
     XMC_special_spacetiming_struct->mem_hiz_time = 0xFC;
 }
@@ -502,16 +502,16 @@ void XMC_SDRAM_Default_Para_Init(XMC_SDRAM_Init_Type *XMC_SDRAM_Init_struct, XMC
     XMC_SDRAM_Init_struct->column_Address   = XMC_COLUMN_8;
     XMC_SDRAM_Init_struct->row_Address      = XMC_ROW_11;
     XMC_SDRAM_Init_struct->cas              = XMC_CAS_1;
-    XMC_SDRAM_Init_struct->width            = XMC_MEM_WIDTH_8;
-    XMC_SDRAM_Init_struct->read_delay       = XMC_Read_DELAY_1;
+    XMC_SDRAM_Init_struct->width            = XMC_Mem_Width_8;
+    XMC_SDRAM_Init_struct->read_delay       = XMC_Read_Delay_1;
 
-    XMC_SDRAM_Timing_struct->tmrd           = XMC_DELAY_CYCLE_16;
-    XMC_SDRAM_Timing_struct->txsr           = XMC_DELAY_CYCLE_16;
-    XMC_SDRAM_Timing_struct->tras           = XMC_DELAY_CYCLE_16;
-    XMC_SDRAM_Timing_struct->trc            = XMC_DELAY_CYCLE_16;
-    XMC_SDRAM_Timing_struct->twr            = XMC_DELAY_CYCLE_16;
-    XMC_SDRAM_Timing_struct->trp            = XMC_DELAY_CYCLE_16;
-    XMC_SDRAM_Timing_struct->trcd           = XMC_DELAY_CYCLE_16;
+    XMC_SDRAM_Timing_struct->tmrd           = XMC_Delay_Cycle_16;
+    XMC_SDRAM_Timing_struct->txsr           = XMC_Delay_Cycle_16;
+    XMC_SDRAM_Timing_struct->tras           = XMC_Delay_Cycle_16;
+    XMC_SDRAM_Timing_struct->trc            = XMC_Delay_Cycle_16;
+    XMC_SDRAM_Timing_struct->twr            = XMC_Delay_Cycle_16;
+    XMC_SDRAM_Timing_struct->trp            = XMC_Delay_Cycle_16;
+    XMC_SDRAM_Timing_struct->trcd           = XMC_Delay_Cycle_16;
 }
 
 /**
@@ -631,7 +631,7 @@ void XMC_Interrupt_Enable(XMC_class_bank_Type XMC_bank, XMC_Interrupt_sources_Ty
   *         - XMC_LEVEL_FLAG
   *         - XMC_FALLINGEDGE_FLAG
   *         - XMC_FEMPT_FLAG
-  *         - XMC_BUSY_FLAG
+  *         - XMC_Busy_FLAG
   *         - XMC_ERR_FLAG
   * @retval none
   */
@@ -717,7 +717,7 @@ void XMC_PcCard_Reset(void) {
   */
 void XMC_PcCard_Init(XMC_PcCard_Init_Type* XMC_PcCard_Init_struct) {
     /* set the bk4ctrl register value according to XMC_PcCard_Init_struct parameters */
-    XMC_BANK4->bk4ctrl = (uint32_t)XMC_PcCard_Init_struct->enable_wait |
+    XMC_BANK4->bk4ctrl = (uint32_t)XMC_PcCard_Init_struct->enable_Wait |
                          XMC_BUSTYPE_16_BITS |
                          (XMC_PcCard_Init_struct->delay_Time_cr << 9) |
                          (XMC_PcCard_Init_struct->delay_Time_ar << 13);
@@ -743,19 +743,19 @@ void XMC_PcCard_Timing_Config(XMC_NAND_PcCard_TimingInit_Type* XMC_regular_space
                               XMC_NAND_PcCard_TimingInit_Type* XMC_iospace_Timing_struct) {
     /* set bk4tmgmem register value according to XMC_regular_spacetiming_struct parameters */
     XMC_BANK4->bk4tmgmem = (uint32_t)XMC_regular_spacetiming_struct->mem_Setup_time |
-                           (XMC_regular_spacetiming_struct->mem_waite_time << 8) |
+                           (XMC_regular_spacetiming_struct->mem_Waite_time << 8) |
                            (XMC_regular_spacetiming_struct->mem_hold_time << 16) |
                            (XMC_regular_spacetiming_struct->mem_hiz_time << 24);
 
     /* Set bk4tmgatt register value according to XMC_special_spacetiming_struct parameters */
     XMC_BANK4->bk4tmgatt = (uint32_t)XMC_special_spacetiming_struct->mem_Setup_time |
-                           (XMC_special_spacetiming_struct->mem_waite_time << 8) |
+                           (XMC_special_spacetiming_struct->mem_Waite_time << 8) |
                            (XMC_special_spacetiming_struct->mem_hold_time << 16) |
                            (XMC_special_spacetiming_struct->mem_hiz_time << 24);
 
     /* Set bk4tmgio register value according to XMC_iospace_Timing_struct parameters */
     XMC_BANK4->bk4tmgio = (uint32_t)XMC_iospace_Timing_struct->mem_Setup_time |
-                          (XMC_iospace_Timing_struct->mem_waite_time << 8) |
+                          (XMC_iospace_Timing_struct->mem_Waite_time << 8) |
                           (XMC_iospace_Timing_struct->mem_hold_time << 16) |
                           (XMC_iospace_Timing_struct->mem_hiz_time << 24);
 }
@@ -767,7 +767,7 @@ void XMC_PcCard_Timing_Config(XMC_NAND_PcCard_TimingInit_Type* XMC_regular_space
   */
 void XMC_PcCard_Default_Para_Init(XMC_PcCard_Init_Type* XMC_PcCard_Init_struct) {
     /* reset pccard init structure parameters values */
-    XMC_PcCard_Init_struct->enable_wait = XMC_Wait_Operation_Disable;
+    XMC_PcCard_Init_struct->enable_Wait = XMC_Wait_Operation_Disable;
     XMC_PcCard_Init_struct->delay_Time_ar = 0x0;
     XMC_PcCard_Init_struct->delay_Time_cr = 0x0;
 
@@ -791,17 +791,17 @@ void XMC_PcCard_Timing_Default_Para_Init(XMC_NAND_PcCard_TimingInit_Type* XMC_re
         XMC_NAND_PcCard_TimingInit_Type* XMC_iospace_Timing_struct) {
     XMC_regular_spacetiming_struct->class_bank = XMC_BANK4_PCCARD;
     XMC_regular_spacetiming_struct->mem_hold_time  = 0xFC;
-    XMC_regular_spacetiming_struct->mem_waite_time = 0xFC;
+    XMC_regular_spacetiming_struct->mem_Waite_time = 0xFC;
     XMC_regular_spacetiming_struct->mem_Setup_time = 0xFC;
     XMC_regular_spacetiming_struct->mem_hiz_time = 0xFC;
     XMC_special_spacetiming_struct->class_bank = XMC_BANK4_PCCARD;
     XMC_special_spacetiming_struct->mem_hold_time  = 0xFC;
-    XMC_special_spacetiming_struct->mem_waite_time = 0xFC;
+    XMC_special_spacetiming_struct->mem_Waite_time = 0xFC;
     XMC_special_spacetiming_struct->mem_Setup_time = 0xFC;
     XMC_special_spacetiming_struct->mem_hiz_time = 0xFC;
     XMC_iospace_Timing_struct->class_bank = XMC_BANK4_PCCARD;
     XMC_iospace_Timing_struct->mem_hold_time = 0xFC;
-    XMC_iospace_Timing_struct->mem_waite_time = 0xFC;
+    XMC_iospace_Timing_struct->mem_Waite_time = 0xFC;
     XMC_iospace_Timing_struct->mem_Setup_time = 0xFC;
     XMC_iospace_Timing_struct->mem_hiz_time = 0xFC;
 }

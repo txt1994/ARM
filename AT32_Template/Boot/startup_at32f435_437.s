@@ -53,7 +53,7 @@ __Vectors       DCD     __Initial_sp                        ; Top of Stack
                 DCD     DebugMon_Handler                    ; Debug Monitor Handler
                 DCD     0                                   ; Reserved
                 DCD     PendSV_Handler                      ; PendSV Handler
-                DCD     SysTick_Handler                     ; SysTick Handler
+                DCD     Systick_Handler                     ; SysTick Handler
 
                 ; External Interrupts
                 DCD     WWDT_IRQHandler                     ; Window Watchdog Timer
@@ -82,7 +82,7 @@ __Vectors       DCD     __Initial_sp                        ; Top of Stack
                 DCD     EXINT9_5_IRQHandler                 ; EXINT Line [9:5]
                 DCD     TMR1_BRK_TMR9_IRQHandler            ; TMR1 Brake and TMR9
                 DCD     TMR1_OVF_TMR10_IRQHandler           ; TMR1 Overflow and TMR10
-                DCD     TMR1_TRG_HALL_TMR11_IRQHandler      ; TMR1 Trigger and hall and TMR11
+                DCD     TMR1_TRG_Hall_TMR11_IRQHandler      ; TMR1 Trigger and hall and TMR11
                 DCD     TMR1_CH_IRQHandler                  ; TMR1 Channel
                 DCD     TMR2_Global_IRQHandler              ; TMR2
                 DCD     TMR3_Global_IRQHandler              ; TMR3
@@ -101,7 +101,7 @@ __Vectors       DCD     __Initial_sp                        ; Top of Stack
                 DCD     OTGFS1_WKUP_IRQHandler              ; OTGFS1 Wakeup from suspend
                 DCD     TMR8_BRK_TMR12_IRQHandler           ; TMR8 Brake and TMR12
                 DCD     TMR8_OVF_TMR13_IRQHandler           ; TMR8 Overflow and TMR13
-                DCD     TMR8_TRG_HALL_TMR14_IRQHandler      ; TMR8 Trigger and hall and TMR14
+                DCD     TMR8_TRG_Hall_TMR14_IRQHandler      ; TMR8 Trigger and hall and TMR14
                 DCD     TMR8_CH_IRQHandler                  ; TMR8 Channel
                 DCD     EDMA_Stream8_IRQHandler             ; EDMA Stream 8
                 DCD     XMC_IRQHandler                      ; XMC
@@ -162,7 +162,7 @@ __Vectors       DCD     __Initial_sp                        ; Top of Stack
                 DCD     ACC_IRQHandler                      ; ACC
                 DCD     TMR20_BRK_IRQHandler                ; TMR20 Brake
                 DCD     TMR20_OVF_IRQHandler                ; TMR20 Overflow
-                DCD     TMR20_TRG_HALL_IRQHandler           ; TMR20 Trigger and hall
+                DCD     TMR20_TRG_Hall_IRQHandler           ; TMR20 Trigger and hall
                 DCD     TMR20_CH_IRQHandler                 ; TMR20 Channel
                 DCD     DMA2_Channel1_IRQHandler            ; DMA2 Channel 1
                 DCD     DMA2_Channel2_IRQHandler            ; DMA2 Channel 2
@@ -227,8 +227,8 @@ PendSV_Handler  PROC
                 EXPORT  PendSV_Handler                      [WEAK]
                 B       .
                 ENDP
-SysTick_Handler PROC
-                EXPORT  SysTick_Handler                     [WEAK]
+Systick_Handler PROC
+                EXPORT  Systick_Handler                     [WEAK]
                 B       .
                 ENDP
 
@@ -259,7 +259,7 @@ Default_Handler PROC
                 EXPORT  EXINT9_5_IRQHandler                 [WEAK]
                 EXPORT  TMR1_BRK_TMR9_IRQHandler            [WEAK]
                 EXPORT  TMR1_OVF_TMR10_IRQHandler           [WEAK]
-                EXPORT  TMR1_TRG_HALL_TMR11_IRQHandler      [WEAK]
+                EXPORT  TMR1_TRG_Hall_TMR11_IRQHandler      [WEAK]
                 EXPORT  TMR1_CH_IRQHandler                  [WEAK]
                 EXPORT  TMR2_Global_IRQHandler              [WEAK]
                 EXPORT  TMR3_Global_IRQHandler              [WEAK]
@@ -278,7 +278,7 @@ Default_Handler PROC
                 EXPORT  OTGFS1_WKUP_IRQHandler              [WEAK]
                 EXPORT  TMR8_BRK_TMR12_IRQHandler           [WEAK]
                 EXPORT  TMR8_OVF_TMR13_IRQHandler           [WEAK]
-                EXPORT  TMR8_TRG_HALL_TMR14_IRQHandler      [WEAK]
+                EXPORT  TMR8_TRG_Hall_TMR14_IRQHandler      [WEAK]
                 EXPORT  TMR8_CH_IRQHandler                  [WEAK]
                 EXPORT  EDMA_Stream8_IRQHandler             [WEAK]
                 EXPORT  XMC_IRQHandler                      [WEAK]
@@ -320,7 +320,7 @@ Default_Handler PROC
                 EXPORT  ACC_IRQHandler                      [WEAK]
                 EXPORT  TMR20_BRK_IRQHandler                [WEAK]
                 EXPORT  TMR20_OVF_IRQHandler                [WEAK]
-                EXPORT  TMR20_TRG_HALL_IRQHandler           [WEAK]
+                EXPORT  TMR20_TRG_Hall_IRQHandler           [WEAK]
                 EXPORT  TMR20_CH_IRQHandler                 [WEAK]
                 EXPORT  DMA2_Channel1_IRQHandler            [WEAK]
                 EXPORT  DMA2_Channel2_IRQHandler            [WEAK]
@@ -355,7 +355,7 @@ CAN1_SE_IRQHandler
 EXINT9_5_IRQHandler
 TMR1_BRK_TMR9_IRQHandler
 TMR1_OVF_TMR10_IRQHandler
-TMR1_TRG_HALL_TMR11_IRQHandler
+TMR1_TRG_Hall_TMR11_IRQHandler
 TMR1_CH_IRQHandler
 TMR2_Global_IRQHandler
 TMR3_Global_IRQHandler
@@ -374,7 +374,7 @@ ERTCAlarm_IRQHandler
 OTGFS1_WKUP_IRQHandler
 TMR8_BRK_TMR12_IRQHandler
 TMR8_OVF_TMR13_IRQHandler
-TMR8_TRG_HALL_TMR14_IRQHandler
+TMR8_TRG_Hall_TMR14_IRQHandler
 TMR8_CH_IRQHandler
 EDMA_Stream8_IRQHandler
 XMC_IRQHandler
@@ -416,7 +416,7 @@ SDIO2_IRQHandler
 ACC_IRQHandler
 TMR20_BRK_IRQHandler
 TMR20_OVF_IRQHandler
-TMR20_TRG_HALL_IRQHandler
+TMR20_TRG_Hall_IRQHandler
 TMR20_CH_IRQHandler
 DMA2_Channel1_IRQHandler
 DMA2_Channel2_IRQHandler

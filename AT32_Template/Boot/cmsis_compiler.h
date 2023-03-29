@@ -64,7 +64,7 @@
 /*
  * TI Arm Compiler
  */
-#elif defined ( __TI_ARM__ )
+#elif defined ( __Ti_ARM__ )
 #include <cmsis_ccs.h>
 
 #ifndef   __ASM

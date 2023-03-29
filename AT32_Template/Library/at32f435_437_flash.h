@@ -34,7 +34,7 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "at32f435_437.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -60,15 +60,15 @@ extern "C" {
 #if defined (AT32F435CMU7) || defined (AT32F435CMT7) || defined (AT32F435RMT7) || \
 defined (AT32F435VMT7) || defined (AT32F435ZMT7) || defined (AT32F437RMT7) || \
 defined (AT32F437VMT7) || defined (AT32F437ZMT7)
-#define FLASH_Bank1_Start_ADDR           ((uint32_t)0x08000000) /*!< flash start address of bank1 */
-#define FLASH_Bank1_End_ADDR             ((uint32_t)0x081FFFFF) /*!< flash end address of bank1 */
-#define FLASH_Bank2_Start_ADDR           ((uint32_t)0x08200000) /*!< flash start address of bank2 */
-#define FLASH_Bank2_End_ADDR             ((uint32_t)0x083EFFFF) /*!< flash end address of bank2 */
+#define FLASH_Bank1_Start_Addr           ((uint32_t)0x08000000) /*!< flash start address of bank1 */
+#define FLASH_Bank1_End_Addr             ((uint32_t)0x081FFFFF) /*!< flash end address of bank1 */
+#define FLASH_Bank2_Start_Addr           ((uint32_t)0x08200000) /*!< flash start address of bank2 */
+#define FLASH_Bank2_End_Addr             ((uint32_t)0x083EFFFF) /*!< flash end address of bank2 */
 #else
-#define FLASH_Bank1_Start_ADDR           ((uint32_t)0x08000000) /*!< flash start address of bank1 */
-#define FLASH_Bank1_End_ADDR             ((uint32_t)0x0807FFFF) /*!< flash end address of bank1 */
-#define FLASH_Bank2_Start_ADDR           ((uint32_t)0x08080000) /*!< flash start address of bank2 */
-#define FLASH_Bank2_End_ADDR             ((uint32_t)0x080FFFFF) /*!< flash end address of bank2 */
+#define FLASH_Bank1_Start_Addr           ((uint32_t)0x08000000) /*!< flash start address of bank1 */
+#define FLASH_Bank1_End_Addr             ((uint32_t)0x0807FFFF) /*!< flash end address of bank1 */
+#define FLASH_Bank2_Start_Addr           ((uint32_t)0x08080000) /*!< flash start address of bank2 */
+#define FLASH_Bank2_End_Addr             ((uint32_t)0x080FFFFF) /*!< flash end address of bank2 */
 #endif
 
 /**
@@ -152,9 +152,9 @@ defined (AT32F437VMT7) || defined (AT32F437ZMT7)
   * @brief set the flash clock divider definition
   * @param  div: the flash clock divider.
   *         this parameter can be one of the following values:
-  *         - FLASH_Clock_DIV_2
-  *         - FLASH_Clock_DIV_3
-  *         - FLASH_Clock_DIV_4
+  *         - FLASH_Clock_Div_2
+  *         - FLASH_Clock_Div_3
+  *         - FLASH_Clock_Div_4
   */
 #define FLASH_Clock_Divider_Set(div)     (FLASH->divr_bit.fdiv = div)
 
@@ -183,9 +183,9 @@ typedef enum {
   * @brief  flash clock divider type
   */
 typedef enum {
-    FLASH_Clock_DIV_2                      = 0x00, /*!< flash clock divide by 2 */
-    FLASH_Clock_DIV_3                      = 0x01, /*!< flash clock divide by 3 */
-    FLASH_Clock_DIV_4                      = 0x02  /*!< flash clock divide by 4 */
+    FLASH_Clock_Div_2                      = 0x00, /*!< flash clock divide by 2 */
+    FLASH_Clock_Div_3                      = 0x01, /*!< flash clock divide by 3 */
+    FLASH_Clock_Div_4                      = 0x02  /*!< flash clock divide by 4 */
 } FLASH_Clock_Divider_Type;
 
 /**
@@ -555,7 +555,7 @@ typedef struct {
             __IO uint32_t CRC_sn               : 12;/* [23:12] */
             __IO uint32_t reserved1            : 7; /* [30:24] */
             __IO uint32_t CRC_strt             : 1; /* [31] */
-        } CRC_ctrl_bit;
+        } CRC_Ctrl_bit;
     };
 
     /**
@@ -608,9 +608,9 @@ void FLASH_Flag_Clear(uint32_t FLASH_flag);
 FLASH_Status_Type FLASH_Operation_Status_Get(void);
 FLASH_Status_Type FLASH_Bank1_Operation_Status_Get(void);
 FLASH_Status_Type FLASH_Bank2_Operation_Status_Get(void);
-FLASH_Status_Type FLASH_Operation_Wait_For(uint32_t time_out);
-FLASH_Status_Type FLASH_Bank1_Operation_Wait_For(uint32_t time_out);
-FLASH_Status_Type FLASH_Bank2_Operation_Wait_For(uint32_t time_out);
+FLASH_Status_Type FLASH_Operation_Wait_For(uint32_t time_Out);
+FLASH_Status_Type FLASH_Bank1_Operation_Wait_For(uint32_t time_Out);
+FLASH_Status_Type FLASH_Bank2_Operation_Wait_For(uint32_t time_Out);
 void FLASH_Unlock(void);
 void FLASH_Bank1_unlock(void);
 void FLASH_Bank2_unlock(void);

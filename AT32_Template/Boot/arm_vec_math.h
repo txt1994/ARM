@@ -324,7 +324,7 @@ __STATIC_INLINE int16x8_t __arm_vec_sqrt_q15_neon(int16x8_t vec) {
     float32x4_t tempF;
     int32x4_t tempHI, tempLO;
 
-    tempLO = vmovl_s16(vget_low_s16(vec));
+    tempLO = vmovl_s16(vget_Low_s16(vec));
     tempF = vcvtq_n_f32_s32(tempLO, 15);
     tempF = __arm_vec_sqrt_f32_neon(tempF);
     tempLO = vcvtq_n_s32_f32(tempF, 15);

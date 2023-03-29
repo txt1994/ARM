@@ -34,7 +34,7 @@ extern "C" {
 /* includes ------------------------------------------------------------------*/
 #include "at32f435_437.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -62,7 +62,7 @@ extern "C" {
   * @}
   */
 
-/** @defgroup USART_interrupts_definition
+/** @defgroup USART_Interrupts_definition
   * @brief usart interrupt
   * @{
   */
@@ -91,15 +91,15 @@ typedef enum {
     USART_PARITY_NONE                      = 0x00, /*!< usart no parity */
     USART_PARITY_EVEN                      = 0x01, /*!< usart even parity */
     USART_PARITY_ODD                       = 0x02  /*!< usart odd parity */
-} usart_parity_Selection_Type;
+} USART_parity_Selection_Type;
 
 /**
   * @brief  usart wakeup mode type
   */
 typedef enum {
-    USART_WakeUp_BY_IDLE_FRAME             = 0x00, /*!< usart wakeup by idle frame */
+    USART_WakeUp_BY_IDLE_Frame             = 0x00, /*!< usart wakeup by idle frame */
     USART_WakeUp_BY_MATCHING_ID            = 0x01  /*!< usart wakeup by matching id */
-} usart_WakeUp_Mode_Type;
+} USART_WakeUp_Mode_Type;
 
 /**
   * @brief  usart data bit num type
@@ -108,15 +108,15 @@ typedef enum {
     USART_Data_7BITS                       = 0x00, /*!< usart data size is 7 bits */
     USART_Data_8BITS                       = 0x01, /*!< usart data size is 8 bits */
     USART_Data_9BITS                       = 0x02  /*!< usart data size is 9 bits */
-} usart_Data_Bit_Num_Type;
+} USART_Data_Bit_Num_Type;
 
 /**
   * @brief  usart break frame bit num type
   */
 typedef enum {
-    USART_BREAK_10BITS                     = 0x00, /*!< usart lin mode berak frame detection 10 bits */
-    USART_BREAK_11BITS                     = 0x01  /*!< usart lin mode berak frame detection 11 bits */
-} usart_break_Bit_Num_Type;
+    USART_Break_10BITS                     = 0x00, /*!< usart lin mode berak frame detection 10 bits */
+    USART_Break_11BITS                     = 0x01  /*!< usart lin mode berak frame detection 11 bits */
+} USART_Break_Bit_Num_Type;
 
 /**
   * @brief  usart phase of the clock type
@@ -124,23 +124,23 @@ typedef enum {
 typedef enum {
     USART_Clock_PHASE_1EDGE                = 0x00, /*!< usart data capture is done on the clock leading edge */
     USART_Clock_PHASE_2EDGE                = 0x01  /*!< usart data capture is done on the clock trailing edge */
-} usart_Clock_phase_Type;
+} USART_Clock_phase_Type;
 
 /**
   * @brief  usart polarity of the clock type
   */
 typedef enum {
-    USART_Clock_POLARITY_LOW               = 0x00, /*!< usart clock stay low level outside transmission window */
-    USART_Clock_POLARITY_HIGH              = 0x01  /*!< usart clock stay high level outside transmission window */
-} usart_Clock_polarity_Type;
+    USART_Clock_Polarity_LOW               = 0x00, /*!< usart clock stay low level outside transmission window */
+    USART_Clock_Polarity_HIGH              = 0x01  /*!< usart clock stay high level outside transmission window */
+} USART_Clock_Polarity_Type;
 
 /**
   * @brief  usart last bit clock pulse type
   */
 typedef enum {
     USART_Clock_LAST_Bit_NONE              = 0x00, /*!< usart clock pulse of the last data bit is not outputted */
-    USART_Clock_LAST_Bit_OUTPUT            = 0x01  /*!< usart clock pulse of the last data bit is outputted */
-} usart_lbcp_Type;
+    USART_Clock_LAST_Bit_OutPUT            = 0x01  /*!< usart clock pulse of the last data bit is outputted */
+} USART_lbcp_Type;
 
 /**
   * @brief  usart stop bit num type
@@ -150,17 +150,17 @@ typedef enum {
     USART_Stop_0_5_BIT                     = 0x01, /*!< usart stop bits num is 0.5 */
     USART_Stop_2_BIT                       = 0x02, /*!< usart stop bits num is 2 */
     USART_Stop_1_5_BIT                     = 0x03  /*!< usart stop bits num is 1.5 */
-} usart_Stop_Bit_Num_Type;
+} USART_Stop_Bit_Num_Type;
 
 /**
   * @brief  usart hardware flow control type
   */
 typedef enum {
-    USART_HARDWARE_FLOW_NONE               = 0x00, /*!< usart without hardware flow */
-    USART_HARDWARE_FLOW_RTS                = 0x01, /*!< usart hardware flow only rts */
-    USART_HARDWARE_FLOW_CTS                = 0x02, /*!< usart hardware flow only cts */
-    USART_HARDWARE_FLOW_RTS_CTS            = 0x03  /*!< usart hardware flow both rts and cts */
-} usart_hardware_flow_Control_Type;
+    USART_Hardware_Flow_NONE               = 0x00, /*!< usart without hardware flow */
+    USART_Hardware_Flow_RTS                = 0x01, /*!< usart hardware flow only rts */
+    USART_Hardware_Flow_CTS                = 0x02, /*!< usart hardware flow only cts */
+    USART_Hardware_Flow_RTS_CTS            = 0x03  /*!< usart hardware flow both rts and cts */
+} USART_Hardware_Flow_Control_Type;
 
 /**
   * @brief  usart identification bit num type
@@ -168,15 +168,15 @@ typedef enum {
 typedef enum {
     USART_ID_FIXED_4_BIT                   = 0x00, /*!< usart id bit num fixed 4 bits */
     USART_ID_RELATED_Data_BIT              = 0x01  /*!< usart id bit num related data bits */
-} usart_identification_Bit_Num_Type;
+} USART_identification_Bit_Num_Type;
 
 /**
   * @brief  usart de polarity type
   */
 typedef enum {
-    USART_DE_POLARITY_HIGH                 = 0x00, /*!< usart de polarity high */
-    USART_DE_POLARITY_LOW                  = 0x01  /*!< usart de polarity low */
-} usart_de_polarity_Type;
+    USART_DE_Polarity_HIGH                 = 0x00, /*!< usart de polarity high */
+    USART_DE_Polarity_LOW                  = 0x01  /*!< usart de polarity low */
+} USART_DE_Polarity_Type;
 
 /**
   * @brief type define usart register all
@@ -311,62 +311,62 @@ typedef struct {
             __IO uint32_t reserved1            : 16;/* [31:16] */
         } gdiv_bit;
     };
-} usart_Type;
+} USART_Type;
 
 /**
   * @}
   */
 
-#define USART1                           ((usart_Type *) USART1_BASE)
-#define USART2                           ((usart_Type *) USART2_BASE)
-#define USART3                           ((usart_Type *) USART3_BASE)
-#define UART4                            ((usart_Type *) UART4_BASE)
-#define UART5                            ((usart_Type *) UART5_BASE)
-#define USART6                           ((usart_Type *) USART6_BASE)
-#define UART7                            ((usart_Type *) UART7_BASE)
+#define USART1                           ((USART_Type *) USART1_BASE)
+#define USART2                           ((USART_Type *) USART2_BASE)
+#define USART3                           ((USART_Type *) USART3_BASE)
+#define UART4                            ((USART_Type *) UART4_BASE)
+#define UART5                            ((USART_Type *) UART5_BASE)
+#define USART6                           ((USART_Type *) USART6_BASE)
+#define UART7                            ((USART_Type *) UART7_BASE)
 #if defined (AT32F435Zx) || defined (AT32F435Vx) || defined (AT32F435Rx) || \
 defined (AT32F437Zx) || defined (AT32F437Vx) || defined (AT32F437Rx)
-#define UART8                            ((usart_Type *) UART8_BASE)
+#define UART8                            ((USART_Type *) UART8_BASE)
 #endif
 
 /** @defgroup USART_exported_functions
   * @{
   */
 
-void usart_Reset(usart_Type* usart_x);
-void usart_Init(usart_Type* usart_x, uint32_t baud_rate, usart_Data_Bit_Num_Type data_bit, usart_Stop_Bit_Num_Type stop_bit);
-void usart_parity_Selection_Config(usart_Type* usart_x, usart_parity_Selection_Type parity);
-void usart_Enable(usart_Type* usart_x, confirm_state new_state);
-void usart_transmitter_Enable(usart_Type* usart_x, confirm_state new_state);
-void usart_Receiver_Enable(usart_Type* usart_x, confirm_state new_state);
-void usart_Clock_Config(usart_Type* usart_x, usart_Clock_polarity_Type clk_pol, usart_Clock_phase_Type clk_pha, usart_lbcp_Type clk_lb);
-void usart_Clock_Enable(usart_Type* usart_x, confirm_state new_state);
-void usart_Interrupt_Enable(usart_Type* usart_x, uint32_t usart_int, confirm_state new_state);
-void usart_DMA_transmitter_Enable(usart_Type* usart_x, confirm_state new_state);
-void usart_DMA_Receiver_Enable(usart_Type* usart_x, confirm_state new_state);
-void usart_WakeUp_ID_Set(usart_Type* usart_x, uint8_t usart_id);
-void usart_WakeUp_Mode_Set(usart_Type* usart_x, usart_WakeUp_Mode_Type wakeup_Mode);
-void usart_Receiver_mute_Enable(usart_Type* usart_x, confirm_state new_state);
-void usart_break_Bit_Num_Set(usart_Type* usart_x, usart_break_Bit_Num_Type break_bit);
-void usart_lin_Mode_Enable(usart_Type* usart_x, confirm_state new_state);
-void usart_Data_transmit(usart_Type* usart_x, uint16_t data);
-uint16_t usart_Data_receive(usart_Type* usart_x);
-void usart_break_send(usart_Type* usart_x);
-void usart_smartcard_guard_Time_Set(usart_Type* usart_x, uint8_t guard_Time_val);
-void usart_irda_smartcard_Division_Set(usart_Type* usart_x, uint8_t div_val);
-void usart_smartcard_Mode_Enable(usart_Type* usart_x, confirm_state new_state);
-void usart_smartcard_nack_Set(usart_Type* usart_x, confirm_state new_state);
-void usart_single_line_halfduplex_Select(usart_Type* usart_x, confirm_state new_state);
-void usart_irda_Mode_Enable(usart_Type* usart_x, confirm_state new_state);
-void usart_irda_low_Power_Enable(usart_Type* usart_x, confirm_state new_state);
-void usart_hardware_flow_Control_Set(usart_Type* usart_x, usart_hardware_flow_Control_Type flow_state);
-flag_status usart_Flag_Get(usart_Type* usart_x, uint32_t flag);
-void usart_Flag_Clear(usart_Type* usart_x, uint32_t flag);
-void usart_rs485_delay_Time_Config(usart_Type* usart_x, uint8_t start_delay_time, uint8_t complete_delay_time);
-void usart_Transmit_receive_Pin_swap(usart_Type* usart_x, confirm_state new_state);
-void usart_ID_Bit_Num_Set(usart_Type* usart_x, usart_identification_Bit_Num_Type id_Bit_Num);
-void usart_de_polarity_Set(usart_Type* usart_x, usart_de_polarity_Type de_polarity);
-void usart_rs485_Mode_Enable(usart_Type* usart_x, confirm_state new_state);
+void USART_Reset(USART_Type* USART_x);
+void USART_Init(USART_Type* USART_x, uint32_t baud_rate, USART_Data_Bit_Num_Type data_bit, USART_Stop_Bit_Num_Type stop_bit);
+void USART_parity_Selection_Config(USART_Type* USART_x, USART_parity_Selection_Type parity);
+void USART_Enable(USART_Type* USART_x, confirm_state new_state);
+void USARTTransmitter_Enable(USART_Type* USART_x, confirm_state new_state);
+void USART_Receiver_Enable(USART_Type* USART_x, confirm_state new_state);
+void USART_Clock_Config(USART_Type* USART_x, USART_Clock_Polarity_Type clk_pol, USART_Clock_phase_Type clk_pha, USART_lbcp_Type clk_lb);
+void USART_Clock_Enable(USART_Type* USART_x, confirm_state new_state);
+void USART_Interrupt_Enable(USART_Type* USART_x, uint32_t USART_int, confirm_state new_state);
+void USART_DMATransmitter_Enable(USART_Type* USART_x, confirm_state new_state);
+void USART_DMA_Receiver_Enable(USART_Type* USART_x, confirm_state new_state);
+void USART_WakeUp_ID_Set(USART_Type* USART_x, uint8_t USART_id);
+void USART_WakeUp_Mode_Set(USART_Type* USART_x, USART_WakeUp_Mode_Type wakeup_Mode);
+void USART_Receiver_mute_Enable(USART_Type* USART_x, confirm_state new_state);
+void USART_Break_Bit_Num_Set(USART_Type* USART_x, USART_Break_Bit_Num_Type break_bit);
+void USART_lin_Mode_Enable(USART_Type* USART_x, confirm_state new_state);
+void USART_Data_Transmit(USART_Type* USART_x, uint16_t data);
+uint16_t USART_Data_Receive(USART_Type* USART_x);
+void USART_Break_Send(USART_Type* USART_x);
+void USART_SmartCard_Guard_Time_Set(USART_Type* USART_x, uint8_t guard_Time_val);
+void USART_IRDA_SmartCard_Division_Set(USART_Type* USART_x, uint8_t div_val);
+void USART_SmartCard_Mode_Enable(USART_Type* USART_x, confirm_state new_state);
+void USART_SmartCard_Nack_Set(USART_Type* USART_x, confirm_state new_state);
+void USART_Single_Line_halfduplex_Select(USART_Type* USART_x, confirm_state new_state);
+void USART_IRDA_Mode_Enable(USART_Type* USART_x, confirm_state new_state);
+void USART_IRDA_Low_Power_Enable(USART_Type* USART_x, confirm_state new_state);
+void USART_Hardware_Flow_Control_Set(USART_Type* USART_x, USART_Hardware_Flow_Control_Type flow_state);
+flag_status USART_Flag_Get(USART_Type* USART_x, uint32_t flag);
+void USART_Flag_Clear(USART_Type* USART_x, uint32_t flag);
+void USART_RS485_Delay_Time_Config(USART_Type* USART_x, uint8_t start_Delay_time, uint8_t complete_Delay_time);
+void USART_Transmit_Receive_Pin_Swap(USART_Type* USART_x, confirm_state new_state);
+void USART_ID_Bit_Num_Set(USART_Type* USART_x, USART_identification_Bit_Num_Type id_Bit_Num);
+void USART_DE_Polarity_Set(USART_Type* USART_x, USART_DE_Polarity_Type de_polarity);
+void USART_RS485_Mode_Enable(USART_Type* USART_x, confirm_state new_state);
 
 /**
   * @}

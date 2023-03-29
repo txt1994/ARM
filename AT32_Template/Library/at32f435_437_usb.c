@@ -24,7 +24,7 @@
 
 #include "at32f435_437_conf.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -93,7 +93,7 @@ void USB_Global_Init(OTG_Global_Type *usbx) {
   *         - USB_OTG2_ID
   * @retval usb global register type pointer
   */
-OTG_Global_Type *USB_Global_Select_core(uint8_t USB_id) {
+OTG_Global_Type *USB_Global_Select_Core(uint8_t USB_id) {
     if(USB_id == USB_OTG1_ID) {
         /* use otg1 */
         return OTG1_GLOBAL;
@@ -113,7 +113,7 @@ OTG_Global_Type *USB_Global_Select_core(uint8_t USB_id) {
   *         parameter as following values: 0-16
   * @retval none
   */
-void USB_flush_TX_FIFO(OTG_Global_Type *usbx, uint32_t fifo_Num) {
+void USB_Flush_TX_FIFO(OTG_Global_Type *usbx, uint32_t fifo_Num) {
     uint32_t timeout = 0;
     /* set flush fifo number */
     usbx->grstctl_bit.txfnum = fifo_Num;
@@ -136,7 +136,7 @@ void USB_flush_TX_FIFO(OTG_Global_Type *usbx, uint32_t fifo_Num) {
   *         - OTG2_GLOBAL
   * @retval none
   */
-void USB_flush_RX_FIFO(OTG_Global_Type *usbx) {
+void USB_Flush_RX_FIFO(OTG_Global_Type *usbx) {
     uint32_t timeout = 0;
     usbx->grstctl_bit.rxfflsh = TRUE;
 
@@ -196,7 +196,7 @@ void USB_Global_Interrupt_Enable(OTG_Global_Type *usbx, uint16_t interrupt, conf
   *         - OTG2_GLOBAL
   * @retval intterupt flag
   */
-uint32_t USB_Global_Get_All_interrupt(OTG_Global_Type *usbx) {
+uint32_t USB_Global_Get_All_Interrupt(OTG_Global_Type *usbx) {
     uint32_t intsts = usbx->gintsts;
     return intsts & usbx->gintmsk;
 }
@@ -234,7 +234,7 @@ uint32_t USB_Global_Get_All_interrupt(OTG_Global_Type *usbx) {
   *         - USB_OTG_WKUP_FLAG
   * @retval none
   */
-void USB_Global_Clear_interrupt(OTG_Global_Type *usbx, uint32_t flag) {
+void USB_Global_Clear_Interrupt(OTG_Global_Type *usbx, uint32_t flag) {
     usbx->gintsts = flag;
 }
 
@@ -312,14 +312,14 @@ void USB_Set_TX_FIFO(OTG_Global_Type *usbx, uint8_t txfifo, uint16_t size) {
   *         - OTG2_GLOBAL
   * @param  mode:
             this parameter can be one of the following values:
-  *         - OTG_DEVICE_Mode
+  *         - OTG_Device_Mode
   *         - OTG_HOST_Mode
   *         - OTG_DRD_Mode
   * @retval none
   */
 void USB_Global_Set_Mode(OTG_Global_Type *usbx, uint32_t mode) {
     /* set otg to device mode */
-    if(mode == OTG_DEVICE_Mode) {
+    if(mode == OTG_Device_Mode) {
         usbx->gusbcfg_bit.fhstmode = FALSE;
         usbx->gusbcfg_bit.fdevmode = TRUE;
     }
@@ -346,7 +346,7 @@ void USB_Global_Set_Mode(OTG_Global_Type *usbx, uint32_t mode) {
   *         - OTG2_GLOBAL
   * @retval none
   */
-void USB_Global_Power_on(OTG_Global_Type *usbx) {
+void USB_Global_Power_ON(OTG_Global_Type *usbx) {
     /* core soft reset */
     usbx->grstctl_bit.csftrst = TRUE;
 
@@ -365,7 +365,7 @@ void USB_Global_Power_on(OTG_Global_Type *usbx) {
   *         - OTG2_GLOBAL
   * @retval none
   */
-void USB_Stop_PHY_clk(OTG_Global_Type *usbx) {
+void USB_Stop_PHY_CLK(OTG_Global_Type *usbx) {
     OTG_PCGCCTL(usbx)->pcgcctl_bit.stoppclk = TRUE;
 }
 
@@ -377,7 +377,7 @@ void USB_Stop_PHY_clk(OTG_Global_Type *usbx) {
   *         - OTG2_GLOBAL
   * @retval none
   */
-void USB_open_PHY_clk(OTG_Global_Type *usbx) {
+void USB_Open_PHY_CLK(OTG_Global_Type *usbx) {
     OTG_PCGCCTL(usbx)->pcgcctl_bit.stoppclk = FALSE;
 }
 
@@ -385,7 +385,7 @@ void USB_open_PHY_clk(OTG_Global_Type *usbx) {
 /**
   * @brief  write data from user memory to usb buffer
   * @param  pusr_buf: point to user buffer
-  * @param  offset_addr: endpoint tx offset address
+  * @param  offset_Addr: endpoint tx offset address
   * @param  nbytes: number of bytes data write to usb buffer
   * @retval none
   */
@@ -407,7 +407,7 @@ void USB_Write_Packet(OTG_Global_Type *usbx, uint8_t *pusr_buf, uint16_t num, ui
 /**
   * @brief  read data from usb buffer to user buffer
   * @param  pusr_buf: point to user buffer
-  * @param  offset_addr: endpoint rx offset address
+  * @param  offset_Addr: endpoint rx offset address
   * @param  nbytes: number of bytes data write to usb buffer
   * @retval none
   */
@@ -438,7 +438,7 @@ void USB_Read_Packet(OTG_Global_Type *usbx, uint8_t *pusr_buf, uint16_t num, uin
   * @param  ept_info: endpoint information structure
   * @retval none
   */
-void USB_EPT_open(OTG_Global_Type *usbx, USB_EPT_info *ept_info) {
+void USB_EPT_Open(OTG_Global_Type *usbx, USB_EPT_info *ept_info) {
     uint8_t mps = USB_EPT0_MPS_64;
 
     if(ept_info->eptn == USB_EPT0) {
@@ -454,7 +454,7 @@ void USB_EPT_open(OTG_Global_Type *usbx, USB_EPT_info *ept_info) {
     }
 
     /* endpoint direction is in */
-    if(ept_info->inout == EPT_DIR_IN) {
+    if(ept_info->inout == EPT_Dir_IN) {
         OTG_DEVICE(usbx)->daintmsk |= 1 << ept_info->eptn;
 
         if(ept_info->eptn == USB_EPT0) {
@@ -473,14 +473,14 @@ void USB_EPT_open(OTG_Global_Type *usbx, USB_EPT_info *ept_info) {
         OTG_DEVICE(usbx)->daintmsk |= (1 << ept_info->eptn) << 16;
 
         if(ept_info->eptn == USB_EPT0) {
-            USB_OUTEPT(usbx, ept_info->eptn)->doepctl_bit.mps = mps;
+            USB_OutEPT(usbx, ept_info->eptn)->doepctl_bit.mps = mps;
         } else {
-            USB_OUTEPT(usbx, ept_info->eptn)->doepctl_bit.mps = ept_info->maxpacket;
+            USB_OutEPT(usbx, ept_info->eptn)->doepctl_bit.mps = ept_info->maxpacket;
         }
 
-        USB_OUTEPT(usbx, ept_info->eptn)->doepctl_bit.eptype = ept_info->trans_Type;
-        USB_OUTEPT(usbx, ept_info->eptn)->doepctl_bit.setd0pid = TRUE;
-        USB_OUTEPT(usbx, ept_info->eptn)->doepctl_bit.usbacept = TRUE;
+        USB_OutEPT(usbx, ept_info->eptn)->doepctl_bit.eptype = ept_info->trans_Type;
+        USB_OutEPT(usbx, ept_info->eptn)->doepctl_bit.setd0pid = TRUE;
+        USB_OutEPT(usbx, ept_info->eptn)->doepctl_bit.usbacept = TRUE;
     }
 }
 
@@ -493,13 +493,13 @@ void USB_EPT_open(OTG_Global_Type *usbx, USB_EPT_info *ept_info) {
   * @param  ept_info: endpoint information structure
   * @retval none
   */
-void USB_EPT_close(OTG_Global_Type *usbx, USB_EPT_info *ept_info) {
-    if(ept_info->inout == EPT_DIR_IN) {
+void USB_EPT_Close(OTG_Global_Type *usbx, USB_EPT_info *ept_info) {
+    if(ept_info->inout == EPT_Dir_IN) {
         OTG_DEVICE(usbx)->daintmsk &= ~(1 << ept_info->eptn);
         USB_INEPT(usbx, ept_info->eptn)->diepctl_bit.usbacept = FALSE;
     } else {
         OTG_DEVICE(usbx)->daintmsk &= ~((1 << ept_info->eptn) << 16);
-        USB_OUTEPT(usbx, ept_info->eptn)->doepctl_bit.usbacept = FALSE;
+        USB_OutEPT(usbx, ept_info->eptn)->doepctl_bit.usbacept = FALSE;
     }
 }
 
@@ -513,19 +513,19 @@ void USB_EPT_close(OTG_Global_Type *usbx, USB_EPT_info *ept_info) {
   * @param  ept_info: endpoint information structure
   * @retval none
   */
-void USB_EPT_stall(OTG_Global_Type *usbx, USB_EPT_info *ept_info) {
-    if(ept_info->inout == EPT_DIR_IN) {
+void USB_EPT_Stall(OTG_Global_Type *usbx, USB_EPT_info *ept_info) {
+    if(ept_info->inout == EPT_Dir_IN) {
         if(USB_INEPT(usbx, ept_info->eptn)->diepctl_bit.eptena == RESET) {
             USB_INEPT(usbx, ept_info->eptn)->diepctl_bit.eptdis = FALSE;
         }
 
         USB_INEPT(usbx, ept_info->eptn)->diepctl_bit.stall = SET;
     } else {
-        if(USB_OUTEPT(usbx, ept_info->eptn)->doepctl_bit.eptena == RESET) {
-            USB_OUTEPT(usbx, ept_info->eptn)->doepctl_bit.eptdis = FALSE;
+        if(USB_OutEPT(usbx, ept_info->eptn)->doepctl_bit.eptena == RESET) {
+            USB_OutEPT(usbx, ept_info->eptn)->doepctl_bit.eptdis = FALSE;
         }
 
-        USB_OUTEPT(usbx, ept_info->eptn)->doepctl_bit.stall = TRUE;
+        USB_OutEPT(usbx, ept_info->eptn)->doepctl_bit.stall = TRUE;
     }
 }
 
@@ -538,18 +538,18 @@ void USB_EPT_stall(OTG_Global_Type *usbx, USB_EPT_info *ept_info) {
   * @param  ept_info: endpoint information structure
   * @retval none
   */
-void USB_EPT_Clear_stall(OTG_Global_Type *usbx, USB_EPT_info *ept_info) {
-    if(ept_info->inout == EPT_DIR_IN) {
+void USB_EPT_Clear_Stall(OTG_Global_Type *usbx, USB_EPT_info *ept_info) {
+    if(ept_info->inout == EPT_Dir_IN) {
         USB_INEPT(usbx, ept_info->eptn)->diepctl_bit.stall = FALSE;
 
         if(ept_info->trans_Type == EPT_INT_Type || ept_info->trans_Type == EPT_BULK_Type) {
             USB_INEPT(usbx, ept_info->eptn)->diepctl_bit.setd0pid = TRUE;
         }
     } else {
-        USB_OUTEPT(usbx, ept_info->eptn)->doepctl_bit.stall = FALSE;
+        USB_OutEPT(usbx, ept_info->eptn)->doepctl_bit.stall = FALSE;
 
         if(ept_info->trans_Type == EPT_INT_Type || ept_info->trans_Type == EPT_BULK_Type) {
-            USB_OUTEPT(usbx, ept_info->eptn)->doepctl_bit.setd0pid = TRUE;
+            USB_OutEPT(usbx, ept_info->eptn)->doepctl_bit.setd0pid = TRUE;
         }
     }
 }
@@ -562,7 +562,7 @@ void USB_EPT_Clear_stall(OTG_Global_Type *usbx, USB_EPT_info *ept_info) {
   *         - OTG2_GLOBAL
   * @retval out endpoint interrupt bits
   */
-uint32_t USB_Get_All_out_interrupt(OTG_Global_Type *usbx) {
+uint32_t USB_Get_All_Out_Interrupt(OTG_Global_Type *usbx) {
     uint32_t intsts = OTG_DEVICE(usbx)->daint;
     return ((intsts & (OTG_DEVICE(usbx)->daintmsk)) >> 16);
 }
@@ -575,7 +575,7 @@ uint32_t USB_Get_All_out_interrupt(OTG_Global_Type *usbx) {
   *         - OTG2_GLOBAL
   * @retval in endpoint interrupt bits
   */
-uint32_t USB_Get_All_in_interrupt(OTG_Global_Type *usbx) {
+uint32_t USB_Get_All_In_Interrupt(OTG_Global_Type *usbx) {
     uint32_t intsts = OTG_DEVICE(usbx)->daint;
     return ((intsts & (OTG_DEVICE(usbx)->daintmsk)) & 0xFFFF);
 }
@@ -590,8 +590,8 @@ uint32_t USB_Get_All_in_interrupt(OTG_Global_Type *usbx) {
   * @param  eptn: endpoint number
   * @retval out endpoint interrupt flags
   */
-uint32_t USB_EPT_out_interrupt(OTG_Global_Type *usbx, uint32_t eptn) {
-    uint32_t intsts = USB_OUTEPT(usbx, eptn)->doepint;
+uint32_t USB_EPT_Out_Interrupt(OTG_Global_Type *usbx, uint32_t eptn) {
+    uint32_t intsts = USB_OutEPT(usbx, eptn)->doepint;
     return (intsts & (OTG_DEVICE(usbx)->doepmsk));
 }
 
@@ -604,7 +604,7 @@ uint32_t USB_EPT_out_interrupt(OTG_Global_Type *usbx, uint32_t eptn) {
   * @param  eptn: endpoint number
   * @retval in endpoint intterupt flags
   */
-uint32_t USB_EPT_in_interrupt(OTG_Global_Type *usbx, uint32_t eptn) {
+uint32_t USB_EPT_In_Interrupt(OTG_Global_Type *usbx, uint32_t eptn) {
     uint32_t intsts, mask1, mask2;
     mask1 = OTG_DEVICE(usbx)->diepmsk;
     mask2 = OTG_DEVICE(usbx)->diepempmsk;
@@ -628,8 +628,8 @@ uint32_t USB_EPT_in_interrupt(OTG_Global_Type *usbx, uint32_t eptn) {
   *         - USB_OTG_DOEPINT_OTEPDIS_FLAG
   *         - USB_OTG_DOEPINT_B2BSTUP_FLAG
   */
-void USB_EPT_out_Clear(OTG_Global_Type *usbx, uint32_t eptn, uint32_t flag) {
-    USB_OUTEPT(usbx, eptn)->doepint = flag;
+void USB_EPT_Out_Clear(OTG_Global_Type *usbx, uint32_t eptn, uint32_t flag) {
+    USB_OutEPT(usbx, eptn)->doepint = flag;
 }
 
 /**
@@ -648,7 +648,7 @@ void USB_EPT_out_Clear(OTG_Global_Type *usbx, uint32_t eptn, uint32_t flag) {
   *         - USB_OTG_DIEPINT_INEPNE_FLAG
   *         - USB_OTG_DIEPINT_TXFE_FLAG
   */
-void USB_EPT_in_Clear(OTG_Global_Type *usbx, uint32_t eptn, uint32_t flag) {
+void USB_EPT_In_Clear(OTG_Global_Type *usbx, uint32_t eptn, uint32_t flag) {
     USB_INEPT(usbx, eptn)->diepint = flag;
 }
 
@@ -674,12 +674,12 @@ void USB_Set_Address(OTG_Global_Type *usbx, uint8_t address) {
   *         - OTG2_GLOBAL
   * @retval none
   */
-void USB_ept0_Start(OTG_Global_Type *usbx) {
-    OTG_eptout_Type *USB_outept = USB_OUTEPT(usbx, 0);
-    USB_outept->doeptsiz = 0;
-    USB_outept->doeptsiz_bit.pktcnt = 1;
-    USB_outept->doeptsiz_bit.xfersize = 24;
-    USB_outept->doeptsiz_bit.rxdpid_Setupcnt = 3;
+void USB_EPT0_Start(OTG_Global_Type *usbx) {
+    OTG_eptout_Type *USB_Outept = USB_OutEPT(usbx, 0);
+    USB_Outept->doeptsiz = 0;
+    USB_Outept->doeptsiz_bit.pktcnt = 1;
+    USB_Outept->doeptsiz_bit.xfersize = 24;
+    USB_Outept->doeptsiz_bit.rxdpid_Setupcnt = 3;
 }
 
 
@@ -691,7 +691,7 @@ void USB_ept0_Start(OTG_Global_Type *usbx) {
   *         - OTG2_GLOBAL
   * @retval none
   */
-void USB_ept0_Setup(OTG_Global_Type *usbx) {
+void USB_EPT0_Setup(OTG_Global_Type *usbx) {
     USB_INEPT(usbx, 0)->diepctl_bit.mps = 0;
     OTG_DEVICE(usbx)->dctl_bit.cgnpinak = FALSE;
 }
@@ -755,7 +755,7 @@ void USB_Remote_wkup_Clear(OTG_Global_Type *usbx) {
   *         - OTG2_GLOBAL
   * @retval usb suspend status
   */
-uint8_t USB_suspend_Status_Get(OTG_Global_Type *usbx) {
+uint8_t USB_Suspend_Status_Get(OTG_Global_Type *usbx) {
     return OTG_DEVICE(usbx)->dsts_bit.suspsts;
 }
 #endif
@@ -770,8 +770,8 @@ uint8_t USB_suspend_Status_Get(OTG_Global_Type *usbx) {
   * @param  state: state (TRUE or FALSE)
   * @retval none
   */
-void USB_Port_Power_on(OTG_Global_Type *usbx, confirm_state state) {
-    OTG_host_Type *USB_host = OTG_HOST(usbx);
+void USB_Port_Power_ON(OTG_Global_Type *usbx, confirm_state state) {
+    OTG_HOST_Type *USB_host = OTG_HOST(usbx);
     uint32_t hprt_val = USB_host->hprt;
 
     hprt_val &= ~(USB_OTG_HPRT_PRTENA | USB_OTG_HPRT_PRTENCHNG |
@@ -792,8 +792,8 @@ void USB_Port_Power_on(OTG_Global_Type *usbx, confirm_state state) {
   *         - OTG2_GLOBAL
   * @retval none
   */
-uint32_t usbh_Get_frame(OTG_Global_Type *usbx) {
-    OTG_host_Type *USB_host = OTG_HOST(usbx);
+uint32_t USBH_Get_Frame(OTG_Global_Type *usbx) {
+    OTG_HOST_Type *USB_host = OTG_HOST(usbx);
     return USB_host->hfnum & 0xFFFF;
 }
 
@@ -816,10 +816,10 @@ uint32_t usbh_Get_frame(OTG_Global_Type *usbx) {
   * @param  speed: device speed
   *         this parameter can be one of the following values:
   *         - USB_PRTSPD_FULL_SPEED
-  *         - USB_PRTSPD_LOW_SPEED
+  *         - USB_PRTSPD_Low_SPEED
   * @retval none
   */
-void USB_hc_Enable(OTG_Global_Type *usbx,
+void USB_HC_Enable(OTG_Global_Type *usbx,
                    uint8_t chn,
                    uint8_t ept_Num,
                    uint8_t dev_Address,
@@ -827,12 +827,12 @@ void USB_hc_Enable(OTG_Global_Type *usbx,
                    uint16_t maxpacket,
                    uint8_t speed) {
     OTG_hchannel_Type *hch = USB_CHL(usbx, chn);
-    OTG_host_Type *USB_host = OTG_HOST(usbx);
+    OTG_HOST_Type *USB_host = OTG_HOST(usbx);
 
     switch(type) {
         case EPT_Control_Type:
         case EPT_BULK_Type:
-            hch->hcintmsk |= USB_OTG_HC_XFERCM_INT | USB_OTG_HC_STALLM_INT |
+            hch->hcintmsk |= USB_OTG_HC_XFERCM_INT | USB_OTG_HC_StallM_INT |
                              USB_OTG_HC_XACTERRM_INT | USB_OTG_HC_NAKM_INT |
                              USB_OTG_HC_DTGLERRM_INT;
 
@@ -843,7 +843,7 @@ void USB_hc_Enable(OTG_Global_Type *usbx,
             break;
 
         case EPT_INT_Type:
-            hch->hcintmsk |= USB_OTG_HC_XFERCM_INT | USB_OTG_HC_STALLM_INT |
+            hch->hcintmsk |= USB_OTG_HC_XFERCM_INT | USB_OTG_HC_StallM_INT |
                              USB_OTG_HC_XACTERRM_INT | USB_OTG_HC_NAKM_INT |
                              USB_OTG_HC_DTGLERRM_INT | USB_OTG_HC_FRMOVRRUN_INT;
             break;
@@ -861,7 +861,7 @@ void USB_hc_Enable(OTG_Global_Type *usbx,
     hch->hcchar_bit.devaddr = dev_Address;
     hch->hcchar_bit.eptnum = ept_Num & 0x7F;
     hch->hcchar_bit.eptdir = (ept_Num & 0x80) ? 1 : 0;
-    hch->hcchar_bit.lspddev = (speed == USB_PRTSPD_LOW_SPEED) ? 1 : 0;
+    hch->hcchar_bit.lspddev = (speed == USB_PRTSPD_Low_SPEED) ? 1 : 0;
     hch->hcchar_bit.eptype = type;
     hch->hcchar_bit.mps = maxpacket;
 
@@ -878,8 +878,8 @@ void USB_hc_Enable(OTG_Global_Type *usbx,
   *         - OTG2_GLOBAL
   * @retval interrupt flag
   */
-uint32_t USB_hch_Read_interrupt(OTG_Global_Type *usbx) {
-    OTG_host_Type *USB_host = OTG_HOST(usbx);
+uint32_t USB_HCH_Read_Interrupt(OTG_Global_Type *usbx) {
+    OTG_HOST_Type *USB_host = OTG_HOST(usbx);
     return USB_host->haint & 0xFFFF;
 }
 
@@ -891,14 +891,14 @@ uint32_t USB_hch_Read_interrupt(OTG_Global_Type *usbx) {
   *         - OTG2_GLOBAL
   * @retval none
   */
-void USB_host_Disable(OTG_Global_Type *usbx) {
+void USB_HOST_Disable(OTG_Global_Type *usbx) {
     uint32_t i_index = 0, count = 0;
     OTG_hchannel_Type *hch;
-    OTG_host_Type *USB_host = OTG_HOST(usbx);
+    OTG_HOST_Type *USB_host = OTG_HOST(usbx);
 
     usbx->gahbcfg_bit.glbintmsk = FALSE;
-    USB_flush_RX_FIFO(usbx);
-    USB_flush_TX_FIFO(usbx, 0x10);
+    USB_Flush_RX_FIFO(usbx);
+    USB_Flush_TX_FIFO(usbx, 0x10);
 
     for(i_index = 0; i_index < 16; i_index ++) {
         hch = USB_CHL(usbx, i_index);
@@ -933,10 +933,10 @@ void USB_host_Disable(OTG_Global_Type *usbx) {
   * @param  chn: channel number
   * @retval none
   */
-void USB_hch_halt(OTG_Global_Type *usbx, uint8_t chn) {
+void USB_HCH_Halt(OTG_Global_Type *usbx, uint8_t chn) {
     uint32_t count = 0;
     OTG_hchannel_Type *USB_chh = USB_CHL(usbx, chn);
-    OTG_host_Type *USB_host = OTG_HOST(usbx);
+    OTG_HOST_Type *USB_host = OTG_HOST(usbx);
 
     /* endpoint type is control or bulk */
     if(USB_chh->hcchar_bit.eptype == EPT_Control_Type ||
@@ -979,8 +979,8 @@ void USB_hch_halt(OTG_Global_Type *usbx, uint8_t chn) {
   * @param  clk: clock frequency
   * @retval none
   */
-void usbh_fsls_clksel(OTG_Global_Type *usbx, uint8_t clk) {
-    OTG_host_Type *USB_host = OTG_HOST(usbx);
+void USBH_Fsls_CLKsel(OTG_Global_Type *usbx, uint8_t clk) {
+    OTG_HOST_Type *USB_host = OTG_HOST(usbx);
 
     USB_host->hcfg_bit.fslspclksel = clk;
 

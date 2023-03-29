@@ -34,7 +34,7 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "at32f435_437.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -42,7 +42,7 @@ extern "C" {
   * @{
   */
 
-/** @defgroup EDMA_interrupts_definition
+/** @defgroup EDMA_Interrupts_definition
   * @brief edma interrupt
   * @{
   */
@@ -127,10 +127,10 @@ extern "C" {
 #define EDMAMUX_Sync_OV7_FLAG            ((uint32_t)0x00000040) /*!< edmamux stream7 synchronization overrun event flag */
 #define EDMAMUX_Sync_OV8_FLAG            ((uint32_t)0x00000080) /*!< edmamux stream8 synchronization overrun event flag */
 
-#define EDMAMUX_Gen_TRIG_OV1_FLAG        ((uint32_t)0x00000001) /*!< edmamux generator channel1 overrun event flag */
-#define EDMAMUX_Gen_TRIG_OV2_FLAG        ((uint32_t)0x00000002) /*!< edmamux generator channel2 overrun event flag */
-#define EDMAMUX_Gen_TRIG_OV3_FLAG        ((uint32_t)0x00000004) /*!< edmamux generator channel3 overrun event flag */
-#define EDMAMUX_Gen_TRIG_OV4_FLAG        ((uint32_t)0x00000008) /*!< edmamux generator channel4 overrun event flag */
+#define EDMAMUX_Gen_Trig_OV1_FLAG        ((uint32_t)0x00000001) /*!< edmamux generator channel1 overrun event flag */
+#define EDMAMUX_Gen_Trig_OV2_FLAG        ((uint32_t)0x00000002) /*!< edmamux generator channel2 overrun event flag */
+#define EDMAMUX_Gen_Trig_OV3_FLAG        ((uint32_t)0x00000004) /*!< edmamux generator channel3 overrun event flag */
+#define EDMAMUX_Gen_Trig_OV4_FLAG        ((uint32_t)0x00000008) /*!< edmamux generator channel4 overrun event flag */
 
 /**
   * @}
@@ -152,47 +152,47 @@ typedef enum {
   * @brief edma direction type
   */
 typedef enum {
-    EDMA_DIR_PERIPHERAL_TO_MEMORY          = 0x00, /*!< data transfer direction: peripheral to memory */
-    EDMA_DIR_Memory_TO_PERIPHERAL          = 0x01, /*!< data transfer direction: memory to peripheral */
-    EDMA_DIR_Memory_TO_MEMORY              = 0x02  /*!< data transfer direction: memory to memory */
-} eDMA_dir_Type;
+    EDMA_Dir_PERIPHERAL_To_MEMORY          = 0x00, /*!< data transfer direction: peripheral to memory */
+    EDMA_Dir_Memory_To_PERIPHERAL          = 0x01, /*!< data transfer direction: memory to peripheral */
+    EDMA_Dir_Memory_To_MEMORY              = 0x02  /*!< data transfer direction: memory to memory */
+} eDMA_Dir_Type;
 
 /**
   * @brief edma peripheral data size type
   */
 typedef enum {
-    EDMA_PERIPHERAL_Data_WIDTH_BYTE        = 0x00, /*!< peripheral data bus width is 8bit */
-    EDMA_PERIPHERAL_Data_WIDTH_HALFWORD    = 0x01, /*!< peripheral data bus width is 16bit */
-    EDMA_PERIPHERAL_Data_WIDTH_WORD        = 0x02  /*!< peripheral data bus width is 32bit */
+    EDMA_PERIPHERAL_Data_Width_BYTE        = 0x00, /*!< peripheral data bus width is 8bit */
+    EDMA_PERIPHERAL_Data_Width_HALFWORD    = 0x01, /*!< peripheral data bus width is 16bit */
+    EDMA_PERIPHERAL_Data_Width_WORD        = 0x02  /*!< peripheral data bus width is 32bit */
 } eDMA_peripheral_Data_size_Type;
 
 /**
   * @brief edma memory data size type
   */
 typedef enum {
-    EDMA_Memory_Data_WIDTH_BYTE            = 0x00, /*!< memory data bus width is 8bit */
-    EDMA_Memory_Data_WIDTH_HALFWORD        = 0x01, /*!< memory data bus width is 16bit */
-    EDMA_Memory_Data_WIDTH_WORD            = 0x02  /*!< memory data bus width is 32bit */
+    EDMA_Memory_Data_Width_BYTE            = 0x00, /*!< memory data bus width is 8bit */
+    EDMA_Memory_Data_Width_HALFWORD        = 0x01, /*!< memory data bus width is 16bit */
+    EDMA_Memory_Data_Width_WORD            = 0x02  /*!< memory data bus width is 32bit */
 } eDMA_Memory_Data_size_Type;
 
 /**
   * @brief edma priority level type
   */
 typedef enum {
-    EDMA_PRIORITY_LOW                      = 0x00, /*!< stream priority: low */
-    EDMA_PRIORITY_MEDIUM                   = 0x01, /*!< stream priority: medium */
-    EDMA_PRIORITY_HIGH                     = 0x02, /*!< stream priority: high */
-    EDMA_PRIORITY_VERY_HIGH                = 0x03  /*!< stream priority: very high */
-} eDMA_priority_level_Type;
+    EDMA_Priority_LOW                      = 0x00, /*!< stream priority: low */
+    EDMA_Priority_MEDIUM                   = 0x01, /*!< stream priority: medium */
+    EDMA_Priority_HIGH                     = 0x02, /*!< stream priority: high */
+    EDMA_Priority_VERY_HIGH                = 0x03  /*!< stream priority: very high */
+} eDMA_Priority_level_Type;
 
 /**
   * @brief edma fifo threshold level type
   */
 typedef enum {
-    EDMA_FIFO_THRESHOLD_1QUARTER           = 0x00, /*!< fifo threshold level: 1quarter full */
-    EDMA_FIFO_THRESHOLD_HALF               = 0x01, /*!< fifo threshold level: half full */
-    EDMA_FIFO_THRESHOLD_3QUARTER           = 0x02, /*!< fifo threshold level: 13quarter full */
-    EDMA_FIFO_THRESHOLD_FULL               = 0x03  /*!< fifo threshold level: full */
+    EDMA_FIFO_Threshold_1QUARTER           = 0x00, /*!< fifo threshold level: 1quarter full */
+    EDMA_FIFO_Threshold_HALF               = 0x01, /*!< fifo threshold level: half full */
+    EDMA_FIFO_Threshold_3QUARTER           = 0x02, /*!< fifo threshold level: 13quarter full */
+    EDMA_FIFO_Threshold_FULL               = 0x03  /*!< fifo threshold level: full */
 } eDMA_FIFO_Threshold_Type;
 
 /**
@@ -212,20 +212,20 @@ typedef enum {
   */
 typedef enum {
     EDMA_Memory_SINGLE                     = 0x00, /*!< memory single transfer */
-    EDMA_Memory_BURST_4                    = 0x01, /*!< memory burst transfer 4 beats */
-    EDMA_Memory_BURST_8                    = 0x02, /*!< memory burst transfer 8 beats */
-    EDMA_Memory_BURST_16                   = 0x03  /*!< memory burst transfer 16 beats */
-} eDMA_Memory_burst_Type;
+    EDMA_Memory_Burst_4                    = 0x01, /*!< memory burst transfer 4 beats */
+    EDMA_Memory_Burst_8                    = 0x02, /*!< memory burst transfer 8 beats */
+    EDMA_Memory_Burst_16                   = 0x03  /*!< memory burst transfer 16 beats */
+} eDMA_Memory_Burst_Type;
 
 /**
   * @brief edma peripheral continuous mode type
   */
 typedef enum {
     EDMA_PERIPHERAL_SINGLE                 = 0x00, /*!< peripheral single transfer */
-    EDMA_PERIPHERAL_BURST_4                = 0x01, /*!< peripheral burst transfer 4 beats */
-    EDMA_PERIPHERAL_BURST_8                = 0x02, /*!< peripheral burst transfer 8 beats */
-    EDMA_PERIPHERAL_BURST_16               = 0x03  /*!< peripheral burst transfer 16 beats */
-} eDMA_peripheral_burst_Type;
+    EDMA_PERIPHERAL_Burst_4                = 0x01, /*!< peripheral burst transfer 4 beats */
+    EDMA_PERIPHERAL_Burst_8                = 0x02, /*!< peripheral burst transfer 8 beats */
+    EDMA_PERIPHERAL_Burst_16               = 0x03  /*!< peripheral burst transfer 16 beats */
+} eDMA_peripheral_Burst_Type;
 
 /**
   * @brief edma peripheral increment offset size type
@@ -233,7 +233,7 @@ typedef enum {
 typedef enum {
     EDMA_PERIPHERAL_INC_PSIZE              = 0x00, /*!< peripheral offset is related to psize*/
     EDMA_PERIPHERAL_INC_4_BYTE             = 0x01  /*!< peripheral offset is 4 byte*/
-} eDMA_peripheral_inc_offset_Type;
+} eDMA_peripheral_inc_Offset_Type;
 
 /**
   * @brief edmamux request id select type
@@ -258,10 +258,10 @@ typedef enum {
     EDMAMUX_DMAREQ_ID_SPI3_TX              = 0x0F, /*!< edmamux channel request inputs resources: spi3 tx */
     EDMAMUX_DMAREQ_ID_SPI4_RX              = 0x6A, /*!< edmamux channel request inputs resources: spi4 rx */
     EDMAMUX_DMAREQ_ID_SPI4_TX              = 0x6B, /*!< edmamux channel request inputs resources: spi4 tx */
-    EDMAMUX_DMAREQ_ID_I2S2_EXT_RX          = 0x6E, /*!< edmamux channel request inputs resources: i2s2_ext_rx */
-    EDMAMUX_DMAREQ_ID_I2S2_EXT_TX          = 0x6F, /*!< edmamux channel request inputs resources: i2s2_ext_tx */
-    EDMAMUX_DMAREQ_ID_I2S3_EXT_RX          = 0x70, /*!< edmamux channel request inputs resources: i2s3_ext_rx */
-    EDMAMUX_DMAREQ_ID_I2S3_EXT_TX          = 0x71, /*!< edmamux channel request inputs resources: i2s3_ext_tx */
+    EDMAMUX_DMAREQ_ID_I2S2_Ext_RX          = 0x6E, /*!< edmamux channel request inputs resources: i2s2_Ext_rx */
+    EDMAMUX_DMAREQ_ID_I2S2_Ext_TX          = 0x6F, /*!< edmamux channel request inputs resources: i2s2_Ext_tx */
+    EDMAMUX_DMAREQ_ID_I2S3_Ext_RX          = 0x70, /*!< edmamux channel request inputs resources: i2s3_Ext_rx */
+    EDMAMUX_DMAREQ_ID_I2S3_Ext_TX          = 0x71, /*!< edmamux channel request inputs resources: i2s3_Ext_tx */
     EDMAMUX_DMAREQ_ID_I2C1_RX              = 0x10, /*!< edmamux channel request inputs resources: i2c1_rx */
     EDMAMUX_DMAREQ_ID_I2C1_TX              = 0x11, /*!< edmamux channel request inputs resources: i2c1_tx */
     EDMAMUX_DMAREQ_ID_I2C2_RX              = 0x12, /*!< edmamux channel request inputs resources: i2c2_rx */
@@ -370,10 +370,10 @@ typedef enum {
   * @brief dmamux sync polarity type
   */
 typedef enum {
-    EDMAMUX_Sync_POLARITY_Disable          = 0x00, /*!< edmamux channel synchronization inputs resources polarity default value */
-    EDMAMUX_Sync_POLARITY_RISING           = 0x01, /*!< edmamux channel synchronization inputs resources polarity: rising */
-    EDMAMUX_Sync_POLARITY_FALLING          = 0x02, /*!< edmamux channel synchronization inputs resources polarity: falling */
-    EDMAMUX_Sync_POLARITY_RISING_FALLING   = 0x03  /*!< edmamux channel synchronization inputs resources polarity: rising_falling */
+    EDMAMUX_Sync_Polarity_Disable          = 0x00, /*!< edmamux channel synchronization inputs resources polarity default value */
+    EDMAMUX_Sync_Polarity_RISING           = 0x01, /*!< edmamux channel synchronization inputs resources polarity: rising */
+    EDMAMUX_Sync_Polarity_FALLING          = 0x02, /*!< edmamux channel synchronization inputs resources polarity: falling */
+    EDMAMUX_Sync_Polarity_RISING_FALLING   = 0x03  /*!< edmamux channel synchronization inputs resources polarity: rising_falling */
 } eDMAMUX_Sync_pol_Type;
 
 /**
@@ -410,30 +410,30 @@ typedef enum {
   * @brief dmamux generator polarity type
   */
 typedef enum {
-    EDMAMUX_Gen_POLARITY_Disable           = 0x00, /*!< edmamux generator channel inputs resources polarity default value */
-    EDMAMUX_Gen_POLARITY_RISING            = 0x01, /*!< edmamux generator channel inputs resources polarity: rising */
-    EDMAMUX_Gen_POLARITY_FALLING           = 0x02, /*!< edmamux generator channel inputs resources polarity: falling */
-    EDMAMUX_Gen_POLARITY_RISING_FALLING    = 0x03  /*!< edmamux generator channel inputs resources polarity: rising_falling */
+    EDMAMUX_Gen_Polarity_Disable           = 0x00, /*!< edmamux generator channel inputs resources polarity default value */
+    EDMAMUX_Gen_Polarity_RISING            = 0x01, /*!< edmamux generator channel inputs resources polarity: rising */
+    EDMAMUX_Gen_Polarity_FALLING           = 0x02, /*!< edmamux generator channel inputs resources polarity: falling */
+    EDMAMUX_Gen_Polarity_RISING_FALLING    = 0x03  /*!< edmamux generator channel inputs resources polarity: rising_falling */
 } eDMAMUX_Gen_pol_Type;
 
 /**
   * @brief edma init type
   */
 typedef struct {
-    uint32_t                               peripheral_base_addr;       /*!< base addrress for peripheral */
-    uint32_t                               memory0_base_addr;          /*!< base addrress for memory 0 */
-    eDMA_dir_Type                          direction;                  /*!< edma transmit direction, peripheral as source or as destnation  */
+    uint32_t                               peripheral_Base_Addr;       /*!< base addrress for peripheral */
+    uint32_t                               memory0_Base_Addr;          /*!< base addrress for memory 0 */
+    eDMA_Dir_Type                          direction;                  /*!< edma transmit direction, peripheral as source or as destnation  */
     uint16_t                               buffer_size;                /*!< counter to transfer (0~0xFFFF)*/
     confirm_state                          peripheral_inc_Enable;      /*!< periphera address increment after one transmit */
     confirm_state                          memory_inc_Enable;          /*!< memory address increment after one transmit */
     eDMA_peripheral_Data_size_Type         peripheral_Data_width;      /*!< peripheral data width for transmit */
     eDMA_Memory_Data_size_Type             memory_Data_width;          /*!< memory data width for transmit */
     confirm_state                          loop_Mode_Enable;           /*!< when loop mode enable, buffer size will reload if count to 0*/
-    eDMA_priority_level_Type               priority;                   /*!< edma priority can choose from very high, high, dedium or low */
+    eDMA_Priority_level_Type               priority;                   /*!< edma priority can choose from very high, high, dedium or low */
     confirm_state                          fifo_Mode_Enable;           /*!< edma fifo mode enable */
     eDMA_FIFO_Threshold_Type               fifo_threshold;             /*!< edma fifo threshold vaule */
-    eDMA_Memory_burst_Type                 memory_burst_Mode;          /*!< edma memory burst transfer */
-    eDMA_peripheral_burst_Type             peripheral_burst_Mode;      /*!< edma peripheral burst transfer */
+    eDMA_Memory_Burst_Type                 memory_Burst_Mode;          /*!< edma memory burst transfer */
+    eDMA_peripheral_Burst_Type             peripheral_Burst_Mode;      /*!< edma peripheral burst transfer */
 } eDMA_Init_Type;
 
 /**
@@ -916,14 +916,14 @@ typedef struct {
 #define EDMA_STREAM7_LL                  ((eDMA_Stream_Link_List_Type *) EDMA_STREAM7_LL_BASE)
 #define EDMA_STREAM8_LL                  ((eDMA_Stream_Link_List_Type *) EDMA_STREAM8_LL_BASE)
 
-#define EDMAMUX_CHANNEL1                 ((eDMAMUX_Channel_Type *) EDMAMUX_CHANNEL1_BASE)
-#define EDMAMUX_CHANNEL2                 ((eDMAMUX_Channel_Type *) EDMAMUX_CHANNEL2_BASE)
-#define EDMAMUX_CHANNEL3                 ((eDMAMUX_Channel_Type *) EDMAMUX_CHANNEL3_BASE)
-#define EDMAMUX_CHANNEL4                 ((eDMAMUX_Channel_Type *) EDMAMUX_CHANNEL4_BASE)
-#define EDMAMUX_CHANNEL5                 ((eDMAMUX_Channel_Type *) EDMAMUX_CHANNEL5_BASE)
-#define EDMAMUX_CHANNEL6                 ((eDMAMUX_Channel_Type *) EDMAMUX_CHANNEL6_BASE)
-#define EDMAMUX_CHANNEL7                 ((eDMAMUX_Channel_Type *) EDMAMUX_CHANNEL7_BASE)
-#define EDMAMUX_CHANNEL8                 ((eDMAMUX_Channel_Type *) EDMAMUX_CHANNEL8_BASE)
+#define EDMAMUX_ChanneL1                 ((eDMAMUX_Channel_Type *) EDMAMUX_ChanneL1_BASE)
+#define EDMAMUX_ChanneL2                 ((eDMAMUX_Channel_Type *) EDMAMUX_ChanneL2_BASE)
+#define EDMAMUX_ChanneL3                 ((eDMAMUX_Channel_Type *) EDMAMUX_ChanneL3_BASE)
+#define EDMAMUX_ChanneL4                 ((eDMAMUX_Channel_Type *) EDMAMUX_ChanneL4_BASE)
+#define EDMAMUX_ChanneL5                 ((eDMAMUX_Channel_Type *) EDMAMUX_ChanneL5_BASE)
+#define EDMAMUX_ChanneL6                 ((eDMAMUX_Channel_Type *) EDMAMUX_ChanneL6_BASE)
+#define EDMAMUX_ChanneL7                 ((eDMAMUX_Channel_Type *) EDMAMUX_ChanneL7_BASE)
+#define EDMAMUX_ChanneL8                 ((eDMAMUX_Channel_Type *) EDMAMUX_ChanneL8_BASE)
 
 #define EDMAMUX_GENERATOR1               ((eDMAMUX_Generator_Type *) EDMAMUX_GENERATOR1_BASE)
 #define EDMAMUX_GENERATOR2               ((eDMAMUX_Generator_Type *) EDMAMUX_GENERATOR2_BASE)
@@ -940,13 +940,13 @@ void eDMA_Init(eDMA_Stream_Type *eDMA_streamx, eDMA_Init_Type *eDMA_Init_struct)
 void eDMA_Default_Para_Init(eDMA_Init_Type *eDMA_Init_struct);
 void eDMA_Stream_Enable(eDMA_Stream_Type *eDMA_streamx, confirm_state new_state);
 void eDMA_Interrupt_Enable(eDMA_Stream_Type *eDMA_streamx, uint32_t eDMA_int, confirm_state new_state);
-void eDMA_peripheral_inc_offset_Set(eDMA_Stream_Type *eDMA_streamx, eDMA_peripheral_inc_offset_Type offset);
+void eDMA_peripheral_inc_Offset_Set(eDMA_Stream_Type *eDMA_streamx, eDMA_peripheral_inc_Offset_Type offset);
 void eDMA_Flow_Controller_Enable(eDMA_Stream_Type *eDMA_streamx, confirm_state new_state);
 void eDMA_Data_Number_Set(eDMA_Stream_Type *eDMA_streamx, uint16_t data_Number);
 uint16_t eDMA_Data_Number_Get(eDMA_Stream_Type *eDMA_streamx);
-void eDMA_Double_buffer_Mode_Init(eDMA_Stream_Type *eDMA_streamx, uint32_t memory1_addr, eDMA_Memory_Type current_memory);
-void eDMA_Double_buffer_Mode_Enable(eDMA_Stream_Type *eDMA_streamx, confirm_state new_state);
-void eDMA_Memory_Addr_Set(eDMA_Stream_Type *eDMA_streamx, uint32_t memory_addr, uint32_t memory_target);
+void eDMA_Double_Buffer_Mode_Init(eDMA_Stream_Type *eDMA_streamx, uint32_t memory1_Addr, eDMA_Memory_Type current_memory);
+void eDMA_Double_Buffer_Mode_Enable(eDMA_Stream_Type *eDMA_streamx, confirm_state new_state);
+void eDMA_Memory_Addr_Set(eDMA_Stream_Type *eDMA_streamx, uint32_t memory_Addr, uint32_t memory_target);
 eDMA_Memory_Type eDMA_Memory_Target_Get(eDMA_Stream_Type *eDMA_streamx);
 flag_status eDMA_Stream_Status_Get(eDMA_Stream_Type *eDMA_streamx);
 uint8_t eDMA_FIFO_Status_Get(eDMA_Stream_Type *eDMA_streamx);
@@ -963,12 +963,12 @@ void eDMA_Link_List_Enable(eDMA_Stream_Link_List_Type *eDMA_streamx_ll, confirm_
 
 /* edma requst multiplexer function */
 void eDMAMUX_Enable(confirm_state new_state);
-void eDMAMUX_Init(eDMAMUX_Channel_Type *eDMAMUX_channelx, eDMAMUX_Requst_ID_sel_Type eDMAMUX_req_id);
+void eDMAMUX_Init(eDMAMUX_Channel_Type *eDMAMUX_Channelx, eDMAMUX_Requst_ID_sel_Type eDMAMUX_req_id);
 void eDMAMUX_Sync_Default_Para_Init(eDMAMUX_Sync_Init_Type *eDMAMUX_Sync_Init_struct);
-void eDMAMUX_Sync_Config(eDMAMUX_Channel_Type *eDMAMUX_channelx, eDMAMUX_Sync_Init_Type *eDMAMUX_Sync_Init_struct);
+void eDMAMUX_Sync_Config(eDMAMUX_Channel_Type *eDMAMUX_Channelx, eDMAMUX_Sync_Init_Type *eDMAMUX_Sync_Init_struct);
 void eDMAMUX_Generator_Default_Para_Init(eDMAMUX_Gen_Init_Type *eDMAMUX_Gen_Init_struct);
 void eDMAMUX_Generator_Config(eDMAMUX_Generator_Type *eDMAMUX_Gen_x, eDMAMUX_Gen_Init_Type *eDMAMUX_Gen_Init_struct);
-void eDMAMUX_Sync_Interrupt_Enable(eDMAMUX_Channel_Type *eDMAMUX_channelx, confirm_state new_state);
+void eDMAMUX_Sync_Interrupt_Enable(eDMAMUX_Channel_Type *eDMAMUX_Channelx, confirm_state new_state);
 void eDMAMUX_Generator_Interrupt_Enable(eDMAMUX_Generator_Type *eDMAMUX_Gen_x, confirm_state new_state);
 flag_status eDMAMUX_Sync_Flag_Get(uint32_t flag);
 void eDMAMUX_Sync_Flag_Clear(uint32_t flag);

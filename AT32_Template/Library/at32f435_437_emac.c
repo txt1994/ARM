@@ -24,7 +24,7 @@
 
 #include "at32f435_437_conf.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -43,8 +43,8 @@
 /**
   * @brief global pointers on tx and rx descriptor used to track transmit and receive descriptors
   */
-EMAC_DMA_desc_Type  *DMA_TX_desc_to_Set;
-EMAC_DMA_desc_Type  *DMA_RX_desc_to_Get;
+EMAC_DMA_Desc_Type  *DMA_TX_Desc_To_Set;
+EMAC_DMA_Desc_Type  *DMA_RX_Desc_To_Get;
 
 /* emac private function */
 static void EMAC_delay(uint32_t delay);
@@ -55,8 +55,8 @@ static void EMAC_delay(uint32_t delay);
   * @retval none
   */
 void EMAC_Reset(void) {
-    crm_periph_Reset(CRM_EMAC_PERIPH_Reset, TRUE);
-    crm_periph_Reset(CRM_EMAC_PERIPH_Reset, FALSE);
+    CRM_Periph_Reset(CRM_EMAC_Periph_Reset, TRUE);
+    CRM_Periph_Reset(CRM_EMAC_Periph_Reset, FALSE);
 }
 
 /**
@@ -67,12 +67,12 @@ void EMAC_Reset(void) {
 void EMAC_Control_Para_Init(EMAC_Control_Config_Type *control_para) {
     control_para->auto_nego = EMAC_Auto_NEGOTIATION_OFF;
     control_para->auto_pad_CRC_strip = FALSE;
-    control_para->back_off_limit = EMAC_BACKOFF_LIMIT_0;
-    control_para->carrier_sense_Disable = FALSE;
+    control_para->back_off_limit = EMAC_BackOff_Limit_0;
+    control_para->carrier_Sense_Disable = FALSE;
     control_para->deferral_check = FALSE;
-    control_para->duplex_Mode = EMAC_HALF_DUPLEX;
+    control_para->duplex_Mode = EMAC_Half_DUPLEX;
     control_para->fast_ethernet_speed = EMAC_SPEED_10MBPS;
-    control_para->interframe_gap = EMAC_INTERFRAME_GAP_96BIT;
+    control_para->interframe_gap = EMAC_INTERFRAME_Gap_96BIT;
     control_para->ipv4_checksum_offload = FALSE;
     control_para->jabber_Disable = FALSE;
     control_para->loopback_Mode = FALSE;
@@ -88,25 +88,25 @@ void EMAC_Control_Para_Init(EMAC_Control_Config_Type *control_para) {
   */
 void EMAC_Clock_Range_Set(void) {
     uint8_t bits_value = 0;
-    crm_clocks_Freq_Type clocks_freq = {0};
+    CRM_Clocks_Freq_Type clocks_freq = {0};
 
     /* clear clock range bits */
     EMAC->miiaddr_bit.cr = bits_value;
 
-    crm_clocks_Freq_Get(&clocks_freq);
+    CRM_Clocks_Freq_Get(&clocks_freq);
 
     if((clocks_freq.ahb_freq >= EMAC_HCLK_BORDER_20MHZ) && (clocks_freq.ahb_freq < EMAC_HCLK_BORDER_35MHZ)) {
-        bits_value = EMAC_Clock_Range_20_TO_35;
+        bits_value = EMAC_Clock_Range_20_To_35;
     } else if((clocks_freq.ahb_freq >= EMAC_HCLK_BORDER_35MHZ) && (clocks_freq.ahb_freq < EMAC_HCLK_BORDER_60MHZ)) {
-        bits_value = EMAC_Clock_Range_35_TO_60;
+        bits_value = EMAC_Clock_Range_35_To_60;
     } else if((clocks_freq.ahb_freq >= EMAC_HCLK_BORDER_60MHZ) && (clocks_freq.ahb_freq < EMAC_HCLK_BORDER_100MHZ)) {
-        bits_value = EMAC_Clock_Range_60_TO_100;
+        bits_value = EMAC_Clock_Range_60_To_100;
     } else if((clocks_freq.ahb_freq >= EMAC_HCLK_BORDER_100MHZ) && (clocks_freq.ahb_freq < EMAC_HCLK_BORDER_150MHZ)) {
-        bits_value = EMAC_Clock_Range_100_TO_150;
+        bits_value = EMAC_Clock_Range_100_To_150;
     } else if((clocks_freq.ahb_freq >= EMAC_HCLK_BORDER_150MHZ) && (clocks_freq.ahb_freq < EMAC_HCLK_BORDER_250MHZ)) {
-        bits_value = EMAC_Clock_Range_150_TO_250;
+        bits_value = EMAC_Clock_Range_150_To_250;
     } else if((clocks_freq.ahb_freq >= EMAC_HCLK_BORDER_250MHZ) && (clocks_freq.ahb_freq <= EMAC_HCLK_BORDER_288MHZ)) {
-        bits_value = EMAC_Clock_Range_250_TO_288;
+        bits_value = EMAC_Clock_Range_250_To_288;
     }
 
     EMAC->miiaddr_bit.cr = bits_value;
@@ -118,15 +118,15 @@ void EMAC_Clock_Range_Set(void) {
   * @retval none
   */
 void EMAC_Control_Config(EMAC_Control_Config_Type *control_struct) {
-    EMAC_Deferral_check_Set(control_struct->deferral_check);
-    EMAC_backoff_limit_Set(control_struct->back_off_limit);
-    EMAC_Auto_pad_CRC_stripping_Set(control_struct->auto_pad_CRC_strip);
-    EMAC_retry_Disable(control_struct->retry_Disable);
+    EMAC_Deferral_Check_Set(control_struct->deferral_check);
+    EMAC_BackOff_Limit_Set(control_struct->back_off_limit);
+    EMAC_Auto_pad_CRC_Stripping_Set(control_struct->auto_pad_CRC_strip);
+    EMAC_Retry_Disable(control_struct->retry_Disable);
     EMAC_Ipv4_checksum_offload_Set(control_struct->ipv4_checksum_offload);
     EMAC_Loopback_Mode_Enable(control_struct->loopback_Mode);
     EMAC_Receive_Own_Disable(control_struct->receive_Own_Disable);
-    EMAC_Carrier_sense_Disable(control_struct->carrier_sense_Disable);
-    EMAC_Interframe_gap_Set(control_struct->interframe_gap);
+    EMAC_Carrier_Sense_Disable(control_struct->carrier_Sense_Disable);
+    EMAC_Interframe_Gap_Set(control_struct->interframe_gap);
     EMAC_Jabber_Disable(control_struct->jabber_Disable);
     EMAC_WatchDog_Disable(control_struct->watchdog_Disable);
 }
@@ -163,16 +163,16 @@ void EMAC_Start(void) {
     EMAC_Trasmitter_Enable(TRUE);
 
     /* flush transmit fifo */
-    EMAC_DMA_Operations_Set(EMAC_DMA_OPS_FLUSH_Transmit_FIFO, TRUE);
+    EMAC_DMA_Operations_Set(EMAC_DMA_OPS_Flush_Transmit_FIFO, TRUE);
 
     /* enable receive state machine of the mac for reception from the mii */
     EMAC_Receiver_Enable(TRUE);
 
     /* start dma transmission */
-    EMAC_DMA_Operations_Set(EMAC_DMA_OPS_Start_Stop_TRANSMIT, TRUE);
+    EMAC_DMA_Operations_Set(EMAC_DMA_OPS_Start_Stop_Transmit, TRUE);
 
     /* start dma reception */
-    EMAC_DMA_Operations_Set(EMAC_DMA_OPS_Start_Stop_RECEIVE, TRUE);
+    EMAC_DMA_Operations_Set(EMAC_DMA_OPS_Start_Stop_Receive, TRUE);
 }
 
 /**
@@ -182,16 +182,16 @@ void EMAC_Start(void) {
   */
 void EMAC_Stop(void) {
     /* stop dma transmission */
-    EMAC_DMA_Operations_Set(EMAC_DMA_OPS_Start_Stop_TRANSMIT, FALSE);
+    EMAC_DMA_Operations_Set(EMAC_DMA_OPS_Start_Stop_Transmit, FALSE);
 
     /* stop dma reception */
-    EMAC_DMA_Operations_Set(EMAC_DMA_OPS_Start_Stop_RECEIVE, FALSE);
+    EMAC_DMA_Operations_Set(EMAC_DMA_OPS_Start_Stop_Receive, FALSE);
 
     /* stop receive state machine of the mac for reception from the mii */
     EMAC_Receiver_Enable(FALSE);
 
     /* flush transmit fifo */
-    EMAC_DMA_Operations_Set(EMAC_DMA_OPS_FLUSH_Transmit_FIFO, TRUE);
+    EMAC_DMA_Operations_Set(EMAC_DMA_OPS_Flush_Transmit_FIFO, TRUE);
 
     /* stop transmit state machine of the mac for transmission on the mii */
     EMAC_Trasmitter_Enable(FALSE);
@@ -289,7 +289,7 @@ void EMAC_Trasmitter_Enable(confirm_state new_state) {
   * @param  new_state: TRUE or FALSE.
   * @retval none
   */
-void EMAC_Deferral_check_Set(confirm_state new_state) {
+void EMAC_Deferral_Check_Set(confirm_state new_state) {
     EMAC->ctrl_bit.dc = new_state;
 }
 
@@ -297,13 +297,13 @@ void EMAC_Deferral_check_Set(confirm_state new_state) {
   * @brief  emac back-off limit, only avalible in half-duplex mode.
   * @param  slot_time: waiting time of retransmission after collision
   *         this parameter can be one of the following values:
-  *         - EMAC_BACKOFF_LIMIT_0
-  *         - EMAC_BACKOFF_LIMIT_1
-  *         - EMAC_BACKOFF_LIMIT_2
-  *         - EMAC_BACKOFF_LIMIT_3
+  *         - EMAC_BackOff_Limit_0
+  *         - EMAC_BackOff_Limit_1
+  *         - EMAC_BackOff_Limit_2
+  *         - EMAC_BackOff_Limit_3
   * @retval none
   */
-void EMAC_backoff_limit_Set(EMAC_bol_Type slot_time) {
+void EMAC_BackOff_Limit_Set(EMAC_bol_Type slot_time) {
     EMAC->ctrl_bit.bl = slot_time;
 }
 
@@ -312,7 +312,7 @@ void EMAC_backoff_limit_Set(EMAC_bol_Type slot_time) {
   * @param  new_state: TRUE or FALSE.
   * @retval none
   */
-void EMAC_Auto_pad_CRC_stripping_Set(confirm_state new_state) {
+void EMAC_Auto_pad_CRC_Stripping_Set(confirm_state new_state) {
     EMAC->ctrl_bit.acs = new_state;
 }
 
@@ -321,7 +321,7 @@ void EMAC_Auto_pad_CRC_stripping_Set(confirm_state new_state) {
   * @param  new_state: TRUE or FALSE.
   * @retval none
   */
-void EMAC_retry_Disable(confirm_state new_state) {
+void EMAC_Retry_Disable(confirm_state new_state) {
     EMAC->ctrl_bit.dr = new_state;
 }
 
@@ -357,7 +357,7 @@ void EMAC_Receive_Own_Disable(confirm_state new_state) {
   * @param  new_state: TRUE or FALSE.
   * @retval none
   */
-void EMAC_Carrier_sense_Disable(confirm_state new_state) {
+void EMAC_Carrier_Sense_Disable(confirm_state new_state) {
     EMAC->ctrl_bit.dcs = new_state;
 }
 
@@ -365,17 +365,17 @@ void EMAC_Carrier_sense_Disable(confirm_state new_state) {
   * @brief  set minimum interframe gap between frames during transmission.
   * @param  number: interframe gap number.
   *         this parameter can be one of the following values:
-  *         - EMAC_FRAME_GAP_96BIT
-  *         - EMAC_FRAME_GAP_88BIT
-  *         - EMAC_FRAME_GAP_80BIT
-  *         - EMAC_FRAME_GAP_72BIT
-  *         - EMAC_FRAME_GAP_64BIT
-  *         - EMAC_FRAME_GAP_56BIT
-  *         - EMAC_FRAME_GAP_48BIT
-  *         - EMAC_FRAME_GAP_40BIT
+  *         - EMAC_Frame_Gap_96BIT
+  *         - EMAC_Frame_Gap_88BIT
+  *         - EMAC_Frame_Gap_80BIT
+  *         - EMAC_Frame_Gap_72BIT
+  *         - EMAC_Frame_Gap_64BIT
+  *         - EMAC_Frame_Gap_56BIT
+  *         - EMAC_Frame_Gap_48BIT
+  *         - EMAC_Frame_Gap_40BIT
   * @retval none
   */
-void EMAC_Interframe_gap_Set(EMAC_intergrame_gap_Type number) {
+void EMAC_Interframe_Gap_Set(EMAC_intergrame_Gap_Type number) {
     EMAC->ctrl_bit.ifg = number;
 }
 
@@ -413,7 +413,7 @@ void EMAC_Fast_Speed_Set(EMAC_Speed_Type speed) {
   * @brief  set duplex mode.
   * @param  duplex_Mode: communication mode
   *         this parameter can be one of the following values:
-  *         - EMAC_HALF_DUPLEX
+  *         - EMAC_Half_DUPLEX
   *         - EMAC_FULL_DUPLEX
   * @retval none
   */
@@ -444,7 +444,7 @@ void EMAC_Hash_Unicast_Set(confirm_state new_state) {
   * @param  new_state: TRUE or FALSE.
   * @retval none
   */
-void EMAC_Hash_multicast_Set(confirm_state new_state) {
+void EMAC_Hash_MultiCast_Set(confirm_state new_state) {
     EMAC->frmf_bit.hmc = new_state;
 }
 
@@ -462,7 +462,7 @@ void EMAC_Dstaddr_Inverse_Filter_Set(confirm_state new_state) {
   * @param  new_state: TRUE or FALSE.
   * @retval none
   */
-void EMAC_pass_All_multicasting_Set(confirm_state new_state) {
+void EMAC_Pass_All_MultiCasting_Set(confirm_state new_state) {
     EMAC->frmf_bit.pmc = new_state;
 }
 
@@ -479,12 +479,12 @@ void EMAC_broadcast_Frames_Disable(confirm_state new_state) {
   * @brief  set mac how to pass control frames.
   * @param  condition: set what control frame can pass filter.
   *         this parameter can be one of the following values:
-  *         - EMAC_Control_FRAME_PASSING_NO
-  *         - EMAC_Control_FRAME_PASSING_ALL
-  *         - EMAC_Control_FRAME_PASSING_MATCH
+  *         - EMAC_Control_Frame_PASSING_NO
+  *         - EMAC_Control_Frame_PASSING_ALL
+  *         - EMAC_Control_Frame_PASSING_MATCH
   * @retval none
   */
-void EMAC_pass_Control_Frames_Set(EMAC_Control_Frames_Filter_Type condition) {
+void EMAC_Pass_Control_Frames_Set(EMAC_Control_Frames_Filter_Type condition) {
     EMAC->frmf_bit.pcf = condition;
 }
 
@@ -493,7 +493,7 @@ void EMAC_pass_Control_Frames_Set(EMAC_Control_Frames_Filter_Type condition) {
   * @param  new_state: TRUE or FALSE.
   * @retval none
   */
-void EMAC_srcaddr_Inverse_Filter_Set(confirm_state new_state) {
+void EMAC_Srcaddr_Inverse_Filter_Set(confirm_state new_state) {
     EMAC->frmf_bit.saif = new_state;
 }
 
@@ -502,7 +502,7 @@ void EMAC_srcaddr_Inverse_Filter_Set(confirm_state new_state) {
   * @param  new_state: TRUE or FALSE.
   * @retval none
   */
-void EMAC_srcaddr_Filter_Set(confirm_state new_state) {
+void EMAC_Srcaddr_Filter_Set(confirm_state new_state) {
     EMAC->frmf_bit.saf = new_state;
 }
 
@@ -511,7 +511,7 @@ void EMAC_srcaddr_Filter_Set(confirm_state new_state) {
   * @param  new_state: TRUE or FALSE.
   * @retval none
   */
-void EMAC_Hash_perfect_Filter_Set(confirm_state new_state) {
+void EMAC_Hash_Perfect_Filter_Set(confirm_state new_state) {
     EMAC->frmf_bit.hpf = new_state;
 }
 
@@ -529,7 +529,7 @@ void EMAC_Receive_All_Set(confirm_state new_state) {
   * @param  high32bits: the highest 32-bit of hash table.
   * @retval none
   */
-void EMAC_Hash_table_high32bits_Set(uint32_t high32bits) {
+void EMAC_Hash_Table_High32bits_Set(uint32_t high32bits) {
     EMAC->hth_bit.hth = high32bits;
 }
 
@@ -538,7 +538,7 @@ void EMAC_Hash_table_high32bits_Set(uint32_t high32bits) {
   * @param  low32bits: the lowest 32-bit of hash table.
   * @retval none
   */
-void EMAC_Hash_table_low32bits_Set(uint32_t low32bits) {
+void EMAC_Hash_Table_Low32bits_Set(uint32_t low32bits) {
     EMAC->htl_bit.htl = low32bits;
 }
 
@@ -547,7 +547,7 @@ void EMAC_Hash_table_low32bits_Set(uint32_t low32bits) {
   * @param  none
   * @retval SET or RESET
   */
-flag_status EMAC_mii_busy_Get(void) {
+flag_status EMAC_MII_Busy_Get(void) {
     if(EMAC->miiaddr_bit.mb) {
         return SET;
     } else {
@@ -560,7 +560,7 @@ flag_status EMAC_mii_busy_Get(void) {
   * @param  new_state: TRUE or FALSE.
   * @retval none
   */
-void EMAC_mii_Write(confirm_state new_state) {
+void EMAC_MII_Write(confirm_state new_state) {
     EMAC->miiaddr_bit.mw = new_state;
 }
 
@@ -569,7 +569,7 @@ void EMAC_mii_Write(confirm_state new_state) {
   * @param  new_state: TRUE or FALSE.
   * @retval none
   */
-void EMAC_fcb_bpa_Set(confirm_state new_state) {
+void EMAC_FCB_BPA_Set(confirm_state new_state) {
     EMAC->fctrl_bit.fcbbpa = new_state;
 }
 
@@ -596,7 +596,7 @@ void EMAC_Receive_Flow_Control_Enable(confirm_state new_state) {
   * @param  new_state: TRUE or FALSE.
   * @retval none
   */
-void EMAC_Unicast_pause_Frame_detect(confirm_state new_state) {
+void EMAC_Unicast_Pause_Frame_Detect(confirm_state new_state) {
     EMAC->fctrl_bit.dup = new_state;
 }
 
@@ -604,13 +604,13 @@ void EMAC_Unicast_pause_Frame_detect(confirm_state new_state) {
   * @brief  set pause low threshold.
   * @param  pasue_threshold: pause slot time.
   *         this parameter can be one of the following values:
-  *         - EMAC_PAUSE_4_SLOT_TIME
-  *         - EMAC_PAUSE_28_SLOT_TIME
-  *         - EMAC_PAUSE_144_SLOT_TIME
-  *         - EMAC_PAUSE_256_SLOT_TIME
+  *         - EMAC_Pause_4_SLOT_TIME
+  *         - EMAC_Pause_28_SLOT_TIME
+  *         - EMAC_Pause_144_SLOT_TIME
+  *         - EMAC_Pause_256_SLOT_TIME
   * @retval none
   */
-void EMAC_pause_low_Threshold_Set(EMAC_pause_slot_Threshold_Type pasue_threshold) {
+void EMAC_Pause_Low_Threshold_Set(EMAC_Pause_slot_Threshold_Type pasue_threshold) {
     EMAC->fctrl_bit.plt = pasue_threshold;
 }
 
@@ -619,7 +619,7 @@ void EMAC_pause_low_Threshold_Set(EMAC_pause_slot_Threshold_Type pasue_threshold
   * @param  new_state: TRUE or FALSE.
   * @retval none
   */
-void EMAC_zero_quanta_pause_Disable(confirm_state new_state) {
+void EMAC_Zero_Quanta_Pause_Disable(confirm_state new_state) {
     EMAC->fctrl_bit.dzqp = new_state;
 }
 
@@ -628,7 +628,7 @@ void EMAC_zero_quanta_pause_Disable(confirm_state new_state) {
   * @param  pause_time: time slots to pause transmit frame.
   * @retval none
   */
-void EMAC_pause_Time_Set(uint16_t pause_time) {
+void EMAC_Pause_Time_Set(uint16_t pause_time) {
     EMAC->fctrl_bit.pt = pause_time;
 }
 
@@ -637,7 +637,7 @@ void EMAC_pause_Time_Set(uint16_t pause_time) {
   * @param  identifier: it will be compared with coming frame.
   * @retval none
   */
-void EMAC_vlan_tag_identifier_Set(uint16_t identifier) {
+void EMAC_Vlan_Tag_Identifier_Set(uint16_t identifier) {
     EMAC->vlt_bit.vti = identifier;
 }
 
@@ -646,7 +646,7 @@ void EMAC_vlan_tag_identifier_Set(uint16_t identifier) {
   * @param  new_state: TRUE or FALSE.
   * @retval none
   */
-void EMAC_vlan_tag_comparison_Set(confirm_state new_state) {
+void EMAC_Vlan_Tag_Comparison_Set(confirm_state new_state) {
     EMAC->vlt_bit.etv = new_state;
 }
 
@@ -673,7 +673,7 @@ uint32_t EMAC_WakeUp_Frame_Get(void) {
   * @param  new_state: TRUE or FALSE.
   * @retval none
   */
-void EMAC_Power_down_Set(confirm_state new_state) {
+void EMAC_Power_Down_Set(confirm_state new_state) {
     EMAC->pmtctrlsts_bit.pd = new_state;
 }
 
@@ -698,7 +698,7 @@ void EMAC_WakeUp_Frame_Enable(confirm_state new_state) {
 /**
   * @brief  received magic packet
   * @param  none
-  * @retval the new state of usart_flag (SET or RESET).
+  * @retval the new state of USART_flag (SET or RESET).
   */
 flag_status EMAC_Received_Magic_Packet_Get(void) {
     if(EMAC->pmtctrlsts_bit.rmp) {
@@ -711,7 +711,7 @@ flag_status EMAC_Received_Magic_Packet_Get(void) {
 /**
   * @brief  received wakeup frame.
   * @param  none
-  * @retval the new state of usart_flag (SET or RESET).
+  * @retval the new state of USART_flag (SET or RESET).
   */
 flag_status EMAC_Received_WakeUp_Frame_Get(void) {
     if(EMAC->pmtctrlsts_bit.rrwf) {
@@ -748,7 +748,7 @@ void EMAC_WakeUp_Frame_Filter_Reset(confirm_state new_state) {
   *         - EMAC_MMCR_FLAG
   *         - EMAC_MMCT_FLAG
   *         - EMAC_TST_FLAG
-  * @retval the new state of usart_flag (SET or RESET).
+  * @retval the new state of USART_flag (SET or RESET).
   */
 flag_status EMAC_Interrupt_Status_Read(uint32_t flag) {
     if(EMAC->ists & flag) {
@@ -829,44 +829,44 @@ void EMAC_Address_Filter_Set(EMAC_Address_Type mac, EMAC_Address_Filter_Type fil
   * @brief  set transmit/receive descriptor list address
   * @param  transfer_Type: it will be transmit or receive
   *         this parameter can be one of the following values:
-  *         - EMAC_DMA_TRANSMIT
-  *         - EMAC_DMA_RECEIVE
-  * @param  DMA_desc_tab: pointer on the first tx desc list
+  *         - EMAC_DMA_Transmit
+  *         - EMAC_DMA_Receive
+  * @param  DMA_Desc_tab: pointer on the first tx desc list
   * @param  buff: pointer on the first tx/rx buffer list
   * @param  buffer_count: number of the used Tx desc in the list
   * @retval none
   */
-void EMAC_DMA_Descriptor_List_Address_Set(EMAC_DMA_TX_RX_Type transfer_Type, EMAC_DMA_desc_Type *DMA_desc_tab, uint8_t *buff, uint32_t buffer_count) {
+void EMAC_DMA_Descriptor_List_Address_Set(EMAC_DMA_TX_RX_Type transfer_Type, EMAC_DMA_Desc_Type *DMA_Desc_tab, uint8_t *buff, uint32_t buffer_count) {
     uint32_t i = 0;
-    EMAC_DMA_desc_Type *DMA_descriptor;
+    EMAC_DMA_Desc_Type *DMA_descriptor;
 
     switch(transfer_Type) {
-        case EMAC_DMA_TRANSMIT: {
-            DMA_TX_desc_to_Set = DMA_desc_tab;
+        case EMAC_DMA_Transmit: {
+            DMA_TX_Desc_To_Set = DMA_Desc_tab;
 
             for(i = 0; i < buffer_count; i++) {
-                DMA_descriptor = DMA_desc_tab + i;
+                DMA_descriptor = DMA_Desc_tab + i;
 
                 DMA_descriptor->status = EMAC_DMATXDESC_TCH;
 
                 DMA_descriptor->buf1addr = (uint32_t)(&buff[i * EMAC_MAX_Packet_LENGTH]);
 
                 if(i < (buffer_count - 1)) {
-                    DMA_descriptor->buf2nextdescaddr = (uint32_t)(DMA_desc_tab + i + 1);
+                    DMA_descriptor->buf2nextdescaddr = (uint32_t)(DMA_Desc_tab + i + 1);
                 } else {
-                    DMA_descriptor->buf2nextdescaddr = (uint32_t) DMA_desc_tab;
+                    DMA_descriptor->buf2nextdescaddr = (uint32_t) DMA_Desc_tab;
                 }
             }
 
-            EMAC_DMA->tdladdr_bit.stl = (uint32_t) DMA_desc_tab;
+            EMAC_DMA->tdladdr_bit.stl = (uint32_t) DMA_Desc_tab;
             break;
         }
 
-        case EMAC_DMA_RECEIVE: {
-            DMA_RX_desc_to_Get = DMA_desc_tab;
+        case EMAC_DMA_Receive: {
+            DMA_RX_Desc_To_Get = DMA_Desc_tab;
 
             for(i = 0; i < buffer_count; i++) {
-                DMA_descriptor = DMA_desc_tab + i;
+                DMA_descriptor = DMA_Desc_tab + i;
 
                 DMA_descriptor->status = EMAC_DMARXDESC_OWN;
 
@@ -875,13 +875,13 @@ void EMAC_DMA_Descriptor_List_Address_Set(EMAC_DMA_TX_RX_Type transfer_Type, EMA
                 DMA_descriptor->buf1addr = (uint32_t)(&buff[i * EMAC_MAX_Packet_LENGTH]);
 
                 if(i < (buffer_count - 1)) {
-                    DMA_descriptor->buf2nextdescaddr = (uint32_t)(DMA_desc_tab + i + 1);
+                    DMA_descriptor->buf2nextdescaddr = (uint32_t)(DMA_Desc_tab + i + 1);
                 } else {
-                    DMA_descriptor->buf2nextdescaddr = (uint32_t) DMA_desc_tab;
+                    DMA_descriptor->buf2nextdescaddr = (uint32_t) DMA_Desc_tab;
                 }
             }
 
-            EMAC_DMA->rdladdr_bit.srl = (uint32_t) DMA_desc_tab;
+            EMAC_DMA->rdladdr_bit.srl = (uint32_t) DMA_Desc_tab;
             break;
         }
     }
@@ -896,7 +896,7 @@ void EMAC_DMA_Descriptor_List_Address_Set(EMAC_DMA_TX_RX_Type transfer_Type, EMA
   *         - FALSE.
   * @retval none
   */
-void EMAC_DMA_RX_desc_Interrupt_Config(EMAC_DMA_desc_Type *DMA_RX_desc, confirm_state new_state) {
+void EMAC_DMA_RX_Desc_Interrupt_Config(EMAC_DMA_Desc_Type *DMA_RX_desc, confirm_state new_state) {
     if (new_state != FALSE) {
         /* enable the dma rx desc receive interrupt */
         DMA_RX_desc->controlsize &= (~(uint32_t)EMAC_DMARXDESC_DIC);
@@ -910,17 +910,17 @@ void EMAC_DMA_RX_desc_Interrupt_Config(EMAC_DMA_desc_Type *DMA_RX_desc, confirm_
   * @brief  get transmit/receive descriptor list address
   * @param  transfer_Type: it will be transmit or receive
   *         this parameter can be one of the following values:
-  *         - EMAC_DMA_TRANSMIT
-  *         - EMAC_DMA_RECEIVE
+  *         - EMAC_DMA_Transmit
+  *         - EMAC_DMA_Receive
   * @retval transmit/receive descriptor list address
   */
 uint32_t EMAC_DMA_Descriptor_List_Address_Get(EMAC_DMA_TX_RX_Type transfer_Type) {
     switch(transfer_Type) {
-        case EMAC_DMA_TRANSMIT: {
+        case EMAC_DMA_Transmit: {
             return (EMAC_DMA->tdladdr_bit.stl);
         }
 
-        case EMAC_DMA_RECEIVE: {
+        case EMAC_DMA_Receive: {
             return (EMAC_DMA->rdladdr_bit.srl);
         }
     }
@@ -936,11 +936,11 @@ uint32_t EMAC_DMA_Descriptor_List_Address_Get(EMAC_DMA_TX_RX_Type transfer_Type)
 uint32_t EMAC_Received_Packet_size_Get(void) {
     uint32_t frame_length = 0;
 
-    if(((DMA_RX_desc_to_Get->status & EMAC_DMARXDESC_OWN) == (uint32_t)RESET) &&
-            ((DMA_RX_desc_to_Get->status & EMAC_DMATXDESC_ES) == (uint32_t)RESET) &&
-            ((DMA_RX_desc_to_Get->status & EMAC_DMARXDESC_LS) != (uint32_t)RESET) &&
-            ((DMA_RX_desc_to_Get->status & EMAC_DMARXDESC_FS) != (uint32_t)RESET)) {
-        frame_length = EMAC_Dmarxdesc_Frame_Length_Get(DMA_RX_desc_to_Get);
+    if(((DMA_RX_Desc_To_Get->status & EMAC_DMARXDESC_OWN) == (uint32_t)RESET) &&
+            ((DMA_RX_Desc_To_Get->status & EMAC_DMATXDESC_ES) == (uint32_t)RESET) &&
+            ((DMA_RX_Desc_To_Get->status & EMAC_DMARXDESC_LS) != (uint32_t)RESET) &&
+            ((DMA_RX_Desc_To_Get->status & EMAC_DMARXDESC_FS) != (uint32_t)RESET)) {
+        frame_length = EMAC_Dmarxdesc_Frame_Length_Get(DMA_RX_Desc_To_Get);
     }
 
     return frame_length;
@@ -951,8 +951,8 @@ uint32_t EMAC_Received_Packet_size_Get(void) {
   * @param  DMA_RX_desc: pointer on a dma rx descriptor
   * @retval the rx descriptor received frame length.
   */
-uint32_t EMAC_Dmarxdesc_Frame_Length_Get(EMAC_DMA_desc_Type *DMA_RX_desc) {
-    return ((DMA_RX_desc->status & EMAC_DMARXDESC_FL) >> EMAC_DMARXDESC_FRAME_LENGTHSHIFT);
+uint32_t EMAC_Dmarxdesc_Frame_Length_Get(EMAC_DMA_Desc_Type *DMA_RX_desc) {
+    return ((DMA_RX_desc->status & EMAC_DMARXDESC_FL) >> EMAC_DMARXDESC_Frame_LENGTHSHIFT);
 }
 
 /**
@@ -973,10 +973,10 @@ void EMAC_DMA_Para_Init(EMAC_DMA_Config_Type *control_para) {
     control_para->priority_ratio = EMAC_DMA_1_RX_1_TX;
     control_para->rsf_Enable = FALSE;
     control_para->rx_DMA_pal = EMAC_DMA_PBL_1;
-    control_para->rx_threshold = EMAC_DMA_RX_THRESHOLD_64_BYTES;
+    control_para->rx_threshold = EMAC_DMA_RX_Threshold_64_BYTES;
     control_para->tsf_Enable = FALSE;
     control_para->tx_DMA_pal = EMAC_DMA_PBL_1;
-    control_para->tx_threshold = EMAC_DMA_TX_THRESHOLD_64_BYTES;
+    control_para->tx_threshold = EMAC_DMA_TX_Threshold_64_BYTES;
     control_para->usp_Enable = FALSE;
 }
 
@@ -1086,19 +1086,19 @@ void EMAC_DMA_Address_Aligned_Beats_Set(confirm_state new_state) {
   * @brief  set transmit/receive poll demand
   * @param  transfer_Type: it will be transmit or receive
   *         this parameter can be one of the following values:
-  *         - EMAC_DMA_TRANSMIT
-  *         - EMAC_DMA_RECEIVE
+  *         - EMAC_DMA_Transmit
+  *         - EMAC_DMA_Receive
   * @param  value: it can be any number
   * @retval none
   */
 void EMAC_DMA_Poll_Demand_Set(EMAC_DMA_TX_RX_Type transfer_Type, uint32_t value) {
     switch(transfer_Type) {
-        case EMAC_DMA_TRANSMIT: {
+        case EMAC_DMA_Transmit: {
             EMAC_DMA->tpd_bit.tpd = value;
             break;
         }
 
-        case EMAC_DMA_RECEIVE: {
+        case EMAC_DMA_Receive: {
             EMAC_DMA->rpd_bit.rpd = value;
             break;
         }
@@ -1109,17 +1109,17 @@ void EMAC_DMA_Poll_Demand_Set(EMAC_DMA_TX_RX_Type transfer_Type, uint32_t value)
   * @brief  get transmit poll demand
   * @param  transfer_Type: it will be transmit or receive
   *         this parameter can be one of the following values:
-  *         - EMAC_DMA_TRANSMIT
-  *         - EMAC_DMA_RECEIVE
+  *         - EMAC_DMA_Transmit
+  *         - EMAC_DMA_Receive
   * @retval current transmit descriptor
   */
 uint32_t EMAC_DMA_Poll_Demand_Get(EMAC_DMA_TX_RX_Type transfer_Type) {
     switch(transfer_Type) {
-        case EMAC_DMA_TRANSMIT: {
+        case EMAC_DMA_Transmit: {
             return (EMAC_DMA->tpd_bit.tpd);
         }
 
-        case EMAC_DMA_RECEIVE: {
+        case EMAC_DMA_Receive: {
             return (EMAC_DMA->rpd_bit.rpd);
         }
     }
@@ -1134,10 +1134,10 @@ uint32_t EMAC_DMA_Poll_Demand_Get(EMAC_DMA_TX_RX_Type transfer_Type) {
   *         this parameter can be one of the following values:
   *         - EMAC_DMA_RX_Reset_Stop_COMMAND
   *         - EMAC_DMA_RX_FETCH_DESCRIPTOR
-  *         - EMAC_DMA_RX_WAITING_Packet
+  *         - EMAC_DMA_RX_WaitING_Packet
   *         - EMAC_DMA_RX_DESCRIPTOR_UNAVAILABLE
-  *         - EMAC_DMA_RX_CLOSE_DESCRIPTOR
-  *         - EMAC_DMA_RX_FIFO_TO_HOST
+  *         - EMAC_DMA_RX_Close_DESCRIPTOR
+  *         - EMAC_DMA_RX_FIFO_To_HOST
   */
 EMAC_DMA_Receive_Process_Status_Type EMAC_DMA_Receive_Status_Get(void) {
     switch(EMAC_DMA->sts_bit.rs) {
@@ -1149,20 +1149,20 @@ EMAC_DMA_Receive_Process_Status_Type EMAC_DMA_Receive_Status_Get(void) {
             return EMAC_DMA_RX_FETCH_DESCRIPTOR;
         }
 
-        case EMAC_DMA_RX_WAITING_Packet: {
-            return EMAC_DMA_RX_WAITING_Packet;
+        case EMAC_DMA_RX_WaitING_Packet: {
+            return EMAC_DMA_RX_WaitING_Packet;
         }
 
         case EMAC_DMA_RX_DESCRIPTOR_UNAVAILABLE: {
             return EMAC_DMA_RX_DESCRIPTOR_UNAVAILABLE;
         }
 
-        case EMAC_DMA_RX_CLOSE_DESCRIPTOR: {
-            return EMAC_DMA_RX_CLOSE_DESCRIPTOR;
+        case EMAC_DMA_RX_Close_DESCRIPTOR: {
+            return EMAC_DMA_RX_Close_DESCRIPTOR;
         }
 
-        case EMAC_DMA_RX_FIFO_TO_HOST: {
-            return EMAC_DMA_RX_FIFO_TO_HOST;
+        case EMAC_DMA_RX_FIFO_To_HOST: {
+            return EMAC_DMA_RX_FIFO_To_HOST;
         }
     }
 
@@ -1176,10 +1176,10 @@ EMAC_DMA_Receive_Process_Status_Type EMAC_DMA_Receive_Status_Get(void) {
   *         this parameter can be one of the following values:
   *         - EMAC_DMA_TX_Reset_Stop_COMMAND
   *         - EMAC_DMA_TX_FETCH_DESCRIPTOR
-  *         - EMAC_DMA_TX_WAITING_FOR_STATUS
-  *         - EMAC_DMA_TX_HOST_TO_FIFO
+  *         - EMAC_DMA_TX_WaitING_FOR_STATUS
+  *         - EMAC_DMA_TX_HOST_To_FIFO
   *         - EMAC_DMA_TX_DESCRIPTOR_UNAVAILABLE
-  *         - EMAC_DMA_TX_CLOSE_DESCRIPTOR
+  *         - EMAC_DMA_TX_Close_DESCRIPTOR
   */
 EMAC_DMA_Transmit_Process_Status_Type EMAC_DMA_Transmit_Status_Get(void) {
     switch(EMAC_DMA->sts_bit.ts) {
@@ -1191,20 +1191,20 @@ EMAC_DMA_Transmit_Process_Status_Type EMAC_DMA_Transmit_Status_Get(void) {
             return EMAC_DMA_TX_FETCH_DESCRIPTOR;
         }
 
-        case EMAC_DMA_TX_WAITING_FOR_STATUS: {
-            return EMAC_DMA_TX_WAITING_FOR_STATUS;
+        case EMAC_DMA_TX_WaitING_FOR_STATUS: {
+            return EMAC_DMA_TX_WaitING_FOR_STATUS;
         }
 
-        case EMAC_DMA_TX_HOST_TO_FIFO: {
-            return EMAC_DMA_TX_HOST_TO_FIFO;
+        case EMAC_DMA_TX_HOST_To_FIFO: {
+            return EMAC_DMA_TX_HOST_To_FIFO;
         }
 
         case EMAC_DMA_TX_DESCRIPTOR_UNAVAILABLE: {
             return EMAC_DMA_TX_DESCRIPTOR_UNAVAILABLE;
         }
 
-        case EMAC_DMA_TX_CLOSE_DESCRIPTOR: {
-            return EMAC_DMA_TX_CLOSE_DESCRIPTOR;
+        case EMAC_DMA_TX_Close_DESCRIPTOR: {
+            return EMAC_DMA_TX_Close_DESCRIPTOR;
         }
     }
 
@@ -1215,15 +1215,15 @@ EMAC_DMA_Transmit_Process_Status_Type EMAC_DMA_Transmit_Status_Get(void) {
   * @brief  set dma operations
   * @param  ops: operations of dma
   *         this parameter can be one of the following values:
-  *         - EMAC_DMA_OPS_Start_Stop_RECEIVE
-  *         - EMAC_DMA_OPS_Second_FRAME
+  *         - EMAC_DMA_OPS_Start_Stop_Receive
+  *         - EMAC_DMA_OPS_Second_Frame
   *         - EMAC_DMA_OPS_FORWARD_UNDERSIZED
   *         - EMAC_DMA_OPS_FORWARD_ERROR
-  *         - EMAC_DMA_OPS_Start_Stop_TRANSMIT
-  *         - EMAC_DMA_OPS_FLUSH_Transmit_FIFO
+  *         - EMAC_DMA_OPS_Start_Stop_Transmit
+  *         - EMAC_DMA_OPS_Flush_Transmit_FIFO
   *         - EMAC_DMA_OPS_Transmit_STORE_FORWARD
-  *         - EMAC_DMA_OPS_RECEIVE_FLUSH_Disable
-  *         - EMAC_DMA_OPS_RECEIVE_STORE_FORWARD
+  *         - EMAC_DMA_OPS_Receive_Flush_Disable
+  *         - EMAC_DMA_OPS_Receive_STORE_FORWARD
   *         - EMAC_DMA_OPS_DROP_Error_Disable
   * @param  new_state: TRUE or FALSE
   * @retval none
@@ -1232,12 +1232,12 @@ void EMAC_DMA_Operations_Set(EMAC_DMA_Operations_Type ops, confirm_state new_sta
     __IO uint32_t temp = 0;
 
     switch(ops) {
-        case EMAC_DMA_OPS_Start_Stop_RECEIVE: {
+        case EMAC_DMA_OPS_Start_Stop_Receive: {
             EMAC_DMA->opm_bit.ssr = new_state;
             break;
         }
 
-        case EMAC_DMA_OPS_Second_FRAME: {
+        case EMAC_DMA_OPS_Second_Frame: {
             EMAC_DMA->opm_bit.osf = new_state;
             break;
         }
@@ -1252,12 +1252,12 @@ void EMAC_DMA_Operations_Set(EMAC_DMA_Operations_Type ops, confirm_state new_sta
             break;
         }
 
-        case EMAC_DMA_OPS_Start_Stop_TRANSMIT: {
+        case EMAC_DMA_OPS_Start_Stop_Transmit: {
             EMAC_DMA->opm_bit.sstc = new_state;
             break;
         }
 
-        case EMAC_DMA_OPS_FLUSH_Transmit_FIFO: {
+        case EMAC_DMA_OPS_Flush_Transmit_FIFO: {
             EMAC_DMA->opm_bit.ftf = new_state;
             temp = EMAC_DMA->opm;
             EMAC_delay(1);
@@ -1270,12 +1270,12 @@ void EMAC_DMA_Operations_Set(EMAC_DMA_Operations_Type ops, confirm_state new_sta
             break;
         }
 
-        case EMAC_DMA_OPS_RECEIVE_FLUSH_Disable: {
+        case EMAC_DMA_OPS_Receive_Flush_Disable: {
             EMAC_DMA->opm_bit.dfrf = new_state;
             break;
         }
 
-        case EMAC_DMA_OPS_RECEIVE_STORE_FORWARD: {
+        case EMAC_DMA_OPS_Receive_STORE_FORWARD: {
             EMAC_DMA->opm_bit.rsf = new_state;
             break;
         }
@@ -1291,10 +1291,10 @@ void EMAC_DMA_Operations_Set(EMAC_DMA_Operations_Type ops, confirm_state new_sta
   * @brief  set receive dma threshold
   * @param  value: receive threshold
   *         this parameter can be one of the following values:
-  *         - EMAC_DMA_RX_THRESHOLD_64_BYTES
-  *         - EMAC_DMA_RX_THRESHOLD_32_BYTES
-  *         - EMAC_DMA_RX_THRESHOLD_96_BYTES
-  *         - EMAC_DMA_RX_THRESHOLD_128_BYTES
+  *         - EMAC_DMA_RX_Threshold_64_BYTES
+  *         - EMAC_DMA_RX_Threshold_32_BYTES
+  *         - EMAC_DMA_RX_Threshold_96_BYTES
+  *         - EMAC_DMA_RX_Threshold_128_BYTES
   * @retval none
   */
 void EMAC_DMA_Receive_Threshold_Set(EMAC_DMA_Receive_Threshold_Type value) {
@@ -1305,14 +1305,14 @@ void EMAC_DMA_Receive_Threshold_Set(EMAC_DMA_Receive_Threshold_Type value) {
   * @brief  set transmit dma threshold
   * @param  value: transmit threshold
   *         this parameter can be one of the following values:
-  *         - EMAC_DMA_TX_THRESHOLD_64_BYTES
-  *         - EMAC_DMA_TX_THRESHOLD_128_BYTES
-  *         - EMAC_DMA_TX_THRESHOLD_192_BYTES
-  *         - EMAC_DMA_TX_THRESHOLD_256_BYTES
-  *         - EMAC_DMA_TX_THRESHOLD_40_BYTES
-  *         - EMAC_DMA_TX_THRESHOLD_32_BYTES
-  *         - EMAC_DMA_TX_THRESHOLD_24_BYTES
-  *         - EMAC_DMA_TX_THRESHOLD_16_BYTES
+  *         - EMAC_DMA_TX_Threshold_64_BYTES
+  *         - EMAC_DMA_TX_Threshold_128_BYTES
+  *         - EMAC_DMA_TX_Threshold_192_BYTES
+  *         - EMAC_DMA_TX_Threshold_256_BYTES
+  *         - EMAC_DMA_TX_Threshold_40_BYTES
+  *         - EMAC_DMA_TX_Threshold_32_BYTES
+  *         - EMAC_DMA_TX_Threshold_24_BYTES
+  *         - EMAC_DMA_TX_Threshold_16_BYTES
   * @retval none
   */
 void EMAC_DMA_Transmit_Threshold_Set(EMAC_DMA_Transmit_Threshold_Type value) {
@@ -1334,7 +1334,7 @@ void EMAC_DMA_Transmit_Threshold_Set(EMAC_DMA_Transmit_Threshold_Type value) {
   *         - EMAC_DMA_Interrupt_RX_STOP
   *         - EMAC_DMA_Interrupt_RX_TIMEOUT
   *         - EMAC_DMA_Interrupt_TX_EARLY
-  *         - EMAC_DMA_Interrupt_FATAL_BUS_ERROR
+  *         - EMAC_DMA_Interrupt_FATAL_Bus_ERROR
   *         - EMAC_DMA_Interrupt_RX_EARLY
   *         - EMAC_DMA_Interrupt_ABNORMAL_SUMMARY
   *         - EMAC_DMA_Interrupt_NORMAL_SUMMARY
@@ -1398,7 +1398,7 @@ void EMAC_DMA_Interrupt_Enable(EMAC_DMA_Interrupt_Type it, confirm_state new_sta
             break;
         }
 
-        case EMAC_DMA_Interrupt_FATAL_BUS_ERROR: {
+        case EMAC_DMA_Interrupt_FATAL_Bus_ERROR: {
             EMAC_DMA->ie_bit.fbee = new_state;
             break;
         }
@@ -1521,7 +1521,7 @@ void EMAC_MMC_Rollover_Stop(confirm_state new_state) {
   * @param  new_state: TRUE or FALSE.
   * @retval none
   */
-void EMAC_MMC_Reset_On_Read_Enable(confirm_state new_state) {
+void EMAC_MMC_Reset_ON_Read_Enable(confirm_state new_state) {
     EMAC_MMC->ctrl_bit.rr = new_state;
 }
 
@@ -1541,7 +1541,7 @@ void EMAC_MMC_Counter_Freeze(confirm_state new_state) {
   *         - MMC_RX_CRC_ERROR
   *         - MMC_RX_ALIGN_ERROR
   *         - MMC_RX_Good_UNICAST
-  * @retval the new state of usart_flag (SET or RESET).
+  * @retval the new state of USART_flag (SET or RESET).
   */
 flag_status EMAC_MMC_Received_Status_Get(uint32_t flag) {
     if(EMAC_MMC->ri & flag) {
@@ -1555,10 +1555,10 @@ flag_status EMAC_MMC_Received_Status_Get(uint32_t flag) {
   * @brief  interupt status of transmit frames
   * @param  transmit_Type: transmit type.
   *         this parameter can be one of the following values:
-  *         - MMC_TX_SINGLE_COL
+  *         - MMC_TX_Single_COL
   *         - MMC_TX_MULTIPLE_COL
-  *         - MMC_TX_Good_FRAMES
-  * @retval the new state of usart_flag (SET or RESET).
+  *         - MMC_TX_Good_FrameS
+  * @retval the new state of USART_flag (SET or RESET).
   */
 flag_status EMAC_MMC_Transmit_Status_Get(uint32_t flag) {
     if(EMAC_MMC->ti & flag) {
@@ -1601,15 +1601,15 @@ void EMAC_MMC_Received_Interrupt_Mask_Set(uint32_t flag, confirm_state new_state
   * @brief  mask transmit mmc interrupt
   * @param  transmit_Type: transmit type.
   *         this parameter can be one of the following values:
-  *         - MMC_TX_SINGLE_COL
+  *         - MMC_TX_Single_COL
   *         - MMC_TX_MULTIPLE_COL
-  *         - MMC_TX_Good_FRAMES
+  *         - MMC_TX_Good_FrameS
   * @param  new_state: TRUE or FALSE.
   * @retval none
   */
 void EMAC_MMC_Transmit_Interrupt_Mask_Set(uint32_t flag, confirm_state new_state) {
     switch(flag) {
-        case MMC_TX_SINGLE_COL: {
+        case MMC_TX_Single_COL: {
             EMAC_MMC->tim_bit.tscgfcim = new_state;
             break;
         }
@@ -1619,7 +1619,7 @@ void EMAC_MMC_Transmit_Interrupt_Mask_Set(uint32_t flag, confirm_state new_state
             break;
         }
 
-        case MMC_TX_Good_FRAMES: {
+        case MMC_TX_Good_FrameS: {
             EMAC_MMC->tim_bit.tgfcim = new_state;
             break;
         }
@@ -1630,32 +1630,32 @@ void EMAC_MMC_Transmit_Interrupt_Mask_Set(uint32_t flag, confirm_state new_state
   * @brief  get good frame numbers as single collision occurs.
   * @param  flag: specifies the flag to check.
   *         this parameter can be one of the following values:
-  *         - MMC_TX_SINGLE_COL
+  *         - MMC_TX_Single_COL
   *         - MMC_TX_MULTIPLE_COL
-  *         - MMC_TX_Good_FRAMES
+  *         - MMC_TX_Good_FrameS
   * @retval good frames
   */
 uint32_t EMAC_MMC_Transmit_Good_Frames_Get(uint32_t flag) {
-    uint32_t good_frames = MMC_TX_Good_FRAMES;
+    uint32_t good_Frames = MMC_TX_Good_FrameS;
 
     switch(flag) {
-        case MMC_TX_SINGLE_COL: {
-            good_frames = EMAC_MMC->tfscc_bit.tgfscc;
+        case MMC_TX_Single_COL: {
+            good_Frames = EMAC_MMC->tfscc_bit.tgfscc;
             break;
         }
 
         case MMC_TX_MULTIPLE_COL: {
-            good_frames = EMAC_MMC->tfmscc_bit.tgfmscc;
+            good_Frames = EMAC_MMC->tfmscc_bit.tgfmscc;
             break;
         }
 
-        case MMC_TX_Good_FRAMES: {
-            good_frames = EMAC_MMC->tfcnt_bit.tgfc;
+        case MMC_TX_Good_FrameS: {
+            good_Frames = EMAC_MMC->tfcnt_bit.tgfc;
             break;
         }
     }
 
-    return good_frames;
+    return good_Frames;
 }
 
 /**
@@ -1668,26 +1668,26 @@ uint32_t EMAC_MMC_Transmit_Good_Frames_Get(uint32_t flag) {
   * @retval good frames
   */
 uint32_t EMAC_MMC_Received_Error_Frames_Get(uint32_t flag) {
-    uint32_t error_frames = MMC_RX_Good_UNICAST;
+    uint32_t error_Frames = MMC_RX_Good_UNICAST;
 
     switch(flag) {
         case MMC_RX_CRC_ERROR: {
-            error_frames = EMAC_MMC->rfcecnt_bit.rfcec;
+            error_Frames = EMAC_MMC->rfcecnt_bit.rfcec;
             break;
         }
 
         case MMC_RX_ALIGN_ERROR: {
-            error_frames = EMAC_MMC->rfaecnt_bit.rfaec;
+            error_Frames = EMAC_MMC->rfaecnt_bit.rfaec;
             break;
         }
 
         case MMC_RX_Good_UNICAST: {
-            error_frames = EMAC_MMC->rgufcnt_bit.rgufc;
+            error_Frames = EMAC_MMC->rgufcnt_bit.rgufc;
             break;
         }
     }
 
-    return error_frames;
+    return error_Frames;
 }
 
 /**
@@ -1822,8 +1822,8 @@ void EMAC_PTP_SnapShot_Master_Event_Enable(confirm_state new_state) {
   *         this parameter can be one of the following values:
   *         - EMAC_PTP_NORMAL_CLOCK
   *         - EMAC_PTP_BOUNDARY_CLOCK
-  *         - EMAC_PTP_End_TO_End_CLOCK
-  *         - EMAC_PTP_PEER_TO_PEER_CLOCK
+  *         - EMAC_PTP_End_To_End_CLOCK
+  *         - EMAC_PTP_PEER_To_PEER_CLOCK
   * @retval none
   */
 void EMAC_PTP_Clock_Node_Set(EMAC_PTP_Clock_Node_Type node) {
@@ -2001,7 +2001,7 @@ void EMAC_PTP_PPS_Frequency_Set(EMAC_PTP_PPS_Control_Type freq) {
   * @retval none
   */
 static void EMAC_delay(uint32_t delay) {
-    __IO uint32_t delay_time = delay * (system_core_clock / 8 / 1000);
+    __IO uint32_t delay_time = delay * (system_Core_clock / 8 / 1000);
 
     do {
         __NOP();
@@ -2012,7 +2012,7 @@ static void EMAC_delay(uint32_t delay) {
   * @brief  check whether the specified emac dma flag is set or not.
   * @param  DMA_flag: specifies the emac dma flag to check.
   *         this parameter can be one of emac dma flag status:
-  *         - EMAC_DMA_TI_FLAG
+  *         - EMAC_DMA_Ti_FLAG
   *         - EMAC_DMA_TPS_FLAG
   *         - EMAC_DMA_TBU_FLAG
   *         - EMAC_DMA_TJT_FLAG
@@ -2043,7 +2043,7 @@ flag_status EMAC_DMA_Flag_Get(uint32_t DMA_flag) {
   * @brief  clear the emac dma flag.
   * @param  DMA_flag: specifies the emac dma flags to clear.
   *         this parameter can be any combination of the following values:
-  *         - EMAC_DMA_TI_FLAG
+  *         - EMAC_DMA_Ti_FLAG
   *         - EMAC_DMA_TPS_FLAG
   *         - EMAC_DMA_TBU_FLAG
   *         - EMAC_DMA_TJT_FLAG

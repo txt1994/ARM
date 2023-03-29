@@ -24,7 +24,7 @@
 
 #include "at32f435_437_conf.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -44,23 +44,23 @@
   * @param  none
   * @retval none
   */
-void scfg_Reset(void) {
-    crm_periph_Reset(CRM_SCFG_PERIPH_Reset, TRUE);
-    crm_periph_Reset(CRM_SCFG_PERIPH_Reset, FALSE);
+void SCFG_Reset(void) {
+    CRM_Periph_Reset(CRM_SCFG_Periph_Reset, TRUE);
+    CRM_Periph_Reset(CRM_SCFG_Periph_Reset, FALSE);
 }
 
 /**
   * @brief  scfg xmc address mapping swap set
-  * @param  XMC_swap
+  * @param  XMC_Swap
   *         this parameter can be one of the following values:
-  *         - SCFG_XMC_SWAP_NONE
-  *         - SCFG_XMC_SWAP_Mode1
-  *         - SCFG_XMC_SWAP_Mode2
-  *         - SCFG_XMC_SWAP_Mode3
+  *         - SCFG_XMC_Swap_NONE
+  *         - SCFG_XMC_Swap_Mode1
+  *         - SCFG_XMC_Swap_Mode2
+  *         - SCFG_XMC_Swap_Mode3
   * @retval none
   */
-void scfg_XMC_mapping_swap_Set(scfg_XMC_swap_Type XMC_swap) {
-    SCFG->cfg1_bit.swap_xmc = XMC_swap;
+void SCFG_XMC_Mapping_Swap_Set(SCFG_XMC_Swap_Type XMC_Swap) {
+    SCFG->cfg1_bit.swap_xmc = XMC_Swap;
 }
 
 /**
@@ -72,11 +72,11 @@ void scfg_XMC_mapping_swap_Set(scfg_XMC_swap_Type XMC_swap) {
   *         - SCFG_IR_Source_USART2
   * @param  polarity
   *         this parameter can be one of the following values:
-  *         - SCFG_IR_POLARITY_NO_AFFECTE
-  *         - SCFG_IR_POLARITY_REVERSE
+  *         - SCFG_IR_Polarity_NO_AFFECTE
+  *         - SCFG_IR_Polarity_REVERSE
   * @retval none
   */
-void scfg_infrared_Config(scfg_ir_Source_Type source, scfg_ir_polarity_Type polarity) {
+void SCFG_Infrared_Config(SCFG_IR_Source_Type source, SCFG_IR_Polarity_Type polarity) {
     SCFG->cfg1_bit.ir_src_sel = source;
     SCFG->cfg1_bit.ir_pol = polarity;
 }
@@ -85,15 +85,15 @@ void scfg_infrared_Config(scfg_ir_Source_Type source, scfg_ir_polarity_Type pola
   * @brief  scfg memory address mapping set
   * @param  mem_map
   *         this parameter can be one of the following values:
-  *         - SCFG_MEM_MAP_MAIN_MEMORY
-  *         - SCFG_MEM_MAP_BOOT_MEMORY
-  *         - SCFG_MEM_MAP_XMC_BANK1
-  *         - SCFG_MEM_MAP_Internal_SRAM
-  *         - SCFG_MEM_MAP_XMC_SDRAM_BANK1
+  *         - SCFG_Mem_Map_MAIN_MEMORY
+  *         - SCFG_Mem_Map_BOOT_MEMORY
+  *         - SCFG_Mem_Map_XMC_BANK1
+  *         - SCFG_Mem_Map_Internal_SRAM
+  *         - SCFG_Mem_Map_XMC_SDRAM_BANK1
   * @retval none
   */
-void scfg_mem_map_Set(scfg_mem_map_Type mem_map) {
-    SCFG->cfg1_bit.mem_map_sel = mem_map;
+void SCFG_Mem_Map_Set(SCFG_Mem_Map_Type mem_map) {
+    SCFG->cfg1_bit.mem_Map_sel = mem_map;
 }
 
 /**
@@ -104,7 +104,7 @@ void scfg_mem_map_Set(scfg_mem_map_Type mem_map) {
   *         - SCFG_EMAC_Select_RMII
   * @retval none
   */
-void scfg_EMAC_interface_Set(scfg_EMAC_interface_Type mode) {
+void SCFG_EMAC_Interface_Set(SCFG_EMAC_Interface_Type mode) {
     SCFG->cfg2_bit.mii_rmii_sel = mode;
 }
 
@@ -124,25 +124,25 @@ void scfg_EMAC_interface_Set(scfg_EMAC_interface_Type mode) {
   * @param  pin_source:
   *         specifies the exint line to be configured.
   *         this parameter can be one of the following values:
-  *         - SCFG_PINS_SOURCE0
-  *         - SCFG_PINS_SOURCE1
-  *         - SCFG_PINS_SOURCE2
-  *         - SCFG_PINS_SOURCE3
-  *         - SCFG_PINS_SOURCE4
-  *         - SCFG_PINS_SOURCE5
-  *         - SCFG_PINS_SOURCE6
-  *         - SCFG_PINS_SOURCE7
-  *         - SCFG_PINS_SOURCE8
-  *         - SCFG_PINS_SOURCE9
-  *         - SCFG_PINS_SOURCE10
-  *         - SCFG_PINS_SOURCE11
-  *         - SCFG_PINS_SOURCE12
-  *         - SCFG_PINS_SOURCE13
-  *         - SCFG_PINS_SOURCE14
-  *         - SCFG_PINS_SOURCE15
+  *         - SCFG_Pins_SOURCE0
+  *         - SCFG_Pins_SOURCE1
+  *         - SCFG_Pins_SOURCE2
+  *         - SCFG_Pins_SOURCE3
+  *         - SCFG_Pins_SOURCE4
+  *         - SCFG_Pins_SOURCE5
+  *         - SCFG_Pins_SOURCE6
+  *         - SCFG_Pins_SOURCE7
+  *         - SCFG_Pins_SOURCE8
+  *         - SCFG_Pins_SOURCE9
+  *         - SCFG_Pins_SOURCE10
+  *         - SCFG_Pins_SOURCE11
+  *         - SCFG_Pins_SOURCE12
+  *         - SCFG_Pins_SOURCE13
+  *         - SCFG_Pins_SOURCE14
+  *         - SCFG_Pins_SOURCE15
   * @retval none
   */
-void scfg_EXINT_line_Config(scfg_Port_Source_Type port_source, scfg_pins_Source_Type pin_source) {
+void SCFG_EXINT_Line_Config(SCFG_Port_Source_Type port_source, SCFG_Pins_Source_Type pin_source) {
     uint32_t tmp = 0x00;
     tmp = ((uint32_t)0x0F) << (0x04 * (pin_source & (uint8_t)0x03));
 
@@ -176,19 +176,19 @@ void scfg_EXINT_line_Config(scfg_Port_Source_Type port_source, scfg_pins_Source_
   * @brief  enable or disable gpio pins ultra driven.
   * @param  value:
   *         this parameter can be one of the following values:
-  *         - SCFG_ULTRA_DRIVEN_PB3
-  *         - SCFG_ULTRA_DRIVEN_PB9
-  *         - SCFG_ULTRA_DRIVEN_PB10
-  *         - SCFG_ULTRA_DRIVEN_PD12
-  *         - SCFG_ULTRA_DRIVEN_PD13
-  *         - SCFG_ULTRA_DRIVEN_PD14
-  *         - SCFG_ULTRA_DRIVEN_PD15
-  *         - SCFG_ULTRA_DRIVEN_PF14
-  *         - SCFG_ULTRA_DRIVEN_PF15
+  *         - SCFG_Ultra_Driven_PB3
+  *         - SCFG_Ultra_Driven_PB9
+  *         - SCFG_Ultra_Driven_PB10
+  *         - SCFG_Ultra_Driven_PD12
+  *         - SCFG_Ultra_Driven_PD13
+  *         - SCFG_Ultra_Driven_PD14
+  *         - SCFG_Ultra_Driven_PD15
+  *         - SCFG_Ultra_Driven_PF14
+  *         - SCFG_Ultra_Driven_PF15
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void scfg_pins_ultra_driven_Enable(scfg_ultra_driven_pins_Type value, confirm_state new_state) {
+void SCFG_Pins_Ultra_Driven_Enable(SCFG_Ultra_Driven_Pins_Type value, confirm_state new_state) {
     if(TRUE == new_state) {
         SCFG_REG(value) |= SCFG_REG_BIT(value);
     } else {

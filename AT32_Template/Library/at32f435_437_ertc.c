@@ -24,7 +24,7 @@
 
 #include "at32f435_437_conf.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -60,7 +60,7 @@ uint8_t ERTC_Num_To_BCD(uint8_t num) {
   * @param  bcd: bcd code(0~99).
   * @retval number.
   */
-uint8_t ERTC_BCD_to_Num(uint8_t bcd) {
+uint8_t ERTC_BCD_To_Num(uint8_t bcd) {
     return ((((uint8_t)(bcd & (uint8_t)0xF0) >> 4) * 10) + (bcd & (uint8_t)0x0F));
 }
 
@@ -370,14 +370,14 @@ void ERTC_Calendar_Get(ERTC_Time_Type* time) {
     reg_tm.time = ERTC->time;
     reg_dt.date = ERTC->date;
 
-    time->hour  = ERTC_BCD_to_Num(reg_tm.time_bit.h);
-    time->min   = ERTC_BCD_to_Num(reg_tm.time_bit.m);
-    time->sec   = ERTC_BCD_to_Num(reg_tm.time_bit.s);
+    time->hour  = ERTC_BCD_To_Num(reg_tm.time_bit.h);
+    time->min   = ERTC_BCD_To_Num(reg_tm.time_bit.m);
+    time->sec   = ERTC_BCD_To_Num(reg_tm.time_bit.s);
     time->ampm  = (ERTC_am_pm_Type)reg_tm.time_bit.ampm;
 
-    time->year  = ERTC_BCD_to_Num(reg_dt.date_bit.y);
-    time->month = ERTC_BCD_to_Num(reg_dt.date_bit.m);
-    time->day   = ERTC_BCD_to_Num(reg_dt.date_bit.d);
+    time->year  = ERTC_BCD_To_Num(reg_dt.date_bit.y);
+    time->month = ERTC_BCD_To_Num(reg_dt.date_bit.m);
+    time->day   = ERTC_BCD_To_Num(reg_dt.date_bit.d);
     time->week  = reg_dt.date_bit.wk;
 }
 
@@ -613,11 +613,11 @@ void ERTC_Alarm_Get(ERTC_Alarm_Type alarm_x, ERTC_Alarm_Value_Type* alarm) {
         reg.ala = ERTC->alb;
     }
 
-    alarm->day           = ERTC_BCD_to_Num(reg.ala_bit.d);
-    alarm->week          = ERTC_BCD_to_Num(reg.ala_bit.d);
-    alarm->hour          = ERTC_BCD_to_Num(reg.ala_bit.h);
-    alarm->min           = ERTC_BCD_to_Num(reg.ala_bit.m);
-    alarm->sec           = ERTC_BCD_to_Num(reg.ala_bit.s);
+    alarm->day           = ERTC_BCD_To_Num(reg.ala_bit.d);
+    alarm->week          = ERTC_BCD_To_Num(reg.ala_bit.d);
+    alarm->hour          = ERTC_BCD_To_Num(reg.ala_bit.h);
+    alarm->min           = ERTC_BCD_To_Num(reg.ala_bit.m);
+    alarm->sec           = ERTC_BCD_To_Num(reg.ala_bit.s);
     alarm->ampm          = (ERTC_am_pm_Type)reg.ala_bit.ampm;
     alarm->week_Date_sel = reg.ala_bit.wksel;
     alarm->mask          = reg.ala & ERTC_Alarm_Mask_ALL;
@@ -712,9 +712,9 @@ error_status ERTC_WakeUp_Enable(confirm_state new_state) {
   * @brief  config the smooth calibration.
   * @param  period: calibration period.
   *         this parameter can be one of the following values:
-  *         - ERTC_Smooth_CAL_PERIOD_32: 32 second calibration period.
-  *         - ERTC_Smooth_CAL_PERIOD_16: 16 second calibration period.
-  *         - ERTC_Smooth_CAL_PERIOD_8: 8 second calibration period.
+  *         - ERTC_Smooth_CAL_Period_32: 32 second calibration period.
+  *         - ERTC_Smooth_CAL_Period_16: 16 second calibration period.
+  *         - ERTC_Smooth_CAL_Period_8: 8 second calibration period.
   * @param  clk_add: add clock.
   *         this parameter can be one of the following values:
   *         - ERTC_Smooth_CAL_CLK_ADD_0: do not increase clock.
@@ -722,7 +722,7 @@ error_status ERTC_WakeUp_Enable(confirm_state new_state) {
   * @param  clk_dec: decrease clock(0~511).
   * @retval error_status (ERROR or SUCCESS).
   */
-error_status ERTC_Smooth_Calibration_Config(ERTC_Smooth_CAL_period_Type period, ERTC_Smooth_CAL_clk_add_Type clk_add, uint32_t clk_dec) {
+error_status ERTC_Smooth_Calibration_Config(ERTC_Smooth_CAL_Period_Type period, ERTC_Smooth_CAL_CLK_add_Type clk_add, uint32_t clk_dec) {
     ERTC_reg_scal_Type reg;
 
     /* disable write protection */
@@ -735,14 +735,14 @@ error_status ERTC_Smooth_Calibration_Config(ERTC_Smooth_CAL_period_Type period, 
     reg.scal = 0;
 
     switch (period) {
-        case ERTC_Smooth_CAL_PERIOD_32:
+        case ERTC_Smooth_CAL_Period_32:
             break;
 
-        case ERTC_Smooth_CAL_PERIOD_16:
+        case ERTC_Smooth_CAL_Period_16:
             reg.scal_bit.cal16 = 1;
             break;
 
-        case ERTC_Smooth_CAL_PERIOD_8:
+        case ERTC_Smooth_CAL_Period_8:
             reg.scal_bit.cal8 = 1;
             break;
 
@@ -765,12 +765,12 @@ error_status ERTC_Smooth_Calibration_Config(ERTC_Smooth_CAL_period_Type period, 
   * @brief  set the coarse digital calibration.
   * @param  dir: calibration direction.
   *         this parameter can be one of the following values:
-  *         - ERTC_CAL_DIR_POSITIVE: positive calibration.
-  *         - ERTC_CAL_DIR_NEGATIVE: negative calibration.
+  *         - ERTC_CAL_Dir_POSITIVE: positive calibration.
+  *         - ERTC_CAL_Dir_NEGATIVE: negative calibration.
   * @param  value: calibration value(0~31).
   * @retval error_status (ERROR or SUCCESS).
   */
-error_status ERTC_Coarse_Calibration_Set(ERTC_CAL_direction_Type dir, uint32_t value) {
+error_status ERTC_Coarse_Calibration_Set(ERTC_CAL_Direction_Type dir, uint32_t value) {
     /* disable write protection */
     ERTC_Write_Protect_Disable();
 
@@ -959,7 +959,7 @@ error_status ERTC_refer_Clock_Detect_Enable(confirm_state new_state) {
   * @param  new_state (TRUE or FALSE).
   * @retval none.
   */
-void ERTC_direct_Read_Enable(confirm_state new_state) {
+void ERTC_Direct_Read_Enable(confirm_state new_state) {
     /* disable write protection */
     ERTC_Write_Protect_Disable();
 
@@ -979,15 +979,15 @@ void ERTC_direct_Read_Enable(confirm_state new_state) {
   *         - ERTC_OutPut_WAKEUP: output wakeup event.
   * @param  polarity: output polarity.
   *         this parameter can be one of the following values:
-  *         - ERTC_OutPut_POLARITY_HIGH: when the event occurs, the output is high.
-  *         - ERTC_OutPut_POLARITY_LOW: when the event occurs, the output is low.
+  *         - ERTC_OutPut_Polarity_HIGH: when the event occurs, the output is high.
+  *         - ERTC_OutPut_Polarity_LOW: when the event occurs, the output is low.
   * @param  type: output type.
   *         this parameter can be one of the following values:
-  *         - ERTC_OutPut_Type_OPEN_DRAIN: open drain output.
+  *         - ERTC_OutPut_Type_Open_DRAIN: open drain output.
   *         - ERTC_OutPut_Type_PUSH_PULL: push pull output.
   * @retval none.
   */
-void ERTC_OutPut_Set(ERTC_OutPut_Source_Type source, ERTC_OutPut_polarity_Type polarity, ERTC_OutPut_Type type) {
+void ERTC_OutPut_Set(ERTC_OutPut_Source_Type source, ERTC_OutPut_Polarity_Type polarity, ERTC_OutPut_Type type) {
     /* disable write protection */
     ERTC_Write_Protect_Disable();
 
@@ -1066,12 +1066,12 @@ void ERTC_TimeStamp_Get(ERTC_Time_Type* time) {
     tmdate.tsdt = ERTC->tsdt;
 
     time->year  = 0;
-    time->month = ERTC_BCD_to_Num(tmdate.tsdt_bit.m);
-    time->day   = ERTC_BCD_to_Num(tmdate.tsdt_bit.d);
-    time->week  = ERTC_BCD_to_Num(tmdate.tsdt_bit.wk);
-    time->hour  = ERTC_BCD_to_Num(tmtime.tstm_bit.h);
-    time->min   = ERTC_BCD_to_Num(tmtime.tstm_bit.m);
-    time->sec   = ERTC_BCD_to_Num(tmtime.tstm_bit.s);
+    time->month = ERTC_BCD_To_Num(tmdate.tsdt_bit.m);
+    time->day   = ERTC_BCD_To_Num(tmdate.tsdt_bit.d);
+    time->week  = ERTC_BCD_To_Num(tmdate.tsdt_bit.wk);
+    time->hour  = ERTC_BCD_To_Num(tmtime.tstm_bit.h);
+    time->min   = ERTC_BCD_To_Num(tmtime.tstm_bit.m);
+    time->sec   = ERTC_BCD_To_Num(tmtime.tstm_bit.s);
     time->ampm  = (ERTC_am_pm_Type)tmtime.tstm_bit.ampm;
 }
 
@@ -1107,7 +1107,7 @@ void ERTC_Tamper_1_Pin_Select(ERTC_Pin_Select_Type pin) {
   * @param  new_state (TRUE or FALSE).
   * @retval none.
   */
-void ERTC_Tamper_Pull_up_Enable(confirm_state new_state) {
+void ERTC_Tamper_Pull_Up_Enable(confirm_state new_state) {
     /* disable write protection */
     ERTC_Write_Protect_Disable();
 
@@ -1127,7 +1127,7 @@ void ERTC_Tamper_Pull_up_Enable(confirm_state new_state) {
   *         - ERTC_Tamper_PR_8_ERTCCLK: pre-charge time is 8 ERTC_CLK.
   * @retval none.
   */
-void ERTC_Tamper_precharge_Set(ERTC_Tamper_precharge_Type precharge) {
+void ERTC_Tamper_Precharge_Set(ERTC_Tamper_Precharge_Type precharge) {
     /* disable write protection */
     ERTC_Write_Protect_Disable();
 
@@ -1161,14 +1161,14 @@ void ERTC_Tamper_Filter_Set(ERTC_Tamper_Filter_Type filter) {
   * @brief  set the tamper detection frequency.
   * @param  freq: tamper detection frequency.
   *         this parameter can be one of the following values:
-  *         - ERTC_Tamper_Freq_DIV_32768: ERTC_CLK / 32768.
-  *         - ERTC_Tamper_Freq_DIV_16384: ERTC_CLK / 16384.
-  *         - ERTC_Tamper_Freq_DIV_8192: ERTC_CLK / 8192.
-  *         - ERTC_Tamper_Freq_DIV_4096: ERTC_CLK / 4096.
-  *         - ERTC_Tamper_Freq_DIV_2048: ERTC_CLK / 2048.
-  *         - ERTC_Tamper_Freq_DIV_1024: ERTC_CLK / 1024.
-  *         - ERTC_Tamper_Freq_DIV_512: ERTC_CLK / 512.
-  *         - ERTC_Tamper_Freq_DIV_256: ERTC_CLK / 256.
+  *         - ERTC_Tamper_Freq_Div_32768: ERTC_CLK / 32768.
+  *         - ERTC_Tamper_Freq_Div_16384: ERTC_CLK / 16384.
+  *         - ERTC_Tamper_Freq_Div_8192: ERTC_CLK / 8192.
+  *         - ERTC_Tamper_Freq_Div_4096: ERTC_CLK / 4096.
+  *         - ERTC_Tamper_Freq_Div_2048: ERTC_CLK / 2048.
+  *         - ERTC_Tamper_Freq_Div_1024: ERTC_CLK / 1024.
+  *         - ERTC_Tamper_Freq_Div_512: ERTC_CLK / 512.
+  *         - ERTC_Tamper_Freq_Div_256: ERTC_CLK / 256.
   * @retval none.
   */
 void ERTC_Tamper_Detect_Freq_Set(ERTC_Tamper_Detect_Freq_Type freq) {

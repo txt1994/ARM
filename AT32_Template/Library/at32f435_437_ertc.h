@@ -34,7 +34,7 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "at32f435_437.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -42,7 +42,7 @@ extern "C" {
   * @{
   */
 
-/** @defgroup ERTC_interrupts_definition
+/** @defgroup ERTC_Interrupts_definition
   * @brief ertc interrupt
   * @{
   */
@@ -177,10 +177,10 @@ typedef enum {
   * @brief ertc smooth calibration period
   */
 typedef enum {
-    ERTC_Smooth_CAL_PERIOD_32              = 0x00, /*!< 32 second calibration period */
-    ERTC_Smooth_CAL_PERIOD_16              = 0x01, /*!< 16 second calibration period */
-    ERTC_Smooth_CAL_PERIOD_8               = 0x02  /*!< 8 second calibration period */
-} ERTC_Smooth_CAL_period_Type;
+    ERTC_Smooth_CAL_Period_32              = 0x00, /*!< 32 second calibration period */
+    ERTC_Smooth_CAL_Period_16              = 0x01, /*!< 16 second calibration period */
+    ERTC_Smooth_CAL_Period_8               = 0x02  /*!< 8 second calibration period */
+} ERTC_Smooth_CAL_Period_Type;
 
 /**
   * @brief ertc smooth calibration clock add mode
@@ -188,15 +188,15 @@ typedef enum {
 typedef enum {
     ERTC_Smooth_CAL_CLK_ADD_0              = 0x00, /*!< do not increase clock */
     ERTC_Smooth_CAL_CLK_ADD_512            = 0x01  /*!< add 512 clocks */
-} ERTC_Smooth_CAL_clk_add_Type;
+} ERTC_Smooth_CAL_CLK_add_Type;
 
 /**
   * @brief ertc calibration direction mode
   */
 typedef enum {
-    ERTC_CAL_DIR_POSITIVE                  = 0x00, /*!< positive calibration */
-    ERTC_CAL_DIR_NEGATIVE                  = 0x01  /*!< negative calibration */
-} ERTC_CAL_direction_Type;
+    ERTC_CAL_Dir_POSITIVE                  = 0x00, /*!< positive calibration */
+    ERTC_CAL_Dir_NEGATIVE                  = 0x01  /*!< negative calibration */
+} ERTC_CAL_Direction_Type;
 
 /**
   * @brief ertc calibration output mode
@@ -244,15 +244,15 @@ typedef enum {
   * @brief output polarity
   */
 typedef enum {
-    ERTC_OutPut_POLARITY_HIGH              = 0x00, /*!< when the event occurs, the output is high */
-    ERTC_OutPut_POLARITY_LOW               = 0x01  /*!< when the event occurs, the output is low */
-} ERTC_OutPut_polarity_Type;
+    ERTC_OutPut_Polarity_HIGH              = 0x00, /*!< when the event occurs, the output is high */
+    ERTC_OutPut_Polarity_LOW               = 0x01  /*!< when the event occurs, the output is low */
+} ERTC_OutPut_Polarity_Type;
 
 /**
   * @brief output type
   */
 typedef enum {
-    ERTC_OutPut_Type_OPEN_DRAIN            = 0x00, /*!< open drain output */
+    ERTC_OutPut_Type_Open_DRAIN            = 0x00, /*!< open drain output */
     ERTC_OutPut_Type_PUSH_PULL             = 0x01  /*!< push pull output */
 } ERTC_OutPut_Type;
 
@@ -288,7 +288,7 @@ typedef enum {
     ERTC_Tamper_PR_2_ERTCCLK               = 0x01, /*!< pre-charge time is 2 ERTC_CLK */
     ERTC_Tamper_PR_4_ERTCCLK               = 0x02, /*!< pre-charge time is 4 ERTC_CLK */
     ERTC_Tamper_PR_8_ERTCCLK               = 0x03  /*!< pre-charge time is 8 ERTC_CLK */
-} ERTC_Tamper_precharge_Type;
+} ERTC_Tamper_Precharge_Type;
 
 /**
   * @brief ertc tamper filter
@@ -304,14 +304,14 @@ typedef enum {
   * @brief ertc tamper detection frequency
   */
 typedef enum {
-    ERTC_Tamper_Freq_DIV_32768             = 0x00, /*!< ERTC_CLK / 32768 */
-    ERTC_Tamper_Freq_DIV_16384             = 0x01, /*!< ERTC_CLK / 16384 */
-    ERTC_Tamper_Freq_DIV_8192              = 0x02, /*!< ERTC_CLK / 8192 */
-    ERTC_Tamper_Freq_DIV_4096              = 0x03, /*!< ERTC_CLK / 4096 */
-    ERTC_Tamper_Freq_DIV_2048              = 0x04, /*!< ERTC_CLK / 2048 */
-    ERTC_Tamper_Freq_DIV_1024              = 0x05, /*!< ERTC_CLK / 1024 */
-    ERTC_Tamper_Freq_DIV_512               = 0x06, /*!< ERTC_CLK / 512 */
-    ERTC_Tamper_Freq_DIV_256               = 0x07  /*!< ERTC_CLK / 256 */
+    ERTC_Tamper_Freq_Div_32768             = 0x00, /*!< ERTC_CLK / 32768 */
+    ERTC_Tamper_Freq_Div_16384             = 0x01, /*!< ERTC_CLK / 16384 */
+    ERTC_Tamper_Freq_Div_8192              = 0x02, /*!< ERTC_CLK / 8192 */
+    ERTC_Tamper_Freq_Div_4096              = 0x03, /*!< ERTC_CLK / 4096 */
+    ERTC_Tamper_Freq_Div_2048              = 0x04, /*!< ERTC_CLK / 2048 */
+    ERTC_Tamper_Freq_Div_1024              = 0x05, /*!< ERTC_CLK / 1024 */
+    ERTC_Tamper_Freq_Div_512               = 0x06, /*!< ERTC_CLK / 512 */
+    ERTC_Tamper_Freq_Div_256               = 0x07  /*!< ERTC_CLK / 256 */
 } ERTC_Tamper_Detect_Freq_Type;
 
 /**
@@ -1013,7 +1013,7 @@ typedef struct {
   */
 
 uint8_t ERTC_Num_To_BCD(uint8_t num);
-uint8_t ERTC_BCD_to_Num(uint8_t bcd);
+uint8_t ERTC_BCD_To_Num(uint8_t bcd);
 void ERTC_Write_Protect_Enable(void);
 void ERTC_Write_Protect_Disable(void);
 error_status ERTC_Wait_Update(void);
@@ -1038,8 +1038,8 @@ void ERTC_WakeUp_Clock_Set(ERTC_WakeUp_Clock_Type clock);
 void ERTC_WakeUp_Counter_Set(uint32_t counter);
 uint16_t ERTC_WakeUp_Counter_Get(void);
 error_status ERTC_WakeUp_Enable(confirm_state new_state);
-error_status ERTC_Smooth_Calibration_Config(ERTC_Smooth_CAL_period_Type period, ERTC_Smooth_CAL_clk_add_Type clk_add, uint32_t clk_dec);
-error_status ERTC_Coarse_Calibration_Set(ERTC_CAL_direction_Type dir, uint32_t value);
+error_status ERTC_Smooth_Calibration_Config(ERTC_Smooth_CAL_Period_Type period, ERTC_Smooth_CAL_CLK_add_Type clk_add, uint32_t clk_dec);
+error_status ERTC_Coarse_Calibration_Set(ERTC_CAL_Direction_Type dir, uint32_t value);
 error_status ERTC_Coarse_Calibration_Enable(confirm_state new_state);
 void ERTC_CAL_OutPut_Select(ERTC_CAL_OutPut_Select_Type output);
 void ERTC_CAL_OutPut_Enable(confirm_state new_state);
@@ -1047,16 +1047,16 @@ error_status ERTC_Time_Adjust(ERTC_Time_Adjust_Type add1s, uint32_t decsbs);
 void ERTC_DayLight_Set(ERTC_dst_Operation_Type operation, ERTC_dst_save_Type save);
 uint8_t ERTC_DayLight_BPR_Get(void);
 error_status ERTC_refer_Clock_Detect_Enable(confirm_state new_state);
-void ERTC_direct_Read_Enable(confirm_state new_state);
-void ERTC_OutPut_Set(ERTC_OutPut_Source_Type source, ERTC_OutPut_polarity_Type polarity, ERTC_OutPut_Type type);
+void ERTC_Direct_Read_Enable(confirm_state new_state);
+void ERTC_OutPut_Set(ERTC_OutPut_Source_Type source, ERTC_OutPut_Polarity_Type polarity, ERTC_OutPut_Type type);
 void ERTC_TimeStamp_Pin_Select(ERTC_Pin_Select_Type pin);
 void ERTC_TimeStamp_Valid_Edge_Set(ERTC_TimeStamp_Valid_Edge_Type edge);
 void ERTC_TimeStamp_Enable(confirm_state new_state);
 void ERTC_TimeStamp_Get(ERTC_Time_Type* time);
 uint32_t ERTC_TimeStamp_Sub_Second_Get(void);
 void ERTC_Tamper_1_Pin_Select(ERTC_Pin_Select_Type pin);
-void ERTC_Tamper_Pull_up_Enable(confirm_state new_state);
-void ERTC_Tamper_precharge_Set(ERTC_Tamper_precharge_Type precharge);
+void ERTC_Tamper_Pull_Up_Enable(confirm_state new_state);
+void ERTC_Tamper_Precharge_Set(ERTC_Tamper_Precharge_Type precharge);
 void ERTC_Tamper_Filter_Set(ERTC_Tamper_Filter_Type filter);
 void ERTC_Tamper_Detect_Freq_Set(ERTC_Tamper_Detect_Freq_Type freq);
 void ERTC_Tamper_Valid_Edge_Set(ERTC_Tamper_Select_Type tamper_x, ERTC_Tamper_Valid_Edge_Type trigger);

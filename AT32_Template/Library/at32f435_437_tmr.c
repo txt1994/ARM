@@ -24,7 +24,7 @@
 
 #include "at32f435_437_conf.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -41,355 +41,355 @@
 
 /**
   * @brief  tmr reset by crm reset register
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @retval none
   */
-void tmr_Reset(tmr_Type *tmr_x) {
-    if(tmr_x == TMR1) {
-        crm_periph_Reset(CRM_TMR1_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_TMR1_PERIPH_Reset, FALSE);
-    } else if(tmr_x == TMR2) {
-        crm_periph_Reset(CRM_TMR2_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_TMR2_PERIPH_Reset, FALSE);
-    } else if(tmr_x == TMR3) {
-        crm_periph_Reset(CRM_TMR3_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_TMR3_PERIPH_Reset, FALSE);
-    } else if(tmr_x == TMR4) {
-        crm_periph_Reset(CRM_TMR4_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_TMR4_PERIPH_Reset, FALSE);
-    } else if(tmr_x == TMR5) {
-        crm_periph_Reset(CRM_TMR5_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_TMR5_PERIPH_Reset, FALSE);
-    } else if(tmr_x == TMR6) {
-        crm_periph_Reset(CRM_TMR6_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_TMR6_PERIPH_Reset, FALSE);
-    } else if(tmr_x == TMR7) {
-        crm_periph_Reset(CRM_TMR7_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_TMR7_PERIPH_Reset, FALSE);
-    } else if(tmr_x == TMR8) {
-        crm_periph_Reset(CRM_TMR8_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_TMR8_PERIPH_Reset, FALSE);
-    } else if(tmr_x == TMR9) {
-        crm_periph_Reset(CRM_TMR9_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_TMR9_PERIPH_Reset, FALSE);
-    } else if(tmr_x == TMR10) {
-        crm_periph_Reset(CRM_TMR10_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_TMR10_PERIPH_Reset, FALSE);
-    } else if(tmr_x == TMR11) {
-        crm_periph_Reset(CRM_TMR11_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_TMR11_PERIPH_Reset, FALSE);
-    } else if(tmr_x == TMR12) {
-        crm_periph_Reset(CRM_TMR12_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_TMR12_PERIPH_Reset, FALSE);
-    } else if(tmr_x == TMR13) {
-        crm_periph_Reset(CRM_TMR13_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_TMR13_PERIPH_Reset, FALSE);
-    } else if(tmr_x == TMR14) {
-        crm_periph_Reset(CRM_TMR14_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_TMR14_PERIPH_Reset, FALSE);
-    } else if(tmr_x == TMR20) {
-        crm_periph_Reset(CRM_TMR20_PERIPH_Reset, TRUE);
-        crm_periph_Reset(CRM_TMR20_PERIPH_Reset, FALSE);
+void TMR_Reset(TMR_Type *TMR_x) {
+    if(TMR_x == TMR1) {
+        CRM_Periph_Reset(CRM_TMR1_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_TMR1_Periph_Reset, FALSE);
+    } else if(TMR_x == TMR2) {
+        CRM_Periph_Reset(CRM_TMR2_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_TMR2_Periph_Reset, FALSE);
+    } else if(TMR_x == TMR3) {
+        CRM_Periph_Reset(CRM_TMR3_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_TMR3_Periph_Reset, FALSE);
+    } else if(TMR_x == TMR4) {
+        CRM_Periph_Reset(CRM_TMR4_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_TMR4_Periph_Reset, FALSE);
+    } else if(TMR_x == TMR5) {
+        CRM_Periph_Reset(CRM_TMR5_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_TMR5_Periph_Reset, FALSE);
+    } else if(TMR_x == TMR6) {
+        CRM_Periph_Reset(CRM_TMR6_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_TMR6_Periph_Reset, FALSE);
+    } else if(TMR_x == TMR7) {
+        CRM_Periph_Reset(CRM_TMR7_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_TMR7_Periph_Reset, FALSE);
+    } else if(TMR_x == TMR8) {
+        CRM_Periph_Reset(CRM_TMR8_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_TMR8_Periph_Reset, FALSE);
+    } else if(TMR_x == TMR9) {
+        CRM_Periph_Reset(CRM_TMR9_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_TMR9_Periph_Reset, FALSE);
+    } else if(TMR_x == TMR10) {
+        CRM_Periph_Reset(CRM_TMR10_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_TMR10_Periph_Reset, FALSE);
+    } else if(TMR_x == TMR11) {
+        CRM_Periph_Reset(CRM_TMR11_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_TMR11_Periph_Reset, FALSE);
+    } else if(TMR_x == TMR12) {
+        CRM_Periph_Reset(CRM_TMR12_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_TMR12_Periph_Reset, FALSE);
+    } else if(TMR_x == TMR13) {
+        CRM_Periph_Reset(CRM_TMR13_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_TMR13_Periph_Reset, FALSE);
+    } else if(TMR_x == TMR14) {
+        CRM_Periph_Reset(CRM_TMR14_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_TMR14_Periph_Reset, FALSE);
+    } else if(TMR_x == TMR20) {
+        CRM_Periph_Reset(CRM_TMR20_Periph_Reset, TRUE);
+        CRM_Periph_Reset(CRM_TMR20_Periph_Reset, FALSE);
     }
 }
 
 /**
   * @brief  enable or disable tmr counter
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void tmr_Counter_Enable(tmr_Type *tmr_x, confirm_state new_state) {
+void TMR_Counter_Enable(TMR_Type *TMR_x, confirm_state new_state) {
     /* tmr counter enable  */
-    tmr_x->ctrl1_bit.tmren = new_state;
+    TMR_x->ctrl1_bit.tmren = new_state;
 }
 
 /**
   * @brief  init tmr output default para
-  * @param  tmr_OutPut_struct
-  *         - to the structure of tmr_OutPut_Config_Type
+  * @param  TMR_OutPut_struct
+  *         - to the structure of TMR_OutPut_Config_Type
   * @retval none
   */
-void tmr_OutPut_Default_Para_Init(tmr_OutPut_Config_Type *tmr_OutPut_struct) {
-    tmr_OutPut_struct->oc_Mode = TMR_OutPut_Control_OFF;
-    tmr_OutPut_struct->oc_idle_state = FALSE;
-    tmr_OutPut_struct->occ_idle_state = FALSE;
-    tmr_OutPut_struct->oc_polarity = TMR_OutPut_ACTIVE_HIGH;
-    tmr_OutPut_struct->occ_polarity = TMR_OutPut_ACTIVE_HIGH;
-    tmr_OutPut_struct->oc_OutPut_state = FALSE;
-    tmr_OutPut_struct->occ_OutPut_state = FALSE;
+void TMR_OutPut_Default_Para_Init(TMR_OutPut_Config_Type *TMR_OutPut_struct) {
+    TMR_OutPut_struct->oc_Mode = TMR_OutPut_Control_OFF;
+    TMR_OutPut_struct->oc_idle_state = FALSE;
+    TMR_OutPut_struct->occ_idle_state = FALSE;
+    TMR_OutPut_struct->oc_polarity = TMR_OutPut_ACTIVE_HIGH;
+    TMR_OutPut_struct->occ_polarity = TMR_OutPut_ACTIVE_HIGH;
+    TMR_OutPut_struct->oc_OutPut_state = FALSE;
+    TMR_OutPut_struct->occ_OutPut_state = FALSE;
 }
 
 /**
   * @brief  init tmr input default para
-  * @param  tmr_Input_struct
-  *         - to the structure of tmr_Input_Config_Type
+  * @param  TMR_Input_struct
+  *         - to the structure of TMR_Input_Config_Type
   * @retval none
   */
-void tmr_Input_Default_Para_Init(tmr_Input_Config_Type *tmr_Input_struct) {
-    tmr_Input_struct->input_Channel_Select = TMR_Select_Channel_1;
-    tmr_Input_struct->input_polarity_Select = TMR_Input_RISING_EDGE;
-    tmr_Input_struct->input_mapped_Select = TMR_CC_Channel_MAPPED_DIRECT;
-    tmr_Input_struct->input_Filter_value = 0x0;
+void TMR_Input_Default_Para_Init(TMR_Input_Config_Type *TMR_Input_struct) {
+    TMR_Input_struct->input_Channel_Select = TMR_Select_Channel_1;
+    TMR_Input_struct->input_Polarity_Select = TMR_Input_RISING_EDGE;
+    TMR_Input_struct->input_mapped_Select = TMR_CC_Channel_MAPPED_DIRECT;
+    TMR_Input_struct->input_Filter_value = 0x0;
 }
 
 /**
   * @brief  init tmr brkdt default para
-  * @param  tmr_brkdt_struct
-  *         - to the structure of tmr_brkdt_Config_Type
+  * @param  TMR_Brkdt_struct
+  *         - to the structure of TMR_Brkdt_Config_Type
   * @retval none
   */
-void tmr_brkdt_Default_Para_Init(tmr_brkdt_Config_Type *tmr_brkdt_struct) {
-    tmr_brkdt_struct->deadtime = 0x0;
-    tmr_brkdt_struct->brk_polarity = TMR_BRK_Input_ACTIVE_LOW;
-    tmr_brkdt_struct->wp_level = TMR_WP_OFF;
-    tmr_brkdt_struct->auto_OutPut_Enable = FALSE ;
-    tmr_brkdt_struct->fcsoen_state = FALSE ;
-    tmr_brkdt_struct->fcsodis_state = FALSE ;
-    tmr_brkdt_struct->brk_Enable = FALSE ;
+void TMR_Brkdt_Default_Para_Init(TMR_Brkdt_Config_Type *TMR_Brkdt_struct) {
+    TMR_Brkdt_struct->deadtime = 0x0;
+    TMR_Brkdt_struct->brk_polarity = TMR_BRK_Input_ACTIVE_LOW;
+    TMR_Brkdt_struct->wp_level = TMR_WP_OFF;
+    TMR_Brkdt_struct->auto_OutPut_Enable = FALSE ;
+    TMR_Brkdt_struct->fcsoen_state = FALSE ;
+    TMR_Brkdt_struct->fcsodis_state = FALSE ;
+    TMR_Brkdt_struct->brk_Enable = FALSE ;
 }
 
 /**
   * @brief  init tmr base
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
-  * @param  tmr_pr (for 16 bit tmr 0x0000~0xFFFF,
+  * @param  TMR_pr (for 16 bit tmr 0x0000~0xFFFF,
   *                  for 32 bit tmr 0x0000_0000~0xFFFF_FFFF)
-  * @param  tmr_div (timer div value:0x0000~0xFFFF)
+  * @param  TMR_div (timer div value:0x0000~0xFFFF)
   * @retval none
   */
-void tmr_base_Init(tmr_Type* tmr_x, uint32_t tmr_pr, uint32_t tmr_div) {
+void TMR_Base_Init(TMR_Type* TMR_x, uint32_t TMR_pr, uint32_t TMR_div) {
     /* set the pr value */
-    tmr_x->pr = tmr_pr;
+    TMR_x->pr = TMR_pr;
 
     /* set the div value */
-    tmr_x->div = tmr_div;
+    TMR_x->div = TMR_div;
 
     /* trigger the overflow event to immediately reload pr value and div value */
-    tmr_x->swevt_bit.ovfswtr = TRUE;
+    TMR_x->swevt_bit.ovfswtr = TRUE;
 }
 
 /**
   * @brief  set tmr clock source division
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
-  * @param  tmr_Clock_div
+  * @param  TMR_Clock_div
   *         this parameter can be one of the following values:
   *         - TMR_Clock_DIV1
   *         - TMR_Clock_DIV2
   *         - TMR_Clock_DIV4
   * @retval none
   */
-void tmr_Clock_Source_div_Set(tmr_Type *tmr_x, tmr_Clock_Division_Type tmr_Clock_div) {
+void TMR_Clock_Source_Div_Set(TMR_Type *TMR_x, TMR_Clock_Division_Type TMR_Clock_div) {
     /* set tmr clock source division */
-    tmr_x->ctrl1_bit.clkdiv = tmr_Clock_div;
+    TMR_x->ctrl1_bit.clkdiv = TMR_Clock_div;
 }
 
 /**
   * @brief  set tmr counter count direction
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
-  * @param  tmr_cnt_dir
+  * @param  TMR_CNT_dir
   *         this parameter can be one of the following values:
-  *         - TMR_COUNT_UP
-  *         - TMR_COUNT_DOWN
-  *         - TMR_COUNT_TWO_WAY_1
-  *         - TMR_COUNT_TWO_WAY_2
-  *         - TMR_COUNT_TWO_WAY_3
+  *         - TMR_Count_UP
+  *         - TMR_Count_DOWN
+  *         - TMR_Count_TWO_WAY_1
+  *         - TMR_Count_TWO_WAY_2
+  *         - TMR_Count_TWO_WAY_3
   * @retval none
   */
-void tmr_cnt_dir_Set(tmr_Type *tmr_x, tmr_count_Mode_Type tmr_cnt_dir) {
+void TMR_CNT_Dir_Set(TMR_Type *TMR_x, TMR_Count_Mode_Type TMR_CNT_dir) {
     /* set the cnt direct */
-    tmr_x->ctrl1_bit.cnt_dir = tmr_cnt_dir;
+    TMR_x->ctrl1_bit.cnt_dir = TMR_CNT_dir;
 }
 
 /**
   * @brief  set the repetition counter register(rpr) value
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR8, TMR20
-  * @param  tmr_rpr_value (0x0000~0xFFFF)
+  * @param  TMR_rpr_value (0x0000~0xFFFF)
   * @retval none
   */
-void tmr_repetition_Counter_Set(tmr_Type *tmr_x, uint8_t tmr_rpr_value) {
+void TMR_Repetition_Counter_Set(TMR_Type *TMR_x, uint8_t TMR_rpr_value) {
     /* set the repetition counter value */
-    tmr_x->rpr_bit.rpr = tmr_rpr_value;
+    TMR_x->rpr_bit.rpr = TMR_rpr_value;
 }
 
 /**
   * @brief  set tmr counter value
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
-  * @param  tmr_cnt_value (for 16 bit tmr 0x0000~0xFFFF,
+  * @param  TMR_CNT_value (for 16 bit tmr 0x0000~0xFFFF,
   *                        for 32 bit tmr 0x0000_0000~0xFFFF_FFFF)
   * @retval none
   */
-void tmr_Counter_Value_Set(tmr_Type *tmr_x, uint32_t tmr_cnt_value) {
+void TMR_Counter_Value_Set(TMR_Type *TMR_x, uint32_t TMR_CNT_value) {
     /* set the tmr counter value */
-    tmr_x->cval = tmr_cnt_value;
+    TMR_x->cval = TMR_CNT_value;
 }
 
 /**
   * @brief  get tmr counter value
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @retval tmr counter value
   */
-uint32_t tmr_Counter_Value_Get(tmr_Type *tmr_x) {
-    return tmr_x->cval;
+uint32_t TMR_Counter_Value_Get(TMR_Type *TMR_x) {
+    return TMR_x->cval;
 }
 
 /**
   * @brief  set tmr div value
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
-  * @param  tmr_div_value (for 16 bit tmr 0x0000~0xFFFF,
+  * @param  TMR_Div_value (for 16 bit tmr 0x0000~0xFFFF,
   *                        for 32 bit tmr 0x0000_0000~0xFFFF_FFFF)
   * @retval none
   */
-void tmr_div_Value_Set(tmr_Type *tmr_x, uint32_t tmr_div_value) {
+void TMR_Div_Value_Set(TMR_Type *TMR_x, uint32_t TMR_Div_value) {
     /* set the tmr div value */
-    tmr_x->div = tmr_div_value;
+    TMR_x->div = TMR_Div_value;
 }
 
 /**
   * @brief  get tmr div value
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @retval tmr div value
   */
-uint32_t tmr_div_Value_Get(tmr_Type *tmr_x) {
-    return tmr_x->div;
+uint32_t TMR_Div_Value_Get(TMR_Type *TMR_x) {
+    return TMR_x->div;
 }
 
 /**
   * @brief  config tmr output channel
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
-  * @param  tmr_channel
+  * @param  TMR_Channel
   *         this parameter can be one of the following values:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_2
   *         - TMR_Select_Channel_3
   *         - TMR_Select_Channel_4
   *         - TMR_Select_Channel_5
-  * @param  tmr_OutPut_struct
-  *         - to the structure of tmr_OutPut_Config_Type
+  * @param  TMR_OutPut_struct
+  *         - to the structure of TMR_OutPut_Config_Type
   * @retval none
   */
-void tmr_OutPut_Channel_Config(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
-                               tmr_OutPut_Config_Type *tmr_OutPut_struct) {
+void TMR_OutPut_Channel_Config(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel, \
+                               TMR_OutPut_Config_Type *TMR_OutPut_struct) {
     uint16_t channel_index = 0, channel_c_index = 0, channel = 0, chx_offset, chcx_offset;
 
-    chx_offset = (8 + tmr_channel);
-    chcx_offset = (9 + tmr_channel);
+    chx_offset = (8 + TMR_Channel);
+    chcx_offset = (9 + TMR_Channel);
 
     /* get channel idle state bit position in ctrl2 register */
-    channel_index = (uint16_t)(tmr_OutPut_struct->oc_idle_state << chx_offset);
+    channel_index = (uint16_t)(TMR_OutPut_struct->oc_idle_state << chx_offset);
 
     /* get channel complementary idle state bit position in ctrl2 register */
-    channel_c_index = (uint16_t)(tmr_OutPut_struct->occ_idle_state << chcx_offset);
+    channel_c_index = (uint16_t)(TMR_OutPut_struct->occ_idle_state << chcx_offset);
 
     /* set output channel complementary idle state */
-    tmr_x->ctrl2 &= ~(1 << chcx_offset);
-    tmr_x->ctrl2 |= channel_c_index;
+    TMR_x->ctrl2 &= ~(1 << chcx_offset);
+    TMR_x->ctrl2 |= channel_c_index;
 
     /* set output channel idle state */
-    tmr_x->ctrl2 &= ~(1 << chx_offset);
-    tmr_x->ctrl2 |= channel_index;
+    TMR_x->ctrl2 &= ~(1 << chx_offset);
+    TMR_x->ctrl2 |= channel_index;
 
     /* set channel output mode */
-    channel = tmr_channel;
+    channel = TMR_Channel;
 
     switch(channel) {
         case TMR_Select_Channel_1:
-            tmr_x->cm1_OutPut_bit.c1octrl = tmr_OutPut_struct->oc_Mode;
+            TMR_x->cm1_OutPut_bit.c1octrl = TMR_OutPut_struct->oc_Mode;
             break;
 
         case TMR_Select_Channel_2:
-            tmr_x->cm1_OutPut_bit.c2octrl = tmr_OutPut_struct->oc_Mode;
+            TMR_x->cm1_OutPut_bit.c2octrl = TMR_OutPut_struct->oc_Mode;
             break;
 
         case TMR_Select_Channel_3:
-            tmr_x->cm2_OutPut_bit.c3octrl = tmr_OutPut_struct->oc_Mode;
+            TMR_x->cm2_OutPut_bit.c3octrl = TMR_OutPut_struct->oc_Mode;
             break;
 
         case TMR_Select_Channel_4:
-            tmr_x->cm2_OutPut_bit.c4octrl = tmr_OutPut_struct->oc_Mode;
+            TMR_x->cm2_OutPut_bit.c4octrl = TMR_OutPut_struct->oc_Mode;
             break;
 
         case TMR_Select_Channel_5:
-            tmr_x->cm3_OutPut_bit.c5octrl = tmr_OutPut_struct->oc_Mode;
+            TMR_x->cm3_OutPut_bit.c5octrl = TMR_OutPut_struct->oc_Mode;
             break;
 
         default:
             break;
     }
 
-    chx_offset = ((tmr_channel * 2) + 1);
-    chcx_offset = ((tmr_channel * 2) + 3);
+    chx_offset = ((TMR_Channel * 2) + 1);
+    chcx_offset = ((TMR_Channel * 2) + 3);
 
     /* get channel polarity bit position in cctrl register */
-    channel_index = (uint16_t)(tmr_OutPut_struct->oc_polarity << chx_offset);
+    channel_index = (uint16_t)(TMR_OutPut_struct->oc_polarity << chx_offset);
 
     /* get channel complementary polarity bit position in cctrl register */
-    channel_c_index = (uint16_t)(tmr_OutPut_struct->occ_polarity << chcx_offset);
+    channel_c_index = (uint16_t)(TMR_OutPut_struct->occ_polarity << chcx_offset);
 
     /* set output channel complementary polarity */
-    tmr_x->cctrl &= ~(1 << chcx_offset);
-    tmr_x->cctrl |= channel_c_index;
+    TMR_x->cctrl &= ~(1 << chcx_offset);
+    TMR_x->cctrl |= channel_c_index;
 
     /* set output channel polarity */
-    tmr_x->cctrl &= ~(1 << chx_offset);
-    tmr_x->cctrl |= channel_index;
+    TMR_x->cctrl &= ~(1 << chx_offset);
+    TMR_x->cctrl |= channel_index;
 
-    chx_offset = (tmr_channel * 2);
-    chcx_offset = ((tmr_channel * 2) + 2);
+    chx_offset = (TMR_Channel * 2);
+    chcx_offset = ((TMR_Channel * 2) + 2);
 
     /* get channel enable bit position in cctrl register */
-    channel_index = (uint16_t)(tmr_OutPut_struct->oc_OutPut_state << (tmr_channel * 2));
+    channel_index = (uint16_t)(TMR_OutPut_struct->oc_OutPut_state << (TMR_Channel * 2));
 
     /* get channel complementary enable bit position in cctrl register */
-    channel_c_index = (uint16_t)(tmr_OutPut_struct->occ_OutPut_state << ((tmr_channel * 2) + 2));
+    channel_c_index = (uint16_t)(TMR_OutPut_struct->occ_OutPut_state << ((TMR_Channel * 2) + 2));
 
     /* set output channel complementary enable bit */
-    tmr_x->cctrl &= ~(1 << chcx_offset);
-    tmr_x->cctrl |= channel_c_index;
+    TMR_x->cctrl &= ~(1 << chcx_offset);
+    TMR_x->cctrl |= channel_c_index;
 
     /* set output channel enable bit */
-    tmr_x->cctrl &= ~(1 << chx_offset);
-    tmr_x->cctrl |= channel_index;
+    TMR_x->cctrl &= ~(1 << chx_offset);
+    TMR_x->cctrl |= channel_index;
 }
 
 /**
   * @brief  select tmr output channel mode
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
-  * @param  tmr_channel
+  * @param  TMR_Channel
   *         this parameter can be one of the following values:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_2
@@ -401,38 +401,38 @@ void tmr_OutPut_Channel_Config(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_chan
   *         - TMR_OutPut_Control_OFF
   *         - TMR_OutPut_Control_HIGH
   *         - TMR_OutPut_Control_LOW
-  *         - TMR_OutPut_Control_SWITCH
-  *         - TMR_OutPut_Control_FORCE_HIGH
-  *         - TMR_OutPut_Control_FORCE_LOW
+  *         - TMR_OutPut_Control_Switch
+  *         - TMR_OutPut_Control_Force_HIGH
+  *         - TMR_OutPut_Control_Force_LOW
   *         - TMR_OutPut_Control_PWM_Mode_A
   *         - TMR_OutPut_Control_PWM_Mode_B
   * @retval none
   */
-void tmr_OutPut_Channel_Mode_Select(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
-                                    tmr_OutPut_Control_Mode_Type oc_Mode) {
+void TMR_OutPut_Channel_Mode_Select(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel, \
+                                    TMR_OutPut_Control_Mode_Type oc_Mode) {
     uint16_t channel;
 
-    channel = tmr_channel;
+    channel = TMR_Channel;
 
     switch(channel) {
         case TMR_Select_Channel_1:
-            tmr_x->cm1_OutPut_bit.c1octrl = oc_Mode;
+            TMR_x->cm1_OutPut_bit.c1octrl = oc_Mode;
             break;
 
         case TMR_Select_Channel_2:
-            tmr_x->cm1_OutPut_bit.c2octrl = oc_Mode;
+            TMR_x->cm1_OutPut_bit.c2octrl = oc_Mode;
             break;
 
         case TMR_Select_Channel_3:
-            tmr_x->cm2_OutPut_bit.c3octrl = oc_Mode;
+            TMR_x->cm2_OutPut_bit.c3octrl = oc_Mode;
             break;
 
         case TMR_Select_Channel_4:
-            tmr_x->cm2_OutPut_bit.c4octrl = oc_Mode;
+            TMR_x->cm2_OutPut_bit.c4octrl = oc_Mode;
             break;
 
         case TMR_Select_Channel_5:
-            tmr_x->cm3_OutPut_bit.c5octrl = oc_Mode;
+            TMR_x->cm3_OutPut_bit.c5octrl = oc_Mode;
             break;
 
         default:
@@ -441,23 +441,23 @@ void tmr_OutPut_Channel_Mode_Select(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr
 }
 /**
   * @brief  set tmr period value
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
-  * @param  tmr_pr_value: timer period register value of counter
+  * @param  TMR_pr_value: timer period register value of counter
   *                       (for 16 bit tmr 0x0000~0xFFFF,
   *                       for 32 bit tmr 0x0000_0000~0xFFFF_FFFF)
   * @retval none
   */
-void tmr_period_Value_Set(tmr_Type *tmr_x, uint32_t tmr_pr_value) {
+void TMR_Period_Value_Set(TMR_Type *TMR_x, uint32_t TMR_pr_value) {
     /* set tmr period value */
-    tmr_x->pr = tmr_pr_value;
+    TMR_x->pr = TMR_pr_value;
 }
 
 /**
   * @brief  get tmr period value
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
@@ -465,53 +465,53 @@ void tmr_period_Value_Set(tmr_Type *tmr_x, uint32_t tmr_pr_value) {
   *         (for 16 bit tmr 0x0000~0xFFFF, for 32 bit tmr
   *         0x0000_0000~0xFFFF_FFFF)
   */
-uint32_t tmr_period_Value_Get(tmr_Type *tmr_x) {
-    return tmr_x->pr;
+uint32_t TMR_Period_Value_Get(TMR_Type *TMR_x) {
+    return TMR_x->pr;
 }
 
 /**
   * @brief  set tmr channel value
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
-  * @param  tmr_channel
+  * @param  TMR_Channel
   *         this parameter can be one of the following values:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_2
   *         - TMR_Select_Channel_3
   *         - TMR_Select_Channel_4
   *         - TMR_Select_Channel_5
-  * @param  tmr_Channel_value (for 16 bit tmr 0x0000~0xFFFF,
+  * @param  TMR_Channel_value (for 16 bit tmr 0x0000~0xFFFF,
   *                       for 32 bit tmr 0x0000_0000~0xFFFF_FFFF)
   * @retval none
   */
-void tmr_Channel_Value_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
-                           uint32_t tmr_Channel_value) {
+void TMR_Channel_Value_Set(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel, \
+                           uint32_t TMR_Channel_value) {
     uint16_t channel;
 
-    channel = tmr_channel;
+    channel = TMR_Channel;
 
     /* set tmr channel value */
     switch(channel) {
         case TMR_Select_Channel_1:
-            tmr_x->c1dt = tmr_Channel_value;
+            TMR_x->c1dt = TMR_Channel_value;
             break;
 
         case TMR_Select_Channel_2:
-            tmr_x->c2dt = tmr_Channel_value;
+            TMR_x->c2dt = TMR_Channel_value;
             break;
 
         case TMR_Select_Channel_3:
-            tmr_x->c3dt = tmr_Channel_value;
+            TMR_x->c3dt = TMR_Channel_value;
             break;
 
         case TMR_Select_Channel_4:
-            tmr_x->c4dt = tmr_Channel_value;
+            TMR_x->c4dt = TMR_Channel_value;
             break;
 
         case TMR_Select_Channel_5:
-            tmr_x->c5dt = tmr_Channel_value;
+            TMR_x->c5dt = TMR_Channel_value;
             break;
 
         default:
@@ -521,11 +521,11 @@ void tmr_Channel_Value_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel,
 
 /**
   * @brief  get tmr channel value
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
-  * @param  tmr_channel
+  * @param  TMR_Channel
   *         this parameter can be one of the following values:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_2
@@ -534,32 +534,32 @@ void tmr_Channel_Value_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel,
   *         - TMR_Select_Channel_5
   * @retval tmr channel value
   */
-uint32_t tmr_Channel_Value_Get(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel) {
+uint32_t TMR_Channel_Value_Get(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel) {
     uint32_t cc_Value_Get = 0;
     uint16_t channel;
 
-    channel = tmr_channel;
+    channel = TMR_Channel;
 
     /* get tmr channel value */
     switch(channel) {
         case TMR_Select_Channel_1:
-            cc_Value_Get = tmr_x->c1dt;
+            cc_Value_Get = TMR_x->c1dt;
             break;
 
         case TMR_Select_Channel_2:
-            cc_Value_Get = tmr_x->c2dt;
+            cc_Value_Get = TMR_x->c2dt;
             break;
 
         case TMR_Select_Channel_3:
-            cc_Value_Get = tmr_x->c3dt;
+            cc_Value_Get = TMR_x->c3dt;
             break;
 
         case TMR_Select_Channel_4:
-            cc_Value_Get = tmr_x->c4dt;
+            cc_Value_Get = TMR_x->c4dt;
             break;
 
         case TMR_Select_Channel_5:
-            cc_Value_Get = tmr_x->c5dt;
+            cc_Value_Get = TMR_x->c5dt;
             break;
 
         default:
@@ -570,25 +570,25 @@ uint32_t tmr_Channel_Value_Get(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_chan
 }
 /**
   * @brief  set tmr period buffer
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void tmr_period_buffer_Enable(tmr_Type *tmr_x, confirm_state new_state) {
+void TMR_Period_Buffer_Enable(TMR_Type *TMR_x, confirm_state new_state) {
     /* tmr period buffer set */
-    tmr_x->ctrl1_bit.prben = new_state;
+    TMR_x->ctrl1_bit.prben = new_state;
 }
 
 /**
   * @brief  set tmr output channel buffer
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
-  * @param  tmr_channel
+  * @param  TMR_Channel
   *         this parameter can be one of the following values:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_2
@@ -598,32 +598,32 @@ void tmr_period_buffer_Enable(tmr_Type *tmr_x, confirm_state new_state) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void tmr_OutPut_Channel_buffer_Enable(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
+void TMR_OutPut_Channel_Buffer_Enable(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel, \
                                       confirm_state new_state) {
     uint16_t channel;
 
-    channel = tmr_channel;
+    channel = TMR_Channel;
 
     /* get tmr channel value */
     switch(channel) {
         case TMR_Select_Channel_1:
-            tmr_x->cm1_OutPut_bit.c1oben = new_state;
+            TMR_x->cm1_OutPut_bit.c1oben = new_state;
             break;
 
         case TMR_Select_Channel_2:
-            tmr_x->cm1_OutPut_bit.c2oben = new_state;
+            TMR_x->cm1_OutPut_bit.c2oben = new_state;
             break;
 
         case TMR_Select_Channel_3:
-            tmr_x->cm2_OutPut_bit.c3oben = new_state;
+            TMR_x->cm2_OutPut_bit.c3oben = new_state;
             break;
 
         case TMR_Select_Channel_4:
-            tmr_x->cm2_OutPut_bit.c4oben = new_state;
+            TMR_x->cm2_OutPut_bit.c4oben = new_state;
             break;
 
         case TMR_Select_Channel_5:
-            tmr_x->cm3_OutPut_bit.c5oben = new_state;
+            TMR_x->cm3_OutPut_bit.c5oben = new_state;
             break;
 
         default:
@@ -633,11 +633,11 @@ void tmr_OutPut_Channel_buffer_Enable(tmr_Type *tmr_x, tmr_Channel_Select_Type t
 
 /**
   * @brief  set tmr output channel immediately
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
-  * @param  tmr_channel
+  * @param  TMR_Channel
   *         this parameter can be one of the following values:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_2
@@ -647,32 +647,32 @@ void tmr_OutPut_Channel_buffer_Enable(tmr_Type *tmr_x, tmr_Channel_Select_Type t
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void tmr_OutPut_Channel_immediately_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
+void TMR_OutPut_Channel_Immediately_Set(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel, \
                                         confirm_state new_state) {
     uint16_t channel;
 
-    channel = tmr_channel;
+    channel = TMR_Channel;
 
     /* get tmr channel value */
     switch(channel) {
         case TMR_Select_Channel_1:
-            tmr_x->cm1_OutPut_bit.c1oien = new_state;
+            TMR_x->cm1_OutPut_bit.c1oien = new_state;
             break;
 
         case TMR_Select_Channel_2:
-            tmr_x->cm1_OutPut_bit.c2oien = new_state;
+            TMR_x->cm1_OutPut_bit.c2oien = new_state;
             break;
 
         case TMR_Select_Channel_3:
-            tmr_x->cm2_OutPut_bit.c3oien = new_state;
+            TMR_x->cm2_OutPut_bit.c3oien = new_state;
             break;
 
         case TMR_Select_Channel_4:
-            tmr_x->cm2_OutPut_bit.c4oien = new_state;
+            TMR_x->cm2_OutPut_bit.c4oien = new_state;
             break;
 
         case TMR_Select_Channel_5:
-            tmr_x->cm3_OutPut_bit.c5oien = new_state;
+            TMR_x->cm3_OutPut_bit.c5oien = new_state;
             break;
 
         default:
@@ -682,11 +682,11 @@ void tmr_OutPut_Channel_immediately_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type
 
 /**
   * @brief  set tmr output channel switch
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
-  * @param  tmr_channel
+  * @param  TMR_Channel
   *         this parameter can be one of the following values:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_2
@@ -696,32 +696,32 @@ void tmr_OutPut_Channel_immediately_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void tmr_OutPut_Channel_switch_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
+void TMR_OutPut_Channel_Switch_Set(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel, \
                                    confirm_state new_state) {
     uint16_t channel;
 
-    channel = tmr_channel;
+    channel = TMR_Channel;
 
     /* get tmr channel value */
     switch(channel) {
         case TMR_Select_Channel_1:
-            tmr_x->cm1_OutPut_bit.c1osen = new_state;
+            TMR_x->cm1_OutPut_bit.c1osen = new_state;
             break;
 
         case TMR_Select_Channel_2:
-            tmr_x->cm1_OutPut_bit.c2osen = new_state;
+            TMR_x->cm1_OutPut_bit.c2osen = new_state;
             break;
 
         case TMR_Select_Channel_3:
-            tmr_x->cm2_OutPut_bit.c3osen = new_state;
+            TMR_x->cm2_OutPut_bit.c3osen = new_state;
             break;
 
         case TMR_Select_Channel_4:
-            tmr_x->cm2_OutPut_bit.c4osen = new_state;
+            TMR_x->cm2_OutPut_bit.c4osen = new_state;
             break;
 
         case TMR_Select_Channel_5:
-            tmr_x->cm3_OutPut_bit.c5osen = new_state;
+            TMR_x->cm3_OutPut_bit.c5osen = new_state;
             break;
 
         default:
@@ -731,76 +731,76 @@ void tmr_OutPut_Channel_switch_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_
 
 /**
   * @brief  enable or disable tmr one cycle mode
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8, TMR9, TMR12, TMR20
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void tmr_One_cycle_Mode_Enable(tmr_Type *tmr_x, confirm_state new_state) {
+void TMR_ONE_Cycle_Mode_Enable(TMR_Type *TMR_x, confirm_state new_state) {
     /* tmr one cycle mode enable */
-    tmr_x->ctrl1_bit.ocmen = new_state;
+    TMR_x->ctrl1_bit.ocmen = new_state;
 }
 
 /**
   * @brief  enable or disable  tmr 32 bit function(plus mode)
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR2, TMR5
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void tmr_32_Bit_function_Enable (tmr_Type *tmr_x, confirm_state new_state) {
+void TMR_32_Bit_Function_Enable (TMR_Type *TMR_x, confirm_state new_state) {
     /* tmr 32 bit function(plus mode) enable,only for TMR2/TMR5 */
-    if((tmr_x == TMR2) || (tmr_x == TMR5)) {
-        tmr_x->ctrl1_bit.pmen = new_state;
+    if((TMR_x == TMR2) || (TMR_x == TMR5)) {
+        TMR_x->ctrl1_bit.pmen = new_state;
     }
 }
 
 /**
   * @brief  select tmr the overflow event sources
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void tmr_OverFlow_Request_Source_Set(tmr_Type *tmr_x, confirm_state new_state) {
-    tmr_x->ctrl1_bit.ovfs = new_state;
+void TMR_OverFlow_Request_Source_Set(TMR_Type *TMR_x, confirm_state new_state) {
+    TMR_x->ctrl1_bit.ovfs = new_state;
 }
 
 /**
   * @brief  enable or disable tmr overflow event generation
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void tmr_OverFlow_Event_Disable(tmr_Type *tmr_x, confirm_state new_state) {
-    tmr_x->ctrl1_bit.ovfen = new_state;
+void TMR_OverFlow_Event_Disable(TMR_Type *TMR_x, confirm_state new_state) {
+    TMR_x->ctrl1_bit.ovfen = new_state;
 }
 
 /**
   * @brief  init tmr input channel
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  input_struct
-  *         - to the structure of tmr_Input_Config_Type
+  *         - to the structure of TMR_Input_Config_Type
   * @param  divider_factor
   *         this parameter can be one of the following values:
-  *         - TMR_Channel_Input_DIV_1
-  *         - TMR_Channel_Input_DIV_2
-  *         - TMR_Channel_Input_DIV_4
-  *         - TMR_Channel_Input_DIV_8
+  *         - TMR_Channel_Input_Div_1
+  *         - TMR_Channel_Input_Div_2
+  *         - TMR_Channel_Input_Div_4
+  *         - TMR_Channel_Input_Div_8
   * @retval none
   */
-void tmr_Input_Channel_Init(tmr_Type *tmr_x, tmr_Input_Config_Type *input_struct, \
-                            tmr_Channel_Input_Divider_Type divider_factor) {
+void TMR_Input_Channel_Init(TMR_Type *TMR_x, TMR_Input_Config_Type *input_struct, \
+                            TMR_Channel_Input_Divider_Type divider_factor) {
     uint16_t channel = 0;
 
     /* get channel selected */
@@ -808,42 +808,42 @@ void tmr_Input_Channel_Init(tmr_Type *tmr_x, tmr_Input_Config_Type *input_struct
 
     switch(channel) {
         case TMR_Select_Channel_1:
-            tmr_x->cctrl_bit.c1en       = FALSE;
-            tmr_x->cctrl_bit.c1p        = (uint32_t)input_struct->input_polarity_Select;
-            tmr_x->cctrl_bit.c1cp       = (input_struct->input_polarity_Select & 0x2) >> 1;
-            tmr_x->cm1_Input_bit.c1c    = input_struct->input_mapped_Select;
-            tmr_x->cm1_Input_bit.c1df   = input_struct->input_Filter_value;
-            tmr_x->cm1_Input_bit.c1idiv = divider_factor;
-            tmr_x->cctrl_bit.c1en       = TRUE;
+            TMR_x->cctrl_bit.c1en       = FALSE;
+            TMR_x->cctrl_bit.c1p        = (uint32_t)input_struct->input_Polarity_Select;
+            TMR_x->cctrl_bit.c1cp       = (input_struct->input_Polarity_Select & 0x2) >> 1;
+            TMR_x->cm1_Input_bit.c1c    = input_struct->input_mapped_Select;
+            TMR_x->cm1_Input_bit.c1df   = input_struct->input_Filter_value;
+            TMR_x->cm1_Input_bit.c1idiv = divider_factor;
+            TMR_x->cctrl_bit.c1en       = TRUE;
             break;
 
         case TMR_Select_Channel_2:
-            tmr_x->cctrl_bit.c2en       = FALSE;
-            tmr_x->cctrl_bit.c2p        = (uint32_t)input_struct->input_polarity_Select;
-            tmr_x->cctrl_bit.c2cp       = (input_struct->input_polarity_Select & 0x2) >> 1;
-            tmr_x->cm1_Input_bit.c2c    = input_struct->input_mapped_Select;
-            tmr_x->cm1_Input_bit.c2df   = input_struct->input_Filter_value;
-            tmr_x->cm1_Input_bit.c2idiv = divider_factor;
-            tmr_x->cctrl_bit.c2en       = TRUE;
+            TMR_x->cctrl_bit.c2en       = FALSE;
+            TMR_x->cctrl_bit.c2p        = (uint32_t)input_struct->input_Polarity_Select;
+            TMR_x->cctrl_bit.c2cp       = (input_struct->input_Polarity_Select & 0x2) >> 1;
+            TMR_x->cm1_Input_bit.c2c    = input_struct->input_mapped_Select;
+            TMR_x->cm1_Input_bit.c2df   = input_struct->input_Filter_value;
+            TMR_x->cm1_Input_bit.c2idiv = divider_factor;
+            TMR_x->cctrl_bit.c2en       = TRUE;
             break;
 
         case TMR_Select_Channel_3:
-            tmr_x->cctrl_bit.c3en       = FALSE;
-            tmr_x->cctrl_bit.c3p        = (uint32_t)input_struct->input_polarity_Select;
-            tmr_x->cctrl_bit.c3cp       = (input_struct->input_polarity_Select & 0x2) >> 1;
-            tmr_x->cm2_Input_bit.c3c    = input_struct->input_mapped_Select;
-            tmr_x->cm2_Input_bit.c3df   = input_struct->input_Filter_value;
-            tmr_x->cm2_Input_bit.c3idiv = divider_factor;
-            tmr_x->cctrl_bit.c3en       = TRUE;
+            TMR_x->cctrl_bit.c3en       = FALSE;
+            TMR_x->cctrl_bit.c3p        = (uint32_t)input_struct->input_Polarity_Select;
+            TMR_x->cctrl_bit.c3cp       = (input_struct->input_Polarity_Select & 0x2) >> 1;
+            TMR_x->cm2_Input_bit.c3c    = input_struct->input_mapped_Select;
+            TMR_x->cm2_Input_bit.c3df   = input_struct->input_Filter_value;
+            TMR_x->cm2_Input_bit.c3idiv = divider_factor;
+            TMR_x->cctrl_bit.c3en       = TRUE;
             break;
 
         case TMR_Select_Channel_4:
-            tmr_x->cctrl_bit.c4en       = FALSE;
-            tmr_x->cctrl_bit.c4p        = (uint32_t)input_struct->input_polarity_Select;
-            tmr_x->cm2_Input_bit.c4c    = input_struct->input_mapped_Select;
-            tmr_x->cm2_Input_bit.c4df   = input_struct->input_Filter_value;
-            tmr_x->cm2_Input_bit.c4idiv = divider_factor;
-            tmr_x->cctrl_bit.c4en       = TRUE;
+            TMR_x->cctrl_bit.c4en       = FALSE;
+            TMR_x->cctrl_bit.c4p        = (uint32_t)input_struct->input_Polarity_Select;
+            TMR_x->cm2_Input_bit.c4c    = input_struct->input_mapped_Select;
+            TMR_x->cm2_Input_bit.c4df   = input_struct->input_Filter_value;
+            TMR_x->cm2_Input_bit.c4idiv = divider_factor;
+            TMR_x->cctrl_bit.c4en       = TRUE;
             break;
 
         default:
@@ -853,11 +853,11 @@ void tmr_Input_Channel_Init(tmr_Type *tmr_x, tmr_Input_Config_Type *input_struct
 
 /**
   * @brief  tmr channel enable
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
-  * @param  tmr_channel
+  * @param  TMR_Channel
   *         this parameter can be one of the following values:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_1C
@@ -869,38 +869,38 @@ void tmr_Input_Channel_Init(tmr_Type *tmr_x, tmr_Input_Config_Type *input_struct
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void tmr_Channel_Enable(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, confirm_state new_state) {
+void TMR_Channel_Enable(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel, confirm_state new_state) {
     uint16_t channel;
 
-    channel = tmr_channel;
+    channel = TMR_Channel;
 
     switch(channel) {
         case TMR_Select_Channel_1:
-            tmr_x->cctrl_bit.c1en         = new_state;
+            TMR_x->cctrl_bit.c1en         = new_state;
             break;
 
         case TMR_Select_Channel_1C:
-            tmr_x->cctrl_bit.c1cen        = new_state;
+            TMR_x->cctrl_bit.c1cen        = new_state;
             break;
 
         case TMR_Select_Channel_2:
-            tmr_x->cctrl_bit.c2en         = new_state;
+            TMR_x->cctrl_bit.c2en         = new_state;
             break;
 
         case TMR_Select_Channel_2C:
-            tmr_x->cctrl_bit.c2cen        = new_state;
+            TMR_x->cctrl_bit.c2cen        = new_state;
             break;
 
         case TMR_Select_Channel_3:
-            tmr_x->cctrl_bit.c3en         = new_state;
+            TMR_x->cctrl_bit.c3en         = new_state;
             break;
 
         case TMR_Select_Channel_3C:
-            tmr_x->cctrl_bit.c3cen        = new_state;
+            TMR_x->cctrl_bit.c3cen        = new_state;
             break;
 
         case TMR_Select_Channel_4:
-            tmr_x->cctrl_bit.c4en         = new_state;
+            TMR_x->cctrl_bit.c4en         = new_state;
             break;
 
         default:
@@ -910,11 +910,11 @@ void tmr_Channel_Enable(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, co
 
 /**
   * @brief  set tmr input channel filter
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
-  * @param  tmr_channel
+  * @param  TMR_Channel
   *         this parameter can be one of the following values:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_2
@@ -923,27 +923,27 @@ void tmr_Channel_Enable(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, co
   * @param  filter_value (0x0~0xf)
   * @retval none
   */
-void tmr_Input_Channel_Filter_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
+void TMR_Input_Channel_Filter_Set(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel, \
                                   uint16_t filter_value) {
     uint16_t channel;
 
-    channel = tmr_channel;
+    channel = TMR_Channel;
 
     switch(channel) {
         case TMR_Select_Channel_1:
-            tmr_x->cm1_Input_bit.c1df = filter_value;
+            TMR_x->cm1_Input_bit.c1df = filter_value;
             break;
 
         case TMR_Select_Channel_2:
-            tmr_x->cm1_Input_bit.c2df = filter_value;
+            TMR_x->cm1_Input_bit.c2df = filter_value;
             break;
 
         case TMR_Select_Channel_3:
-            tmr_x->cm2_Input_bit.c3df = filter_value;
+            TMR_x->cm2_Input_bit.c3df = filter_value;
             break;
 
         case TMR_Select_Channel_4:
-            tmr_x->cm2_Input_bit.c4df = filter_value;
+            TMR_x->cm2_Input_bit.c4df = filter_value;
             break;
 
         default:
@@ -953,22 +953,22 @@ void tmr_Input_Channel_Filter_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_c
 
 /**
   * @brief  config tmr pwm input
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  input_struct
-  *         - to the structure of tmr_Input_Config_Type
+  *         - to the structure of TMR_Input_Config_Type
   * @param  divider_factor
   *         this parameter can be one of the following values:
-  *         - TMR_Channel_Input_DIV_1
-  *         - TMR_Channel_Input_DIV_2
-  *         - TMR_Channel_Input_DIV_4
-  *         - TMR_Channel_Input_DIV_8
+  *         - TMR_Channel_Input_Div_1
+  *         - TMR_Channel_Input_Div_2
+  *         - TMR_Channel_Input_Div_4
+  *         - TMR_Channel_Input_Div_8
   * @retval none
   */
-void tmr_pwm_Input_Config(tmr_Type *tmr_x, tmr_Input_Config_Type *input_struct, \
-                          tmr_Channel_Input_Divider_Type divider_factor) {
+void TMR_PWM_Input_Config(TMR_Type *TMR_x, TMR_Input_Config_Type *input_struct, \
+                          TMR_Channel_Input_Divider_Type divider_factor) {
     uint16_t channel = 0;
 
     /* get channel selected */
@@ -976,73 +976,73 @@ void tmr_pwm_Input_Config(tmr_Type *tmr_x, tmr_Input_Config_Type *input_struct, 
 
     switch(channel) {
         case TMR_Select_Channel_1:
-            if(input_struct->input_polarity_Select == TMR_Input_RISING_EDGE) {
+            if(input_struct->input_Polarity_Select == TMR_Input_RISING_EDGE) {
                 /* set channel polarity */
-                tmr_x->cctrl_bit.c1p          = TMR_Input_RISING_EDGE;
-                tmr_x->cctrl_bit.c2p          = TMR_Input_FALLING_EDGE;
-            } else if(input_struct->input_polarity_Select == TMR_Input_FALLING_EDGE) {
+                TMR_x->cctrl_bit.c1p          = TMR_Input_RISING_EDGE;
+                TMR_x->cctrl_bit.c2p          = TMR_Input_FALLING_EDGE;
+            } else if(input_struct->input_Polarity_Select == TMR_Input_FALLING_EDGE) {
                 /* set channel polarity */
-                tmr_x->cctrl_bit.c1p          = TMR_Input_FALLING_EDGE;
-                tmr_x->cctrl_bit.c2p          = TMR_Input_RISING_EDGE;
+                TMR_x->cctrl_bit.c1p          = TMR_Input_FALLING_EDGE;
+                TMR_x->cctrl_bit.c2p          = TMR_Input_RISING_EDGE;
             }
 
             if(input_struct->input_mapped_Select == TMR_CC_Channel_MAPPED_DIRECT) {
                 /* ic1 is mapped on ti1 */
-                tmr_x->cm1_Input_bit.c1c = TMR_CC_Channel_MAPPED_DIRECT;
+                TMR_x->cm1_Input_bit.c1c = TMR_CC_Channel_MAPPED_DIRECT;
 
                 /* ic1 is mapped on ti2 */
-                tmr_x->cm1_Input_bit.c2c = TMR_CC_Channel_MAPPED_INDIRECT;
+                TMR_x->cm1_Input_bit.c2c = TMR_CC_Channel_MAPPED_INDIRECT;
             } else if(input_struct->input_mapped_Select == TMR_CC_Channel_MAPPED_INDIRECT) {
                 /* ic1 is mapped on ti1 */
-                tmr_x->cm1_Input_bit.c1c = TMR_CC_Channel_MAPPED_INDIRECT;
+                TMR_x->cm1_Input_bit.c1c = TMR_CC_Channel_MAPPED_INDIRECT;
 
                 /* ic1 is mapped on ti2 */
-                tmr_x->cm1_Input_bit.c2c = TMR_CC_Channel_MAPPED_DIRECT;
+                TMR_x->cm1_Input_bit.c2c = TMR_CC_Channel_MAPPED_DIRECT;
             }
 
             /* set input ch1 and ch2 filter value*/
-            tmr_x->cm1_Input_bit.c1df = input_struct->input_Filter_value;
-            tmr_x->cm1_Input_bit.c2df = input_struct->input_Filter_value;
+            TMR_x->cm1_Input_bit.c1df = input_struct->input_Filter_value;
+            TMR_x->cm1_Input_bit.c2df = input_struct->input_Filter_value;
 
             /*set input ch1 and ch2 divider value*/
-            tmr_x->cm1_Input_bit.c1idiv = divider_factor;
-            tmr_x->cm1_Input_bit.c2idiv = divider_factor;
+            TMR_x->cm1_Input_bit.c1idiv = divider_factor;
+            TMR_x->cm1_Input_bit.c2idiv = divider_factor;
 
-            tmr_x->cctrl_bit.c1en = TRUE;
-            tmr_x->cctrl_bit.c2en = TRUE;
+            TMR_x->cctrl_bit.c1en = TRUE;
+            TMR_x->cctrl_bit.c2en = TRUE;
             break;
 
         case TMR_Select_Channel_2:
-            if(input_struct->input_polarity_Select == TMR_Input_RISING_EDGE) {
+            if(input_struct->input_Polarity_Select == TMR_Input_RISING_EDGE) {
                 /* set channel polarity */
-                tmr_x->cctrl_bit.c2p          = TMR_Input_RISING_EDGE;
-                tmr_x->cctrl_bit.c1p          = TMR_Input_FALLING_EDGE;
-            } else if(input_struct->input_polarity_Select == TMR_Input_FALLING_EDGE) {
+                TMR_x->cctrl_bit.c2p          = TMR_Input_RISING_EDGE;
+                TMR_x->cctrl_bit.c1p          = TMR_Input_FALLING_EDGE;
+            } else if(input_struct->input_Polarity_Select == TMR_Input_FALLING_EDGE) {
                 /* set channel polarity */
-                tmr_x->cctrl_bit.c2p          = TMR_Input_FALLING_EDGE;
-                tmr_x->cctrl_bit.c1p          = TMR_Input_RISING_EDGE;
+                TMR_x->cctrl_bit.c2p          = TMR_Input_FALLING_EDGE;
+                TMR_x->cctrl_bit.c1p          = TMR_Input_RISING_EDGE;
             }
 
             if(input_struct->input_mapped_Select == TMR_CC_Channel_MAPPED_DIRECT) {
                 /* set mapped direct */
-                tmr_x->cm1_Input_bit.c2c = TMR_CC_Channel_MAPPED_DIRECT;
-                tmr_x->cm1_Input_bit.c1c = TMR_CC_Channel_MAPPED_INDIRECT;
+                TMR_x->cm1_Input_bit.c2c = TMR_CC_Channel_MAPPED_DIRECT;
+                TMR_x->cm1_Input_bit.c1c = TMR_CC_Channel_MAPPED_INDIRECT;
             } else if(input_struct->input_mapped_Select == TMR_CC_Channel_MAPPED_INDIRECT) {
                 /* set mapped direct */
-                tmr_x->cm1_Input_bit.c2c = TMR_CC_Channel_MAPPED_INDIRECT;
-                tmr_x->cm1_Input_bit.c1c = TMR_CC_Channel_MAPPED_DIRECT;
+                TMR_x->cm1_Input_bit.c2c = TMR_CC_Channel_MAPPED_INDIRECT;
+                TMR_x->cm1_Input_bit.c1c = TMR_CC_Channel_MAPPED_DIRECT;
             }
 
             /* set input ch1 and ch2 filter value*/
-            tmr_x->cm1_Input_bit.c1df = input_struct->input_Filter_value;
-            tmr_x->cm1_Input_bit.c2df = input_struct->input_Filter_value;
+            TMR_x->cm1_Input_bit.c1df = input_struct->input_Filter_value;
+            TMR_x->cm1_Input_bit.c2df = input_struct->input_Filter_value;
 
             /*set input ch1 and ch2 divider value*/
-            tmr_x->cm1_Input_bit.c1idiv = divider_factor;
-            tmr_x->cm1_Input_bit.c2idiv = divider_factor;
+            TMR_x->cm1_Input_bit.c1idiv = divider_factor;
+            TMR_x->cm1_Input_bit.c2idiv = divider_factor;
 
-            tmr_x->cctrl_bit.c1en = TRUE;
-            tmr_x->cctrl_bit.c2en = TRUE;
+            TMR_x->cctrl_bit.c1en = TRUE;
+            TMR_x->cctrl_bit.c2en = TRUE;
             break;
 
         default:
@@ -1052,7 +1052,7 @@ void tmr_pwm_Input_Config(tmr_Type *tmr_x, tmr_Input_Config_Type *input_struct, 
 
 /**
   * @brief  select tmr channel1 input
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR20
   * @param  ch1_Connect
@@ -1061,17 +1061,17 @@ void tmr_pwm_Input_Config(tmr_Type *tmr_x, tmr_Input_Config_Type *input_struct, 
   *         - TMR_CHANEL1_2_3_ConnectED_C1IRAW_XOR
   * @retval none
   */
-void tmr_channel1_Input_Select(tmr_Type *tmr_x, tmr_channel1_Input_Connected_Type ch1_Connect) {
-    tmr_x->ctrl2_bit.c1insel = ch1_Connect;
+void TMR_Channel1_Input_Select(TMR_Type *TMR_x, TMR_Channel1_Input_Connected_Type ch1_Connect) {
+    TMR_x->ctrl2_bit.c1insel = ch1_Connect;
 }
 
 /**
   * @brief  set tmr input channel divider
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
-  * @param  tmr_channel
+  * @param  TMR_Channel
   *         this parameter can be one of the following values:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_2
@@ -1079,33 +1079,33 @@ void tmr_channel1_Input_Select(tmr_Type *tmr_x, tmr_channel1_Input_Connected_Typ
   *         - TMR_Select_Channel_4
   * @param  divider_factor
   *         this parameter can be one of the following values:
-  *         - TMR_Channel_Input_DIV_1
-  *         - TMR_Channel_Input_DIV_2
-  *         - TMR_Channel_Input_DIV_4
-  *         - TMR_Channel_Input_DIV_8
+  *         - TMR_Channel_Input_Div_1
+  *         - TMR_Channel_Input_Div_2
+  *         - TMR_Channel_Input_Div_4
+  *         - TMR_Channel_Input_Div_8
   * @retval none
   */
-void tmr_Input_Channel_Divider_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
-                                   tmr_Channel_Input_Divider_Type divider_factor) {
+void TMR_Input_Channel_Divider_Set(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel, \
+                                   TMR_Channel_Input_Divider_Type divider_factor) {
     uint16_t channel;
 
-    channel = tmr_channel;
+    channel = TMR_Channel;
 
     switch(channel) {
         case TMR_Select_Channel_1:
-            tmr_x->cm1_Input_bit.c1idiv = divider_factor;
+            TMR_x->cm1_Input_bit.c1idiv = divider_factor;
             break;
 
         case TMR_Select_Channel_2:
-            tmr_x->cm1_Input_bit.c2idiv = divider_factor;
+            TMR_x->cm1_Input_bit.c2idiv = divider_factor;
             break;
 
         case TMR_Select_Channel_3:
-            tmr_x->cm2_Input_bit.c3idiv = divider_factor;
+            TMR_x->cm2_Input_bit.c3idiv = divider_factor;
             break;
 
         case TMR_Select_Channel_4:
-            tmr_x->cm2_Input_bit.c4idiv = divider_factor;
+            TMR_x->cm2_Input_bit.c4idiv = divider_factor;
             break;
 
         default:
@@ -1115,101 +1115,101 @@ void tmr_Input_Channel_Divider_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_
 
 /**
   * @brief  select tmr primary mode
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8, TMR20
   * @param  primary_Mode
   *         this parameter can be one of the following values:
-  *         - TMR_PRIMARY_SEL_Reset
-  *         - TMR_PRIMARY_SEL_Enable
-  *         - TMR_PRIMARY_SEL_OVERFLOW
-  *         - TMR_PRIMARY_SEL_COMPARE
-  *         - TMR_PRIMARY_SEL_C1ORAW
-  *         - TMR_PRIMARY_SEL_C2ORAW
-  *         - TMR_PRIMARY_SEL_C3ORAW
-  *         - TMR_PRIMARY_SEL_C4ORAW
+  *         - TMR_Primary_SEL_Reset
+  *         - TMR_Primary_SEL_Enable
+  *         - TMR_Primary_SEL_OVERFLOW
+  *         - TMR_Primary_SEL_COMPARE
+  *         - TMR_Primary_SEL_C1ORAW
+  *         - TMR_Primary_SEL_C2ORAW
+  *         - TMR_Primary_SEL_C3ORAW
+  *         - TMR_Primary_SEL_C4ORAW
   * @retval none
   */
-void tmr_primary_Mode_Select(tmr_Type *tmr_x, tmr_primary_Select_Type primary_Mode) {
-    tmr_x->ctrl2_bit.ptos = primary_Mode;
+void TMR_Primary_Mode_Select(TMR_Type *TMR_x, TMR_Primary_Select_Type primary_Mode) {
+    TMR_x->ctrl2_bit.ptos = primary_Mode;
 }
 
 /**
   * @brief  select tmr subordinate mode
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR12, TMR20
   * @param  sub_Mode
   *         this parameter can be one of the following values:
   *         - TMR_Sub_Mode_DIABLE
-  *         - TMR_Sub_ENCODER_Mode_A
-  *         - TMR_Sub_ENCODER_Mode_B
-  *         - TMR_Sub_ENCODER_Mode_C
+  *         - TMR_Sub_Encoder_Mode_A
+  *         - TMR_Sub_Encoder_Mode_B
+  *         - TMR_Sub_Encoder_Mode_C
   *         - TMR_Sub_Reset_Mode
   *         - TMR_Sub_HANG_Mode
   *         - TMR_Sub_Trigger_Mode
-  *         - TMR_Sub_EXTERNAL_Clock_Mode_A
+  *         - TMR_Sub_External_Clock_Mode_A
 
   * @retval none
   */
-void tmr_Sub_Mode_Select(tmr_Type *tmr_x, tmr_Sub_Mode_Select_Type sub_Mode) {
-    tmr_x->stctrl_bit.smsel = sub_Mode;
+void TMR_Sub_Mode_Select(TMR_Type *TMR_x, TMR_Sub_Mode_Select_Type sub_Mode) {
+    TMR_x->stctrl_bit.smsel = sub_Mode;
 }
 
 /**
   * @brief  select tmr channel dma
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR12, TMR20
   * @param  cc_DMA_Select
   *         this parameter can be one of the following values:
-  *         - TMR_DMA_Request_BY_CHANNEL
+  *         - TMR_DMA_Request_BY_ChanneL
   *         - TMR_DMA_Request_BY_OVERFLOW
   * @retval none
   */
-void tmr_Channel_DMA_Select(tmr_Type *tmr_x, tmr_DMA_Request_Source_Type cc_DMA_Select) {
-    tmr_x->ctrl2_bit.drs = cc_DMA_Select;
+void TMR_Channel_DMA_Select(TMR_Type *TMR_x, TMR_DMA_Request_Source_Type cc_DMA_Select) {
+    TMR_x->ctrl2_bit.drs = cc_DMA_Select;
 }
 
 /**
   * @brief  select tmr hall
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR8, TMR20
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void tmr_hall_Select(tmr_Type *tmr_x,  confirm_state new_state) {
-    tmr_x->ctrl2_bit.ccfs = new_state;
+void TMR_Hall_Select(TMR_Type *TMR_x,  confirm_state new_state) {
+    TMR_x->ctrl2_bit.ccfs = new_state;
 }
 
 /**
   * @brief  select tmr channel buffer
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR8, TMR20
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void tmr_Channel_buffer_Enable(tmr_Type *tmr_x, confirm_state new_state) {
-    tmr_x->ctrl2_bit.cbctrl = new_state;
+void TMR_Channel_Buffer_Enable(TMR_Type *TMR_x, confirm_state new_state) {
+    TMR_x->ctrl2_bit.cbctrl = new_state;
 }
 
 /**
   * @brief  select tmr trgout2
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR8, TMR20
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void tmr_trgout2_Enable(tmr_Type *tmr_x, confirm_state new_state) {
-    tmr_x->ctrl2_bit.trgout2en = new_state;
+void TMR_Trgout2_Enable(TMR_Type *TMR_x, confirm_state new_state) {
+    TMR_x->ctrl2_bit.trgout2en = new_state;
 }
 
 /**
   * @brief  select tmr sub-trigger
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR12, TMR20
   * @param  trigger_Select
@@ -1224,25 +1224,25 @@ void tmr_trgout2_Enable(tmr_Type *tmr_x, confirm_state new_state) {
   *         - TMR_Sub_Input_SEL_EXTIN
   * @retval none
   */
-void tmr_Trigger_Input_Select(tmr_Type *tmr_x, sub_tmr_Input_sel_Type trigger_Select) {
-    tmr_x->stctrl_bit.stis = trigger_Select;
+void TMR_Trigger_Input_Select(TMR_Type *TMR_x, sub_TMR_Input_sel_Type trigger_Select) {
+    TMR_x->stctrl_bit.stis = trigger_Select;
 }
 
 /**
   * @brief  set tmr subordinate synchronization mode
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR12, TMR20
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void tmr_Sub_Sync_Mode_Set(tmr_Type *tmr_x, confirm_state new_state) {
-    tmr_x->stctrl_bit.sts = new_state;
+void TMR_Sub_Sync_Mode_Set(TMR_Type *TMR_x, confirm_state new_state) {
+    TMR_x->stctrl_bit.sts = new_state;
 }
 
 /**
   * @brief  enable or disable tmr dma request
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
@@ -1253,53 +1253,53 @@ void tmr_Sub_Sync_Mode_Set(tmr_Type *tmr_x, confirm_state new_state) {
   *         - TMR_C2_DMA_REQUEST
   *         - TMR_C3_DMA_REQUEST
   *         - TMR_C4_DMA_REQUEST
-  *         - TMR_HALL_DMA_REQUEST
+  *         - TMR_Hall_DMA_REQUEST
   *         - TMR_Trigger_DMA_REQUEST
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void tmr_DMA_Request_Enable(tmr_Type *tmr_x, tmr_DMA_Request_Type DMA_request, confirm_state new_state) {
+void TMR_DMA_Request_Enable(TMR_Type *TMR_x, TMR_DMA_Request_Type DMA_request, confirm_state new_state) {
     if(new_state == TRUE) {
-        tmr_x->iden |= DMA_request;
+        TMR_x->iden |= DMA_request;
     } else if(new_state == FALSE) {
-        tmr_x->iden &= ~DMA_request;
+        TMR_x->iden &= ~DMA_request;
     }
 }
 
 /**
   * @brief  enable or disable tmr interrupt
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
-  * @param  tmr_interrupt
+  * @param  TMR_Interrupt
   *         this parameter can be one of the following values:
   *         - TMR_OVF_INT
   *         - TMR_C1_INT
   *         - TMR_C2_INT
   *         - TMR_C3_INT
   *         - TMR_C4_INT
-  *         - TMR_HALL_INT
+  *         - TMR_Hall_INT
   *         - TMR_Trigger_INT
   *         - TMR_BRK_INT
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void tmr_Interrupt_Enable(tmr_Type *tmr_x, uint32_t tmr_interrupt, confirm_state new_state) {
+void TMR_Interrupt_Enable(TMR_Type *TMR_x, uint32_t TMR_Interrupt, confirm_state new_state) {
     if(new_state == TRUE) {
-        tmr_x->iden |= tmr_interrupt;
+        TMR_x->iden |= TMR_Interrupt;
     } else if(new_state == FALSE) {
-        tmr_x->iden &= ~tmr_interrupt;
+        TMR_x->iden &= ~TMR_Interrupt;
     }
 }
 
 /**
   * @brief  get tmr flag
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
-  * @param  tmr_flag
+  * @param  TMR_flag
   *         this parameter can be one of the following values:
   *         - TMR_OVF_FLAG
   *         - TMR_C1_FLAG
@@ -1307,7 +1307,7 @@ void tmr_Interrupt_Enable(tmr_Type *tmr_x, uint32_t tmr_interrupt, confirm_state
   *         - TMR_C3_FLAG
   *         - TMR_C4_FLAG
   *         - TMR_C5_FLAG
-  *         - TMR_HALL_FLAG
+  *         - TMR_Hall_FLAG
   *         - TMR_Trigger_FLAG
   *         - TMR_BRK_FLAG
   *         - TMR_C1_RECAPTURE_FLAG
@@ -1316,10 +1316,10 @@ void tmr_Interrupt_Enable(tmr_Type *tmr_x, uint32_t tmr_interrupt, confirm_state
   *         - TMR_C4_RECAPTURE_FLAG
   * @retval state of tmr flag
   */
-flag_status tmr_Flag_Get(tmr_Type *tmr_x, uint32_t tmr_flag) {
+flag_status TMR_Flag_Get(TMR_Type *TMR_x, uint32_t TMR_flag) {
     flag_status status = RESET;
 
-    if((tmr_x->ists & tmr_flag) != RESET) {
+    if((TMR_x->ists & TMR_flag) != RESET) {
         status = SET;
     } else {
         status = RESET;
@@ -1330,11 +1330,11 @@ flag_status tmr_Flag_Get(tmr_Type *tmr_x, uint32_t tmr_flag) {
 
 /**
   * @brief  clear tmr flag
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
-  * @param  tmr_flag
+  * @param  TMR_flag
   *         this parameter can be any combination of the following values:
   *         - TMR_OVF_FLAG
   *         - TMR_C1_FLAG
@@ -1342,7 +1342,7 @@ flag_status tmr_Flag_Get(tmr_Type *tmr_x, uint32_t tmr_flag) {
   *         - TMR_C3_FLAG
   *         - TMR_C4_FLAG
   *         - TMR_C5_FLAG
-  *         - TMR_HALL_FLAG
+  *         - TMR_Hall_FLAG
   *         - TMR_Trigger_FLAG
   *         - TMR_BRK_FLAG
   *         - TMR_C1_RECAPTURE_FLAG
@@ -1351,62 +1351,62 @@ flag_status tmr_Flag_Get(tmr_Type *tmr_x, uint32_t tmr_flag) {
   *         - TMR_C4_RECAPTURE_FLAG
   * @retval none
   */
-void tmr_Flag_Clear(tmr_Type *tmr_x, uint32_t tmr_flag) {
-    tmr_x->ists = ~tmr_flag;
+void TMR_Flag_Clear(TMR_Type *TMR_x, uint32_t TMR_flag) {
+    TMR_x->ists = ~TMR_flag;
 }
 
 /**
   * @brief  generate tmr event
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
-  * @param  tmr_event
+  * @param  TMR_event
   *         this parameter can be one of the following values:
   *         - TMR_OverFlow_SWTRIG
   *         - TMR_C1_SWTRIG
   *         - TMR_C2_SWTRIG
   *         - TMR_C3_SWTRIG
   *         - TMR_C4_SWTRIG
-  *         - TMR_HALL_SWTRIG
+  *         - TMR_Hall_SWTRIG
   *         - TMR_Trigger_SWTRIG
   *         - TMR_BRK_SWTRIG
   * @retval none
   */
-void tmr_Event_sw_trigger(tmr_Type *tmr_x, tmr_Event_Trigger_Type tmr_event) {
-    tmr_x->swevt |= tmr_event;
+void TMR_Event_SW_trigger(TMR_Type *TMR_x, TMR_Event_Trigger_Type TMR_event) {
+    TMR_x->swevt |= TMR_event;
 }
 
 /**
   * @brief  tmr output enable(oen),this function is important for advtm output enable
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR8, TMR20
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void tmr_OutPut_Enable(tmr_Type *tmr_x, confirm_state new_state) {
-    tmr_x->brk_bit.oen = new_state;
+void TMR_OutPut_Enable(TMR_Type *TMR_x, confirm_state new_state) {
+    TMR_x->brk_bit.oen = new_state;
 }
 
 /**
   * @brief  set tmr select internal clock
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR12, TMR20
   * @retval none
   */
-void tmr_Internal_Clock_Set(tmr_Type *tmr_x) {
-    tmr_x->stctrl_bit.smsel = TMR_Sub_Mode_DIABLE;
+void TMR_Internal_Clock_Set(TMR_Type *TMR_x) {
+    TMR_x->stctrl_bit.smsel = TMR_Sub_Mode_DIABLE;
 }
 
 /**
   * @brief  set tmr output channel polarity
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
-  * @param  tmr_channel
+  * @param  TMR_Channel
   *         this parameter can be one of the following values:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_2
@@ -1417,43 +1417,43 @@ void tmr_Internal_Clock_Set(tmr_Type *tmr_x) {
   *         - TMR_Select_Channel_3C
   * @param  oc_polarity
   *         this parameter can be one of the following values:
-  *         - TMR_POLARITY_ACTIVE_HIGH
-  *         - TMR_POLARITY_ACTIVE_LOW
+  *         - TMR_Polarity_ACTIVE_HIGH
+  *         - TMR_Polarity_ACTIVE_LOW
   * @retval none
   */
-void tmr_OutPut_Channel_polarity_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tmr_channel, \
-                                     tmr_polarity_active_Type oc_polarity) {
+void TMR_OutPut_Channel_Polarity_Set(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel, \
+                                     TMR_Polarity_active_Type oc_polarity) {
     uint16_t channel;
 
-    channel = tmr_channel;
+    channel = TMR_Channel;
 
     switch(channel) {
         case TMR_Select_Channel_1:
-            tmr_x->cctrl_bit.c1p = (uint32_t)oc_polarity;
+            TMR_x->cctrl_bit.c1p = (uint32_t)oc_polarity;
             break;
 
         case TMR_Select_Channel_2:
-            tmr_x->cctrl_bit.c2p = (uint32_t)oc_polarity;
+            TMR_x->cctrl_bit.c2p = (uint32_t)oc_polarity;
             break;
 
         case TMR_Select_Channel_3:
-            tmr_x->cctrl_bit.c3p = (uint32_t)oc_polarity;
+            TMR_x->cctrl_bit.c3p = (uint32_t)oc_polarity;
             break;
 
         case TMR_Select_Channel_4:
-            tmr_x->cctrl_bit.c4p = (uint32_t)oc_polarity;
+            TMR_x->cctrl_bit.c4p = (uint32_t)oc_polarity;
             break;
 
         case TMR_Select_Channel_1C:
-            tmr_x->cctrl_bit.c1cp = (uint32_t)oc_polarity;
+            TMR_x->cctrl_bit.c1cp = (uint32_t)oc_polarity;
             break;
 
         case TMR_Select_Channel_2C:
-            tmr_x->cctrl_bit.c2cp = (uint32_t)oc_polarity;
+            TMR_x->cctrl_bit.c2cp = (uint32_t)oc_polarity;
             break;
 
         case TMR_Select_Channel_3C:
-            tmr_x->cctrl_bit.c3cp = (uint32_t)oc_polarity;
+            TMR_x->cctrl_bit.c3cp = (uint32_t)oc_polarity;
             break;
 
         default:
@@ -1463,88 +1463,88 @@ void tmr_OutPut_Channel_polarity_Set(tmr_Type *tmr_x, tmr_Channel_Select_Type tm
 
 /**
   * @brief  config tmr external clock
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR20
   * @param  es_divide
   *         this parameter can be one of the following values:
-  *         - TMR_ES_Frequency_DIV_1
-  *         - TMR_ES_Frequency_DIV_2
-  *         - TMR_ES_Frequency_DIV_4
-  *         - TMR_ES_Frequency_DIV_8
+  *         - TMR_ES_Frequency_Div_1
+  *         - TMR_ES_Frequency_Div_2
+  *         - TMR_ES_Frequency_Div_4
+  *         - TMR_ES_Frequency_Div_8
   * @param  es_polarity
   *         this parameter can be one of the following values:
-  *         - TMR_ES_POLARITY_NON_INVERTED
-  *         - TMR_ES_POLARITY_INVERTED
+  *         - TMR_ES_Polarity_NON_INVERTED
+  *         - TMR_ES_Polarity_INVERTED
   * @param  es_filter (0x0~0xf)
   * @retval none
   */
-void tmr_external_Clock_Config(tmr_Type *tmr_x, tmr_external_signal_Divider_Type es_divide, \
-                               tmr_external_signal_polarity_Type  es_polarity, uint16_t es_filter) {
-    tmr_x->stctrl_bit.esdiv = es_divide;
-    tmr_x->stctrl_bit.esp = es_polarity;
-    tmr_x->stctrl_bit.esf = es_filter;
+void TMR_External_Clock_Config(TMR_Type *TMR_x, TMR_External_signal_Divider_Type es_divide, \
+                               TMR_External_signal_Polarity_Type  es_polarity, uint16_t es_filter) {
+    TMR_x->stctrl_bit.esdiv = es_divide;
+    TMR_x->stctrl_bit.esp = es_polarity;
+    TMR_x->stctrl_bit.esf = es_filter;
 }
 
 /**
   * @brief  config tmr external clock mode1
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR12, TMR20
   * @param  es_divide
   *         this parameter can be one of the following values:
-  *         - TMR_ES_Frequency_DIV_1
-  *         - TMR_ES_Frequency_DIV_2
-  *         - TMR_ES_Frequency_DIV_4
-  *         - TMR_ES_Frequency_DIV_8
+  *         - TMR_ES_Frequency_Div_1
+  *         - TMR_ES_Frequency_Div_2
+  *         - TMR_ES_Frequency_Div_4
+  *         - TMR_ES_Frequency_Div_8
   * @param  es_polarity
   *         this parameter can be one of the following values:
-  *         - TMR_ES_POLARITY_NON_INVERTED
-  *         - TMR_ES_POLARITY_INVERTED
+  *         - TMR_ES_Polarity_NON_INVERTED
+  *         - TMR_ES_Polarity_INVERTED
   * @param  es_filter (0x0~0xf)
   * @retval none
   */
-void tmr_external_Clock_Mode1_Config(tmr_Type *tmr_x, tmr_external_signal_Divider_Type es_divide, \
-                                     tmr_external_signal_polarity_Type  es_polarity, uint16_t es_filter) {
-    tmr_external_Clock_Config(tmr_x, es_divide, es_polarity, es_filter);
-    tmr_x->stctrl_bit.smsel = TMR_Sub_EXTERNAL_Clock_Mode_A;
-    tmr_x->stctrl_bit.stis = TMR_Sub_Input_SEL_EXTIN;
+void TMR_External_Clock_Mode1_Config(TMR_Type *TMR_x, TMR_External_signal_Divider_Type es_divide, \
+                                     TMR_External_signal_Polarity_Type  es_polarity, uint16_t es_filter) {
+    TMR_External_Clock_Config(TMR_x, es_divide, es_polarity, es_filter);
+    TMR_x->stctrl_bit.smsel = TMR_Sub_External_Clock_Mode_A;
+    TMR_x->stctrl_bit.stis = TMR_Sub_Input_SEL_EXTIN;
 }
 
 /**
   * @brief  config tmr external clock mode2
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR20
   * @param  es_divide
   *         this parameter can be one of the following values:
-  *         - TMR_ES_Frequency_DIV_1
-  *         - TMR_ES_Frequency_DIV_2
-  *         - TMR_ES_Frequency_DIV_4
-  *         - TMR_ES_Frequency_DIV_8
+  *         - TMR_ES_Frequency_Div_1
+  *         - TMR_ES_Frequency_Div_2
+  *         - TMR_ES_Frequency_Div_4
+  *         - TMR_ES_Frequency_Div_8
   * @param  es_polarity
   *         this parameter can be one of the following values:
-  *         - TMR_ES_POLARITY_NON_INVERTED
-  *         - TMR_ES_POLARITY_INVERTED
+  *         - TMR_ES_Polarity_NON_INVERTED
+  *         - TMR_ES_Polarity_INVERTED
   * @param  es_filter (0x0~0xf)
   * @retval none
   */
-void tmr_external_Clock_Mode2_Config(tmr_Type *tmr_x, tmr_external_signal_Divider_Type es_divide, \
-                                     tmr_external_signal_polarity_Type  es_polarity, uint16_t es_filter) {
-    tmr_external_Clock_Config(tmr_x, es_divide, es_polarity, es_filter);
-    tmr_x->stctrl_bit.ecmben = TRUE;
+void TMR_External_Clock_Mode2_Config(TMR_Type *TMR_x, TMR_External_signal_Divider_Type es_divide, \
+                                     TMR_External_signal_Polarity_Type  es_polarity, uint16_t es_filter) {
+    TMR_External_Clock_Config(TMR_x, es_divide, es_polarity, es_filter);
+    TMR_x->stctrl_bit.ecmben = TRUE;
 }
 
 /**
   * @brief  config tmr encoder mode
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR20
   * @param  encoder_Mode
   *         this parameter can be one of the following values:
-  *         - TMR_ENCODER_Mode_A
-  *         - TMR_ENCODER_Mode_B
-  *         - TMR_ENCODER_Mode_C
+  *         - TMR_Encoder_Mode_A
+  *         - TMR_Encoder_Mode_B
+  *         - TMR_Encoder_Mode_C
   * @param  ic1_polarity
   *         this parameter can be one of the following values:
   *         - TMR_Input_RISING_EDGE
@@ -1557,67 +1557,67 @@ void tmr_external_Clock_Mode2_Config(tmr_Type *tmr_x, tmr_external_signal_Divide
   *         - TMR_Input_BOTH_EDGE
   * @retval none
   */
-void tmr_encoder_Mode_Config(tmr_Type *tmr_x, tmr_encoder_Mode_Type encoder_Mode, tmr_Input_polarity_Type \
-                             ic1_polarity, tmr_Input_polarity_Type ic2_polarity) {
-    tmr_x->stctrl_bit.smsel = encoder_Mode;
+void TMR_Encoder_Mode_Config(TMR_Type *TMR_x, TMR_Encoder_Mode_Type encoder_Mode, TMR_Input_Polarity_Type \
+                             ic1_polarity, TMR_Input_Polarity_Type ic2_polarity) {
+    TMR_x->stctrl_bit.smsel = encoder_Mode;
 
     /* set ic1 polarity */
-    tmr_x->cctrl_bit.c1p =  (ic1_polarity & 0x1);
-    tmr_x->cctrl_bit.c1cp = (ic1_polarity >> 1);
+    TMR_x->cctrl_bit.c1p =  (ic1_polarity & 0x1);
+    TMR_x->cctrl_bit.c1cp = (ic1_polarity >> 1);
     /* set ic1 as input channel */
-    tmr_x->cm1_Input_bit.c1c = TMR_CC_Channel_MAPPED_DIRECT;
+    TMR_x->cm1_Input_bit.c1c = TMR_CC_Channel_MAPPED_DIRECT;
 
     /* set ic2 polarity */
-    tmr_x->cctrl_bit.c2p =  (ic2_polarity & 0x1);
-    tmr_x->cctrl_bit.c2cp = (ic2_polarity >> 1);
+    TMR_x->cctrl_bit.c2p =  (ic2_polarity & 0x1);
+    TMR_x->cctrl_bit.c2cp = (ic2_polarity >> 1);
     /* set ic2 as input channel */
-    tmr_x->cm1_Input_bit.c2c = TMR_CC_Channel_MAPPED_DIRECT;
+    TMR_x->cm1_Input_bit.c2c = TMR_CC_Channel_MAPPED_DIRECT;
 }
 
 /**
   * @brief  set tmr force output
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
-  * @param  tmr_channel
+  * @param  TMR_Channel
   *         this parameter can be one of the following values:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_2
   *         - TMR_Select_Channel_3
   *         - TMR_Select_Channel_4
   *         - TMR_Select_Channel_5
-  * @param  force_output
+  * @param  force_Output
   *         this parameter can be one of the following values:
-  *         - TMR_FORCE_OutPut_HIGH
-  *         - TMR_FORCE_OutPut_LOW
+  *         - TMR_Force_OutPut_HIGH
+  *         - TMR_Force_OutPut_LOW
   * @retval none
   */
-void tmr_force_OutPut_Set(tmr_Type *tmr_x,  tmr_Channel_Select_Type tmr_channel, \
-                          tmr_force_OutPut_Type force_output) {
+void TMR_Force_OutPut_Set(TMR_Type *TMR_x,  TMR_Channel_Select_Type TMR_Channel, \
+                          TMR_Force_OutPut_Type force_Output) {
     uint16_t channel;
 
-    channel = tmr_channel;
+    channel = TMR_Channel;
 
     switch(channel) {
         case TMR_Select_Channel_1:
-            tmr_x->cm1_OutPut_bit.c1octrl = force_output;
+            TMR_x->cm1_OutPut_bit.c1octrl = force_Output;
             break;
 
         case TMR_Select_Channel_2:
-            tmr_x->cm1_OutPut_bit.c2octrl = force_output;
+            TMR_x->cm1_OutPut_bit.c2octrl = force_Output;
             break;
 
         case TMR_Select_Channel_3:
-            tmr_x->cm2_OutPut_bit.c3octrl = force_output;
+            TMR_x->cm2_OutPut_bit.c3octrl = force_Output;
             break;
 
         case TMR_Select_Channel_4:
-            tmr_x->cm2_OutPut_bit.c4octrl = force_output;
+            TMR_x->cm2_OutPut_bit.c4octrl = force_Output;
             break;
 
         case TMR_Select_Channel_5:
-            tmr_x->cm3_OutPut_bit.c5octrl = force_output;
+            TMR_x->cm3_OutPut_bit.c5octrl = force_Output;
             break;
 
         default:
@@ -1627,7 +1627,7 @@ void tmr_force_OutPut_Set(tmr_Type *tmr_x,  tmr_Channel_Select_Type tmr_channel,
 
 /**
   * @brief  config tmr dma control
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR20
   * @param  DMA_length
@@ -1638,7 +1638,7 @@ void tmr_force_OutPut_Set(tmr_Type *tmr_x,  tmr_Channel_Select_Type tmr_channel,
   *         ...
   *         - TMR_DMA_Transfer_17BYTES
   *         - TMR_DMA_Transfer_18BYTES
-  * @param  DMA_base_Address
+  * @param  DMA_Base_Address
   *         this parameter can be one of the following values:
   *         - TMR_CTRL1_Address
   *         - TMR_CTRL2_Address
@@ -1650,7 +1650,7 @@ void tmr_force_OutPut_Set(tmr_Type *tmr_x,  tmr_Channel_Select_Type tmr_channel,
   *         - TMR_CM2_Address
   *         - TMR_CCTRL_Address
   *         - TMR_CVAL_Address
-  *         - TMR_DIV_Address
+  *         - TMR_Div_Address
   *         - TMR_PR_Address
   *         - TMR_RPR_Address
   *         - TMR_C1DT_Address
@@ -1661,34 +1661,34 @@ void tmr_force_OutPut_Set(tmr_Type *tmr_x,  tmr_Channel_Select_Type tmr_channel,
   *         - TMR_DMACTRL_Address
   * @retval none
   */
-void tmr_DMA_Control_Config(tmr_Type *tmr_x, tmr_DMA_Transfer_length_Type DMA_length, \
-                            tmr_DMA_Address_Type DMA_base_Address) {
-    tmr_x->dmactrl_bit.dtb = DMA_length;
-    tmr_x->dmactrl_bit.addr = DMA_base_Address;
+void TMR_DMA_Control_Config(TMR_Type *TMR_x, TMR_DMA_Transfer_Length_Type DMA_length, \
+                            TMR_DMA_Address_Type DMA_Base_Address) {
+    TMR_x->dmactrl_bit.dtb = DMA_length;
+    TMR_x->dmactrl_bit.addr = DMA_Base_Address;
 }
 
 /**
   * @brief  config tmr break mode and dead-time
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR8, TMR20
   * @param  brkdt_struct
-  *         - to the structure of tmr_brkdt_Config_Type
+  *         - to the structure of TMR_Brkdt_Config_Type
   * @retval none
   */
-void tmr_brkdt_Config(tmr_Type *tmr_x, tmr_brkdt_Config_Type *brkdt_struct) {
-    tmr_x->brk_bit.brken = brkdt_struct->brk_Enable;
-    tmr_x->brk_bit.dtc = brkdt_struct->deadtime;
-    tmr_x->brk_bit.fcsodis = brkdt_struct->fcsodis_state;
-    tmr_x->brk_bit.fcsoen = brkdt_struct->fcsoen_state;
-    tmr_x->brk_bit.brkv = brkdt_struct->brk_polarity;
-    tmr_x->brk_bit.aoen = brkdt_struct->auto_OutPut_Enable;
-    tmr_x->brk_bit.wpc = brkdt_struct->wp_level;
+void TMR_Brkdt_Config(TMR_Type *TMR_x, TMR_Brkdt_Config_Type *brkdt_struct) {
+    TMR_x->brk_bit.brken = brkdt_struct->brk_Enable;
+    TMR_x->brk_bit.dtc = brkdt_struct->deadtime;
+    TMR_x->brk_bit.fcsodis = brkdt_struct->fcsodis_state;
+    TMR_x->brk_bit.fcsoen = brkdt_struct->fcsoen_state;
+    TMR_x->brk_bit.brkv = brkdt_struct->brk_polarity;
+    TMR_x->brk_bit.aoen = brkdt_struct->auto_OutPut_Enable;
+    TMR_x->brk_bit.wpc = brkdt_struct->wp_level;
 }
 
 /**
   * @brief  set tmr2/tmr5 input channel remap
-  * @param  tmr_x: select the tmr peripheral.
+  * @param  TMR_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR2, TMR5
   * @param  input_remap
@@ -1698,11 +1698,11 @@ void tmr_brkdt_Config(tmr_Type *tmr_x, tmr_brkdt_Config_Type *brkdt_struct) {
   *         - TMR2_OTG2FS_TMR5_ERTC
   * @retval none
   */
-void tmr_iremap_Config(tmr_Type *tmr_x, tmr_Input_remap_Type input_remap) {
-    if(tmr_x == TMR2) {
-        tmr_x->rmp_bit.tmr2_ch1_irmp = input_remap;
-    } else if(tmr_x == TMR5) {
-        tmr_x->rmp_bit.tmr5_ch4_irmp = input_remap;
+void TMR_Iremap_Config(TMR_Type *TMR_x, TMR_Input_remap_Type input_remap) {
+    if(TMR_x == TMR2) {
+        TMR_x->rmp_bit.tmr2_ch1_irmp = input_remap;
+    } else if(TMR_x == TMR5) {
+        TMR_x->rmp_bit.tmr5_ch4_irmp = input_remap;
     }
 }
 

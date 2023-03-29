@@ -34,7 +34,7 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "at32f435_437.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -46,30 +46,30 @@ extern "C" {
   * @{
   */
 
-#define EXINT_LINE_NONE                  ((uint32_t)0x000000)
-#define EXINT_LINE_0                     ((uint32_t)0x000001) /*!< external interrupt line 0 */
-#define EXINT_LINE_1                     ((uint32_t)0x000002) /*!< external interrupt line 1 */
-#define EXINT_LINE_2                     ((uint32_t)0x000004) /*!< external interrupt line 2 */
-#define EXINT_LINE_3                     ((uint32_t)0x000008) /*!< external interrupt line 3 */
-#define EXINT_LINE_4                     ((uint32_t)0x000010) /*!< external interrupt line 4 */
-#define EXINT_LINE_5                     ((uint32_t)0x000020) /*!< external interrupt line 5 */
-#define EXINT_LINE_6                     ((uint32_t)0x000040) /*!< external interrupt line 6 */
-#define EXINT_LINE_7                     ((uint32_t)0x000080) /*!< external interrupt line 7 */
-#define EXINT_LINE_8                     ((uint32_t)0x000100) /*!< external interrupt line 8 */
-#define EXINT_LINE_9                     ((uint32_t)0x000200) /*!< external interrupt line 9 */
-#define EXINT_LINE_10                    ((uint32_t)0x000400) /*!< external interrupt line 10 */
-#define EXINT_LINE_11                    ((uint32_t)0x000800) /*!< external interrupt line 11 */
-#define EXINT_LINE_12                    ((uint32_t)0x001000) /*!< external interrupt line 12 */
-#define EXINT_LINE_13                    ((uint32_t)0x002000) /*!< external interrupt line 13 */
-#define EXINT_LINE_14                    ((uint32_t)0x004000) /*!< external interrupt line 14 */
-#define EXINT_LINE_15                    ((uint32_t)0x008000) /*!< external interrupt line 15 */
-#define EXINT_LINE_16                    ((uint32_t)0x010000) /*!< external interrupt line 16 */
-#define EXINT_LINE_17                    ((uint32_t)0x020000) /*!< external interrupt line 17 */
-#define EXINT_LINE_18                    ((uint32_t)0x040000) /*!< external interrupt line 18 */
-#define EXINT_LINE_19                    ((uint32_t)0x080000) /*!< external interrupt line 19 */
-#define EXINT_LINE_20                    ((uint32_t)0x100000) /*!< external interrupt line 20 */
-#define EXINT_LINE_21                    ((uint32_t)0x200000) /*!< external interrupt line 21 */
-#define EXINT_LINE_22                    ((uint32_t)0x400000) /*!< external interrupt line 22 */
+#define EXINT_Line_NONE                  ((uint32_t)0x000000)
+#define EXINT_Line_0                     ((uint32_t)0x000001) /*!< external interrupt line 0 */
+#define EXINT_Line_1                     ((uint32_t)0x000002) /*!< external interrupt line 1 */
+#define EXINT_Line_2                     ((uint32_t)0x000004) /*!< external interrupt line 2 */
+#define EXINT_Line_3                     ((uint32_t)0x000008) /*!< external interrupt line 3 */
+#define EXINT_Line_4                     ((uint32_t)0x000010) /*!< external interrupt line 4 */
+#define EXINT_Line_5                     ((uint32_t)0x000020) /*!< external interrupt line 5 */
+#define EXINT_Line_6                     ((uint32_t)0x000040) /*!< external interrupt line 6 */
+#define EXINT_Line_7                     ((uint32_t)0x000080) /*!< external interrupt line 7 */
+#define EXINT_Line_8                     ((uint32_t)0x000100) /*!< external interrupt line 8 */
+#define EXINT_Line_9                     ((uint32_t)0x000200) /*!< external interrupt line 9 */
+#define EXINT_Line_10                    ((uint32_t)0x000400) /*!< external interrupt line 10 */
+#define EXINT_Line_11                    ((uint32_t)0x000800) /*!< external interrupt line 11 */
+#define EXINT_Line_12                    ((uint32_t)0x001000) /*!< external interrupt line 12 */
+#define EXINT_Line_13                    ((uint32_t)0x002000) /*!< external interrupt line 13 */
+#define EXINT_Line_14                    ((uint32_t)0x004000) /*!< external interrupt line 14 */
+#define EXINT_Line_15                    ((uint32_t)0x008000) /*!< external interrupt line 15 */
+#define EXINT_Line_16                    ((uint32_t)0x010000) /*!< external interrupt line 16 */
+#define EXINT_Line_17                    ((uint32_t)0x020000) /*!< external interrupt line 17 */
+#define EXINT_Line_18                    ((uint32_t)0x040000) /*!< external interrupt line 18 */
+#define EXINT_Line_19                    ((uint32_t)0x080000) /*!< external interrupt line 19 */
+#define EXINT_Line_20                    ((uint32_t)0x100000) /*!< external interrupt line 20 */
+#define EXINT_Line_21                    ((uint32_t)0x200000) /*!< external interrupt line 21 */
+#define EXINT_Line_22                    ((uint32_t)0x400000) /*!< external interrupt line 22 */
 
 /**
   * @}
@@ -83,9 +83,9 @@ extern "C" {
   * @brief exint line mode type
   */
 typedef enum {
-    EXINT_LINE_INTERRUPUT                  = 0x00, /*!< external interrupt line interrupt mode */
-    EXINT_LINE_EVENT                       = 0x01  /*!< external interrupt line event mode */
-} EXINT_line_Mode_Type;
+    EXINT_Line_INTERRUPUT                  = 0x00, /*!< external interrupt line interrupt mode */
+    EXINT_Line_EVENT                       = 0x01  /*!< external interrupt line event mode */
+} EXINT_Line_Mode_Type;
 
 /**
   * @brief exint polarity configuration type
@@ -94,15 +94,15 @@ typedef enum {
     EXINT_Trigger_RISING_EDGE              = 0x00, /*!< external interrupt line rising trigger mode */
     EXINT_Trigger_FALLING_EDGE             = 0x01, /*!< external interrupt line falling trigger mode */
     EXINT_Trigger_BOTH_EDGE                = 0x02  /*!< external interrupt line both rising and falling trigger mode */
-} EXINT_polarity_Config_Type;
+} EXINT_Polarity_Config_Type;
 
 /**
   * @brief exint init type
   */
 typedef struct {
-    EXINT_line_Mode_Type                   line_Mode;     /*!< choose mode event or interrupt mode */
+    EXINT_Line_Mode_Type                   line_Mode;     /*!< choose mode event or interrupt mode */
     uint32_t                               line_Select;   /*!< select the exint line, availiable for single line or multiple lines */
-    EXINT_polarity_Config_Type             line_polarity; /*!< select the tregger polarity, with rising edge, falling edge or both edge */
+    EXINT_Polarity_Config_Type             line_polarity; /*!< select the tregger polarity, with rising edge, falling edge or both edge */
     confirm_state                          line_Enable;   /*!< enable or disable exint */
 } EXINT_Init_Type;
 

@@ -34,7 +34,7 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "at32f435_437.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -58,9 +58,9 @@ typedef enum {
   * @brief xmc burst access mode type
   */
 typedef enum {
-    XMC_BURST_Mode_Disable                 = 0x00000000, /*!< xmc burst mode disable */
-    XMC_BURST_Mode_Enable                  = 0x00000100  /*!< xmc burst mode enable */
-} XMC_burst_access_Mode_Type;
+    XMC_Burst_Mode_Disable                 = 0x00000000, /*!< xmc burst mode disable */
+    XMC_Burst_Mode_Enable                  = 0x00000100  /*!< xmc burst mode enable */
+} XMC_Burst_Access_Mode_Type;
 
 /**
   * @brief xmc asynchronous wait type
@@ -98,9 +98,9 @@ typedef enum {
   * @brief xmc write burst type
   */
 typedef enum {
-    XMC_Write_BURST_SYN_Disable            = 0x00000000, /*!< xmc write operations are always performed in asynchronous mode */
-    XMC_Write_BURST_SYN_Enable             = 0x00080000  /*!< xmc write operations are performed in synchronous mode */
-} XMC_Write_burst_Type;
+    XMC_Write_Burst_SYN_Disable            = 0x00000000, /*!< xmc write operations are always performed in asynchronous mode */
+    XMC_Write_Burst_SYN_Enable             = 0x00080000  /*!< xmc write operations are performed in synchronous mode */
+} XMC_Write_Burst_Type;
 
 /**
   * @brief xmc extended mode type
@@ -150,9 +150,9 @@ typedef enum {
   * @brief xmc memory type
   */
 typedef enum {
-    XMC_DEVICE_SRAM                        = 0x00000000, /*!< xmc device choice sram */
-    XMC_DEVICE_PSRAM                       = 0x00000004, /*!< xmc device choice psram */
-    XMC_DEVICE_NOR                         = 0x00000008  /*!< xmc device choice nor flash */
+    XMC_Device_SRAM                        = 0x00000000, /*!< xmc device choice sram */
+    XMC_Device_PSRAM                       = 0x00000004, /*!< xmc device choice psram */
+    XMC_Device_NOR                         = 0x00000008  /*!< xmc device choice nor flash */
 } XMC_Memory_Type;
 
 /**
@@ -161,7 +161,7 @@ typedef enum {
 typedef enum {
     XMC_BUSTYPE_8_BITS                     = 0x00000000, /*!< xmc databuss width 8bits */
     XMC_BUSTYPE_16_BITS                    = 0x00000010  /*!< xmc databuss width 16bits */
-} XMC_Data_width_Type;
+} XMC_Data_Width_Type;
 
 /**
   * @brief xmc wait signal polarity type
@@ -169,7 +169,7 @@ typedef enum {
 typedef enum {
     XMC_Wait_SIGNAL_LEVEL_LOW              = 0x00000000, /*!< xmc nwait active low */
     XMC_Wait_SIGNAL_LEVEL_HIGH             = 0x00000200  /*!< xmc nwait active high */
-} XMC_Wait_signal_polarity_Type;
+} XMC_Wait_signal_Polarity_Type;
 
 /**
   * @brief xmc wait timing type
@@ -183,11 +183,11 @@ typedef enum {
   * @brief xmc access mode type
   */
 typedef enum {
-    XMC_ACCESS_Mode_A                      = 0x00000000, /*!< xmc access mode A */
-    XMC_ACCESS_Mode_B                      = 0x10000000, /*!< xmc access mode B */
-    XMC_ACCESS_Mode_C                      = 0x20000000, /*!< xmc access mode C */
-    XMC_ACCESS_Mode_D                      = 0x30000000  /*!< xmc access mode D */
-} XMC_access_Mode_Type;
+    XMC_Access_Mode_A                      = 0x00000000, /*!< xmc access mode A */
+    XMC_Access_Mode_B                      = 0x10000000, /*!< xmc access mode B */
+    XMC_Access_Mode_C                      = 0x20000000, /*!< xmc access mode C */
+    XMC_Access_Mode_D                      = 0x30000000  /*!< xmc access mode D */
+} XMC_Access_Mode_Type;
 
 /**
   * @brief xmc ecc page size type
@@ -220,7 +220,7 @@ typedef enum {
     XMC_FALLINGEDGE_FLAG                   = 0x00000004, /*!< xmc interrupt falling edge detection flag */
     XMC_FEMPT_FLAG                         = 0x00000040, /*!< xmc fifo empty flag */
     XMC_ERR_FLAG                           = 0x00000001, /*!< xmc sdram error flag */
-    XMC_BUSY_FLAG                          = 0x00000020  /*!< xmc sdram busy flag */
+    XMC_Busy_FLAG                          = 0x00000020  /*!< xmc sdram busy flag */
 } XMC_Interrupt_Flag_Type;
 
 /**
@@ -246,9 +246,9 @@ typedef enum {
   * @brief xmc sdram memory data bus width type
   */
 typedef enum {
-    XMC_MEM_WIDTH_8                        = 0x00000000, /*!< xmc sdram data bus width 8 */
-    XMC_MEM_WIDTH_16                       = 0x00000001  /*!< xmc sdram data bus width 16 */
-} XMC_SDRAM_width_Type;
+    XMC_Mem_Width_8                        = 0x00000000, /*!< xmc sdram data bus width 8 */
+    XMC_Mem_Width_16                       = 0x00000001  /*!< xmc sdram data bus width 16 */
+} XMC_SDRAM_Width_Type;
 
 /**
   * @brief xmc sdram number of internal banks type
@@ -275,16 +275,16 @@ typedef enum {
     XMC_CLKDIV_2                           = 0x00000002, /*!< xmc sdram clock div 2 */
     XMC_CLKDIV_3                           = 0x00000003, /*!< xmc sdram clock div 3 */
     XMC_CLKDIV_4                           = 0x00000001  /*!< xmc sdram clock div 4 */
-} XMC_SDRAM_clkdiv_Type;
+} XMC_SDRAM_CLKdiv_Type;
 
 /**
   * @brief xmc sdram read delay
   */
 typedef enum {
-    XMC_Read_DELAY_0                       = 0x00000000, /*!< xmc sdram no delay */
-    XMC_Read_DELAY_1                       = 0x00000001, /*!< xmc sdram delay 1 clock*/
-    XMC_Read_DELAY_2                       = 0x00000002, /*!< xmc sdram delay 2 clock */
-} XMC_SDRAM_rd_delay_Type;
+    XMC_Read_Delay_0                       = 0x00000000, /*!< xmc sdram no delay */
+    XMC_Read_Delay_1                       = 0x00000001, /*!< xmc sdram delay 1 clock*/
+    XMC_Read_Delay_2                       = 0x00000002, /*!< xmc sdram delay 2 clock */
+} XMC_SDRAM_rd_Delay_Type;
 
 /**
   * @brief xmc sdram bank type
@@ -299,23 +299,23 @@ typedef enum {
   * @brief xmc sdram timing delay cycle type
   */
 typedef enum {
-    XMC_DELAY_CYCLE_1                      = 0x00000000, /*!< xmc sdram timming delay 1 cycle */
-    XMC_DELAY_CYCLE_2                      = 0x00000001, /*!< xmc sdram timming delay 2 cycle */
-    XMC_DELAY_CYCLE_3                      = 0x00000002, /*!< xmc sdram timming delay 3 cycle */
-    XMC_DELAY_CYCLE_4                      = 0x00000003, /*!< xmc sdram timming delay 4 cycle */
-    XMC_DELAY_CYCLE_5                      = 0x00000004, /*!< xmc sdram timming delay 5 cycle */
-    XMC_DELAY_CYCLE_6                      = 0x00000005, /*!< xmc sdram timming delay 6 cycle */
-    XMC_DELAY_CYCLE_7                      = 0x00000006, /*!< xmc sdram timming delay 7 cycle */
-    XMC_DELAY_CYCLE_8                      = 0x00000007, /*!< xmc sdram timming delay 8 cycle */
-    XMC_DELAY_CYCLE_9                      = 0x00000008, /*!< xmc sdram timming delay 9 cycle */
-    XMC_DELAY_CYCLE_10                     = 0x00000009, /*!< xmc sdram timming delay 10 cycle */
-    XMC_DELAY_CYCLE_11                     = 0x0000000A, /*!< xmc sdram timming delay 11 cycle */
-    XMC_DELAY_CYCLE_12                     = 0x0000000B, /*!< xmc sdram timming delay 12 cycle */
-    XMC_DELAY_CYCLE_13                     = 0x0000000C, /*!< xmc sdram timming delay 13 cycle */
-    XMC_DELAY_CYCLE_14                     = 0x0000000D, /*!< xmc sdram timming delay 14 cycle */
-    XMC_DELAY_CYCLE_15                     = 0x0000000E, /*!< xmc sdram timming delay 15 cycle */
-    XMC_DELAY_CYCLE_16                     = 0x0000000F  /*!< xmc sdram timming delay 16 cycle */
-} XMC_SDRAM_delay_Type;
+    XMC_Delay_Cycle_1                      = 0x00000000, /*!< xmc sdram timming delay 1 cycle */
+    XMC_Delay_Cycle_2                      = 0x00000001, /*!< xmc sdram timming delay 2 cycle */
+    XMC_Delay_Cycle_3                      = 0x00000002, /*!< xmc sdram timming delay 3 cycle */
+    XMC_Delay_Cycle_4                      = 0x00000003, /*!< xmc sdram timming delay 4 cycle */
+    XMC_Delay_Cycle_5                      = 0x00000004, /*!< xmc sdram timming delay 5 cycle */
+    XMC_Delay_Cycle_6                      = 0x00000005, /*!< xmc sdram timming delay 6 cycle */
+    XMC_Delay_Cycle_7                      = 0x00000006, /*!< xmc sdram timming delay 7 cycle */
+    XMC_Delay_Cycle_8                      = 0x00000007, /*!< xmc sdram timming delay 8 cycle */
+    XMC_Delay_Cycle_9                      = 0x00000008, /*!< xmc sdram timming delay 9 cycle */
+    XMC_Delay_Cycle_10                     = 0x00000009, /*!< xmc sdram timming delay 10 cycle */
+    XMC_Delay_Cycle_11                     = 0x0000000A, /*!< xmc sdram timming delay 11 cycle */
+    XMC_Delay_Cycle_12                     = 0x0000000B, /*!< xmc sdram timming delay 12 cycle */
+    XMC_Delay_Cycle_13                     = 0x0000000C, /*!< xmc sdram timming delay 13 cycle */
+    XMC_Delay_Cycle_14                     = 0x0000000D, /*!< xmc sdram timming delay 14 cycle */
+    XMC_Delay_Cycle_15                     = 0x0000000E, /*!< xmc sdram timming delay 15 cycle */
+    XMC_Delay_Cycle_16                     = 0x0000000F  /*!< xmc sdram timming delay 16 cycle */
+} XMC_SDRAM_Delay_Type;
 
 
 /**
@@ -329,7 +329,7 @@ typedef enum {
     XMC_CMD_LOAD_Mode                      = 0x00000004, /*!< xmc sdram command load mode register */
     XMC_CMD_SELF_REFRESH                   = 0x00000005, /*!< xmc sdram command self refresh */
     XMC_CMD_Power_DOWN                     = 0x00000006  /*!< xmc sdram command power down */
-} XMC_command_Type;
+} XMC_Command_Type;
 
 /**
   * @brief xmc sdram command bank select type
@@ -364,7 +364,7 @@ typedef struct {
     uint32_t                               bus_latency_time;    /*!< xmc nor/sram bus latency time */
     uint32_t                               clk_psc;             /*!< xmc nor/sram clock prescale */
     uint32_t                               data_latency_time;   /*!< xmc nor/sram data latency time */
-    XMC_access_Mode_Type                   mode;                /*!< xmc nor/sram access mode */
+    XMC_Access_Mode_Type                   mode;                /*!< xmc nor/sram access mode */
 } XMC_NORSRAM_Timing_Init_Type;
 
 /**
@@ -374,16 +374,16 @@ typedef struct {
     XMC_NOR_SRAM_SubBank_Type              subbank;             /*!< xmc nor/sram subbank */
     XMC_Data_Addr_mux_Type                 data_Addr_multiplex; /*!< xmc nor/sram address/data multiplexing enable */
     XMC_Memory_Type                        device;              /*!< xmc nor/sram memory device */
-    XMC_Data_width_Type                    bus_Type;            /*!< xmc nor/sram data bus width */
-    XMC_burst_access_Mode_Type             burst_Mode_Enable;   /*!< xmc nor/sram burst mode enable */
+    XMC_Data_Width_Type                    bus_Type;            /*!< xmc nor/sram data bus width */
+    XMC_Burst_Access_Mode_Type             burst_Mode_Enable;   /*!< xmc nor/sram burst mode enable */
     XMC_asyn_Wait_Type                     asynwait_Enable;     /*!< xmc nor/sram nwait in asynchronous transfer enable */
-    XMC_Wait_signal_polarity_Type          wait_signal_lv;      /*!< xmc nor/sram nwait polarity */
+    XMC_Wait_signal_Polarity_Type          wait_signal_lv;      /*!< xmc nor/sram nwait polarity */
     XMC_wrap_Mode_Type                     wrapped_Mode_Enable; /*!< xmc nor/sram wrapped enable */
     XMC_Wait_Timing_Type                   wait_signal_Config;  /*!< xmc nor/sram nwait timing configuration */
     XMC_Write_Operation_Type               write_Enable;        /*!< xmc nor/sram write enable */
     XMC_Wait_signal_Type                   wait_signal_Enable;  /*!< xmc nor/sram nwait in synchronous transfer enable */
     XMC_extended_Mode_Type                 write_Timing_Enable; /*!< xmc nor/sram read-write timing different */
-    XMC_Write_burst_Type                   write_burst_syn;     /*!< xmc nor/sram memory write mode control */
+    XMC_Write_Burst_Type                   write_Burst_syn;     /*!< xmc nor/sram memory write mode control */
 } XMC_NORSRAM_Init_Type;
 
 /**
@@ -393,7 +393,7 @@ typedef struct {
 typedef struct {
     XMC_class_bank_Type                    class_bank;     /*!< xmc nand/pccard bank */
     uint32_t                               mem_Setup_time; /*!< xmc nand/pccard memory setup time */
-    uint32_t                               mem_waite_time; /*!< xmc nand/pccard memory wait time */
+    uint32_t                               mem_Waite_time; /*!< xmc nand/pccard memory wait time */
     uint32_t                               mem_hold_time;  /*!< xmc nand/pccard memory hold time */
     uint32_t                               mem_hiz_time;   /*!< xmc nand/pccard memory databus high resistance time */
 } XMC_NAND_PcCard_TimingInit_Type;
@@ -405,7 +405,7 @@ typedef struct {
 typedef struct {
     XMC_class_bank_Type                    nand_bank;        /*!< xmc nand bank */
     XMC_NAND_PcCard_Wait_Type              wait_Enable;      /*!< xmc wait feature enable */
-    XMC_Data_width_Type                    bus_Type;         /*!< xmc nand bus width */
+    XMC_Data_Width_Type                    bus_Type;         /*!< xmc nand bus width */
     XMC_ecc_Enable_Type                    ecc_Enable;       /*!< xmc nand ecc enable */
     XMC_ecc_pagesize_Type                  ecc_pagesize;     /*!< xmc nand ecc page size */
     uint32_t                               delay_Time_cycle; /*!< xmc nand cle to re delay */
@@ -417,7 +417,7 @@ typedef struct {
   */
 
 typedef struct {
-    XMC_NAND_PcCard_Wait_Type              enable_wait;   /*!< xmc pccard wait feature enable */
+    XMC_NAND_PcCard_Wait_Type              enable_Wait;   /*!< xmc pccard wait feature enable */
     uint32_t                               delay_Time_cr; /*!< xmc pccard cle to re delay */
     uint32_t                               delay_Time_ar; /*!< xmc pccard ale to re delay */
 } XMC_PcCard_Init_Type;
@@ -429,14 +429,14 @@ typedef struct {
 typedef struct {
     XMC_SDRAM_bank_Type                    sdram_bank;       /*!< xmc sdram bank bype */
     XMC_SDRAM_inbk_Type                    internel_banks;   /*!< xmc sdram internal banks */
-    XMC_SDRAM_clkdiv_Type                  clkdiv;           /*!< xmc sdram clock div */
+    XMC_SDRAM_CLKdiv_Type                  clkdiv;           /*!< xmc sdram clock div */
     uint8_t                                write_protection; /*!< xmc sdram write protection */
     uint8_t                                burst_Read;       /*!< xmc sdram burst read */
     uint8_t                                read_delay;       /*!< xmc sdram read delay */
     XMC_SDRAM_column_Type                  column_Address;   /*!< xmc sdram column address */
     XMC_SDRAM_row_Type                     row_Address;      /*!< xmc sdram row address */
     XMC_SDRAM_cas_Type                     cas;              /*!< xmc sdram cas */
-    XMC_SDRAM_width_Type                   width;            /*!< xmc sdram data width */
+    XMC_SDRAM_Width_Type                   width;            /*!< xmc sdram data width */
 } XMC_SDRAM_Init_Type;
 
 /**
@@ -444,13 +444,13 @@ typedef struct {
   */
 
 typedef struct {
-    XMC_SDRAM_delay_Type                   tmrd; /*!< mode register program to active delay  */
-    XMC_SDRAM_delay_Type                   txsr; /*!< exit self-refresh to active delay */
-    XMC_SDRAM_delay_Type                   tras; /*!< self refresh  */
-    XMC_SDRAM_delay_Type                   trc;  /*!< refresh to active delay */
-    XMC_SDRAM_delay_Type                   twr;  /*!< write recovery delay */
-    XMC_SDRAM_delay_Type                   trp;  /*!< precharge to active delay */
-    XMC_SDRAM_delay_Type                   trcd; /*!< row active to read/write delay */
+    XMC_SDRAM_Delay_Type                   tmrd; /*!< mode register program to active delay  */
+    XMC_SDRAM_Delay_Type                   txsr; /*!< exit self-refresh to active delay */
+    XMC_SDRAM_Delay_Type                   tras; /*!< self refresh  */
+    XMC_SDRAM_Delay_Type                   trc;  /*!< refresh to active delay */
+    XMC_SDRAM_Delay_Type                   twr;  /*!< write recovery delay */
+    XMC_SDRAM_Delay_Type                   trp;  /*!< precharge to active delay */
+    XMC_SDRAM_Delay_Type                   trcd; /*!< row active to read/write delay */
 } XMC_SDRAM_Timing_Type;
 
 /**
@@ -458,7 +458,7 @@ typedef struct {
   */
 
 typedef struct {
-    XMC_command_Type                       cmd;          /*!< sdram command */
+    XMC_Command_Type                       cmd;          /*!< sdram command */
     XMC_CMD_Bank1_2_Type                   cmd_banks;    /*!< which bank send command */
     uint32_t                               auto_refresh; /*!< auto refresh times */
     uint32_t                               data;         /*!< mode register data */
@@ -508,7 +508,7 @@ typedef struct {
         } bk1tmg_bit;
     };
 
-} XMC_Bank1_ctrl_tmg_reg_Type;
+} XMC_Bank1_Ctrl_tmg_reg_Type;
 
 typedef struct {
     /**
@@ -541,7 +541,7 @@ typedef struct {
     /**
       * @brief xmc bank1 ctrl and tmg register, offset:0x00~0x1C
       */
-    XMC_Bank1_ctrl_tmg_reg_Type ctrl_tmg_group[4];
+    XMC_Bank1_Ctrl_tmg_reg_Type ctrl_tmg_group[4];
 
     /**
       * @brief xmc bank1 reserved register, offset:0x20~0x100
@@ -927,7 +927,7 @@ void XMC_NORSRAM_Default_Para_Init(XMC_NORSRAM_Init_Type* XMC_NOR_SRAM_Init_stru
 void XMC_NORSRAM_Timing_Default_Para_Init(XMC_NORSRAM_Timing_Init_Type* XMC_rw_Timing_struct,
         XMC_NORSRAM_Timing_Init_Type* XMC_w_Timing_struct);
 void XMC_NOR_SRAM_Enable(XMC_NOR_SRAM_SubBank_Type XMC_subbank, confirm_state new_state);
-void XMC_ext_Timing_Config(XMC_NOR_SRAM_SubBank_Type XMC_Sub_bank, uint16_t w2w_timing, uint16_t r2r_timing);
+void XMC_Ext_Timing_Config(XMC_NOR_SRAM_SubBank_Type XMC_Sub_bank, uint16_t w2w_timing, uint16_t r2r_timing);
 void XMC_NAND_Reset(XMC_class_bank_Type XMC_bank);
 void XMC_NAND_Init(XMC_NAND_Init_Type* XMC_NAND_Init_struct);
 void XMC_NAND_Timing_Config(XMC_NAND_PcCard_TimingInit_Type* XMC_Common_spacetiming_struct,

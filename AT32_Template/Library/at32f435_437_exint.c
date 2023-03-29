@@ -24,7 +24,7 @@
 
 #include "at32f435_437_conf.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -60,9 +60,9 @@ void EXINT_Reset(void) {
   */
 void EXINT_Default_Para_Init(EXINT_Init_Type *EXINT_struct) {
     EXINT_struct->line_Enable = FALSE;
-    EXINT_struct->line_Select = EXINT_LINE_NONE;
+    EXINT_struct->line_Select = EXINT_Line_NONE;
     EXINT_struct->line_polarity = EXINT_Trigger_FALLING_EDGE;
-    EXINT_struct->line_Mode = EXINT_LINE_EVENT;
+    EXINT_struct->line_Mode = EXINT_Line_EVENT;
 }
 
 /**
@@ -79,7 +79,7 @@ void EXINT_Init(EXINT_Init_Type *EXINT_struct) {
     EXINT->evten &= ~line_index;
 
     if(EXINT_struct->line_Enable != FALSE) {
-        if(EXINT_struct->line_Mode == EXINT_LINE_INTERRUPUT) {
+        if(EXINT_struct->line_Mode == EXINT_Line_INTERRUPUT) {
             EXINT->inten |= line_index;
         } else {
             EXINT->evten |= line_index;
@@ -103,11 +103,11 @@ void EXINT_Init(EXINT_Init_Type *EXINT_struct) {
   * @brief  clear exint flag
   * @param  EXINT_line
   *         this parameter can be any combination of the following values:
-  *         - EXINT_LINE_0
-  *         - EXINT_LINE_1
+  *         - EXINT_Line_0
+  *         - EXINT_Line_1
   *         ...
-  *         - EXINT_LINE_21
-  *         - EXINT_LINE_22
+  *         - EXINT_Line_21
+  *         - EXINT_Line_22
   * @retval none
   */
 void EXINT_Flag_Clear(uint32_t EXINT_line) {
@@ -118,11 +118,11 @@ void EXINT_Flag_Clear(uint32_t EXINT_line) {
   * @brief  get exint flag
   * @param  EXINT_line
   *         this parameter can be one of the following values:
-  *         - EXINT_LINE_0
-  *         - EXINT_LINE_1
+  *         - EXINT_Line_0
+  *         - EXINT_Line_1
   *         ...
-  *         - EXINT_LINE_21
-  *         - EXINT_LINE_22
+  *         - EXINT_Line_21
+  *         - EXINT_Line_22
   * @retval the new state of exint flag(SET or RESET).
   */
 flag_status EXINT_Flag_Get(uint32_t EXINT_line) {
@@ -143,11 +143,11 @@ flag_status EXINT_Flag_Get(uint32_t EXINT_line) {
   * @brief  generate exint software interrupt event
   * @param  EXINT_line
   *         this parameter can be one of the following values:
-  *         - EXINT_LINE_0
-  *         - EXINT_LINE_1
+  *         - EXINT_Line_0
+  *         - EXINT_Line_1
   *         ...
-  *         - EXINT_LINE_21
-  *         - EXINT_LINE_22
+  *         - EXINT_Line_21
+  *         - EXINT_Line_22
   * @retval none
   */
 void EXINT_Software_Interrupt_Event_Generate(uint32_t EXINT_line) {
@@ -158,11 +158,11 @@ void EXINT_Software_Interrupt_Event_Generate(uint32_t EXINT_line) {
   * @brief  enable or disable exint interrupt
   * @param  EXINT_line
   *         this parameter can be any combination of the following values:
-  *         - EXINT_LINE_0
-  *         - EXINT_LINE_1
+  *         - EXINT_Line_0
+  *         - EXINT_Line_1
   *         ...
-  *         - EXINT_LINE_21
-  *         - EXINT_LINE_22
+  *         - EXINT_Line_21
+  *         - EXINT_Line_22
   * @param  new_state: new state of exint interrupt.
   *         this parameter can be: TRUE or FALSE.
   * @retval none
@@ -179,11 +179,11 @@ void EXINT_Interrupt_Enable(uint32_t EXINT_line, confirm_state new_state) {
   * @brief  enable or disable exint event
   * @param  EXINT_line
   *         this parameter can be any combination of the following values:
-  *         - EXINT_LINE_0
-  *         - EXINT_LINE_1
+  *         - EXINT_Line_0
+  *         - EXINT_Line_1
   *         ...
-  *         - EXINT_LINE_21
-  *         - EXINT_LINE_22
+  *         - EXINT_Line_21
+  *         - EXINT_Line_22
   * @param  new_state: new state of exint event.
   *         this parameter can be: TRUE or FALSE.
   * @retval none

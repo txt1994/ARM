@@ -34,7 +34,7 @@ extern "C" {
 /* includes ------------------------------------------------------------------*/
 #include "at32f435_437.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -42,7 +42,7 @@ extern "C" {
   * @{
   */
 
-/** @defgroup SDIO_interrupts_definition
+/** @defgroup SDIO_Interrupts_definition
   * @brief sdio interrupt
   * @{
   */
@@ -118,7 +118,7 @@ extern "C" {
 typedef enum {
     SDIO_Power_OFF                         = 0x00, /*!< power-off, clock to card is stopped */
     SDIO_Power_ON                          = 0x03  /*!< power-on, the card is clocked */
-} sdio_Power_state_Type;
+} SDIO_Power_State_Type;
 
 /**
   * @brief sdio edge phase
@@ -126,25 +126,25 @@ typedef enum {
 typedef enum {
     SDIO_Clock_Edge_RISING                 = 0x00, /*!< sdio bus clock generated on the rising edge of the master clock */
     SDIO_Clock_Edge_FALLING                = 0x01  /*!< sdio bus clock generated on the falling edge of the master clock */
-} sdio_Edge_phase_Type;
+} SDIO_Edge_phase_Type;
 
 /**
   * @brief sdio bus width
   */
 typedef enum {
-    SDIO_BUS_WIDTH_D1                      = 0x00, /*!< sdio wide bus select 1-bit */
-    SDIO_BUS_WIDTH_D4                      = 0x01, /*!< sdio wide bus select 4-bit */
-    SDIO_BUS_WIDTH_D8                      = 0x02  /*!< sdio wide bus select 8-bit */
-} sdio_bus_width_Type;
+    SDIO_Bus_Width_D1                      = 0x00, /*!< sdio wide bus select 1-bit */
+    SDIO_Bus_Width_D4                      = 0x01, /*!< sdio wide bus select 4-bit */
+    SDIO_Bus_Width_D8                      = 0x02  /*!< sdio wide bus select 8-bit */
+} SDIO_Bus_Width_Type;
 
 /**
   * @brief sdio response type
   */
 typedef enum {
-    SDIO_RESPONSE_NO                       = 0x00, /*!< no response */
-    SDIO_RESPONSE_SHORT                    = 0x01, /*!< short response */
-    SDIO_RESPONSE_LONG                     = 0x03  /*!< long response */
-} sdio_reponse_Type;
+    SDIO_Response_NO                       = 0x00, /*!< no response */
+    SDIO_Response_SHORT                    = 0x01, /*!< short response */
+    SDIO_Response_LONG                     = 0x03  /*!< long response */
+} SDIO_reponse_Type;
 
 /**
   * @brief sdio wait type
@@ -153,17 +153,17 @@ typedef enum {
     SDIO_Wait_FOR_NO                       = 0x00, /*!< no wait */
     SDIO_Wait_FOR_INT                      = 0x01, /*!< wait interrupt request */
     SDIO_Wait_FOR_PEND                     = 0x02  /*!< wait end of transfer */
-} sdio_Wait_Type;
+} SDIO_Wait_Type;
 
 /**
   * @brief sdio response register index
   */
 typedef enum {
-    SDIO_RSP1_INDEX                        = 0x00, /*!< response index 1, corresponding to sdio_rsp register 1 */
-    SDIO_RSP2_INDEX                        = 0x01, /*!< response index 2, corresponding to sdio_rsp register 2 */
-    SDIO_RSP3_INDEX                        = 0x02, /*!< response index 3, corresponding to sdio_rsp register 3 */
-    SDIO_RSP4_INDEX                        = 0x03  /*!< response index 4, corresponding to sdio_rsp register 4 */
-} sdio_rsp_index_Type;
+    SDIO_RSP1_INDEX                        = 0x00, /*!< response index 1, corresponding to SDIO_rsp register 1 */
+    SDIO_RSP2_INDEX                        = 0x01, /*!< response index 2, corresponding to SDIO_rsp register 2 */
+    SDIO_RSP3_INDEX                        = 0x02, /*!< response index 3, corresponding to SDIO_rsp register 3 */
+    SDIO_RSP4_INDEX                        = 0x03  /*!< response index 4, corresponding to SDIO_rsp register 4 */
+} SDIO_rsp_index_Type;
 
 /**
   * @brief sdio data block size
@@ -184,7 +184,7 @@ typedef enum {
     SDIO_Data_Block_SIZE_4096B             = 0x0C, /*!< data block size 4096 bytes */
     SDIO_Data_Block_SIZE_8192B             = 0x0D, /*!< data block size 8192 bytes */
     SDIO_Data_Block_SIZE_16384B            = 0x0E  /*!< data block size 16384 bytes */
-} sdio_Block_size_Type;
+} SDIO_Block_size_Type;
 
 /**
   * @brief sdio data transfer mode
@@ -192,15 +192,15 @@ typedef enum {
 typedef enum {
     SDIO_Data_Block_TRANSFER               = 0x00, /*!< the sdio block transfer mode */
     SDIO_Data_Stream_TRANSFER              = 0x01  /*!< the sdio stream transfer mode */
-} sdio_Transfer_Mode_Type;
+} SDIO_Transfer_Mode_Type;
 
 /**
   * @brief sdio data transfer direction
   */
 typedef enum {
-    SDIO_Data_Transfer_TO_CARD             = 0x00, /*!< the sdio controller write */
-    SDIO_Data_Transfer_TO_CONTROLLER       = 0x01  /*!< the sdio controller read */
-} sdio_Transfer_direction_Type;
+    SDIO_Data_Transfer_To_CARD             = 0x00, /*!< the sdio controller write */
+    SDIO_Data_Transfer_To_CONTROLLER       = 0x01  /*!< the sdio controller read */
+} SDIO_Transfer_Direction_Type;
 
 /**
   * @brief sdio read wait mode
@@ -208,7 +208,7 @@ typedef enum {
 typedef enum {
     SDIO_Read_Wait_CONTROLLED_BY_D2        = 0x00, /*!< the sdio read wait on data2 line */
     SDIO_Read_Wait_CONTROLLED_BY_CK        = 0x01  /*!< the sdio read wait on clock line */
-} sdio_Read_Wait_Mode_Type;
+} SDIO_Read_Wait_Mode_Type;
 
 /**
   * @brief sdio command structure
@@ -216,9 +216,9 @@ typedef enum {
 typedef struct {
     uint32_t                               argument;  /*!< the sdio command argument is sent to a card as part of command message */
     uint8_t                                cmd_index; /*!< the sdio command index */
-    sdio_reponse_Type                      rsp_Type;  /*!< the sdio response type */
-    sdio_Wait_Type                         wait_Type; /*!< the sdio wait for interrupt request is enabled or disable */
-} sdio_command_struct_Type;
+    SDIO_reponse_Type                      rsp_Type;  /*!< the sdio response type */
+    SDIO_Wait_Type                         wait_Type; /*!< the sdio wait for interrupt request is enabled or disable */
+} SDIO_Command_struct_Type;
 
 /**
   * @brief sdio data structure
@@ -226,10 +226,10 @@ typedef struct {
 typedef struct {
     uint32_t                               timeout;            /*!< the sdio data timeout period in car bus clock periods */
     uint32_t                               data_length;        /*!< the sdio data length */
-    sdio_Block_size_Type                   block_size;         /*!< the sdio data block size of block transfer mode */
-    sdio_Transfer_Mode_Type                transfer_Mode;      /*!< the sdio transfer mode, block or stream */
-    sdio_Transfer_direction_Type           transfer_direction; /*!< the sdio data transfer direction */
-} sdio_Data_struct_Type;
+    SDIO_Block_size_Type                   block_size;         /*!< the sdio data block size of block transfer mode */
+    SDIO_Transfer_Mode_Type                transfer_Mode;      /*!< the sdio transfer mode, block or stream */
+    SDIO_Transfer_Direction_Type           transfer_direction; /*!< the sdio data transfer direction */
+} SDIO_Data_struct_Type;
 
 /**
   * @brief type define sdio register all
@@ -348,7 +348,7 @@ typedef struct {
         __IO uint32_t dttmr;
         struct {
             __IO uint32_t timeout              : 32;/* [31:0] */
-        } dttmr_bit;
+        } dtTMR_bit;
     };
 
     /**
@@ -512,47 +512,47 @@ typedef struct {
         } buf_bit;
     };
 
-} sdio_Type;
+} SDIO_Type;
 
 /**
   * @}
   */
 
-#define SDIO1                            ((sdio_Type *) SDIO1_BASE)
-#define SDIO2                            ((sdio_Type *) SDIO2_BASE)
+#define SDIO1                            ((SDIO_Type *) SDIO1_BASE)
+#define SDIO2                            ((SDIO_Type *) SDIO2_BASE)
 
 /** @defgroup SDIO_exported_functions
   * @{
   */
 
-void sdio_Reset(sdio_Type *sdio_x);
-void sdio_Power_Set(sdio_Type *sdio_x, sdio_Power_state_Type power_state);
-sdio_Power_state_Type sdio_Power_Status_Get(sdio_Type *sdio_x);
-void sdio_Clock_Config(sdio_Type *sdio_x, uint16_t clk_div, sdio_Edge_phase_Type clk_edg);
-void sdio_bus_width_Config(sdio_Type *sdio_x, sdio_bus_width_Type width);
-void sdio_Clock_bypass(sdio_Type *sdio_x, confirm_state new_state);
-void sdio_Power_saving_Mode_Enable(sdio_Type *sdio_x, confirm_state new_state);
-void sdio_flow_Control_Enable(sdio_Type *sdio_x, confirm_state new_state);
-void sdio_Clock_Enable(sdio_Type *sdio_x, confirm_state new_state);
-void sdio_DMA_Enable(sdio_Type *sdio_x, confirm_state new_state);
-void sdio_Interrupt_Enable(sdio_Type *sdio_x, uint32_t int_opt,  confirm_state new_state);
-flag_status sdio_Flag_Get(sdio_Type *sdio_x, uint32_t flag);
-void sdio_Flag_Clear(sdio_Type *sdio_x, uint32_t flag);
-void sdio_command_Config(sdio_Type *sdio_x, sdio_command_struct_Type *command_struct);
-void sdio_command_state_machine_Enable(sdio_Type *sdio_x, confirm_state new_state);
-uint8_t sdio_command_response_Get(sdio_Type *sdio_x);
-uint32_t sdio_response_Get(sdio_Type *sdio_x, sdio_rsp_index_Type reg_index);
-void sdio_Data_Config(sdio_Type *sdio_x, sdio_Data_struct_Type *data_struct);
-void sdio_Data_state_machine_Enable(sdio_Type *sdio_x, confirm_state new_state);
-uint32_t sdio_Data_Counter_Get(sdio_Type *sdio_x);
-uint32_t sdio_Data_Read(sdio_Type *sdio_x);
-uint32_t sdio_buffer_Counter_Get(sdio_Type *sdio_x);
-void sdio_Data_Write(sdio_Type *sdio_x, uint32_t data);
-void sdio_Read_Wait_Mode_Set(sdio_Type *sdio_x, sdio_Read_Wait_Mode_Type mode);
-void sdio_Read_Wait_Start(sdio_Type *sdio_x, confirm_state new_state);
-void sdio_Read_Wait_stop(sdio_Type *sdio_x, confirm_state new_state);
-void sdio_io_function_Enable(sdio_Type *sdio_x, confirm_state new_state);
-void sdio_io_suspend_command_Set(sdio_Type *sdio_x, confirm_state new_state);
+void SDIO_Reset(SDIO_Type *SDIO_x);
+void SDIO_Power_Set(SDIO_Type *SDIO_x, SDIO_Power_State_Type power_state);
+SDIO_Power_State_Type SDIO_Power_Status_Get(SDIO_Type *SDIO_x);
+void SDIO_Clock_Config(SDIO_Type *SDIO_x, uint16_t clk_div, SDIO_Edge_phase_Type clk_edg);
+void SDIO_Bus_Width_Config(SDIO_Type *SDIO_x, SDIO_Bus_Width_Type width);
+void SDIO_Clock_ByPass(SDIO_Type *SDIO_x, confirm_state new_state);
+void SDIO_Power_Saving_Mode_Enable(SDIO_Type *SDIO_x, confirm_state new_state);
+void SDIO_Flow_Control_Enable(SDIO_Type *SDIO_x, confirm_state new_state);
+void SDIO_Clock_Enable(SDIO_Type *SDIO_x, confirm_state new_state);
+void SDIO_DMA_Enable(SDIO_Type *SDIO_x, confirm_state new_state);
+void SDIO_Interrupt_Enable(SDIO_Type *SDIO_x, uint32_t int_opt,  confirm_state new_state);
+flag_status SDIO_Flag_Get(SDIO_Type *SDIO_x, uint32_t flag);
+void SDIO_Flag_Clear(SDIO_Type *SDIO_x, uint32_t flag);
+void SDIO_Command_Config(SDIO_Type *SDIO_x, SDIO_Command_struct_Type *command_struct);
+void SDIO_Command_State_Machine_Enable(SDIO_Type *SDIO_x, confirm_state new_state);
+uint8_t SDIO_Command_Response_Get(SDIO_Type *SDIO_x);
+uint32_t SDIO_Response_Get(SDIO_Type *SDIO_x, SDIO_rsp_index_Type reg_index);
+void SDIO_Data_Config(SDIO_Type *SDIO_x, SDIO_Data_struct_Type *data_struct);
+void SDIO_Data_State_Machine_Enable(SDIO_Type *SDIO_x, confirm_state new_state);
+uint32_t SDIO_Data_Counter_Get(SDIO_Type *SDIO_x);
+uint32_t SDIO_Data_Read(SDIO_Type *SDIO_x);
+uint32_t SDIO_Buffer_Counter_Get(SDIO_Type *SDIO_x);
+void SDIO_Data_Write(SDIO_Type *SDIO_x, uint32_t data);
+void SDIO_Read_Wait_Mode_Set(SDIO_Type *SDIO_x, SDIO_Read_Wait_Mode_Type mode);
+void SDIO_Read_Wait_Start(SDIO_Type *SDIO_x, confirm_state new_state);
+void SDIO_Read_Wait_stop(SDIO_Type *SDIO_x, confirm_state new_state);
+void SDIO_IO_Function_Enable(SDIO_Type *SDIO_x, confirm_state new_state);
+void SDIO_IO_Suspend_Command_Set(SDIO_Type *SDIO_x, confirm_state new_state);
 
 /**
   * @}

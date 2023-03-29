@@ -25,7 +25,7 @@
 /* includes ------------------------------------------------------------------*/
 #include "at32f435_437_int.h"
 
-/** @addtogroup AT32F437_periph_template
+/** @addtogroup AT32F437_Periph_template
   * @{
   */
 
@@ -114,7 +114,7 @@ void PendSV_Handler(void) {
   * @param  none
   * @retval none
   */
-void SysTick_Handler(void) {
+void Systick_Handler(void) {
 }
 
 /**

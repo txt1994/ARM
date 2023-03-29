@@ -24,7 +24,7 @@
 
 #include "at32f435_437_conf.h"
 
-/** @addtogroup AT32F435_437_periph_driver
+/** @addtogroup AT32F435_437_Periph_driver
   * @{
   */
 
@@ -44,7 +44,7 @@
   * @param  none
   * @retval the debug device id
   */
-uint32_t DEBUG_device_ID_Get(void) {
+uint32_t DEBUG_Device_ID_Get(void) {
     return DEBUGMCU->pid;
 }
 /**
@@ -57,7 +57,7 @@ uint32_t DEBUG_device_ID_Get(void) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void DEBUG_low_Power_Mode_Set(uint32_t low_Power_Mode, confirm_state new_state) {
+void DEBUG_Low_Power_Mode_Set(uint32_t low_Power_Mode, confirm_state new_state) {
     if(new_state != FALSE) {
         DEBUGMCU->ctrl |= low_Power_Mode;
     } else {
@@ -80,7 +80,7 @@ void DEBUG_low_Power_Mode_Set(uint32_t low_Power_Mode, confirm_state new_state) 
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void DEBUG_apb1_periph_Mode_Set(uint32_t apb1_periph, confirm_state new_state) {
+void DEBUG_APB1_Periph_Mode_Set(uint32_t apb1_periph, confirm_state new_state) {
     if(new_state != FALSE) {
         DEBUGMCU->apb1_frz |= apb1_periph;
     } else {
@@ -97,7 +97,7 @@ void DEBUG_apb1_periph_Mode_Set(uint32_t apb1_periph, confirm_state new_state) {
   * @param  new_state (TRUE or FALSE)
   * @retval none
   */
-void DEBUG_apb2_periph_Mode_Set(uint32_t apb2_periph, confirm_state new_state) {
+void DEBUG_APB2_Periph_Mode_Set(uint32_t apb2_periph, confirm_state new_state) {
     if(new_state != FALSE) {
         DEBUGMCU->apb2_frz |= apb2_periph;
     } else {

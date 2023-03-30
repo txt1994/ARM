@@ -57,21 +57,21 @@ ErrStatus RTC_DeInit(void) {
     volatile uint32_t time_index = RTC_WTWF_TIMEOUT;
     uint32_t flag_status = RESET;
     /* RTC_TAMP register is not under write protection */
-    RTC_TAMP = RTC_REGISTER_RESET;
+    RTC_TAMP = RTC_Register_RESET;
 
     /* disable the write protection */
     RTC_WPK = RTC_UNLOCK_KEY1;
     RTC_WPK = RTC_UNLOCK_KEY2;
 
     /* enter init mode */
-    error_status = RTC_init_mode_enter();
+    error_status = RTC_init_Mode_enter();
 
     if(ERROR != error_status) {
         /* reset RTC_CTL register, but RTC_CTL[2��0] */
-        RTC_CTL &= (RTC_REGISTER_RESET | RTC_CTL_WTCS);
+        RTC_CTL &= (RTC_Register_RESET | RTC_CTL_WTCS);
         /* before reset RTC_TIME and RTC_DATE, BPSHAD bit in RTC_CTL should be reset as the condition.
            in order to read calendar from shadow register, not the real registers being reset */
-        RTC_TIME = RTC_REGISTER_RESET;
+        RTC_TIME = RTC_Register_RESET;
         RTC_DATE = RTC_DATE_RESET;
 
         RTC_PSC = RTC_PSC_RESET;
@@ -85,21 +85,21 @@ ErrStatus RTC_DeInit(void) {
         if((uint32_t)RESET == flag_status) {
             error_status = ERROR;
         } else {
-            RTC_CTL &= RTC_REGISTER_RESET;
+            RTC_CTL &= RTC_Register_RESET;
             RTC_WUT = RTC_WUT_RESET;
-            RTC_COSC = RTC_REGISTER_RESET;
+            RTC_COSC = RTC_Register_RESET;
             /* to write RTC_ALRMxSS register, ALRMxEN bit in RTC_CTL register should be reset as the condition */
-            RTC_ALRM0TD = RTC_REGISTER_RESET;
-            RTC_ALRM1TD = RTC_REGISTER_RESET;
-            RTC_ALRM0SS = RTC_REGISTER_RESET;
-            RTC_ALRM1SS = RTC_REGISTER_RESET;
+            RTC_ALRM0TD = RTC_Register_RESET;
+            RTC_ALRM1TD = RTC_Register_RESET;
+            RTC_ALRM0SS = RTC_Register_RESET;
+            RTC_ALRM1SS = RTC_Register_RESET;
             /* reset RTC_STAT register, also exit init mode.
                at the same time, RTC_STAT_SOPF bit is reset, as the condition to reset RTC_SHIFTCTL register later */
             RTC_STAT = RTC_STAT_RESET;
             /* reset RTC_SHIFTCTL and RTC_HRFC register, this can be done without the init mode */
-            RTC_SHIFTCTL   = RTC_REGISTER_RESET;
-            RTC_HRFC       = RTC_REGISTER_RESET;
-            error_status = RTC_register_sync_Wait();
+            RTC_SHIFTCTL   = RTC_Register_RESET;
+            RTC_HRFC       = RTC_Register_RESET;
+            error_status = RTC_Register_Sync_Wait();
         }
     }
 
@@ -111,14 +111,14 @@ ErrStatus RTC_DeInit(void) {
 
 /*!
     简介:    initialize RTC registers
-    参数[输入]:  RTC_initpara_struct: pointer to a RTC_parameter_struct structure which contains
+    参数[输入]:  RTC_initpara_Struct: pointer to a RTC_Parameter_Struct structure which contains
                 parameters for initialization of the rtc peripheral
                 members of the structure and the member values are shown as below:
                   year: 0x0 - 0x99(BCD format)
                   month: RTC_JAN, RTC_FEB, RTC_MAR, RTC_APR, RTC_MAY, RTC_JUN,
                              RTC_JUL, RTC_AUG, RTC_SEP, RTC_OCT, RTC_NOV, RTC_DEC
                   date: 0x1 - 0x31(BCD format)
-                  day_of_week: RTC_MONDAY, RTC_TUESDAY, RTC_WEDSDAY, RTC_THURSDAY
+                  day_Of_week: RTC_MONDAY, RTC_TUESDAY, RTC_WEDSDAY, RTC_THURSDAY
                                    RTC_FRIDAY, RTC_SATURDAY, RTC_SUNDAY
                   hour: 0x0 - 0x12(BCD format) or 0x0 - 0x23(BCD format) depending on the RTC_display_format chose
                   minute: 0x0 - 0x59(BCD format)
@@ -130,42 +130,42 @@ ErrStatus RTC_DeInit(void) {
     参数[输出]:  无
     返回值:     ErrStatus: ERROR or SUCCESS
 */
-ErrStatus RTC_init(RTC_parameter_struct *RTC_initpara_struct) {
+ErrStatus RTC_Init(RTC_Parameter_Struct *RTC_initpara_Struct) {
     ErrStatus error_status = ERROR;
     uint32_t reg_time = 0U, reg_date = 0U;
 
-    reg_date = (DATE_YR(RTC_initpara_struct->year) | \
-                DATE_DOW(RTC_initpara_struct->day_of_week) | \
-                DATE_MON(RTC_initpara_struct->month) | \
-                DATE_DAY(RTC_initpara_struct->date));
+    reg_date = (DATE_YR(RTC_initpara_Struct->year) | \
+                DATE_DOW(RTC_initpara_Struct->day_Of_week) | \
+                DATE_MON(RTC_initpara_Struct->month) | \
+                DATE_DAY(RTC_initpara_Struct->date));
 
-    reg_time = (RTC_initpara_struct->am_pm | \
-                TIME_HR(RTC_initpara_struct->hour)  | \
-                TIME_MN(RTC_initpara_struct->minute) | \
-                TIME_SC(RTC_initpara_struct->second));
+    reg_time = (RTC_initpara_Struct->am_pm | \
+                TIME_HR(RTC_initpara_Struct->hour)  | \
+                TIME_MN(RTC_initpara_Struct->minute) | \
+                TIME_SC(RTC_initpara_Struct->second));
 
     /* 1st: disable the write protection */
     RTC_WPK = RTC_UNLOCK_KEY1;
     RTC_WPK = RTC_UNLOCK_KEY2;
 
     /* 2nd: enter init mode */
-    error_status = RTC_init_mode_enter();
+    error_status = RTC_init_Mode_enter();
 
     if(ERROR != error_status) {
-        RTC_PSC = (uint32_t)(PSC_FACTOR_A(RTC_initpara_struct->factor_asyn) | \
-                             PSC_FACTOR_S(RTC_initpara_struct->factor_syn));
+        RTC_PSC = (uint32_t)(PSC_FACTOR_A(RTC_initpara_Struct->factor_asyn) | \
+                             PSC_FACTOR_S(RTC_initpara_Struct->factor_syn));
 
         RTC_TIME = (uint32_t)reg_time;
         RTC_DATE = (uint32_t)reg_date;
 
         RTC_CTL &= (uint32_t)(~RTC_CTL_CS);
-        RTC_CTL |=  RTC_initpara_struct->display_format;
+        RTC_CTL |=  RTC_initpara_Struct->display_format;
 
         /* 3rd: exit init mode */
-        RTC_init_mode_exit();
+        RTC_init_Mode_exit();
 
         /* 4th: wait the RSYNF flag to set */
-        error_status = RTC_register_sync_Wait();
+        error_status = RTC_Register_Sync_Wait();
     }
 
     /* 5th:  enable the write protection */
@@ -180,7 +180,7 @@ ErrStatus RTC_init(RTC_parameter_struct *RTC_initpara_struct) {
     参数[输出]:  无
     返回值:     ErrStatus: ERROR or SUCCESS
 */
-ErrStatus RTC_init_mode_enter(void) {
+ErrStatus RTC_init_Mode_enter(void) {
     volatile uint32_t time_index = RTC_INITM_TIMEOUT;
     uint32_t flag_status = RESET;
     ErrStatus error_status = ERROR;
@@ -210,7 +210,7 @@ ErrStatus RTC_init_mode_enter(void) {
     参数[输出]:  无
     返回值:      无
 */
-void RTC_init_mode_exit(void) {
+void RTC_init_Mode_exit(void) {
     RTC_STAT &= (uint32_t)(~RTC_STAT_INITM);
 }
 
@@ -221,7 +221,7 @@ void RTC_init_mode_exit(void) {
     参数[输出]:  无
     返回值:     ErrStatus: ERROR or SUCCESS
 */
-ErrStatus RTC_register_sync_Wait(void) {
+ErrStatus RTC_Register_Sync_Wait(void) {
     volatile uint32_t time_index = RTC_RSYNF_TIMEOUT;
     uint32_t flag_status = RESET;
     ErrStatus error_status = ERROR;
@@ -255,14 +255,14 @@ ErrStatus RTC_register_sync_Wait(void) {
 /*!
     简介:    get current time and date
     参数[输入]:  无
-    参数[输出]: RTC_initpara_struct: pointer to a RTC_parameter_struct structure which contains
+    参数[输出]: RTC_initpara_Struct: pointer to a RTC_Parameter_Struct structure which contains
                 parameters for initialization of the rtc peripheral
                 members of the structure and the member values are shown as below:
                   year: 0x0 - 0x99(BCD format)
                   month: RTC_JAN, RTC_FEB, RTC_MAR, RTC_APR, RTC_MAY, RTC_JUN,
                              RTC_JUL, RTC_AUG, RTC_SEP, RTC_OCT, RTC_NOV, RTC_DEC
                   date: 0x1 - 0x31(BCD format)
-                  day_of_week: RTC_MONDAY, RTC_TUESDAY, RTC_WEDSDAY, RTC_THURSDAY
+                  day_Of_week: RTC_MONDAY, RTC_TUESDAY, RTC_WEDSDAY, RTC_THURSDAY
                                    RTC_FRIDAY, RTC_SATURDAY, RTC_SUNDAY
                   hour: 0x0 - 0x12(BCD format) or 0x0 - 0x23(BCD format) depending on the RTC_display_format chose
                   minute: 0x0 - 0x59(BCD format)
@@ -273,7 +273,7 @@ ErrStatus RTC_register_sync_Wait(void) {
                   display_format: RTC_24HOUR, RTC_12HOUR
     返回值:      无
 */
-void RTC_current_time_get(RTC_parameter_struct *RTC_initpara_struct) {
+void RTC_Current_Time_Get(RTC_Parameter_Struct *RTC_initpara_Struct) {
     uint32_t temp_tr = 0U, temp_dr = 0U, temp_pscr = 0U, temp_ctlr = 0U;
 
     temp_tr = (uint32_t)RTC_TIME;
@@ -281,18 +281,18 @@ void RTC_current_time_get(RTC_parameter_struct *RTC_initpara_struct) {
     temp_pscr = (uint32_t)RTC_PSC;
     temp_ctlr = (uint32_t)RTC_CTL;
 
-    /* get current time and construct RTC_parameter_struct structure */
-    RTC_initpara_struct->year = (uint8_t)GET_DATE_YR(temp_dr);
-    RTC_initpara_struct->month = (uint8_t)GET_DATE_MON(temp_dr);
-    RTC_initpara_struct->date = (uint8_t)GET_DATE_DAY(temp_dr);
-    RTC_initpara_struct->day_of_week = (uint8_t)GET_DATE_DOW(temp_dr);
-    RTC_initpara_struct->hour = (uint8_t)GET_TIME_HR(temp_tr);
-    RTC_initpara_struct->minute = (uint8_t)GET_TIME_MN(temp_tr);
-    RTC_initpara_struct->second = (uint8_t)GET_TIME_SC(temp_tr);
-    RTC_initpara_struct->factor_asyn = (uint16_t)GET_PSC_FACTOR_A(temp_pscr);
-    RTC_initpara_struct->factor_syn = (uint16_t)GET_PSC_FACTOR_S(temp_pscr);
-    RTC_initpara_struct->am_pm = (uint32_t)(temp_tr & RTC_TIME_PM);
-    RTC_initpara_struct->display_format = (uint32_t)(temp_ctlr & RTC_CTL_CS);
+    /* get current time and construct RTC_Parameter_Struct structure */
+    RTC_initpara_Struct->year = (uint8_t)GET_DATE_YR(temp_dr);
+    RTC_initpara_Struct->month = (uint8_t)GET_DATE_MON(temp_dr);
+    RTC_initpara_Struct->date = (uint8_t)GET_DATE_DAY(temp_dr);
+    RTC_initpara_Struct->day_Of_week = (uint8_t)GET_DATE_DOW(temp_dr);
+    RTC_initpara_Struct->hour = (uint8_t)GET_Time_HR(temp_tr);
+    RTC_initpara_Struct->minute = (uint8_t)GET_Time_MN(temp_tr);
+    RTC_initpara_Struct->second = (uint8_t)GET_Time_SC(temp_tr);
+    RTC_initpara_Struct->factor_asyn = (uint16_t)GET_PSC_FACTOR_A(temp_pscr);
+    RTC_initpara_Struct->factor_syn = (uint16_t)GET_PSC_FACTOR_S(temp_pscr);
+    RTC_initpara_Struct->am_pm = (uint32_t)(temp_tr & RTC_Time_PM);
+    RTC_initpara_Struct->display_format = (uint32_t)(temp_ctlr & RTC_CTL_CS);
 }
 
 /*!
@@ -301,7 +301,7 @@ void RTC_current_time_get(RTC_parameter_struct *RTC_initpara_struct) {
     参数[输出]:  无
     返回值:     current subsecond value
 */
-uint32_t RTC_subsecond_get(void) {
+uint32_t RTC_SubSecond_Get(void) {
     uint32_t reg = 0U;
     /* if BPSHAD bit is reset, reading RTC_SS will lock RTC_TIME and RTC_DATE automatically */
     reg = (uint32_t)RTC_SS;
@@ -314,7 +314,7 @@ uint32_t RTC_subsecond_get(void) {
 /*!
     简介:    configure RTC alarm
     参数[输入]:  RTC_alarm: RTC_ALARM0 or RTC_ALARM1
-    参数[输入]:  RTC_alarm_time: pointer to a RTC_alarm_struct structure which contains
+    参数[输入]:  RTC_alarm_time: pointer to a RTC_alarm_Struct structure which contains
                 parameters for RTC alarm configuration
                 members of the structure and the member values are shown as below:
                   alarm_mask: RTC_ALARM_NONE_MASK, RTC_ALARM_DATE_MASK, RTC_ALARM_HOUR_MASK
@@ -330,7 +330,7 @@ uint32_t RTC_subsecond_get(void) {
     参数[输出]:  无
     返回值:      无
 */
-void RTC_alarm_Config(uint8_t RTC_alarm, RTC_alarm_struct *RTC_alarm_time) {
+void RTC_alarm_Config(uint8_t RTC_alarm, RTC_alarm_Struct *RTC_alarm_time) {
     uint32_t reg_alrmtd = 0U;
 
     reg_alrmtd = (RTC_alarm_time->alarm_mask | \
@@ -380,7 +380,7 @@ void RTC_alarm_Config(uint8_t RTC_alarm, RTC_alarm_struct *RTC_alarm_time) {
     参数[输出]:  无
     返回值:      无
 */
-void RTC_alarm_subsecond_Config(uint8_t RTC_alarm, uint32_t mask_subsecond, uint32_t subsecond) {
+void RTC_alarm_SubSecond_Config(uint8_t RTC_alarm, uint32_t mask_subsecond, uint32_t subsecond) {
     /* disable the write protection */
     RTC_WPK = RTC_UNLOCK_KEY1;
     RTC_WPK = RTC_UNLOCK_KEY2;
@@ -398,7 +398,7 @@ void RTC_alarm_subsecond_Config(uint8_t RTC_alarm, uint32_t mask_subsecond, uint
 /*!
     简介:    get RTC alarm
     参数[输入]:  RTC_alarm: RTC_ALARM0 or RTC_ALARM1
-    参数[输出]: RTC_alarm_time: pointer to a RTC_alarm_struct structure which contains
+    参数[输出]: RTC_alarm_time: pointer to a RTC_alarm_Struct structure which contains
                 parameters for RTC alarm configuration
                 members of the structure and the member values are shown as below:
                   alarm_mask: RTC_ALARM_NONE_MASK, RTC_ALARM_DATE_MASK, RTC_ALARM_HOUR_MASK
@@ -413,7 +413,7 @@ void RTC_alarm_subsecond_Config(uint8_t RTC_alarm, uint32_t mask_subsecond, uint
                   am_pm: RTC_AM, RTC_PM
     返回值:      无
 */
-void RTC_alarm_get(uint8_t RTC_alarm, RTC_alarm_struct *RTC_alarm_time) {
+void RTC_alarm_Get(uint8_t RTC_alarm, RTC_alarm_Struct *RTC_alarm_time) {
     uint32_t reg_alrmtd = 0U;
 
     /* get the value of RTC_ALRM0TD register */
@@ -423,7 +423,7 @@ void RTC_alarm_get(uint8_t RTC_alarm, RTC_alarm_struct *RTC_alarm_time) {
         reg_alrmtd = RTC_ALRM1TD;
     }
 
-    /* get alarm parameters and construct the RTC_alarm_struct structure */
+    /* get alarm parameters and construct the RTC_alarm_Struct structure */
     RTC_alarm_time->alarm_mask = reg_alrmtd & RTC_ALARM_ALL_MASK;
     RTC_alarm_time->am_pm = (uint32_t)(reg_alrmtd & RTC_ALRMXTD_PM);
     RTC_alarm_time->weekday_or_date = (uint32_t)(reg_alrmtd & RTC_ALRMXTD_DOWS);
@@ -439,7 +439,7 @@ void RTC_alarm_get(uint8_t RTC_alarm, RTC_alarm_struct *RTC_alarm_time) {
     参数[输出]:  无
     返回值:     RTC alarm subsecond value
 */
-uint32_t RTC_alarm_subsecond_get(uint8_t RTC_alarm) {
+uint32_t RTC_alarm_SubSecond_Get(uint8_t RTC_alarm) {
     if(RTC_ALARM0 == RTC_alarm) {
         return ((uint32_t)(RTC_ALRM0SS & RTC_ALRM0SS_SSC));
     } else {
@@ -453,7 +453,7 @@ uint32_t RTC_alarm_subsecond_get(uint8_t RTC_alarm) {
     参数[输出]:  无
     返回值:      无
 */
-void RTC_alarm_enable(uint8_t RTC_alarm) {
+void RTC_alarm_Enable(uint8_t RTC_alarm) {
     /* disable the write protection */
     RTC_WPK = RTC_UNLOCK_KEY1;
     RTC_WPK = RTC_UNLOCK_KEY2;
@@ -474,7 +474,7 @@ void RTC_alarm_enable(uint8_t RTC_alarm) {
     参数[输出]:  无
     返回值:     ErrStatus: ERROR or SUCCESS
 */
-ErrStatus RTC_alarm_disable(uint8_t RTC_alarm) {
+ErrStatus RTC_alarm_Disable(uint8_t RTC_alarm) {
     volatile uint32_t time_index = RTC_ALRMXWF_TIMEOUT;
     ErrStatus error_status = ERROR;
     uint32_t flag_status = RESET;
@@ -513,12 +513,12 @@ ErrStatus RTC_alarm_disable(uint8_t RTC_alarm) {
 /*!
     简介:    enable RTC time-stamp
     参数[输入]:  edge: specify which edge to detect of time-stamp
-      参数:        RTC_TIMESTAMP_RISING_EDGE: rising edge is valid event edge for timestamp event
-      参数:        RTC_TIMESTAMP_FALLING_EDGE: falling edge is valid event edge for timestamp event
+      参数:        RTC_Timestamp_RISING_EDGE: rising edge is valid event edge for timestamp event
+      参数:        RTC_Timestamp_FALLING_EDGE: falling edge is valid event edge for timestamp event
     参数[输出]:  无
     返回值:      无
 */
-void RTC_timestamp_enable(uint32_t edge) {
+void RTC_Timestamp_Enable(uint32_t edge) {
     uint32_t reg_ctl = 0U;
 
     /* clear the bits to be configured in RTC_CTL */
@@ -543,7 +543,7 @@ void RTC_timestamp_enable(uint32_t edge) {
     参数[输出]:  无
     返回值:      无
 */
-void RTC_timestamp_disable(void) {
+void RTC_Timestamp_Disable(void) {
     /* disable the write protection */
     RTC_WPK = RTC_UNLOCK_KEY1;
     RTC_WPK = RTC_UNLOCK_KEY2;
@@ -558,7 +558,7 @@ void RTC_timestamp_disable(void) {
 /*!
     简介:    get RTC timestamp time and date
     参数[输入]:  无
-    参数[输出]: RTC_timestamp: pointer to a RTC_timestamp_struct structure which contains
+    参数[输出]: RTC_timestamp: pointer to a RTC_Timestamp_Struct structure which contains
                 parameters for RTC time-stamp configuration
                 members of the structure and the member values are shown as below:
                   timestamp_month: RTC_JAN, RTC_FEB, RTC_MAR, RTC_APR, RTC_MAY, RTC_JUN,
@@ -572,14 +572,14 @@ void RTC_timestamp_disable(void) {
                   am_pm: RTC_AM, RTC_PM
     返回值:      无
 */
-void RTC_timestamp_get(RTC_timestamp_struct *RTC_timestamp) {
+void RTC_Timestamp_Get(RTC_Timestamp_Struct *RTC_timestamp) {
     uint32_t temp_tts = 0U, temp_dts = 0U;
 
     /* get the value of time_stamp registers */
     temp_tts = (uint32_t)RTC_TTS;
     temp_dts = (uint32_t)RTC_DTS;
 
-    /* get timestamp time and construct the RTC_timestamp_struct structure */
+    /* get timestamp time and construct the RTC_Timestamp_Struct structure */
     RTC_timestamp->am_pm = (uint32_t)(temp_tts & RTC_TTS_PM);
     RTC_timestamp->timestamp_month = (uint8_t)GET_DTS_MON(temp_dts);
     RTC_timestamp->timestamp_date = (uint8_t)GET_DTS_DAY(temp_dts);
@@ -595,7 +595,7 @@ void RTC_timestamp_get(RTC_timestamp_struct *RTC_timestamp) {
     参数[输出]:  无
     返回值:     RTC time-stamp subsecond value
 */
-uint32_t RTC_timestamp_subsecond_get(void) {
+uint32_t RTC_Timestamp_SubSecond_Get(void) {
     return ((uint32_t)RTC_SSTS);
 }
 
@@ -607,27 +607,27 @@ uint32_t RTC_timestamp_subsecond_get(void) {
     参数[输出]:  无
     返回值:      无
 */
-void RTC_timestamp_pin_map(uint32_t RTC_af) {
+void RTC_Timestamp_Pin_map(uint32_t RTC_af) {
     RTC_TAMP &= ~RTC_TAMP_TSSEL;
     RTC_TAMP |= RTC_af;
 }
 
 /*!
     简介:    enable RTC tamper
-    参数[输入]:  RTC_tamper: pointer to a RTC_tamper_struct structure which contains
+    参数[输入]:  RTC_tamper: pointer to a RTC_tamper_Struct structure which contains
                 parameters for RTC tamper configuration
                 members of the structure and the member values are shown as below:
                   detecting tamper event can using edge mode or level mode
                   (1) using edge mode configuration:
                   tamper_source: RTC_TAMPER0, RTC_TAMPER1
-                  tamper_trigger: RTC_TAMPER_TRIGGER_EDGE_RISING, RTC_TAMPER_TRIGGER_EDGE_FALLING
+                  tamper_trigger: RTC_TAMPER_Trigger_EDGE_RISING, RTC_TAMPER_Trigger_EDGE_FALLING
                   tamper_filter: RTC_FLT_EDGE
                   tamper_with_timestamp: DISABLE, ENABLE
                   (2) using level mode configuration:
                   tamper_source: RTC_TAMPER0, RTC_TAMPER1
-                  tamper_trigger:RTC_TAMPER_TRIGGER_LEVEL_LOW, RTC_TAMPER_TRIGGER_LEVEL_HIGH
+                  tamper_trigger:RTC_TAMPER_Trigger_LEVEL_LOW, RTC_TAMPER_Trigger_LEVEL_HIGH
                   tamper_filter: RTC_FLT_2S, RTC_FLT_4S, RTC_FLT_8S
-                  tamper_sample_frequency: RTC_FREQ_DIV32768, RTC_FREQ_DIV16384, RTC_FREQ_DIV8192,
+                  tamper_Sample_frequency: RTC_FREQ_DIV32768, RTC_FREQ_DIV16384, RTC_FREQ_DIV8192,
                                                RTC_FREQ_DIV4096, RTC_FREQ_DIV2048, RTC_FREQ_DIV1024,
                                                RTC_FREQ_DIV512, RTC_FREQ_DIV256
                   tamper_precharge_enable: DISABLE, ENABLE
@@ -636,7 +636,7 @@ void RTC_timestamp_pin_map(uint32_t RTC_af) {
     参数[输出]:  无
     返回值:      无
 */
-void RTC_tamper_enable(RTC_tamper_struct *RTC_tamper) {
+void RTC_tamper_Enable(RTC_tamper_Struct *RTC_tamper) {
     /* disable tamper */
     RTC_TAMP &= (uint32_t)~(RTC_tamper->tamper_source);
 
@@ -654,22 +654,22 @@ void RTC_tamper_enable(RTC_tamper_struct *RTC_tamper) {
             RTC_TAMP |= (uint32_t)(RTC_tamper->tamper_precharge_time);
         }
 
-        RTC_TAMP |= (uint32_t)(RTC_tamper->tamper_sample_frequency);
+        RTC_TAMP |= (uint32_t)(RTC_tamper->tamper_Sample_frequency);
         RTC_TAMP |= (uint32_t)(RTC_tamper->tamper_filter);
 
         /* configure the tamper trigger */
-        RTC_TAMP &= ((uint32_t)~((RTC_tamper->tamper_source) << RTC_TAMPER_TRIGGER_POS));
+        RTC_TAMP &= ((uint32_t)~((RTC_tamper->tamper_source) << RTC_TAMPER_Trigger_POS));
 
-        if(RTC_TAMPER_TRIGGER_LEVEL_LOW != RTC_tamper->tamper_trigger) {
-            RTC_TAMP |= (uint32_t)((RTC_tamper->tamper_source) << RTC_TAMPER_TRIGGER_POS);
+        if(RTC_TAMPER_Trigger_LEVEL_LOW != RTC_tamper->tamper_trigger) {
+            RTC_TAMP |= (uint32_t)((RTC_tamper->tamper_source) << RTC_TAMPER_Trigger_POS);
         }
     } else {
 
         /* configure the tamper trigger */
-        RTC_TAMP &= ((uint32_t)~((RTC_tamper->tamper_source) << RTC_TAMPER_TRIGGER_POS));
+        RTC_TAMP &= ((uint32_t)~((RTC_tamper->tamper_source) << RTC_TAMPER_Trigger_POS));
 
-        if(RTC_TAMPER_TRIGGER_EDGE_RISING != RTC_tamper->tamper_trigger) {
-            RTC_TAMP |= (uint32_t)((RTC_tamper->tamper_source) << RTC_TAMPER_TRIGGER_POS);
+        if(RTC_TAMPER_Trigger_EDGE_RISING != RTC_tamper->tamper_trigger) {
+            RTC_TAMP |= (uint32_t)((RTC_tamper->tamper_source) << RTC_TAMPER_Trigger_POS);
         }
     }
 
@@ -692,7 +692,7 @@ void RTC_tamper_enable(RTC_tamper_struct *RTC_tamper) {
     参数[输出]:  无
     返回值:      无
 */
-void RTC_tamper_disable(uint32_t source) {
+void RTC_tamper_Disable(uint32_t source) {
     /* disable tamper */
     RTC_TAMP &= (uint32_t)~source;
 
@@ -706,7 +706,7 @@ void RTC_tamper_disable(uint32_t source) {
     参数[输出]:  无
     返回值:      无
 */
-void RTC_tamper0_pin_map(uint32_t RTC_af) {
+void RTC_tamper0_Pin_map(uint32_t RTC_af) {
     RTC_TAMP &= ~(RTC_TAMP_TP0EN | RTC_TAMP_TP0SEL);
     RTC_TAMP |= RTC_af;
 }
@@ -722,7 +722,7 @@ void RTC_tamper0_pin_map(uint32_t RTC_af) {
     参数[输出]:  无
     返回值:      无
 */
-void RTC_Interrupt_enable(uint32_t interrupt) {
+void RTC_Interrupt_Enable(uint32_t interrupt) {
     /* disable the write protection */
     RTC_WPK = RTC_UNLOCK_KEY1;
     RTC_WPK = RTC_UNLOCK_KEY2;
@@ -747,7 +747,7 @@ void RTC_Interrupt_enable(uint32_t interrupt) {
     参数[输出]:  无
     返回值:      无
 */
-void RTC_Interrupt_disable(uint32_t interrupt) {
+void RTC_Interrupt_Disable(uint32_t interrupt) {
     /* disable the write protection */
     RTC_WPK = RTC_UNLOCK_KEY1;
     RTC_WPK = RTC_UNLOCK_KEY2;
@@ -765,24 +765,24 @@ void RTC_Interrupt_disable(uint32_t interrupt) {
     简介:    check specified flag
     参数[输入]:  flag: specify which flag to check
       参数:        RTC_STAT_SCP: smooth calibration pending flag
-      参数:        RTC_FLAG_TP1: RTC tamper 1 detected flag
-      参数:        RTC_FLAG_TP0: RTC tamper 0 detected flag
-      参数:        RTC_FLAG_TSOVR: time-stamp overflow flag
-      参数:        RTC_FLAG_TS: time-stamp flag
-      参数:        RTC_FLAG_ALRM0: alarm0 occurs flag
-      参数:        RTC_FLAG_ALRM1: alarm1 occurs flag
-      参数:        RTC_FLAG_WT: wakeup timer occurs flag
-      参数:        RTC_FLAG_INIT: initialization state flag
-      参数:        RTC_FLAG_RSYN: register synchronization flag
-      参数:        RTC_FLAG_YCM: year configuration mark status flag
-      参数:        RTC_FLAG_SOP: shift function operation pending flag
-      参数:        RTC_FLAG_ALRM0W: alarm0 configuration can be write flag
-      参数:        RTC_FLAG_ALRM1W: alarm1 configuration can be write flag
-      参数:        RTC_FLAG_WTW: wakeup timer can be write flag
+      参数:        RTC_Flag_TP1: RTC tamper 1 detected flag
+      参数:        RTC_Flag_TP0: RTC tamper 0 detected flag
+      参数:        RTC_Flag_TSOVR: time-stamp overflow flag
+      参数:        RTC_Flag_TS: time-stamp flag
+      参数:        RTC_Flag_ALRM0: alarm0 occurs flag
+      参数:        RTC_Flag_ALRM1: alarm1 occurs flag
+      参数:        RTC_Flag_WT: wakeup timer occurs flag
+      参数:        RTC_Flag_INIT: initialization state flag
+      参数:        RTC_Flag_RSYN: register synchronization flag
+      参数:        RTC_Flag_YCM: year configuration mark status flag
+      参数:        RTC_Flag_SOP: shift function operation pending flag
+      参数:        RTC_Flag_ALRM0W: alarm0 configuration can be write flag
+      参数:        RTC_Flag_ALRM1W: alarm1 configuration can be write flag
+      参数:        RTC_Flag_WTW: wakeup timer can be write flag
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus RTC_flag_get(uint32_t flag) {
+FlagStatus RTC_Flag_Get(uint32_t flag) {
     FlagStatus flag_state = RESET;
 
     if((uint32_t)RESET != (RTC_STAT & flag)) {
@@ -794,18 +794,18 @@ FlagStatus RTC_flag_get(uint32_t flag) {
 
 /*!
     简介:    clear specified flag
-      参数:        RTC_FLAG_TP1: RTC tamper 1 detected flag
-      参数:        RTC_FLAG_TP0: RTC tamper 0 detected flag
-      参数:        RTC_FLAG_TSOVR: time-stamp overflow flag
-      参数:        RTC_FLAG_TS: time-stamp flag
-      参数:        RTC_FLAG_WT: wakeup timer occurs flag
-      参数:        RTC_FLAG_ALARM0: alarm0 occurs flag
-      参数:        RTC_FLAG_ALARM1: alarm1 occurs flag
-      参数:        RTC_FLAG_RSYN: register synchronization flag
+      参数:        RTC_Flag_TP1: RTC tamper 1 detected flag
+      参数:        RTC_Flag_TP0: RTC tamper 0 detected flag
+      参数:        RTC_Flag_TSOVR: time-stamp overflow flag
+      参数:        RTC_Flag_TS: time-stamp flag
+      参数:        RTC_Flag_WT: wakeup timer occurs flag
+      参数:        RTC_Flag_ALARM0: alarm0 occurs flag
+      参数:        RTC_Flag_ALARM1: alarm1 occurs flag
+      参数:        RTC_Flag_RSYN: register synchronization flag
     参数[输出]:  无
     返回值:      无
 */
-void RTC_flag_clear(uint32_t flag) {
+void RTC_Flag_Clear(uint32_t flag) {
     RTC_STAT &= (uint32_t)(~flag);
 }
 
@@ -816,15 +816,15 @@ void RTC_flag_clear(uint32_t flag) {
       参数:        RTC_ALARM0_LOW: when the  alarm0 flag is set, the output pin is low
       参数:        RTC_ALARM1_HIGH: when the  alarm1 flag is set, the output pin is high
       参数:        RTC_ALARM1_LOW: when the  alarm1 flag is set, the output pin is low
-      参数:        RTC_WAKEUP_HIGH: when the  wakeup flag is set, the output pin is high
-      参数:        RTC_WAKEUP_LOW: when the  wakeup flag is set, the output pin is low
+      参数:        RTC_WakeUp_HIGH: when the  wakeup flag is set, the output pin is high
+      参数:        RTC_WakeUp_LOW: when the  wakeup flag is set, the output pin is low
     参数[输入]:  mode: specify the output pin mode when output alarm signal
-      参数:        RTC_ALARM_OUTPUT_OD: open drain mode
-      参数:        RTC_ALARM_OUTPUT_PP: push pull mode
+      参数:        RTC_ALARM_OutPut_OD: open drain mode
+      参数:        RTC_ALARM_OutPut_PP: push pull mode
     参数[输出]:  无
     返回值:      无
 */
-void RTC_alarm_output_Config(uint32_t source, uint32_t mode) {
+void RTC_alarm_OutPut_Config(uint32_t source, uint32_t mode) {
     /* disable the write protection */
     RTC_WPK = RTC_UNLOCK_KEY1;
     RTC_WPK = RTC_UNLOCK_KEY2;
@@ -843,14 +843,14 @@ void RTC_alarm_output_Config(uint32_t source, uint32_t mode) {
 /*!
     简介:    configure rtc calibration output source
     参数[输入]:  source: specify signal to output
-      参数:        RTC_CALIBRATION_512HZ: when the LSE freqency is 32768Hz and the RTC_PSC
+      参数:        RTC_Calibration_512HZ: when the LSE freqency is 32768Hz and the RTC_PSC
                                          is the default value, output 512Hz signal
-      参数:        RTC_CALIBRATION_1HZ: when the LSE freqency is 32768Hz and the RTC_PSC
+      参数:        RTC_Calibration_1HZ: when the LSE freqency is 32768Hz and the RTC_PSC
                                        is the default value, output 1Hz signal
     参数[输出]:  无
     返回值:      无
 */
-void RTC_calibration_output_Config(uint32_t source) {
+void RTC_Calibration_OutPut_Config(uint32_t source) {
     /* disable the write protection */
     RTC_WPK = RTC_UNLOCK_KEY1;
     RTC_WPK = RTC_UNLOCK_KEY2;
@@ -909,7 +909,7 @@ ErrStatus RTC_second_adjust(uint32_t add, uint32_t minus) {
 
     if((RESET == flag_status) && (RESET == temp)) {
         RTC_SHIFTCTL = (uint32_t)(add | SHIFTCTL_SFS(minus));
-        error_status = RTC_register_sync_Wait();
+        error_status = RTC_Register_Sync_Wait();
     }
 
     /* enable the write protection */
@@ -924,7 +924,7 @@ ErrStatus RTC_second_adjust(uint32_t add, uint32_t minus) {
     参数[输出]:  无
     返回值:      无
 */
-void RTC_bypass_shadow_enable(void) {
+void RTC_bypass_Shadow_Enable(void) {
     /* disable the write protection */
     RTC_WPK = RTC_UNLOCK_KEY1;
     RTC_WPK = RTC_UNLOCK_KEY2;
@@ -941,7 +941,7 @@ void RTC_bypass_shadow_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void RTC_bypass_shadow_disable(void) {
+void RTC_bypass_Shadow_Disable(void) {
     /* disable the write protection */
     RTC_WPK = RTC_UNLOCK_KEY1;
     RTC_WPK = RTC_UNLOCK_KEY2;
@@ -958,7 +958,7 @@ void RTC_bypass_shadow_disable(void) {
     参数[输出]:  无
     返回值:     ErrStatus: ERROR or SUCCESS
 */
-ErrStatus RTC_refclock_detection_enable(void) {
+ErrStatus RTC_refclock_Detection_Enable(void) {
     ErrStatus error_status = ERROR;
 
     /* disable the write protection */
@@ -966,12 +966,12 @@ ErrStatus RTC_refclock_detection_enable(void) {
     RTC_WPK = RTC_UNLOCK_KEY2;
 
     /* enter init mode */
-    error_status = RTC_init_mode_enter();
+    error_status = RTC_init_Mode_enter();
 
     if(ERROR != error_status) {
         RTC_CTL |= (uint32_t)RTC_CTL_REFEN;
         /* exit init mode */
-        RTC_init_mode_exit();
+        RTC_init_Mode_exit();
     }
 
     /* enable the write protection */
@@ -986,7 +986,7 @@ ErrStatus RTC_refclock_detection_enable(void) {
     参数[输出]:  无
     返回值:     ErrStatus: ERROR or SUCCESS
 */
-ErrStatus RTC_refclock_detection_disable(void) {
+ErrStatus RTC_refclock_Detection_Disable(void) {
     ErrStatus error_status = ERROR;
 
     /* disable the write protection */
@@ -994,12 +994,12 @@ ErrStatus RTC_refclock_detection_disable(void) {
     RTC_WPK = RTC_UNLOCK_KEY2;
 
     /* enter init mode */
-    error_status = RTC_init_mode_enter();
+    error_status = RTC_init_Mode_enter();
 
     if(ERROR != error_status) {
         RTC_CTL &= (uint32_t)~RTC_CTL_REFEN;
         /* exit init mode */
-        RTC_init_mode_exit();
+        RTC_init_Mode_exit();
     }
 
     /* enable the write protection */
@@ -1014,7 +1014,7 @@ ErrStatus RTC_refclock_detection_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void RTC_wakeup_enable(void) {
+void RTC_WakeUp_Enable(void) {
     /* disable the write protection */
     RTC_WPK = RTC_UNLOCK_KEY1;
     RTC_WPK = RTC_UNLOCK_KEY2;
@@ -1031,7 +1031,7 @@ void RTC_wakeup_enable(void) {
     参数[输出]:  无
     返回值:     ErrStatus: ERROR or SUCCESS
 */
-ErrStatus RTC_wakeup_disable(void) {
+ErrStatus RTC_WakeUp_Disable(void) {
     ErrStatus error_status = ERROR;
     volatile uint32_t time_index = RTC_WTWF_TIMEOUT;
     uint32_t flag_status = RESET;
@@ -1068,7 +1068,7 @@ ErrStatus RTC_wakeup_disable(void) {
     参数[输出]:  无
     返回值:     ErrStatus: ERROR or SUCCESS
 */
-ErrStatus RTC_wakeup_clock_set(uint8_t wakeup_clock) {
+ErrStatus RTC_WakeUp_Clock_Set(uint8_t wakeup_clock) {
     ErrStatus error_status = ERROR;
     volatile uint32_t time_index = RTC_WTWF_TIMEOUT;
     uint32_t flag_status = RESET;
@@ -1102,7 +1102,7 @@ ErrStatus RTC_wakeup_clock_set(uint8_t wakeup_clock) {
     参数[输出]:  无
     返回值:     ErrStatus: ERROR or SUCCESS
 */
-ErrStatus RTC_wakeup_TIMER_set(uint16_t wakeup_timer) {
+ErrStatus RTC_WakeUp_TIMER_Set(uint16_t wakeup_timer) {
     ErrStatus error_status = ERROR;
     volatile uint32_t time_index = RTC_WTWF_TIMEOUT;
     uint32_t flag_status = RESET;
@@ -1133,24 +1133,24 @@ ErrStatus RTC_wakeup_TIMER_set(uint16_t wakeup_timer) {
     参数[输出]:  无
     返回值:     wakeup timer value
 */
-uint16_t RTC_wakeup_TIMER_get(void) {
+uint16_t RTC_WakeUp_TIMER_Get(void) {
     return (uint16_t)RTC_WUT;
 }
 
 /*!
     简介:    configure RTC smooth calibration
     参数[输入]:  window: select calibration window
-      参数:        RTC_CALIBRATION_WINDOW_32S: 2exp20 RTCCLK cycles, 32s if RTCCLK = 32768 Hz
-      参数:        RTC_CALIBRATION_WINDOW_16S: 2exp19 RTCCLK cycles, 16s if RTCCLK = 32768 Hz
-      参数:        RTC_CALIBRATION_WINDOW_8S: 2exp18 RTCCLK cycles, 8s if RTCCLK = 32768 Hz
+      参数:        RTC_Calibration_Window_32S: 2exp20 RTCCLK cycles, 32s if RTCCLK = 32768 Hz
+      参数:        RTC_Calibration_Window_16S: 2exp19 RTCCLK cycles, 16s if RTCCLK = 32768 Hz
+      参数:        RTC_Calibration_Window_8S: 2exp18 RTCCLK cycles, 8s if RTCCLK = 32768 Hz
     参数[输入]:  plus: add RTC clock or not
-      参数:        RTC_CALIBRATION_PLUS_SET: add one RTC clock every 2048 rtc clock
-      参数:        RTC_CALIBRATION_PLUS_RESET: no effect
+      参数:        RTC_Calibration_PLUS_SET: add one RTC clock every 2048 rtc clock
+      参数:        RTC_Calibration_PLUS_RESET: no effect
     参数[输入]:  minus: the RTC clock to minus during the calibration window(0x0 - 0x1FF)
     参数[输出]:  无
     返回值:     ErrStatus: ERROR or SUCCESS
 */
-ErrStatus RTC_smooth_calibration_Config(uint32_t window, uint32_t plus, uint32_t minus) {
+ErrStatus RTC_smooth_Calibration_Config(uint32_t window, uint32_t plus, uint32_t minus) {
     volatile uint32_t time_index = RTC_HRFC_TIMEOUT;
     ErrStatus error_status = ERROR;
     uint32_t flag_status = RESET;
@@ -1181,18 +1181,18 @@ ErrStatus RTC_smooth_calibration_Config(uint32_t window, uint32_t plus, uint32_t
     参数[输出]:  无
     返回值:     ErrStatus: ERROR or SUCCESS
 */
-ErrStatus RTC_coarse_calibration_enable(void) {
+ErrStatus RTC_coarse_Calibration_Enable(void) {
     ErrStatus error_status = ERROR;
     /* disable the write protection */
     RTC_WPK = RTC_UNLOCK_KEY1;
     RTC_WPK = RTC_UNLOCK_KEY2;
     /* enter init mode */
-    error_status = RTC_init_mode_enter();
+    error_status = RTC_init_Mode_enter();
 
     if(ERROR != error_status) {
         RTC_CTL |= (uint32_t)RTC_CTL_CCEN;
         /* exit init mode */
-        RTC_init_mode_exit();
+        RTC_init_Mode_exit();
     }
 
     /* enable the write protection */
@@ -1206,18 +1206,18 @@ ErrStatus RTC_coarse_calibration_enable(void) {
     参数[输出]:  无
     返回值:     ErrStatus: ERROR or SUCCESS
 */
-ErrStatus RTC_coarse_calibration_disable(void) {
+ErrStatus RTC_coarse_Calibration_Disable(void) {
     ErrStatus error_status = ERROR;
     /* disable the write protection */
     RTC_WPK = RTC_UNLOCK_KEY1;
     RTC_WPK = RTC_UNLOCK_KEY2;
     /* enter init mode */
-    error_status = RTC_init_mode_enter();
+    error_status = RTC_init_Mode_enter();
 
     if(ERROR != error_status) {
         RTC_CTL &= (uint32_t)~RTC_CTL_CCEN;
         /* exit init mode */
-        RTC_init_mode_exit();
+        RTC_init_Mode_exit();
     }
 
     /* enable the write protection */
@@ -1244,14 +1244,14 @@ ErrStatus RTC_coarse_calibration_disable(void) {
     参数[输出]:  无
     返回值:     ErrStatus: ERROR or SUCCESS
 */
-ErrStatus RTC_coarse_calibration_Config(uint8_t direction, uint8_t step) {
+ErrStatus RTC_coarse_Calibration_Config(uint8_t direction, uint8_t step) {
     ErrStatus error_status = ERROR;
     /* disable the write protection */
     RTC_WPK = RTC_UNLOCK_KEY1;
     RTC_WPK = RTC_UNLOCK_KEY2;
 
     /* enter init mode */
-    error_status = RTC_init_mode_enter();
+    error_status = RTC_init_Mode_enter();
 
     if(ERROR != error_status) {
         if(CALIB_DECREASE == direction) {
@@ -1263,7 +1263,7 @@ ErrStatus RTC_coarse_calibration_Config(uint8_t direction, uint8_t step) {
         RTC_COSC &= ~RTC_COSC_COSS;
         RTC_COSC |= (uint32_t)((uint32_t)step & 0x1FU);
         /* exit init mode */
-        RTC_init_mode_exit();
+        RTC_init_Mode_exit();
     }
 
     /* enable the write protection */

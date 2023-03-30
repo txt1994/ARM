@@ -47,7 +47,7 @@ OF SUCH DAMAGE.
     参数[输出]:  无
     返回值:      无
 */
-void NVIC_priority_group_set(uint32_t NVIC_prigroup) {
+void NVIC_Priority_Group_Set(uint32_t NVIC_prigroup) {
     /* set the priority group value */
     SCB->AIRCR = NVIC_AIRCR_VECTKEY_MASK | NVIC_prigroup;
 }
@@ -60,7 +60,7 @@ void NVIC_priority_group_set(uint32_t NVIC_prigroup) {
     参数[输出]:  无
     返回值:      无
 */
-void NVIC_irq_enable(uint8_t NVIC_irq, uint8_t NVIC_irq_pre_priority,
+void NVIC_irq_Enable(uint8_t NVIC_irq, uint8_t NVIC_irq_pre_priority,
                      uint8_t NVIC_irq_sub_priority) {
     uint32_t temp_priority = 0x00U, temp_pre = 0x00U, temp_sub = 0x00U;
 
@@ -81,7 +81,7 @@ void NVIC_irq_enable(uint8_t NVIC_irq, uint8_t NVIC_irq_pre_priority,
         temp_pre = 4U;
         temp_sub = 0x0U;
     } else {
-        NVIC_priority_group_set(NVIC_PRIGROUP_PRE2_SUB2);
+        NVIC_Priority_Group_Set(NVIC_PRIGROUP_PRE2_SUB2);
         temp_pre = 2U;
         temp_sub = 0x2U;
     }
@@ -101,7 +101,7 @@ void NVIC_irq_enable(uint8_t NVIC_irq, uint8_t NVIC_irq_pre_priority,
     参数[输出]:  无
     返回值:      无
 */
-void NVIC_irq_disable(uint8_t NVIC_irq) {
+void NVIC_irq_Disable(uint8_t NVIC_irq) {
     /* disable the selected IRQ.*/
     NVIC->ICER[NVIC_irq >> 0x05] = (uint32_t)0x01 << (NVIC_irq & (uint8_t)0x1F);
 }
@@ -115,8 +115,8 @@ void NVIC_irq_disable(uint8_t NVIC_irq) {
     参数[输出]:  无
     返回值:      无
 */
-void NVIC_vector_table_set(uint32_t NVIC_vict_tab, uint32_t offset) {
-    SCB->VTOR = NVIC_vict_tab | (offset & NVIC_VECTTAB_OFFSET_MASK);
+void NVIC_vector_table_Set(uint32_t NVIC_vict_tab, uint32_t offset) {
+    SCB->VTOR = NVIC_vict_tab | (offset & NVIC_VECTTAB_Offset_MASK);
     __DSB();
 }
 
@@ -131,7 +131,7 @@ void NVIC_vector_table_set(uint32_t NVIC_vict_tab, uint32_t offset) {
     参数[输出]:  无
     返回值:      无
 */
-void system_lowpower_set(uint8_t lowpower_mode) {
+void system_Lowpower_Set(uint8_t lowpower_mode) {
     SCB->SCR |= (uint32_t)lowpower_mode;
 }
 
@@ -146,7 +146,7 @@ void system_lowpower_set(uint8_t lowpower_mode) {
     参数[输出]:  无
     返回值:      无
 */
-void system_lowpower_reset(uint8_t lowpower_mode) {
+void system_Lowpower_Reset(uint8_t lowpower_mode) {
     SCB->SCR &= (~(uint32_t)lowpower_mode);
 }
 
@@ -159,7 +159,7 @@ void system_lowpower_reset(uint8_t lowpower_mode) {
     返回值:      无
 */
 
-void systick_clksource_set(uint32_t systick_clksource) {
+void Systick_CLKsource_Set(uint32_t systick_clksource) {
     if(SYSTICK_CLKSOURCE_HCLK == systick_clksource) {
         /* set the systick clock source from HCLK */
         SysTick->CTRL |= SYSTICK_CLKSOURCE_HCLK;

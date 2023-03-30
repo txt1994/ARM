@@ -80,7 +80,7 @@ void WWDGT_DeInit(void);
 void WWDGT_Enable(void);
 
 /* configure the window watchdog timer counter value */
-void WWDGT_counter_Update(uint16_t counter_value);
+void WWDGT_Counter_Update(uint16_t counter_value);
 /* configure counter value, window value, and prescaler divider value */
 void WWDGT_Config(uint16_t counter, uint16_t window, uint32_t prescaler);
 

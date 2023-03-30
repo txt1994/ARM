@@ -55,14 +55,14 @@ OF SUCH DAMAGE.
 #endif
 
 #ifndef ENET_RXBUF_SIZE
-#define ENET_RXBUF_SIZE                  ENET_MAX_FRAME_SIZE                    /*!< ethernet receive buffer size */
+#define ENET_RXBUF_SIZE                  ENET_MAX_Frame_SIZE                    /*!< ethernet receive buffer size */
 #endif
 
 #ifndef ENET_TXBUF_SIZE
-#define ENET_TXBUF_SIZE                  ENET_MAX_FRAME_SIZE                    /*!< ethernet transmit buffer size */
+#define ENET_TXBUF_SIZE                  ENET_MAX_Frame_SIZE                    /*!< ethernet transmit buffer size */
 #endif
 
-//#define SELECT_DESCRIPTORS_ENHANCED_MODE
+//#define SELECT_Descriptors_Enhanced_MODE
 
 //#define USE_DELAY
 
@@ -75,7 +75,7 @@ OF SUCH DAMAGE.
 
 /* PHY read write timeouts */
 #define PHY_READ_TO                      ((uint32_t)0x0004FFFFU)                /*!< PHY read timeout */
-#define PHY_WRITE_TO                     ((uint32_t)0x0004FFFFU)                /*!< PHY write timeout */
+#define PHY_Write_TO                     ((uint32_t)0x0004FFFFU)                /*!< PHY write timeout */
 
 /* PHY delay */
 #define PHY_RESETDELAY                   ((uint32_t)0x008FFFFFU)                /*!< PHY reset delay */
@@ -89,9 +89,9 @@ OF SUCH DAMAGE.
 #define PHY_RESET                        ((uint16_t)0x8000)                     /*!< PHY reset */
 #define PHY_LOOPBACK                     ((uint16_t)0x4000)                     /*!< enable phy loop-back mode */
 #define PHY_FULLDUPLEX_100M              ((uint16_t)0x2100)                     /*!< configure speed to 100 Mbit/s and the full-duplex mode */
-#define PHY_HALFDUPLEX_100M              ((uint16_t)0x2000)                     /*!< configure speed to 100 Mbit/s and the half-duplex mode */
+#define PHY_HalfDuplex_100M              ((uint16_t)0x2000)                     /*!< configure speed to 100 Mbit/s and the half-duplex mode */
 #define PHY_FULLDUPLEX_10M               ((uint16_t)0x0100)                     /*!< configure speed to 10 Mbit/s and the full-duplex mode */
-#define PHY_HALFDUPLEX_10M               ((uint16_t)0x0000)                     /*!< configure speed to 10 Mbit/s and the half-duplex mode */
+#define PHY_HalfDuplex_10M               ((uint16_t)0x0000)                     /*!< configure speed to 10 Mbit/s and the half-duplex mode */
 #define PHY_AUTONEGOTIATION              ((uint16_t)0x1000)                     /*!< enable auto-negotiation function */
 #define PHY_RESTART_AUTONEGOTIATION      ((uint16_t)0x0200)                     /*!< restart auto-negotiation function */
 #define PHY_POWERDOWN                    ((uint16_t)0x0800)                     /*!< enable the power down mode */
@@ -227,7 +227,7 @@ OF SUCH DAMAGE.
 #define ENET_MAC_PHY_CTL_PA              BITS(11,15)                            /*!< PHY address */
 
 /* ENET_MAC_PHY_DATA */
-#define ENET_MAC_PHY_DATA_PD             BITS(0,15)                             /*!< PHY data */
+#define ENET_MAC_PHY_Data_PD             BITS(0,15)                             /*!< PHY data */
 
 /* ENET_MAC_FCTL */
 #define ENET_MAC_FCTL_FLCBBKPA           BIT(0)                                 /*!< flow control busy(in full duplex mode)/backpressure activate(in half duplex mode) */
@@ -552,13 +552,13 @@ OF SUCH DAMAGE.
 /* ENET DMA Tx descriptor TDES3 */
 #define ENET_TDES3_TB2AP                 BITS(0,31)                             /*!< transmit buffer 2 address pointer (or next descriptor address) / transmit frame timestamp high 32-bit value */
 
-#ifdef SELECT_DESCRIPTORS_ENHANCED_MODE
+#ifdef SELECT_Descriptors_Enhanced_MODE
 /* ENET DMA Tx descriptor TDES6 */
 #define ENET_TDES6_TTSL                  BITS(0,31)                             /*!< transmit frame timestamp low 32-bit value */
 
 /* ENET DMA Tx descriptor TDES7 */
 #define ENET_TDES7_TTSH                  BITS(0,31)                             /*!< transmit frame timestamp high 32-bit value */
-#endif /* SELECT_DESCRIPTORS_ENHANCED_MODE */
+#endif /* SELECT_Descriptors_Enhanced_MODE */
 
 /* ENET DMA Rx descriptor RDES0 */
 #define ENET_RDES0_PCERR                 BIT(0)                                 /*!< payload checksum error */
@@ -596,7 +596,7 @@ OF SUCH DAMAGE.
 /* ENET DMA Rx descriptor RDES3 */
 #define ENET_RDES3_RB2AP                 BITS(0,31)                             /*!< receive buffer 2 address pointer (next descriptor address)/receive frame timestamp high 32-bit value */
 
-#ifdef SELECT_DESCRIPTORS_ENHANCED_MODE
+#ifdef SELECT_Descriptors_Enhanced_MODE
 /* ENET DMA Rx descriptor RDES4 */
 #define ENET_RDES4_IPPLDT                BITS(0,2)                              /*!< IP frame payload type */
 #define ENET_RDES4_IPHERR                BIT(3)                                 /*!< IP frame header error */
@@ -613,13 +613,13 @@ OF SUCH DAMAGE.
 
 /* ENET DMA Rx descriptor RDES7 */
 #define ENET_RDES7_RTSH                  BITS(0,31)                             /*!< receive frame timestamp high 32-bit value */
-#endif /* SELECT_DESCRIPTORS_ENHANCED_MODE */
+#endif /* SELECT_Descriptors_Enhanced_MODE */
 
 /* constants definitions */
 /* define bit position and its register index offset */
 #define ENET_REGIDX_BIT(regidx, bitpos)  (((uint32_t)(regidx) << 6) | (uint32_t)(bitpos))
 #define ENET_REG_VAL(periph)             (REG32(ENET + ((uint32_t)(periph) >> 6)))
-#define ENET_BIT_POS(val)                ((uint32_t)(val) & 0x1FU)
+#define ENET_Bit_POS(val)                ((uint32_t)(val) & 0x1FU)
 
 /* ENET clock range judgement */
 #define ENET_RANGE(hclk, n, m)           (((hclk) >= (n))&&((hclk) < (m)))
@@ -662,70 +662,70 @@ OF SUCH DAMAGE.
 /* ENET status flag get */
 typedef enum {
     /* ENET_MAC_WUM register */
-    ENET_MAC_FLAG_MPKR              = ENET_REGIDX_BIT(MAC_WUM_REG_OFFSET, 5U),      /*!< magic packet received flag */
-    ENET_MAC_FLAG_WUFR              = ENET_REGIDX_BIT(MAC_WUM_REG_OFFSET, 6U),      /*!< wakeup frame received flag */
+    ENET_MAC_Flag_MPKR              = ENET_REGIDX_BIT(MAC_WUM_REG_OFFSET, 5U),      /*!< magic packet received flag */
+    ENET_MAC_Flag_WUFR              = ENET_REGIDX_BIT(MAC_WUM_REG_OFFSET, 6U),      /*!< wakeup frame received flag */
     /* ENET_MAC_FCTL register */
-    ENET_MAC_FLAG_FLOWCONTROL       = ENET_REGIDX_BIT(MAC_FCTL_REG_OFFSET, 0U),     /*!< flow control status flag */
+    ENET_MAC_Flag_FLOWCONTROL       = ENET_REGIDX_BIT(MAC_FCTL_REG_OFFSET, 0U),     /*!< flow control status flag */
     /* ENET_MAC_INTF register */
-    ENET_MAC_FLAG_WUM               = ENET_REGIDX_BIT(MAC_INTF_REG_OFFSET, 3U),     /*!< WUM status flag */
-    ENET_MAC_FLAG_MSC               = ENET_REGIDX_BIT(MAC_INTF_REG_OFFSET, 4U),     /*!< MSC status flag */
-    ENET_MAC_FLAG_MSCR              = ENET_REGIDX_BIT(MAC_INTF_REG_OFFSET, 5U),     /*!< MSC receive status flag */
-    ENET_MAC_FLAG_MSCT              = ENET_REGIDX_BIT(MAC_INTF_REG_OFFSET, 6U),     /*!< MSC transmit status flag */
-    ENET_MAC_FLAG_TMST              = ENET_REGIDX_BIT(MAC_INTF_REG_OFFSET, 9U),     /*!< timestamp trigger status flag */
+    ENET_MAC_Flag_WUM               = ENET_REGIDX_BIT(MAC_INTF_REG_OFFSET, 3U),     /*!< WUM status flag */
+    ENET_MAC_Flag_MSC               = ENET_REGIDX_BIT(MAC_INTF_REG_OFFSET, 4U),     /*!< MSC status flag */
+    ENET_MAC_Flag_MSCR              = ENET_REGIDX_BIT(MAC_INTF_REG_OFFSET, 5U),     /*!< MSC receive status flag */
+    ENET_MAC_Flag_MSCT              = ENET_REGIDX_BIT(MAC_INTF_REG_OFFSET, 6U),     /*!< MSC transmit status flag */
+    ENET_MAC_Flag_TMST              = ENET_REGIDX_BIT(MAC_INTF_REG_OFFSET, 9U),     /*!< timestamp trigger status flag */
     /* ENET_PTP_TSF register */
-    ENET_PTP_FLAG_TSSCO             = ENET_REGIDX_BIT(PTP_TSF_REG_OFFSET, 0U),      /*!< timestamp second counter overflow flag */
-    ENET_PTP_FLAG_TTM               = ENET_REGIDX_BIT(PTP_TSF_REG_OFFSET, 1U),      /*!< target time match flag */
+    ENET_PTP_Flag_TSSCO             = ENET_REGIDX_BIT(PTP_TSF_REG_OFFSET, 0U),      /*!< timestamp second counter overflow flag */
+    ENET_PTP_Flag_TTM               = ENET_REGIDX_BIT(PTP_TSF_REG_OFFSET, 1U),      /*!< target time match flag */
     /* ENET_MSC_RINTF register */
-    ENET_MSC_FLAG_RFCE              = ENET_REGIDX_BIT(MSC_RINTF_REG_OFFSET, 5U),    /*!< received frames CRC error flag */
-    ENET_MSC_FLAG_RFAE              = ENET_REGIDX_BIT(MSC_RINTF_REG_OFFSET, 6U),    /*!< received frames alignment error flag */
-    ENET_MSC_FLAG_RGUF              = ENET_REGIDX_BIT(MSC_RINTF_REG_OFFSET, 17U),   /*!< received good unicast frames flag */
+    ENET_MSC_Flag_RFCE              = ENET_REGIDX_BIT(MSC_RINTF_REG_OFFSET, 5U),    /*!< received frames CRC error flag */
+    ENET_MSC_Flag_RFAE              = ENET_REGIDX_BIT(MSC_RINTF_REG_OFFSET, 6U),    /*!< received frames alignment error flag */
+    ENET_MSC_Flag_RGUF              = ENET_REGIDX_BIT(MSC_RINTF_REG_OFFSET, 17U),   /*!< received good unicast frames flag */
     /* ENET_MSC_TINTF register */
-    ENET_MSC_FLAG_TGFSC             = ENET_REGIDX_BIT(MSC_TINTF_REG_OFFSET, 14U),   /*!< transmitted good frames single collision flag */
-    ENET_MSC_FLAG_TGFMSC            = ENET_REGIDX_BIT(MSC_TINTF_REG_OFFSET, 15U),   /*!< transmitted good frames more single collision flag */
-    ENET_MSC_FLAG_TGF               = ENET_REGIDX_BIT(MSC_TINTF_REG_OFFSET, 21U),   /*!< transmitted good frames flag */
+    ENET_MSC_Flag_TGFSC             = ENET_REGIDX_BIT(MSC_TINTF_REG_OFFSET, 14U),   /*!< transmitted good frames single collision flag */
+    ENET_MSC_Flag_TGFMSC            = ENET_REGIDX_BIT(MSC_TINTF_REG_OFFSET, 15U),   /*!< transmitted good frames more single collision flag */
+    ENET_MSC_Flag_TGF               = ENET_REGIDX_BIT(MSC_TINTF_REG_OFFSET, 21U),   /*!< transmitted good frames flag */
     /* ENET_DMA_STAT register */
-    ENET_DMA_FLAG_TS                = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 0U),     /*!< transmit status flag */
-    ENET_DMA_FLAG_TPS               = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 1U),     /*!< transmit process stopped status flag */
-    ENET_DMA_FLAG_TBU               = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 2U),     /*!< transmit buffer unavailable status flag */
-    ENET_DMA_FLAG_TJT               = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 3U),     /*!< transmit jabber timeout status flag */
-    ENET_DMA_FLAG_RO                = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 4U),     /*!< receive overflow status flag */
-    ENET_DMA_FLAG_TU                = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 5U),     /*!< transmit underflow status flag */
-    ENET_DMA_FLAG_RS                = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 6U),     /*!< receive status flag */
-    ENET_DMA_FLAG_RBU               = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 7U),     /*!< receive buffer unavailable status flag */
-    ENET_DMA_FLAG_RPS               = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 8U),     /*!< receive process stopped status flag */
-    ENET_DMA_FLAG_RWT               = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 9U),     /*!< receive watchdog timeout status flag */
-    ENET_DMA_FLAG_ET                = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 10U),    /*!< early transmit status flag */
-    ENET_DMA_FLAG_FBE               = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 13U),    /*!< fatal bus error status flag */
-    ENET_DMA_FLAG_ER                = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 14U),    /*!< early receive status flag */
-    ENET_DMA_FLAG_AI                = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 15U),    /*!< abnormal interrupt summary flag */
-    ENET_DMA_FLAG_NI                = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 16U),    /*!< normal interrupt summary flag */
-    ENET_DMA_FLAG_EB_DMA_ERROR      = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 23U),    /*!< error during data transfer by RxDMA/TxDMA flag */
-    ENET_DMA_FLAG_EB_TRANSFER_ERROR = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 24U),    /*!< error during write/read transfer flag */
-    ENET_DMA_FLAG_EB_ACCESS_ERROR   = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 25U),    /*!< error during data buffer/descriptor access flag */
-    ENET_DMA_FLAG_MSC               = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 27U),    /*!< MSC status flag */
-    ENET_DMA_FLAG_WUM               = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 28U),    /*!< WUM status flag */
-    ENET_DMA_FLAG_TST               = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 29U),    /*!< timestamp trigger status flag */
-} ENET_flag_enum;
+    ENET_DMA_Flag_TS                = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 0U),     /*!< transmit status flag */
+    ENET_DMA_Flag_TPS               = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 1U),     /*!< transmit process stopped status flag */
+    ENET_DMA_Flag_TBU               = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 2U),     /*!< transmit buffer unavailable status flag */
+    ENET_DMA_Flag_TJT               = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 3U),     /*!< transmit jabber timeout status flag */
+    ENET_DMA_Flag_RO                = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 4U),     /*!< receive overflow status flag */
+    ENET_DMA_Flag_TU                = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 5U),     /*!< transmit underflow status flag */
+    ENET_DMA_Flag_RS                = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 6U),     /*!< receive status flag */
+    ENET_DMA_Flag_RBU               = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 7U),     /*!< receive buffer unavailable status flag */
+    ENET_DMA_Flag_RPS               = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 8U),     /*!< receive process stopped status flag */
+    ENET_DMA_Flag_RWT               = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 9U),     /*!< receive watchdog timeout status flag */
+    ENET_DMA_Flag_ET                = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 10U),    /*!< early transmit status flag */
+    ENET_DMA_Flag_FBE               = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 13U),    /*!< fatal bus error status flag */
+    ENET_DMA_Flag_ER                = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 14U),    /*!< early receive status flag */
+    ENET_DMA_Flag_AI                = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 15U),    /*!< abnormal interrupt summary flag */
+    ENET_DMA_Flag_NI                = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 16U),    /*!< normal interrupt summary flag */
+    ENET_DMA_Flag_EB_DMA_ERROR      = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 23U),    /*!< error during data transfer by RxDMA/TxDMA flag */
+    ENET_DMA_Flag_EB_Transfer_ERROR = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 24U),    /*!< error during write/read transfer flag */
+    ENET_DMA_Flag_EB_ACCESS_ERROR   = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 25U),    /*!< error during data buffer/descriptor access flag */
+    ENET_DMA_Flag_MSC               = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 27U),    /*!< MSC status flag */
+    ENET_DMA_Flag_WUM               = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 28U),    /*!< WUM status flag */
+    ENET_DMA_Flag_TST               = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 29U),    /*!< timestamp trigger status flag */
+} ENET_Flag_enum;
 
 /* ENET stutus flag clear */
 typedef enum {
     /* ENET_DMA_STAT register */
-    ENET_DMA_FLAG_TS_CLR            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 0U),     /*!< transmit status flag */
-    ENET_DMA_FLAG_TPS_CLR           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 1U),     /*!< transmit process stopped status flag */
-    ENET_DMA_FLAG_TBU_CLR           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 2U),     /*!< transmit buffer unavailable status flag */
-    ENET_DMA_FLAG_TJT_CLR           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 3U),     /*!< transmit jabber timeout status flag */
-    ENET_DMA_FLAG_RO_CLR            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 4U),     /*!< receive overflow status flag */
-    ENET_DMA_FLAG_TU_CLR            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 5U),     /*!< transmit underflow status flag */
-    ENET_DMA_FLAG_RS_CLR            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 6U),     /*!< receive status flag */
-    ENET_DMA_FLAG_RBU_CLR           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 7U),     /*!< receive buffer unavailable status flag */
-    ENET_DMA_FLAG_RPS_CLR           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 8U),     /*!< receive process stopped status flag */
-    ENET_DMA_FLAG_RWT_CLR           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 9U),     /*!< receive watchdog timeout status flag */
-    ENET_DMA_FLAG_ET_CLR            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 10U),    /*!< early transmit status flag */
-    ENET_DMA_FLAG_FBE_CLR           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 13U),    /*!< fatal bus error status flag */
-    ENET_DMA_FLAG_ER_CLR            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 14U),    /*!< early receive status flag */
-    ENET_DMA_FLAG_AI_CLR            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 15U),    /*!< abnormal interrupt summary flag */
-    ENET_DMA_FLAG_NI_CLR            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 16U),    /*!< normal interrupt summary flag */
-} ENET_flag_clear_enum;
+    ENET_DMA_Flag_TS_CLR            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 0U),     /*!< transmit status flag */
+    ENET_DMA_Flag_TPS_CLR           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 1U),     /*!< transmit process stopped status flag */
+    ENET_DMA_Flag_TBU_CLR           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 2U),     /*!< transmit buffer unavailable status flag */
+    ENET_DMA_Flag_TJT_CLR           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 3U),     /*!< transmit jabber timeout status flag */
+    ENET_DMA_Flag_RO_CLR            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 4U),     /*!< receive overflow status flag */
+    ENET_DMA_Flag_TU_CLR            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 5U),     /*!< transmit underflow status flag */
+    ENET_DMA_Flag_RS_CLR            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 6U),     /*!< receive status flag */
+    ENET_DMA_Flag_RBU_CLR           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 7U),     /*!< receive buffer unavailable status flag */
+    ENET_DMA_Flag_RPS_CLR           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 8U),     /*!< receive process stopped status flag */
+    ENET_DMA_Flag_RWT_CLR           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 9U),     /*!< receive watchdog timeout status flag */
+    ENET_DMA_Flag_ET_CLR            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 10U),    /*!< early transmit status flag */
+    ENET_DMA_Flag_FBE_CLR           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 13U),    /*!< fatal bus error status flag */
+    ENET_DMA_Flag_ER_CLR            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 14U),    /*!< early receive status flag */
+    ENET_DMA_Flag_AI_CLR            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 15U),    /*!< abnormal interrupt summary flag */
+    ENET_DMA_Flag_NI_CLR            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 16U),    /*!< normal interrupt summary flag */
+} ENET_Flag_Clear_enum;
 
 /* ENET interrupt enable/disable */
 typedef enum {
@@ -761,69 +761,69 @@ typedef enum {
 /* ENET interrupt flag get */
 typedef enum {
     /* ENET_MAC_INTF register */
-    ENET_MAC_INT_FLAG_WUM           = ENET_REGIDX_BIT(MAC_INTF_REG_OFFSET, 3U),     /*!< WUM status flag */
-    ENET_MAC_INT_FLAG_MSC           = ENET_REGIDX_BIT(MAC_INTF_REG_OFFSET, 4U),     /*!< MSC status flag */
-    ENET_MAC_INT_FLAG_MSCR          = ENET_REGIDX_BIT(MAC_INTF_REG_OFFSET, 5U),     /*!< MSC receive status flag */
-    ENET_MAC_INT_FLAG_MSCT          = ENET_REGIDX_BIT(MAC_INTF_REG_OFFSET, 6U),     /*!< MSC transmit status flag */
-    ENET_MAC_INT_FLAG_TMST          = ENET_REGIDX_BIT(MAC_INTF_REG_OFFSET, 9U),     /*!< timestamp trigger status flag */
+    ENET_MAC_INT_Flag_WUM           = ENET_REGIDX_BIT(MAC_INTF_REG_OFFSET, 3U),     /*!< WUM status flag */
+    ENET_MAC_INT_Flag_MSC           = ENET_REGIDX_BIT(MAC_INTF_REG_OFFSET, 4U),     /*!< MSC status flag */
+    ENET_MAC_INT_Flag_MSCR          = ENET_REGIDX_BIT(MAC_INTF_REG_OFFSET, 5U),     /*!< MSC receive status flag */
+    ENET_MAC_INT_Flag_MSCT          = ENET_REGIDX_BIT(MAC_INTF_REG_OFFSET, 6U),     /*!< MSC transmit status flag */
+    ENET_MAC_INT_Flag_TMST          = ENET_REGIDX_BIT(MAC_INTF_REG_OFFSET, 9U),     /*!< timestamp trigger status flag */
     /* ENET_MSC_RINTF register */
-    ENET_MSC_INT_FLAG_RFCE          = ENET_REGIDX_BIT(MSC_RINTF_REG_OFFSET, 5U),    /*!< received frames CRC error flag */
-    ENET_MSC_INT_FLAG_RFAE          = ENET_REGIDX_BIT(MSC_RINTF_REG_OFFSET, 6U),    /*!< received frames alignment error flag */
-    ENET_MSC_INT_FLAG_RGUF          = ENET_REGIDX_BIT(MSC_RINTF_REG_OFFSET, 17U),   /*!< received good unicast frames flag */
+    ENET_MSC_INT_Flag_RFCE          = ENET_REGIDX_BIT(MSC_RINTF_REG_OFFSET, 5U),    /*!< received frames CRC error flag */
+    ENET_MSC_INT_Flag_RFAE          = ENET_REGIDX_BIT(MSC_RINTF_REG_OFFSET, 6U),    /*!< received frames alignment error flag */
+    ENET_MSC_INT_Flag_RGUF          = ENET_REGIDX_BIT(MSC_RINTF_REG_OFFSET, 17U),   /*!< received good unicast frames flag */
     /* ENET_MSC_TINTF register */
-    ENET_MSC_INT_FLAG_TGFSC         = ENET_REGIDX_BIT(MSC_TINTF_REG_OFFSET, 14U),   /*!< transmitted good frames single collision flag */
-    ENET_MSC_INT_FLAG_TGFMSC        = ENET_REGIDX_BIT(MSC_TINTF_REG_OFFSET, 15U),   /*!< transmitted good frames more single collision flag */
-    ENET_MSC_INT_FLAG_TGF           = ENET_REGIDX_BIT(MSC_TINTF_REG_OFFSET, 21U),   /*!< transmitted good frames flag */
+    ENET_MSC_INT_Flag_TGFSC         = ENET_REGIDX_BIT(MSC_TINTF_REG_OFFSET, 14U),   /*!< transmitted good frames single collision flag */
+    ENET_MSC_INT_Flag_TGFMSC        = ENET_REGIDX_BIT(MSC_TINTF_REG_OFFSET, 15U),   /*!< transmitted good frames more single collision flag */
+    ENET_MSC_INT_Flag_TGF           = ENET_REGIDX_BIT(MSC_TINTF_REG_OFFSET, 21U),   /*!< transmitted good frames flag */
     /* ENET_DMA_STAT register */
-    ENET_DMA_INT_FLAG_TS            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 0U),     /*!< transmit status flag */
-    ENET_DMA_INT_FLAG_TPS           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 1U),     /*!< transmit process stopped status flag */
-    ENET_DMA_INT_FLAG_TBU           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 2U),     /*!< transmit buffer unavailable status flag */
-    ENET_DMA_INT_FLAG_TJT           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 3U),     /*!< transmit jabber timeout status flag */
-    ENET_DMA_INT_FLAG_RO            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 4U),     /*!< receive overflow status flag */
-    ENET_DMA_INT_FLAG_TU            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 5U),     /*!< transmit underflow status flag */
-    ENET_DMA_INT_FLAG_RS            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 6U),     /*!< receive status flag */
-    ENET_DMA_INT_FLAG_RBU           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 7U),     /*!< receive buffer unavailable status flag */
-    ENET_DMA_INT_FLAG_RPS           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 8U),     /*!< receive process stopped status flag */
-    ENET_DMA_INT_FLAG_RWT           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 9U),     /*!< receive watchdog timeout status flag */
-    ENET_DMA_INT_FLAG_ET            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 10U),    /*!< early transmit status flag */
-    ENET_DMA_INT_FLAG_FBE           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 13U),    /*!< fatal bus error status flag */
-    ENET_DMA_INT_FLAG_ER            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 14U),    /*!< early receive status flag */
-    ENET_DMA_INT_FLAG_AI            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 15U),    /*!< abnormal interrupt summary flag */
-    ENET_DMA_INT_FLAG_NI            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 16U),    /*!< normal interrupt summary flag */
-    ENET_DMA_INT_FLAG_MSC           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 27U),    /*!< MSC status flag */
-    ENET_DMA_INT_FLAG_WUM           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 28U),    /*!< WUM status flag */
-    ENET_DMA_INT_FLAG_TST           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 29U),    /*!< timestamp trigger status flag */
-} ENET_int_flag_enum;
+    ENET_DMA_INT_Flag_TS            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 0U),     /*!< transmit status flag */
+    ENET_DMA_INT_Flag_TPS           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 1U),     /*!< transmit process stopped status flag */
+    ENET_DMA_INT_Flag_TBU           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 2U),     /*!< transmit buffer unavailable status flag */
+    ENET_DMA_INT_Flag_TJT           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 3U),     /*!< transmit jabber timeout status flag */
+    ENET_DMA_INT_Flag_RO            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 4U),     /*!< receive overflow status flag */
+    ENET_DMA_INT_Flag_TU            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 5U),     /*!< transmit underflow status flag */
+    ENET_DMA_INT_Flag_RS            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 6U),     /*!< receive status flag */
+    ENET_DMA_INT_Flag_RBU           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 7U),     /*!< receive buffer unavailable status flag */
+    ENET_DMA_INT_Flag_RPS           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 8U),     /*!< receive process stopped status flag */
+    ENET_DMA_INT_Flag_RWT           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 9U),     /*!< receive watchdog timeout status flag */
+    ENET_DMA_INT_Flag_ET            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 10U),    /*!< early transmit status flag */
+    ENET_DMA_INT_Flag_FBE           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 13U),    /*!< fatal bus error status flag */
+    ENET_DMA_INT_Flag_ER            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 14U),    /*!< early receive status flag */
+    ENET_DMA_INT_Flag_AI            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 15U),    /*!< abnormal interrupt summary flag */
+    ENET_DMA_INT_Flag_NI            = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 16U),    /*!< normal interrupt summary flag */
+    ENET_DMA_INT_Flag_MSC           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 27U),    /*!< MSC status flag */
+    ENET_DMA_INT_Flag_WUM           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 28U),    /*!< WUM status flag */
+    ENET_DMA_INT_Flag_TST           = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 29U),    /*!< timestamp trigger status flag */
+} ENET_int_Flag_enum;
 
 /* ENET interrupt flag clear */
 typedef enum {
     /* ENET_DMA_STAT register */
-    ENET_DMA_INT_FLAG_TS_CLR        = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 0U),     /*!< transmit status flag */
-    ENET_DMA_INT_FLAG_TPS_CLR       = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 1U),     /*!< transmit process stopped status flag */
-    ENET_DMA_INT_FLAG_TBU_CLR       = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 2U),     /*!< transmit buffer unavailable status flag */
-    ENET_DMA_INT_FLAG_TJT_CLR       = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 3U),     /*!< transmit jabber timeout status flag */
-    ENET_DMA_INT_FLAG_RO_CLR        = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 4U),     /*!< receive overflow status flag */
-    ENET_DMA_INT_FLAG_TU_CLR        = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 5U),     /*!< transmit underflow status flag */
-    ENET_DMA_INT_FLAG_RS_CLR        = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 6U),     /*!< receive status flag */
-    ENET_DMA_INT_FLAG_RBU_CLR       = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 7U),     /*!< receive buffer unavailable status flag */
-    ENET_DMA_INT_FLAG_RPS_CLR       = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 8U),     /*!< receive process stopped status flag */
-    ENET_DMA_INT_FLAG_RWT_CLR       = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 9U),     /*!< receive watchdog timeout status flag */
-    ENET_DMA_INT_FLAG_ET_CLR        = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 10U),    /*!< early transmit status flag */
-    ENET_DMA_INT_FLAG_FBE_CLR       = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 13U),    /*!< fatal bus error status flag */
-    ENET_DMA_INT_FLAG_ER_CLR        = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 14U),    /*!< early receive status flag */
-    ENET_DMA_INT_FLAG_AI_CLR        = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 15U),    /*!< abnormal interrupt summary flag */
-    ENET_DMA_INT_FLAG_NI_CLR        = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 16U),    /*!< normal interrupt summary flag */
-} ENET_int_flag_clear_enum;
+    ENET_DMA_INT_Flag_TS_CLR        = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 0U),     /*!< transmit status flag */
+    ENET_DMA_INT_Flag_TPS_CLR       = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 1U),     /*!< transmit process stopped status flag */
+    ENET_DMA_INT_Flag_TBU_CLR       = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 2U),     /*!< transmit buffer unavailable status flag */
+    ENET_DMA_INT_Flag_TJT_CLR       = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 3U),     /*!< transmit jabber timeout status flag */
+    ENET_DMA_INT_Flag_RO_CLR        = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 4U),     /*!< receive overflow status flag */
+    ENET_DMA_INT_Flag_TU_CLR        = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 5U),     /*!< transmit underflow status flag */
+    ENET_DMA_INT_Flag_RS_CLR        = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 6U),     /*!< receive status flag */
+    ENET_DMA_INT_Flag_RBU_CLR       = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 7U),     /*!< receive buffer unavailable status flag */
+    ENET_DMA_INT_Flag_RPS_CLR       = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 8U),     /*!< receive process stopped status flag */
+    ENET_DMA_INT_Flag_RWT_CLR       = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 9U),     /*!< receive watchdog timeout status flag */
+    ENET_DMA_INT_Flag_ET_CLR        = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 10U),    /*!< early transmit status flag */
+    ENET_DMA_INT_Flag_FBE_CLR       = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 13U),    /*!< fatal bus error status flag */
+    ENET_DMA_INT_Flag_ER_CLR        = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 14U),    /*!< early receive status flag */
+    ENET_DMA_INT_Flag_AI_CLR        = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 15U),    /*!< abnormal interrupt summary flag */
+    ENET_DMA_INT_Flag_NI_CLR        = ENET_REGIDX_BIT(DMA_STAT_REG_OFFSET, 16U),    /*!< normal interrupt summary flag */
+} ENET_int_Flag_Clear_enum;
 
 /* current RX/TX descriptor/buffer/descriptor table address get */
 typedef enum {
-    ENET_RX_DESC_TABLE              = DMA_RDTADDR_REG_OFFSET,                       /*!< RX descriptor table */
-    ENET_RX_CURRENT_DESC            = DMA_CRDADDR_REG_OFFSET,                       /*!< current RX descriptor */
-    ENET_RX_CURRENT_BUFFER          = DMA_CRBADDR_REG_OFFSET,                       /*!< current RX buffer */
-    ENET_TX_DESC_TABLE              = DMA_TDTADDR_REG_OFFSET,                       /*!< TX descriptor table */
-    ENET_TX_CURRENT_DESC            = DMA_CTDADDR_REG_OFFSET,                       /*!< current TX descriptor */
-    ENET_TX_CURRENT_BUFFER          = DMA_CTBADDR_REG_OFFSET                        /*!< current TX buffer */
-} ENET_desc_reg_enum;
+    ENET_RX_Desc_TABLE              = DMA_RDTADDR_REG_OFFSET,                       /*!< RX descriptor table */
+    ENET_RX_Current_DESC            = DMA_CRDADDR_REG_OFFSET,                       /*!< current RX descriptor */
+    ENET_RX_Current_BUFFER          = DMA_CRBADDR_REG_OFFSET,                       /*!< current RX buffer */
+    ENET_TX_Desc_TABLE              = DMA_TDTADDR_REG_OFFSET,                       /*!< TX descriptor table */
+    ENET_TX_Current_DESC            = DMA_CTDADDR_REG_OFFSET,                       /*!< current TX descriptor */
+    ENET_TX_Current_BUFFER          = DMA_CTBADDR_REG_OFFSET                        /*!< current TX buffer */
+} ENET_Desc_reg_enum;
 
 /* MAC statistics counter get */
 typedef enum {
@@ -833,7 +833,7 @@ typedef enum {
     ENET_MSC_RX_RFCECNT             = MSC_RFCECNT_REG_OFFSET,                       /*!< MSC received frames with CRC error counter */
     ENET_MSC_RX_RFAECNT             = MSC_RFAECNT_REG_OFFSET,                       /*!< MSC received frames with alignment error counter */
     ENET_MSC_RX_RGUFCNT             = MSC_RGUFCNT_REG_OFFSET                        /*!< MSC received good unicast frames counter */
-} ENET_msc_counter_enum;
+} ENET_MSC_Counter_enum;
 
 /* function option, used for ENET initialization */
 typedef enum {
@@ -855,7 +855,7 @@ typedef enum {
 
 /* phy mode and mac loopback configurations */
 typedef enum {
-    ENET_AUTO_NEGOTIATION           = 0x01U,                                        /*!< PHY auto negotiation */
+    ENET_Auto_NEGOTIATION           = 0x01U,                                        /*!< PHY auto negotiation */
     ENET_100M_FULLDUPLEX            = (ENET_MAC_CFG_SPD | ENET_MAC_CFG_DPM),        /*!< 100Mbit/s, full-duplex */
     ENET_100M_HALFDUPLEX            = ENET_MAC_CFG_SPD,                             /*!< 100Mbit/s, half-duplex */
     ENET_10M_FULLDUPLEX             = ENET_MAC_CFG_DPM,                             /*!< 10Mbit/s, full-duplex */
@@ -916,39 +916,39 @@ typedef enum {
 /* descriptor information */
 typedef enum {
     TXDESC_COLLISION_COUNT,                                                         /*!< the number of collisions occurred before the frame was transmitted */
-    TXDESC_BUFFER_1_ADDR,                                                           /*!< transmit frame buffer 1 address */
-    RXDESC_FRAME_LENGTH,                                                            /*!< the byte length of the received frame that was transferred to the buffer */
-    RXDESC_BUFFER_1_SIZE,                                                           /*!< receive buffer 1 size */
-    RXDESC_BUFFER_2_SIZE,                                                           /*!< receive buffer 2 size */
-    RXDESC_BUFFER_1_ADDR                                                            /*!< receive frame buffer 1 address */
+    TXDESC_Buffer_1_ADDR,                                                           /*!< transmit frame buffer 1 address */
+    RXDESC_Frame_LENGTH,                                                            /*!< the byte length of the received frame that was transferred to the buffer */
+    RXDESC_Buffer_1_SIZE,                                                           /*!< receive buffer 1 size */
+    RXDESC_Buffer_2_SIZE,                                                           /*!< receive buffer 2 size */
+    RXDESC_Buffer_1_ADDR                                                            /*!< receive frame buffer 1 address */
 } ENET_descstate_enum;
 
 /* MSC counters preset mode */
 typedef enum {
-    ENET_MSC_PRESET_NONE            = 0U,                                           /*!< do not preset MSC counter */
-    ENET_MSC_PRESET_HALF            = ENET_MSC_CTL_PMC,                             /*!< preset all MSC counters to almost-half(0x7FFF FFF0) value */
-    ENET_MSC_PRESET_FULL            = ENET_MSC_CTL_PMC | ENET_MSC_CTL_AFHPM         /*!< preset all MSC counters to almost-full(0xFFFF FFF0) value */
-} ENET_msc_preset_enum;
+    ENET_MSC_Preset_NONE            = 0U,                                           /*!< do not preset MSC counter */
+    ENET_MSC_Preset_HALF            = ENET_MSC_CTL_PMC,                             /*!< preset all MSC counters to almost-half(0x7FFF FFF0) value */
+    ENET_MSC_Preset_FULL            = ENET_MSC_CTL_PMC | ENET_MSC_CTL_AFHPM         /*!< preset all MSC counters to almost-full(0xFFFF FFF0) value */
+} ENET_MSC_Preset_enum;
 
 typedef enum {
     ENET_CKNT_ORDINARY                = PTP_TSCTL_CKNT(0),                          /*!< type of ordinary clock node type for timestamp */
     ENET_CKNT_BOUNDARY                = PTP_TSCTL_CKNT(1),                          /*!< type of boundary clock node type for timestamp */
-    ENET_CKNT_END_TO_END              = PTP_TSCTL_CKNT(2),                          /*!< type of end-to-end transparent clock node type for timestamp */
+    ENET_CKNT_End_TO_END              = PTP_TSCTL_CKNT(2),                          /*!< type of end-to-end transparent clock node type for timestamp */
     ENET_CKNT_PEER_TO_PEER            = PTP_TSCTL_CKNT(3),                          /*!< type of peer-to-peer transparent clock node type for timestamp */
     ENET_PTP_SYSTIME_INIT             = ENET_PTP_TSCTL_TMSSTI,                      /*!< timestamp initialize */
     ENET_PTP_SYSTIME_UPDATE           = ENET_PTP_TSCTL_TMSSTU,                      /*!< timestamp update */
-    ENET_PTP_ADDEND_UPDATE            = ENET_PTP_TSCTL_TMSARU,                      /*!< addend register update */
+    ENET_PTP_Addend_UPDATE            = ENET_PTP_TSCTL_TMSARU,                      /*!< addend register update */
     ENET_PTP_FINEMODE                 = (int32_t)(ENET_PTP_TSCTL_TMSFCU | BIT(31)), /*!< the system timestamp uses the fine method for updating */
     ENET_PTP_COARSEMODE               = ENET_PTP_TSCTL_TMSFCU,                      /*!< the system timestamp uses the coarse method for updating */
-    ENET_SUBSECOND_DIGITAL_ROLLOVER   = (int32_t)(ENET_PTP_TSCTL_SCROM | BIT(31)),  /*!< digital rollover mode */
-    ENET_SUBSECOND_BINARY_ROLLOVER    = ENET_PTP_TSCTL_SCROM,                       /*!< binary rollover mode */
+    ENET_SubSecond_DIGITAL_ROLLOVER   = (int32_t)(ENET_PTP_TSCTL_SCROM | BIT(31)),  /*!< digital rollover mode */
+    ENET_SubSecond_BINARY_ROLLOVER    = ENET_PTP_TSCTL_SCROM,                       /*!< binary rollover mode */
     ENET_SNOOPING_PTP_VERSION_2       = (int32_t)(ENET_PTP_TSCTL_PFSV | BIT(31)),   /*!< version 2 */
     ENET_SNOOPING_PTP_VERSION_1       = ENET_PTP_TSCTL_PFSV,                        /*!< version 1 */
-    ENET_EVENT_TYPE_MESSAGES_SNAPSHOT = (int32_t)(ENET_PTP_TSCTL_ETMSEN | BIT(31)), /*!< only event type messages are taken snapshot */
+    ENET_Event_TYPE_MESSAGES_SNAPSHOT = (int32_t)(ENET_PTP_TSCTL_ETMSEN | BIT(31)), /*!< only event type messages are taken snapshot */
     ENET_ALL_TYPE_MESSAGES_SNAPSHOT   = ENET_PTP_TSCTL_ETMSEN,                      /*!< all type messages are taken snapshot except announce, management and signaling message */
-    ENET_MASTER_NODE_MESSAGE_SNAPSHOT = (int32_t)(ENET_PTP_TSCTL_MNMSEN | BIT(31)), /*!< snapshot is only take for master node message */
-    ENET_SLAVE_NODE_MESSAGE_SNAPSHOT  = ENET_PTP_TSCTL_MNMSEN,                      /*!< snapshot is only taken for slave node message */
-} ENET_ptp_function_enum;
+    ENET_Master_NODE_Message_SNAPSHOT = (int32_t)(ENET_PTP_TSCTL_MNMSEN | BIT(31)), /*!< snapshot is only take for master node message */
+    ENET_Slave_NODE_Message_SNAPSHOT  = ENET_PTP_TSCTL_MNMSEN,                      /*!< snapshot is only taken for slave node message */
+} ENET_PTP_Function_enum;
 
 /* structure for initialization of the ENET  */
 typedef struct {
@@ -967,30 +967,30 @@ typedef struct {
     uint32_t halfduplex_param;                                                      /*!< halfduplex related parameters */
     uint32_t TIMER_Config;                                                          /*!< frame timer related parameters */
     uint32_t interframegap;                                                         /*!< inter frame gap related parameters */
-} ENET_initpara_struct;
+} ENET_initpara_Struct;
 
 /* structure for ENET DMA desciptors */
 typedef struct {
     uint32_t status;                                                                /*!< status */
-    uint32_t control_buffer_size;                                                   /*!< control and buffer1, buffer2 lengths */
+    uint32_t control_Buffer_size;                                                   /*!< control and buffer1, buffer2 lengths */
     uint32_t buffer1_addr;                                                          /*!< buffer1 address pointer/timestamp low */
-    uint32_t buffer2_next_desc_addr;                                                /*!< buffer2 or next descriptor address pointer/timestamp high */
+    uint32_t buffer2_next_Desc_addr;                                                /*!< buffer2 or next descriptor address pointer/timestamp high */
 
-#ifdef SELECT_DESCRIPTORS_ENHANCED_MODE
+#ifdef SELECT_Descriptors_Enhanced_MODE
     uint32_t extended_status;                                                       /*!< extended status */
     uint32_t reserved;                                                              /*!< reserved */
     uint32_t timestamp_low;                                                         /*!< timestamp low */
     uint32_t timestamp_high;                                                        /*!< timestamp high */
-#endif /* SELECT_DESCRIPTORS_ENHANCED_MODE */
+#endif /* SELECT_Descriptors_Enhanced_MODE */
 
-} ENET_descriptors_struct;
+} ENET_Descriptors_Struct;
 
 /* structure of PTP system time */
 typedef struct {
     uint32_t second;                                                                /*!< second of system time */
     uint32_t subsecond;                                                             /*!< subsecond of system time */
     uint32_t sign;                                                                  /*!< sign of system time */
-} ENET_ptp_systime_struct;
+} ENET_PTP_systime_Struct;
 
 /* mac_cfg register value */
 #define MAC_CFG_BOL(regval)                       (BITS(5,6) & ((uint32_t)(regval) << 5))       /*!< write value to ENET_MAC_CFG_BOL bit field */
@@ -1013,8 +1013,8 @@ typedef struct {
 #define ENET_TYPEFRAME_CRC_DROP_DISABLE           ((uint32_t)0x00000000U)                       /*!< FCS field(last 4 bytes) of frame will not be dropped before forwarding */
 #define ENET_TYPEFRAME_CRC_DROP                   ENET_MAC_CFG_TFCD                             /*!< the function that FCS field(last 4 bytes) of frame will be dropped before forwarding */
 
-#define ENET_WATCHDOG_ENABLE                      ((uint32_t)0x00000000U)                       /*!< the MAC allows no more than 2048 bytes of the frame being received */
-#define ENET_WATCHDOG_DISABLE                     ENET_MAC_CFG_WDD                              /*!< the MAC disables the watchdog timer on the receiver, and can receive frames of up to 16384 bytes */
+#define ENET_WatchDog_ENABLE                      ((uint32_t)0x00000000U)                       /*!< the MAC allows no more than 2048 bytes of the frame being received */
+#define ENET_WatchDog_DISABLE                     ENET_MAC_CFG_WDD                              /*!< the MAC disables the watchdog timer on the receiver, and can receive frames of up to 16384 bytes */
 
 #define ENET_JABBER_ENABLE                        ((uint32_t)0x00000000U)                       /*!< the maximum transmission byte is 2048 */
 #define ENET_JABBER_DISABLE                       ENET_MAC_CFG_JBD                              /*!< the maximum transmission byte can be 16384 */
@@ -1031,8 +1031,8 @@ typedef struct {
 #define ENET_LOOPBACKMODE_ENABLE                  ENET_MAC_CFG_LBM                              /*!< the MAC operates in loopback mode at the MII */
 #define ENET_LOOPBACKMODE_DISABLE                 ((uint32_t)0x00000000U)                       /*!< the MAC operates in normal mode */
 
-#define ENET_MODE_FULLDUPLEX                      ENET_MAC_CFG_DPM                              /*!< full-duplex mode enable */
-#define ENET_MODE_HALFDUPLEX                      ((uint32_t)0x00000000U)                       /*!< half-duplex mode enable */
+#define ENET_Mode_FULLDUPLEX                      ENET_MAC_CFG_DPM                              /*!< full-duplex mode enable */
+#define ENET_Mode_HALFDUPLEX                      ((uint32_t)0x00000000U)                       /*!< half-duplex mode enable */
 
 #define ENET_CHECKSUMOFFLOAD_ENABLE               ENET_MAC_CFG_IPFCO                            /*!< IP frame checksum offload function enabled for received IP frame */
 #define ENET_CHECKSUMOFFLOAD_DISABLE              ((uint32_t)0x00000000U)                       /*!< the checksum offload function in the receiver is disabled */
@@ -1040,9 +1040,9 @@ typedef struct {
 #define ENET_RETRYTRANSMISSION_ENABLE             ((uint32_t)0x00000000U)                       /*!< the MAC attempts retries up to 16 times based on the settings of BOL*/
 #define ENET_RETRYTRANSMISSION_DISABLE            ENET_MAC_CFG_RTD                              /*!< the MAC attempts only 1 transmission */
 
-#define ENET_AUTO_PADCRC_DROP_ENABLE              ENET_MAC_CFG_APCD                             /*!< the MAC strips the Pad/FCS field on received frames */
-#define ENET_AUTO_PADCRC_DROP_DISABLE             ((uint32_t)0x00000000U)                       /*!< the MAC forwards all received frames without modify it */
-#define ENET_AUTO_PADCRC_DROP                     ENET_MAC_CFG_APCD                             /*!< the function of the MAC strips the Pad/FCS field on received frames */
+#define ENET_Auto_PADCRC_DROP_ENABLE              ENET_MAC_CFG_APCD                             /*!< the MAC strips the Pad/FCS field on received frames */
+#define ENET_Auto_PADCRC_DROP_DISABLE             ((uint32_t)0x00000000U)                       /*!< the MAC forwards all received frames without modify it */
+#define ENET_Auto_PADCRC_DROP                     ENET_MAC_CFG_APCD                             /*!< the function of the MAC strips the Pad/FCS field on received frames */
 
 #define ENET_DEFERRALCHECK_ENABLE                 ENET_MAC_CFG_DFC                              /*!< the deferral check function is enabled in the MAC */
 #define ENET_DEFERRALCHECK_DISABLE                ((uint32_t)0x00000000U)                       /*!< the deferral check function is disabled */
@@ -1054,39 +1054,39 @@ typedef struct {
 #define ENET_PCFRM_FORWARD_ALL                    MAC_FRMF_PCFRM(2)                             /*!< MAC forwards all control frames to application even if they fail the address filter */
 #define ENET_PCFRM_FORWARD_FILTERED               MAC_FRMF_PCFRM(3)                             /*!< MAC forwards control frames that only pass the address filter */
 
-#define ENET_RX_FILTER_DISABLE                    ENET_MAC_FRMF_FAR                             /*!< all received frame are forwarded to application */
-#define ENET_RX_FILTER_ENABLE                     ((uint32_t)0x00000000U)                       /*!< only the frame passed the filter can be forwarded to application */
+#define ENET_RX_Filter_DISABLE                    ENET_MAC_FRMF_FAR                             /*!< all received frame are forwarded to application */
+#define ENET_RX_Filter_ENABLE                     ((uint32_t)0x00000000U)                       /*!< only the frame passed the filter can be forwarded to application */
 
-#define ENET_SRC_FILTER_NORMAL_ENABLE             ENET_MAC_FRMF_SAFLT                           /*!< filter source address */
-#define ENET_SRC_FILTER_INVERSE_ENABLE            (ENET_MAC_FRMF_SAFLT | ENET_MAC_FRMF_SAIFLT)  /*!< inverse source address filtering result */
-#define ENET_SRC_FILTER_DISABLE                   ((uint32_t)0x00000000U)                       /*!< source address function in filter disable */
+#define ENET_SRC_Filter_Normal_ENABLE             ENET_MAC_FRMF_SAFLT                           /*!< filter source address */
+#define ENET_SRC_Filter_INVERSE_ENABLE            (ENET_MAC_FRMF_SAFLT | ENET_MAC_FRMF_SAIFLT)  /*!< inverse source address filtering result */
+#define ENET_SRC_Filter_DISABLE                   ((uint32_t)0x00000000U)                       /*!< source address function in filter disable */
 #define ENET_SRC_FILTER                           ENET_MAC_FRMF_SAFLT                           /*!< filter source address function */
-#define ENET_SRC_FILTER_INVERSE                   ENET_MAC_FRMF_SAIFLT                          /*!< inverse source address filtering result function */
+#define ENET_SRC_Filter_INVERSE                   ENET_MAC_FRMF_SAIFLT                          /*!< inverse source address filtering result function */
 
 #define ENET_BROADCASTFRAMES_ENABLE               ((uint32_t)0x00000000U)                       /*!< the address filters pass all received broadcast frames */
 #define ENET_BROADCASTFRAMES_DISABLE              ENET_MAC_FRMF_BFRMD                           /*!< the address filters filter all incoming broadcast frames */
 
-#define ENET_DEST_FILTER_INVERSE_ENABLE           ENET_MAC_FRMF_DAIFLT                          /*!< inverse DA filtering result */
-#define ENET_DEST_FILTER_INVERSE_DISABLE          ((uint32_t)0x00000000U)                       /*!< not inverse DA filtering result */
-#define ENET_DEST_FILTER_INVERSE                  ENET_MAC_FRMF_DAIFLT                          /*!< inverse DA filtering result function */
+#define ENET_DEST_Filter_INVERSE_ENABLE           ENET_MAC_FRMF_DAIFLT                          /*!< inverse DA filtering result */
+#define ENET_DEST_Filter_INVERSE_DISABLE          ((uint32_t)0x00000000U)                       /*!< not inverse DA filtering result */
+#define ENET_DEST_Filter_INVERSE                  ENET_MAC_FRMF_DAIFLT                          /*!< inverse DA filtering result function */
 
 #define ENET_PROMISCUOUS_ENABLE                   ENET_MAC_FRMF_PM                              /*!< promiscuous mode enabled */
 #define ENET_PROMISCUOUS_DISABLE                  ((uint32_t)0x00000000U)                       /*!< promiscuous mode disabled */
 
-#define ENET_MULTICAST_FILTER_HASH_OR_PERFECT     (ENET_MAC_FRMF_HMF | ENET_MAC_FRMF_HPFLT)     /*!< pass multicast frames that match either the perfect or the hash filtering */
-#define ENET_MULTICAST_FILTER_HASH                ENET_MAC_FRMF_HMF                             /*!< pass multicast frames that match the hash filtering */
-#define ENET_MULTICAST_FILTER_PERFECT             ((uint32_t)0x00000000U)                       /*!< pass multicast frames that match the perfect filtering */
-#define ENET_MULTICAST_FILTER_NONE                ENET_MAC_FRMF_MFD                             /*!< all multicast frames are passed */
-#define ENET_MULTICAST_FILTER_PASS                ENET_MAC_FRMF_MFD                             /*!< pass all multicast frames function */
-#define ENET_MULTICAST_FILTER_HASH_MODE           ENET_MAC_FRMF_HMF                             /*!< HASH multicast filter function */
-#define ENET_FILTER_MODE_EITHER                   ENET_MAC_FRMF_HPFLT                           /*!< HASH or perfect filter function */
+#define ENET_MULTICAST_Filter_HASH_OR_PERFECT     (ENET_MAC_FRMF_HMF | ENET_MAC_FRMF_HPFLT)     /*!< pass multicast frames that match either the perfect or the hash filtering */
+#define ENET_MULTICAST_Filter_HASH                ENET_MAC_FRMF_HMF                             /*!< pass multicast frames that match the hash filtering */
+#define ENET_MULTICAST_Filter_PERFECT             ((uint32_t)0x00000000U)                       /*!< pass multicast frames that match the perfect filtering */
+#define ENET_MULTICAST_Filter_NONE                ENET_MAC_FRMF_MFD                             /*!< all multicast frames are passed */
+#define ENET_MULTICAST_Filter_PASS                ENET_MAC_FRMF_MFD                             /*!< pass all multicast frames function */
+#define ENET_MULTICAST_Filter_HASH_MODE           ENET_MAC_FRMF_HMF                             /*!< HASH multicast filter function */
+#define ENET_Filter_Mode_EITHER                   ENET_MAC_FRMF_HPFLT                           /*!< HASH or perfect filter function */
 
-#define ENET_UNICAST_FILTER_EITHER                (ENET_MAC_FRMF_HUF | ENET_MAC_FRMF_HPFLT)     /*!< pass unicast frames that match either the perfect or the hash filtering */
-#define ENET_UNICAST_FILTER_HASH                  ENET_MAC_FRMF_HUF                             /*!< pass unicast frames that match the hash filtering */
-#define ENET_UNICAST_FILTER_PERFECT               ((uint32_t)0x00000000U)                       /*!< pass unicast frames that match the perfect filtering */
-#define ENET_UNICAST_FILTER_HASH_MODE             ENET_MAC_FRMF_HUF                             /*!< HASH unicast filter function */
+#define ENET_UNICAST_Filter_EITHER                (ENET_MAC_FRMF_HUF | ENET_MAC_FRMF_HPFLT)     /*!< pass unicast frames that match either the perfect or the hash filtering */
+#define ENET_UNICAST_Filter_HASH                  ENET_MAC_FRMF_HUF                             /*!< pass unicast frames that match the hash filtering */
+#define ENET_UNICAST_Filter_PERFECT               ((uint32_t)0x00000000U)                       /*!< pass unicast frames that match the perfect filtering */
+#define ENET_UNICAST_Filter_HASH_MODE             ENET_MAC_FRMF_HUF                             /*!< HASH unicast filter function */
 
-/* mac_phy_ctl register value */
+/* mac_PHY_ctl register value */
 #define MAC_PHY_CTL_CLR(regval)                   (BITS(2,4) & ((uint32_t)(regval) << 2))       /*!< write value to ENET_MAC_PHY_CTL_CLR bit field */
 #define ENET_MDC_HCLK_DIV42                       MAC_PHY_CTL_CLR(0)                            /*!< HCLK:60-100 MHz; MDC clock= HCLK/42 */
 #define ENET_MDC_HCLK_DIV62                       MAC_PHY_CTL_CLR(1)                            /*!< HCLK:100-150 MHz; MDC clock= HCLK/62 */
@@ -1098,8 +1098,8 @@ typedef struct {
 
 #define MAC_PHY_CTL_PA(regval)                    (BITS(11,15) & ((uint32_t)(regval) << 11))    /*!< write value to ENET_MAC_PHY_CTL_PA bit field */
 
-/* mac_phy_data register value */
-#define MAC_PHY_DATA_PD(regval)                   (BITS(0,15) & ((uint32_t)(regval) << 0))      /*!< write value to ENET_MAC_PHY_DATA_PD bit field */
+/* mac_PHY_data register value */
+#define MAC_PHY_Data_PD(regval)                   (BITS(0,15) & ((uint32_t)(regval) << 0))      /*!< write value to ENET_MAC_PHY_Data_PD bit field */
 
 /* mac_fctl register value */
 #define MAC_FCTL_PLTS(regval)                     (BITS(4,5) & ((uint32_t)(regval) << 4))       /*!< write value to ENET_MAC_FCTL_PLTS bit field */
@@ -1112,7 +1112,7 @@ typedef struct {
 #define ENET_ZERO_QUANTA_PAUSE_DISABLE            ENET_MAC_FCTL_DZQP                            /*!< disable the automatic zero-quanta generation function */
 #define ENET_ZERO_QUANTA_PAUSE                    ENET_MAC_FCTL_DZQP                            /*!< the automatic zero-quanta generation function */
 
-#define ENET_MAC0_AND_UNIQUE_ADDRESS_PAUSEDETECT  ENET_MAC_FCTL_UPFDT                           /*!< besides the unique multicast address, MAC also use the MAC0 address to detect pause frame */
+#define ENET_MAC0_AND_UNIQUE_Address_PAUSEDETECT  ENET_MAC_FCTL_UPFDT                           /*!< besides the unique multicast address, MAC also use the MAC0 address to detect pause frame */
 #define ENET_UNIQUE_PAUSEDETECT                   ((uint32_t)0x00000000U)                       /*!< only the unique multicast address for pause frame which is specified in IEEE802.3 can be detected */
 
 #define ENET_RX_FLOWCONTROL_ENABLE                ENET_MAC_FCTL_RFCEN                           /*!< enable decoding function for the received pause frame and process it */
@@ -1135,16 +1135,16 @@ typedef struct {
 #define ENET_VLANTAGCOMPARISON_16BIT              ((uint32_t)0x00000000U)                       /*!< all 16 bits of the VLAN tag are used for comparison */
 
 /* mac_wum register value */
-#define ENET_WUM_FLAG_WUFFRPR                     ENET_MAC_WUM_WUFFRPR                          /*!< wakeup frame filter register poniter reset */
-#define ENET_WUM_FLAG_WUFR                        ENET_MAC_WUM_WUFR                             /*!< wakeup frame received */
-#define ENET_WUM_FLAG_MPKR                        ENET_MAC_WUM_MPKR                             /*!< magic packet received */
-#define ENET_WUM_POWER_DOWN                       ENET_MAC_WUM_PWD                              /*!< power down mode */
+#define ENET_WUM_Flag_WUFFRPR                     ENET_MAC_WUM_WUFFRPR                          /*!< wakeup frame filter register poniter reset */
+#define ENET_WUM_Flag_WUFR                        ENET_MAC_WUM_WUFR                             /*!< wakeup frame received */
+#define ENET_WUM_Flag_MPKR                        ENET_MAC_WUM_MPKR                             /*!< magic packet received */
+#define ENET_WUM_Power_DOWN                       ENET_MAC_WUM_PWD                              /*!< power down mode */
 #define ENET_WUM_MAGIC_PACKET_FRAME               ENET_MAC_WUM_MPEN                             /*!< enable a wakeup event due to magic packet reception */
-#define ENET_WUM_WAKE_UP_FRAME                    ENET_MAC_WUM_WFEN                             /*!< enable a wakeup event due to wakeup frame reception */
+#define ENET_WUM_WAKE_Up_FRAME                    ENET_MAC_WUM_WFEN                             /*!< enable a wakeup event due to wakeup frame reception */
 #define ENET_WUM_GLOBAL_UNICAST                   ENET_MAC_WUM_GU                               /*!< any received unicast frame passed filter is considered to be a wakeup frame */
 
 /* mac_dbg register value */
-#define ENET_MAC_RECEIVER_NOT_IDLE                ENET_MAC_DBG_MRNI                             /*!< MAC receiver is not in idle state */
+#define ENET_MAC_Receiver_NOT_IDLE                ENET_MAC_DBG_MRNI                             /*!< MAC receiver is not in idle state */
 #define ENET_RX_ASYNCHRONOUS_FIFO_STATE           ENET_MAC_DBG_RXAFS                            /*!< Rx asynchronous FIFO status */
 #define ENET_RXFIFO_WRITING                       ENET_MAC_DBG_RXFW                             /*!< RxFIFO is doing write operation */
 #define ENET_RXFIFO_READ_STATUS                   ENET_MAC_DBG_RXFRS                            /*!< RxFIFO read operation status */
@@ -1173,48 +1173,48 @@ typedef struct {
 /* mac_addrxh register value, x = 1,2,3 */
 #define MAC_ADDR123H_ADDR123H(regval)             (BITS(0,15) & ((uint32_t)(regval) << 0))      /*!< write value to ENET_MAC_ADDRxH_ADDRxH(x=1,2,3) bit field */
 
-#define ENET_ADDRESS_MASK_BYTE0                   BIT(24)                                       /*!< low register bits [7:0] */
-#define ENET_ADDRESS_MASK_BYTE1                   BIT(25)                                       /*!< low register bits [15:8] */
-#define ENET_ADDRESS_MASK_BYTE2                   BIT(26)                                       /*!< low register bits [23:16] */
-#define ENET_ADDRESS_MASK_BYTE3                   BIT(27)                                       /*!< low register bits [31:24] */
-#define ENET_ADDRESS_MASK_BYTE4                   BIT(28)                                       /*!< high register bits [7:0] */
-#define ENET_ADDRESS_MASK_BYTE5                   BIT(29)                                       /*!< high register bits [15:8] */
+#define ENET_Address_MASK_BYTE0                   BIT(24)                                       /*!< low register bits [7:0] */
+#define ENET_Address_MASK_BYTE1                   BIT(25)                                       /*!< low register bits [15:8] */
+#define ENET_Address_MASK_BYTE2                   BIT(26)                                       /*!< low register bits [23:16] */
+#define ENET_Address_MASK_BYTE3                   BIT(27)                                       /*!< low register bits [31:24] */
+#define ENET_Address_MASK_BYTE4                   BIT(28)                                       /*!< high register bits [7:0] */
+#define ENET_Address_MASK_BYTE5                   BIT(29)                                       /*!< high register bits [15:8] */
 
-#define ENET_ADDRESS_FILTER_SA                    BIT(30)                                       /*!< use MAC address[47:0] is to compare with the SA fields of the received frame */
-#define ENET_ADDRESS_FILTER_DA                    ((uint32_t)0x00000000)                        /*!< use MAC address[47:0] is to compare with the DA fields of the received frame */
+#define ENET_Address_Filter_SA                    BIT(30)                                       /*!< use MAC address[47:0] is to compare with the SA fields of the received frame */
+#define ENET_Address_Filter_DA                    ((uint32_t)0x00000000)                        /*!< use MAC address[47:0] is to compare with the DA fields of the received frame */
 
 /* mac_fcth register value */
 #define MAC_FCTH_RFA(regval)                      ((BITS(0,2) & ((uint32_t)(regval) << 0)) << 8)  /*!< write value to ENET_MAC_FCTH_RFA bit field */
-#define ENET_ACTIVE_THRESHOLD_256BYTES            MAC_FCTH_RFA(0)                               /*!< threshold level is 256 bytes */
-#define ENET_ACTIVE_THRESHOLD_512BYTES            MAC_FCTH_RFA(1)                               /*!< threshold level is 512 bytes */
-#define ENET_ACTIVE_THRESHOLD_768BYTES            MAC_FCTH_RFA(2)                               /*!< threshold level is 768 bytes */
-#define ENET_ACTIVE_THRESHOLD_1024BYTES           MAC_FCTH_RFA(3)                               /*!< threshold level is 1024 bytes */
-#define ENET_ACTIVE_THRESHOLD_1280BYTES           MAC_FCTH_RFA(4)                               /*!< threshold level is 1280 bytes */
-#define ENET_ACTIVE_THRESHOLD_1536BYTES           MAC_FCTH_RFA(5)                               /*!< threshold level is 1536 bytes */
-#define ENET_ACTIVE_THRESHOLD_1792BYTES           MAC_FCTH_RFA(6)                               /*!< threshold level is 1792 bytes */
+#define ENET_ACTIVE_Threshold_256BYTES            MAC_FCTH_RFA(0)                               /*!< threshold level is 256 bytes */
+#define ENET_ACTIVE_Threshold_512BYTES            MAC_FCTH_RFA(1)                               /*!< threshold level is 512 bytes */
+#define ENET_ACTIVE_Threshold_768BYTES            MAC_FCTH_RFA(2)                               /*!< threshold level is 768 bytes */
+#define ENET_ACTIVE_Threshold_1024BYTES           MAC_FCTH_RFA(3)                               /*!< threshold level is 1024 bytes */
+#define ENET_ACTIVE_Threshold_1280BYTES           MAC_FCTH_RFA(4)                               /*!< threshold level is 1280 bytes */
+#define ENET_ACTIVE_Threshold_1536BYTES           MAC_FCTH_RFA(5)                               /*!< threshold level is 1536 bytes */
+#define ENET_ACTIVE_Threshold_1792BYTES           MAC_FCTH_RFA(6)                               /*!< threshold level is 1792 bytes */
 
 #define MAC_FCTH_RFD(regval)                      ((BITS(4,6) & ((uint32_t)(regval) << 4)) << 8)  /*!< write value to ENET_MAC_FCTH_RFD bit field */
-#define ENET_DEACTIVE_THRESHOLD_256BYTES          MAC_FCTH_RFD(0)                               /*!< threshold level is 256 bytes */
-#define ENET_DEACTIVE_THRESHOLD_512BYTES          MAC_FCTH_RFD(1)                               /*!< threshold level is 512 bytes */
-#define ENET_DEACTIVE_THRESHOLD_768BYTES          MAC_FCTH_RFD(2)                               /*!< threshold level is 768 bytes */
-#define ENET_DEACTIVE_THRESHOLD_1024BYTES         MAC_FCTH_RFD(3)                               /*!< threshold level is 1024 bytes */
-#define ENET_DEACTIVE_THRESHOLD_1280BYTES         MAC_FCTH_RFD(4)                               /*!< threshold level is 1280 bytes */
-#define ENET_DEACTIVE_THRESHOLD_1536BYTES         MAC_FCTH_RFD(5)                               /*!< threshold level is 1536 bytes */
-#define ENET_DEACTIVE_THRESHOLD_1792BYTES         MAC_FCTH_RFD(6)                               /*!< threshold level is 1792 bytes */
+#define ENET_DEACTIVE_Threshold_256BYTES          MAC_FCTH_RFD(0)                               /*!< threshold level is 256 bytes */
+#define ENET_DEACTIVE_Threshold_512BYTES          MAC_FCTH_RFD(1)                               /*!< threshold level is 512 bytes */
+#define ENET_DEACTIVE_Threshold_768BYTES          MAC_FCTH_RFD(2)                               /*!< threshold level is 768 bytes */
+#define ENET_DEACTIVE_Threshold_1024BYTES         MAC_FCTH_RFD(3)                               /*!< threshold level is 1024 bytes */
+#define ENET_DEACTIVE_Threshold_1280BYTES         MAC_FCTH_RFD(4)                               /*!< threshold level is 1280 bytes */
+#define ENET_DEACTIVE_Threshold_1536BYTES         MAC_FCTH_RFD(5)                               /*!< threshold level is 1536 bytes */
+#define ENET_DEACTIVE_Threshold_1792BYTES         MAC_FCTH_RFD(6)                               /*!< threshold level is 1792 bytes */
 
 /* msc_ctl register value */
-#define ENET_MSC_COUNTER_STOP_ROLLOVER            ENET_MSC_CTL_CTSR                             /*!< counter stop rollover */
+#define ENET_MSC_Counter_Stop_ROLLOVER            ENET_MSC_CTL_CTSR                             /*!< counter stop rollover */
 #define ENET_MSC_RESET_ON_READ                    ENET_MSC_CTL_RTOR                             /*!< reset on read */
-#define ENET_MSC_COUNTERS_FREEZE                  ENET_MSC_CTL_MCFZ                             /*!< MSC counter freeze */
+#define ENET_MSC_Counters_FREEZE                  ENET_MSC_CTL_MCFZ                             /*!< MSC counter freeze */
 
 /* ptp_tsctl register value */
 #define ENET_RXTX_TIMESTAMP                       ENET_PTP_TSCTL_TMSEN                          /*!< enable timestamp function for transmit and receive frames */
-#define ENET_PTP_TIMESTAMP_INT                    ENET_PTP_TSCTL_TMSITEN                        /*!< timestamp interrupt trigger enable */
+#define ENET_PTP_Timestamp_INT                    ENET_PTP_TSCTL_TMSITEN                        /*!< timestamp interrupt trigger enable */
 #define ENET_ALL_RX_TIMESTAMP                     ENET_PTP_TSCTL_ARFSEN                         /*!< all received frames are taken snapshot */
-#define ENET_NONTYPE_FRAME_SNAPSHOT               ENET_PTP_TSCTL_ESEN                           /*!< take snapshot when received non type frame */
-#define ENET_IPV6_FRAME_SNAPSHOT                  ENET_PTP_TSCTL_IP6SEN                         /*!< take snapshot for IPv6 frame */
-#define ENET_IPV4_FRAME_SNAPSHOT                  ENET_PTP_TSCTL_IP4SEN                         /*!< take snapshot for IPv4 frame */
-#define ENET_PTP_FRAME_USE_MACADDRESS_FILTER      ENET_PTP_TSCTL_MAFEN                          /*!< enable MAC address1-3 to filter the PTP frame */
+#define ENET_NONTYPE_Frame_SNAPSHOT               ENET_PTP_TSCTL_ESEN                           /*!< take snapshot when received non type frame */
+#define ENET_IPV6_Frame_SNAPSHOT                  ENET_PTP_TSCTL_IP6SEN                         /*!< take snapshot for IPv6 frame */
+#define ENET_IPV4_Frame_SNAPSHOT                  ENET_PTP_TSCTL_IP4SEN                         /*!< take snapshot for IPv4 frame */
+#define ENET_PTP_Frame_USE_MACADDRESS_FILTER      ENET_PTP_TSCTL_MAFEN                          /*!< enable MAC address1-3 to filter the PTP frame */
 
 /* ptp_ssinc register value */
 #define PTP_SSINC_STMSSI(regval)                  (BITS(0,7) & ((uint32_t)(regval) << 0))       /*!< write value to ENET_PTP_SSINC_STMSSI bit field */
@@ -1222,8 +1222,8 @@ typedef struct {
 /* ptp_tsl register value */
 #define GET_PTP_TSL_STMSS(regval)                 GET_BITS((uint32_t)(regval),0,30)             /*!< get value of ENET_PTP_TSL_STMSS bit field */
 
-#define ENET_PTP_TIME_POSITIVE                    ((uint32_t)0x00000000)                        /*!< time value is positive */
-#define ENET_PTP_TIME_NEGATIVE                    ENET_PTP_TSL_STS                              /*!< time value is negative */
+#define ENET_PTP_Time_POSITIVE                    ((uint32_t)0x00000000)                        /*!< time value is positive */
+#define ENET_PTP_Time_NEGATIVE                    ENET_PTP_TSL_STS                              /*!< time value is negative */
 
 #define GET_PTP_TSL_STS(regval)                   (((regval) & BIT(31)) >> (31U))               /*!< get value of ENET_PTP_TSL_STS bit field */
 
@@ -1256,8 +1256,8 @@ typedef struct {
 #define DMA_BCTL_DPSL(regval)                     (BITS(2,6) & ((uint32_t)(regval) << 2))       /*!< write value to ENET_DMA_BCTL_DPSL bit field */
 #define GET_DMA_BCTL_DPSL(regval)                 GET_BITS((regval),2,6)                        /*!< get value of ENET_DMA_BCTL_DPSL bit field */
 
-#define ENET_ENHANCED_DESCRIPTOR                  ENET_DMA_BCTL_DFM                             /*!< enhanced mode descriptor */
-#define ENET_NORMAL_DESCRIPTOR                    ((uint32_t)0x00000000)                        /*!< normal mode descriptor */
+#define ENET_Enhanced_DESCRIPTOR                  ENET_DMA_BCTL_DFM                             /*!< enhanced mode descriptor */
+#define ENET_Normal_DESCRIPTOR                    ((uint32_t)0x00000000)                        /*!< normal mode descriptor */
 
 #define DMA_BCTL_PGBL(regval)                     (BITS(8,13) & ((uint32_t)(regval) << 8))      /*!< write value to ENET_DMA_BCTL_PGBL bit field */
 #define ENET_PGBL_1BEAT                           DMA_BCTL_PGBL(1)                              /*!< maximum number of beats is 1 */
@@ -1280,8 +1280,8 @@ typedef struct {
 #define ENET_ARBITRATION_RXTX_4_1                 DMA_BCTL_RTPR(3)                              /*!< receive and transmit priority ratio is 4:1 */
 #define ENET_ARBITRATION_RXPRIORTX                ENET_DMA_BCTL_DAB                             /*!< RxDMA has higher priority than TxDMA */
 
-#define ENET_FIXED_BURST_ENABLE                   ENET_DMA_BCTL_FB                              /*!< AHB can only use SINGLE/INCR4/INCR8/INCR16 during start of normal burst transfers */
-#define ENET_FIXED_BURST_DISABLE                  ((uint32_t)0x00000000)                        /*!< AHB can use SINGLE/INCR burst transfer operations */
+#define ENET_FIXED_Burst_ENABLE                   ENET_DMA_BCTL_FB                              /*!< AHB can only use SINGLE/INCR4/INCR8/INCR16 during start of normal burst transfers */
+#define ENET_FIXED_Burst_DISABLE                  ((uint32_t)0x00000000)                        /*!< AHB can use SINGLE/INCR burst transfer operations */
 
 #define DMA_BCTL_RXDP(regval)                     (BITS(17,22) & ((uint32_t)(regval) << 17))    /*!< write value to ENET_DMA_BCTL_RXDP bit field */
 #define ENET_RXDP_1BEAT                           DMA_BCTL_RXDP(1)                              /*!< maximum number of beats 1 */
@@ -1300,63 +1300,63 @@ typedef struct {
 #define ENET_RXTX_DIFFERENT_PGBL                  ENET_DMA_BCTL_UIP                             /*!< RxDMA uses the RXDP[5:0], while TxDMA uses the PGBL[5:0] */
 #define ENET_RXTX_SAME_PGBL                       ((uint32_t)0x00000000)                        /*!< RxDMA/TxDMA uses PGBL[5:0] */
 
-#define ENET_ADDRESS_ALIGN_ENABLE                 ENET_DMA_BCTL_AA                              /*!< enabled address-aligned */
-#define ENET_ADDRESS_ALIGN_DISABLE                ((uint32_t)0x00000000)                        /*!< disable address-aligned */
+#define ENET_Address_ALIGN_ENABLE                 ENET_DMA_BCTL_AA                              /*!< enabled address-aligned */
+#define ENET_Address_ALIGN_DISABLE                ((uint32_t)0x00000000)                        /*!< disable address-aligned */
 
-#define ENET_MIXED_BURST_ENABLE                   ENET_DMA_BCTL_MB                              /*!< AHB master interface transfer burst length greater than 16 with INCR */
-#define ENET_MIXED_BURST_DISABLE                  ((uint32_t)0x00000000)                        /*!< AHB master interface only transfer fixed burst length with 16 and below */
+#define ENET_MIXED_Burst_ENABLE                   ENET_DMA_BCTL_MB                              /*!< AHB master interface transfer burst length greater than 16 with INCR */
+#define ENET_MIXED_Burst_DISABLE                  ((uint32_t)0x00000000)                        /*!< AHB master interface only transfer fixed burst length with 16 and below */
 
 /* DMA_stat register value */
 #define GET_DMA_STAT_RP(regval)                   GET_BITS((uint32_t)(regval),17,19)            /*!< get value of ENET_DMA_STAT_RP bit field */
-#define ENET_RX_STATE_STOPPED                     ((uint32_t)0x00000000)                        /*!< reset or stop rx command issued */
-#define ENET_RX_STATE_FETCHING                    BIT(17)                                       /*!< fetching the Rx descriptor */
-#define ENET_RX_STATE_WaitING                     (BIT(17)|BIT(18))                             /*!< waiting for receive packet */
-#define ENET_RX_STATE_SUSPENDED                   BIT(19)                                       /*!< Rx descriptor unavailable */
-#define ENET_RX_STATE_CLOSING                     (BIT(17)|BIT(19))                             /*!< closing receive descriptor */
-#define ENET_RX_STATE_QUEUING                     ENET_DMA_STAT_RP                              /*!< transferring the receive packet data from recevie buffer to host memory */
+#define ENET_RX_State_STOPPED                     ((uint32_t)0x00000000)                        /*!< reset or stop rx command issued */
+#define ENET_RX_State_FETCHING                    BIT(17)                                       /*!< fetching the Rx descriptor */
+#define ENET_RX_State_WaitING                     (BIT(17)|BIT(18))                             /*!< waiting for receive packet */
+#define ENET_RX_State_SUSPENDED                   BIT(19)                                       /*!< Rx descriptor unavailable */
+#define ENET_RX_State_CLOSING                     (BIT(17)|BIT(19))                             /*!< closing receive descriptor */
+#define ENET_RX_State_QUEUING                     ENET_DMA_STAT_RP                              /*!< transferring the receive packet data from recevie buffer to host memory */
 
 #define GET_DMA_STAT_TP(regval)                   GET_BITS((uint32_t)(regval),20,22)            /*!< get value of ENET_DMA_STAT_TP bit field */
-#define ENET_TX_STATE_STOPPED                     ((uint32_t)0x00000000)                        /*!< reset or stop Tx Command issued  */
-#define ENET_TX_STATE_FETCHING                    BIT(20)                                       /*!< fetching the Tx descriptor */
-#define ENET_TX_STATE_WaitING                     BIT(21)                                       /*!< waiting for status */
-#define ENET_TX_STATE_READING                     (BIT(20)|BIT(21))                             /*!< reading the data from host memory buffer and queuing it to transmit buffer */
-#define ENET_TX_STATE_SUSPENDED                   (BIT(21)|BIT(22))                             /*!< Tx descriptor unavailabe or transmit buffer underflow */
-#define ENET_TX_STATE_CLOSING                     ENET_DMA_STAT_TP                              /*!< closing Tx descriptor */
+#define ENET_TX_State_STOPPED                     ((uint32_t)0x00000000)                        /*!< reset or stop Tx Command issued  */
+#define ENET_TX_State_FETCHING                    BIT(20)                                       /*!< fetching the Tx descriptor */
+#define ENET_TX_State_WaitING                     BIT(21)                                       /*!< waiting for status */
+#define ENET_TX_State_READING                     (BIT(20)|BIT(21))                             /*!< reading the data from host memory buffer and queuing it to transmit buffer */
+#define ENET_TX_State_SUSPENDED                   (BIT(21)|BIT(22))                             /*!< Tx descriptor unavailabe or transmit buffer underflow */
+#define ENET_TX_State_CLOSING                     ENET_DMA_STAT_TP                              /*!< closing Tx descriptor */
 
 #define GET_DMA_STAT_EB(regval)                   GET_BITS((uint32_t)(regval),23,25)            /*!< get value of ENET_DMA_STAT_EB bit field */
-#define ENET_ERROR_TXDATA_TRANSFER                BIT(23)                                       /*!< error during data transfer by TxDMA or RxDMA */
-#define ENET_ERROR_READ_TRANSFER                  BIT(24)                                       /*!< error during write transfer or read transfer */
-#define ENET_ERROR_DESC_ACCESS                    BIT(25)                                       /*!< error during descriptor or buffer access */
+#define ENET_Error_TXDATA_TRANSFER                BIT(23)                                       /*!< error during data transfer by TxDMA or RxDMA */
+#define ENET_Error_READ_TRANSFER                  BIT(24)                                       /*!< error during write transfer or read transfer */
+#define ENET_Error_Desc_ACCESS                    BIT(25)                                       /*!< error during descriptor or buffer access */
 
 /* DMA_ctl register value */
 #define DMA_CTL_RTHC(regval)                      (BITS(3,4) & ((uint32_t)(regval) << 3))       /*!< write value to ENET_DMA_CTL_RTHC bit field */
-#define ENET_RX_THRESHOLD_64BYTES                 DMA_CTL_RTHC(0)                               /*!< threshold level is 64 Bytes */
-#define ENET_RX_THRESHOLD_32BYTES                 DMA_CTL_RTHC(1)                               /*!< threshold level is 32 Bytes */
-#define ENET_RX_THRESHOLD_96BYTES                 DMA_CTL_RTHC(2)                               /*!< threshold level is 96 Bytes */
-#define ENET_RX_THRESHOLD_128BYTES                DMA_CTL_RTHC(3)                               /*!< threshold level is 128 Bytes */
+#define ENET_RX_Threshold_64BYTES                 DMA_CTL_RTHC(0)                               /*!< threshold level is 64 Bytes */
+#define ENET_RX_Threshold_32BYTES                 DMA_CTL_RTHC(1)                               /*!< threshold level is 32 Bytes */
+#define ENET_RX_Threshold_96BYTES                 DMA_CTL_RTHC(2)                               /*!< threshold level is 96 Bytes */
+#define ENET_RX_Threshold_128BYTES                DMA_CTL_RTHC(3)                               /*!< threshold level is 128 Bytes */
 
 #define DMA_CTL_TTHC(regval)                      (BITS(14,16) & ((uint32_t)(regval) << 14))    /*!< write value to ENET_DMA_CTL_TTHC bit field */
-#define ENET_TX_THRESHOLD_64BYTES                 DMA_CTL_TTHC(0)                               /*!< threshold level is 64 Bytes */
-#define ENET_TX_THRESHOLD_128BYTES                DMA_CTL_TTHC(1)                               /*!< threshold level is 128 Bytes */
-#define ENET_TX_THRESHOLD_192BYTES                DMA_CTL_TTHC(2)                               /*!< threshold level is 192 Bytes */
-#define ENET_TX_THRESHOLD_256BYTES                DMA_CTL_TTHC(3)                               /*!< threshold level is 256 Bytes */
-#define ENET_TX_THRESHOLD_40BYTES                 DMA_CTL_TTHC(4)                               /*!< threshold level is 40 Bytes */
-#define ENET_TX_THRESHOLD_32BYTES                 DMA_CTL_TTHC(5)                               /*!< threshold level is 32 Bytes */
-#define ENET_TX_THRESHOLD_24BYTES                 DMA_CTL_TTHC(6)                               /*!< threshold level is 24 Bytes */
-#define ENET_TX_THRESHOLD_16BYTES                 DMA_CTL_TTHC(7)                               /*!< threshold level is 16 Bytes */
+#define ENET_TX_Threshold_64BYTES                 DMA_CTL_TTHC(0)                               /*!< threshold level is 64 Bytes */
+#define ENET_TX_Threshold_128BYTES                DMA_CTL_TTHC(1)                               /*!< threshold level is 128 Bytes */
+#define ENET_TX_Threshold_192BYTES                DMA_CTL_TTHC(2)                               /*!< threshold level is 192 Bytes */
+#define ENET_TX_Threshold_256BYTES                DMA_CTL_TTHC(3)                               /*!< threshold level is 256 Bytes */
+#define ENET_TX_Threshold_40BYTES                 DMA_CTL_TTHC(4)                               /*!< threshold level is 40 Bytes */
+#define ENET_TX_Threshold_32BYTES                 DMA_CTL_TTHC(5)                               /*!< threshold level is 32 Bytes */
+#define ENET_TX_Threshold_24BYTES                 DMA_CTL_TTHC(6)                               /*!< threshold level is 24 Bytes */
+#define ENET_TX_Threshold_16BYTES                 DMA_CTL_TTHC(7)                               /*!< threshold level is 16 Bytes */
 
 #define ENET_TCPIP_CKSUMERROR_ACCEPT              ENET_DMA_CTL_DTCERFD                          /*!< Rx frame with only payload error but no other errors will not be dropped */
 #define ENET_TCPIP_CKSUMERROR_DROP                ((uint32_t)0x00000000)                        /*!< all error frames will be dropped when FERF = 0 */
 
-#define ENET_RX_MODE_STOREFORWARD                 ENET_DMA_CTL_RSFD                             /*!< RxFIFO operates in store-and-forward mode */
-#define ENET_RX_MODE_CUTTHROUGH                   ((uint32_t)0x00000000)                        /*!< RxFIFO operates in cut-through mode */
+#define ENET_RX_Mode_STOREFORWARD                 ENET_DMA_CTL_RSFD                             /*!< RxFIFO operates in store-and-forward mode */
+#define ENET_RX_Mode_CUTTHROUGH                   ((uint32_t)0x00000000)                        /*!< RxFIFO operates in cut-through mode */
 
-#define ENET_FLUSH_RXFRAME_ENABLE                 ((uint32_t)0x00000000)                        /*!< RxDMA flushes all frames */
-#define ENET_FLUSH_RXFRAME_DISABLE                ENET_DMA_CTL_DAFRF                            /*!< RxDMA does not flush any frames */
+#define ENET_FLUSH_RXframe_ENABLE                 ((uint32_t)0x00000000)                        /*!< RxDMA flushes all frames */
+#define ENET_FLUSH_RXframe_DISABLE                ENET_DMA_CTL_DAFRF                            /*!< RxDMA does not flush any frames */
 #define ENET_NO_FLUSH_RXFRAME                     ENET_DMA_CTL_DAFRF                            /*!< RxDMA flushes frames function */
 
-#define ENET_TX_MODE_STOREFORWARD                 ENET_DMA_CTL_TSFD                             /*!< TxFIFO operates in store-and-forward mode */
-#define ENET_TX_MODE_CUTTHROUGH                   ((uint32_t)0x00000000)                        /*!< TxFIFO operates in cut-through mode */
+#define ENET_TX_Mode_STOREFORWARD                 ENET_DMA_CTL_TSFD                             /*!< TxFIFO operates in store-and-forward mode */
+#define ENET_TX_Mode_CUTTHROUGH                   ((uint32_t)0x00000000)                        /*!< TxFIFO operates in cut-through mode */
 
 #define ENET_FORWARD_ERRFRAMES_ENABLE             (ENET_DMA_CTL_FERF << 2)                      /*!< all frame received with error except runt error are forwarded to memory */
 #define ENET_FORWARD_ERRFRAMES_DISABLE            ((uint32_t)0x00000000)                        /*!< RxFIFO drop error frame */
@@ -1397,8 +1397,8 @@ typedef struct {
 #define GET_RDES0_FRML(regval)                    GET_BITS((regval),16,29)                      /*!< get value of ENET DMA RDES0 FRML bit field */
 
 /* dma rx descriptor rdes1 register value */
-#define ENET_RECEIVE_COMPLETE_INT_ENABLE          ((uint32_t)0x00000000U)                       /*!< RS bit immediately set after Rx completed */
-#define ENET_RECEIVE_COMPLETE_INT_DISABLE         ENET_RDES1_DINTC                              /*!< RS bit not immediately set after Rx completed */
+#define ENET_Receive_Complete_INT_ENABLE          ((uint32_t)0x00000000U)                       /*!< RS bit immediately set after Rx completed */
+#define ENET_Receive_Complete_INT_DISABLE         ENET_RDES1_DINTC                              /*!< RS bit not immediately set after Rx completed */
 
 #define GET_RDES1_RB1S(regval)                    GET_BITS((regval),0,12)                       /*!< get value of ENET DMA RDES1 RB1S bit field */
 
@@ -1416,24 +1416,24 @@ typedef struct {
 #define MAC_FCTL_MASK                             ((uint32_t)0x0000FF41U)                       /*!< ENET_MAC_FCTL register mask */
 #define DMA_CTL_MASK                              ((uint32_t)0xF8DE3F23U)                       /*!< ENET_DMA_CTL register mask */
 #define DMA_BCTL_MASK                             ((uint32_t)0xF800007DU)                       /*!< ENET_DMA_BCTL register mask */
-#define ENET_MSC_PRESET_MASK                      (~(ENET_MSC_CTL_PMC | ENET_MSC_CTL_AFHPM))    /*!< ENET_MSC_CTL preset mask */
+#define ENET_MSC_Preset_MASK                      (~(ENET_MSC_CTL_PMC | ENET_MSC_CTL_AFHPM))    /*!< ENET_MSC_CTL preset mask */
 
-#ifdef SELECT_DESCRIPTORS_ENHANCED_MODE
+#ifdef SELECT_Descriptors_Enhanced_MODE
 #define ETH_DMATXDESC_SIZE                        ((uint32_t)0x00000020U)                       /*!< TxDMA enhanced descriptor size */
 #define ETH_DMARXDESC_SIZE                        ((uint32_t)0x00000020U)                       /*!< RxDMA enhanced descriptor size */
 #else
 #define ETH_DMATXDESC_SIZE                        ((uint32_t)0x00000010U)                       /*!< TxDMA descriptor size */
 #define ETH_DMARXDESC_SIZE                        ((uint32_t)0x00000010U)                       /*!< RxDMA descriptor size */
-#endif /* SELECT_DESCRIPTORS_ENHANCED_MODE */
+#endif /* SELECT_Descriptors_Enhanced_MODE */
 
 /* ENET remote wake-up frame register length */
-#define ETH_WAKEUP_REGISTER_LENGTH                8U                                            /*!< remote wake-up frame register length */
+#define ETH_WakeUp_Register_LENGTH                8U                                            /*!< remote wake-up frame register length */
 
 /* ENET frame size */
-#define ENET_MAX_FRAME_SIZE                       1524U                                         /*!< header + frame_extra + payload + CRC */
+#define ENET_MAX_Frame_SIZE                       1524U                                         /*!< header + frame_extra + payload + CRC */
 
 /* ENET delay timeout */
-#define ENET_DELAY_TO                             ((uint32_t)0x0004FFFFU)                       /*!< ENET delay timeout */
+#define ENET_Delay_TO                             ((uint32_t)0x0004FFFFU)                       /*!< ENET delay timeout */
 #define ENET_RESET_TO                             ((uint32_t)0x000004FFU)                       /*!< ENET reset timeout */
 
 
@@ -1445,216 +1445,216 @@ void ENET_DeInit(void);
 /* configure the parameters which are usually less cared for initialization */
 void ENET_initpara_Config(ENET_option_enum option, uint32_t para);
 /* initialize ENET peripheral with generally concerned parameters and the less cared parameters */
-ErrStatus ENET_init(ENET_mediamode_enum mediamode, ENET_chksumconf_enum checksum, ENET_frmrecept_enum recept);
+ErrStatus ENET_Init(ENET_mediamode_enum mediamode, ENET_chksumconf_enum checksum, ENET_frmrecept_enum recept);
 /* reset all core internal registers located in CLK_TX and CLK_RX */
-ErrStatus ENET_software_reset(void);
+ErrStatus ENET_Software_Reset(void);
 /* check receive frame valid and return frame size */
-uint32_t ENET_rxframe_size_get(void);
+uint32_t ENET_RXframe_size_Get(void);
 /* initialize the dma tx/rx descriptors's parameters in chain mode */
-void ENET_descriptors_chain_init(ENET_dmadirection_enum direction);
+void ENET_Descriptors_Chain_Init(ENET_dmadirection_enum direction);
 /* initialize the dma tx/rx descriptors's parameters in ring mode */
-void ENET_descriptors_ring_init(ENET_dmadirection_enum direction);
+void ENET_Descriptors_Ring_Init(ENET_dmadirection_enum direction);
 /* handle current received frame data to application buffer */
-ErrStatus ENET_frame_receive(uint8_t *buffer, uint32_t bufsize);
+ErrStatus ENET_Frame_Receive(uint8_t *buffer, uint32_t bufsize);
 /* handle current received frame but without data copy to application buffer */
-#define ENET_NOCOPY_FRAME_RECEIVE()         ENET_frame_receive(NULL, 0U)
+#define ENET_NOCOPY_Frame_Receive()         ENET_Frame_Receive(NULL, 0U)
 /* handle application buffer data to transmit it */
-ErrStatus ENET_frame_transmit(uint8_t *buffer, uint32_t length);
+ErrStatus ENET_Frame_Transmit(uint8_t *buffer, uint32_t length);
 /* handle current transmit frame but without data copy from application buffer */
-#define ENET_NOCOPY_FRAME_TRANSMIT(len)     ENET_frame_transmit(NULL, (len))
+#define ENET_NOCOPY_Frame_Transmit(len)     ENET_Frame_Transmit(NULL, (len))
 /* configure the transmit IP frame checksum offload calculation and insertion */
-void ENET_transmit_checksum_Config(ENET_descriptors_struct *desc, uint32_t checksum);
+void ENET_Transmit_checksum_Config(ENET_Descriptors_Struct *desc, uint32_t checksum);
 /* ENET Tx and Rx function enable (include MAC and DMA module) */
-void ENET_enable(void);
+void ENET_Enable(void);
 /* ENET Tx and Rx function disable (include MAC and DMA module) */
-void ENET_disable(void);
+void ENET_Disable(void);
 /* configure MAC address */
-void ENET_mac_address_set(ENET_macaddress_enum mac_addr, uint8_t paddr[]);
+void ENET_mac_Address_Set(ENET_macaddress_enum mac_addr, uint8_t paddr[]);
 /* get MAC address */
-void ENET_mac_address_get(ENET_macaddress_enum mac_addr, uint8_t paddr[]);
+void ENET_mac_Address_Get(ENET_macaddress_enum mac_addr, uint8_t paddr[]);
 
 /* get the ENET MAC/MSC/PTP/DMA status flag */
-FlagStatus ENET_flag_get(ENET_flag_enum ENET_flag);
+FlagStatus ENET_Flag_Get(ENET_Flag_enum ENET_flag);
 /* clear the ENET DMA status flag */
-void ENET_flag_clear(ENET_flag_clear_enum ENET_flag);
+void ENET_Flag_Clear(ENET_Flag_Clear_enum ENET_flag);
 /* enable ENET MAC/MSC/DMA interrupt */
-void ENET_Interrupt_enable(ENET_int_enum ENET_int);
+void ENET_Interrupt_Enable(ENET_int_enum ENET_int);
 /* disable ENET MAC/MSC/DMA interrupt */
-void ENET_Interrupt_disable(ENET_int_enum ENET_int);
+void ENET_Interrupt_Disable(ENET_int_enum ENET_int);
 /* get ENET MAC/MSC/DMA interrupt flag */
-FlagStatus ENET_Interrupt_flag_get(ENET_int_flag_enum int_flag);
+FlagStatus ENET_Interrupt_Flag_Get(ENET_int_Flag_enum int_flag);
 /* clear ENET DMA interrupt flag */
-void ENET_Interrupt_flag_clear(ENET_int_flag_clear_enum int_flag_clear);
+void ENET_Interrupt_Flag_Clear(ENET_int_Flag_Clear_enum int_Flag_clear);
 
 /* MAC function */
 /* ENET Tx function enable (include MAC and DMA module) */
-void ENET_tx_enable(void);
+void ENET_TX_Enable(void);
 /* ENET Tx function disable (include MAC and DMA module) */
-void ENET_tx_disable(void);
+void ENET_TX_Disable(void);
 /* ENET Rx function enable (include MAC and DMA module) */
-void ENET_rx_enable(void);
+void ENET_RX_Enable(void);
 /* ENET Rx function disable (include MAC and DMA module) */
-void ENET_rx_disable(void);
+void ENET_RX_Disable(void);
 /* put registers value into the application buffer */
-void ENET_registers_get(ENET_registers_type_enum type, uint32_t *preg, uint32_t num);
+void ENET_registers_Get(ENET_registers_type_enum type, uint32_t *preg, uint32_t num);
 /* get the enet debug status from the debug register */
-uint32_t ENET_debug_status_get(uint32_t mac_debug);
+uint32_t ENET_Debug_Status_Get(uint32_t mac_debug);
 /* enable the MAC address filter */
-void ENET_address_filter_enable(ENET_macaddress_enum mac_addr);
+void ENET_Address_Filter_Enable(ENET_macaddress_enum mac_addr);
 /* disable the MAC address filter */
-void ENET_address_filter_disable(ENET_macaddress_enum mac_addr);
+void ENET_Address_Filter_Disable(ENET_macaddress_enum mac_addr);
 /* configure the MAC address filter */
-void ENET_address_filter_Config(ENET_macaddress_enum mac_addr, uint32_t addr_mask, uint32_t filter_type);
+void ENET_Address_Filter_Config(ENET_macaddress_enum mac_addr, uint32_t addr_mask, uint32_t filter_type);
 /* PHY interface configuration (configure SMI clock and reset PHY chip) */
-ErrStatus ENET_phy_Config(void);
+ErrStatus ENET_PHY_Config(void);
 /* write to/read from a PHY register */
-ErrStatus ENET_phy_write_read(ENET_phydirection_enum direction, uint16_t phy_address, uint16_t phy_reg, uint16_t *pvalue);
+ErrStatus ENET_PHY_Write_Read(ENET_phydirection_enum direction, uint16_t phy_address, uint16_t phy_reg, uint16_t *pvalue);
 /* enable the loopback function of phy chip */
-ErrStatus ENET_phyloopback_enable(void);
+ErrStatus ENET_phyloopback_Enable(void);
 /* disable the loopback function of phy chip */
-ErrStatus ENET_phyloopback_disable(void);
+ErrStatus ENET_phyloopback_Disable(void);
 /* enable ENET forward feature */
-void ENET_forward_feature_enable(uint32_t feature);
+void ENET_forward_Feature_Enable(uint32_t feature);
 /* disable ENET forward feature */
-void ENET_forward_feature_disable(uint32_t feature);
+void ENET_forward_Feature_Disable(uint32_t feature);
 /* enable ENET fliter feature */
-void ENET_fliter_feature_enable(uint32_t feature);
+void ENET_fliter_Feature_Enable(uint32_t feature);
 /* disable ENET fliter feature */
-void ENET_fliter_feature_disable(uint32_t feature);
+void ENET_fliter_Feature_Disable(uint32_t feature);
 
 /* flow control function */
 /* generate the pause frame, ENET will send pause frame after enable transmit flow control */
-ErrStatus ENET_pauseframe_generate(void);
+ErrStatus ENET_pauseframe_Generate(void);
 /* configure the pause frame detect type */
 void ENET_pauseframe_detect_Config(uint32_t detect);
 /* configure the pause frame parameters */
 void ENET_pauseframe_Config(uint32_t pausetime, uint32_t pause_threshold);
 /* configure the threshold of the flow control(deactive and active threshold) */
-void ENET_flowcontrol_threshold_Config(uint32_t deactive, uint32_t active);
+void ENET_flowcontrol_Threshold_Config(uint32_t deactive, uint32_t active);
 /* enable ENET flow control feature */
-void ENET_flowcontrol_feature_enable(uint32_t feature);
+void ENET_flowcontrol_Feature_Enable(uint32_t feature);
 /* disable ENET flow control feature */
-void ENET_flowcontrol_feature_disable(uint32_t feature);
+void ENET_flowcontrol_Feature_Disable(uint32_t feature);
 
 /* DMA function */
 /* get the dma transmit/receive process state */
-uint32_t ENET_dmaprocess_state_get(ENET_dmadirection_enum direction);
+uint32_t ENET_Dmaprocess_State_Get(ENET_dmadirection_enum direction);
 /* poll the dma transmission/reception enable */
-void ENET_dmaprocess_resume(ENET_dmadirection_enum direction);
+void ENET_Dmaprocess_Resume(ENET_dmadirection_enum direction);
 /* check and recover the Rx process */
-void ENET_rxprocess_check_recovery(void);
+void ENET_RXprocess_Check_Recovery(void);
 /* flush the ENET transmit fifo, and wait until the flush operation completes */
-ErrStatus ENET_txfifo_flush(void);
+ErrStatus ENET_TXFIFO_Flush(void);
 /* get the transmit/receive address of current descriptor, or current buffer, or descriptor table */
-uint32_t ENET_current_desc_address_get(ENET_desc_reg_enum addr_get);
+uint32_t ENET_Current_Desc_Address_Get(ENET_Desc_reg_enum addr_get);
 /* get the Tx or Rx descriptor information */
-uint32_t ENET_desc_information_get(ENET_descriptors_struct *desc, ENET_descstate_enum info_get);
+uint32_t ENET_Desc_Information_Get(ENET_Descriptors_Struct *desc, ENET_descstate_enum info_get);
 /* get the number of missed frames during receiving */
-void ENET_missed_frame_counter_get(uint32_t *rxfifo_drop, uint32_t *rxDMA_drop);
+void ENET_Missed_Frame_Counter_Get(uint32_t *rxfifo_drop, uint32_t *rxDMA_drop);
 
 /* descriptor function */
 /* get the bit flag of ENET dma descriptor */
-FlagStatus ENET_desc_flag_get(ENET_descriptors_struct *desc, uint32_t desc_flag);
+FlagStatus ENET_Desc_Flag_Get(ENET_Descriptors_Struct *desc, uint32_t desc_flag);
 /* set the bit flag of ENET dma tx descriptor */
-void ENET_desc_flag_set(ENET_descriptors_struct *desc, uint32_t desc_flag);
+void ENET_Desc_Flag_Set(ENET_Descriptors_Struct *desc, uint32_t desc_flag);
 /* clear the bit flag of ENET dma tx descriptor */
-void ENET_desc_flag_clear(ENET_descriptors_struct *desc, uint32_t desc_flag);
+void ENET_Desc_Flag_Clear(ENET_Descriptors_Struct *desc, uint32_t desc_flag);
 /* when receiving the completed, set RS bit in ENET_DMA_STAT register will immediately set */
-void ENET_rx_desc_immediate_receive_complete_interrupt(ENET_descriptors_struct *desc);
+void ENET_RX_Desc_Immediate_Receive_Complete_Interrupt(ENET_Descriptors_Struct *desc);
 /* when receiving the completed, set RS bit in ENET_DMA_STAT register will is set after a configurable delay time */
-void ENET_rx_desc_delay_receive_complete_interrupt(ENET_descriptors_struct *desc, uint32_t delay_time);
+void ENET_RX_Desc_Delay_Receive_Complete_Interrupt(ENET_Descriptors_Struct *desc, uint32_t delay_time);
 /* drop current receive frame */
-void ENET_rxframe_drop(void);
+void ENET_RXframe_Drop(void);
 /* enable DMA feature */
-void ENET_DMA_feature_enable(uint32_t feature);
+void ENET_DMA_Feature_Enable(uint32_t feature);
 /* disable DMA feature */
-void ENET_DMA_feature_disable(uint32_t feature);
+void ENET_DMA_Feature_Disable(uint32_t feature);
 
 
 /* special enhanced mode function */
-#ifdef SELECT_DESCRIPTORS_ENHANCED_MODE
+#ifdef SELECT_Descriptors_Enhanced_MODE
 /* get the bit of extended status flag in ENET DMA descriptor */
-uint32_t ENET_rx_desc_enhanced_status_get(ENET_descriptors_struct *desc, uint32_t desc_status);
+uint32_t ENET_RX_Desc_Enhanced_Status_Get(ENET_Descriptors_Struct *desc, uint32_t desc_status);
 /* configure descriptor to work in enhanced mode */
-void ENET_desc_select_enhanced_mode(void);
+void ENET_Desc_Select_Enhanced_Mode(void);
 /* initialize the dma Tx/Rx descriptors's parameters in enhanced chain mode with ptp function */
-void ENET_ptp_enhanced_descriptors_chain_init(ENET_dmadirection_enum direction);
+void ENET_PTP_Enhanced_Descriptors_Chain_Init(ENET_dmadirection_enum direction);
 /* initialize the dma Tx/Rx descriptors's parameters in enhanced ring mode with ptp function */
-void ENET_ptp_enhanced_descriptors_ring_init(ENET_dmadirection_enum direction);
+void ENET_PTP_Enhanced_Descriptors_Ring_Init(ENET_dmadirection_enum direction);
 /* receive a packet data with timestamp values to application buffer, when the DMA is in enhanced mode */
-ErrStatus ENET_ptpframe_receive_enhanced_mode(uint8_t *buffer, uint32_t bufsize, uint32_t timestamp[]);
+ErrStatus ENET_PTPFrame_Receive_Enhanced_Mode(uint8_t *buffer, uint32_t bufsize, uint32_t timestamp[]);
 /* handle current received frame but without data copy to application buffer in PTP enhanced mode */
-#define ENET_NOCOPY_PTPFRAME_RECEIVE_ENHANCED_MODE(ptr)           ENET_ptpframe_receive_enhanced_mode(NULL, 0U, (ptr))
+#define ENET_NOCOPY_PTPFrame_Receive_Enhanced_Mode(ptr)           ENET_PTPFrame_Receive_Enhanced_Mode(NULL, 0U, (ptr))
 /* send data with timestamp values in application buffer as a transmit packet, when the DMA is in enhanced mode */
-ErrStatus ENET_ptpframe_transmit_enhanced_mode(uint8_t *buffer, uint32_t length, uint32_t timestamp[]);
+ErrStatus ENET_PTPFrame_Transmit_Enhanced_Mode(uint8_t *buffer, uint32_t length, uint32_t timestamp[]);
 /* handle current transmit frame but without data copy from application buffer in PTP enhanced mode */
-#define ENET_NOCOPY_PTPFRAME_TRANSMIT_ENHANCED_MODE(len, ptr)     ENET_ptpframe_transmit_enhanced_mode(NULL, (len), (ptr))
+#define ENET_NOCOPY_PTPFrame_Transmit_Enhanced_Mode(len, ptr)     ENET_PTPFrame_Transmit_Enhanced_Mode(NULL, (len), (ptr))
 
 #else
 
 /* configure descriptor to work in normal mode */
-void ENET_desc_select_normal_mode(void);
+void ENET_Desc_Select_Normal_Mode(void);
 /* initialize the dma Tx/Rx descriptors's parameters in normal chain mode with ptp function */
-void ENET_ptp_normal_descriptors_chain_init(ENET_dmadirection_enum direction, ENET_descriptors_struct *desc_ptptab);
+void ENET_PTP_Normal_Descriptors_Chain_Init(ENET_dmadirection_enum direction, ENET_Descriptors_Struct *desc_ptptab);
 /* initialize the dma Tx/Rx descriptors's parameters in normal ring mode with ptp function */
-void ENET_ptp_normal_descriptors_ring_init(ENET_dmadirection_enum direction, ENET_descriptors_struct *desc_ptptab);
+void ENET_PTP_Normal_Descriptors_Ring_Init(ENET_dmadirection_enum direction, ENET_Descriptors_Struct *desc_ptptab);
 /* receive a packet data with timestamp values to application buffer, when the DMA is in normal mode */
-ErrStatus ENET_ptpframe_receive_normal_mode(uint8_t *buffer, uint32_t bufsize, uint32_t timestamp[]);
+ErrStatus ENET_PTPFrame_Receive_Normal_Mode(uint8_t *buffer, uint32_t bufsize, uint32_t timestamp[]);
 /* handle current received frame but without data copy to application buffer in PTP normal mode */
-#define ENET_NOCOPY_PTPFRAME_RECEIVE_NORMAL_MODE(ptr)             ENET_ptpframe_receive_normal_mode(NULL, 0U, (ptr))
+#define ENET_NOCOPY_PTPFrame_Receive_Normal_Mode(ptr)             ENET_PTPFrame_Receive_Normal_Mode(NULL, 0U, (ptr))
 /* send data with timestamp values in application buffer as a transmit packet, when the DMA is in normal mode */
-ErrStatus ENET_ptpframe_transmit_normal_mode(uint8_t *buffer, uint32_t length, uint32_t timestamp[]);
+ErrStatus ENET_PTPFrame_Transmit_Normal_Mode(uint8_t *buffer, uint32_t length, uint32_t timestamp[]);
 /* handle current transmit frame but without data copy from application buffer in PTP normal mode */
-#define ENET_NOCOPY_PTPFRAME_TRANSMIT_NORMAL_MODE(len, ptr)       ENET_ptpframe_transmit_normal_mode(NULL, (len), (ptr))
+#define ENET_NOCOPY_PTPFrame_Transmit_Normal_Mode(len, ptr)       ENET_PTPFrame_Transmit_Normal_Mode(NULL, (len), (ptr))
 
-#endif /* SELECT_DESCRIPTORS_ENHANCED_MODE */
+#endif /* SELECT_Descriptors_Enhanced_MODE */
 
 /* WUM function */
 /* wakeup frame filter register pointer reset */
-void ENET_wum_filter_register_pointer_reset(void);
+void ENET_WUM_Filter_Register_Pointer_Reset(void);
 /* set the remote wakeup frame registers */
-void ENET_wum_filter_Config(uint32_t pdata[]);
+void ENET_WUM_Filter_Config(uint32_t pdata[]);
 /* enable wakeup management features */
-void ENET_wum_feature_enable(uint32_t feature);
+void ENET_WUM_Feature_Enable(uint32_t feature);
 /* disable wakeup management features */
-void ENET_wum_feature_disable(uint32_t feature);
+void ENET_WUM_Feature_Disable(uint32_t feature);
 
 /* MSC function */
 /* reset the MAC statistics counters */
-void ENET_msc_counters_reset(void);
+void ENET_MSC_Counters_Reset(void);
 /* enable the MAC statistics counter features */
-void ENET_msc_feature_enable(uint32_t feature);
+void ENET_MSC_Feature_Enable(uint32_t feature);
 /* disable the MAC statistics counter features */
-void ENET_msc_feature_disable(uint32_t feature);
+void ENET_MSC_Feature_Disable(uint32_t feature);
 /* configure MAC statistics counters preset mode */
-void ENET_msc_counters_preset_Config(ENET_msc_preset_enum mode);
+void ENET_MSC_Counters_Preset_Config(ENET_MSC_Preset_enum mode);
 /* get MAC statistics counter */
-uint32_t ENET_msc_counters_get(ENET_msc_counter_enum counter);
+uint32_t ENET_MSC_Counters_Get(ENET_MSC_Counter_enum counter);
 
 /* PTP function */
 /* enable the PTP features */
-void ENET_ptp_feature_enable(uint32_t feature);
+void ENET_PTP_Feature_Enable(uint32_t feature);
 /* disable the PTP features */
-void ENET_ptp_feature_disable(uint32_t feature);
+void ENET_PTP_Feature_Disable(uint32_t feature);
 /* configure the PTP timestamp function */
-ErrStatus ENET_ptp_timestamp_function_Config(ENET_ptp_function_enum func);
+ErrStatus ENET_PTP_Timestamp_Function_Config(ENET_PTP_Function_enum func);
 /* configure the PTP system time subsecond increment value */
-void ENET_ptp_subsecond_increment_Config(uint32_t subsecond);
+void ENET_PTP_SubSecond_Increment_Config(uint32_t subsecond);
 /* adjusting the PTP clock frequency only in fine update mode */
-void ENET_ptp_timestamp_addend_Config(uint32_t add);
+void ENET_PTP_Timestamp_Addend_Config(uint32_t add);
 /* initializing or adding/subtracting to second of the PTP system time */
-void ENET_ptp_timestamp_update_Config(uint32_t sign, uint32_t second, uint32_t subsecond);
+void ENET_PTP_Timestamp_Update_Config(uint32_t sign, uint32_t second, uint32_t subsecond);
 /* configure the PTP expected target time */
-void ENET_ptp_expected_time_Config(uint32_t second, uint32_t nanosecond);
+void ENET_PTP_Expected_Time_Config(uint32_t second, uint32_t nanosecond);
 /* get the PTP current system time */
-void ENET_ptp_system_time_get(ENET_ptp_systime_struct *systime_struct);
+void ENET_PTP_System_Time_Get(ENET_PTP_systime_Struct *systime_Struct);
 /* configure the PPS output frequency */
-void ENET_ptp_pps_output_frequency_Config(uint32_t freq);
+void ENET_PTP_PPS_OutPut_Frequency_Config(uint32_t freq);
 
 
 /* internal function */
 /* reset the ENET initpara struct, call it before using ENET_initpara_Config() */
-void ENET_initpara_reset(void);
+void ENET_initpara_Reset(void);
 
 
 #endif /* GD32F4XX_ENET_H */

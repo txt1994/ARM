@@ -86,28 +86,28 @@ OF SUCH DAMAGE.
 
 /* constants definitions */
 /* hardware automatically trim mode definitions */
-#define CTC_HARDWARE_TRIM_MODE_ENABLE                    CTC_CTL0_AUTOTRIM            /*!< hardware automatically trim mode enable*/
-#define CTC_HARDWARE_TRIM_MODE_DISABLE                   ((uint32_t)0x00000000U)      /*!< hardware automatically trim mode disable*/
+#define CTC_Hardware_Trim_Mode_ENABLE                    CTC_CTL0_AUTOTRIM            /*!< hardware automatically trim mode enable*/
+#define CTC_Hardware_Trim_Mode_DISABLE                   ((uint32_t)0x00000000U)      /*!< hardware automatically trim mode disable*/
 
 /* reference signal source polarity definitions */
-#define CTC_REFSOURCE_POLARITY_FALLING                   CTC_CTL1_REFPOL              /*!< reference signal source polarity is falling edge*/
-#define CTC_REFSOURCE_POLARITY_RISING                    ((uint32_t)0x00000000U)      /*!< reference signal source polarity is rising edge*/
+#define CTC_Refsource_Polarity_FALLING                   CTC_CTL1_REFPOL              /*!< reference signal source polarity is falling edge*/
+#define CTC_Refsource_Polarity_RISING                    ((uint32_t)0x00000000U)      /*!< reference signal source polarity is rising edge*/
 
 /* reference signal source selection definitions */
 #define CTL1_REFSEL(regval)                              (BITS(28,29) & ((uint32_t)(regval) << 28))
-#define CTC_REFSOURCE_GPIO                               CTL1_REFSEL(0)               /*!< GPIO is selected */
-#define CTC_REFSOURCE_LXTAL                              CTL1_REFSEL(1)               /*!< LXTAL is clock selected */
+#define CTC_Refsource_GPIO                               CTL1_REFSEL(0)               /*!< GPIO is selected */
+#define CTC_Refsource_LXTAL                              CTL1_REFSEL(1)               /*!< LXTAL is clock selected */
 
 /* reference signal source prescaler definitions */
 #define CTL1_REFPSC(regval)                              (BITS(24,26) & ((uint32_t)(regval) << 24))
-#define CTC_REFSOURCE_PSC_OFF                            CTL1_REFPSC(0)               /*!< reference signal not divided */
-#define CTC_REFSOURCE_PSC_DIV2                           CTL1_REFPSC(1)               /*!< reference signal divided by 2 */
-#define CTC_REFSOURCE_PSC_DIV4                           CTL1_REFPSC(2)               /*!< reference signal divided by 4 */
-#define CTC_REFSOURCE_PSC_DIV8                           CTL1_REFPSC(3)               /*!< reference signal divided by 8 */
-#define CTC_REFSOURCE_PSC_DIV16                          CTL1_REFPSC(4)               /*!< reference signal divided by 16 */
-#define CTC_REFSOURCE_PSC_DIV32                          CTL1_REFPSC(5)               /*!< reference signal divided by 32 */
-#define CTC_REFSOURCE_PSC_DIV64                          CTL1_REFPSC(6)               /*!< reference signal divided by 64 */
-#define CTC_REFSOURCE_PSC_DIV128                         CTL1_REFPSC(7)               /*!< reference signal divided by 128 */
+#define CTC_Refsource_PSC_OFF                            CTL1_REFPSC(0)               /*!< reference signal not divided */
+#define CTC_Refsource_PSC_DIV2                           CTL1_REFPSC(1)               /*!< reference signal divided by 2 */
+#define CTC_Refsource_PSC_DIV4                           CTL1_REFPSC(2)               /*!< reference signal divided by 4 */
+#define CTC_Refsource_PSC_DIV8                           CTL1_REFPSC(3)               /*!< reference signal divided by 8 */
+#define CTC_Refsource_PSC_DIV16                          CTL1_REFPSC(4)               /*!< reference signal divided by 16 */
+#define CTC_Refsource_PSC_DIV32                          CTL1_REFPSC(5)               /*!< reference signal divided by 32 */
+#define CTC_Refsource_PSC_DIV64                          CTL1_REFPSC(6)               /*!< reference signal divided by 64 */
+#define CTC_Refsource_PSC_DIV128                         CTL1_REFPSC(7)               /*!< reference signal divided by 128 */
 
 /* CTC interrupt enable definitions */
 #define CTC_INT_CKOK                                     CTC_CTL0_CKOKIE             /*!< clock trim OK interrupt enable */
@@ -116,70 +116,70 @@ OF SUCH DAMAGE.
 #define CTC_INT_EREF                                     CTC_CTL0_EREFIE             /*!< expect reference interrupt enable */
 
 /* CTC interrupt source definitions */
-#define CTC_INT_FLAG_CKOK                                CTC_STAT_CKOKIF             /*!< clock trim OK interrupt flag */
-#define CTC_INT_FLAG_CKWARN                              CTC_STAT_CKWARNIF           /*!< clock trim warning interrupt flag */
-#define CTC_INT_FLAG_ERR                                 CTC_STAT_ERRIF              /*!< error interrupt flag */
-#define CTC_INT_FLAG_EREF                                CTC_STAT_EREFIF             /*!< expect reference interrupt flag */
-#define CTC_INT_FLAG_CKERR                               CTC_STAT_CKERR              /*!< clock trim error bit */
-#define CTC_INT_FLAG_REFMISS                             CTC_STAT_REFMISS            /*!< reference sync pulse miss */
-#define CTC_INT_FLAG_TRIMERR                             CTC_STAT_TRIMERR            /*!< trim value error */
+#define CTC_INT_Flag_CKOK                                CTC_STAT_CKOKIF             /*!< clock trim OK interrupt flag */
+#define CTC_INT_Flag_CKWARN                              CTC_STAT_CKWARNIF           /*!< clock trim warning interrupt flag */
+#define CTC_INT_Flag_ERR                                 CTC_STAT_ERRIF              /*!< error interrupt flag */
+#define CTC_INT_Flag_EREF                                CTC_STAT_EREFIF             /*!< expect reference interrupt flag */
+#define CTC_INT_Flag_CKERR                               CTC_STAT_CKERR              /*!< clock trim error bit */
+#define CTC_INT_Flag_REFMISS                             CTC_STAT_REFMISS            /*!< reference sync pulse miss */
+#define CTC_INT_Flag_TRIMERR                             CTC_STAT_TRIMERR            /*!< trim value error */
 
 /* CTC flag definitions */
-#define CTC_FLAG_CKOK                                    CTC_STAT_CKOKIF             /*!< clock trim OK flag */
-#define CTC_FLAG_CKWARN                                  CTC_STAT_CKWARNIF           /*!< clock trim warning flag */
-#define CTC_FLAG_ERR                                     CTC_STAT_ERRIF              /*!< error flag */
-#define CTC_FLAG_EREF                                    CTC_STAT_EREFIF             /*!< expect reference flag */
-#define CTC_FLAG_CKERR                                   CTC_STAT_CKERR              /*!< clock trim error bit */
-#define CTC_FLAG_REFMISS                                 CTC_STAT_REFMISS            /*!< reference sync pulse miss */
-#define CTC_FLAG_TRIMERR                                 CTC_STAT_TRIMERR            /*!< trim value error bit */
+#define CTC_Flag_CKOK                                    CTC_STAT_CKOKIF             /*!< clock trim OK flag */
+#define CTC_Flag_CKWARN                                  CTC_STAT_CKWARNIF           /*!< clock trim warning flag */
+#define CTC_Flag_ERR                                     CTC_STAT_ERRIF              /*!< error flag */
+#define CTC_Flag_EREF                                    CTC_STAT_EREFIF             /*!< expect reference flag */
+#define CTC_Flag_CKERR                                   CTC_STAT_CKERR              /*!< clock trim error bit */
+#define CTC_Flag_REFMISS                                 CTC_STAT_REFMISS            /*!< reference sync pulse miss */
+#define CTC_Flag_TRIMERR                                 CTC_STAT_TRIMERR            /*!< trim value error bit */
 
 /* function declarations */
 /* reset ctc clock trim controller */
 void CTC_DeInit(void);
 /* enable CTC trim counter */
-void CTC_counter_enable(void);
+void CTC_Counter_Enable(void);
 /* disable CTC trim counter */
-void CTC_counter_disable(void);
+void CTC_Counter_Disable(void);
 
 /* configure the IRC48M trim value */
-void CTC_irc48m_trim_value_Config(uint8_t trim_value);
+void CTC_IRC48M_Trim_Value_Config(uint8_t trim_value);
 /* generate software reference source sync pulse */
-void CTC_software_refsource_pulse_generate(void);
+void CTC_Software_Refsource_Pulse_Generate(void);
 /* configure hardware automatically trim mode */
-void CTC_hardware_trim_mode_Config(uint32_t hardmode);
+void CTC_Hardware_Trim_Mode_Config(uint32_t hardmode);
 
 /* configure reference signal source polarity */
-void CTC_refsource_polarity_Config(uint32_t polarity);
+void CTC_Refsource_Polarity_Config(uint32_t polarity);
 /* select reference signal source */
-void CTC_refsource_signal_select(uint32_t refs);
+void CTC_Refsource_Signal_Select(uint32_t refs);
 /* configure reference signal source prescaler */
-void CTC_refsource_prescaler_Config(uint32_t prescaler);
+void CTC_Refsource_Prescaler_Config(uint32_t prescaler);
 /* configure clock trim base limit value */
-void CTC_clock_limit_value_Config(uint8_t limit_value);
+void CTC_Clock_Limit_Value_Config(uint8_t limit_value);
 /* configure CTC counter reload value */
-void CTC_counter_reload_value_Config(uint16_t reload_value);
+void CTC_Counter_Reload_Value_Config(uint16_t reload_value);
 
 /* read CTC counter capture value when reference sync pulse occurred */
-uint16_t CTC_counter_capture_value_read(void);
+uint16_t CTC_Counter_Capture_Value_Read(void);
 /* read CTC trim counter direction when reference sync pulse occurred */
-FlagStatus CTC_counter_direction_read(void);
+FlagStatus CTC_Counter_Direction_Read(void);
 /* read CTC counter reload value */
-uint16_t CTC_counter_reload_value_read(void);
+uint16_t CTC_Counter_Reload_Value_Read(void);
 /* read the IRC48M trim value */
-uint8_t CTC_irc48m_trim_value_read(void);
+uint8_t CTC_IRC48M_Trim_Value_Read(void);
 
 /* interrupt & flag functions */
 /* enable the CTC interrupt */
-void CTC_Interrupt_enable(uint32_t interrupt);
+void CTC_Interrupt_Enable(uint32_t interrupt);
 /* disable the CTC interrupt */
-void CTC_Interrupt_disable(uint32_t interrupt);
+void CTC_Interrupt_Disable(uint32_t interrupt);
 /* get CTC interrupt flag */
-FlagStatus CTC_Interrupt_flag_get(uint32_t int_flag);
+FlagStatus CTC_Interrupt_Flag_Get(uint32_t int_flag);
 /* clear CTC interrupt flag */
-void CTC_Interrupt_flag_clear(uint32_t int_flag);
+void CTC_Interrupt_Flag_Clear(uint32_t int_flag);
 /* get CTC flag */
-FlagStatus CTC_flag_get(uint32_t flag);
+FlagStatus CTC_Flag_Get(uint32_t flag);
 /* clear CTC flag */
-void CTC_flag_clear(uint32_t flag);
+void CTC_Flag_Clear(uint32_t flag);
 
 #endif /* GD32F4XX_CTC_H */

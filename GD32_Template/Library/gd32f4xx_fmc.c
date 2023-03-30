@@ -61,7 +61,7 @@ OF SUCH DAMAGE.
     参数[输出]:  无
     返回值:      无
 */
-void FMC_wscnt_set(uint32_t wscnt) {
+void FMC_wscnt_Set(uint32_t wscnt) {
     uint32_t reg;
 
     reg = FMC_WS;
@@ -111,11 +111,11 @@ void FMC_lock(void) {
       参数:        FMC_OPERR: operation error
       参数:        FMC_TOERR: timeout error
 */
-FMC_state_enum FMC_page_erase(uint32_t page_addr) {
-    FMC_state_enum FMC_state = FMC_READY;
+FMC_State_enum FMC_page_Erase(uint32_t page_addr) {
+    FMC_State_enum FMC_state = FMC_READY;
 
     /* wait for the FMC ready */
-    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
 
     if(FMC_READY == FMC_state) {
         /* unlock page erase operation */
@@ -128,7 +128,7 @@ FMC_state_enum FMC_page_erase(uint32_t page_addr) {
         FMC_CTL |= FMC_CTL_START;
 
         /* wait for the FMC ready */
-        FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+        FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
 
         FMC_PECFG &= ~FMC_PE_EN;
         FMC_CTL &= ~FMC_CTL_SER;
@@ -144,34 +144,34 @@ FMC_state_enum FMC_page_erase(uint32_t page_addr) {
     简介:    FMC erase sector
     参数[输入]:  FMC_sector: select the sector to erase
                 only one parameter can be selected which is shown as below:
-      参数:        CTL_SECTOR_NUMBER_0: sector 0
-      参数:        CTL_SECTOR_NUMBER_1: sector 1
-      参数:        CTL_SECTOR_NUMBER_2: sector 2
-      参数:        CTL_SECTOR_NUMBER_3: sector 3
-      参数:        CTL_SECTOR_NUMBER_4: sector 4
-      参数:        CTL_SECTOR_NUMBER_5: sector 5
-      参数:        CTL_SECTOR_NUMBER_6: sector 6
-      参数:        CTL_SECTOR_NUMBER_7: sector 7
-      参数:        CTL_SECTOR_NUMBER_8: sector 8
-      参数:        CTL_SECTOR_NUMBER_9: sector 9
-      参数:        CTL_SECTOR_NUMBER_10: sector 10
-      参数:        CTL_SECTOR_NUMBER_11: sector 11
-      参数:        CTL_SECTOR_NUMBER_12: sector 12
-      参数:        CTL_SECTOR_NUMBER_13: sector 13
-      参数:        CTL_SECTOR_NUMBER_14: sector 14
-      参数:        CTL_SECTOR_NUMBER_15: sector 15
-      参数:        CTL_SECTOR_NUMBER_16: sector 16
-      参数:        CTL_SECTOR_NUMBER_17: sector 17
-      参数:        CTL_SECTOR_NUMBER_18: sector 18
-      参数:        CTL_SECTOR_NUMBER_19: sector 19
-      参数:        CTL_SECTOR_NUMBER_20: sector 20
-      参数:        CTL_SECTOR_NUMBER_21: sector 21
-      参数:        CTL_SECTOR_NUMBER_22: sector 22
-      参数:        CTL_SECTOR_NUMBER_23: sector 23
-      参数:        CTL_SECTOR_NUMBER_24: sector 24
-      参数:        CTL_SECTOR_NUMBER_25: sector 25
-      参数:        CTL_SECTOR_NUMBER_26: sector 26
-      参数:        CTL_SECTOR_NUMBER_27: sector 27
+      参数:        CTL_SECTOR_Number_0: sector 0
+      参数:        CTL_SECTOR_Number_1: sector 1
+      参数:        CTL_SECTOR_Number_2: sector 2
+      参数:        CTL_SECTOR_Number_3: sector 3
+      参数:        CTL_SECTOR_Number_4: sector 4
+      参数:        CTL_SECTOR_Number_5: sector 5
+      参数:        CTL_SECTOR_Number_6: sector 6
+      参数:        CTL_SECTOR_Number_7: sector 7
+      参数:        CTL_SECTOR_Number_8: sector 8
+      参数:        CTL_SECTOR_Number_9: sector 9
+      参数:        CTL_SECTOR_Number_10: sector 10
+      参数:        CTL_SECTOR_Number_11: sector 11
+      参数:        CTL_SECTOR_Number_12: sector 12
+      参数:        CTL_SECTOR_Number_13: sector 13
+      参数:        CTL_SECTOR_Number_14: sector 14
+      参数:        CTL_SECTOR_Number_15: sector 15
+      参数:        CTL_SECTOR_Number_16: sector 16
+      参数:        CTL_SECTOR_Number_17: sector 17
+      参数:        CTL_SECTOR_Number_18: sector 18
+      参数:        CTL_SECTOR_Number_19: sector 19
+      参数:        CTL_SECTOR_Number_20: sector 20
+      参数:        CTL_SECTOR_Number_21: sector 21
+      参数:        CTL_SECTOR_Number_22: sector 22
+      参数:        CTL_SECTOR_Number_23: sector 23
+      参数:        CTL_SECTOR_Number_24: sector 24
+      参数:        CTL_SECTOR_Number_25: sector 25
+      参数:        CTL_SECTOR_Number_26: sector 26
+      参数:        CTL_SECTOR_Number_27: sector 27
     参数[输出]:  无
     返回值:     state of FMC
       参数:        FMC_READY: the operation has been completed
@@ -183,10 +183,10 @@ FMC_state_enum FMC_page_erase(uint32_t page_addr) {
       参数:        FMC_OPERR: operation error
       参数:        FMC_TOERR: timeout error
 */
-FMC_state_enum FMC_sector_erase(uint32_t FMC_sector) {
-    FMC_state_enum FMC_state = FMC_READY;
+FMC_State_enum FMC_sector_Erase(uint32_t FMC_sector) {
+    FMC_State_enum FMC_state = FMC_READY;
     /* wait for the FMC ready */
-    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
 
     if(FMC_READY == FMC_state) {
         /* start sector erase */
@@ -195,7 +195,7 @@ FMC_state_enum FMC_sector_erase(uint32_t FMC_sector) {
         FMC_CTL |= FMC_CTL_START;
 
         /* wait for the FMC ready */
-        FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+        FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
 
         /* reset the SER bit */
         FMC_CTL &= (~FMC_CTL_SER);
@@ -220,10 +220,10 @@ FMC_state_enum FMC_sector_erase(uint32_t FMC_sector) {
       参数:        FMC_OPERR: operation error
       参数:        FMC_TOERR: timeout error
 */
-FMC_state_enum FMC_mass_erase(void) {
-    FMC_state_enum FMC_state = FMC_READY;
+FMC_State_enum FMC_mass_Erase(void) {
+    FMC_State_enum FMC_state = FMC_READY;
     /* wait for the FMC ready */
-    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
 
     if(FMC_READY == FMC_state) {
         /* start whole chip erase */
@@ -231,7 +231,7 @@ FMC_state_enum FMC_mass_erase(void) {
         FMC_CTL |= FMC_CTL_START;
 
         /* wait for the FMC ready */
-        FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+        FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
 
         /* reset the MER bits */
         FMC_CTL &= ~(FMC_CTL_MER0 | FMC_CTL_MER1);
@@ -255,10 +255,10 @@ FMC_state_enum FMC_mass_erase(void) {
       参数:        FMC_OPERR: operation error
       参数:        FMC_TOERR: timeout error
 */
-FMC_state_enum FMC_bank0_erase(void) {
-    FMC_state_enum FMC_state = FMC_READY;
+FMC_State_enum FMC_bank0_Erase(void) {
+    FMC_State_enum FMC_state = FMC_READY;
     /* wait for the FMC ready */
-    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
 
     if(FMC_READY == FMC_state) {
         /* start FMC bank0 erase */
@@ -266,7 +266,7 @@ FMC_state_enum FMC_bank0_erase(void) {
         FMC_CTL |= FMC_CTL_START;
 
         /* wait for the FMC ready */
-        FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+        FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
 
         /* reset the MER0 bit */
         FMC_CTL &= (~FMC_CTL_MER0);
@@ -290,10 +290,10 @@ FMC_state_enum FMC_bank0_erase(void) {
       参数:        FMC_OPERR: operation error
       参数:        FMC_TOERR: timeout error
 */
-FMC_state_enum FMC_bank1_erase(void) {
-    FMC_state_enum FMC_state = FMC_READY;
+FMC_State_enum FMC_bank1_Erase(void) {
+    FMC_State_enum FMC_state = FMC_READY;
     /* wait for the FMC ready */
-    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
 
     if(FMC_READY == FMC_state) {
         /* start FMC bank1 erase */
@@ -301,7 +301,7 @@ FMC_state_enum FMC_bank1_erase(void) {
         FMC_CTL |= FMC_CTL_START;
 
         /* wait for the FMC ready */
-        FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+        FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
 
         /* reset the MER1 bit */
         FMC_CTL &= (~FMC_CTL_MER1);
@@ -326,10 +326,10 @@ FMC_state_enum FMC_bank1_erase(void) {
       参数:        FMC_OPERR: operation error
       参数:        FMC_TOERR: timeout error
 */
-FMC_state_enum FMC_Word_program(uint32_t address, uint32_t data) {
-    FMC_state_enum FMC_state = FMC_READY;
+FMC_State_enum FMC_Word_program(uint32_t address, uint32_t data) {
+    FMC_State_enum FMC_state = FMC_READY;
     /* wait for the FMC ready */
-    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
 
     if(FMC_READY == FMC_state) {
         /* set the PG bit to start program */
@@ -340,7 +340,7 @@ FMC_state_enum FMC_Word_program(uint32_t address, uint32_t data) {
         REG32(address) = data;
 
         /* wait for the FMC ready */
-        FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+        FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
 
         /* reset the PG bit */
         FMC_CTL &= ~FMC_CTL_PG;
@@ -365,10 +365,10 @@ FMC_state_enum FMC_Word_program(uint32_t address, uint32_t data) {
       参数:        FMC_OPERR: operation error
       参数:        FMC_TOERR: timeout error
 */
-FMC_state_enum FMC_halfword_program(uint32_t address, uint16_t data) {
-    FMC_state_enum FMC_state = FMC_READY;
+FMC_State_enum FMC_halfword_program(uint32_t address, uint16_t data) {
+    FMC_State_enum FMC_state = FMC_READY;
     /* wait for the FMC ready */
-    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
 
     if(FMC_READY == FMC_state) {
         /* set the PG bit to start program */
@@ -379,7 +379,7 @@ FMC_state_enum FMC_halfword_program(uint32_t address, uint16_t data) {
         REG16(address) = data;
 
         /* wait for the FMC ready */
-        FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+        FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
 
         /* reset the PG bit */
         FMC_CTL &= ~FMC_CTL_PG;
@@ -404,10 +404,10 @@ FMC_state_enum FMC_halfword_program(uint32_t address, uint16_t data) {
       参数:        FMC_OPERR: operation error
       参数:        FMC_TOERR: timeout error
 */
-FMC_state_enum FMC_byte_program(uint32_t address, uint8_t data) {
-    FMC_state_enum FMC_state = FMC_READY;
+FMC_State_enum FMC_byte_program(uint32_t address, uint8_t data) {
+    FMC_State_enum FMC_state = FMC_READY;
     /* wait for the FMC ready */
-    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
 
     if(FMC_READY == FMC_state) {
         /* set the PG bit to start program */
@@ -418,7 +418,7 @@ FMC_state_enum FMC_byte_program(uint32_t address, uint8_t data) {
         REG8(address) = data;
 
         /* wait for the FMC ready */
-        FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+        FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
 
         /* reset the PG bit */
         FMC_CTL &= ~FMC_CTL_PG;
@@ -434,7 +434,7 @@ FMC_state_enum FMC_byte_program(uint32_t address, uint8_t data) {
     参数[输出]:  无
     返回值:      无
 */
-void ob_unlock(void) {
+void OB_unlock(void) {
     if(RESET != (FMC_OBCTL0 & FMC_OBCTL0_OB_LK)) {
         /* write the FMC key */
         FMC_OBKEY = OB_UNLOCK_KEY0;
@@ -448,7 +448,7 @@ void ob_unlock(void) {
     参数[输出]:  无
     返回值:      无
 */
-void ob_lock(void) {
+void OB_lock(void) {
     /* reset the OB_LK bit */
     FMC_OBCTL0 |= FMC_OBCTL0_OB_LK;
 }
@@ -459,7 +459,7 @@ void ob_lock(void) {
     参数[输出]:  无
     返回值:      无
 */
-void ob_start(void) {
+void OB_start(void) {
     /* set the OB_START bit in OBCTL0 register */
     FMC_OBCTL0 |= FMC_OBCTL0_OB_START;
 }
@@ -470,20 +470,20 @@ void ob_start(void) {
     参数[输出]:  无
     返回值:      无
 */
-void ob_erase(void) {
+void OB_Erase(void) {
     uint32_t reg, reg1;
-    FMC_state_enum FMC_state = FMC_READY;
+    FMC_State_enum FMC_state = FMC_READY;
     /* wait for the FMC ready */
-    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
     reg = FMC_OBCTL0;
     reg1 = FMC_OBCTL1;
 
     if(FMC_READY == FMC_state) {
 
-        /* reset the OB_FWDGT, OB_DEEPSLEEP and OB_STDBY, set according to ob_fwdgt ,ob_deepsleep and ob_stdby */
+        /* reset the OB_FWDGT, OB_DEEPSLEEP and OB_STDBY, set according to OB_fwdgt ,OB_deepsleep and OB_stdby */
         reg |= (FMC_OBCTL0_NWDG_HW | FMC_OBCTL0_NRST_DPSLP | FMC_OBCTL0_NRST_STDBY);
         /* reset the BOR level */
-        reg |= FMC_OBCTL0_BOR_TH;
+        reg |= FMC_OBCTL0_Bor_TH;
         /* reset option byte boot bank value */
         reg &= ~FMC_OBCTL0_BB;
         /* reset option byte dbs value */
@@ -491,7 +491,7 @@ void ob_erase(void) {
 
         /* reset drp and wp value */
         reg |= FMC_OBCTL0_WP0;
-        reg &= (~FMC_OBCTL0_DRP);
+        reg &= (~FMC_OBCTL0_Drp);
         FMC_OBCTL0 = reg;
 
         reg1 |= FMC_OBCTL1_WP1;
@@ -503,7 +503,7 @@ void ob_erase(void) {
 
 /*!
     简介:    enable write protection
-    参数[输入]:  ob_wp: specify sector to be write protected
+    参数[输入]:  OB_wp: specify sector to be write protected
                 one or more parameters can be selected which are shown as below:
       参数:        OB_WP_x(x=0..22):sector x(x = 0,1,2...22)
       参数:        OB_WP_23_27: sector23~27
@@ -511,21 +511,21 @@ void ob_erase(void) {
     参数[输出]:  无
     返回值:     SUCCESS or ERROR
 */
-ErrStatus ob_write_protection_enable(uint32_t ob_wp) {
+ErrStatus OB_Write_Protection_Enable(uint32_t OB_wp) {
     uint32_t reg0 = FMC_OBCTL0;
     uint32_t reg1 = FMC_OBCTL1;
-    FMC_state_enum FMC_state = FMC_READY;
+    FMC_State_enum FMC_state = FMC_READY;
 
-    if(RESET != (FMC_OBCTL0 & FMC_OBCTL0_DRP)) {
+    if(RESET != (FMC_OBCTL0 & FMC_OBCTL0_Drp)) {
         return ERROR;
     }
 
     /* wait for the FMC ready */
-    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
 
     if(FMC_READY == FMC_state) {
-        reg0 &= (~((uint32_t)ob_wp << 16U));
-        reg1 &= (~(ob_wp & 0xFFFF0000U));
+        reg0 &= (~((uint32_t)OB_wp << 16U));
+        reg1 &= (~(OB_wp & 0xFFFF0000U));
         FMC_OBCTL0 = reg0;
         FMC_OBCTL1 = reg1;
 
@@ -537,7 +537,7 @@ ErrStatus ob_write_protection_enable(uint32_t ob_wp) {
 
 /*!
     简介:    disable write protection
-    参数[输入]:  ob_wp: specify sector to be write protected
+    参数[输入]:  OB_wp: specify sector to be write protected
                 one or more parameters can be selected which are shown as below:
       参数:        OB_WP_x(x=0..22):sector x(x = 0,1,2...22)
       参数:        OB_WP_23_27: sector23~27
@@ -545,21 +545,21 @@ ErrStatus ob_write_protection_enable(uint32_t ob_wp) {
     参数[输出]:  无
     返回值:     SUCCESS or ERROR
 */
-ErrStatus ob_write_protection_disable(uint32_t ob_wp) {
+ErrStatus OB_Write_Protection_Disable(uint32_t OB_wp) {
     uint32_t reg0 = FMC_OBCTL0;
     uint32_t reg1 = FMC_OBCTL1;
-    FMC_state_enum FMC_state = FMC_READY;
+    FMC_State_enum FMC_state = FMC_READY;
 
-    if(RESET != (FMC_OBCTL0 & FMC_OBCTL0_DRP)) {
+    if(RESET != (FMC_OBCTL0 & FMC_OBCTL0_Drp)) {
         return ERROR;
     }
 
     /* wait for the FMC ready */
-    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
 
     if(FMC_READY == FMC_state) {
-        reg0 |= ((uint32_t)ob_wp << 16U);
-        reg1 |= (ob_wp & 0xFFFF0000U);
+        reg0 |= ((uint32_t)OB_wp << 16U);
+        reg1 |= (OB_wp & 0xFFFF0000U);
         FMC_OBCTL0 = reg0;
         FMC_OBCTL1 = reg1;
 
@@ -571,24 +571,24 @@ ErrStatus ob_write_protection_disable(uint32_t ob_wp) {
 
 /*!
     简介:    enable erase/program protection and D-bus read protection
-    参数[输入]:  ob_drp: enable the WPx bits used as erase/program protection and D-bus read protection of each sector
+    参数[输入]:  OB_Drp: enable the WPx bits used as erase/program protection and D-bus read protection of each sector
                 one or more parameters can be selected which are shown as below:
-      参数:        OB_DRP_x(x=0..22): sector x(x = 0,1,2...22)
-      参数:        OB_DRP_23_27: sector23~27
-      参数:        OB_DRP_ALL: all sector
+      参数:        OB_Drp_x(x=0..22): sector x(x = 0,1,2...22)
+      参数:        OB_Drp_23_27: sector23~27
+      参数:        OB_Drp_ALL: all sector
     参数[输出]:  无
     返回值:      无
 */
-void ob_drp_enable(uint32_t ob_drp) {
+void OB_Drp_Enable(uint32_t OB_Drp) {
     uint32_t reg0 = FMC_OBCTL0;
     uint32_t reg1 = FMC_OBCTL1;
-    FMC_state_enum FMC_state = FMC_READY;
-    uint32_t drp_state = FMC_OBCTL0 & FMC_OBCTL0_DRP;
+    FMC_State_enum FMC_state = FMC_READY;
+    uint32_t drp_state = FMC_OBCTL0 & FMC_OBCTL0_Drp;
     uint32_t wp0_state = FMC_OBCTL0 & FMC_OBCTL0_WP0;
     uint32_t wp1_state = FMC_OBCTL1 & FMC_OBCTL1_WP1;
 
     /* wait for the FMC ready */
-    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
 
     if(FMC_READY == FMC_state) {
         if(RESET == drp_state) {
@@ -596,9 +596,9 @@ void ob_drp_enable(uint32_t ob_drp) {
             reg1 &= ~FMC_OBCTL1_WP1;
         }
 
-        reg0 |= ((uint32_t)ob_drp << 16U);
-        reg0 |= FMC_OBCTL0_DRP;
-        reg1 |= ((uint32_t)ob_drp & 0xFFFF0000U);
+        reg0 |= ((uint32_t)OB_Drp << 16U);
+        reg0 |= FMC_OBCTL0_Drp;
+        reg1 |= ((uint32_t)OB_Drp & 0xFFFF0000U);
 
         FMC_OBCTL0 = reg0;
         FMC_OBCTL1 = reg1;
@@ -607,20 +607,20 @@ void ob_drp_enable(uint32_t ob_drp) {
 
 /*!
     简介:    disable erase/program protection and D-bus read protection
-    参数[输入]:  ob_drp: disable the WPx bits used as erase/program protection and D-bus read protection of each sector
+    参数[输入]:  OB_Drp: disable the WPx bits used as erase/program protection and D-bus read protection of each sector
                 one or more parameters can be selected which are shown as below:
-      参数:        OB_DRP_x(x=0..22): sector x(x = 0,1,2...22)
-      参数:        OB_DRP_23_27: sector23~27
-      参数:        OB_DRP_ALL: all sector
+      参数:        OB_Drp_x(x=0..22): sector x(x = 0,1,2...22)
+      参数:        OB_Drp_23_27: sector23~27
+      参数:        OB_Drp_ALL: all sector
     参数[输出]:  无
     返回值:      无
 */
-void ob_drp_disable(void) {
+void OB_Drp_Disable(void) {
     uint32_t reg0 = FMC_OBCTL0;
     uint32_t reg1 = FMC_OBCTL1;
-    FMC_state_enum FMC_state = FMC_READY;
+    FMC_State_enum FMC_state = FMC_READY;
     /* wait for the FMC ready */
-    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
 
     if(FMC_READY == FMC_state) {
         if(((uint8_t)(reg0 >> 8U)) == (uint8_t)FMC_NSPC) {
@@ -636,7 +636,7 @@ void ob_drp_disable(void) {
         reg0 &= ~FMC_OBCTL0_SPC;
         reg0 |= ((uint32_t)FMC_NSPC << 8U);
         reg0 |= FMC_OBCTL0_WP0;
-        reg0 &= (~FMC_OBCTL0_DRP);
+        reg0 &= (~FMC_OBCTL0_Drp);
         FMC_OBCTL0 = reg0;
 
         reg1 |= FMC_OBCTL1_WP1;
@@ -647,7 +647,7 @@ void ob_drp_disable(void) {
 
 /*!
     简介:    configure security protection level
-    参数[输入]:  ob_spc: specify security protection level
+    参数[输入]:  OB_spc: specify security protection level
                 only one parameter can be selected which is shown as below:
       参数:        FMC_NSPC: no security protection
       参数:        FMC_LSPC: low security protection
@@ -655,73 +655,73 @@ void ob_drp_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void ob_security_protection_Config(uint8_t ob_spc) {
-    FMC_state_enum FMC_state = FMC_READY;
+void OB_security_Protection_Config(uint8_t OB_spc) {
+    FMC_State_enum FMC_state = FMC_READY;
     /* wait for the FMC ready */
-    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
 
     if(FMC_READY == FMC_state) {
         uint32_t reg;
 
         reg = FMC_OBCTL0;
-        /* reset the OBCTL0_SPC, set according to ob_spc */
+        /* reset the OBCTL0_SPC, set according to OB_spc */
         reg &= ~FMC_OBCTL0_SPC;
-        reg |= ((uint32_t)ob_spc << 8U);
+        reg |= ((uint32_t)OB_spc << 8U);
         FMC_OBCTL0 = reg;
     }
 }
 
 /*!
     简介:    program the FMC user option byte
-    参数[输入]:  ob_fwdgt: option byte watchdog value
+    参数[输入]:  OB_fwdgt: option byte watchdog value
                 only one parameter can be selected which is shown as below:
       参数:        OB_FWDGT_SW: software free watchdog
       参数:        OB_FWDGT_HW: hardware free watchdog
-    参数[输入]:  ob_deepsleep: option byte deepsleep reset value
+    参数[输入]:  OB_deepsleep: option byte deepsleep reset value
                 only one parameter can be selected which is shown as below:
       参数:        OB_DEEPSLEEP_NRST: no reset when entering deepsleep mode
       参数:        OB_DEEPSLEEP_RST: generate a reset instead of entering deepsleep mode
-    参数[输入]:  ob_stdby:option byte standby reset value
+    参数[输入]:  OB_stdby:option byte standby reset value
                 only one parameter can be selected which is shown as below:
       参数:        OB_STDBY_NRST: no reset when entering standby mode
       参数:        OB_STDBY_RST: generate a reset instead of entering standby mode
     参数[输出]:  无
     返回值:      无
 */
-void ob_user_write(uint32_t ob_fwdgt, uint32_t ob_deepsleep, uint32_t ob_stdby) {
-    FMC_state_enum FMC_state = FMC_READY;
+void OB_User_Write(uint32_t OB_fwdgt, uint32_t OB_deepsleep, uint32_t OB_stdby) {
+    FMC_State_enum FMC_state = FMC_READY;
 
     /* wait for the FMC ready */
-    FMC_state = FMC_ready_Wait(FMC_TIMEOUT_COUNT);
+    FMC_state = FMC_ready_Wait(FMC_Timeout_COUNT);
 
     if(FMC_READY == FMC_state) {
         uint32_t reg;
 
         reg = FMC_OBCTL0;
-        /* reset the OB_FWDGT, OB_DEEPSLEEP and OB_STDBY, set according to ob_fwdgt ,ob_deepsleep and ob_stdby */
+        /* reset the OB_FWDGT, OB_DEEPSLEEP and OB_STDBY, set according to OB_fwdgt ,OB_deepsleep and OB_stdby */
         reg &= ~(FMC_OBCTL0_NWDG_HW | FMC_OBCTL0_NRST_DPSLP | FMC_OBCTL0_NRST_STDBY);
-        FMC_OBCTL0 = (reg | ob_fwdgt | ob_deepsleep | ob_stdby);
+        FMC_OBCTL0 = (reg | OB_fwdgt | OB_deepsleep | OB_stdby);
     }
 }
 
 /*!
     简介:    program the option byte BOR threshold value
-    参数[输入]:  ob_bor_th: user option byte
+    参数[输入]:  OB_Bor_th: user option byte
                 only one parameter can be selected which is shown as below:
-      参数:        OB_BOR_TH_VALUE3: BOR threshold value 3
-      参数:        OB_BOR_TH_VALUE2: BOR threshold value 2
-      参数:        OB_BOR_TH_VALUE1: BOR threshold value 1
-      参数:        OB_BOR_TH_OFF: no BOR function
+      参数:        OB_Bor_TH_VALUE3: BOR threshold value 3
+      参数:        OB_Bor_TH_VALUE2: BOR threshold value 2
+      参数:        OB_Bor_TH_VALUE1: BOR threshold value 1
+      参数:        OB_Bor_TH_OFF: no BOR function
     参数[输出]:  无
     返回值:      无
 */
-void ob_user_bor_threshold(uint32_t ob_bor_th) {
+void OB_User_Bor_threshold(uint32_t OB_Bor_th) {
     uint32_t reg;
 
     reg = FMC_OBCTL0;
     /* set the BOR level */
-    reg &= ~FMC_OBCTL0_BOR_TH;
-    FMC_OBCTL0 = (reg | ob_bor_th);
+    reg &= ~FMC_OBCTL0_Bor_TH;
+    FMC_OBCTL0 = (reg | OB_Bor_th);
 }
 
 /*!
@@ -733,7 +733,7 @@ void ob_user_bor_threshold(uint32_t ob_bor_th) {
     参数[输出]:  无
     返回值:      无
 */
-void ob_boot_mode_Config(uint32_t boot_mode) {
+void OB_boot_Mode_Config(uint32_t boot_mode) {
     uint32_t reg;
 
     reg = FMC_OBCTL0;
@@ -746,9 +746,9 @@ void ob_boot_mode_Config(uint32_t boot_mode) {
     简介:    get the FMC user option byte
     参数[输入]:  无
     参数[输出]:  无
-    返回值:     the FMC user option byte values: ob_fwdgt(Bit0), ob_deepsleep(Bit1), ob_stdby(Bit2)
+    返回值:     the FMC user option byte values: OB_fwdgt(Bit0), OB_deepsleep(Bit1), OB_stdby(Bit2)
 */
-uint8_t ob_user_get(void) {
+uint8_t OB_User_Get(void) {
     return (uint8_t)((uint8_t)(FMC_OBCTL0 >> 5U) & 0x07U);
 }
 
@@ -758,7 +758,7 @@ uint8_t ob_user_get(void) {
     参数[输出]:  无
     返回值:     the FMC write protection option byte value
 */
-uint16_t ob_write_protection0_get(void) {
+uint16_t OB_Write_Protection0_Get(void) {
     /* return the FMC write protection option byte value */
     return (uint16_t)(((uint16_t)(FMC_OBCTL0 >> 16U)) & 0x0FFFU);
 }
@@ -769,7 +769,7 @@ uint16_t ob_write_protection0_get(void) {
     参数[输出]:  无
     返回值:     the FMC write protection option byte value
 */
-uint16_t ob_write_protection1_get(void) {
+uint16_t OB_Write_Protection1_Get(void) {
     /* return the the FMC write protection option byte value */
     return (uint16_t)(((uint16_t)(FMC_OBCTL1 >> 16U)) & 0x0FFFU);
 }
@@ -780,9 +780,9 @@ uint16_t ob_write_protection1_get(void) {
     参数[输出]:  无
     返回值:     the FMC erase/program protection and D-bus read protection option bytes value
 */
-uint16_t ob_drp0_get(void) {
+uint16_t OB_Drp0_Get(void) {
     /* return the FMC erase/program protection and D-bus read protection option bytes value */
-    if(FMC_OBCTL0 & FMC_OBCTL0_DRP) {
+    if(FMC_OBCTL0 & FMC_OBCTL0_Drp) {
         return (uint16_t)(((uint16_t)(FMC_OBCTL0 >> 16U)) & 0x0FFFU);
     } else {
         return 0xF000U;
@@ -795,9 +795,9 @@ uint16_t ob_drp0_get(void) {
     参数[输出]:  无
     返回值:     the FMC erase/program protection and D-bus read protection option bytes value
 */
-uint16_t ob_drp1_get(void) {
+uint16_t OB_Drp1_Get(void) {
     /* return the FMC erase/program protection and D-bus read protection option bytes value */
-    if(FMC_OBCTL0 & FMC_OBCTL0_DRP) {
+    if(FMC_OBCTL0 & FMC_OBCTL0_Drp) {
         return (uint16_t)(((uint16_t)(FMC_OBCTL1 >> 16U)) & 0x0FFFU);
     } else {
         return 0xF000U;
@@ -810,7 +810,7 @@ uint16_t ob_drp1_get(void) {
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus ob_spc_get(void) {
+FlagStatus OB_spc_Get(void) {
     FlagStatus spc_state = RESET;
 
     if(((uint8_t)(FMC_OBCTL0 >> 8U)) != FMC_NSPC) {
@@ -826,9 +826,9 @@ FlagStatus ob_spc_get(void) {
     简介:    get the FMC option byte BOR threshold value
     参数[输入]:  无
     参数[输出]:  无
-    返回值:     the FMC BOR threshold value:OB_BOR_TH_OFF,OB_BOR_TH_VALUE1,OB_BOR_TH_VALUE2,OB_BOR_TH_VALUE3
+    返回值:     the FMC BOR threshold value:OB_Bor_TH_OFF,OB_Bor_TH_VALUE1,OB_Bor_TH_VALUE2,OB_Bor_TH_VALUE3
 */
-uint8_t ob_user_bor_threshold_get(void) {
+uint8_t OB_User_Bor_Threshold_Get(void) {
     /* return the FMC BOR threshold value */
     return (uint8_t)((uint8_t)FMC_OBCTL0 & 0x0CU);
 }
@@ -837,17 +837,17 @@ uint8_t ob_user_bor_threshold_get(void) {
     简介:    get flag set or reset
     参数[输入]:  FMC_flag: check FMC flag
                 only one parameter can be selected which is shown as below:
-      参数:        FMC_FLAG_BUSY: FMC busy flag bit
-      参数:        FMC_FLAG_RDDERR: FMC read D-bus protection error flag bit
-      参数:        FMC_FLAG_PGSERR: FMC program sequence error flag bit
-      参数:        FMC_FLAG_PGMERR: FMC program size not match error flag bit
-      参数:        FMC_FLAG_WPERR: FMC Erase/Program protection error flag bit
-      参数:        FMC_FLAG_OPERR: FMC operation error flag bit
-      参数:        FMC_FLAG_END: FMC end of operation flag bit
+      参数:        FMC_Flag_BUSY: FMC busy flag bit
+      参数:        FMC_Flag_RDDERR: FMC read D-bus protection error flag bit
+      参数:        FMC_Flag_PGSERR: FMC program sequence error flag bit
+      参数:        FMC_Flag_PGMERR: FMC program size not match error flag bit
+      参数:        FMC_Flag_WPERR: FMC Erase/Program protection error flag bit
+      参数:        FMC_Flag_OPERR: FMC operation error flag bit
+      参数:        FMC_Flag_END: FMC end of operation flag bit
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus FMC_flag_get(uint32_t FMC_flag) {
+FlagStatus FMC_Flag_Get(uint32_t FMC_flag) {
     if(FMC_STAT & FMC_flag) {
         return SET;
     }
@@ -860,16 +860,16 @@ FlagStatus FMC_flag_get(uint32_t FMC_flag) {
     简介:    clear the FMC pending flag
     参数[输入]:  FMC_flag: clear FMC flag
                 only one parameter can be selected which is shown as below:
-      参数:        FMC_FLAG_RDDERR: FMC read D-bus protection error flag bit
-      参数:        FMC_FLAG_PGSERR: FMC program sequence error flag bit
-      参数:        FMC_FLAG_PGMERR: FMC program size not match error flag bit
-      参数:        FMC_FLAG_WPERR: FMC erase/program protection error flag bit
-      参数:        FMC_FLAG_OPERR: FMC operation error flag bit
-      参数:        FMC_FLAG_END: FMC end of operation flag bit
+      参数:        FMC_Flag_RDDERR: FMC read D-bus protection error flag bit
+      参数:        FMC_Flag_PGSERR: FMC program sequence error flag bit
+      参数:        FMC_Flag_PGMERR: FMC program size not match error flag bit
+      参数:        FMC_Flag_WPERR: FMC erase/program protection error flag bit
+      参数:        FMC_Flag_OPERR: FMC operation error flag bit
+      参数:        FMC_Flag_END: FMC end of operation flag bit
     参数[输出]:  无
     返回值:      无
 */
-void FMC_flag_clear(uint32_t FMC_flag) {
+void FMC_Flag_Clear(uint32_t FMC_flag) {
     /* clear the flags */
     FMC_STAT = FMC_flag;
 }
@@ -883,7 +883,7 @@ void FMC_flag_clear(uint32_t FMC_flag) {
     参数[输出]:  无
     返回值:      无
 */
-void FMC_Interrupt_enable(uint32_t FMC_int) {
+void FMC_Interrupt_Enable(uint32_t FMC_int) {
     FMC_CTL |= FMC_int;
 }
 
@@ -896,7 +896,7 @@ void FMC_Interrupt_enable(uint32_t FMC_int) {
     参数[输出]:  无
     返回值:      无
 */
-void FMC_Interrupt_disable(uint32_t FMC_int) {
+void FMC_Interrupt_Disable(uint32_t FMC_int) {
     FMC_CTL &= ~(uint32_t)FMC_int;
 }
 
@@ -904,17 +904,17 @@ void FMC_Interrupt_disable(uint32_t FMC_int) {
     简介:    get FMC interrupt flag set or reset
     参数[输入]:  FMC_int_flag: FMC interrupt flag
                 only one parameter can be selected which is shown as below:
-      参数:        FMC_INT_FLAG_RDDERR: FMC read D-bus protection error interrupt flag
-      参数:        FMC_INT_FLAG_PGSERR: FMC program sequence error interrupt flag
-      参数:        FMC_INT_FLAG_PGMERR: FMC program size not match error interrupt flag
-      参数:        FMC_INT_FLAG_WPERR: FMC Erase/Program protection error interrupt flag
-      参数:        FMC_INT_FLAG_OPERR: FMC operation error interrupt flag
-      参数:        FMC_INT_FLAG_END: FMC end of operation interrupt flag
+      参数:        FMC_INT_Flag_RDDERR: FMC read D-bus protection error interrupt flag
+      参数:        FMC_INT_Flag_PGSERR: FMC program sequence error interrupt flag
+      参数:        FMC_INT_Flag_PGMERR: FMC program size not match error interrupt flag
+      参数:        FMC_INT_Flag_WPERR: FMC Erase/Program protection error interrupt flag
+      参数:        FMC_INT_Flag_OPERR: FMC operation error interrupt flag
+      参数:        FMC_INT_Flag_END: FMC end of operation interrupt flag
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus FMC_Interrupt_flag_get(uint32_t FMC_int_flag) {
-    if(FMC_FLAG_END == FMC_int_flag) {
+FlagStatus FMC_Interrupt_Flag_Get(uint32_t FMC_int_flag) {
+    if(FMC_Flag_END == FMC_int_flag) {
         /* end of operation interrupt flag */
         if(FMC_CTL & FMC_CTL_ENDIE) {
             if(FMC_STAT & FMC_int_flag) {
@@ -937,16 +937,16 @@ FlagStatus FMC_Interrupt_flag_get(uint32_t FMC_int_flag) {
     简介:    clear the FMC interrupt flag
     参数[输入]:  FMC_int_flag: FMC interrupt flag
                 only one parameter can be selected which is shown as below:
-      参数:        FMC_INT_FLAG_RDDERR: FMC read D-bus protection error interrupt flag
-      参数:        FMC_INT_FLAG_PGSERR: FMC program sequence error interrupt flag
-      参数:        FMC_INT_FLAG_PGMERR: FMC program size not match error interrupt flag
-      参数:        FMC_INT_FLAG_WPERR: FMC Erase/Program protection error interrupt flag
-      参数:        FMC_INT_FLAG_OPERR: FMC operation error interrupt flag
-      参数:        FMC_INT_FLAG_END: FMC end of operation interrupt flag
+      参数:        FMC_INT_Flag_RDDERR: FMC read D-bus protection error interrupt flag
+      参数:        FMC_INT_Flag_PGSERR: FMC program sequence error interrupt flag
+      参数:        FMC_INT_Flag_PGMERR: FMC program size not match error interrupt flag
+      参数:        FMC_INT_Flag_WPERR: FMC Erase/Program protection error interrupt flag
+      参数:        FMC_INT_Flag_OPERR: FMC operation error interrupt flag
+      参数:        FMC_INT_Flag_END: FMC end of operation interrupt flag
     参数[输出]:  无
     返回值:      无
 */
-void FMC_Interrupt_flag_clear(uint32_t FMC_int_flag) {
+void FMC_Interrupt_Flag_Clear(uint32_t FMC_int_flag) {
     /* clear the interrupt flag */
     FMC_STAT = FMC_int_flag;
 }
@@ -964,21 +964,21 @@ void FMC_Interrupt_flag_clear(uint32_t FMC_int_flag) {
       参数:        FMC_WPERR: erase/program protection error
       参数:        FMC_OPERR: operation error
 */
-FMC_state_enum FMC_state_get(void) {
-    FMC_state_enum FMC_state = FMC_READY;
+FMC_State_enum FMC_State_Get(void) {
+    FMC_State_enum FMC_state = FMC_READY;
     uint32_t temp_val = FMC_STAT;
 
-    if(RESET != (temp_val & FMC_FLAG_BUSY)) {
+    if(RESET != (temp_val & FMC_Flag_BUSY)) {
         FMC_state = FMC_BUSY;
-    } else if(RESET != (temp_val & FMC_FLAG_RDDERR)) {
+    } else if(RESET != (temp_val & FMC_Flag_RDDERR)) {
         FMC_state = FMC_RDDERR;
-    } else if(RESET != (temp_val & FMC_FLAG_PGSERR)) {
+    } else if(RESET != (temp_val & FMC_Flag_PGSERR)) {
         FMC_state = FMC_PGSERR;
-    } else if(RESET != (temp_val & FMC_FLAG_PGMERR)) {
+    } else if(RESET != (temp_val & FMC_Flag_PGMERR)) {
         FMC_state = FMC_PGMERR;
-    } else if(RESET != (temp_val & FMC_FLAG_WPERR)) {
+    } else if(RESET != (temp_val & FMC_Flag_WPERR)) {
         FMC_state = FMC_WPERR;
-    } else if(RESET != (temp_val & FMC_FLAG_OPERR)) {
+    } else if(RESET != (temp_val & FMC_Flag_OPERR)) {
         FMC_state = FMC_OPERR;
     } else {
         FMC_state = FMC_READY;
@@ -1002,13 +1002,13 @@ FMC_state_enum FMC_state_get(void) {
       参数:        FMC_OPERR: operation error
       参数:        FMC_TOERR: timeout error
 */
-FMC_state_enum FMC_ready_Wait(uint32_t timeout) {
-    FMC_state_enum FMC_state = FMC_BUSY;
+FMC_State_enum FMC_ready_Wait(uint32_t timeout) {
+    FMC_State_enum FMC_state = FMC_BUSY;
 
     /* wait for FMC ready */
     do {
         /* get FMC state */
-        FMC_state = FMC_state_get();
+        FMC_state = FMC_State_Get();
         timeout--;
     } while((FMC_BUSY == FMC_state) && (0U != timeout));
 

@@ -443,7 +443,7 @@ OF SUCH DAMAGE.
 /* define the peripheral clock enable bit position and its register index offset */
 #define RCU_REGIDX_BIT(regidx, bitpos)      (((uint32_t)(regidx) << 6) | (uint32_t)(bitpos))
 #define RCU_REG_VAL(periph)                 (REG32(RCU + ((uint32_t)(periph) >> 6)))
-#define RCU_BIT_POS(val)                    ((uint32_t)(val) & 0x1FU)
+#define RCU_Bit_POS(val)                    ((uint32_t)(val) & 0x1FU)
 /* define the voltage key unlock value */
 #define RCU_VKEY_UNLOCK                 ((uint32_t)0x1A2B3C4DU)
 
@@ -566,7 +566,7 @@ typedef enum {
     /* APB1 additional peripherals */
     RCU_CTC       = RCU_REGIDX_BIT(ADD_APB1EN_REG_OFFSET, 27U),             /*!< CTC clock */
     RCU_IREF      = RCU_REGIDX_BIT(ADD_APB1EN_REG_OFFSET, 31U),             /*!< IREF clock */
-} RCU_periph_enum;
+} RCU_Periph_enum;
 
 /* peripheral clock enable when sleep mode*/
 typedef enum {
@@ -648,7 +648,7 @@ typedef enum {
     /* APB1 additional peripherals */
     RCU_CTC_SLP       = RCU_REGIDX_BIT(ADD_APB1SPEN_REG_OFFSET, 27U),       /*!< CTC clock */
     RCU_IREF_SLP      = RCU_REGIDX_BIT(ADD_APB1SPEN_REG_OFFSET, 31U),       /*!< IREF clock */
-} RCU_periph_sleep_enum;
+} RCU_Periph_sleep_enum;
 
 /* peripherals reset */
 typedef enum {
@@ -719,54 +719,54 @@ typedef enum {
     /* APB1 additional peripherals */
     RCU_CTCRST       = RCU_REGIDX_BIT(ADD_APB1RST_REG_OFFSET, 27U),         /*!< CTC clock reset */
     RCU_IREFRST      = RCU_REGIDX_BIT(ADD_APB1RST_REG_OFFSET, 31U)          /*!< IREF clock reset */
-} RCU_periph_reset_enum;
+} RCU_Periph_reset_enum;
 
 /* clock stabilization and peripheral reset flags */
 typedef enum {
     /* clock stabilization flags */
-    RCU_FLAG_IRC16MSTB     = RCU_REGIDX_BIT(CTL_REG_OFFSET, 1U),            /*!< IRC16M stabilization flags */
-    RCU_FLAG_HXTALSTB      = RCU_REGIDX_BIT(CTL_REG_OFFSET, 17U),           /*!< HXTAL stabilization flags */
-    RCU_FLAG_PLLSTB        = RCU_REGIDX_BIT(CTL_REG_OFFSET, 25U),           /*!< PLL stabilization flags */
-    RCU_FLAG_PLLI2SSTB     = RCU_REGIDX_BIT(CTL_REG_OFFSET, 27U),           /*!< PLLI2S stabilization flags */
-    RCU_FLAG_PLLSAISTB     = RCU_REGIDX_BIT(CTL_REG_OFFSET, 29U),           /*!< PLLSAI stabilization flags */
-    RCU_FLAG_LXTALSTB      = RCU_REGIDX_BIT(BDCTL_REG_OFFSET, 1U),          /*!< LXTAL stabilization flags */
-    RCU_FLAG_IRC32KSTB     = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 1U),         /*!< IRC32K stabilization flags */
-    RCU_FLAG_IRC48MSTB     = RCU_REGIDX_BIT(ADDCTL_REG_OFFSET, 17U),        /*!< IRC48M stabilization flags */
+    RCU_Flag_IRC16MSTB     = RCU_REGIDX_BIT(CTL_REG_OFFSET, 1U),            /*!< IRC16M stabilization flags */
+    RCU_Flag_HXTALSTB      = RCU_REGIDX_BIT(CTL_REG_OFFSET, 17U),           /*!< HXTAL stabilization flags */
+    RCU_Flag_PLLSTB        = RCU_REGIDX_BIT(CTL_REG_OFFSET, 25U),           /*!< PLL stabilization flags */
+    RCU_Flag_PLLI2SSTB     = RCU_REGIDX_BIT(CTL_REG_OFFSET, 27U),           /*!< PLLI2S stabilization flags */
+    RCU_Flag_PLLSAISTB     = RCU_REGIDX_BIT(CTL_REG_OFFSET, 29U),           /*!< PLLSAI stabilization flags */
+    RCU_Flag_LXTALSTB      = RCU_REGIDX_BIT(BDCTL_REG_OFFSET, 1U),          /*!< LXTAL stabilization flags */
+    RCU_Flag_IRC32KSTB     = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 1U),         /*!< IRC32K stabilization flags */
+    RCU_Flag_IRC48MSTB     = RCU_REGIDX_BIT(ADDCTL_REG_OFFSET, 17U),        /*!< IRC48M stabilization flags */
     /* reset source flags */
-    RCU_FLAG_BORRST        = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 25U),        /*!< BOR reset flags */
-    RCU_FLAG_EPRST         = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 26U),        /*!< External PIN reset flags */
-    RCU_FLAG_PORRST        = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 27U),        /*!< power reset flags */
-    RCU_FLAG_SWRST         = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 28U),        /*!< Software reset flags */
-    RCU_FLAG_FWDGTRST      = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 29U),        /*!< FWDGT reset flags */
-    RCU_FLAG_WWDGTRST      = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 30U),        /*!< WWDGT reset flags */
-    RCU_FLAG_LPRST         = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 31U),        /*!< Low-power reset flags */
-} RCU_flag_enum;
+    RCU_Flag_BORRST        = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 25U),        /*!< BOR reset flags */
+    RCU_Flag_EPRST         = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 26U),        /*!< External PIN reset flags */
+    RCU_Flag_PORRST        = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 27U),        /*!< power reset flags */
+    RCU_Flag_SWRST         = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 28U),        /*!< Software reset flags */
+    RCU_Flag_FWDGTRST      = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 29U),        /*!< FWDGT reset flags */
+    RCU_Flag_WWDGTRST      = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 30U),        /*!< WWDGT reset flags */
+    RCU_Flag_LPRST         = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 31U),        /*!< Low-power reset flags */
+} RCU_Flag_enum;
 
 /* clock stabilization and ckm interrupt flags */
 typedef enum {
-    RCU_INT_FLAG_IRC32KSTB = RCU_REGIDX_BIT(INT_REG_OFFSET, 0U),            /*!< IRC32K stabilization interrupt flag */
-    RCU_INT_FLAG_LXTALSTB  = RCU_REGIDX_BIT(INT_REG_OFFSET, 1U),            /*!< LXTAL stabilization interrupt flag */
-    RCU_INT_FLAG_IRC16MSTB = RCU_REGIDX_BIT(INT_REG_OFFSET, 2U),            /*!< IRC16M stabilization interrupt flag */
-    RCU_INT_FLAG_HXTALSTB  = RCU_REGIDX_BIT(INT_REG_OFFSET, 3U),            /*!< HXTAL stabilization interrupt flag */
-    RCU_INT_FLAG_PLLSTB    = RCU_REGIDX_BIT(INT_REG_OFFSET, 4U),            /*!< PLL stabilization interrupt flag */
-    RCU_INT_FLAG_PLLI2SSTB = RCU_REGIDX_BIT(INT_REG_OFFSET, 5U),            /*!< PLLI2S stabilization interrupt flag */
-    RCU_INT_FLAG_PLLSAISTB = RCU_REGIDX_BIT(INT_REG_OFFSET, 6U),            /*!< PLLSAI stabilization interrupt flag */
-    RCU_INT_FLAG_CKM       = RCU_REGIDX_BIT(INT_REG_OFFSET, 7U),            /*!< HXTAL clock stuck interrupt flag */
-    RCU_INT_FLAG_IRC48MSTB = RCU_REGIDX_BIT(ADDINT_REG_OFFSET, 6U),         /*!< IRC48M stabilization interrupt flag */
-} RCU_int_flag_enum;
+    RCU_INT_Flag_IRC32KSTB = RCU_REGIDX_BIT(INT_REG_OFFSET, 0U),            /*!< IRC32K stabilization interrupt flag */
+    RCU_INT_Flag_LXTALSTB  = RCU_REGIDX_BIT(INT_REG_OFFSET, 1U),            /*!< LXTAL stabilization interrupt flag */
+    RCU_INT_Flag_IRC16MSTB = RCU_REGIDX_BIT(INT_REG_OFFSET, 2U),            /*!< IRC16M stabilization interrupt flag */
+    RCU_INT_Flag_HXTALSTB  = RCU_REGIDX_BIT(INT_REG_OFFSET, 3U),            /*!< HXTAL stabilization interrupt flag */
+    RCU_INT_Flag_PLLSTB    = RCU_REGIDX_BIT(INT_REG_OFFSET, 4U),            /*!< PLL stabilization interrupt flag */
+    RCU_INT_Flag_PLLI2SSTB = RCU_REGIDX_BIT(INT_REG_OFFSET, 5U),            /*!< PLLI2S stabilization interrupt flag */
+    RCU_INT_Flag_PLLSAISTB = RCU_REGIDX_BIT(INT_REG_OFFSET, 6U),            /*!< PLLSAI stabilization interrupt flag */
+    RCU_INT_Flag_CKM       = RCU_REGIDX_BIT(INT_REG_OFFSET, 7U),            /*!< HXTAL clock stuck interrupt flag */
+    RCU_INT_Flag_IRC48MSTB = RCU_REGIDX_BIT(ADDINT_REG_OFFSET, 6U),         /*!< IRC48M stabilization interrupt flag */
+} RCU_int_Flag_enum;
 
 /* clock stabilization and stuck interrupt flags clear */
 typedef enum {
-    RCU_INT_FLAG_IRC32KSTB_CLR = RCU_REGIDX_BIT(INT_REG_OFFSET, 16U),       /*!< IRC32K stabilization interrupt flags clear */
-    RCU_INT_FLAG_LXTALSTB_CLR  = RCU_REGIDX_BIT(INT_REG_OFFSET, 17U),       /*!< LXTAL stabilization interrupt flags clear */
-    RCU_INT_FLAG_IRC16MSTB_CLR = RCU_REGIDX_BIT(INT_REG_OFFSET, 18U),       /*!< IRC16M stabilization interrupt flags clear */
-    RCU_INT_FLAG_HXTALSTB_CLR  = RCU_REGIDX_BIT(INT_REG_OFFSET, 19U),       /*!< HXTAL stabilization interrupt flags clear */
-    RCU_INT_FLAG_PLLSTB_CLR    = RCU_REGIDX_BIT(INT_REG_OFFSET, 20U),       /*!< PLL stabilization interrupt flags clear */
-    RCU_INT_FLAG_PLLI2SSTB_CLR = RCU_REGIDX_BIT(INT_REG_OFFSET, 21U),       /*!< PLLI2S stabilization interrupt flags clear */
-    RCU_INT_FLAG_PLLSAISTB_CLR = RCU_REGIDX_BIT(INT_REG_OFFSET, 22U),       /*!< PLLSAI stabilization interrupt flags clear */
-    RCU_INT_FLAG_CKM_CLR       = RCU_REGIDX_BIT(INT_REG_OFFSET, 23U),       /*!< CKM interrupt flags clear */
-    RCU_INT_FLAG_IRC48MSTB_CLR = RCU_REGIDX_BIT(ADDINT_REG_OFFSET, 22U),    /*!< internal 48 MHz RC oscillator stabilization interrupt clear */
-} RCU_int_flag_clear_enum;
+    RCU_INT_Flag_IRC32KSTB_CLR = RCU_REGIDX_BIT(INT_REG_OFFSET, 16U),       /*!< IRC32K stabilization interrupt flags clear */
+    RCU_INT_Flag_LXTALSTB_CLR  = RCU_REGIDX_BIT(INT_REG_OFFSET, 17U),       /*!< LXTAL stabilization interrupt flags clear */
+    RCU_INT_Flag_IRC16MSTB_CLR = RCU_REGIDX_BIT(INT_REG_OFFSET, 18U),       /*!< IRC16M stabilization interrupt flags clear */
+    RCU_INT_Flag_HXTALSTB_CLR  = RCU_REGIDX_BIT(INT_REG_OFFSET, 19U),       /*!< HXTAL stabilization interrupt flags clear */
+    RCU_INT_Flag_PLLSTB_CLR    = RCU_REGIDX_BIT(INT_REG_OFFSET, 20U),       /*!< PLL stabilization interrupt flags clear */
+    RCU_INT_Flag_PLLI2SSTB_CLR = RCU_REGIDX_BIT(INT_REG_OFFSET, 21U),       /*!< PLLI2S stabilization interrupt flags clear */
+    RCU_INT_Flag_PLLSAISTB_CLR = RCU_REGIDX_BIT(INT_REG_OFFSET, 22U),       /*!< PLLSAI stabilization interrupt flags clear */
+    RCU_INT_Flag_CKM_CLR       = RCU_REGIDX_BIT(INT_REG_OFFSET, 23U),       /*!< CKM interrupt flags clear */
+    RCU_INT_Flag_IRC48MSTB_CLR = RCU_REGIDX_BIT(ADDINT_REG_OFFSET, 22U),    /*!< internal 48 MHz RC oscillator stabilization interrupt clear */
+} RCU_int_Flag_Clear_enum;
 
 /* clock stabilization interrupt enable or disable */
 typedef enum {
@@ -798,7 +798,7 @@ typedef enum {
     CK_AHB,                                                                 /*!< AHB clock */
     CK_APB1,                                                                /*!< APB1 clock */
     CK_APB2,                                                                /*!< APB2 clock */
-} RCU_clock_freq_enum;
+} RCU_Clock_freq_enum;
 
 /* RCU_CFG0 register bit define */
 /* system clock source select */
@@ -976,7 +976,7 @@ typedef enum {
 #define RCU_PLLN_MUL_MIN                ((uint32_t)64U)                    /*!< PLLN_MUL min value */
 #define RCU_PLLN_MUL_MAX                ((uint32_t)500U)                   /*!< PLLN_MUL max value */
 #define RCU_SS_MODULATION_CENTER_INC    ((uint32_t)5U)                     /*!< minimum factor of PLLN in center mode */
-#define RCU_SS_MODULATION_DOWN_INC      ((uint32_t)7U)                     /*!< minimum factor of PLLN in down mode */
+#define RCU_SS_MODULATION_Down_INC      ((uint32_t)7U)                     /*!< minimum factor of PLLN in down mode */
 
 /* The PLLP output frequency division factor from PLL VCO clock */
 #define RCU_PLLP_DIV_MIN                ((uint32_t)2U)                     /*!< PLLP_DIV min value */
@@ -1069,33 +1069,33 @@ typedef enum {
 /* deinitialize the RCU */
 void RCU_DeInit(void);
 /* enable the peripherals clock */
-void RCU_periph_clock_enable(RCU_periph_enum periph);
+void RCU_Periph_Clock_Enable(RCU_Periph_enum periph);
 /* disable the peripherals clock */
-void RCU_periph_clock_disable(RCU_periph_enum periph);
+void RCU_Periph_Clock_Disable(RCU_Periph_enum periph);
 /* enable the peripherals clock when sleep mode */
-void RCU_periph_clock_sleep_enable(RCU_periph_sleep_enum periph);
+void RCU_Periph_Clock_sleep_Enable(RCU_Periph_sleep_enum periph);
 /* disable the peripherals clock when sleep mode */
-void RCU_periph_clock_sleep_disable(RCU_periph_sleep_enum periph);
+void RCU_Periph_Clock_sleep_Disable(RCU_Periph_sleep_enum periph);
 /* reset the peripherals */
-void RCU_Periph_Reset_Enable(RCU_periph_reset_enum periph_reset);
+void RCU_Periph_Reset_Enable(RCU_Periph_reset_enum periph_reset);
 /* disable reset the peripheral */
-void RCU_Periph_Reset_Disable(RCU_periph_reset_enum periph_reset);
+void RCU_Periph_Reset_Disable(RCU_Periph_reset_enum periph_reset);
 /* reset the BKP */
-void RCU_bkp_reset_enable(void);
+void RCU_bkp_reset_Enable(void);
 /* disable the BKP reset */
-void RCU_bkp_reset_disable(void);
+void RCU_bkp_reset_Disable(void);
 
 /* system and peripherals clock source, system reset configure functions */
 /* configure the system clock source */
-void RCU_system_clock_source_Config(uint32_t ck_sys);
+void RCU_System_Clock_Source_Config(uint32_t ck_sys);
 /* get the system clock source */
-uint32_t RCU_system_clock_source_get(void);
+uint32_t RCU_System_Clock_Source_Get(void);
 /* configure the AHB prescaler selection */
-void RCU_ahb_clock_Config(uint32_t ck_ahb);
+void RCU_ahb_Clock_Config(uint32_t ck_ahb);
 /* configure the APB1 prescaler selection */
-void RCU_apb1_clock_Config(uint32_t ck_apb1);
+void RCU_apb1_Clock_Config(uint32_t ck_apb1);
 /* configure the APB2 prescaler selection */
-void RCU_apb2_clock_Config(uint32_t ck_apb2);
+void RCU_apb2_Clock_Config(uint32_t ck_apb2);
 /* configure the CK_OUT0 clock source and divider */
 void RCU_ckout0_Config(uint32_t ckout0_src, uint32_t ckout0_div);
 /* configure the CK_OUT1 clock source and divider */
@@ -1103,23 +1103,23 @@ void RCU_ckout1_Config(uint32_t ckout1_src, uint32_t ckout1_div);
 /* configure the PLL clock source selection and PLL multiply factor */
 ErrStatus RCU_pll_Config(uint32_t pll_src, uint32_t pll_psc, uint32_t pll_n, uint32_t pll_p, uint32_t pll_q);
 /* configure the PLLI2S clock */
-ErrStatus RCU_plli2s_Config(uint32_t plli2s_n, uint32_t plli2s_r);
+ErrStatus RCU_pllI2S_Config(uint32_t pllI2S_n, uint32_t pllI2S_r);
 /* configure the PLLSAI clock */
 ErrStatus RCU_pllsai_Config(uint32_t pllsai_n, uint32_t pllsai_p, uint32_t pllsai_r);
 /* configure the RTC clock source selection */
-void RCU_RTC_clock_Config(uint32_t RTC_clock_source);
+void RCU_RTC_Clock_Config(uint32_t RTC_Clock_source);
 /* cconfigure the frequency division of RTC clock when HXTAL was selected as its clock source */
 void RCU_RTC_div_Config(uint32_t RTC_div);
 /* configure the I2S clock source selection */
-void RCU_i2s_clock_Config(uint32_t i2s_clock_source);
+void RCU_I2S_Clock_Config(uint32_t I2S_Clock_source);
 /* configure the CK48M clock selection */
-void RCU_ck48m_clock_Config(uint32_t ck48m_clock_source);
+void RCU_ck48m_Clock_Config(uint32_t ck48m_Clock_source);
 /* configure the PLL48M clock selection */
-void RCU_pll48m_clock_Config(uint32_t pll48m_clock_source);
+void RCU_pll48m_Clock_Config(uint32_t pll48m_Clock_source);
 /* configure the TIMER clock prescaler selection */
-void RCU_TIMER_clock_prescaler_Config(uint32_t TIMER_clock_prescaler);
+void RCU_TIMER_Clock_Prescaler_Config(uint32_t TIMER_Clock_prescaler);
 /* configure the TLI clock division selection */
-void RCU_tli_clock_div_Config(uint32_t pllsai_r_div);
+void RCU_tli_Clock_div_Config(uint32_t pllsai_r_div);
 
 /* LXTAL, IRC8M, PLL and other oscillator configure functions */
 /* configure the LXTAL drive capability */
@@ -1131,44 +1131,44 @@ void RCU_osci_on(RCU_osci_type_enum osci);
 /* turn off the oscillator */
 void RCU_osci_off(RCU_osci_type_enum osci);
 /* enable the oscillator bypass mode, HXTALEN or LXTALEN must be reset before it */
-void RCU_osci_bypass_mode_enable(RCU_osci_type_enum osci);
+void RCU_osci_bypass_Mode_Enable(RCU_osci_type_enum osci);
 /* disable the oscillator bypass mode, HXTALEN or LXTALEN must be reset before it */
-void RCU_osci_bypass_mode_disable(RCU_osci_type_enum osci);
+void RCU_osci_bypass_Mode_Disable(RCU_osci_type_enum osci);
 /* set the IRC16M adjust value */
-void RCU_irc16m_adjust_value_set(uint32_t irc16m_adjval);
+void RCU_irc16m_adjust_Value_Set(uint32_t irc16m_adjval);
 /* configure the spread spectrum modulation for the main PLL clock */
 void RCU_spread_spectrum_Config(uint32_t spread_spectrum_type, uint32_t modstep, uint32_t modcnt);
 /* enable the spread spectrum modulation for the main PLL clock */
-void RCU_spread_spectrum_enable(void);
+void RCU_spread_spectrum_Enable(void);
 /* disable the spread spectrum modulation for the main PLL clock */
-void RCU_spread_spectrum_disable(void);
+void RCU_spread_spectrum_Disable(void);
 
 /* clock monitor configure functions */
 /* enable the HXTAL clock monitor */
-void RCU_hxtal_clock_monitor_enable(void);
+void RCU_hxtal_Clock_monitor_Enable(void);
 /* disable the HXTAL clock monitor */
-void RCU_hxtal_clock_monitor_disable(void);
+void RCU_hxtal_Clock_monitor_Disable(void);
 
 /* voltage configure and clock frequency get functions */
 /* unlock the voltage key */
-void RCU_voltage_key_unlock(void);
+void RCU_voltage_Key_unlock(void);
 /* set the deep sleep mode voltage */
-void RCU_deepsleep_voltage_set(uint32_t dsvol);
+void RCU_deepsleep_voltage_Set(uint32_t dsvol);
 /* get the system clock, bus and peripheral clock frequency */
-uint32_t RCU_Clock_Freq_Get(RCU_clock_freq_enum clock);
+uint32_t RCU_Clock_Freq_Get(RCU_Clock_freq_enum clock);
 
 /* flag & interrupt functions */
 /* get the clock stabilization and periphral reset flags */
-FlagStatus RCU_flag_get(RCU_flag_enum flag);
+FlagStatus RCU_Flag_Get(RCU_Flag_enum flag);
 /* clear the reset flag */
-void RCU_all_reset_flag_clear(void);
+void RCU_all_reset_Flag_Clear(void);
 /* get the clock stabilization interrupt and ckm flags */
-FlagStatus RCU_Interrupt_flag_get(RCU_int_flag_enum int_flag);
+FlagStatus RCU_Interrupt_Flag_Get(RCU_int_Flag_enum int_flag);
 /* clear the interrupt flags */
-void RCU_Interrupt_flag_clear(RCU_int_flag_clear_enum int_flag);
+void RCU_Interrupt_Flag_Clear(RCU_int_Flag_Clear_enum int_flag);
 /* enable the stabilization interrupt */
-void RCU_Interrupt_enable(RCU_int_enum interrupt);
+void RCU_Interrupt_Enable(RCU_int_enum interrupt);
 /* disable the stabilization interrupt */
-void RCU_Interrupt_disable(RCU_int_enum interrupt);
+void RCU_Interrupt_Disable(RCU_int_enum interrupt);
 
 #endif /* GD32F4XX_RCU_H */

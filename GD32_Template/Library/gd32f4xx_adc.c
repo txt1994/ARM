@@ -37,29 +37,29 @@ OF SUCH DAMAGE.
 
 #include "gd32f4xx_adc.h"
 
-#define REGULAR_TRIGGER_MODE                        ((uint32_t)28U)
-#define INSERTED_TRIGGER_MODE                       ((uint32_t)20U)
+#define REGULAR_Trigger_MODE                        ((uint32_t)28U)
+#define INSERTED_Trigger_MODE                       ((uint32_t)20U)
 /* discontinuous mode macro*/
-#define  ADC_CHANNEL_Length_SUBTRACT_ONE            ((uint8_t)1U)
+#define  ADC_Channel_Length_SUBTRACT_ONE            ((uint8_t)1U)
 
 /* ADC regular channel macro */
-#define  ADC_REGULAR_CHANNEL_RANK_SIX               ((uint8_t)6U)
-#define  ADC_REGULAR_CHANNEL_RANK_TWELVE            ((uint8_t)12U)
-#define  ADC_REGULAR_CHANNEL_RANK_SIXTEEN           ((uint8_t)16U)
-#define  ADC_REGULAR_CHANNEL_RANK_LENGTH            ((uint8_t)5U)
+#define  ADC_Regular_Channel_RANK_SIX               ((uint8_t)6U)
+#define  ADC_Regular_Channel_RANK_TWELVE            ((uint8_t)12U)
+#define  ADC_Regular_Channel_RANK_SIXTEEN           ((uint8_t)16U)
+#define  ADC_Regular_Channel_RANK_LENGTH            ((uint8_t)5U)
 
 /* ADC sampling time macro */
-#define  ADC_CHANNEL_SAMPLE_TEN                     ((uint8_t)10U)
-#define  ADC_CHANNEL_SAMPLE_EIGHTEEN                ((uint8_t)18U)
-#define  ADC_CHANNEL_SAMPLE_LENGTH                  ((uint8_t)3U)
+#define  ADC_Channel_Sample_TEN                     ((uint8_t)10U)
+#define  ADC_Channel_Sample_EIGHTEEN                ((uint8_t)18U)
+#define  ADC_Channel_Sample_LENGTH                  ((uint8_t)3U)
 
 /* ADC inserted channel macro */
-#define  ADC_INSERTED_CHANNEL_RANK_LENGTH           ((uint8_t)5U)
-#define  ADC_INSERTED_CHANNEL_SHIFT_LENGTH          ((uint8_t)15U)
+#define  ADC_Inserted_Channel_RANK_LENGTH           ((uint8_t)5U)
+#define  ADC_Inserted_Channel_SHIFT_LENGTH          ((uint8_t)15U)
 
 /* ADC inserted channel offset macro */
-#define  ADC_OFFSET_LENGTH                          ((uint8_t)3U)
-#define  ADC_OFFSET_SHIFT_LENGTH                    ((uint8_t)4U)
+#define  ADC_Offset_LENGTH                          ((uint8_t)3U)
+#define  ADC_Offset_SHIFT_LENGTH                    ((uint8_t)4U)
 
 /*!
     简介:    reset ADC
@@ -87,7 +87,7 @@ void ADC_DeInit(void) {
     参数[输出]:   none
     返回值:       none
 */
-void ADC_clock_Config(uint32_t prescaler) {
+void ADC_Clock_Config(uint32_t prescaler) {
     ADC_SYNCCTL &= ~((uint32_t)ADC_SYNCCTL_ADCCK);
     ADC_SYNCCTL |= (uint32_t) prescaler;
 }
@@ -98,22 +98,22 @@ void ADC_clock_Config(uint32_t prescaler) {
     参数[输入]:    function: the function to config
                   only one parameter can be selected which is shown as below:
     参数:          ADC_SCAN_MODE: scan mode select
-    参数:          ADC_INSERTED_CHANNEL_AUTO: inserted channel group convert automatically
+    参数:          ADC_Inserted_Channel_AUTO: inserted channel group convert automatically
     参数:          ADC_CONTINUOUS_MODE: continuous mode select
     参数[输入]:    newvalue: ENABLE or DISABLE
     参数[输出]:   none
     返回值:       none
 */
-void ADC_special_function_Config(uint32_t ADC_periph, uint32_t function, ControlStatus newvalue) {
+void ADC_Special_Function_Config(uint32_t ADC_periph, uint32_t function, ControlStatus newvalue) {
     if(newvalue) {
         if(0U != (function & ADC_SCAN_MODE)) {
             /* enable scan mode */
             ADC_CTL0(ADC_periph) |= ADC_SCAN_MODE;
         }
 
-        if(0U != (function & ADC_INSERTED_CHANNEL_AUTO)) {
+        if(0U != (function & ADC_Inserted_Channel_AUTO)) {
             /* enable inserted channel group convert automatically */
-            ADC_CTL0(ADC_periph) |= ADC_INSERTED_CHANNEL_AUTO;
+            ADC_CTL0(ADC_periph) |= ADC_Inserted_Channel_AUTO;
         }
 
         if(0U != (function & ADC_CONTINUOUS_MODE)) {
@@ -126,9 +126,9 @@ void ADC_special_function_Config(uint32_t ADC_periph, uint32_t function, Control
             ADC_CTL0(ADC_periph) &= ~ADC_SCAN_MODE;
         }
 
-        if(0U != (function & ADC_INSERTED_CHANNEL_AUTO)) {
+        if(0U != (function & ADC_Inserted_Channel_AUTO)) {
             /* disable inserted channel group convert automatically */
-            ADC_CTL0(ADC_periph) &= ~ADC_INSERTED_CHANNEL_AUTO;
+            ADC_CTL0(ADC_periph) &= ~ADC_Inserted_Channel_AUTO;
         }
 
         if(0U != (function & ADC_CONTINUOUS_MODE)) {
@@ -148,7 +148,7 @@ void ADC_special_function_Config(uint32_t ADC_periph, uint32_t function, Control
     参数[输出]:   none
     返回值:       none
 */
-void ADC_data_alignment_Config(uint32_t ADC_periph, uint32_t data_alignment) {
+void ADC_Data_Alignment_Config(uint32_t ADC_periph, uint32_t data_alignment) {
     if(ADC_DATAALIGN_RIGHT != data_alignment) {
         /* MSB alignment */
         ADC_CTL1(ADC_periph) |= ADC_CTL1_DAL;
@@ -164,7 +164,7 @@ void ADC_data_alignment_Config(uint32_t ADC_periph, uint32_t data_alignment) {
     参数[输出]:   none
     返回值:       none
 */
-void ADC_enable(uint32_t ADC_periph) {
+void ADC_Enable(uint32_t ADC_periph) {
     if(RESET == (ADC_CTL1(ADC_periph) & ADC_CTL1_ADCON)) {
         /* enable ADC */
         ADC_CTL1(ADC_periph) |= (uint32_t)ADC_CTL1_ADCON;
@@ -177,7 +177,7 @@ void ADC_enable(uint32_t ADC_periph) {
     参数[输出]:   none
     返回值:       none
 */
-void ADC_disable(uint32_t ADC_periph) {
+void ADC_Disable(uint32_t ADC_periph) {
     /* disable ADC */
     ADC_CTL1(ADC_periph) &= ~((uint32_t)ADC_CTL1_ADCON);
 }
@@ -188,7 +188,7 @@ void ADC_disable(uint32_t ADC_periph) {
     参数[输出]:   none
     返回值:       none
 */
-void ADC_calibration_enable(uint32_t ADC_periph) {
+void ADC_Calibration_Enable(uint32_t ADC_periph) {
     /* reset the selected ADC calibration registers */
     ADC_CTL1(ADC_periph) |= (uint32_t) ADC_CTL1_RSTCLB;
 
@@ -208,32 +208,32 @@ void ADC_calibration_enable(uint32_t ADC_periph) {
     简介:        configure temperature sensor and internal reference voltage channel or VBAT channel function
     参数[输入]:    function: temperature sensor and internal reference voltage channel or VBAT channel
                   only one parameter can be selected which is shown as below:
-    参数:          ADC_VBAT_CHANNEL_SWITCH: channel 18 (1/4 voltate of external battery) switch of ADC0
-    参数:          ADC_TEMP_VREF_CHANNEL_SWITCH: channel 16 (temperature sensor) and 17 (internal reference voltage) switch of ADC0
+    参数:          ADC_VBAT_Channel_SWITCH: channel 18 (1/4 voltate of external battery) switch of ADC0
+    参数:          ADC_TEMP_VREF_Channel_SWITCH: channel 16 (temperature sensor) and 17 (internal reference voltage) switch of ADC0
     参数[输入]:    newvalue: ENABLE or DISABLE
     参数[输出]:   none
     返回值:       none
 */
-void ADC_channel_16_to_18(uint32_t function, ControlStatus newvalue) {
+void ADC_Channel_16_to_18(uint32_t function, ControlStatus newvalue) {
     if(newvalue) {
-        if(RESET != (function & ADC_VBAT_CHANNEL_SWITCH)) {
+        if(RESET != (function & ADC_VBAT_Channel_SWITCH)) {
             /* enable ADC0 Vbat channel */
-            ADC_SYNCCTL |= ADC_VBAT_CHANNEL_SWITCH;
+            ADC_SYNCCTL |= ADC_VBAT_Channel_SWITCH;
         }
 
-        if(RESET != (function & ADC_TEMP_VREF_CHANNEL_SWITCH)) {
+        if(RESET != (function & ADC_TEMP_VREF_Channel_SWITCH)) {
             /* enable ADC0 Vref and Temperature channel */
-            ADC_SYNCCTL |= ADC_TEMP_VREF_CHANNEL_SWITCH;
+            ADC_SYNCCTL |= ADC_TEMP_VREF_Channel_SWITCH;
         }
     } else {
-        if(RESET != (function & ADC_VBAT_CHANNEL_SWITCH)) {
+        if(RESET != (function & ADC_VBAT_Channel_SWITCH)) {
             /* disable ADC0 Vbat channel  */
-            ADC_SYNCCTL &= ~ADC_VBAT_CHANNEL_SWITCH;
+            ADC_SYNCCTL &= ~ADC_VBAT_Channel_SWITCH;
         }
 
-        if(RESET != (function & ADC_TEMP_VREF_CHANNEL_SWITCH)) {
+        if(RESET != (function & ADC_TEMP_VREF_Channel_SWITCH)) {
             /* disable ADC0 Vref and Temperature channel */
-            ADC_SYNCCTL &= ~ADC_TEMP_VREF_CHANNEL_SWITCH;
+            ADC_SYNCCTL &= ~ADC_TEMP_VREF_Channel_SWITCH;
         }
     }
 }
@@ -243,14 +243,14 @@ void ADC_channel_16_to_18(uint32_t function, ControlStatus newvalue) {
     参数[输入]:    ADC_periph: ADCx,x=0,1,2
     参数[输入]:    resolution: ADC resolution
                   only one parameter can be selected which is shown as below:
-    参数:          ADC_RESOLUTION_12B: 12-bit ADC resolution
-    参数:          ADC_RESOLUTION_10B: 10-bit ADC resolution
-    参数:          ADC_RESOLUTION_8B: 8-bit ADC resolution
-    参数:          ADC_RESOLUTION_6B: 6-bit ADC resolution
+    参数:          ADC_Resolution_12B: 12-bit ADC resolution
+    参数:          ADC_Resolution_10B: 10-bit ADC resolution
+    参数:          ADC_Resolution_8B: 8-bit ADC resolution
+    参数:          ADC_Resolution_6B: 6-bit ADC resolution
     参数[输出]:   none
     返回值:       none
 */
-void ADC_resolution_Config(uint32_t ADC_periph, uint32_t resolution) {
+void ADC_Resolution_Config(uint32_t ADC_periph, uint32_t resolution) {
     ADC_CTL0(ADC_periph) &= ~((uint32_t)ADC_CTL0_DRES);
     ADC_CTL0(ADC_periph) |= (uint32_t)resolution;
 }
@@ -286,7 +286,7 @@ void ADC_resolution_Config(uint32_t ADC_periph, uint32_t resolution) {
     参数[输出]:   none
     返回值:       none
 */
-void ADC_oversample_mode_Config(uint32_t ADC_periph, uint32_t mode, uint16_t shift, uint8_t ratio) {
+void ADC_OverSample_Mode_Config(uint32_t ADC_periph, uint32_t mode, uint16_t shift, uint8_t ratio) {
     if(ADC_OVERSAMPLING_ONE_CONVERT == mode) {
         ADC_OVSAMPCTL(ADC_periph) |= (uint32_t)ADC_OVSAMPCTL_TOVS;
     } else {
@@ -304,7 +304,7 @@ void ADC_oversample_mode_Config(uint32_t ADC_periph, uint32_t mode, uint16_t shi
     参数[输出]:   none
     返回值:       none
 */
-void ADC_oversample_mode_enable(uint32_t ADC_periph) {
+void ADC_OverSample_Mode_Enable(uint32_t ADC_periph) {
     ADC_OVSAMPCTL(ADC_periph) |= ADC_OVSAMPCTL_OVSEN;
 }
 
@@ -314,7 +314,7 @@ void ADC_oversample_mode_enable(uint32_t ADC_periph) {
     参数[输出]:   none
     返回值:       none
 */
-void ADC_oversample_mode_disable(uint32_t ADC_periph) {
+void ADC_OverSample_Mode_Disable(uint32_t ADC_periph) {
     ADC_OVSAMPCTL(ADC_periph) &= ~((uint32_t)ADC_OVSAMPCTL_OVSEN);
 }
 
@@ -324,7 +324,7 @@ void ADC_oversample_mode_disable(uint32_t ADC_periph) {
     参数[输出]:   none
     返回值:       none
 */
-void ADC_DMA_mode_enable(uint32_t ADC_periph) {
+void ADC_DMA_Mode_Enable(uint32_t ADC_periph) {
     /* enable DMA request */
     ADC_CTL1(ADC_periph) |= (uint32_t)(ADC_CTL1_DMA);
 }
@@ -335,7 +335,7 @@ void ADC_DMA_mode_enable(uint32_t ADC_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void ADC_DMA_mode_disable(uint32_t ADC_periph) {
+void ADC_DMA_Mode_Disable(uint32_t ADC_periph) {
     /* disable DMA request */
     ADC_CTL1(ADC_periph) &= ~((uint32_t)ADC_CTL1_DMA);
 }
@@ -346,7 +346,7 @@ void ADC_DMA_mode_disable(uint32_t ADC_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void ADC_DMA_request_after_last_enable(uint32_t ADC_periph) {
+void ADC_DMA_Request_After_Last_Enable(uint32_t ADC_periph) {
     ADC_CTL1(ADC_periph) |= (uint32_t)(ADC_CTL1_DDM);
 }
 
@@ -356,46 +356,46 @@ void ADC_DMA_request_after_last_enable(uint32_t ADC_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void ADC_DMA_request_after_last_disable(uint32_t ADC_periph) {
+void ADC_DMA_Request_After_Last_Disable(uint32_t ADC_periph) {
     ADC_CTL1(ADC_periph) &= ~((uint32_t)ADC_CTL1_DDM);
 }
 
 /*!
     简介:        configure ADC discontinuous mode
     参数[输入]:    ADC_periph: ADCx,x=0,1,2
-    参数[输入]:    ADC_channel_group: select the channel group
+    参数[输入]:    ADC_Channel_group: select the channel group
                   only one parameter can be selected which is shown as below:
-    参数:          ADC_REGULAR_CHANNEL: regular channel group
-    参数:          ADC_INSERTED_CHANNEL: inserted channel group
-    参数:          ADC_CHANNEL_DISCON_DISABLE: disable discontinuous mode of regular & inserted channel
+    参数:          ADC_Regular_CHANNEL: regular channel group
+    参数:          ADC_Inserted_CHANNEL: inserted channel group
+    参数:          ADC_Channel_DISCON_DISABLE: disable discontinuous mode of regular & inserted channel
     参数[输入]:    length: number of conversions in discontinuous mode,the number can be 1..8
                   for regular channel ,the number has no effect for inserted channel
     参数[输出]:   none
     返回值:       none
 */
-void ADC_discontinuous_mode_Config(uint32_t ADC_periph, uint8_t ADC_channel_group, uint8_t length) {
+void ADC_Discontinuous_Mode_Config(uint32_t ADC_periph, uint8_t ADC_Channel_group, uint8_t length) {
     /* disable discontinuous mode of regular & inserted channel */
     ADC_CTL0(ADC_periph) &= ~((uint32_t)(ADC_CTL0_DISRC | ADC_CTL0_DISIC));
 
-    switch(ADC_channel_group) {
-    case ADC_REGULAR_CHANNEL:
+    switch(ADC_Channel_group) {
+    case ADC_Regular_CHANNEL:
         /* config the number of conversions in discontinuous mode  */
         ADC_CTL0(ADC_periph) &= ~((uint32_t)ADC_CTL0_DISNUM);
 
         if((length <= 8U) && (length >= 1U)) {
-            ADC_CTL0(ADC_periph) |= CTL0_DISNUM(((uint32_t)length - ADC_CHANNEL_Length_SUBTRACT_ONE));
+            ADC_CTL0(ADC_periph) |= CTL0_DISNUM(((uint32_t)length - ADC_Channel_Length_SUBTRACT_ONE));
         }
 
         /* enable regular channel group discontinuous mode */
         ADC_CTL0(ADC_periph) |= (uint32_t)ADC_CTL0_DISRC;
         break;
 
-    case ADC_INSERTED_CHANNEL:
+    case ADC_Inserted_CHANNEL:
         /* enable inserted channel group discontinuous mode */
         ADC_CTL0(ADC_periph) |= (uint32_t)ADC_CTL0_DISIC;
         break;
 
-    case ADC_CHANNEL_DISCON_DISABLE:
+    case ADC_Channel_DISCON_DISABLE:
 
     /* disable discontinuous mode of regular & inserted channel */
     default:
@@ -406,30 +406,30 @@ void ADC_discontinuous_mode_Config(uint32_t ADC_periph, uint8_t ADC_channel_grou
 /*!
     简介:        configure the length of regular channel group or inserted channel group
     参数[输入]:    ADC_periph: ADCx,x=0,1,2
-    参数[输入]:    ADC_channel_group: select the channel group
+    参数[输入]:    ADC_Channel_group: select the channel group
                   only one parameter can be selected which is shown as below:
-    参数:          ADC_REGULAR_CHANNEL: regular channel group
-    参数:          ADC_INSERTED_CHANNEL: inserted channel group
+    参数:          ADC_Regular_CHANNEL: regular channel group
+    参数:          ADC_Inserted_CHANNEL: inserted channel group
     参数[输入]:    length: the length of the channel
                   regular channel 1-16
                   inserted channel 1-4
     参数[输出]:   none
     返回值:       none
 */
-void ADC_channel_Length_Config(uint32_t ADC_periph, uint8_t ADC_channel_group, uint32_t length) {
-    switch(ADC_channel_group) {
-    case ADC_REGULAR_CHANNEL:
+void ADC_Channel_Length_Config(uint32_t ADC_periph, uint8_t ADC_Channel_group, uint32_t length) {
+    switch(ADC_Channel_group) {
+    case ADC_Regular_CHANNEL:
         if((length >= 1U) && (length <= 16U)) {
             ADC_RSQ0(ADC_periph) &= ~((uint32_t)ADC_RSQ0_RL);
-            ADC_RSQ0(ADC_periph) |= RSQ0_RL((uint32_t)(length - ADC_CHANNEL_Length_SUBTRACT_ONE));
+            ADC_RSQ0(ADC_periph) |= RSQ0_RL((uint32_t)(length - ADC_Channel_Length_SUBTRACT_ONE));
         }
 
         break;
 
-    case ADC_INSERTED_CHANNEL:
+    case ADC_Inserted_CHANNEL:
         if((length >= 1U) && (length <= 4U)) {
             ADC_ISQ(ADC_periph) &= ~((uint32_t)ADC_ISQ_IL);
-            ADC_ISQ(ADC_periph) |= ISQ_IL((uint32_t)(length - ADC_CHANNEL_Length_SUBTRACT_ONE));
+            ADC_ISQ(ADC_periph) |= ISQ_IL((uint32_t)(length - ADC_Channel_Length_SUBTRACT_ONE));
         }
 
         break;
@@ -445,7 +445,7 @@ void ADC_channel_Length_Config(uint32_t ADC_periph, uint8_t ADC_channel_group, u
     参数[输入]:    rank: the regular group sequencer rank,this parameter must be between 0 to 15
     参数[输入]:    ADC_channel: the selected ADC channel
                   only one parameter can be selected which is shown as below:
-    参数:          ADC_CHANNEL_x(x=0..18): ADC Channelx
+    参数:          ADC_Channel_x(x=0..18): ADC Channelx
     参数[输入]:    sample_time: the sample time value
                   only one parameter can be selected which is shown as below:
     参数:          ADC_SAMPLETIME_3: 3 cycles
@@ -459,48 +459,48 @@ void ADC_channel_Length_Config(uint32_t ADC_periph, uint8_t ADC_channel_group, u
     参数[输出]:   none
     返回值:       none
 */
-void ADC_regular_channel_Config(uint32_t ADC_periph, uint8_t rank, uint8_t ADC_channel, uint32_t sample_time) {
+void ADC_Regular_Channel_Config(uint32_t ADC_periph, uint8_t rank, uint8_t ADC_channel, uint32_t sample_time) {
     uint32_t rsq, sampt;
 
     /* ADC regular sequence config */
-    if(rank < ADC_REGULAR_CHANNEL_RANK_SIX) {
+    if(rank < ADC_Regular_Channel_RANK_SIX) {
         /* the regular group sequence rank is smaller than six */
         rsq = ADC_RSQ2(ADC_periph);
-        rsq &=  ~((uint32_t)(ADC_RSQX_RSQN << (ADC_REGULAR_CHANNEL_RANK_LENGTH * rank)));
+        rsq &=  ~((uint32_t)(ADC_RSQX_RSQN << (ADC_Regular_Channel_RANK_LENGTH * rank)));
         /* the channel number is written to these bits to select a channel as the nth conversion in the regular channel group */
-        rsq |= ((uint32_t)ADC_channel << (ADC_REGULAR_CHANNEL_RANK_LENGTH * rank));
+        rsq |= ((uint32_t)ADC_channel << (ADC_Regular_Channel_RANK_LENGTH * rank));
         ADC_RSQ2(ADC_periph) = rsq;
-    } else if(rank < ADC_REGULAR_CHANNEL_RANK_TWELVE) {
+    } else if(rank < ADC_Regular_Channel_RANK_TWELVE) {
         /* the regular group sequence rank is smaller than twelve */
         rsq = ADC_RSQ1(ADC_periph);
-        rsq &= ~((uint32_t)(ADC_RSQX_RSQN << (ADC_REGULAR_CHANNEL_RANK_LENGTH * (rank - ADC_REGULAR_CHANNEL_RANK_SIX))));
+        rsq &= ~((uint32_t)(ADC_RSQX_RSQN << (ADC_Regular_Channel_RANK_LENGTH * (rank - ADC_Regular_Channel_RANK_SIX))));
         /* the channel number is written to these bits to select a channel as the nth conversion in the regular channel group */
-        rsq |= ((uint32_t)ADC_channel << (ADC_REGULAR_CHANNEL_RANK_LENGTH * (rank - ADC_REGULAR_CHANNEL_RANK_SIX)));
+        rsq |= ((uint32_t)ADC_channel << (ADC_Regular_Channel_RANK_LENGTH * (rank - ADC_Regular_Channel_RANK_SIX)));
         ADC_RSQ1(ADC_periph) = rsq;
-    } else if(rank < ADC_REGULAR_CHANNEL_RANK_SIXTEEN) {
+    } else if(rank < ADC_Regular_Channel_RANK_SIXTEEN) {
         /* the regular group sequence rank is smaller than sixteen */
         rsq = ADC_RSQ0(ADC_periph);
-        rsq &= ~((uint32_t)(ADC_RSQX_RSQN << (ADC_REGULAR_CHANNEL_RANK_LENGTH * (rank - ADC_REGULAR_CHANNEL_RANK_TWELVE))));
+        rsq &= ~((uint32_t)(ADC_RSQX_RSQN << (ADC_Regular_Channel_RANK_LENGTH * (rank - ADC_Regular_Channel_RANK_TWELVE))));
         /* the channel number is written to these bits to select a channel as the nth conversion in the regular channel group */
-        rsq |= ((uint32_t)ADC_channel << (ADC_REGULAR_CHANNEL_RANK_LENGTH * (rank - ADC_REGULAR_CHANNEL_RANK_TWELVE)));
+        rsq |= ((uint32_t)ADC_channel << (ADC_Regular_Channel_RANK_LENGTH * (rank - ADC_Regular_Channel_RANK_TWELVE)));
         ADC_RSQ0(ADC_periph) = rsq;
     } else {
     }
 
     /* ADC sampling time config */
-    if(ADC_channel < ADC_CHANNEL_SAMPLE_TEN) {
+    if(ADC_channel < ADC_Channel_Sample_TEN) {
         /* the regular group sequence rank is smaller than ten */
         sampt = ADC_SAMPT1(ADC_periph);
-        sampt &= ~((uint32_t)(ADC_SAMPTX_SPTN << (ADC_CHANNEL_SAMPLE_LENGTH * ADC_channel)));
+        sampt &= ~((uint32_t)(ADC_SAMPTX_SPTN << (ADC_Channel_Sample_LENGTH * ADC_channel)));
         /* channel sample time set*/
-        sampt |= (uint32_t)(sample_time << (ADC_CHANNEL_SAMPLE_LENGTH * ADC_channel));
+        sampt |= (uint32_t)(sample_time << (ADC_Channel_Sample_LENGTH * ADC_channel));
         ADC_SAMPT1(ADC_periph) = sampt;
-    } else if(ADC_channel <= ADC_CHANNEL_SAMPLE_EIGHTEEN) {
+    } else if(ADC_channel <= ADC_Channel_Sample_EIGHTEEN) {
         /* the regular group sequence rank is smaller than eighteen */
         sampt = ADC_SAMPT0(ADC_periph);
-        sampt &= ~((uint32_t)(ADC_SAMPTX_SPTN << (ADC_CHANNEL_SAMPLE_LENGTH * (ADC_channel - ADC_CHANNEL_SAMPLE_TEN))));
+        sampt &= ~((uint32_t)(ADC_SAMPTX_SPTN << (ADC_Channel_Sample_LENGTH * (ADC_channel - ADC_Channel_Sample_TEN))));
         /* channel sample time set*/
-        sampt |= (uint32_t)(sample_time << (ADC_CHANNEL_SAMPLE_LENGTH * (ADC_channel - ADC_CHANNEL_SAMPLE_TEN)));
+        sampt |= (uint32_t)(sample_time << (ADC_Channel_Sample_LENGTH * (ADC_channel - ADC_Channel_Sample_TEN)));
         ADC_SAMPT0(ADC_periph) = sampt;
     } else {
     }
@@ -512,7 +512,7 @@ void ADC_regular_channel_Config(uint32_t ADC_periph, uint8_t rank, uint8_t ADC_c
     参数[输入]:  rank: the inserted group sequencer rank,this parameter must be between 0 to 3
     参数[输入]:  ADC_channel: the selected ADC channel
                 only one parameter can be selected which is shown as below:
-    参数:        ADC_CHANNEL_x(x=0..18): ADC Channelx
+    参数:        ADC_Channel_x(x=0..18): ADC Channelx
     参数[输入]:  sample_time: The sample time value
                 only one parameter can be selected which is shown as below:
     参数:        ADC_SAMPLETIME_3: 3 cycles
@@ -526,7 +526,7 @@ void ADC_regular_channel_Config(uint32_t ADC_periph, uint8_t rank, uint8_t ADC_c
     参数[输出]:  无
     返回值:      无
 */
-void ADC_inserted_channel_Config(uint32_t ADC_periph, uint8_t rank, uint8_t ADC_channel, uint32_t sample_time) {
+void ADC_Inserted_Channel_Config(uint32_t ADC_periph, uint8_t rank, uint8_t ADC_channel, uint32_t sample_time) {
     uint8_t inserted_length;
     uint32_t isq, sampt;
 
@@ -536,25 +536,25 @@ void ADC_inserted_channel_Config(uint32_t ADC_periph, uint8_t rank, uint8_t ADC_
     /* the channel number is written to these bits to select a channel as the nth conversion in the inserted channel group */
     if(rank < 4U) {
         isq = ADC_ISQ(ADC_periph);
-        isq &= ~((uint32_t)(ADC_ISQ_ISQN << (ADC_INSERTED_CHANNEL_SHIFT_LENGTH - (inserted_length - rank) * ADC_INSERTED_CHANNEL_RANK_LENGTH)));
-        isq |= ((uint32_t)ADC_channel << (ADC_INSERTED_CHANNEL_SHIFT_LENGTH - (inserted_length - rank) * ADC_INSERTED_CHANNEL_RANK_LENGTH));
+        isq &= ~((uint32_t)(ADC_ISQ_ISQN << (ADC_Inserted_Channel_SHIFT_LENGTH - (inserted_length - rank) * ADC_Inserted_Channel_RANK_LENGTH)));
+        isq |= ((uint32_t)ADC_channel << (ADC_Inserted_Channel_SHIFT_LENGTH - (inserted_length - rank) * ADC_Inserted_Channel_RANK_LENGTH));
         ADC_ISQ(ADC_periph) = isq;
     }
 
     /* ADC sampling time config */
-    if(ADC_channel < ADC_CHANNEL_SAMPLE_TEN) {
+    if(ADC_channel < ADC_Channel_Sample_TEN) {
         /* the inserted group sequence rank is smaller than ten */
         sampt = ADC_SAMPT1(ADC_periph);
-        sampt &= ~((uint32_t)(ADC_SAMPTX_SPTN << (ADC_CHANNEL_SAMPLE_LENGTH * ADC_channel)));
+        sampt &= ~((uint32_t)(ADC_SAMPTX_SPTN << (ADC_Channel_Sample_LENGTH * ADC_channel)));
         /* channel sample time set*/
-        sampt |= (uint32_t) sample_time << (ADC_CHANNEL_SAMPLE_LENGTH * ADC_channel);
+        sampt |= (uint32_t) sample_time << (ADC_Channel_Sample_LENGTH * ADC_channel);
         ADC_SAMPT1(ADC_periph) = sampt;
-    } else if(ADC_channel <= ADC_CHANNEL_SAMPLE_EIGHTEEN) {
+    } else if(ADC_channel <= ADC_Channel_Sample_EIGHTEEN) {
         /* the inserted group sequence rank is smaller than eighteen */
         sampt = ADC_SAMPT0(ADC_periph);
-        sampt &= ~((uint32_t)(ADC_SAMPTX_SPTN << (ADC_CHANNEL_SAMPLE_LENGTH * (ADC_channel - ADC_CHANNEL_SAMPLE_TEN))));
+        sampt &= ~((uint32_t)(ADC_SAMPTX_SPTN << (ADC_Channel_Sample_LENGTH * (ADC_channel - ADC_Channel_Sample_TEN))));
         /* channel sample time set*/
-        sampt |= ((uint32_t)sample_time << (ADC_CHANNEL_SAMPLE_LENGTH * (ADC_channel - ADC_CHANNEL_SAMPLE_TEN)));
+        sampt |= ((uint32_t)sample_time << (ADC_Channel_Sample_LENGTH * (ADC_channel - ADC_Channel_Sample_TEN)));
         ADC_SAMPT0(ADC_periph) = sampt;
     } else {
     }
@@ -565,24 +565,24 @@ void ADC_inserted_channel_Config(uint32_t ADC_periph, uint8_t rank, uint8_t ADC_
     参数[输入]:  ADC_periph: ADCx,x=0,1,2
     参数[输入]:  inserted_channel : insert channel select
                 only one parameter can be selected which is shown as below:
-    参数:        ADC_INSERTED_CHANNEL_0: inserted channel0
-    参数:        ADC_INSERTED_CHANNEL_1: inserted channel1
-    参数:        ADC_INSERTED_CHANNEL_2: inserted channel2
-    参数:        ADC_INSERTED_CHANNEL_3: inserted channel3
+    参数:        ADC_Inserted_Channel_0: inserted channel0
+    参数:        ADC_Inserted_Channel_1: inserted channel1
+    参数:        ADC_Inserted_Channel_2: inserted channel2
+    参数:        ADC_Inserted_Channel_3: inserted channel3
     参数[输入]:  offset : the offset data
     参数[输出]:  无
     返回值:      无
 */
-void ADC_inserted_channel_offset_Config(uint32_t ADC_periph, uint8_t inserted_channel, uint16_t offset) {
+void ADC_Inserted_Channel_Offset_Config(uint32_t ADC_periph, uint8_t inserted_channel, uint16_t offset) {
     uint8_t inserted_length;
     uint32_t num = 0U;
 
     inserted_length = (uint8_t)GET_BITS(ADC_ISQ(ADC_periph), 20U, 21U);
-    num = ((uint32_t)ADC_OFFSET_LENGTH - ((uint32_t)inserted_length - (uint32_t)inserted_channel));
+    num = ((uint32_t)ADC_Offset_LENGTH - ((uint32_t)inserted_length - (uint32_t)inserted_channel));
 
-    if(num <= ADC_OFFSET_LENGTH) {
+    if(num <= ADC_Offset_LENGTH) {
         /* calculate the offset of the register */
-        num = num * ADC_OFFSET_SHIFT_LENGTH;
+        num = num * ADC_Offset_SHIFT_LENGTH;
         /* config the offset of the selected channels */
         REG32((ADC_periph) + 0x14U + num) = IOFFX_IOFF((uint32_t)offset);
     }
@@ -591,62 +591,62 @@ void ADC_inserted_channel_offset_Config(uint32_t ADC_periph, uint8_t inserted_ch
 /*!
     简介:      configure ADC external trigger source
     参数[输入]:  ADC_periph: ADCx,x=0,1,2
-    参数[输入]:  ADC_channel_group: select the channel group
+    参数[输入]:  ADC_Channel_group: select the channel group
                 only one parameter can be selected which is shown as below:
-    参数:        ADC_REGULAR_CHANNEL: regular channel group
-    参数:        ADC_INSERTED_CHANNEL: inserted channel group
-    参数[输入]:  external_trigger_source: regular or inserted group trigger source
+    参数:        ADC_Regular_CHANNEL: regular channel group
+    参数:        ADC_Inserted_CHANNEL: inserted channel group
+    参数[输入]:  external_Trigger_source: regular or inserted group trigger source
                 for regular channel:
                 only one parameter can be selected which is shown as below:
-    参数:        ADC_EXTTRIG_REGULAR_T0_CH0: external trigger timer 0 CC0 event select for regular channel
-    参数:        ADC_EXTTRIG_REGULAR_T0_CH1: external trigger timer 0 CC1 event select for regular channel
-    参数:        ADC_EXTTRIG_REGULAR_T0_CH2: external trigger timer 0 CC2 event select for regular channel
-    参数:        ADC_EXTTRIG_REGULAR_T1_CH1: external trigger timer 1 CC1 event select for regular channel
-    参数:        ADC_EXTTRIG_REGULAR_T1_CH2: external trigger timer 1 CC2 event select for regular channel
-    参数:        ADC_EXTTRIG_REGULAR_T1_CH3: external trigger timer 1 CC3 event select for regular channel
-    参数:        ADC_EXTTRIG_REGULAR_T1_TRGO: external trigger timer 1 TRGO event select for regular channel
-    参数:        ADC_EXTTRIG_REGULAR_T2_CH0 : external trigger timer 2 CC0 event select for regular channel
-    参数:        ADC_EXTTRIG_REGULAR_T2_TRGO : external trigger timer 2 TRGO event select for regular channel
-    参数:        ADC_EXTTRIG_REGULAR_T3_CH3: external trigger timer 3 CC3 event select for regular channel
-    参数:        ADC_EXTTRIG_REGULAR_T4_CH0: external trigger timer 4 CC0 event select for regular channel
-    参数:        ADC_EXTTRIG_REGULAR_T4_CH1: external trigger timer 4 CC1 event select for regular channel
-    参数:        ADC_EXTTRIG_REGULAR_T4_CH2: external trigger timer 4 CC2 event select for regular channel
-    参数:        ADC_EXTTRIG_REGULAR_T7_CH0: external trigger timer 7 CC0 event select for regular channel
-    参数:        ADC_EXTTRIG_REGULAR_T7_TRGO: external trigger timer 7 TRGO event select for regular channel
-    参数:        ADC_EXTTRIG_REGULAR_EXTI_11: external trigger extiline 11 select for regular channel
+    参数:        ADC_EXTTRIG_Regular_T0_CH0: external trigger timer 0 CC0 event select for regular channel
+    参数:        ADC_EXTTRIG_Regular_T0_CH1: external trigger timer 0 CC1 event select for regular channel
+    参数:        ADC_EXTTRIG_Regular_T0_CH2: external trigger timer 0 CC2 event select for regular channel
+    参数:        ADC_EXTTRIG_Regular_T1_CH1: external trigger timer 1 CC1 event select for regular channel
+    参数:        ADC_EXTTRIG_Regular_T1_CH2: external trigger timer 1 CC2 event select for regular channel
+    参数:        ADC_EXTTRIG_Regular_T1_CH3: external trigger timer 1 CC3 event select for regular channel
+    参数:        ADC_EXTTRIG_Regular_T1_TRGO: external trigger timer 1 TRGO event select for regular channel
+    参数:        ADC_EXTTRIG_Regular_T2_CH0 : external trigger timer 2 CC0 event select for regular channel
+    参数:        ADC_EXTTRIG_Regular_T2_TRGO : external trigger timer 2 TRGO event select for regular channel
+    参数:        ADC_EXTTRIG_Regular_T3_CH3: external trigger timer 3 CC3 event select for regular channel
+    参数:        ADC_EXTTRIG_Regular_T4_CH0: external trigger timer 4 CC0 event select for regular channel
+    参数:        ADC_EXTTRIG_Regular_T4_CH1: external trigger timer 4 CC1 event select for regular channel
+    参数:        ADC_EXTTRIG_Regular_T4_CH2: external trigger timer 4 CC2 event select for regular channel
+    参数:        ADC_EXTTRIG_Regular_T7_CH0: external trigger timer 7 CC0 event select for regular channel
+    参数:        ADC_EXTTRIG_Regular_T7_TRGO: external trigger timer 7 TRGO event select for regular channel
+    参数:        ADC_EXTTRIG_Regular_EXTI_11: external trigger extiline 11 select for regular channel
                 for inserted channel:
                 only one parameter can be selected which is shown as below:
-    参数:        ADC_EXTTRIG_INSERTED_T0_CH3: timer0 capture compare 3
-    参数:        ADC_EXTTRIG_INSERTED_T0_TRGO: timer0 TRGO event
-    参数:        ADC_EXTTRIG_INSERTED_T1_CH0: timer1 capture compare 0
-    参数:        ADC_EXTTRIG_INSERTED_T1_TRGO: timer1 TRGO event
-    参数:        ADC_EXTTRIG_INSERTED_T2_CH1: timer2 capture compare 1
-    参数:        ADC_EXTTRIG_INSERTED_T2_CH3: timer2 capture compare 3
-    参数:        ADC_EXTTRIG_INSERTED_T3_CH0: timer3 capture compare 0
-    参数:        ADC_EXTTRIG_INSERTED_T3_CH1: timer3 capture compare 1
-    参数:        ADC_EXTTRIG_INSERTED_T3_CH2: timer3 capture compare 2
-    参数:        ADC_EXTTRIG_INSERTED_T3_TRGO: timer3 capture compare TRGO
-    参数:        ADC_EXTTRIG_INSERTED_T4_CH3: timer4 capture compare 3
-    参数:        ADC_EXTTRIG_INSERTED_T4_TRGO: timer4 capture compare TRGO
-    参数:        ADC_EXTTRIG_INSERTED_T7_CH1: timer7 capture compare 1
-    参数:        ADC_EXTTRIG_INSERTED_T7_CH2: timer7 capture compare 2
-    参数:        ADC_EXTTRIG_INSERTED_T7_CH3: timer7 capture compare 3
-    参数:        ADC_EXTTRIG_INSERTED_EXTI_15: external interrupt line 15
+    参数:        ADC_EXTTRIG_Inserted_T0_CH3: timer0 capture compare 3
+    参数:        ADC_EXTTRIG_Inserted_T0_TRGO: timer0 TRGO event
+    参数:        ADC_EXTTRIG_Inserted_T1_CH0: timer1 capture compare 0
+    参数:        ADC_EXTTRIG_Inserted_T1_TRGO: timer1 TRGO event
+    参数:        ADC_EXTTRIG_Inserted_T2_CH1: timer2 capture compare 1
+    参数:        ADC_EXTTRIG_Inserted_T2_CH3: timer2 capture compare 3
+    参数:        ADC_EXTTRIG_Inserted_T3_CH0: timer3 capture compare 0
+    参数:        ADC_EXTTRIG_Inserted_T3_CH1: timer3 capture compare 1
+    参数:        ADC_EXTTRIG_Inserted_T3_CH2: timer3 capture compare 2
+    参数:        ADC_EXTTRIG_Inserted_T3_TRGO: timer3 capture compare TRGO
+    参数:        ADC_EXTTRIG_Inserted_T4_CH3: timer4 capture compare 3
+    参数:        ADC_EXTTRIG_Inserted_T4_TRGO: timer4 capture compare TRGO
+    参数:        ADC_EXTTRIG_Inserted_T7_CH1: timer7 capture compare 1
+    参数:        ADC_EXTTRIG_Inserted_T7_CH2: timer7 capture compare 2
+    参数:        ADC_EXTTRIG_Inserted_T7_CH3: timer7 capture compare 3
+    参数:        ADC_EXTTRIG_Inserted_EXTI_15: external interrupt line 15
     参数[输出]:  无
     返回值:      无
 */
-void ADC_external_trigger_source_Config(uint32_t ADC_periph, uint8_t ADC_channel_group, uint32_t external_trigger_source) {
-    switch(ADC_channel_group) {
-    case ADC_REGULAR_CHANNEL:
+void ADC_External_Trigger_Source_Config(uint32_t ADC_periph, uint8_t ADC_Channel_group, uint32_t external_Trigger_source) {
+    switch(ADC_Channel_group) {
+    case ADC_Regular_CHANNEL:
         /* configure ADC regular group external trigger source */
         ADC_CTL1(ADC_periph) &= ~((uint32_t)ADC_CTL1_ETSRC);
-        ADC_CTL1(ADC_periph) |= (uint32_t)external_trigger_source;
+        ADC_CTL1(ADC_periph) |= (uint32_t)external_Trigger_source;
         break;
 
-    case ADC_INSERTED_CHANNEL:
+    case ADC_Inserted_CHANNEL:
         /* configure ADC inserted group external trigger source */
         ADC_CTL1(ADC_periph) &= ~((uint32_t)ADC_CTL1_ETSIC);
-        ADC_CTL1(ADC_periph) |= (uint32_t)external_trigger_source;
+        ADC_CTL1(ADC_periph) |= (uint32_t)external_Trigger_source;
         break;
 
     default:
@@ -657,31 +657,31 @@ void ADC_external_trigger_source_Config(uint32_t ADC_periph, uint8_t ADC_channel
 /*!
     简介:      enable ADC external trigger
     参数[输入]:  ADC_periph: ADCx,x=0,1,2
-    参数[输入]:  ADC_channel_group: select the channel group
+    参数[输入]:  ADC_Channel_group: select the channel group
                 only one parameter can be selected which is shown as below:
-    参数:        ADC_REGULAR_CHANNEL: regular channel group
-    参数:        ADC_INSERTED_CHANNEL: inserted channel group
+    参数:        ADC_Regular_CHANNEL: regular channel group
+    参数:        ADC_Inserted_CHANNEL: inserted channel group
     参数[输入]:  trigger_mode: external trigger mode
                 only one parameter can be selected which is shown as below:
-    参数:        EXTERNAL_TRIGGER_DISABLE: external trigger disable
-    参数:        EXTERNAL_TRIGGER_RISING: rising edge of external trigger
-    参数:        EXTERNAL_TRIGGER_FALLING: falling edge of external trigger
-    参数:        EXTERNAL_TRIGGER_RISING_FALLING: rising and falling edge of external trigger
+    参数:        EXTERNAL_Trigger_DISABLE: external trigger disable
+    参数:        EXTERNAL_Trigger_RISING: rising edge of external trigger
+    参数:        EXTERNAL_Trigger_FALLING: falling edge of external trigger
+    参数:        EXTERNAL_Trigger_RISING_FALLING: rising and falling edge of external trigger
     参数[输出]:  无
     返回值:      无
 */
-void ADC_external_trigger_Config(uint32_t ADC_periph, uint8_t ADC_channel_group, uint32_t trigger_mode) {
-    switch(ADC_channel_group) {
-    case ADC_REGULAR_CHANNEL:
+void ADC_External_Trigger_Config(uint32_t ADC_periph, uint8_t ADC_Channel_group, uint32_t trigger_mode) {
+    switch(ADC_Channel_group) {
+    case ADC_Regular_CHANNEL:
         /* configure ADC regular channel group external trigger mode */
         ADC_CTL1(ADC_periph) &= ~((uint32_t)ADC_CTL1_ETMRC);
-        ADC_CTL1(ADC_periph) |= (uint32_t)(trigger_mode << REGULAR_TRIGGER_MODE);
+        ADC_CTL1(ADC_periph) |= (uint32_t)(trigger_mode << REGULAR_Trigger_MODE);
         break;
 
-    case ADC_INSERTED_CHANNEL:
+    case ADC_Inserted_CHANNEL:
         /* configure ADC inserted channel group external trigger mode */
         ADC_CTL1(ADC_periph) &=  ~((uint32_t)ADC_CTL1_ETMIC);
-        ADC_CTL1(ADC_periph) |= (uint32_t)(trigger_mode << INSERTED_TRIGGER_MODE);
+        ADC_CTL1(ADC_periph) |= (uint32_t)(trigger_mode << INSERTED_Trigger_MODE);
         break;
 
     default:
@@ -692,21 +692,21 @@ void ADC_external_trigger_Config(uint32_t ADC_periph, uint8_t ADC_channel_group,
 /*!
     简介:      enable ADC software trigger
     参数[输入]:  ADC_periph: ADCx,x=0,1,2
-    参数[输入]:  ADC_channel_group: select the channel group
+    参数[输入]:  ADC_Channel_group: select the channel group
                 only one parameter can be selected which is shown as below:
-    参数:        ADC_REGULAR_CHANNEL: regular channel group
-    参数:        ADC_INSERTED_CHANNEL: inserted channel group
+    参数:        ADC_Regular_CHANNEL: regular channel group
+    参数:        ADC_Inserted_CHANNEL: inserted channel group
     参数[输出]:  无
     返回值:      无
 */
-void ADC_software_trigger_enable(uint32_t ADC_periph, uint8_t ADC_channel_group) {
-    switch(ADC_channel_group) {
-    case ADC_REGULAR_CHANNEL:
+void ADC_Software_Trigger_Enable(uint32_t ADC_periph, uint8_t ADC_Channel_group) {
+    switch(ADC_Channel_group) {
+    case ADC_Regular_CHANNEL:
         /* enable ADC regular channel group software trigger */
         ADC_CTL1(ADC_periph) |= (uint32_t)ADC_CTL1_SWRCST;
         break;
 
-    case ADC_INSERTED_CHANNEL:
+    case ADC_Inserted_CHANNEL:
         /* enable ADC inserted channel group software trigger */
         ADC_CTL1(ADC_periph) |= (uint32_t)ADC_CTL1_SWICST;
         break;
@@ -726,7 +726,7 @@ void ADC_software_trigger_enable(uint32_t ADC_periph, uint8_t ADC_channel_group)
     参数[输出]:  无
     返回值:      无
 */
-void ADC_end_of_conversion_Config(uint32_t ADC_periph, uint8_t end_selection) {
+void ADC_End_Of_Conversion_Config(uint32_t ADC_periph, uint8_t end_selection) {
     switch(end_selection) {
     case ADC_EOC_SET_SEQUENCE:
         /* only at the end of a sequence of regular conversions, the EOC bit is set */
@@ -750,7 +750,7 @@ void ADC_end_of_conversion_Config(uint32_t ADC_periph, uint8_t end_selection) {
     参数[输出]:  无
     返回值:     the conversion value
 */
-uint16_t ADC_regular_data_read(uint32_t ADC_periph) {
+uint16_t ADC_Regular_Data_Read(uint32_t ADC_periph) {
     return (uint16_t)(ADC_RDATA(ADC_periph));
 }
 
@@ -759,34 +759,34 @@ uint16_t ADC_regular_data_read(uint32_t ADC_periph) {
     参数[输入]:  ADC_periph: ADCx,x=0,1,2
     参数[输入]:  inserted_channel : insert channel select
                 only one parameter can be selected which is shown as below:
-    参数:        ADC_INSERTED_CHANNEL_0: inserted Channel0
-    参数:        ADC_INSERTED_CHANNEL_1: inserted channel1
-    参数:        ADC_INSERTED_CHANNEL_2: inserted Channel2
-    参数:        ADC_INSERTED_CHANNEL_3: inserted Channel3
+    参数:        ADC_Inserted_Channel_0: inserted Channel0
+    参数:        ADC_Inserted_Channel_1: inserted channel1
+    参数:        ADC_Inserted_Channel_2: inserted Channel2
+    参数:        ADC_Inserted_Channel_3: inserted Channel3
     参数[输出]:  无
     返回值:     the conversion value
 */
-uint16_t ADC_inserted_data_read(uint32_t ADC_periph, uint8_t inserted_channel) {
+uint16_t ADC_Inserted_Data_Read(uint32_t ADC_periph, uint8_t inserted_channel) {
     uint32_t idata;
 
     /* read the data of the selected channel */
     switch(inserted_channel) {
-    case ADC_INSERTED_CHANNEL_0:
+    case ADC_Inserted_Channel_0:
         /* read the data of channel 0 */
         idata = ADC_IDATA0(ADC_periph);
         break;
 
-    case ADC_INSERTED_CHANNEL_1:
+    case ADC_Inserted_Channel_1:
         /* read the data of channel 1 */
         idata = ADC_IDATA1(ADC_periph);
         break;
 
-    case ADC_INSERTED_CHANNEL_2:
+    case ADC_Inserted_Channel_2:
         /* read the data of channel 2 */
         idata = ADC_IDATA2(ADC_periph);
         break;
 
-    case ADC_INSERTED_CHANNEL_3:
+    case ADC_Inserted_Channel_3:
         /* read the data of channel 3 */
         idata = ADC_IDATA3(ADC_periph);
         break;
@@ -805,7 +805,7 @@ uint16_t ADC_inserted_data_read(uint32_t ADC_periph, uint8_t inserted_channel) {
     参数[输出]:  无
     返回值:      无
 */
-void ADC_watchdog_single_channel_disable(uint32_t ADC_periph) {
+void ADC_WatchDog_Single_Channel_Disable(uint32_t ADC_periph) {
     ADC_CTL0(ADC_periph) &= ~((uint32_t)ADC_CTL0_WDSC);
 }
 
@@ -814,11 +814,11 @@ void ADC_watchdog_single_channel_disable(uint32_t ADC_periph) {
     参数[输入]:  ADC_periph: ADCx,x=0,1,2
     参数[输入]:  ADC_channel: the selected ADC channel
                 only one parameter can be selected which is shown as below:
-    参数:        ADC_CHANNEL_x: ADC Channelx(x=0..18)
+    参数:        ADC_Channel_x: ADC Channelx(x=0..18)
     参数[输出]:  无
     返回值:      无
 */
-void ADC_watchdog_single_channel_enable(uint32_t ADC_periph, uint8_t ADC_channel) {
+void ADC_WatchDog_Single_Channel_Enable(uint32_t ADC_periph, uint8_t ADC_channel) {
     ADC_CTL0(ADC_periph) &= ~((uint32_t)ADC_CTL0_WDCHSEL);
 
     /* analog watchdog channel select */
@@ -829,30 +829,30 @@ void ADC_watchdog_single_channel_enable(uint32_t ADC_periph, uint8_t ADC_channel
 /*!
     简介:      configure ADC analog watchdog group channel
     参数[输入]:  ADC_periph: ADCx,x=0,1,2
-    参数[输入]:  ADC_channel_group: the channel group use analog watchdog
+    参数[输入]:  ADC_Channel_group: the channel group use analog watchdog
                 only one parameter can be selected which is shown as below:
-    参数:        ADC_REGULAR_CHANNEL: regular channel group
-    参数:        ADC_INSERTED_CHANNEL: inserted channel group
-    参数:        ADC_REGULAR_INSERTED_CHANNEL: both regular and inserted group
+    参数:        ADC_Regular_CHANNEL: regular channel group
+    参数:        ADC_Inserted_CHANNEL: inserted channel group
+    参数:        ADC_Regular_Inserted_CHANNEL: both regular and inserted group
     参数[输出]:  无
     返回值:      无
 */
-void ADC_watchdog_group_channel_enable(uint32_t ADC_periph, uint8_t ADC_channel_group) {
+void ADC_WatchDog_Group_Channel_Enable(uint32_t ADC_periph, uint8_t ADC_Channel_group) {
     ADC_CTL0(ADC_periph) &= ~((uint32_t)(ADC_CTL0_RWDEN | ADC_CTL0_IWDEN | ADC_CTL0_WDSC));
 
     /* select the group */
-    switch(ADC_channel_group) {
-    case ADC_REGULAR_CHANNEL:
+    switch(ADC_Channel_group) {
+    case ADC_Regular_CHANNEL:
         /* regular channel analog watchdog enable */
         ADC_CTL0(ADC_periph) |= (uint32_t) ADC_CTL0_RWDEN;
         break;
 
-    case ADC_INSERTED_CHANNEL:
+    case ADC_Inserted_CHANNEL:
         /* inserted channel analog watchdog enable */
         ADC_CTL0(ADC_periph) |= (uint32_t) ADC_CTL0_IWDEN;
         break;
 
-    case ADC_REGULAR_INSERTED_CHANNEL:
+    case ADC_Regular_Inserted_CHANNEL:
         /* regular and inserted channel analog watchdog enable */
         ADC_CTL0(ADC_periph) |= (uint32_t)(ADC_CTL0_RWDEN | ADC_CTL0_IWDEN);
         break;
@@ -865,28 +865,28 @@ void ADC_watchdog_group_channel_enable(uint32_t ADC_periph, uint8_t ADC_channel_
 /*!
     简介:      disable ADC analog watchdog
     参数[输入]:  ADC_periph: ADCx,x=0,1,2
-    参数[输入]:  ADC_channel_group: the channel group use analog watchdog
+    参数[输入]:  ADC_Channel_group: the channel group use analog watchdog
                 only one parameter can be selected which is shown as below:
-    参数:        ADC_REGULAR_CHANNEL: regular channel group
-    参数:        ADC_INSERTED_CHANNEL: inserted channel group
-    参数:        ADC_REGULAR_INSERTED_CHANNEL: both regular and inserted group
+    参数:        ADC_Regular_CHANNEL: regular channel group
+    参数:        ADC_Inserted_CHANNEL: inserted channel group
+    参数:        ADC_Regular_Inserted_CHANNEL: both regular and inserted group
     参数[输出]:  无
     返回值:      无
 */
-void ADC_watchdog_disable(uint32_t ADC_periph, uint8_t ADC_channel_group) {
+void ADC_WatchDog_Disable(uint32_t ADC_periph, uint8_t ADC_Channel_group) {
     /* select the group */
-    switch(ADC_channel_group) {
-    case ADC_REGULAR_CHANNEL:
+    switch(ADC_Channel_group) {
+    case ADC_Regular_CHANNEL:
         /* disable ADC analog watchdog regular channel group */
         ADC_CTL0(ADC_periph) &=  ~((uint32_t)ADC_CTL0_RWDEN);
         break;
 
-    case ADC_INSERTED_CHANNEL:
+    case ADC_Inserted_CHANNEL:
         /* disable ADC analog watchdog inserted channel group */
         ADC_CTL0(ADC_periph) &=  ~((uint32_t)ADC_CTL0_IWDEN);
         break;
 
-    case ADC_REGULAR_INSERTED_CHANNEL:
+    case ADC_Regular_Inserted_CHANNEL:
         /* disable ADC analog watchdog regular and inserted channel group */
         ADC_CTL0(ADC_periph) &=  ~((uint32_t)(ADC_CTL0_RWDEN | ADC_CTL0_IWDEN));
         break;
@@ -904,7 +904,7 @@ void ADC_watchdog_disable(uint32_t ADC_periph, uint8_t ADC_channel_group) {
     参数[输出]:  无
     返回值:      无
 */
-void ADC_watchdog_threshold_Config(uint32_t ADC_periph, uint16_t low_threshold, uint16_t high_threshold) {
+void ADC_WatchDog_Threshold_Config(uint32_t ADC_periph, uint16_t low_threshold, uint16_t high_threshold) {
     /* configure ADC analog watchdog low threshold */
     ADC_WDLT(ADC_periph) = (uint32_t)WDLT_WDLT(low_threshold);
     /* configure ADC analog watchdog high threshold */
@@ -916,16 +916,16 @@ void ADC_watchdog_threshold_Config(uint32_t ADC_periph, uint16_t low_threshold, 
     参数[输入]:  ADC_periph: ADCx,x=0,1,2
     参数[输入]:  ADC_flag: the adc flag bits
                 only one parameter can be selected which is shown as below:
-    参数:        ADC_FLAG_WDE: analog watchdog event flag
-    参数:        ADC_FLAG_EOC: end of group conversion flag
-    参数:        ADC_FLAG_EOIC: end of inserted group conversion flag
-    参数:        ADC_FLAG_STIC: start flag of inserted channel group
-    参数:        ADC_FLAG_STRC: start flag of regular channel group
-    参数:        ADC_FLAG_ROVF: regular data register overflow flag
+    参数:        ADC_Flag_WDE: analog watchdog event flag
+    参数:        ADC_Flag_EOC: end of group conversion flag
+    参数:        ADC_Flag_EOIC: end of inserted group conversion flag
+    参数:        ADC_Flag_STIC: start flag of inserted channel group
+    参数:        ADC_Flag_STRC: start flag of regular channel group
+    参数:        ADC_Flag_ROVF: regular data register overflow flag
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus ADC_flag_get(uint32_t ADC_periph, uint32_t ADC_flag) {
+FlagStatus ADC_Flag_Get(uint32_t ADC_periph, uint32_t ADC_flag) {
     FlagStatus reval = RESET;
 
     if(ADC_STAT(ADC_periph) & ADC_flag) {
@@ -941,16 +941,16 @@ FlagStatus ADC_flag_get(uint32_t ADC_periph, uint32_t ADC_flag) {
     参数[输入]:  ADC_periph: ADCx,x=0,1,2
     参数[输入]:  ADC_flag: the adc flag bits
                 only one parameter can be selected which is shown as below:
-    参数:        ADC_FLAG_WDE: analog watchdog event flag
-    参数:        ADC_FLAG_EOC: end of group conversion flag
-    参数:        ADC_FLAG_EOIC: end of inserted group conversion flag
-    参数:        ADC_FLAG_STIC: start flag of inserted channel group
-    参数:        ADC_FLAG_STRC: start flag of regular channel group
-    参数:        ADC_FLAG_ROVF: regular data register overflow flag
+    参数:        ADC_Flag_WDE: analog watchdog event flag
+    参数:        ADC_Flag_EOC: end of group conversion flag
+    参数:        ADC_Flag_EOIC: end of inserted group conversion flag
+    参数:        ADC_Flag_STIC: start flag of inserted channel group
+    参数:        ADC_Flag_STRC: start flag of regular channel group
+    参数:        ADC_Flag_ROVF: regular data register overflow flag
     参数[输出]:  无
     返回值:      无
 */
-void ADC_flag_clear(uint32_t ADC_periph, uint32_t ADC_flag) {
+void ADC_Flag_Clear(uint32_t ADC_periph, uint32_t ADC_flag) {
     ADC_STAT(ADC_periph) &= ~((uint32_t)ADC_flag);
 }
 
@@ -961,7 +961,7 @@ void ADC_flag_clear(uint32_t ADC_periph, uint32_t ADC_flag) {
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus ADC_regular_software_startconv_flag_get(uint32_t ADC_periph) {
+FlagStatus ADC_Regular_Software_Startconv_Flag_Get(uint32_t ADC_periph) {
     FlagStatus reval = RESET;
 
     if((uint32_t)RESET != (ADC_STAT(ADC_periph) & ADC_STAT_STRC)) {
@@ -978,7 +978,7 @@ FlagStatus ADC_regular_software_startconv_flag_get(uint32_t ADC_periph) {
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus ADC_inserted_software_startconv_flag_get(uint32_t ADC_periph) {
+FlagStatus ADC_Inserted_Software_Startconv_Flag_Get(uint32_t ADC_periph) {
     FlagStatus reval = RESET;
 
     if((uint32_t)RESET != (ADC_STAT(ADC_periph) & ADC_STAT_STIC)) {
@@ -993,20 +993,20 @@ FlagStatus ADC_inserted_software_startconv_flag_get(uint32_t ADC_periph) {
     参数[输入]:  ADC_periph: ADCx,x=0,1,2
     参数[输入]:  ADC_interrupt: the adc interrupt bits
                 only one parameter can be selected which is shown as below:
-    参数:        ADC_INT_FLAG_WDE: analog watchdog interrupt
-    参数:        ADC_INT_FLAG_EOC: end of group conversion interrupt
-    参数:        ADC_INT_FLAG_EOIC: end of inserted group conversion interrupt
-    参数:        ADC_INT_FLAG_ROVF: regular data register overflow interrupt
+    参数:        ADC_INT_Flag_WDE: analog watchdog interrupt
+    参数:        ADC_INT_Flag_EOC: end of group conversion interrupt
+    参数:        ADC_INT_Flag_EOIC: end of inserted group conversion interrupt
+    参数:        ADC_INT_Flag_ROVF: regular data register overflow interrupt
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus ADC_Interrupt_flag_get(uint32_t ADC_periph, uint32_t ADC_interrupt) {
+FlagStatus ADC_Interrupt_Flag_Get(uint32_t ADC_periph, uint32_t ADC_interrupt) {
     FlagStatus interrupt_flag = RESET;
     uint32_t state;
 
     /* check the interrupt bits */
     switch(ADC_interrupt) {
-    case ADC_INT_FLAG_WDE:
+    case ADC_INT_Flag_WDE:
         /* get the ADC analog watchdog interrupt bits */
         state = ADC_STAT(ADC_periph) & ADC_STAT_WDE;
 
@@ -1016,7 +1016,7 @@ FlagStatus ADC_Interrupt_flag_get(uint32_t ADC_periph, uint32_t ADC_interrupt) {
 
         break;
 
-    case ADC_INT_FLAG_EOC:
+    case ADC_INT_Flag_EOC:
         /* get the ADC end of group conversion interrupt bits */
         state = ADC_STAT(ADC_periph) & ADC_STAT_EOC;
 
@@ -1026,7 +1026,7 @@ FlagStatus ADC_Interrupt_flag_get(uint32_t ADC_periph, uint32_t ADC_interrupt) {
 
         break;
 
-    case ADC_INT_FLAG_EOIC:
+    case ADC_INT_Flag_EOIC:
         /* get the ADC end of inserted group conversion interrupt bits */
         state = ADC_STAT(ADC_periph) & ADC_STAT_EOIC;
 
@@ -1036,7 +1036,7 @@ FlagStatus ADC_Interrupt_flag_get(uint32_t ADC_periph, uint32_t ADC_interrupt) {
 
         break;
 
-    case ADC_INT_FLAG_ROVF:
+    case ADC_INT_Flag_ROVF:
         /* get the ADC regular data register overflow interrupt bits */
         state = ADC_STAT(ADC_periph) & ADC_STAT_ROVF;
 
@@ -1058,14 +1058,14 @@ FlagStatus ADC_Interrupt_flag_get(uint32_t ADC_periph, uint32_t ADC_interrupt) {
     参数[输入]:  ADC_periph: ADCx,x=0,1,2
     参数[输入]:  ADC_interrupt: the adc status flag
                 only one parameter can be selected which is shown as below:
-    参数:        ADC_INT_FLAG_WDE: analog watchdog interrupt
-    参数:        ADC_INT_FLAG_EOC: end of group conversion interrupt
-    参数:        ADC_INT_FLAG_EOIC: end of inserted group conversion interrupt
-    参数:        ADC_INT_FLAG_ROVF: regular data register overflow interrupt
+    参数:        ADC_INT_Flag_WDE: analog watchdog interrupt
+    参数:        ADC_INT_Flag_EOC: end of group conversion interrupt
+    参数:        ADC_INT_Flag_EOIC: end of inserted group conversion interrupt
+    参数:        ADC_INT_Flag_ROVF: regular data register overflow interrupt
     参数[输出]:  无
     返回值:      无
 */
-void ADC_Interrupt_flag_clear(uint32_t ADC_periph, uint32_t ADC_interrupt) {
+void ADC_Interrupt_Flag_Clear(uint32_t ADC_periph, uint32_t ADC_interrupt) {
     ADC_STAT(ADC_periph) &= ~((uint32_t)ADC_interrupt);
 }
 
@@ -1081,7 +1081,7 @@ void ADC_Interrupt_flag_clear(uint32_t ADC_periph, uint32_t ADC_interrupt) {
     参数[输出]:  无
     返回值:      无
 */
-void ADC_Interrupt_enable(uint32_t ADC_periph, uint32_t ADC_interrupt) {
+void ADC_Interrupt_Enable(uint32_t ADC_periph, uint32_t ADC_interrupt) {
     switch(ADC_interrupt) {
     case ADC_INT_WDE:
         /* enable analog watchdog interrupt */
@@ -1119,7 +1119,7 @@ void ADC_Interrupt_enable(uint32_t ADC_periph, uint32_t ADC_interrupt) {
     参数[输出]:  无
     返回值:      无
 */
-void ADC_Interrupt_disable(uint32_t ADC_periph, uint32_t ADC_interrupt) {
+void ADC_Interrupt_Disable(uint32_t ADC_periph, uint32_t ADC_interrupt) {
     switch(ADC_interrupt) {
     /* select the interrupt source */
     case ADC_INT_WDE:
@@ -1147,23 +1147,23 @@ void ADC_Interrupt_disable(uint32_t ADC_periph, uint32_t ADC_interrupt) {
     简介:      configure the ADC sync mode
     参数[输入]:  sync_mode: ADC sync mode
                 only one parameter can be selected which is shown as below:
-    参数:        ADC_SYNC_MODE_INDEPENDENT: all the ADCs work independently
-    参数:        ADC_DAUL_REGULAL_PARALLEL_INSERTED_PARALLEL: ADC0 and ADC1 work in combined regular parallel & inserted parallel mode
-    参数:        ADC_DAUL_REGULAL_PARALLEL_INSERTED_ROTATION: ADC0 and ADC1 work in combined regular parallel & trigger rotation mode
-    参数:        ADC_DAUL_INSERTED_PARALLEL: ADC0 and ADC1 work in inserted parallel mode
+    参数:        ADC_Sync_Mode_INDEPENDENT: all the ADCs work independently
+    参数:        ADC_DAUL_REGULAL_PARALLEL_Inserted_PARALLEL: ADC0 and ADC1 work in combined regular parallel & inserted parallel mode
+    参数:        ADC_DAUL_REGULAL_PARALLEL_Inserted_ROTATION: ADC0 and ADC1 work in combined regular parallel & trigger rotation mode
+    参数:        ADC_DAUL_Inserted_PARALLEL: ADC0 and ADC1 work in inserted parallel mode
     参数:        ADC_DAUL_REGULAL_PARALLEL: ADC0 and ADC1 work in regular parallel mode
     参数:        ADC_DAUL_REGULAL_FOLLOW_UP: ADC0 and ADC1 work in follow-up mode
-    参数:        ADC_DAUL_INSERTED_TRRIGGER_ROTATION: ADC0 and ADC1 work in trigger rotation mode
-    参数:        ADC_ALL_REGULAL_PARALLEL_INSERTED_PARALLEL: all ADCs work in combined regular parallel & inserted parallel mode
-    参数:        ADC_ALL_REGULAL_PARALLEL_INSERTED_ROTATION: all ADCs work in combined regular parallel & trigger rotation mode
-    参数:        ADC_ALL_INSERTED_PARALLEL: all ADCs work in inserted parallel mode
+    参数:        ADC_DAUL_Inserted_TRRIGGER_ROTATION: ADC0 and ADC1 work in trigger rotation mode
+    参数:        ADC_ALL_REGULAL_PARALLEL_Inserted_PARALLEL: all ADCs work in combined regular parallel & inserted parallel mode
+    参数:        ADC_ALL_REGULAL_PARALLEL_Inserted_ROTATION: all ADCs work in combined regular parallel & trigger rotation mode
+    参数:        ADC_ALL_Inserted_PARALLEL: all ADCs work in inserted parallel mode
     参数:        ADC_ALL_REGULAL_PARALLEL: all ADCs work in regular parallel mode
     参数:        ADC_ALL_REGULAL_FOLLOW_UP: all ADCs work in follow-up mode
-    参数:        ADC_ALL_INSERTED_TRRIGGER_ROTATION: all ADCs work in trigger rotation mode
+    参数:        ADC_ALL_Inserted_TRRIGGER_ROTATION: all ADCs work in trigger rotation mode
     参数[输出]:  无
     返回值:      无
 */
-void ADC_sync_mode_Config(uint32_t sync_mode) {
+void ADC_Sync_Mode_Config(uint32_t sync_mode) {
     ADC_SYNCCTL &= ~(ADC_SYNCCTL_SYNCM);
     ADC_SYNCCTL |= sync_mode;
 }
@@ -1172,11 +1172,11 @@ void ADC_sync_mode_Config(uint32_t sync_mode) {
     简介:      configure the delay between 2 sampling phases in ADC sync modes
     参数[输入]:  sample_delay:  the delay between 2 sampling phases in ADC sync modes
                 only one parameter can be selected which is shown as below:
-      参数:      ADC_SYNC_DELAY_xCYCLE: x=5..20,the delay between 2 sampling phases in ADC sync modes is x ADC clock cycles
+      参数:      ADC_Sync_Delay_xCYCLE: x=5..20,the delay between 2 sampling phases in ADC sync modes is x ADC clock cycles
     参数[输出]:  无
     返回值:      无
 */
-void ADC_sync_delay_Config(uint32_t sample_delay) {
+void ADC_Sync_Delay_Config(uint32_t sample_delay) {
     ADC_SYNCCTL &= ~(ADC_SYNCCTL_SYNCDLY);
     ADC_SYNCCTL |= sample_delay;
 }
@@ -1185,13 +1185,13 @@ void ADC_sync_delay_Config(uint32_t sample_delay) {
     简介:      configure ADC sync DMA mode selection
     参数[输入]:  DMA_mode:  ADC sync DMA mode
                 only one parameter can be selected which is shown as below:
-    参数:        ADC_SYNC_DMA_DISABLE: ADC sync DMA disabled
-    参数:        ADC_SYNC_DMA_MODE0: ADC sync DMA mode 0
-    参数:        ADC_SYNC_DMA_MODE1: ADC sync DMA mode 1
+    参数:        ADC_Sync_DMA_DISABLE: ADC sync DMA disabled
+    参数:        ADC_Sync_DMA_MODE0: ADC sync DMA mode 0
+    参数:        ADC_Sync_DMA_MODE1: ADC sync DMA mode 1
     参数[输出]:  无
     返回值:      无
 */
-void ADC_sync_DMA_Config(uint32_t DMA_mode) {
+void ADC_Sync_DMA_Config(uint32_t DMA_mode) {
     ADC_SYNCCTL &= ~(ADC_SYNCCTL_SYNCDMA);
     ADC_SYNCCTL |= DMA_mode;
 }
@@ -1202,7 +1202,7 @@ void ADC_sync_DMA_Config(uint32_t DMA_mode) {
     参数[输出]:  无
     返回值:      无
 */
-void ADC_sync_DMA_request_after_last_enable(void) {
+void ADC_Sync_DMA_Request_After_Last_Enable(void) {
     ADC_SYNCCTL |= ADC_SYNCCTL_SYNCDDM;
 }
 
@@ -1212,7 +1212,7 @@ void ADC_sync_DMA_request_after_last_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void ADC_sync_DMA_request_after_last_disable(void) {
+void ADC_Sync_DMA_Request_After_Last_Disable(void) {
     ADC_SYNCCTL &= ~(ADC_SYNCCTL_SYNCDDM);
 }
 
@@ -1222,6 +1222,6 @@ void ADC_sync_DMA_request_after_last_disable(void) {
     参数[输出]:  无
     返回值:     sync regular data
 */
-uint32_t ADC_sync_regular_data_read(void) {
+uint32_t ADC_Sync_Regular_Data_Read(void) {
     return (uint32_t)ADC_SYNCDATA;
 }

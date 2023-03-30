@@ -64,7 +64,7 @@ void PMU_DeInit(void) {
     参数[输出]:  无
     返回值:      无
 */
-void PMU_lvd_select(uint32_t lvdt_n) {
+void PMU_lvd_Select(uint32_t lvdt_n) {
     /* disable LVD */
     PMU_CTL &= ~PMU_CTL_LVDEN;
     /* clear LVDT bits */
@@ -81,7 +81,7 @@ void PMU_lvd_select(uint32_t lvdt_n) {
     参数[输出]:  无
     返回值:      无
 */
-void PMU_lvd_disable(void) {
+void PMU_lvd_Disable(void) {
     /* disable LVD */
     PMU_CTL &= ~PMU_CTL_LVDEN;
 }
@@ -96,7 +96,7 @@ void PMU_lvd_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void PMU_ldo_output_select(uint32_t ldo_output) {
+void PMU_ldo_OutPut_Select(uint32_t ldo_output) {
     PMU_CTL &= ~PMU_CTL_LDOVS;
     PMU_CTL |= ldo_output;
 }
@@ -108,7 +108,7 @@ void PMU_ldo_output_select(uint32_t ldo_output) {
     参数[输出]:  无
     返回值:      无
 */
-void PMU_highdriver_mode_enable(void) {
+void PMU_highdriver_Mode_Enable(void) {
     PMU_CTL |= PMU_CTL_HDEN;
 }
 
@@ -118,7 +118,7 @@ void PMU_highdriver_mode_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void PMU_highdriver_mode_disable(void) {
+void PMU_highdriver_Mode_Disable(void) {
     PMU_CTL &= ~PMU_CTL_HDEN;
 }
 
@@ -126,14 +126,14 @@ void PMU_highdriver_mode_disable(void) {
     简介:      switch high-driver mode
                 this bit set by software only when IRC16M or HXTAL used as system clock
     参数[输入]:  highdr_switch:
-      参数:        PMU_HIGHDR_SWITCH_NONE: disable high-driver mode switch
-      参数:        PMU_HIGHDR_SWITCH_EN: enable high-driver mode switch
+      参数:        PMU_HIGHDR_Switch_NONE: disable high-driver mode switch
+      参数:        PMU_HIGHDR_Switch_EN: enable high-driver mode switch
     参数[输出]:  无
     返回值:      无
 */
-void PMU_highdriver_switch_select(uint32_t highdr_switch) {
+void PMU_highdriver_Switch_Select(uint32_t highdr_switch) {
     /* wait for HDRF flag set */
-    while(SET != PMU_flag_get(PMU_FLAG_HDRF)) {
+    while(SET != PMU_Flag_Get(PMU_Flag_HDRF)) {
     }
 
     PMU_CTL &= ~PMU_CTL_HDS;
@@ -146,7 +146,7 @@ void PMU_highdriver_switch_select(uint32_t highdr_switch) {
     参数[输出]:  无
     返回值:      无
 */
-void PMU_lowdriver_mode_enable(void) {
+void PMU_lowdriver_Mode_Enable(void) {
     PMU_CTL |= PMU_CTL_LDEN;
 }
 
@@ -156,7 +156,7 @@ void PMU_lowdriver_mode_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void PMU_lowdriver_mode_disable(void) {
+void PMU_lowdriver_Mode_Disable(void) {
     PMU_CTL &= ~PMU_CTL_LDEN;
 }
 
@@ -168,7 +168,7 @@ void PMU_lowdriver_mode_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void PMU_lowpower_driver_Config(uint32_t mode) {
+void PMU_Lowpower_driver_Config(uint32_t mode) {
     PMU_CTL &= ~PMU_CTL_LDLP;
     PMU_CTL |= mode;
 }
@@ -300,7 +300,7 @@ void PMU_to_standbymode(void) {
     参数[输出]:  无
     返回值:      无
 */
-void PMU_wakeup_pin_enable(void) {
+void PMU_WakeUp_Pin_Enable(void) {
     PMU_CS |= PMU_CS_WUPEN;
 }
 
@@ -310,7 +310,7 @@ void PMU_wakeup_pin_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void PMU_wakeup_pin_disable(void) {
+void PMU_WakeUp_Pin_Disable(void) {
     PMU_CS &= ~PMU_CS_WUPEN;
 }
 
@@ -333,7 +333,7 @@ void PMU_backup_ldo_Config(uint32_t bkp_ldo) {
     参数[输出]:  无
     返回值:      无
 */
-void PMU_backup_write_enable(void) {
+void PMU_backup_Write_Enable(void) {
     PMU_CTL |= PMU_CTL_BKPWEN;
 }
 
@@ -343,25 +343,25 @@ void PMU_backup_write_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void PMU_backup_write_disable(void) {
+void PMU_backup_Write_Disable(void) {
     PMU_CTL &= ~PMU_CTL_BKPWEN;
 }
 
 /*!
     简介:      get flag state
     参数[输入]:  flag:
-      参数:        PMU_FLAG_WAKEUP: wakeup flag
-      参数:        PMU_FLAG_STANDBY: standby flag
-      参数:        PMU_FLAG_LVD: lvd flag
-      参数:        PMU_FLAG_BLDORF: backup SRAM LDO ready flag
-      参数:        PMU_FLAG_LDOVSRF: LDO voltage select ready flag
-      参数:        PMU_FLAG_HDRF: high-driver ready flag
-      参数:        PMU_FLAG_HDSRF: high-driver switch ready flag
-      参数:        PMU_FLAG_LDRF: low-driver mode ready flag
+      参数:        PMU_Flag_WAKEUP: wakeup flag
+      参数:        PMU_Flag_STANDBY: standby flag
+      参数:        PMU_Flag_LVD: lvd flag
+      参数:        PMU_Flag_BLDORF: backup SRAM LDO ready flag
+      参数:        PMU_Flag_LDOVSRF: LDO voltage select ready flag
+      参数:        PMU_Flag_HDRF: high-driver ready flag
+      参数:        PMU_Flag_HDSRF: high-driver switch ready flag
+      参数:        PMU_Flag_LDRF: low-driver mode ready flag
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus PMU_flag_get(uint32_t flag) {
+FlagStatus PMU_Flag_Get(uint32_t flag) {
     if(PMU_CS & flag) {
         return SET;
     } else {
@@ -372,19 +372,19 @@ FlagStatus PMU_flag_get(uint32_t flag) {
 /*!
     简介:      clear flag bit
     参数[输入]:  flag:
-      参数:        PMU_FLAG_RESET_WAKEUP: reset wakeup flag
-      参数:        PMU_FLAG_RESET_STANDBY: reset standby flag
+      参数:        PMU_Flag_RESET_WAKEUP: reset wakeup flag
+      参数:        PMU_Flag_RESET_STANDBY: reset standby flag
     参数[输出]:  无
     返回值:      无
 */
-void PMU_flag_clear(uint32_t flag) {
+void PMU_Flag_Clear(uint32_t flag) {
     switch(flag) {
-    case PMU_FLAG_RESET_WAKEUP:
+    case PMU_Flag_RESET_WAKEUP:
         /* reset wakeup flag */
         PMU_CTL |= PMU_CTL_WURST;
         break;
 
-    case PMU_FLAG_RESET_STANDBY:
+    case PMU_Flag_RESET_STANDBY:
         /* reset standby flag */
         PMU_CTL |= PMU_CTL_STBRST;
         break;

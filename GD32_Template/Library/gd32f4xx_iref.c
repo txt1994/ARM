@@ -54,7 +54,7 @@ void IREF_DeInit(void) {
     参数[输出]:  无
     返回值:      无
 */
-void IREF_enable(void) {
+void IREF_Enable(void) {
     IREF_CTL |= IREF_CTL_CREN;
 }
 
@@ -64,31 +64,31 @@ void IREF_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void IREF_disable(void) {
+void IREF_Disable(void) {
     IREF_CTL &= ~IREF_CTL_CREN;
 }
 
 /*!
     简介:      set IREF mode
     参数[输入]:  step
-      参数:        IREF_MODE_LOW_POWER: 1uA step
-      参数:        IREF_MODE_HIGH_CURRENT: 8uA step
+      参数:        IREF_Mode_Low_POWER: 1uA step
+      参数:        IREF_Mode_HIGH_CURRENT: 8uA step
     参数[输出]:  无
     返回值:      无
 */
-void IREF_mode_set(uint32_t step) {
+void IREF_Mode_Set(uint32_t step) {
     IREF_CTL &= ~IREF_CTL_SSEL;
     IREF_CTL |= step;
 }
 
 /*!
-    简介:      set IREF precision_trim_value
+    简介:      set IREF precision_Trim_value
     参数[输入]:  precisiontrim
-      参数:        IREF_CUR_PRECISION_TRIM_X(x=0..31): (-15+ x)%
+      参数:        IREF_CUR_PRECISION_Trim_X(x=0..31): (-15+ x)%
     参数[输出]:  无
     返回值:      无
 */
-void IREF_precision_trim_value_set(uint32_t precisiontrim) {
+void IREF_precision_Trim_Value_Set(uint32_t precisiontrim) {
     IREF_CTL &= ~IREF_CTL_CPT;
     IREF_CTL |= precisiontrim;
 }
@@ -96,12 +96,12 @@ void IREF_precision_trim_value_set(uint32_t precisiontrim) {
 /*!
     简介:      set IREF sink mode
     参数[输入]:  sinkmode
-      参数:        IREF_SOURCE_CURRENT : source current.
+      参数:        IREF_Source_CURRENT : source current.
       参数:        IREF_SINK_CURRENT: sink current
     参数[输出]:  无
     返回值:      无
 */
-void IREF_sink_set(uint32_t sinkmode) {
+void IREF_sink_Set(uint32_t sinkmode) {
     IREF_CTL &= ~IREF_CTL_SCMOD;
     IREF_CTL |= sinkmode;
 }
@@ -109,12 +109,12 @@ void IREF_sink_set(uint32_t sinkmode) {
 /*!
     简介:      set IREF step data
     参数[输入]:  stepdata
-      参数:        IREF_CUR_STEP_DATA_X:(x=0..63): step*x
+      参数:        IREF_CUR_STEP_Data_X:(x=0..63): step*x
     参数[输出]:  无
     返回值:      无
 */
 
-void IREF_step_data_Config(uint32_t stepdata) {
+void IREF_step_Data_Config(uint32_t stepdata) {
     IREF_CTL &= ~IREF_CTL_CSDT;
     IREF_CTL |= stepdata;
 }

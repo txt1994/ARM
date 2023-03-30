@@ -56,41 +56,41 @@ void DBG_DeInit(void) {
     参数[输出]:  无
     返回值:     DBG_ID code
 */
-uint32_t DBG_id_get(void) {
+uint32_t DBG_ID_Get(void) {
     return DBG_ID;
 }
 
 /*!
     简介:    enable low power behavior when the mcu is in debug mode
-    参数[输入]:  DBG_low_power:
+    参数[输入]:  DBG_Low_power:
                 this parameter can be any combination of the following values:
-      参数:        DBG_LOW_POWER_SLEEP: keep debugger connection during sleep mode
-      参数:        DBG_LOW_POWER_DEEPSLEEP: keep debugger connection during deepsleep mode
-      参数:        DBG_LOW_POWER_STANDBY: keep debugger connection during standby mode
+      参数:        DBG_Low_Power_SLEEP: keep debugger connection during sleep mode
+      参数:        DBG_Low_Power_DEEPSLEEP: keep debugger connection during deepsleep mode
+      参数:        DBG_Low_Power_STANDBY: keep debugger connection during standby mode
     参数[输出]:  无
     返回值:      无
 */
-void DBG_low_power_enable(uint32_t DBG_low_power) {
-    DBG_CTL0 |= DBG_low_power;
+void DBG_Low_Power_Enable(uint32_t DBG_Low_power) {
+    DBG_CTL0 |= DBG_Low_power;
 }
 
 /*!
     简介:    disable low power behavior when the mcu is in debug mode
-    参数[输入]:  DBG_low_power:
+    参数[输入]:  DBG_Low_power:
                 this parameter can be any combination of the following values:
-      参数:        DBG_LOW_POWER_SLEEP: donot keep debugger connection during sleep mode
-      参数:        DBG_LOW_POWER_DEEPSLEEP: donot keep debugger connection during deepsleep mode
-      参数:        DBG_LOW_POWER_STANDBY: donot keep debugger connection during standby mode
+      参数:        DBG_Low_Power_SLEEP: donot keep debugger connection during sleep mode
+      参数:        DBG_Low_Power_DEEPSLEEP: donot keep debugger connection during deepsleep mode
+      参数:        DBG_Low_Power_STANDBY: donot keep debugger connection during standby mode
     参数[输出]:  无
     返回值:      无
 */
-void DBG_low_power_disable(uint32_t DBG_low_power) {
-    DBG_CTL0 &= ~DBG_low_power;
+void DBG_Low_Power_Disable(uint32_t DBG_Low_power) {
+    DBG_CTL0 &= ~DBG_Low_power;
 }
 
 /*!
     简介:    enable peripheral behavior when the mcu is in debug mode
-    参数[输入]:  DBG_periph: DBG_periph_enum
+    参数[输入]:  DBG_periph: DBG_Periph_Enum
                 only one parameter can be selected which is shown as below:
       参数:        DBG_TIMER1_HOLD: hold TIMER1 counter when core is halted
       参数:        DBG_TIMER2_HOLD: hold TIMER2 counter when core is halted
@@ -116,13 +116,13 @@ void DBG_low_power_disable(uint32_t DBG_low_power) {
       参数:        DBG_TIMER10_HOLD: hold TIMER10 counter when core is halted
     返回值:      无
 */
-void DBG_periph_enable(DBG_periph_enum DBG_periph) {
-    DBG_REG_VAL(DBG_periph) |= BIT(DBG_BIT_POS(DBG_periph));
+void DBG_Periph_Enable(DBG_Periph_Enum DBG_periph) {
+    DBG_REG_VAL(DBG_periph) |= BIT(DBG_Bit_POS(DBG_periph));
 }
 
 /*!
     简介:    disable peripheral behavior when the mcu is in debug mode
-    参数[输入]:  DBG_periph: DBG_periph_enum
+    参数[输入]:  DBG_periph: DBG_Periph_Enum
                 only one parameter can be selected which is shown as below:
       参数:        DBG_TIMER1_HOLD: hold TIMER1 counter when core is halted
       参数:        DBG_TIMER2_HOLD: hold TIMER2 counter when core is halted
@@ -149,8 +149,8 @@ void DBG_periph_enable(DBG_periph_enum DBG_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void DBG_periph_disable(DBG_periph_enum DBG_periph) {
-    DBG_REG_VAL(DBG_periph) &= ~BIT(DBG_BIT_POS(DBG_periph));
+void DBG_Periph_Disable(DBG_Periph_Enum DBG_periph) {
+    DBG_REG_VAL(DBG_periph) &= ~BIT(DBG_Bit_POS(DBG_periph));
 }
 
 /*!
@@ -159,8 +159,8 @@ void DBG_periph_disable(DBG_periph_enum DBG_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void DBG_trace_pin_enable(void) {
-    DBG_CTL0 |= DBG_CTL0_TRACE_IOEN;
+void DBG_Trace_Pin_Enable(void) {
+    DBG_CTL0 |= DBG_CTL0_Trace_IOEN;
 }
 
 /*!
@@ -169,7 +169,7 @@ void DBG_trace_pin_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void DBG_trace_pin_disable(void) {
-    DBG_CTL0 &= ~DBG_CTL0_TRACE_IOEN;
+void DBG_Trace_Pin_Disable(void) {
+    DBG_CTL0 &= ~DBG_CTL0_Trace_IOEN;
 }
 

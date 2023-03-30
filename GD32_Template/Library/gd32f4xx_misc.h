@@ -45,7 +45,7 @@ OF SUCH DAMAGE.
 #define NVIC_VECTTAB_FLASH          ((uint32_t)0x08000000) /*!< Flash base address */
 
 /* set the NVIC vector table offset mask */
-#define NVIC_VECTTAB_OFFSET_MASK    ((uint32_t)0x1FFFFF80)
+#define NVIC_VECTTAB_Offset_MASK    ((uint32_t)0x1FFFFF80)
 
 /* the register key mask, if you want to do the write operation, you should write 0x5FA to VECTKEY bits */
 #define NVIC_AIRCR_VECTKEY_MASK     ((uint32_t)0x05FA0000)
@@ -72,22 +72,22 @@ OF SUCH DAMAGE.
 
 /* function declarations */
 /* set the priority group */
-void NVIC_priority_group_set(uint32_t NVIC_prigroup);
+void NVIC_Priority_Group_Set(uint32_t NVIC_prigroup);
 
 /* enable NVIC request */
-void NVIC_irq_enable(uint8_t NVIC_irq, uint8_t NVIC_irq_pre_priority, uint8_t NVIC_irq_sub_priority);
+void NVIC_irq_Enable(uint8_t NVIC_irq, uint8_t NVIC_irq_pre_priority, uint8_t NVIC_irq_sub_priority);
 /* disable NVIC request */
-void NVIC_irq_disable(uint8_t NVIC_irq);
+void NVIC_irq_Disable(uint8_t NVIC_irq);
 
 /* set the NVIC vector table base address */
-void NVIC_vector_table_set(uint32_t NVIC_vict_tab, uint32_t offset);
+void NVIC_vector_table_Set(uint32_t NVIC_vict_tab, uint32_t offset);
 
 /* set the state of the low power mode */
-void system_lowpower_set(uint8_t lowpower_mode);
+void system_Lowpower_Set(uint8_t lowpower_mode);
 /* reset the state of the low power mode */
-void system_lowpower_reset(uint8_t lowpower_mode);
+void system_Lowpower_Reset(uint8_t lowpower_mode);
 
 /* set the systick clock source */
-void systick_clksource_set(uint32_t systick_clksource);
+void Systick_CLKsource_Set(uint32_t systick_clksource);
 
 #endif /* GD32F4XX_MISC_H */

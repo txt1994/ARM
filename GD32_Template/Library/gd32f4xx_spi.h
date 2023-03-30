@@ -114,7 +114,7 @@ OF SUCH DAMAGE.
 #define SPI_STAT_FERR                   BIT(8)                                  /*!< format error bit */
 
 /* SPI_DATA */
-#define SPI_DATA_DATA                   BITS(0,15)                              /*!< data transfer register */
+#define SPI_Data_DATA                   BITS(0,15)                              /*!< data transfer register */
 
 /* SPI_CRCPOLY */
 #define SPI_CRCPOLY_CPR                 BITS(0,15)                              /*!< CRC polynomial register */
@@ -153,9 +153,9 @@ typedef struct {
     uint32_t frame_size;                                                        /*!< SPI frame size */
     uint32_t nss;                                                               /*!< SPI nss control by handware or software */
     uint32_t endian;                                                            /*!< SPI big endian or little endian */
-    uint32_t clock_polarity_phase;                                              /*!< SPI clock phase and polarity */
+    uint32_t clock_Polarity_phase;                                              /*!< SPI clock phase and polarity */
     uint32_t prescale;                                                          /*!< SPI prescale factor */
-} SPI_parameter_struct;
+} SPI_Parameter_Struct;
 
 /* SPI mode definitions */
 #define SPI_MASTER                      (SPI_CTL0_MSTMOD | SPI_CTL0_SWNSS)      /*!< SPI as master */
@@ -184,9 +184,9 @@ typedef struct {
 #define SPI_ENDIAN_LSB                  SPI_CTL0_LF                             /*!< SPI transmit way is little endian: transmit LSB first */
 
 /* SPI clock polarity and phase */
-#define SPI_CK_PL_LOW_PH_1EDGE          ((uint32_t)0x00000000U)                 /*!< SPI clock polarity is low level and phase is first edge */
+#define SPI_CK_PL_Low_PH_1EDGE          ((uint32_t)0x00000000U)                 /*!< SPI clock polarity is low level and phase is first edge */
 #define SPI_CK_PL_HIGH_PH_1EDGE         SPI_CTL0_CKPL                           /*!< SPI clock polarity is high level and phase is first edge */
-#define SPI_CK_PL_LOW_PH_2EDGE          SPI_CTL0_CKPH                           /*!< SPI clock polarity is low level and phase is second edge */
+#define SPI_CK_PL_Low_PH_2EDGE          SPI_CTL0_CKPH                           /*!< SPI clock polarity is low level and phase is second edge */
 #define SPI_CK_PL_HIGH_PH_2EDGE         (SPI_CTL0_CKPL|SPI_CTL0_CKPH)           /*!< SPI clock polarity is high level and phase is second edge */
 
 /* SPI clock prescale factor */
@@ -224,10 +224,10 @@ typedef struct {
 
 /* I2S operation mode */
 #define I2SCTL_I2SOPMOD(regval)         (BITS(8,9)&((uint32_t)(regval)<<8))
-#define I2S_MODE_SLAVETX                I2SCTL_I2SOPMOD(0)                      /*!< I2S slave transmit mode */
-#define I2S_MODE_SLAVERX                I2SCTL_I2SOPMOD(1)                      /*!< I2S slave receive mode */
-#define I2S_MODE_MASTERTX               I2SCTL_I2SOPMOD(2)                      /*!< I2S master transmit mode */
-#define I2S_MODE_MASTERRX               I2SCTL_I2SOPMOD(3)                      /*!< I2S master receive mode */
+#define I2S_Mode_SLAVETX                I2SCTL_I2SOPMOD(0)                      /*!< I2S slave transmit mode */
+#define I2S_Mode_SLAVERX                I2SCTL_I2SOPMOD(1)                      /*!< I2S slave receive mode */
+#define I2S_Mode_MASTERTX               I2SCTL_I2SOPMOD(2)                      /*!< I2S master transmit mode */
+#define I2S_Mode_MASTERRX               I2SCTL_I2SOPMOD(3)                      /*!< I2S master receive mode */
 
 /* I2S standard */
 #define I2SCTL_I2SSTD(regval)           (BITS(4,5)&((uint32_t)(regval)<<4))
@@ -255,83 +255,83 @@ typedef struct {
 #define SPI_I2S_INT_ERR                 ((uint8_t)0x02U)                        /*!< error interrupt */
 
 /* SPI/I2S interrupt flag constants definitions */
-#define SPI_I2S_INT_FLAG_TBE            ((uint8_t)0x00U)                        /*!< transmit buffer empty interrupt flag */
-#define SPI_I2S_INT_FLAG_RBNE           ((uint8_t)0x01U)                        /*!< receive buffer not empty interrupt flag */
-#define SPI_I2S_INT_FLAG_RXORERR        ((uint8_t)0x02U)                        /*!< overrun interrupt flag */
-#define SPI_INT_FLAG_CONFERR            ((uint8_t)0x03U)                        /*!< config error interrupt flag */
-#define SPI_INT_FLAG_CRCERR             ((uint8_t)0x04U)                        /*!< CRC error interrupt flag */
-#define I2S_INT_FLAG_TXURERR            ((uint8_t)0x05U)                        /*!< underrun error interrupt flag */
-#define SPI_I2S_INT_FLAG_FERR           ((uint8_t)0x06U)                        /*!< format error interrupt flag */
+#define SPI_I2S_INT_Flag_TBE            ((uint8_t)0x00U)                        /*!< transmit buffer empty interrupt flag */
+#define SPI_I2S_INT_Flag_RBNE           ((uint8_t)0x01U)                        /*!< receive buffer not empty interrupt flag */
+#define SPI_I2S_INT_Flag_RXORERR        ((uint8_t)0x02U)                        /*!< overrun interrupt flag */
+#define SPI_INT_Flag_CONFERR            ((uint8_t)0x03U)                        /*!< config error interrupt flag */
+#define SPI_INT_Flag_CRCERR             ((uint8_t)0x04U)                        /*!< CRC error interrupt flag */
+#define I2S_INT_Flag_TXURERR            ((uint8_t)0x05U)                        /*!< underrun error interrupt flag */
+#define SPI_I2S_INT_Flag_FERR           ((uint8_t)0x06U)                        /*!< format error interrupt flag */
 
 /* SPI/I2S flag definitions */
-#define SPI_FLAG_RBNE                   SPI_STAT_RBNE                           /*!< receive buffer not empty flag */
-#define SPI_FLAG_TBE                    SPI_STAT_TBE                            /*!< transmit buffer empty flag */
-#define SPI_FLAG_CRCERR                 SPI_STAT_CRCERR                         /*!< CRC error flag */
-#define SPI_FLAG_CONFERR                SPI_STAT_CONFERR                        /*!< mode config error flag */
-#define SPI_FLAG_RXORERR                SPI_STAT_RXORERR                        /*!< receive overrun error flag */
-#define SPI_FLAG_TRANS                  SPI_STAT_TRANS                          /*!< transmit on-going flag */
-#define SPI_FLAG_FERR                   SPI_STAT_FERR                           /*!< format error flag */
-#define I2S_FLAG_RBNE                   SPI_STAT_RBNE                           /*!< receive buffer not empty flag */
-#define I2S_FLAG_TBE                    SPI_STAT_TBE                            /*!< transmit buffer empty flag */
-#define I2S_FLAG_CH                     SPI_STAT_I2SCH                          /*!< channel side flag */
-#define I2S_FLAG_TXURERR                SPI_STAT_TXURERR                        /*!< underrun error flag */
-#define I2S_FLAG_RXORERR                SPI_STAT_RXORERR                        /*!< overrun error flag */
-#define I2S_FLAG_TRANS                  SPI_STAT_TRANS                          /*!< transmit on-going flag */
-#define I2S_FLAG_FERR                   SPI_STAT_FERR                           /*!< format error flag */
+#define SPI_Flag_RBNE                   SPI_STAT_RBNE                           /*!< receive buffer not empty flag */
+#define SPI_Flag_TBE                    SPI_STAT_TBE                            /*!< transmit buffer empty flag */
+#define SPI_Flag_CRCERR                 SPI_STAT_CRCERR                         /*!< CRC error flag */
+#define SPI_Flag_CONFERR                SPI_STAT_CONFERR                        /*!< mode config error flag */
+#define SPI_Flag_RXORERR                SPI_STAT_RXORERR                        /*!< receive overrun error flag */
+#define SPI_Flag_TRANS                  SPI_STAT_TRANS                          /*!< transmit on-going flag */
+#define SPI_Flag_FERR                   SPI_STAT_FERR                           /*!< format error flag */
+#define I2S_Flag_RBNE                   SPI_STAT_RBNE                           /*!< receive buffer not empty flag */
+#define I2S_Flag_TBE                    SPI_STAT_TBE                            /*!< transmit buffer empty flag */
+#define I2S_Flag_CH                     SPI_STAT_I2SCH                          /*!< channel side flag */
+#define I2S_Flag_TXURERR                SPI_STAT_TXURERR                        /*!< underrun error flag */
+#define I2S_Flag_RXORERR                SPI_STAT_RXORERR                        /*!< overrun error flag */
+#define I2S_Flag_TRANS                  SPI_STAT_TRANS                          /*!< transmit on-going flag */
+#define I2S_Flag_FERR                   SPI_STAT_FERR                           /*!< format error flag */
 
 /* function declarations */
 /* initialization functions */
 /* deinitialize SPI and I2S */
-void SPI_i2s_DeInit(uint32_t SPI_periph);
+void SPI_I2S_DeInit(uint32_t SPI_periph);
 /* initialize the parameters of SPI struct with default values */
-void SPI_struct_para_init(SPI_parameter_struct *SPI_struct);
+void SPI_Struct_Para_Init(SPI_Parameter_Struct *SPI_Struct);
 /* initialize SPI parameter */
-void SPI_init(uint32_t SPI_periph, SPI_parameter_struct *SPI_struct);
+void SPI_Init(uint32_t SPI_periph, SPI_Parameter_Struct *SPI_Struct);
 /* enable SPI */
-void SPI_enable(uint32_t SPI_periph);
+void SPI_Enable(uint32_t SPI_periph);
 /* disable SPI */
-void SPI_disable(uint32_t SPI_periph);
+void SPI_Disable(uint32_t SPI_periph);
 
 /* initialize I2S parameter */
-void i2s_init(uint32_t SPI_periph, uint32_t i2s_mode, uint32_t i2s_standard, uint32_t i2s_ckpl);
+void I2S_Init(uint32_t SPI_periph, uint32_t I2S_mode, uint32_t I2S_standard, uint32_t I2S_ckpl);
 /* configure I2S prescale */
-void i2s_psc_Config(uint32_t SPI_periph, uint32_t i2s_audiosample, uint32_t i2s_frameformat, uint32_t i2s_mckout);
+void I2S_psc_Config(uint32_t SPI_periph, uint32_t I2S_audiosample, uint32_t I2S_frameformat, uint32_t I2S_mckout);
 /* enable I2S */
-void i2s_enable(uint32_t SPI_periph);
+void I2S_Enable(uint32_t SPI_periph);
 /* disable I2S */
-void i2s_disable(uint32_t SPI_periph);
+void I2S_Disable(uint32_t SPI_periph);
 
 /* NSS functions */
 /* enable SPI nss output */
-void SPI_nss_output_enable(uint32_t SPI_periph);
+void SPI_nss_OutPut_Enable(uint32_t SPI_periph);
 /* disable SPI nss output */
-void SPI_nss_output_disable(uint32_t SPI_periph);
+void SPI_nss_OutPut_Disable(uint32_t SPI_periph);
 /* SPI nss pin high level in software mode */
-void SPI_nss_internal_high(uint32_t SPI_periph);
+void SPI_nss_Internal_high(uint32_t SPI_periph);
 /* SPI nss pin low level in software mode */
-void SPI_nss_internal_low(uint32_t SPI_periph);
+void SPI_nss_Internal_low(uint32_t SPI_periph);
 
 /* SPI DMA functions */
 /* enable SPI DMA send or receive */
-void SPI_DMA_enable(uint32_t SPI_periph, uint8_t SPI_dma);
+void SPI_DMA_Enable(uint32_t SPI_periph, uint8_t SPI_dma);
 /* diable SPI DMA send or receive */
-void SPI_DMA_disable(uint32_t SPI_periph, uint8_t SPI_dma);
+void SPI_DMA_Disable(uint32_t SPI_periph, uint8_t SPI_dma);
 
 /* SPI/I2S transfer configure functions */
 /* configure SPI/I2S data frame format */
-void SPI_i2s_data_frame_format_Config(uint32_t SPI_periph, uint16_t frame_format);
+void SPI_I2S_Data_Frame_format_Config(uint32_t SPI_periph, uint16_t frame_format);
 /* SPI transmit data */
-void SPI_i2s_data_transmit(uint32_t SPI_periph, uint16_t data);
+void SPI_I2S_Data_Transmit(uint32_t SPI_periph, uint16_t data);
 /* SPI receive data */
-uint16_t SPI_i2s_data_receive(uint32_t SPI_periph);
+uint16_t SPI_I2S_Data_Receive(uint32_t SPI_periph);
 /* configure SPI bidirectional transfer direction  */
-void SPI_bidirectional_transfer_Config(uint32_t SPI_periph, uint32_t transfer_direction);
+void SPI_bidirectional_Transfer_Config(uint32_t SPI_periph, uint32_t transfer_direction);
 
 /* SPI CRC functions */
 /* set SPI CRC polynomial */
-void SPI_CRC_polynomial_set(uint32_t SPI_periph, uint16_t CRC_poly);
+void SPI_CRC_polynomial_Set(uint32_t SPI_periph, uint16_t CRC_poly);
 /* get SPI CRC polynomial */
-uint16_t SPI_CRC_polynomial_get(uint32_t SPI_periph);
+uint16_t SPI_CRC_polynomial_Get(uint32_t SPI_periph);
 /* turn on SPI CRC function */
 void SPI_CRC_on(uint32_t SPI_periph);
 /* turn off SPI CRC function */
@@ -339,41 +339,41 @@ void SPI_CRC_off(uint32_t SPI_periph);
 /* SPI next data is CRC value */
 void SPI_CRC_next(uint32_t SPI_periph);
 /* get SPI CRC send value or receive value */
-uint16_t SPI_CRC_get(uint32_t SPI_periph, uint8_t SPI_crc);
+uint16_t SPI_CRC_Get(uint32_t SPI_periph, uint8_t SPI_crc);
 
 /* SPI TI mode functions */
 /* enable SPI TI mode */
-void SPI_ti_mode_enable(uint32_t SPI_periph);
+void SPI_ti_Mode_Enable(uint32_t SPI_periph);
 /* disable SPI TI mode */
-void SPI_ti_mode_disable(uint32_t SPI_periph);
+void SPI_ti_Mode_Disable(uint32_t SPI_periph);
 
 /* configure i2s full duplex mode */
-void i2s_full_duplex_mode_Config(uint32_t i2s_add_periph, uint32_t i2s_mode, uint32_t i2s_standard, uint32_t i2s_ckpl, uint32_t i2s_frameformat);
+void I2S_full_duplex_Mode_Config(uint32_t I2S_add_periph, uint32_t I2S_mode, uint32_t I2S_standard, uint32_t I2S_ckpl, uint32_t I2S_frameformat);
 
 /* quad wire SPI functions */
 /* enable quad wire SPI */
-void SPI_quad_enable(uint32_t SPI_periph);
+void SPI_quad_Enable(uint32_t SPI_periph);
 /* disable quad wire SPI */
-void SPI_quad_disable(uint32_t SPI_periph);
+void SPI_quad_Disable(uint32_t SPI_periph);
 /* enable quad wire SPI write */
-void SPI_quad_write_enable(uint32_t SPI_periph);
+void SPI_quad_Write_Enable(uint32_t SPI_periph);
 /* enable quad wire SPI read */
-void SPI_quad_read_enable(uint32_t SPI_periph);
+void SPI_quad_read_Enable(uint32_t SPI_periph);
 /* enable SPI_IO2 and SPI_IO3 pin output */
-void SPI_quad_io23_output_enable(uint32_t SPI_periph);
+void SPI_quad_io23_OutPut_Enable(uint32_t SPI_periph);
 /* disable SPI_IO2 and SPI_IO3 pin output */
-void SPI_quad_io23_output_disable(uint32_t SPI_periph);
+void SPI_quad_io23_OutPut_Disable(uint32_t SPI_periph);
 
 /* flag & interrupt functions */
 /* enable SPI and I2S interrupt */
-void SPI_i2s_Interrupt_enable(uint32_t SPI_periph, uint8_t SPI_i2s_int);
+void SPI_I2S_Interrupt_Enable(uint32_t SPI_periph, uint8_t SPI_I2S_int);
 /* disable SPI and I2S interrupt */
-void SPI_i2s_Interrupt_disable(uint32_t SPI_periph, uint8_t SPI_i2s_int);
+void SPI_I2S_Interrupt_Disable(uint32_t SPI_periph, uint8_t SPI_I2S_int);
 /* get SPI and I2S interrupt status*/
-FlagStatus SPI_i2s_Interrupt_flag_get(uint32_t SPI_periph, uint8_t SPI_i2s_int);
+FlagStatus SPI_I2S_Interrupt_Flag_Get(uint32_t SPI_periph, uint8_t SPI_I2S_int);
 /* get SPI and I2S flag status */
-FlagStatus SPI_i2s_flag_get(uint32_t SPI_periph, uint32_t SPI_i2s_flag);
+FlagStatus SPI_I2S_Flag_Get(uint32_t SPI_periph, uint32_t SPI_I2S_flag);
 /* clear SPI CRC error flag status */
-void SPI_CRC_error_clear(uint32_t SPI_periph);
+void SPI_CRC_Error_Clear(uint32_t SPI_periph);
 
 #endif /* GD32F4XX_SPI_H */

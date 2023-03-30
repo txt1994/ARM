@@ -57,7 +57,7 @@ OF SUCH DAMAGE.
 #define DBG_CTL0_SLP_HOLD        BIT(0)                     /*!< keep debugger connection during sleep mode */
 #define DBG_CTL0_DSLP_HOLD       BIT(1)                     /*!< keep debugger connection during deepsleep mode */
 #define DBG_CTL0_STB_HOLD        BIT(2)                     /*!< keep debugger connection during standby mode */
-#define DBG_CTL0_TRACE_IOEN      BIT(5)                     /*!< enable trace pin assignment */
+#define DBG_CTL0_Trace_IOEN      BIT(5)                     /*!< enable trace pin assignment */
 
 /* DBG_CTL1 */
 #define DBG_CTL1_TIMER1_HOLD     BIT(0)                     /*!< hold TIMER1 counter when core is halted */
@@ -86,14 +86,14 @@ OF SUCH DAMAGE.
 #define DBG_CTL2_TIMER10_HOLD    BIT(18)                    /*!< hold TIMER10 counter when core is halted */
 
 /* constants definitions */
-#define DBG_LOW_POWER_SLEEP      DBG_CTL0_SLP_HOLD          /*!< keep debugger connection during sleep mode */
-#define DBG_LOW_POWER_DEEPSLEEP  DBG_CTL0_DSLP_HOLD         /*!< keep debugger connection during deepsleep mode */
-#define DBG_LOW_POWER_STANDBY    DBG_CTL0_STB_HOLD          /*!< keep debugger connection during standby mode */
+#define DBG_Low_Power_SLEEP      DBG_CTL0_SLP_HOLD          /*!< keep debugger connection during sleep mode */
+#define DBG_Low_Power_DEEPSLEEP  DBG_CTL0_DSLP_HOLD         /*!< keep debugger connection during deepsleep mode */
+#define DBG_Low_Power_STANDBY    DBG_CTL0_STB_HOLD          /*!< keep debugger connection during standby mode */
 
 /* define the peripheral debug hold bit position and its register index offset */
 #define DBG_REGIDX_BIT(regidx, bitpos)      (((regidx) << 6) | (bitpos))
 #define DBG_REG_VAL(periph)                 (REG32(DBG + ((uint32_t)(periph) >> 6)))
-#define DBG_BIT_POS(val)                    ((uint32_t)(val) & 0x1FU)
+#define DBG_Bit_POS(val)                    ((uint32_t)(val) & 0x1FU)
 
 /* register index */
 enum DBG_reg_idx {
@@ -125,27 +125,27 @@ typedef enum {
     DBG_TIMER8_HOLD            = DBG_REGIDX_BIT(DBG_IDX_CTL2, 16U),                   /*!< hold TIMER8 counter when core is halted */
     DBG_TIMER9_HOLD            = DBG_REGIDX_BIT(DBG_IDX_CTL2, 17U),                   /*!< hold TIMER9 counter when core is halted */
     DBG_TIMER10_HOLD           = DBG_REGIDX_BIT(DBG_IDX_CTL2, 18U)                    /*!< hold TIMER10 counter when core is halted */
-} DBG_periph_enum;
+} DBG_Periph_Enum;
 
 /* function declarations */
 /* deinitialize the DBG */
 void DBG_DeInit(void);
 /* read DBG_ID code register */
-uint32_t DBG_id_get(void);
+uint32_t DBG_ID_Get(void);
 
 /* enable low power behavior when the MCU is in debug mode */
-void DBG_low_power_enable(uint32_t DBG_low_power);
+void DBG_Low_Power_Enable(uint32_t DBG_Low_power);
 /* disable low power behavior when the MCU is in debug mode */
-void DBG_low_power_disable(uint32_t DBG_low_power);
+void DBG_Low_Power_Disable(uint32_t DBG_Low_power);
 
 /* enable peripheral behavior when the MCU is in debug mode */
-void DBG_periph_enable(DBG_periph_enum DBG_periph);
+void DBG_Periph_Enable(DBG_Periph_Enum DBG_periph);
 /* disable peripheral behavior when the MCU is in debug mode */
-void DBG_periph_disable(DBG_periph_enum DBG_periph);
+void DBG_Periph_Disable(DBG_Periph_Enum DBG_periph);
 
 /* enable trace pin assignment */
-void DBG_trace_pin_enable(void);
+void DBG_Trace_Pin_Enable(void);
 /* disable trace pin assignment */
-void DBG_trace_pin_disable(void);
+void DBG_Trace_Pin_Disable(void);
 
 #endif /* GD32F4XX_DBG_H */

@@ -40,7 +40,7 @@ OF SUCH DAMAGE.
 
 #include "gd32f4xx_can.h"
 
-#define CAN_ERROR_HANDLE(s)     do{}while(1)
+#define CAN_Error_HANDLE(s)     do{}while(1)
 
 /*!
     简介:      deinitialize CAN
@@ -63,79 +63,79 @@ void CAN_DeInit(uint32_t CAN_periph) {
     简介:      initialize CAN parameter struct with a default value
     参数[输入]:  type: the type of CAN parameter struct
                 only one parameter can be selected which is shown as below:
-      参数:        CAN_INIT_STRUCT: the CAN initial struct
-      参数:        CAN_FILTER_STRUCT: the CAN filter struct
-      参数:        CAN_TX_MESSAGE_STRUCT: the CAN TX message struct
-      参数:        CAN_RX_MESSAGE_STRUCT: the CAN RX message struct
-    参数[输出]: p_struct: the pointer of the specific struct
+      参数:        CAN_INIT_Struct: the CAN initial struct
+      参数:        CAN_Filter_Struct: the CAN filter struct
+      参数:        CAN_TX_Message_Struct: the CAN TX message struct
+      参数:        CAN_RX_Message_Struct: the CAN RX message struct
+    参数[输出]: p_Struct: the pointer of the specific struct
     返回值:      无
 */
-void CAN_struct_para_init(CAN_struct_type_enum type, void *p_struct) {
+void CAN_Struct_Para_Init(CAN_Struct_type_enum type, void *p_Struct) {
     uint8_t i;
 
     /* get type of the struct */
     switch(type) {
-    /* used for CAN_init() */
-    case CAN_INIT_STRUCT:
-        ((CAN_parameter_struct *)p_struct)->auto_bus_off_recovery = DISABLE;
-        ((CAN_parameter_struct *)p_struct)->auto_retrans = ENABLE;
-        ((CAN_parameter_struct *)p_struct)->auto_wake_up = DISABLE;
-        ((CAN_parameter_struct *)p_struct)->prescaler = 0x03FFU;
-        ((CAN_parameter_struct *)p_struct)->rec_fifo_overwrite = ENABLE;
-        ((CAN_parameter_struct *)p_struct)->resync_jump_width = CAN_BT_SJW_1TQ;
-        ((CAN_parameter_struct *)p_struct)->time_segment_1 = CAN_BT_BS1_3TQ;
-        ((CAN_parameter_struct *)p_struct)->time_segment_2 = CAN_BT_BS2_1TQ;
-        ((CAN_parameter_struct *)p_struct)->time_triggered = DISABLE;
-        ((CAN_parameter_struct *)p_struct)->trans_fifo_order = DISABLE;
-        ((CAN_parameter_struct *)p_struct)->working_mode = CAN_NORMAL_MODE;
+    /* used for CAN_Init() */
+    case CAN_INIT_Struct:
+        ((CAN_Parameter_Struct *)p_Struct)->auto_bus_off_recovery = DISABLE;
+        ((CAN_Parameter_Struct *)p_Struct)->auto_retrans = ENABLE;
+        ((CAN_Parameter_Struct *)p_Struct)->auto_wake_up = DISABLE;
+        ((CAN_Parameter_Struct *)p_Struct)->prescaler = 0x03FFU;
+        ((CAN_Parameter_Struct *)p_Struct)->rec_FIFO_overwrite = ENABLE;
+        ((CAN_Parameter_Struct *)p_Struct)->resync_jump_width = CAN_BT_SJW_1TQ;
+        ((CAN_Parameter_Struct *)p_Struct)->time_segment_1 = CAN_BT_BS1_3TQ;
+        ((CAN_Parameter_Struct *)p_Struct)->time_segment_2 = CAN_BT_BS2_1TQ;
+        ((CAN_Parameter_Struct *)p_Struct)->time_triggered = DISABLE;
+        ((CAN_Parameter_Struct *)p_Struct)->trans_FIFO_order = DISABLE;
+        ((CAN_Parameter_Struct *)p_Struct)->working_mode = CAN_Normal_MODE;
 
         break;
 
-    /* used for CAN_filter_init() */
-    case CAN_FILTER_STRUCT:
-        ((CAN_filter_parameter_struct *)p_struct)->filter_bits = CAN_FILTERBITS_32BIT;
-        ((CAN_filter_parameter_struct *)p_struct)->filter_enable = DISABLE;
-        ((CAN_filter_parameter_struct *)p_struct)->filter_fifo_number = CAN_FIFO0;
-        ((CAN_filter_parameter_struct *)p_struct)->filter_list_high = 0x0000U;
-        ((CAN_filter_parameter_struct *)p_struct)->filter_list_low = 0x0000U;
-        ((CAN_filter_parameter_struct *)p_struct)->filter_mask_high = 0x0000U;
-        ((CAN_filter_parameter_struct *)p_struct)->filter_mask_low = 0x0000U;
-        ((CAN_filter_parameter_struct *)p_struct)->filter_mode = CAN_FILTERMODE_MASK;
-        ((CAN_filter_parameter_struct *)p_struct)->filter_number = 0U;
+    /* used for CAN_Filter_Init() */
+    case CAN_Filter_Struct:
+        ((CAN_Filter_Parameter_Struct *)p_Struct)->filter_bits = CAN_FILTERBITS_32BIT;
+        ((CAN_Filter_Parameter_Struct *)p_Struct)->filter_enable = DISABLE;
+        ((CAN_Filter_Parameter_Struct *)p_Struct)->filter_FIFO_number = CAN_FIFO0;
+        ((CAN_Filter_Parameter_Struct *)p_Struct)->filter_list_high = 0x0000U;
+        ((CAN_Filter_Parameter_Struct *)p_Struct)->filter_list_low = 0x0000U;
+        ((CAN_Filter_Parameter_Struct *)p_Struct)->filter_mask_high = 0x0000U;
+        ((CAN_Filter_Parameter_Struct *)p_Struct)->filter_mask_low = 0x0000U;
+        ((CAN_Filter_Parameter_Struct *)p_Struct)->filter_mode = CAN_FILTERMODE_MASK;
+        ((CAN_Filter_Parameter_Struct *)p_Struct)->filter_number = 0U;
 
         break;
 
-    /* used for CAN_message_transmit() */
-    case CAN_TX_MESSAGE_STRUCT:
+    /* used for CAN_Message_Transmit() */
+    case CAN_TX_Message_Struct:
         for(i = 0U; i < 8U; i++) {
-            ((CAN_trasnmit_message_struct *)p_struct)->tx_data[i] = 0U;
+            ((CAN_trasnmit_Message_Struct *)p_Struct)->tx_data[i] = 0U;
         }
 
-        ((CAN_trasnmit_message_struct *)p_struct)->tx_dlen = 0u;
-        ((CAN_trasnmit_message_struct *)p_struct)->tx_efid = 0U;
-        ((CAN_trasnmit_message_struct *)p_struct)->tx_ff = (uint8_t)CAN_FF_STANDARD;
-        ((CAN_trasnmit_message_struct *)p_struct)->tx_ft = (uint8_t)CAN_FT_DATA;
-        ((CAN_trasnmit_message_struct *)p_struct)->tx_sfid = 0U;
+        ((CAN_trasnmit_Message_Struct *)p_Struct)->tx_dlen = 0u;
+        ((CAN_trasnmit_Message_Struct *)p_Struct)->tx_efid = 0U;
+        ((CAN_trasnmit_Message_Struct *)p_Struct)->tx_ff = (uint8_t)CAN_FF_STANDARD;
+        ((CAN_trasnmit_Message_Struct *)p_Struct)->tx_ft = (uint8_t)CAN_FT_DATA;
+        ((CAN_trasnmit_Message_Struct *)p_Struct)->tx_sfid = 0U;
 
         break;
 
-    /* used for CAN_message_receive() */
-    case CAN_RX_MESSAGE_STRUCT:
+    /* used for CAN_Message_Receive() */
+    case CAN_RX_Message_Struct:
         for(i = 0U; i < 8U; i++) {
-            ((CAN_receive_message_struct *)p_struct)->rx_data[i] = 0U;
+            ((CAN_Receive_Message_Struct *)p_Struct)->rx_data[i] = 0U;
         }
 
-        ((CAN_receive_message_struct *)p_struct)->rx_dlen = 0U;
-        ((CAN_receive_message_struct *)p_struct)->rx_efid = 0U;
-        ((CAN_receive_message_struct *)p_struct)->rx_ff = (uint8_t)CAN_FF_STANDARD;
-        ((CAN_receive_message_struct *)p_struct)->rx_fi = 0U;
-        ((CAN_receive_message_struct *)p_struct)->rx_ft = (uint8_t)CAN_FT_DATA;
-        ((CAN_receive_message_struct *)p_struct)->rx_sfid = 0U;
+        ((CAN_Receive_Message_Struct *)p_Struct)->rx_dlen = 0U;
+        ((CAN_Receive_Message_Struct *)p_Struct)->rx_efid = 0U;
+        ((CAN_Receive_Message_Struct *)p_Struct)->rx_ff = (uint8_t)CAN_FF_STANDARD;
+        ((CAN_Receive_Message_Struct *)p_Struct)->rx_fi = 0U;
+        ((CAN_Receive_Message_Struct *)p_Struct)->rx_ft = (uint8_t)CAN_FT_DATA;
+        ((CAN_Receive_Message_Struct *)p_Struct)->rx_sfid = 0U;
 
         break;
 
     default:
-        CAN_ERROR_HANDLE("parameter is invalid \r\n");
+        CAN_Error_HANDLE("parameter is invalid \r\n");
     }
 }
 
@@ -143,8 +143,8 @@ void CAN_struct_para_init(CAN_struct_type_enum type, void *p_struct) {
     简介:      initialize CAN
     参数[输入]:  CAN_periph
       参数:        CANx(x=0,1)
-    参数[输入]:  CAN_parameter_init: parameters for CAN initializtion
-      参数:        working_mode: CAN_NORMAL_MODE, CAN_LOOPBACK_MODE, CAN_SILENT_MODE, CAN_SILENT_LOOPBACK_MODE
+    参数[输入]:  CAN_Parameter_init: parameters for CAN initializtion
+      参数:        working_mode: CAN_Normal_MODE, CAN_LOOPBACK_MODE, CAN_SILENT_MODE, CAN_SILENT_LOOPBACK_MODE
       参数:        resync_jump_width: CAN_BT_SJW_xTQ(x=1, 2, 3, 4)
       参数:        time_segment_1: CAN_BT_BS1_xTQ(1..16)
       参数:        time_segment_2: CAN_BT_BS2_xTQ(1..8)
@@ -152,13 +152,13 @@ void CAN_struct_para_init(CAN_struct_type_enum type, void *p_struct) {
       参数:        auto_bus_off_recovery: ENABLE or DISABLE
       参数:        auto_wake_up: ENABLE or DISABLE
       参数:        auto_retrans: ENABLE or DISABLE
-      参数:        rec_fifo_overwrite: ENABLE or DISABLE
-      参数:        trans_fifo_order: ENABLE or DISABLE
+      参数:        rec_FIFO_overwrite: ENABLE or DISABLE
+      参数:        trans_FIFO_order: ENABLE or DISABLE
       参数:        prescaler: 0x0001 - 0x0400
     参数[输出]:  无
     返回值:     ErrStatus: SUCCESS or ERROR
 */
-ErrStatus CAN_init(uint32_t CAN_periph, CAN_parameter_struct *CAN_parameter_init) {
+ErrStatus CAN_Init(uint32_t CAN_periph, CAN_Parameter_Struct *CAN_Parameter_init) {
     uint32_t timeout = CAN_TIMEOUT;
     ErrStatus flag = ERROR;
 
@@ -177,49 +177,49 @@ ErrStatus CAN_init(uint32_t CAN_periph, CAN_parameter_struct *CAN_parameter_init
         flag = ERROR;
     } else {
         /* set the bit timing register */
-        CAN_BT(CAN_periph) = (BT_MODE((uint32_t)CAN_parameter_init->working_mode) | \
-                              BT_SJW((uint32_t)CAN_parameter_init->resync_jump_width) | \
-                              BT_BS1((uint32_t)CAN_parameter_init->time_segment_1) | \
-                              BT_BS2((uint32_t)CAN_parameter_init->time_segment_2) | \
-                              BT_BAUDPSC(((uint32_t)(CAN_parameter_init->prescaler) - 1U)));
+        CAN_BT(CAN_periph) = (BT_Mode((uint32_t)CAN_Parameter_init->working_mode) | \
+                              BT_SJW((uint32_t)CAN_Parameter_init->resync_jump_width) | \
+                              BT_BS1((uint32_t)CAN_Parameter_init->time_segment_1) | \
+                              BT_BS2((uint32_t)CAN_Parameter_init->time_segment_2) | \
+                              BT_BAUDPSC(((uint32_t)(CAN_Parameter_init->prescaler) - 1U)));
 
         /* time trigger communication mode */
-        if(ENABLE == CAN_parameter_init->time_triggered) {
+        if(ENABLE == CAN_Parameter_init->time_triggered) {
             CAN_CTL(CAN_periph) |= CAN_CTL_TTC;
         } else {
             CAN_CTL(CAN_periph) &= ~CAN_CTL_TTC;
         }
 
         /* automatic bus-off management */
-        if(ENABLE == CAN_parameter_init->auto_bus_off_recovery) {
+        if(ENABLE == CAN_Parameter_init->auto_bus_off_recovery) {
             CAN_CTL(CAN_periph) |= CAN_CTL_ABOR;
         } else {
             CAN_CTL(CAN_periph) &= ~CAN_CTL_ABOR;
         }
 
         /* automatic wakeup mode */
-        if(ENABLE == CAN_parameter_init->auto_wake_up) {
+        if(ENABLE == CAN_Parameter_init->auto_wake_up) {
             CAN_CTL(CAN_periph) |= CAN_CTL_AWU;
         } else {
             CAN_CTL(CAN_periph) &= ~CAN_CTL_AWU;
         }
 
         /* automatic retransmission mode disable */
-        if(ENABLE == CAN_parameter_init->auto_retrans) {
+        if(ENABLE == CAN_Parameter_init->auto_retrans) {
             CAN_CTL(CAN_periph) &= ~CAN_CTL_ARD;
         } else {
             CAN_CTL(CAN_periph) |= CAN_CTL_ARD;
         }
 
         /* receive FIFO overwrite mode disable */
-        if(ENABLE == CAN_parameter_init->rec_fifo_overwrite) {
+        if(ENABLE == CAN_Parameter_init->rec_FIFO_overwrite) {
             CAN_CTL(CAN_periph) &= ~CAN_CTL_RFOD;
         } else {
             CAN_CTL(CAN_periph) |= CAN_CTL_RFOD;
         }
 
         /* transmit FIFO order */
-        if(ENABLE == CAN_parameter_init->trans_fifo_order) {
+        if(ENABLE == CAN_Parameter_init->trans_FIFO_order) {
             CAN_CTL(CAN_periph) |= CAN_CTL_TFO;
         } else {
             CAN_CTL(CAN_periph) &= ~CAN_CTL_TFO;
@@ -245,12 +245,12 @@ ErrStatus CAN_init(uint32_t CAN_periph, CAN_parameter_struct *CAN_parameter_init
 
 /*!
     简介:      initialize CAN filter
-    参数[输入]:  CAN_filter_parameter_init: struct for CAN filter initialization
+    参数[输入]:  CAN_Filter_Parameter_init: struct for CAN filter initialization
       参数:        filter_list_high: 0x0000 - 0xFFFF
       参数:        filter_list_low: 0x0000 - 0xFFFF
       参数:        filter_mask_high: 0x0000 - 0xFFFF
       参数:        filter_mask_low: 0x0000 - 0xFFFF
-      参数:        filter_fifo_number: CAN_FIFO0, CAN_FIFO1
+      参数:        filter_FIFO_number: CAN_FIFO0, CAN_FIFO1
       参数:        filter_number: 0 - 27
       参数:        filter_mode: CAN_FILTERMODE_MASK, CAN_FILTERMODE_LIST
       参数:        filter_bits: CAN_FILTERBITS_32BIT, CAN_FILTERBITS_16BIT
@@ -258,45 +258,45 @@ ErrStatus CAN_init(uint32_t CAN_periph, CAN_parameter_struct *CAN_parameter_init
     参数[输出]:  无
     返回值:      无
 */
-void CAN_filter_init(CAN_filter_parameter_struct *CAN_filter_parameter_init) {
+void CAN_Filter_Init(CAN_Filter_Parameter_Struct *CAN_Filter_Parameter_init) {
     uint32_t val = 0U;
 
-    val = ((uint32_t)1) << (CAN_filter_parameter_init->filter_number);
+    val = ((uint32_t)1) << (CAN_Filter_Parameter_init->filter_number);
     /* filter lock disable */
     CAN_FCTL(CAN0) |= CAN_FCTL_FLD;
     /* disable filter */
     CAN_FW(CAN0) &= ~(uint32_t)val;
 
     /* filter 16 bits */
-    if(CAN_FILTERBITS_16BIT == CAN_filter_parameter_init->filter_bits) {
+    if(CAN_FILTERBITS_16BIT == CAN_Filter_Parameter_init->filter_bits) {
         /* set filter 16 bits */
         CAN_FSCFG(CAN0) &= ~(uint32_t)val;
         /* first 16 bits list and first 16 bits mask or first 16 bits list and second 16 bits list */
-        CAN_FDATA0(CAN0, CAN_filter_parameter_init->filter_number) = \
-                FDATA_MASK_HIGH((CAN_filter_parameter_init->filter_mask_low) & CAN_FILTER_MASK_16BITS) | \
-                FDATA_MASK_LOW((CAN_filter_parameter_init->filter_list_low) & CAN_FILTER_MASK_16BITS);
+        CAN_FDATA0(CAN0, CAN_Filter_Parameter_init->filter_number) = \
+                FDATA_MASK_HIGH((CAN_Filter_Parameter_init->filter_mask_low) & CAN_Filter_MASK_16BITS) | \
+                FDATA_MASK_LOW((CAN_Filter_Parameter_init->filter_list_low) & CAN_Filter_MASK_16BITS);
         /* second 16 bits list and second 16 bits mask or third 16 bits list and fourth 16 bits list */
-        CAN_FDATA1(CAN0, CAN_filter_parameter_init->filter_number) = \
-                FDATA_MASK_HIGH((CAN_filter_parameter_init->filter_mask_high) & CAN_FILTER_MASK_16BITS) | \
-                FDATA_MASK_LOW((CAN_filter_parameter_init->filter_list_high) & CAN_FILTER_MASK_16BITS);
+        CAN_FDATA1(CAN0, CAN_Filter_Parameter_init->filter_number) = \
+                FDATA_MASK_HIGH((CAN_Filter_Parameter_init->filter_mask_high) & CAN_Filter_MASK_16BITS) | \
+                FDATA_MASK_LOW((CAN_Filter_Parameter_init->filter_list_high) & CAN_Filter_MASK_16BITS);
     }
 
     /* filter 32 bits */
-    if(CAN_FILTERBITS_32BIT == CAN_filter_parameter_init->filter_bits) {
+    if(CAN_FILTERBITS_32BIT == CAN_Filter_Parameter_init->filter_bits) {
         /* set filter 32 bits */
         CAN_FSCFG(CAN0) |= (uint32_t)val;
         /* 32 bits list or first 32 bits list */
-        CAN_FDATA0(CAN0, CAN_filter_parameter_init->filter_number) = \
-                FDATA_MASK_HIGH((CAN_filter_parameter_init->filter_list_high) & CAN_FILTER_MASK_16BITS) |
-                FDATA_MASK_LOW((CAN_filter_parameter_init->filter_list_low) & CAN_FILTER_MASK_16BITS);
+        CAN_FDATA0(CAN0, CAN_Filter_Parameter_init->filter_number) = \
+                FDATA_MASK_HIGH((CAN_Filter_Parameter_init->filter_list_high) & CAN_Filter_MASK_16BITS) |
+                FDATA_MASK_LOW((CAN_Filter_Parameter_init->filter_list_low) & CAN_Filter_MASK_16BITS);
         /* 32 bits mask or second 32 bits list */
-        CAN_FDATA1(CAN0, CAN_filter_parameter_init->filter_number) = \
-                FDATA_MASK_HIGH((CAN_filter_parameter_init->filter_mask_high) & CAN_FILTER_MASK_16BITS) |
-                FDATA_MASK_LOW((CAN_filter_parameter_init->filter_mask_low) & CAN_FILTER_MASK_16BITS);
+        CAN_FDATA1(CAN0, CAN_Filter_Parameter_init->filter_number) = \
+                FDATA_MASK_HIGH((CAN_Filter_Parameter_init->filter_mask_high) & CAN_Filter_MASK_16BITS) |
+                FDATA_MASK_LOW((CAN_Filter_Parameter_init->filter_mask_low) & CAN_Filter_MASK_16BITS);
     }
 
     /* filter mode */
-    if(CAN_FILTERMODE_MASK == CAN_filter_parameter_init->filter_mode) {
+    if(CAN_FILTERMODE_MASK == CAN_Filter_Parameter_init->filter_mode) {
         /* mask mode */
         CAN_FMCFG(CAN0) &= ~(uint32_t)val;
     } else {
@@ -305,7 +305,7 @@ void CAN_filter_init(CAN_filter_parameter_struct *CAN_filter_parameter_init) {
     }
 
     /* filter FIFO */
-    if(CAN_FIFO0 == (CAN_filter_parameter_init->filter_fifo_number)) {
+    if(CAN_FIFO0 == (CAN_Filter_Parameter_init->filter_FIFO_number)) {
         /* FIFO0 */
         CAN_FAFIFO(CAN0) &= ~(uint32_t)val;
     } else {
@@ -314,7 +314,7 @@ void CAN_filter_init(CAN_filter_parameter_struct *CAN_filter_parameter_init) {
     }
 
     /* filter working */
-    if(ENABLE == CAN_filter_parameter_init->filter_enable) {
+    if(ENABLE == CAN_Filter_Parameter_init->filter_enable) {
 
         CAN_FW(CAN0) |= (uint32_t)val;
     }
@@ -331,7 +331,7 @@ void CAN_filter_init(CAN_filter_parameter_struct *CAN_filter_parameter_init) {
     参数[输出]:  无
     返回值:      无
 */
-void can1_filter_start_bank(uint8_t start_bank) {
+void can1_Filter_start_bank(uint8_t start_bank) {
     /* filter lock disable */
     CAN_FCTL(CAN0) |= CAN_FCTL_FLD;
     /* set CAN1 filter start number */
@@ -348,14 +348,14 @@ void can1_filter_start_bank(uint8_t start_bank) {
     参数[输出]:  无
     返回值:      无
 */
-void CAN_debug_freeze_enable(uint32_t CAN_periph) {
+void CAN_Debug_Freeze_Enable(uint32_t CAN_periph) {
     /* set DFZ bit */
     CAN_CTL(CAN_periph) |= CAN_CTL_DFZ;
 
     if(CAN0 == CAN_periph) {
-        DBG_periph_enable(DBG_CAN0_HOLD);
+        DBG_Periph_Enable(DBG_CAN0_HOLD);
     } else {
-        DBG_periph_enable(DBG_CAN1_HOLD);
+        DBG_Periph_Enable(DBG_CAN1_HOLD);
     }
 }
 
@@ -366,14 +366,14 @@ void CAN_debug_freeze_enable(uint32_t CAN_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void CAN_debug_freeze_disable(uint32_t CAN_periph) {
+void CAN_Debug_Freeze_Disable(uint32_t CAN_periph) {
     /* set DFZ bit */
     CAN_CTL(CAN_periph) &= ~CAN_CTL_DFZ;
 
     if(CAN0 == CAN_periph) {
-        DBG_periph_disable(DBG_CAN0_HOLD);
+        DBG_Periph_Disable(DBG_CAN0_HOLD);
     } else {
-        DBG_periph_disable(DBG_CAN1_HOLD);
+        DBG_Periph_Disable(DBG_CAN1_HOLD);
     }
 }
 
@@ -384,7 +384,7 @@ void CAN_debug_freeze_disable(uint32_t CAN_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void CAN_time_trigger_mode_enable(uint32_t CAN_periph) {
+void CAN_Time_Trigger_Mode_Enable(uint32_t CAN_periph) {
     uint8_t mailbox_number;
 
     /* enable the TTC mode */
@@ -403,7 +403,7 @@ void CAN_time_trigger_mode_enable(uint32_t CAN_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void CAN_time_trigger_mode_disable(uint32_t CAN_periph) {
+void CAN_Time_Trigger_Mode_Disable(uint32_t CAN_periph) {
     uint8_t mailbox_number;
 
     /* disable the TTC mode */
@@ -429,7 +429,7 @@ void CAN_time_trigger_mode_disable(uint32_t CAN_periph) {
     参数[输出]:  无
     返回值:     mailbox_number
 */
-uint8_t CAN_message_transmit(uint32_t CAN_periph, CAN_trasnmit_message_struct *transmit_message) {
+uint8_t CAN_Message_Transmit(uint32_t CAN_periph, CAN_trasnmit_Message_Struct *transmit_message) {
     uint8_t mailbox_number = CAN_MAILBOX0;
 
     /* select one empty mailbox */
@@ -487,10 +487,10 @@ uint8_t CAN_message_transmit(uint32_t CAN_periph, CAN_trasnmit_message_struct *t
                 only one parameter can be selected which is shown as below:
       参数:        CAN_MAILBOX(x=0,1,2)
     参数[输出]:  无
-    返回值:     CAN_transmit_state_enum
+    返回值:     CAN_Transmit_State_enum
 */
-CAN_transmit_state_enum CAN_transmit_states(uint32_t CAN_periph, uint8_t mailbox_number) {
-    CAN_transmit_state_enum state = CAN_TRANSMIT_FAILED;
+CAN_Transmit_State_enum CAN_Transmit_States(uint32_t CAN_periph, uint8_t mailbox_number) {
+    CAN_Transmit_State_enum state = CAN_Transmit_FAILED;
     uint32_t val = 0U;
 
     /* check selected mailbox state */
@@ -511,34 +511,34 @@ CAN_transmit_state_enum CAN_transmit_states(uint32_t CAN_periph, uint8_t mailbox
         break;
 
     default:
-        val = CAN_TRANSMIT_FAILED;
+        val = CAN_Transmit_FAILED;
         break;
     }
 
     switch(val) {
     /* transmit pending */
-    case(CAN_STATE_PENDING):
-        state = CAN_TRANSMIT_PENDING;
+    case(CAN_State_PENDING):
+        state = CAN_Transmit_PENDING;
         break;
 
     /* mailbox0 transmit succeeded */
     case(CAN_TSTAT_MTF0 | CAN_TSTAT_MTFNERR0 | CAN_TSTAT_TME0):
-        state = CAN_TRANSMIT_OK;
+        state = CAN_Transmit_OK;
         break;
 
     /* mailbox1 transmit succeeded */
     case(CAN_TSTAT_MTF1 | CAN_TSTAT_MTFNERR1 | CAN_TSTAT_TME1):
-        state = CAN_TRANSMIT_OK;
+        state = CAN_Transmit_OK;
         break;
 
     /* mailbox2 transmit succeeded */
     case(CAN_TSTAT_MTF2 | CAN_TSTAT_MTFNERR2 | CAN_TSTAT_TME2):
-        state = CAN_TRANSMIT_OK;
+        state = CAN_Transmit_OK;
         break;
 
     /* transmit failed */
     default:
-        state = CAN_TRANSMIT_FAILED;
+        state = CAN_Transmit_FAILED;
         break;
     }
 
@@ -555,7 +555,7 @@ CAN_transmit_state_enum CAN_transmit_states(uint32_t CAN_periph, uint8_t mailbox
     参数[输出]:  无
     返回值:      无
 */
-void CAN_transmission_stop(uint32_t CAN_periph, uint8_t mailbox_number) {
+void CAN_Transmission_Stop(uint32_t CAN_periph, uint8_t mailbox_number) {
     if(CAN_MAILBOX0 == mailbox_number) {
         CAN_TSTAT(CAN_periph) |= CAN_TSTAT_MST0;
 
@@ -592,7 +592,7 @@ void CAN_transmission_stop(uint32_t CAN_periph, uint8_t mailbox_number) {
       参数:        rx_fi: 0 - 27
     返回值:      无
 */
-void CAN_message_receive(uint32_t CAN_periph, uint8_t fifo_number, CAN_receive_message_struct *receive_message) {
+void CAN_Message_Receive(uint32_t CAN_periph, uint8_t fifo_number, CAN_Receive_Message_Struct *receive_message) {
     /* get the frame format */
     receive_message->rx_ff = (uint8_t)(CAN_RFIFOMI_FF & CAN_RFIFOMI(CAN_periph, fifo_number));
 
@@ -639,14 +639,14 @@ void CAN_message_receive(uint32_t CAN_periph, uint8_t fifo_number, CAN_receive_m
     参数[输出]:  无
     返回值:      无
 */
-void CAN_fifo_release(uint32_t CAN_periph, uint8_t fifo_number) {
+void CAN_FIFO_Release(uint32_t CAN_periph, uint8_t fifo_number) {
     if(CAN_FIFO0 == fifo_number) {
         CAN_RFIFO0(CAN_periph) |= CAN_RFIFO0_RFD0;
     } else if(CAN_FIFO1 == fifo_number) {
         CAN_RFIFO1(CAN_periph) |= CAN_RFIFO1_RFD1;
     } else {
         /* illegal parameters */
-        CAN_ERROR_HANDLE("CAN FIFO NUM is invalid \r\n");
+        CAN_Error_HANDLE("CAN FIFO NUM is invalid \r\n");
     }
 }
 
@@ -660,7 +660,7 @@ void CAN_fifo_release(uint32_t CAN_periph, uint8_t fifo_number) {
     参数[输出]:  无
     返回值:     message length
 */
-uint8_t CAN_receive_message_Length_get(uint32_t CAN_periph, uint8_t fifo_number) {
+uint8_t CAN_Receive_Message_Length_Get(uint32_t CAN_periph, uint8_t fifo_number) {
     uint8_t val = 0U;
 
     if(CAN_FIFO0 == fifo_number) {
@@ -680,20 +680,20 @@ uint8_t CAN_receive_message_Length_get(uint32_t CAN_periph, uint8_t fifo_number)
     简介:      set CAN working mode
     参数[输入]:  CAN_periph
       参数:        CANx(x=0,1)
-    参数[输入]:  CAN_working_mode
+    参数[输入]:  CAN_Working_mode
                 only one parameter can be selected which is shown as below:
-      参数:        CAN_MODE_INITIALIZE
-      参数:        CAN_MODE_NORMAL
-      参数:        CAN_MODE_SLEEP
+      参数:        CAN_Mode_INITIALIZE
+      参数:        CAN_Mode_NORMAL
+      参数:        CAN_Mode_SLEEP
     参数[输出]:  无
     返回值:     ErrStatus: SUCCESS or ERROR
 */
-ErrStatus CAN_working_mode_set(uint32_t CAN_periph, uint8_t working_mode) {
+ErrStatus CAN_Working_Mode_Set(uint32_t CAN_periph, uint8_t working_mode) {
     ErrStatus flag = ERROR;
     /* timeout for IWS or also for SLPWS bits */
     uint32_t timeout = CAN_TIMEOUT;
 
-    if(CAN_MODE_INITIALIZE == working_mode) {
+    if(CAN_Mode_INITIALIZE == working_mode) {
         /* disable sleep mode */
         CAN_CTL(CAN_periph) &= (~(uint32_t)CAN_CTL_SLPWMOD);
         /* set initialize mode */
@@ -709,7 +709,7 @@ ErrStatus CAN_working_mode_set(uint32_t CAN_periph, uint8_t working_mode) {
         } else {
             flag = SUCCESS;
         }
-    } else if(CAN_MODE_NORMAL == working_mode) {
+    } else if(CAN_Mode_NORMAL == working_mode) {
         /* enter normal mode */
         CAN_CTL(CAN_periph) &= ~(uint32_t)(CAN_CTL_SLPWMOD | CAN_CTL_IWMOD);
 
@@ -723,7 +723,7 @@ ErrStatus CAN_working_mode_set(uint32_t CAN_periph, uint8_t working_mode) {
         } else {
             flag = SUCCESS;
         }
-    } else if(CAN_MODE_SLEEP == working_mode) {
+    } else if(CAN_Mode_SLEEP == working_mode) {
         /* disable initialize mode */
         CAN_CTL(CAN_periph) &= (~(uint32_t)CAN_CTL_IWMOD);
         /* set sleep mode */
@@ -753,7 +753,7 @@ ErrStatus CAN_working_mode_set(uint32_t CAN_periph, uint8_t working_mode) {
     参数[输出]:  无
     返回值:     ErrStatus: SUCCESS or ERROR
 */
-ErrStatus CAN_wakeup(uint32_t CAN_periph) {
+ErrStatus CAN_WakeUp(uint32_t CAN_periph) {
     ErrStatus flag = ERROR;
     uint32_t timeout = CAN_TIMEOUT;
 
@@ -779,22 +779,22 @@ ErrStatus CAN_wakeup(uint32_t CAN_periph) {
     参数[输入]:  CAN_periph
       参数:        CANx(x=0,1)
     参数[输出]:  无
-    返回值:     CAN_error_enum
-      参数:        CAN_ERROR_NONE: no error
-      参数:        CAN_ERROR_FILL: fill error
-      参数:        CAN_ERROR_FORMATE: format error
-      参数:        CAN_ERROR_ACK: ACK error
-      参数:        CAN_ERROR_BITRECESSIVE: bit recessive
-      参数:        CAN_ERROR_BITDOMINANTER: bit dominant error
-      参数:        CAN_ERROR_CRC: CRC error
-      参数:        CAN_ERROR_SOFTWARECFG: software configure
+    返回值:     CAN_Error_enum
+      参数:        CAN_Error_NONE: no error
+      参数:        CAN_Error_FILL: fill error
+      参数:        CAN_Error_FORMATE: format error
+      参数:        CAN_Error_ACK: ACK error
+      参数:        CAN_Error_BITRECESSIVE: bit recessive
+      参数:        CAN_Error_BITDOMINANTER: bit dominant error
+      参数:        CAN_Error_CRC: CRC error
+      参数:        CAN_Error_SOFTWARECFG: software configure
 */
-CAN_error_enum CAN_error_get(uint32_t CAN_periph) {
-    CAN_error_enum error;
-    error = CAN_ERROR_NONE;
+CAN_Error_enum CAN_Error_Get(uint32_t CAN_periph) {
+    CAN_Error_enum error;
+    error = CAN_Error_NONE;
 
     /* get error type */
-    error = (CAN_error_enum)(GET_ERR_ERRN(CAN_ERR(CAN_periph)));
+    error = (CAN_Error_enum)(GET_ERR_ERRN(CAN_ERR(CAN_periph)));
     return error;
 }
 
@@ -805,7 +805,7 @@ CAN_error_enum CAN_error_get(uint32_t CAN_periph) {
     参数[输出]:  无
     返回值:     error number
 */
-uint8_t CAN_receive_error_number_get(uint32_t CAN_periph) {
+uint8_t CAN_Receive_Error_Number_Get(uint32_t CAN_periph) {
     uint8_t val;
 
     /* get error count */
@@ -820,7 +820,7 @@ uint8_t CAN_receive_error_number_get(uint32_t CAN_periph) {
     参数[输出]:  无
     返回值:     error number
 */
-uint8_t CAN_transmit_error_number_get(uint32_t CAN_periph) {
+uint8_t CAN_Transmit_Error_Number_Get(uint32_t CAN_periph) {
     uint8_t val;
 
     val = (uint8_t)(GET_ERR_TECNT(CAN_ERR(CAN_periph)));
@@ -831,48 +831,48 @@ uint8_t CAN_transmit_error_number_get(uint32_t CAN_periph) {
     简介:      get CAN flag state
     参数[输入]:  CAN_periph
       参数:        CANx(x=0,1)
-    参数[输入]:  flag: CAN flags, refer to CAN_flag_enum
+    参数[输入]:  flag: CAN flags, refer to CAN_Flag_enum
                 only one parameter can be selected which is shown as below:
-      参数:        CAN_FLAG_RXL: RX level
-      参数:        CAN_FLAG_LASTRX: last sample value of RX pin
-      参数:        CAN_FLAG_RS: receiving state
-      参数:        CAN_FLAG_TS: transmitting state
-      参数:        CAN_FLAG_SLPIF: status change flag of entering sleep working mode
-      参数:        CAN_FLAG_WUIF: status change flag of wakeup from sleep working mode
-      参数:        CAN_FLAG_ERRIF: error flag
-      参数:        CAN_FLAG_SLPWS: sleep working state
-      参数:        CAN_FLAG_IWS: initial working state
-      参数:        CAN_FLAG_TMLS2: transmit mailbox 2 last sending in TX FIFO
-      参数:        CAN_FLAG_TMLS1: transmit mailbox 1 last sending in TX FIFO
-      参数:        CAN_FLAG_TMLS0: transmit mailbox 0 last sending in TX FIFO
-      参数:        CAN_FLAG_TME2: transmit mailbox 2 empty
-      参数:        CAN_FLAG_TME1: transmit mailbox 1 empty
-      参数:        CAN_FLAG_TME0: transmit mailbox 0 empty
-      参数:        CAN_FLAG_MTE2: mailbox 2 transmit error
-      参数:        CAN_FLAG_MTE1: mailbox 1 transmit error
-      参数:        CAN_FLAG_MTE0: mailbox 0 transmit error
-      参数:        CAN_FLAG_MAL2: mailbox 2 arbitration lost
-      参数:        CAN_FLAG_MAL1: mailbox 1 arbitration lost
-      参数:        CAN_FLAG_MAL0: mailbox 0 arbitration lost
-      参数:        CAN_FLAG_MTFNERR2: mailbox 2 transmit finished with no error
-      参数:        CAN_FLAG_MTFNERR1: mailbox 1 transmit finished with no error
-      参数:        CAN_FLAG_MTFNERR0: mailbox 0 transmit finished with no error
-      参数:        CAN_FLAG_MTF2: mailbox 2 transmit finished
-      参数:        CAN_FLAG_MTF1: mailbox 1 transmit finished
-      参数:        CAN_FLAG_MTF0: mailbox 0 transmit finished
-      参数:        CAN_FLAG_RFO0: receive FIFO0 overfull
-      参数:        CAN_FLAG_RFF0: receive FIFO0 full
-      参数:        CAN_FLAG_RFO1: receive FIFO1 overfull
-      参数:        CAN_FLAG_RFF1: receive FIFO1 full
-      参数:        CAN_FLAG_BOERR: bus-off error
-      参数:        CAN_FLAG_PERR: passive error
-      参数:        CAN_FLAG_WERR: warning error
+      参数:        CAN_Flag_RXL: RX level
+      参数:        CAN_Flag_LASTRX: last sample value of RX pin
+      参数:        CAN_Flag_RS: receiving state
+      参数:        CAN_Flag_TS: transmitting state
+      参数:        CAN_Flag_SLPIF: status change flag of entering sleep working mode
+      参数:        CAN_Flag_WUIF: status change flag of wakeup from sleep working mode
+      参数:        CAN_Flag_ERRIF: error flag
+      参数:        CAN_Flag_SLPWS: sleep working state
+      参数:        CAN_Flag_IWS: initial working state
+      参数:        CAN_Flag_TMLS2: transmit mailbox 2 last sending in TX FIFO
+      参数:        CAN_Flag_TMLS1: transmit mailbox 1 last sending in TX FIFO
+      参数:        CAN_Flag_TMLS0: transmit mailbox 0 last sending in TX FIFO
+      参数:        CAN_Flag_TME2: transmit mailbox 2 empty
+      参数:        CAN_Flag_TME1: transmit mailbox 1 empty
+      参数:        CAN_Flag_TME0: transmit mailbox 0 empty
+      参数:        CAN_Flag_MTE2: mailbox 2 transmit error
+      参数:        CAN_Flag_MTE1: mailbox 1 transmit error
+      参数:        CAN_Flag_MTE0: mailbox 0 transmit error
+      参数:        CAN_Flag_MAL2: mailbox 2 arbitration lost
+      参数:        CAN_Flag_MAL1: mailbox 1 arbitration lost
+      参数:        CAN_Flag_MAL0: mailbox 0 arbitration lost
+      参数:        CAN_Flag_MTFNERR2: mailbox 2 transmit finished with no error
+      参数:        CAN_Flag_MTFNERR1: mailbox 1 transmit finished with no error
+      参数:        CAN_Flag_MTFNERR0: mailbox 0 transmit finished with no error
+      参数:        CAN_Flag_MTF2: mailbox 2 transmit finished
+      参数:        CAN_Flag_MTF1: mailbox 1 transmit finished
+      参数:        CAN_Flag_MTF0: mailbox 0 transmit finished
+      参数:        CAN_Flag_RFO0: receive FIFO0 overfull
+      参数:        CAN_Flag_RFF0: receive FIFO0 full
+      参数:        CAN_Flag_RFO1: receive FIFO1 overfull
+      参数:        CAN_Flag_RFF1: receive FIFO1 full
+      参数:        CAN_Flag_BOERR: bus-off error
+      参数:        CAN_Flag_PERR: passive error
+      参数:        CAN_Flag_WERR: warning error
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus CAN_flag_get(uint32_t CAN_periph, CAN_flag_enum flag) {
+FlagStatus CAN_Flag_Get(uint32_t CAN_periph, CAN_Flag_enum flag) {
     /* get flag and interrupt enable state */
-    if(RESET != (CAN_REG_VAL(CAN_periph, flag) & BIT(CAN_BIT_POS(flag)))) {
+    if(RESET != (CAN_REG_VAL(CAN_periph, flag) & BIT(CAN_Bit_POS(flag)))) {
         return SET;
     } else {
         return RESET;
@@ -883,32 +883,32 @@ FlagStatus CAN_flag_get(uint32_t CAN_periph, CAN_flag_enum flag) {
     简介:      clear CAN flag state
     参数[输入]:  CAN_periph
       参数:        CANx(x=0,1)
-    参数[输入]:  flag: CAN flags, refer to CAN_flag_enum
+    参数[输入]:  flag: CAN flags, refer to CAN_Flag_enum
                 only one parameter can be selected which is shown as below:
-      参数:        CAN_FLAG_SLPIF: status change flag of entering sleep working mode
-      参数:        CAN_FLAG_WUIF: status change flag of wakeup from sleep working mode
-      参数:        CAN_FLAG_ERRIF: error flag
-      参数:        CAN_FLAG_MTE2: mailbox 2 transmit error
-      参数:        CAN_FLAG_MTE1: mailbox 1 transmit error
-      参数:        CAN_FLAG_MTE0: mailbox 0 transmit error
-      参数:        CAN_FLAG_MAL2: mailbox 2 arbitration lost
-      参数:        CAN_FLAG_MAL1: mailbox 1 arbitration lost
-      参数:        CAN_FLAG_MAL0: mailbox 0 arbitration lost
-      参数:        CAN_FLAG_MTFNERR2: mailbox 2 transmit finished with no error
-      参数:        CAN_FLAG_MTFNERR1: mailbox 1 transmit finished with no error
-      参数:        CAN_FLAG_MTFNERR0: mailbox 0 transmit finished with no error
-      参数:        CAN_FLAG_MTF2: mailbox 2 transmit finished
-      参数:        CAN_FLAG_MTF1: mailbox 1 transmit finished
-      参数:        CAN_FLAG_MTF0: mailbox 0 transmit finished
-      参数:        CAN_FLAG_RFO0: receive FIFO0 overfull
-      参数:        CAN_FLAG_RFF0: receive FIFO0 full
-      参数:        CAN_FLAG_RFO1: receive FIFO1 overfull
-      参数:        CAN_FLAG_RFF1: receive FIFO1 full
+      参数:        CAN_Flag_SLPIF: status change flag of entering sleep working mode
+      参数:        CAN_Flag_WUIF: status change flag of wakeup from sleep working mode
+      参数:        CAN_Flag_ERRIF: error flag
+      参数:        CAN_Flag_MTE2: mailbox 2 transmit error
+      参数:        CAN_Flag_MTE1: mailbox 1 transmit error
+      参数:        CAN_Flag_MTE0: mailbox 0 transmit error
+      参数:        CAN_Flag_MAL2: mailbox 2 arbitration lost
+      参数:        CAN_Flag_MAL1: mailbox 1 arbitration lost
+      参数:        CAN_Flag_MAL0: mailbox 0 arbitration lost
+      参数:        CAN_Flag_MTFNERR2: mailbox 2 transmit finished with no error
+      参数:        CAN_Flag_MTFNERR1: mailbox 1 transmit finished with no error
+      参数:        CAN_Flag_MTFNERR0: mailbox 0 transmit finished with no error
+      参数:        CAN_Flag_MTF2: mailbox 2 transmit finished
+      参数:        CAN_Flag_MTF1: mailbox 1 transmit finished
+      参数:        CAN_Flag_MTF0: mailbox 0 transmit finished
+      参数:        CAN_Flag_RFO0: receive FIFO0 overfull
+      参数:        CAN_Flag_RFF0: receive FIFO0 full
+      参数:        CAN_Flag_RFO1: receive FIFO1 overfull
+      参数:        CAN_Flag_RFF1: receive FIFO1 full
     参数[输出]:  无
     返回值:      无
 */
-void CAN_flag_clear(uint32_t CAN_periph, CAN_flag_enum flag) {
-    CAN_REG_VAL(CAN_periph, flag) = BIT(CAN_BIT_POS(flag));
+void CAN_Flag_Clear(uint32_t CAN_periph, CAN_Flag_enum flag) {
+    CAN_REG_VAL(CAN_periph, flag) = BIT(CAN_Bit_POS(flag));
 }
 
 /*!
@@ -934,7 +934,7 @@ void CAN_flag_clear(uint32_t CAN_periph, CAN_flag_enum flag) {
     参数[输出]:  无
     返回值:      无
 */
-void CAN_Interrupt_enable(uint32_t CAN_periph, uint32_t interrupt) {
+void CAN_Interrupt_Enable(uint32_t CAN_periph, uint32_t interrupt) {
     CAN_INTEN(CAN_periph) |= interrupt;
 }
 
@@ -961,7 +961,7 @@ void CAN_Interrupt_enable(uint32_t CAN_periph, uint32_t interrupt) {
     参数[输出]:  无
     返回值:      无
 */
-void CAN_Interrupt_disable(uint32_t CAN_periph, uint32_t interrupt) {
+void CAN_Interrupt_Disable(uint32_t CAN_periph, uint32_t interrupt) {
     CAN_INTEN(CAN_periph) &= ~interrupt;
 }
 
@@ -969,44 +969,44 @@ void CAN_Interrupt_disable(uint32_t CAN_periph, uint32_t interrupt) {
     简介:      get CAN interrupt flag state
     参数[输入]:  CAN_periph
       参数:        CANx(x=0,1)
-    参数[输入]:  flag: CAN interrupt flags, refer to CAN_Interrupt_flag_enum
+    参数[输入]:  flag: CAN interrupt flags, refer to CAN_Interrupt_Flag_enum
                 only one parameter can be selected which is shown as below:
-      参数:        CAN_INT_FLAG_SLPIF: status change interrupt flag of sleep working mode entering
-      参数:        CAN_INT_FLAG_WUIF: status change interrupt flag of wakeup from sleep working mode
-      参数:        CAN_INT_FLAG_ERRIF: error interrupt flag
-      参数:        CAN_INT_FLAG_MTF2: mailbox 2 transmit finished interrupt flag
-      参数:        CAN_INT_FLAG_MTF1: mailbox 1 transmit finished interrupt flag
-      参数:        CAN_INT_FLAG_MTF0: mailbox 0 transmit finished interrupt flag
-      参数:        CAN_INT_FLAG_RFO0: receive FIFO0 overfull interrupt flag
-      参数:        CAN_INT_FLAG_RFF0: receive FIFO0 full interrupt flag
-      参数:        CAN_INT_FLAG_RFL0: receive FIFO0 not empty interrupt flag
-      参数:        CAN_INT_FLAG_RFO1: receive FIFO1 overfull interrupt flag
-      参数:        CAN_INT_FLAG_RFF1: receive FIFO1 full interrupt flag
-      参数:        CAN_INT_FLAG_RFL1: receive FIFO1 not empty interrupt flag
-      参数:        CAN_INT_FLAG_ERRN: error number interrupt flag
-      参数:        CAN_INT_FLAG_BOERR: bus-off error interrupt flag
-      参数:        CAN_INT_FLAG_PERR: passive error interrupt flag
-      参数:        CAN_INT_FLAG_WERR: warning error interrupt flag
+      参数:        CAN_INT_Flag_SLPIF: status change interrupt flag of sleep working mode entering
+      参数:        CAN_INT_Flag_WUIF: status change interrupt flag of wakeup from sleep working mode
+      参数:        CAN_INT_Flag_ERRIF: error interrupt flag
+      参数:        CAN_INT_Flag_MTF2: mailbox 2 transmit finished interrupt flag
+      参数:        CAN_INT_Flag_MTF1: mailbox 1 transmit finished interrupt flag
+      参数:        CAN_INT_Flag_MTF0: mailbox 0 transmit finished interrupt flag
+      参数:        CAN_INT_Flag_RFO0: receive FIFO0 overfull interrupt flag
+      参数:        CAN_INT_Flag_RFF0: receive FIFO0 full interrupt flag
+      参数:        CAN_INT_Flag_RFL0: receive FIFO0 not empty interrupt flag
+      参数:        CAN_INT_Flag_RFO1: receive FIFO1 overfull interrupt flag
+      参数:        CAN_INT_Flag_RFF1: receive FIFO1 full interrupt flag
+      参数:        CAN_INT_Flag_RFL1: receive FIFO1 not empty interrupt flag
+      参数:        CAN_INT_Flag_ERRN: error number interrupt flag
+      参数:        CAN_INT_Flag_BOERR: bus-off error interrupt flag
+      参数:        CAN_INT_Flag_PERR: passive error interrupt flag
+      参数:        CAN_INT_Flag_WERR: warning error interrupt flag
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus CAN_Interrupt_flag_get(uint32_t CAN_periph, CAN_Interrupt_flag_enum flag) {
+FlagStatus CAN_Interrupt_Flag_Get(uint32_t CAN_periph, CAN_Interrupt_Flag_enum flag) {
     uint32_t ret1 = RESET;
     uint32_t ret2 = RESET;
 
     /* get the status of interrupt flag */
-    if(flag == CAN_INT_FLAG_RFL0) {
-        ret1 = CAN_receive_message_Length_get(CAN_periph, CAN_FIFO0);
-    } else if(flag == CAN_INT_FLAG_RFL1) {
-        ret1 = CAN_receive_message_Length_get(CAN_periph, CAN_FIFO1);
-    } else if(flag == CAN_INT_FLAG_ERRN) {
-        ret1 = CAN_error_get(CAN_periph);
+    if(flag == CAN_INT_Flag_RFL0) {
+        ret1 = CAN_Receive_Message_Length_Get(CAN_periph, CAN_FIFO0);
+    } else if(flag == CAN_INT_Flag_RFL1) {
+        ret1 = CAN_Receive_Message_Length_Get(CAN_periph, CAN_FIFO1);
+    } else if(flag == CAN_INT_Flag_ERRN) {
+        ret1 = CAN_Error_Get(CAN_periph);
     } else {
-        ret1 = CAN_REG_VALS(CAN_periph, flag) & BIT(CAN_BIT_POS0(flag));
+        ret1 = CAN_REG_VALS(CAN_periph, flag) & BIT(CAN_Bit_POS0(flag));
     }
 
     /* get the status of interrupt enable bit */
-    ret2 = CAN_INTEN(CAN_periph) & BIT(CAN_BIT_POS1(flag));
+    ret2 = CAN_INTEN(CAN_periph) & BIT(CAN_Bit_POS1(flag));
 
     if(ret1 && ret2) {
         return SET;
@@ -1019,21 +1019,21 @@ FlagStatus CAN_Interrupt_flag_get(uint32_t CAN_periph, CAN_Interrupt_flag_enum f
     简介:      clear CAN interrupt flag state
     参数[输入]:  CAN_periph
       参数:        CANx(x=0,1)
-    参数[输入]:  flag: CAN interrupt flags, refer to CAN_Interrupt_flag_enum
+    参数[输入]:  flag: CAN interrupt flags, refer to CAN_Interrupt_Flag_enum
                 only one parameter can be selected which is shown as below:
-      参数:        CAN_INT_FLAG_SLPIF: status change interrupt flag of sleep working mode entering
-      参数:        CAN_INT_FLAG_WUIF: status change interrupt flag of wakeup from sleep working mode
-      参数:        CAN_INT_FLAG_ERRIF: error interrupt flag
-      参数:        CAN_INT_FLAG_MTF2: mailbox 2 transmit finished interrupt flag
-      参数:        CAN_INT_FLAG_MTF1: mailbox 1 transmit finished interrupt flag
-      参数:        CAN_INT_FLAG_MTF0: mailbox 0 transmit finished interrupt flag
-      参数:        CAN_INT_FLAG_RFO0: receive FIFO0 overfull interrupt flag
-      参数:        CAN_INT_FLAG_RFF0: receive FIFO0 full interrupt flag
-      参数:        CAN_INT_FLAG_RFO1: receive FIFO1 overfull interrupt flag
-      参数:        CAN_INT_FLAG_RFF1: receive FIFO1 full interrupt flag
+      参数:        CAN_INT_Flag_SLPIF: status change interrupt flag of sleep working mode entering
+      参数:        CAN_INT_Flag_WUIF: status change interrupt flag of wakeup from sleep working mode
+      参数:        CAN_INT_Flag_ERRIF: error interrupt flag
+      参数:        CAN_INT_Flag_MTF2: mailbox 2 transmit finished interrupt flag
+      参数:        CAN_INT_Flag_MTF1: mailbox 1 transmit finished interrupt flag
+      参数:        CAN_INT_Flag_MTF0: mailbox 0 transmit finished interrupt flag
+      参数:        CAN_INT_Flag_RFO0: receive FIFO0 overfull interrupt flag
+      参数:        CAN_INT_Flag_RFF0: receive FIFO0 full interrupt flag
+      参数:        CAN_INT_Flag_RFO1: receive FIFO1 overfull interrupt flag
+      参数:        CAN_INT_Flag_RFF1: receive FIFO1 full interrupt flag
     参数[输出]:  无
     返回值:      无
 */
-void CAN_Interrupt_flag_clear(uint32_t CAN_periph, CAN_Interrupt_flag_enum flag) {
-    CAN_REG_VALS(CAN_periph, flag) = BIT(CAN_BIT_POS0(flag));
+void CAN_Interrupt_Flag_Clear(uint32_t CAN_periph, CAN_Interrupt_Flag_enum flag) {
+    CAN_REG_VALS(CAN_periph, flag) = BIT(CAN_Bit_POS0(flag));
 }

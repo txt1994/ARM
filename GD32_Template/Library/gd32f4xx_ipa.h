@@ -199,7 +199,7 @@ typedef struct {
     uint32_t foreground_prered;                           /*!< foreground pre-defined red value */
     uint32_t foreground_pregreen;                         /*!< foreground pre-defined green value */
     uint32_t foreground_preblue;                          /*!< foreground pre-defined blue value */
-} IPA_foreground_parameter_struct;
+} IPA_foreground_Parameter_Struct;
 
 /* IPA background parameter struct definitions */
 typedef struct {
@@ -211,7 +211,7 @@ typedef struct {
     uint32_t background_prered;                           /*!< background pre-defined red value */
     uint32_t background_pregreen;                         /*!< background pre-defined green value */
     uint32_t background_preblue;                          /*!< background pre-defined blue value */
-} IPA_background_parameter_struct;
+} IPA_background_Parameter_Struct;
 
 /* IPA destination parameter struct definitions */
 typedef struct {
@@ -224,7 +224,7 @@ typedef struct {
     uint32_t destination_preblue;                         /*!< destination pre-defined blue value */
     uint32_t image_width;                                 /*!< width of the image to be processed */
     uint32_t image_height;                                /*!< height of the image to be processed */
-} IPA_destination_parameter_struct;
+} IPA_destination_Parameter_Struct;
 
 /* destination pixel format */
 typedef enum {
@@ -236,8 +236,8 @@ typedef enum {
 } IPA_dpf_enum;
 
 /* LUT pixel format */
-#define IPA_LUT_PF_ARGB8888             ((uint8_t)0x00U)                 /*!< LUT pixel format ARGB8888 */
-#define IPA_LUT_PF_RGB888               ((uint8_t)0x01U)                 /*!< LUT pixel format RGB888 */
+#define IPA_Lut_PF_ARGB8888             ((uint8_t)0x00U)                 /*!< LUT pixel format ARGB8888 */
+#define IPA_Lut_PF_RGB888               ((uint8_t)0x01U)                 /*!< LUT pixel format RGB888 */
 
 /* Inter-timer */
 #define IPA_INTER_TIMER_DISABLE         ((uint8_t)0x00U)                 /*!< inter-timer disable */
@@ -248,19 +248,19 @@ typedef enum {
 #define IPA_FGTODE                      CTL_PFCM(0)                      /*!< foreground memory to destination memory without pixel format convert */
 #define IPA_FGTODE_PF_CONVERT           CTL_PFCM(1)                      /*!< foreground memory to destination memory with pixel format convert */
 #define IPA_FGBGTODE                    CTL_PFCM(2)                      /*!< blending foreground and background memory to destination memory */
-#define IPA_FILL_UP_DE                  CTL_PFCM(3)                      /*!< fill up destination memory with specific color */
+#define IPA_FILL_Up_DE                  CTL_PFCM(3)                      /*!< fill up destination memory with specific color */
 
 /* foreground alpha value calculation algorithm */
 #define FPCTL_FAVCA(regval)             (BITS(16,17) & ((uint32_t)(regval) << 16))
-#define IPA_FG_ALPHA_MODE_0             FPCTL_FAVCA(0)                   /*!< no effect */
-#define IPA_FG_ALPHA_MODE_1             FPCTL_FAVCA(1)                   /*!< FPDAV[7:0] is selected as the foreground alpha value */
-#define IPA_FG_ALPHA_MODE_2             FPCTL_FAVCA(2)                   /*!< FPDAV[7:0] multiplied by read alpha value */
+#define IPA_FG_ALPHA_Mode_0             FPCTL_FAVCA(0)                   /*!< no effect */
+#define IPA_FG_ALPHA_Mode_1             FPCTL_FAVCA(1)                   /*!< FPDAV[7:0] is selected as the foreground alpha value */
+#define IPA_FG_ALPHA_Mode_2             FPCTL_FAVCA(2)                   /*!< FPDAV[7:0] multiplied by read alpha value */
 
 /* background alpha value calculation algorithm */
 #define BPCTL_BAVCA(regval)             (BITS(16,17) & ((uint32_t)(regval) << 16))
-#define IPA_BG_ALPHA_MODE_0             BPCTL_BAVCA(0)                   /*!< no effect */
-#define IPA_BG_ALPHA_MODE_1             BPCTL_BAVCA(1)                   /*!< BPDAV[7:0] is selected as the background alpha value */
-#define IPA_BG_ALPHA_MODE_2             BPCTL_BAVCA(2)                   /*!< BPDAV[7:0] multiplied by read alpha value */
+#define IPA_BG_ALPHA_Mode_0             BPCTL_BAVCA(0)                   /*!< no effect */
+#define IPA_BG_ALPHA_Mode_1             BPCTL_BAVCA(1)                   /*!< BPDAV[7:0] is selected as the background alpha value */
+#define IPA_BG_ALPHA_Mode_2             BPCTL_BAVCA(2)                   /*!< BPDAV[7:0] multiplied by read alpha value */
 
 /* foreground pixel format */
 #define FPCTL_PPF(regval)               (BITS(0,3) & ((uint32_t)(regval)))
@@ -291,12 +291,12 @@ typedef enum {
 #define BACKGROUND_PPF_A4               BPCTL_PPF(10)                    /*!< background pixel format A4 */
 
 /* IPA flags */
-#define IPA_FLAG_TAE                    IPA_INTF_TAEIF                   /*!< transfer access error interrupt flag */
-#define IPA_FLAG_FTF                    IPA_INTF_FTFIF                   /*!< full transfer finish interrupt flag */
-#define IPA_FLAG_TLM                    IPA_INTF_TLMIF                   /*!< transfer line mark interrupt flag */
-#define IPA_FLAG_LAC                    IPA_INTF_LACIF                   /*!< LUT access conflict interrupt flag */
-#define IPA_FLAG_LLF                    IPA_INTF_LLFIF                   /*!< LUT loading finish interrupt flag */
-#define IPA_FLAG_WCF                    IPA_INTF_WCFIF                   /*!< wrong configuration interrupt flag */
+#define IPA_Flag_TAE                    IPA_INTF_TAEIF                   /*!< transfer access error interrupt flag */
+#define IPA_Flag_FTF                    IPA_INTF_FTFIF                   /*!< full transfer finish interrupt flag */
+#define IPA_Flag_TLM                    IPA_INTF_TLMIF                   /*!< transfer line mark interrupt flag */
+#define IPA_Flag_LAC                    IPA_INTF_LACIF                   /*!< LUT access conflict interrupt flag */
+#define IPA_Flag_LLF                    IPA_INTF_LLFIF                   /*!< LUT loading finish interrupt flag */
+#define IPA_Flag_WCF                    IPA_INTF_WCFIF                   /*!< wrong configuration interrupt flag */
 
 /* IPA interrupt enable or disable */
 #define IPA_INT_TAE                     IPA_CTL_TAEIE                    /*!< transfer access error interrupt */
@@ -307,75 +307,75 @@ typedef enum {
 #define IPA_INT_WCF                     IPA_CTL_WCFIE                    /*!< wrong configuration interrupt */
 
 /* IPA interrupt flags */
-#define IPA_INT_FLAG_TAE                IPA_INTF_TAEIF                   /*!< transfer access error interrupt flag */
-#define IPA_INT_FLAG_FTF                IPA_INTF_FTFIF                   /*!< full transfer finish interrupt flag */
-#define IPA_INT_FLAG_TLM                IPA_INTF_TLMIF                   /*!< transfer line mark interrupt flag */
-#define IPA_INT_FLAG_LAC                IPA_INTF_LACIF                   /*!< LUT access conflict interrupt flag */
-#define IPA_INT_FLAG_LLF                IPA_INTF_LLFIF                   /*!< LUT loading finish interrupt flag */
-#define IPA_INT_FLAG_WCF                IPA_INTF_WCFIF                   /*!< wrong configuration interrupt flag */
+#define IPA_INT_Flag_TAE                IPA_INTF_TAEIF                   /*!< transfer access error interrupt flag */
+#define IPA_INT_Flag_FTF                IPA_INTF_FTFIF                   /*!< full transfer finish interrupt flag */
+#define IPA_INT_Flag_TLM                IPA_INTF_TLMIF                   /*!< transfer line mark interrupt flag */
+#define IPA_INT_Flag_LAC                IPA_INTF_LACIF                   /*!< LUT access conflict interrupt flag */
+#define IPA_INT_Flag_LLF                IPA_INTF_LLFIF                   /*!< LUT loading finish interrupt flag */
+#define IPA_INT_Flag_WCF                IPA_INTF_WCFIF                   /*!< wrong configuration interrupt flag */
 
 /* function declarations */
 /* functions enable or disable, pixel format convert mode set */
 /* deinitialize IPA */
 void IPA_DeInit(void);
 /* enable IPA transfer */
-void IPA_transfer_enable(void);
+void IPA_Transfer_Enable(void);
 /* enable IPA transfer hang up */
-void IPA_transfer_hangup_enable(void);
+void IPA_Transfer_hangup_Enable(void);
 /* disable IPA transfer hang up */
-void IPA_transfer_hangup_disable(void);
+void IPA_Transfer_hangup_Disable(void);
 /* enable IPA transfer stop */
-void IPA_transfer_stop_enable(void);
+void IPA_Transfer_Stop_Enable(void);
 /* disable IPA transfer stop */
-void IPA_transfer_stop_disable(void);
+void IPA_Transfer_Stop_Disable(void);
 /* enable IPA foreground LUT loading */
-void IPA_foreground_lut_loading_enable(void);
+void IPA_foreground_Lut_loading_Enable(void);
 /* enable IPA background LUT loading */
-void IPA_background_lut_loading_enable(void);
+void IPA_background_Lut_loading_Enable(void);
 /* set pixel format convert mode, the function is invalid when the IPA transfer is enabled */
-void IPA_pixel_format_convert_mode_set(uint32_t pfcm);
+void IPA_pixel_format_convert_Mode_Set(uint32_t pfcm);
 
 /* structure initialization, foreground, background, destination and LUT initialization */
 /* initialize the structure of IPA foreground parameter struct with the default values, it is
-  suggested that call this function after an IPA_foreground_parameter_struct structure is defined */
-void IPA_foreground_struct_para_init(IPA_foreground_parameter_struct *foreground_struct);
+  suggested that call this function after an IPA_foreground_Parameter_Struct structure is defined */
+void IPA_foreground_Struct_Para_Init(IPA_foreground_Parameter_Struct *foreground_Struct);
 /* initialize foreground parameters */
-void IPA_foreground_init(IPA_foreground_parameter_struct *foreground_struct);
+void IPA_foreground_Init(IPA_foreground_Parameter_Struct *foreground_Struct);
 /* initialize the structure of IPA background parameter struct with the default values, it is
-  suggested that call this function after an IPA_background_parameter_struct structure is defined */
-void IPA_background_struct_para_init(IPA_background_parameter_struct *background_struct);
+  suggested that call this function after an IPA_background_Parameter_Struct structure is defined */
+void IPA_background_Struct_Para_Init(IPA_background_Parameter_Struct *background_Struct);
 /* initialize background parameters */
-void IPA_background_init(IPA_background_parameter_struct *background_struct);
+void IPA_background_Init(IPA_background_Parameter_Struct *background_Struct);
 /* initialize the structure of IPA destination parameter struct with the default values, it is
-  suggested that call this function after an IPA_destination_parameter_struct structure is defined */
-void IPA_destination_struct_para_init(IPA_destination_parameter_struct *destination_struct);
+  suggested that call this function after an IPA_destination_Parameter_Struct structure is defined */
+void IPA_destination_Struct_Para_Init(IPA_destination_Parameter_Struct *destination_Struct);
 /* initialize destination parameters */
-void IPA_destination_init(IPA_destination_parameter_struct *destination_struct);
+void IPA_destination_Init(IPA_destination_Parameter_Struct *destination_Struct);
 /* initialize IPA foreground LUT parameters */
-void IPA_foreground_lut_init(uint8_t fg_lut_num, uint8_t fg_lut_pf, uint32_t fg_lut_addr);
+void IPA_foreground_Lut_Init(uint8_t fg_Lut_num, uint8_t fg_Lut_pf, uint32_t fg_Lut_addr);
 /* initialize IPA background LUT parameters */
-void IPA_background_lut_init(uint8_t bg_lut_num, uint8_t bg_lut_pf, uint32_t bg_lut_addr);
+void IPA_background_Lut_Init(uint8_t bg_Lut_num, uint8_t bg_Lut_pf, uint32_t bg_Lut_addr);
 
 /* configuration functions */
 /* configure IPA line mark */
-void IPA_line_mark_Config(uint16_t line_num);
+void IPA_Line_Mark_Config(uint16_t line_num);
 /* inter-timer enable or disable */
 void IPA_inter_TIMER_Config(uint8_t TIMER_cfg);
 /* configure the number of clock cycles interval */
-void IPA_interval_clock_num_Config(uint8_t clk_num);
+void IPA_interval_Clock_num_Config(uint8_t clk_num);
 
 /* flag and interrupt functions */
 /* get IPA flag status in IPA_INTF register */
-FlagStatus IPA_flag_get(uint32_t flag);
+FlagStatus IPA_Flag_Get(uint32_t flag);
 /* clear IPA flag in IPA_INTF register */
-void IPA_flag_clear(uint32_t flag);
+void IPA_Flag_Clear(uint32_t flag);
 /* enable IPA interrupt */
-void IPA_Interrupt_enable(uint32_t int_flag);
+void IPA_Interrupt_Enable(uint32_t int_flag);
 /* disable IPA interrupt */
-void IPA_Interrupt_disable(uint32_t int_flag);
+void IPA_Interrupt_Disable(uint32_t int_flag);
 /* get IPA interrupt flag */
-FlagStatus IPA_Interrupt_flag_get(uint32_t int_flag);
+FlagStatus IPA_Interrupt_Flag_Get(uint32_t int_flag);
 /* clear IPA interrupt flag */
-void IPA_Interrupt_flag_clear(uint32_t int_flag);
+void IPA_Interrupt_Flag_Clear(uint32_t int_flag);
 
 #endif /* GD32F4XX_IPA_H */

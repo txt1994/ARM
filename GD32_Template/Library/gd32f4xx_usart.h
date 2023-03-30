@@ -77,7 +77,7 @@ OF SUCH DAMAGE.
 #define USART_STAT0_CTSF              BIT(9)       /*!< CTS change flag */
 
 /* USARTx_DATA */
-#define USART_DATA_DATA               BITS(0,8)    /*!< transmit or read data value */
+#define USART_Data_DATA               BITS(0,8)    /*!< transmit or read data value */
 
 /* USARTx_BAUD */
 #define USART_BAUD_FRADIV             BITS(0,3)    /*!< fraction part of baud-rate divider */
@@ -158,11 +158,11 @@ OF SUCH DAMAGE.
 /* define the USART bit position and its register index offset */
 #define USART_REGIDX_BIT(regidx, bitpos)    (((uint32_t)(regidx) << 6) | (uint32_t)(bitpos))
 #define USART_REG_VAL(usartx, offset)       (REG32((usartx) + (((uint32_t)(offset) & 0xFFFFU) >> 6)))
-#define USART_BIT_POS(val)                  ((uint32_t)(val) & 0x1FU)
+#define USART_Bit_POS(val)                  ((uint32_t)(val) & 0x1FU)
 #define USART_REGIDX_BIT2(regidx, bitpos, regidx2, bitpos2)   (((uint32_t)(regidx2) << 22) | (uint32_t)((bitpos2) << 16)\
         | (((uint32_t)(regidx) << 6) | (uint32_t)(bitpos)))
 #define USART_REG_VAL2(usartx, offset)      (REG32((usartx) + ((uint32_t)(offset) >> 22)))
-#define USART_BIT_POS2(val)                 (((uint32_t)(val) & 0x1F0000U) >> 16)
+#define USART_Bit_POS2(val)                 (((uint32_t)(val) & 0x1F0000U) >> 16)
 
 /* register offset */
 #define USART_STAT0_REG_OFFSET              0x00U        /*!< STAT0 register offset */
@@ -244,12 +244,12 @@ typedef enum {
     /* RX pin level inversion */
     USART_RXPIN_Enable,                            /*!< RX pin level inversion */
     USART_RXPIN_Disable,                           /*!< RX pin level not inversion */
-} USART_invert_enum;
+} USART_Invert_enum;
 
 /* USART receiver configure */
 #define CTL0_REN(regval)              (BIT(2) & ((uint32_t)(regval) << 2))
-#define USART_RECEIVE_Enable          CTL0_REN(1)                      /*!< enable receiver */
-#define USART_RECEIVE_Disable         CTL0_REN(0)                      /*!< disable receiver */
+#define USART_Receive_Enable          CTL0_REN(1)                      /*!< enable receiver */
+#define USART_Receive_Disable         CTL0_REN(0)                      /*!< disable receiver */
 
 /* USART transmitter configure */
 #define CTL0_TEN(regval)              (BIT(3) & ((uint32_t)(regval) << 3))
@@ -359,13 +359,13 @@ typedef enum {
 /* reset USART */
 void USART_DeInit(uint32_t USART_periph);
 /* configure usart baud rate value */
-void USART_baudrate_Set(uint32_t USART_periph, uint32_t baudval);
+void USART_Baudrate_Set(uint32_t USART_periph, uint32_t baudval);
 /* configure usart parity function */
 void USART_Parity_Config(uint32_t USART_periph, uint32_t paritycfg);
 /* configure usart word length */
 void USART_Word_Length_Set(uint32_t USART_periph, uint32_t wlen);
 /* configure usart stop bit length */
-void USART_stop_bit_Set(uint32_t USART_periph, uint32_t stblen);
+void USART_Stop_Bit_Set(uint32_t USART_periph, uint32_t stblen);
 /* enable usart */
 void USART_Enable(uint32_t USART_periph);
 /* disable usart */
@@ -373,87 +373,87 @@ void USART_Disable(uint32_t USART_periph);
 /* configure USART transmitter */
 void USART_Transmit_Config(uint32_t USART_periph, uint32_t txconfig);
 /* configure USART receiver */
-void USART_receive_Config(uint32_t USART_periph, uint32_t rxconfig);
+void USART_Receive_Config(uint32_t USART_periph, uint32_t rxconfig);
 
 /* USART normal mode communication */
 /* data is transmitted/received with the LSB/MSB first */
-void USART_data_first_Config(uint32_t USART_periph, uint32_t msbf);
+void USART_Data_First_Config(uint32_t USART_periph, uint32_t msbf);
 /* configure USART inverted */
-void USART_invert_Config(uint32_t USART_periph, USART_invert_enum invertpara);
+void USART_Invert_Config(uint32_t USART_periph, USART_Invert_enum invertpara);
 /* configure the USART oversample mode */
-void USART_oversample_Config(uint32_t USART_periph, uint32_t oversamp);
+void USART_OverSample_Config(uint32_t USART_periph, uint32_t oversamp);
 /* configure sample bit method */
-void USART_sample_bit_Config(uint32_t USART_periph, uint32_t obsm);
+void USART_Sample_Bit_Config(uint32_t USART_periph, uint32_t obsm);
 /* enable receiver timeout */
-void USART_receiver_timeout_Enable(uint32_t USART_periph);
+void USART_Receiver_Timeout_Enable(uint32_t USART_periph);
 /* disable receiver timeout */
-void USART_receiver_timeout_Disable(uint32_t USART_periph);
+void USART_Receiver_Timeout_Disable(uint32_t USART_periph);
 /* configure receiver timeout threshold */
-void USART_receiver_timeout_threshold_Config(uint32_t USART_periph, uint32_t rtimeout);
+void USART_Receiver_Timeout_Threshold_Config(uint32_t USART_periph, uint32_t rtimeout);
 /* USART transmit data function */
-void USART_data_transmit(uint32_t USART_periph, uint32_t data);
+void USART_Data_Transmit(uint32_t USART_periph, uint32_t data);
 /* USART receive data function */
-uint16_t USART_data_receive(uint32_t USART_periph);
+uint16_t USART_Data_Receive(uint32_t USART_periph);
 
 /* multi-processor communication */
 /* configure address of the USART */
-void USART_address_Config(uint32_t USART_periph, uint8_t addr);
+void USART_Address_Config(uint32_t USART_periph, uint8_t addr);
 /* enable mute mode */
-void USART_mute_mode_Enable(uint32_t USART_periph);
+void USART_Mute_Mode_Enable(uint32_t USART_periph);
 /* disable mute mode */
-void USART_mute_mode_Disable(uint32_t USART_periph);
+void USART_Mute_Mode_Disable(uint32_t USART_periph);
 /* configure wakeup method in mute mode */
-void USART_mute_mode_wakeup_Config(uint32_t USART_periph, uint32_t wmehtod);
+void USART_Mute_Mode_WakeUp_Config(uint32_t USART_periph, uint32_t wmehtod);
 
 /* LIN mode communication */
 /* enable LIN mode */
-void USART_lin_mode_Enable(uint32_t USART_periph);
+void USART_Lin_Mode_Enable(uint32_t USART_periph);
 /* disable LIN mode */
-void USART_lin_mode_Disable(uint32_t USART_periph);
+void USART_Lin_Mode_Disable(uint32_t USART_periph);
 /* LIN break detection length */
-void USART_lin_Break_detection_Length_Config(uint32_t USART_periph, uint32_t lblen);
+void USART_Lin_Break_Detection_Length_Config(uint32_t USART_periph, uint32_t lblen);
 /* send break frame */
-void USART_send_break(uint32_t USART_periph);
+void USART_Send_break(uint32_t USART_periph);
 
 /* half-duplex communication */
 /* enable half-duplex mode */
-void USART_halfduplex_Enable(uint32_t USART_periph);
+void USART_HalfDuplex_Enable(uint32_t USART_periph);
 /* disable half-duplex mode */
-void USART_halfduplex_Disable(uint32_t USART_periph);
+void USART_HalfDuplex_Disable(uint32_t USART_periph);
 
 /* synchronous communication */
 /* enable CK pin in synchronous mode */
-void USART_synchronous_clock_Enable(uint32_t USART_periph);
+void USART_Synchronous_Clock_Enable(uint32_t USART_periph);
 /* disable CK pin in synchronous mode */
-void USART_synchronous_clock_Disable(uint32_t USART_periph);
+void USART_Synchronous_Clock_Disable(uint32_t USART_periph);
 /* configure usart synchronous mode parameters */
-void USART_synchronous_clock_Config(uint32_t USART_periph, uint32_t clen, uint32_t cph, uint32_t cpl);
+void USART_Synchronous_Clock_Config(uint32_t USART_periph, uint32_t clen, uint32_t cph, uint32_t cpl);
 
 /* smartcard communication */
 /* configure guard time value in smartcard mode */
-void USART_guard_time_Config(uint32_t USART_periph, uint32_t guat);
+void USART_Guard_Time_Config(uint32_t USART_periph, uint32_t guat);
 /* enable smartcard mode */
-void USART_smartcard_mode_Enable(uint32_t USART_periph);
+void USART_SmartCard_Mode_Enable(uint32_t USART_periph);
 /* disable smartcard mode */
-void USART_smartcard_mode_Disable(uint32_t USART_periph);
+void USART_SmartCard_Mode_Disable(uint32_t USART_periph);
 /* enable NACK in smartcard mode */
-void USART_smartcard_mode_nack_Enable(uint32_t USART_periph);
+void USART_SmartCard_Mode_Nack_Enable(uint32_t USART_periph);
 /* disable NACK in smartcard mode */
-void USART_smartcard_mode_nack_Disable(uint32_t USART_periph);
+void USART_SmartCard_Mode_Nack_Disable(uint32_t USART_periph);
 /* configure smartcard auto-retry number */
-void USART_smartcard_autoretry_Config(uint32_t USART_periph, uint32_t scrtnum);
+void USART_SmartCard_Autoretry_Config(uint32_t USART_periph, uint32_t scrtnum);
 /* configure block length */
-void USART_block_Length_Config(uint32_t USART_periph, uint32_t bl);
+void USART_Block_Length_Config(uint32_t USART_periph, uint32_t bl);
 
 /* IrDA communication */
 /* enable IrDA mode */
-void USART_irda_mode_Enable(uint32_t USART_periph);
+void USART_IRDA_Mode_Enable(uint32_t USART_periph);
 /* disable IrDA mode */
-void USART_irda_mode_Disable(uint32_t USART_periph);
+void USART_IRDA_Mode_Disable(uint32_t USART_periph);
 /* configure the peripheral clock prescaler */
-void USART_prescaler_Config(uint32_t USART_periph, uint8_t psc);
+void USART_Prescaler_Config(uint32_t USART_periph, uint8_t psc);
 /* configure IrDA low-power */
-void USART_irda_lowpower_Config(uint32_t USART_periph, uint32_t irlp);
+void USART_IRDA_Lowpower_Config(uint32_t USART_periph, uint32_t irlp);
 
 /* hardware flow communication */
 /* configure hardware flow control RTS */
@@ -471,7 +471,7 @@ void USART_Hardware_Flow_Coherence_Config(uint32_t USART_periph, uint32_t hcm);
 
 /* DMA communication */
 /* configure USART DMA for reception */
-void USART_DMA_receive_Config(uint32_t USART_periph, uint32_t dmacmd);
+void USART_DMA_Receive_Config(uint32_t USART_periph, uint32_t dmacmd);
 /* configure USART DMA for transmission */
 void USART_DMA_Transmit_Config(uint32_t USART_periph, uint32_t dmacmd);
 

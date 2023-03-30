@@ -41,8 +41,8 @@ OF SUCH DAMAGE.
 /* I2C register bit mask */
 #define I2CCLK_MAX                    ((uint32_t)0x0000003CU)             /*!< i2cclk maximum value */
 #define I2CCLK_MIN                    ((uint32_t)0x00000002U)             /*!< i2cclk minimum value */
-#define I2C_FLAG_MASK                 ((uint32_t)0x0000FFFFU)             /*!< i2c flag mask */
-#define I2C_ADDRESS_MASK              ((uint32_t)0x000003FFU)             /*!< i2c address mask */
+#define I2C_Flag_MASK                 ((uint32_t)0x0000FFFFU)             /*!< i2c flag mask */
+#define I2C_Address_MASK              ((uint32_t)0x000003FFU)             /*!< i2c address mask */
 #define I2C_ADDRESS2_MASK             ((uint32_t)0x000000FEU)             /*!< the second i2c address mask */
 
 /* I2C register bit offset */
@@ -90,7 +90,7 @@ void I2C_DeInit(uint32_t I2C_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void I2C_clock_Config(uint32_t I2C_periph, uint32_t clkspeed, uint32_t dutycyc) {
+void I2C_Clock_Config(uint32_t I2C_periph, uint32_t clkspeed, uint32_t dutycyc) {
     uint32_t pclk1, clkc, freq, risetime;
     uint32_t temp;
 
@@ -169,7 +169,7 @@ void I2C_clock_Config(uint32_t I2C_periph, uint32_t clkspeed, uint32_t dutycyc) 
     参数[输出]:  无
     返回值:      无
 */
-void I2C_mode_addr_Config(uint32_t I2C_periph, uint32_t mode, uint32_t addformat, uint32_t addr) {
+void I2C_Mode_addr_Config(uint32_t I2C_periph, uint32_t mode, uint32_t addformat, uint32_t addr) {
     /* SMBus/I2C mode selected */
     uint32_t ctl = 0U;
 
@@ -178,7 +178,7 @@ void I2C_mode_addr_Config(uint32_t I2C_periph, uint32_t mode, uint32_t addformat
     ctl |= mode;
     I2C_CTL0(I2C_periph) = ctl;
     /* configure address */
-    addr = addr & I2C_ADDRESS_MASK;
+    addr = addr & I2C_Address_MASK;
     I2C_SADDR0(I2C_periph) = (addformat | addr);
 }
 
@@ -249,7 +249,7 @@ void I2C_ackpos_Config(uint32_t I2C_periph, uint32_t pos) {
     参数[输出]:  无
     返回值:      无
 */
-void I2C_master_addressing(uint32_t I2C_periph, uint32_t addr, uint32_t trandirection) {
+void I2C_Master_addressing(uint32_t I2C_periph, uint32_t addr, uint32_t trandirection) {
     /* master is a transmitter or a receiver */
     if(I2C_TRANSMITTER == trandirection) {
         addr = addr & I2C_TRANSMITTER;
@@ -268,7 +268,7 @@ void I2C_master_addressing(uint32_t I2C_periph, uint32_t addr, uint32_t trandire
     参数[输出]:  无
     返回值:      无
 */
-void I2C_dualaddr_enable(uint32_t I2C_periph, uint32_t addr) {
+void I2C_dualaddr_Enable(uint32_t I2C_periph, uint32_t addr) {
     /* configure address */
     addr = addr & I2C_ADDRESS2_MASK;
     I2C_SADDR1(I2C_periph) = (I2C_SADDR1_DUADEN | addr);
@@ -280,7 +280,7 @@ void I2C_dualaddr_enable(uint32_t I2C_periph, uint32_t addr) {
     参数[输出]:  无
     返回值:      无
 */
-void I2C_dualaddr_disable(uint32_t I2C_periph) {
+void I2C_dualaddr_Disable(uint32_t I2C_periph) {
     I2C_SADDR1(I2C_periph) &= ~(I2C_SADDR1_DUADEN);
 }
 
@@ -290,7 +290,7 @@ void I2C_dualaddr_disable(uint32_t I2C_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void I2C_enable(uint32_t I2C_periph) {
+void I2C_Enable(uint32_t I2C_periph) {
     I2C_CTL0(I2C_periph) |= I2C_CTL0_I2CEN;
 }
 
@@ -300,7 +300,7 @@ void I2C_enable(uint32_t I2C_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void I2C_disable(uint32_t I2C_periph) {
+void I2C_Disable(uint32_t I2C_periph) {
     I2C_CTL0(I2C_periph) &= ~(I2C_CTL0_I2CEN);
 }
 
@@ -320,7 +320,7 @@ void I2C_start_on_bus(uint32_t I2C_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void I2C_stop_on_bus(uint32_t I2C_periph) {
+void I2C_Stop_on_bus(uint32_t I2C_periph) {
     I2C_CTL0(I2C_periph) |= I2C_CTL0_STOP;
 }
 
@@ -331,7 +331,7 @@ void I2C_stop_on_bus(uint32_t I2C_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void I2C_data_transmit(uint32_t I2C_periph, uint8_t data) {
+void I2C_Data_Transmit(uint32_t I2C_periph, uint8_t data) {
     I2C_DATA(I2C_periph) = DATA_TRANS(data);
 }
 
@@ -341,7 +341,7 @@ void I2C_data_transmit(uint32_t I2C_periph, uint8_t data) {
     参数[输出]:  无
     返回值:     data of received
 */
-uint8_t I2C_data_receive(uint32_t I2C_periph) {
+uint8_t I2C_Data_Receive(uint32_t I2C_periph) {
     return (uint8_t)DATA_RECV(I2C_DATA(I2C_periph));
 }
 
@@ -375,7 +375,7 @@ void I2C_DMA_Config(uint32_t I2C_periph, uint32_t dmastate) {
     参数[输出]:  无
     返回值:      无
 */
-void I2C_DMA_last_transfer_Config(uint32_t I2C_periph, uint32_t dmalast) {
+void I2C_DMA_Last_Transfer_Config(uint32_t I2C_periph, uint32_t dmalast) {
     /* configure DMA last transfer */
     uint32_t ctl = 0U;
 
@@ -395,7 +395,7 @@ void I2C_DMA_last_transfer_Config(uint32_t I2C_periph, uint32_t dmalast) {
     参数[输出]:  无
     返回值:      无
 */
-void I2C_stretch_scl_low_Config(uint32_t I2C_periph, uint32_t stretchpara) {
+void I2C_stretch_scl_Low_Config(uint32_t I2C_periph, uint32_t stretchpara) {
     /* configure I2C SCL strerching */
     uint32_t ctl = 0U;
 
@@ -415,7 +415,7 @@ void I2C_stretch_scl_low_Config(uint32_t I2C_periph, uint32_t stretchpara) {
     参数[输出]:  无
     返回值:      无
 */
-void I2C_slave_response_to_gcall_Config(uint32_t I2C_periph, uint32_t gcallpara) {
+void I2C_Slave_response_to_gcall_Config(uint32_t I2C_periph, uint32_t gcallpara) {
     /* configure slave response to a general call enable or disable */
     uint32_t ctl = 0U;
 
@@ -435,7 +435,7 @@ void I2C_slave_response_to_gcall_Config(uint32_t I2C_periph, uint32_t gcallpara)
     参数[输出]:  无
     返回值:      无
 */
-void I2C_software_reset_Config(uint32_t I2C_periph, uint32_t sreset) {
+void I2C_Software_reset_Config(uint32_t I2C_periph, uint32_t sreset) {
     /* modify CTL0 and configure software reset I2C state */
     uint32_t ctl = 0U;
 
@@ -475,7 +475,7 @@ void I2C_pec_Config(uint32_t I2C_periph, uint32_t pecstate) {
     参数[输出]:  无
     返回值:      无
 */
-void I2C_pec_transfer_Config(uint32_t I2C_periph, uint32_t pecpara) {
+void I2C_pec_Transfer_Config(uint32_t I2C_periph, uint32_t pecpara) {
     /* whether to transfer PEC */
     uint32_t ctl = 0U;
 
@@ -491,7 +491,7 @@ void I2C_pec_transfer_Config(uint32_t I2C_periph, uint32_t pecpara) {
     参数[输出]:  无
     返回值:     PEC value
 */
-uint8_t I2C_pec_value_get(uint32_t I2C_periph) {
+uint8_t I2C_pec_Value_Get(uint32_t I2C_periph) {
     return (uint8_t)((I2C_STAT1(I2C_periph) & I2C_STAT1_PECV) >> STAT1_PECV_OFFSET);
 }
 
@@ -541,7 +541,7 @@ void I2C_smbus_arp_Config(uint32_t I2C_periph, uint32_t arpstate) {
     参数[输出]:  无
     返回值:      无
 */
-void I2C_analog_noise_filter_disable(uint32_t I2C_periph) {
+void I2C_analog_Noise_Filter_Disable(uint32_t I2C_periph) {
     I2C_FCTL(I2C_periph) |= I2C_FCTL_AFD;
 }
 
@@ -551,14 +551,14 @@ void I2C_analog_noise_filter_disable(uint32_t I2C_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void I2C_analog_noise_filter_enable(uint32_t I2C_periph) {
+void I2C_analog_Noise_Filter_Enable(uint32_t I2C_periph) {
     I2C_FCTL(I2C_periph) &= ~(I2C_FCTL_AFD);
 }
 
 /*!
     简介:      configure digital noise filter
     参数[输入]:  I2C_periph: I2Cx(x=0,1,2)
-    参数[输入]:  dfilterpara: refer to I2C_digital_filter_enum
+    参数[输入]:  dfilterpara: refer to I2C_digital_Filter_enum
                 only one parameter can be selected which is shown as below:
       参数:        I2C_DF_DISABLE: disable digital noise filter
       参数:        I2C_DF_1PCLK: enable digital noise filter and the maximum filtered spiker's length 1 PCLK1
@@ -579,7 +579,7 @@ void I2C_analog_noise_filter_enable(uint32_t I2C_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void I2C_digital_noise_filter_Config(uint32_t I2C_periph, I2C_digital_filter_enum dfilterpara) {
+void I2C_digital_Noise_Filter_Config(uint32_t I2C_periph, I2C_digital_Filter_enum dfilterpara) {
     I2C_FCTL(I2C_periph) |= dfilterpara;
 }
 
@@ -589,7 +589,7 @@ void I2C_digital_noise_filter_Config(uint32_t I2C_periph, I2C_digital_filter_enu
     参数[输出]:  无
     返回值:      无
 */
-void I2C_sam_enable(uint32_t I2C_periph) {
+void I2C_sam_Enable(uint32_t I2C_periph) {
     I2C_SAMCS(I2C_periph) |= I2C_SAMCS_SAMEN;
 }
 
@@ -599,7 +599,7 @@ void I2C_sam_enable(uint32_t I2C_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void I2C_sam_disable(uint32_t I2C_periph) {
+void I2C_sam_Disable(uint32_t I2C_periph) {
     I2C_SAMCS(I2C_periph) &= ~(I2C_SAMCS_SAMEN);
 }
 
@@ -609,7 +609,7 @@ void I2C_sam_disable(uint32_t I2C_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void I2C_sam_timeout_enable(uint32_t I2C_periph) {
+void I2C_sam_Timeout_Enable(uint32_t I2C_periph) {
     I2C_SAMCS(I2C_periph) |= I2C_SAMCS_STOEN;
 }
 
@@ -619,45 +619,45 @@ void I2C_sam_timeout_enable(uint32_t I2C_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void I2C_sam_timeout_disable(uint32_t I2C_periph) {
+void I2C_sam_Timeout_Disable(uint32_t I2C_periph) {
     I2C_SAMCS(I2C_periph) &= ~(I2C_SAMCS_STOEN);
 }
 
 /*!
     简介:      get I2C flag status
     参数[输入]:  I2C_periph: I2Cx(x=0,1,2)
-    参数[输入]:  flag: I2C flags, refer to I2C_flag_enum
+    参数[输入]:  flag: I2C flags, refer to I2C_Flag_enum
                 only one parameter can be selected which is shown as below:
-      参数:        I2C_FLAG_SBSEND: start condition sent out in master mode
-      参数:        I2C_FLAG_ADDSEND: address is sent in master mode or received and matches in slave mode
-      参数:        I2C_FLAG_BTC: byte transmission finishes
-      参数:        I2C_FLAG_ADD10SEND: header of 10-bit address is sent in master mode
-      参数:        I2C_FLAG_STPDET: stop condition detected in slave mode
-      参数:        I2C_FLAG_RBNE: I2C_DATA is not empty during receiving
-      参数:        I2C_FLAG_TBE: I2C_DATA is empty during transmitting
-      参数:        I2C_FLAG_BERR: a bus error occurs indication a unexpected start or stop condition on I2C bus
-      参数:        I2C_FLAG_LOSTARB: arbitration lost in master mode
-      参数:        I2C_FLAG_AERR: acknowledge error
-      参数:        I2C_FLAG_OUERR: over-run or under-run situation occurs in slave mode
-      参数:        I2C_FLAG_PECERR: PEC error when receiving data
-      参数:        I2C_FLAG_SMBTO: timeout signal in SMBus mode
-      参数:        I2C_FLAG_SMBALT: SMBus alert status
-      参数:        I2C_FLAG_MASTER: a flag indicating whether I2C block is in master or slave mode
-      参数:        I2C_FLAG_I2CBSY: busy flag
-      参数:        I2C_FLAG_TR: whether the I2C is a transmitter or a receiver
-      参数:        I2C_FLAG_RXGC: general call address (00h) received
-      参数:        I2C_FLAG_DEFSMB: default address of SMBus device
-      参数:        I2C_FLAG_HSTSMB: SMBus host header detected in slave mode
-      参数:        I2C_FLAG_DUMOD: dual flag in slave mode indicating which address is matched in dual-address mode
-      参数:        I2C_FLAG_TFF: txframe fall flag
-      参数:        I2C_FLAG_TFR: txframe rise flag
-      参数:        I2C_FLAG_RFF: rxframe fall flag
-      参数:        I2C_FLAG_RFR: rxframe rise flag
+      参数:        I2C_Flag_SBSEND: start condition sent out in master mode
+      参数:        I2C_Flag_ADDSEND: address is sent in master mode or received and matches in slave mode
+      参数:        I2C_Flag_BTC: byte transmission finishes
+      参数:        I2C_Flag_ADD10SEND: header of 10-bit address is sent in master mode
+      参数:        I2C_Flag_STPDET: stop condition detected in slave mode
+      参数:        I2C_Flag_RBNE: I2C_DATA is not empty during receiving
+      参数:        I2C_Flag_TBE: I2C_DATA is empty during transmitting
+      参数:        I2C_Flag_BERR: a bus error occurs indication a unexpected start or stop condition on I2C bus
+      参数:        I2C_Flag_LOSTARB: arbitration lost in master mode
+      参数:        I2C_Flag_AERR: acknowledge error
+      参数:        I2C_Flag_OUERR: over-run or under-run situation occurs in slave mode
+      参数:        I2C_Flag_PECERR: PEC error when receiving data
+      参数:        I2C_Flag_SMBTO: timeout signal in SMBus mode
+      参数:        I2C_Flag_SMBALT: SMBus alert status
+      参数:        I2C_Flag_MASTER: a flag indicating whether I2C block is in master or slave mode
+      参数:        I2C_Flag_I2CBSY: busy flag
+      参数:        I2C_Flag_TR: whether the I2C is a transmitter or a receiver
+      参数:        I2C_Flag_RXGC: general call address (00h) received
+      参数:        I2C_Flag_DEFSMB: default address of SMBus device
+      参数:        I2C_Flag_HSTSMB: SMBus host header detected in slave mode
+      参数:        I2C_Flag_DUMOD: dual flag in slave mode indicating which address is matched in dual-address mode
+      参数:        I2C_Flag_TFF: txframe fall flag
+      参数:        I2C_Flag_TFR: txframe rise flag
+      参数:        I2C_Flag_RFF: rxframe fall flag
+      参数:        I2C_Flag_RFR: rxframe rise flag
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus I2C_flag_get(uint32_t I2C_periph, I2C_flag_enum flag) {
-    if(RESET != (I2C_REG_VAL(I2C_periph, flag) & BIT(I2C_BIT_POS(flag)))) {
+FlagStatus I2C_Flag_Get(uint32_t I2C_periph, I2C_Flag_enum flag) {
+    if(RESET != (I2C_REG_VAL(I2C_periph, flag) & BIT(I2C_Bit_POS(flag)))) {
         return SET;
     } else {
         return RESET;
@@ -667,30 +667,30 @@ FlagStatus I2C_flag_get(uint32_t I2C_periph, I2C_flag_enum flag) {
 /*!
     简介:      clear I2C flag status
     参数[输入]:  I2C_periph: I2Cx(x=0,1,2)
-    参数[输入]:  flag: I2C flags, refer to I2C_flag_enum
+    参数[输入]:  flag: I2C flags, refer to I2C_Flag_enum
                 only one parameter can be selected which is shown as below:
-      参数:       I2C_FLAG_SMBALT: SMBus alert status
-      参数:       I2C_FLAG_SMBTO: timeout signal in SMBus mode
-      参数:       I2C_FLAG_PECERR: PEC error when receiving data
-      参数:       I2C_FLAG_OUERR: over-run or under-run situation occurs in slave mode
-      参数:       I2C_FLAG_AERR: acknowledge error
-      参数:       I2C_FLAG_LOSTARB: arbitration lost in master mode
-      参数:       I2C_FLAG_BERR: a bus error occurs indication a unexpected start or stop condition on I2C bus
-      参数:       I2C_FLAG_ADDSEND: address is sent in master mode or received and matches in slave mode
-      参数:       I2C_FLAG_TFF: txframe fall flag
-      参数:       I2C_FLAG_TFR: txframe rise flag
-      参数:       I2C_FLAG_RFF: rxframe fall flag
-      参数:       I2C_FLAG_RFR: rxframe rise flag
+      参数:       I2C_Flag_SMBALT: SMBus alert status
+      参数:       I2C_Flag_SMBTO: timeout signal in SMBus mode
+      参数:       I2C_Flag_PECERR: PEC error when receiving data
+      参数:       I2C_Flag_OUERR: over-run or under-run situation occurs in slave mode
+      参数:       I2C_Flag_AERR: acknowledge error
+      参数:       I2C_Flag_LOSTARB: arbitration lost in master mode
+      参数:       I2C_Flag_BERR: a bus error occurs indication a unexpected start or stop condition on I2C bus
+      参数:       I2C_Flag_ADDSEND: address is sent in master mode or received and matches in slave mode
+      参数:       I2C_Flag_TFF: txframe fall flag
+      参数:       I2C_Flag_TFR: txframe rise flag
+      参数:       I2C_Flag_RFF: rxframe fall flag
+      参数:       I2C_Flag_RFR: rxframe rise flag
     参数[输出]:  无
     返回值:      无
 */
-void I2C_flag_clear(uint32_t I2C_periph, I2C_flag_enum flag) {
-    if(I2C_FLAG_ADDSEND == flag) {
+void I2C_Flag_Clear(uint32_t I2C_periph, I2C_Flag_enum flag) {
+    if(I2C_Flag_ADDSEND == flag) {
         /* read I2C_STAT0 and then read I2C_STAT1 to clear ADDSEND */
         I2C_STAT0(I2C_periph);
         I2C_STAT1(I2C_periph);
     } else {
-        I2C_REG_VAL(I2C_periph, flag) &= ~BIT(I2C_BIT_POS(flag));
+        I2C_REG_VAL(I2C_periph, flag) &= ~BIT(I2C_Bit_POS(flag));
     }
 }
 
@@ -709,8 +709,8 @@ void I2C_flag_clear(uint32_t I2C_periph, I2C_flag_enum flag) {
     参数[输出]:  无
     返回值:      无
 */
-void I2C_Interrupt_enable(uint32_t I2C_periph, I2C_Interrupt_enum interrupt) {
-    I2C_REG_VAL(I2C_periph, interrupt) |= BIT(I2C_BIT_POS(interrupt));
+void I2C_Interrupt_Enable(uint32_t I2C_periph, I2C_Interrupt_enum interrupt) {
+    I2C_REG_VAL(I2C_periph, interrupt) |= BIT(I2C_Bit_POS(interrupt));
 }
 
 /*!
@@ -728,48 +728,48 @@ void I2C_Interrupt_enable(uint32_t I2C_periph, I2C_Interrupt_enum interrupt) {
     参数[输出]:  无
     返回值:      无
 */
-void I2C_Interrupt_disable(uint32_t I2C_periph, I2C_Interrupt_enum interrupt) {
-    I2C_REG_VAL(I2C_periph, interrupt) &= ~BIT(I2C_BIT_POS(interrupt));
+void I2C_Interrupt_Disable(uint32_t I2C_periph, I2C_Interrupt_enum interrupt) {
+    I2C_REG_VAL(I2C_periph, interrupt) &= ~BIT(I2C_Bit_POS(interrupt));
 }
 
 /*!
     简介:      get I2C interrupt flag status
     参数[输入]:  I2C_periph: I2Cx(x=0,1,2)
-    参数[输入]:  int_flag: I2C interrupt flags, refer to I2C_Interrupt_flag_enum
+    参数[输入]:  int_flag: I2C interrupt flags, refer to I2C_Interrupt_Flag_enum
                 only one parameter can be selected which is shown as below:
-      参数:        I2C_INT_FLAG_SBSEND: start condition sent out in master mode interrupt flag
-      参数:        I2C_INT_FLAG_ADDSEND: address is sent in master mode or received and matches in slave mode interrupt flag
-      参数:        I2C_INT_FLAG_BTC: byte transmission finishes interrupt flag
-      参数:        I2C_INT_FLAG_ADD10SEND: header of 10-bit address is sent in master mode interrupt flag
-      参数:        I2C_INT_FLAG_STPDET: stop condition detected in slave mode interrupt flag
-      参数:        I2C_INT_FLAG_RBNE: I2C_DATA is not Empty during receiving interrupt flag
-      参数:        I2C_INT_FLAG_TBE: I2C_DATA is empty during transmitting interrupt flag
-      参数:        I2C_INT_FLAG_BERR: a bus error occurs indication a unexpected start or stop condition on I2C bus interrupt flag
-      参数:        I2C_INT_FLAG_LOSTARB: arbitration lost in master mode interrupt flag
-      参数:        I2C_INT_FLAG_AERR: acknowledge error interrupt flag
-      参数:        I2C_INT_FLAG_OUERR: over-run or under-run situation occurs in slave mode interrupt flag
-      参数:        I2C_INT_FLAG_PECERR: PEC error when receiving data interrupt flag
-      参数:        I2C_INT_FLAG_SMBTO: timeout signal in SMBus mode interrupt flag
-      参数:        I2C_INT_FLAG_SMBALT: SMBus alert status interrupt flag
-      参数:        I2C_INT_FLAG_TFF: txframe fall interrupt flag
-      参数:        I2C_INT_FLAG_TFR: txframe rise interrupt flag
-      参数:        I2C_INT_FLAG_RFF: rxframe fall interrupt flag
-      参数:        I2C_INT_FLAG_RFR: rxframe rise interrupt flag
+      参数:        I2C_INT_Flag_SBSEND: start condition sent out in master mode interrupt flag
+      参数:        I2C_INT_Flag_ADDSEND: address is sent in master mode or received and matches in slave mode interrupt flag
+      参数:        I2C_INT_Flag_BTC: byte transmission finishes interrupt flag
+      参数:        I2C_INT_Flag_ADD10SEND: header of 10-bit address is sent in master mode interrupt flag
+      参数:        I2C_INT_Flag_STPDET: stop condition detected in slave mode interrupt flag
+      参数:        I2C_INT_Flag_RBNE: I2C_DATA is not Empty during receiving interrupt flag
+      参数:        I2C_INT_Flag_TBE: I2C_DATA is empty during transmitting interrupt flag
+      参数:        I2C_INT_Flag_BERR: a bus error occurs indication a unexpected start or stop condition on I2C bus interrupt flag
+      参数:        I2C_INT_Flag_LOSTARB: arbitration lost in master mode interrupt flag
+      参数:        I2C_INT_Flag_AERR: acknowledge error interrupt flag
+      参数:        I2C_INT_Flag_OUERR: over-run or under-run situation occurs in slave mode interrupt flag
+      参数:        I2C_INT_Flag_PECERR: PEC error when receiving data interrupt flag
+      参数:        I2C_INT_Flag_SMBTO: timeout signal in SMBus mode interrupt flag
+      参数:        I2C_INT_Flag_SMBALT: SMBus alert status interrupt flag
+      参数:        I2C_INT_Flag_TFF: txframe fall interrupt flag
+      参数:        I2C_INT_Flag_TFR: txframe rise interrupt flag
+      参数:        I2C_INT_Flag_RFF: rxframe fall interrupt flag
+      参数:        I2C_INT_Flag_RFR: rxframe rise interrupt flag
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus I2C_Interrupt_flag_get(uint32_t I2C_periph, I2C_Interrupt_flag_enum int_flag) {
+FlagStatus I2C_Interrupt_Flag_Get(uint32_t I2C_periph, I2C_Interrupt_Flag_enum int_flag) {
     uint32_t intenable = 0U, flagstatus = 0U, bufie;
 
     /* check BUFIE */
     bufie = I2C_CTL1(I2C_periph)&I2C_CTL1_BUFIE;
 
     /* get the interrupt enable bit status */
-    intenable = (I2C_REG_VAL(I2C_periph, int_flag) & BIT(I2C_BIT_POS(int_flag)));
+    intenable = (I2C_REG_VAL(I2C_periph, int_flag) & BIT(I2C_Bit_POS(int_flag)));
     /* get the corresponding flag bit status */
-    flagstatus = (I2C_REG_VAL2(I2C_periph, int_flag) & BIT(I2C_BIT_POS2(int_flag)));
+    flagstatus = (I2C_REG_VAL2(I2C_periph, int_flag) & BIT(I2C_Bit_POS2(int_flag)));
 
-    if((I2C_INT_FLAG_RBNE == int_flag) || (I2C_INT_FLAG_TBE == int_flag)) {
+    if((I2C_INT_Flag_RBNE == int_flag) || (I2C_INT_Flag_TBE == int_flag)) {
         if(intenable && bufie) {
             intenable = 1U;
         } else {
@@ -787,29 +787,29 @@ FlagStatus I2C_Interrupt_flag_get(uint32_t I2C_periph, I2C_Interrupt_flag_enum i
 /*!
     简介:      clear I2C interrupt flag status
     参数[输入]:  I2C_periph: I2Cx(x=0,1,2)
-    参数[输入]:  int_flag: I2C interrupt flags, refer to I2C_Interrupt_flag_enum
+    参数[输入]:  int_flag: I2C interrupt flags, refer to I2C_Interrupt_Flag_enum
                 only one parameter can be selected which is shown as below:
-      参数:        I2C_INT_FLAG_ADDSEND: address is sent in master mode or received and matches in slave mode interrupt flag
-      参数:        I2C_INT_FLAG_BERR: a bus error occurs indication a unexpected start or stop condition on I2C bus interrupt flag
-      参数:        I2C_INT_FLAG_LOSTARB: arbitration lost in master mode interrupt flag
-      参数:        I2C_INT_FLAG_AERR: acknowledge error interrupt flag
-      参数:        I2C_INT_FLAG_OUERR: over-run or under-run situation occurs in slave mode interrupt flag
-      参数:        I2C_INT_FLAG_PECERR: PEC error when receiving data interrupt flag
-      参数:        I2C_INT_FLAG_SMBTO: timeout signal in SMBus mode interrupt flag
-      参数:        I2C_INT_FLAG_SMBALT: SMBus alert status interrupt flag
-      参数:        I2C_INT_FLAG_TFF: txframe fall interrupt flag
-      参数:        I2C_INT_FLAG_TFR: txframe rise interrupt flag
-      参数:        I2C_INT_FLAG_RFF: rxframe fall interrupt flag
-      参数:        I2C_INT_FLAG_RFR: rxframe rise interrupt flag
+      参数:        I2C_INT_Flag_ADDSEND: address is sent in master mode or received and matches in slave mode interrupt flag
+      参数:        I2C_INT_Flag_BERR: a bus error occurs indication a unexpected start or stop condition on I2C bus interrupt flag
+      参数:        I2C_INT_Flag_LOSTARB: arbitration lost in master mode interrupt flag
+      参数:        I2C_INT_Flag_AERR: acknowledge error interrupt flag
+      参数:        I2C_INT_Flag_OUERR: over-run or under-run situation occurs in slave mode interrupt flag
+      参数:        I2C_INT_Flag_PECERR: PEC error when receiving data interrupt flag
+      参数:        I2C_INT_Flag_SMBTO: timeout signal in SMBus mode interrupt flag
+      参数:        I2C_INT_Flag_SMBALT: SMBus alert status interrupt flag
+      参数:        I2C_INT_Flag_TFF: txframe fall interrupt flag
+      参数:        I2C_INT_Flag_TFR: txframe rise interrupt flag
+      参数:        I2C_INT_Flag_RFF: rxframe fall interrupt flag
+      参数:        I2C_INT_Flag_RFR: rxframe rise interrupt flag
     参数[输出]:  无
     返回值:      无
 */
-void I2C_Interrupt_flag_clear(uint32_t I2C_periph, I2C_Interrupt_flag_enum int_flag) {
-    if(I2C_INT_FLAG_ADDSEND == int_flag) {
+void I2C_Interrupt_Flag_Clear(uint32_t I2C_periph, I2C_Interrupt_Flag_enum int_flag) {
+    if(I2C_INT_Flag_ADDSEND == int_flag) {
         /* read I2C_STAT0 and then read I2C_STAT1 to clear ADDSEND */
         I2C_STAT0(I2C_periph);
         I2C_STAT1(I2C_periph);
     } else {
-        I2C_REG_VAL2(I2C_periph, int_flag) &= ~BIT(I2C_BIT_POS2(int_flag));
+        I2C_REG_VAL2(I2C_periph, int_flag) &= ~BIT(I2C_Bit_POS2(int_flag));
     }
 }

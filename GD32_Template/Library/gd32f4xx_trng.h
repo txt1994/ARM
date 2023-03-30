@@ -61,7 +61,7 @@ OF SUCH DAMAGE.
 #define TRNG_STAT_SEIF              BIT(6)                     /*!< seed error interrupt flag */
 
 /* TRNG_DATA */
-#define TRNG_DATA_TRNGDATA          BITS(0,31)                 /*!< 32-Bit Random data */
+#define TRNG_Data_TRNGDATA          BITS(0,31)                 /*!< 32-Bit Random data */
 
 /* constants definitions */
 /* TRNG status flag */

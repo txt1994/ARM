@@ -66,7 +66,7 @@ void SDIO_DeInit(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_clock_Config(uint32_t clock_edge, uint32_t clock_bypass, uint32_t clock_powersave, uint16_t clock_division) {
+void SDIO_Clock_Config(uint32_t clock_edge, uint32_t clock_bypass, uint32_t clock_powersave, uint16_t clock_division) {
     uint32_t clock_Config = 0U;
     clock_Config = SDIO_CLKCTL;
     /* reset the CLKEDGE, CLKBYP, CLKPWRSAV, DIV */
@@ -89,7 +89,7 @@ void SDIO_clock_Config(uint32_t clock_edge, uint32_t clock_bypass, uint32_t cloc
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_hardware_clock_enable(void) {
+void SDIO_Hardware_Clock_Enable(void) {
     SDIO_CLKCTL |= SDIO_CLKCTL_HWCLKEN;
 }
 
@@ -99,7 +99,7 @@ void SDIO_hardware_clock_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_hardware_clock_disable(void) {
+void SDIO_Hardware_Clock_Disable(void) {
     SDIO_CLKCTL &= ~SDIO_CLKCTL_HWCLKEN;
 }
 
@@ -113,7 +113,7 @@ void SDIO_hardware_clock_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_bus_mode_set(uint32_t bus_mode) {
+void SDIO_bus_Mode_Set(uint32_t bus_mode) {
     /* reset the SDIO card bus mode bits and set according to bus_mode */
     SDIO_CLKCTL &= ~SDIO_CLKCTL_BUSMODE;
     SDIO_CLKCTL |= bus_mode;
@@ -123,12 +123,12 @@ void SDIO_bus_mode_set(uint32_t bus_mode) {
     简介:    set the SDIO power state
     参数[输入]:  power_state: SDIO power state
                 only one parameter can be selected which is shown as below:
-      参数:        SDIO_POWER_ON: SDIO power on
-      参数:        SDIO_POWER_OFF: SDIO power off
+      参数:        SDIO_Power_ON: SDIO power on
+      参数:        SDIO_Power_OFF: SDIO power off
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_power_state_set(uint32_t power_state) {
+void SDIO_Power_State_Set(uint32_t power_state) {
     SDIO_PWRCTL = power_state;
 }
 
@@ -137,10 +137,10 @@ void SDIO_power_state_set(uint32_t power_state) {
     参数[输入]:  无
     参数[输出]:  无
     返回值:     SDIO power state
-      参数:        SDIO_POWER_ON: SDIO power on
-      参数:        SDIO_POWER_OFF: SDIO power off
+      参数:        SDIO_Power_ON: SDIO power on
+      参数:        SDIO_Power_OFF: SDIO power off
 */
-uint32_t SDIO_power_state_get(void) {
+uint32_t SDIO_Power_State_Get(void) {
     return SDIO_PWRCTL;
 }
 
@@ -150,7 +150,7 @@ uint32_t SDIO_power_state_get(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_clock_enable(void) {
+void SDIO_Clock_Enable(void) {
     SDIO_CLKCTL |= SDIO_CLKCTL_CLKEN;
 }
 
@@ -160,7 +160,7 @@ void SDIO_clock_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_clock_disable(void) {
+void SDIO_Clock_Disable(void) {
     SDIO_CLKCTL &= ~SDIO_CLKCTL_CLKEN;
 }
 
@@ -200,7 +200,7 @@ void SDIO_command_response_Config(uint32_t cmd_index, uint32_t cmd_argument, uin
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_Wait_type_set(uint32_t wait_type) {
+void SDIO_Wait_type_Set(uint32_t wait_type) {
     /* reset INTWAIT and WAITDEND */
     SDIO_CMDCTL &= ~(SDIO_CMDCTL_INTWAIT | SDIO_CMDCTL_WaitDEND);
     /* set the wait type according to wait_type */
@@ -213,7 +213,7 @@ void SDIO_Wait_type_set(uint32_t wait_type) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_csm_enable(void) {
+void SDIO_csm_Enable(void) {
     SDIO_CMDCTL |= SDIO_CMDCTL_CSMEN;
 }
 
@@ -223,7 +223,7 @@ void SDIO_csm_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_csm_disable(void) {
+void SDIO_csm_Disable(void) {
     SDIO_CMDCTL &= ~SDIO_CMDCTL_CSMEN;
 }
 
@@ -233,7 +233,7 @@ void SDIO_csm_disable(void) {
     参数[输出]:  无
     返回值:     last response command index
 */
-uint8_t SDIO_command_index_get(void) {
+uint8_t SDIO_command_index_Get(void) {
     return (uint8_t)SDIO_RSPCMDIDX;
 }
 
@@ -248,7 +248,7 @@ uint8_t SDIO_command_index_get(void) {
     参数[输出]:  无
     返回值:     response for the last received command
 */
-uint32_t SDIO_response_get(uint32_t SDIO_responsex) {
+uint32_t SDIO_response_Get(uint32_t SDIO_responsex) {
     uint32_t resp_content = 0U;
 
     switch(SDIO_responsex) {
@@ -299,7 +299,7 @@ uint32_t SDIO_response_get(uint32_t SDIO_responsex) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_data_Config(uint32_t data_timeout, uint32_t data_length, uint32_t data_blocksize) {
+void SDIO_Data_Config(uint32_t data_timeout, uint32_t data_length, uint32_t data_blocksize) {
     /* reset data timeout, data length and data block size */
     SDIO_DATATO &= ~SDIO_DATATO_DATATO;
     SDIO_DATALEN &= ~SDIO_DATALEN_DATALEN;
@@ -323,7 +323,7 @@ void SDIO_data_Config(uint32_t data_timeout, uint32_t data_length, uint32_t data
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_data_transfer_Config(uint32_t transfer_mode, uint32_t transfer_direction) {
+void SDIO_Data_Transfer_Config(uint32_t transfer_mode, uint32_t transfer_direction) {
     uint32_t data_trans = 0U;
     /* reset the data transfer mode, transfer direction and set according to the parameters */
     data_trans = SDIO_DATACTL;
@@ -338,7 +338,7 @@ void SDIO_data_transfer_Config(uint32_t transfer_mode, uint32_t transfer_directi
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_dsm_enable(void) {
+void SDIO_dsm_Enable(void) {
     SDIO_DATACTL |= SDIO_DATACTL_DATAEN;
 }
 
@@ -348,7 +348,7 @@ void SDIO_dsm_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_dsm_disable(void) {
+void SDIO_dsm_Disable(void) {
     SDIO_DATACTL &= ~SDIO_DATACTL_DATAEN;
 }
 
@@ -358,7 +358,7 @@ void SDIO_dsm_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_data_write(uint32_t data) {
+void SDIO_Data_Write(uint32_t data) {
     SDIO_FIFO = data;
 }
 
@@ -368,7 +368,7 @@ void SDIO_data_write(uint32_t data) {
     参数[输出]:  无
     返回值:     received data
 */
-uint32_t SDIO_data_read(void) {
+uint32_t SDIO_Data_Read(void) {
     return SDIO_FIFO;
 }
 
@@ -378,7 +378,7 @@ uint32_t SDIO_data_read(void) {
     参数[输出]:  无
     返回值:     number of remaining data bytes to be transferred
 */
-uint32_t SDIO_data_counter_get(void) {
+uint32_t SDIO_Data_Counter_Get(void) {
     return SDIO_DATACNT;
 }
 
@@ -388,7 +388,7 @@ uint32_t SDIO_data_counter_get(void) {
     参数[输出]:  无
     返回值:     remaining number of words
 */
-uint32_t SDIO_fifo_counter_get(void) {
+uint32_t SDIO_FIFO_Counter_Get(void) {
     return SDIO_FIFOCNT;
 }
 
@@ -398,7 +398,7 @@ uint32_t SDIO_fifo_counter_get(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_DMA_enable(void) {
+void SDIO_DMA_Enable(void) {
     SDIO_DATACTL |= SDIO_DATACTL_DMAEN;
 }
 
@@ -408,7 +408,7 @@ void SDIO_DMA_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_DMA_disable(void) {
+void SDIO_DMA_Disable(void) {
     SDIO_DATACTL &= ~SDIO_DATACTL_DMAEN;
 }
 
@@ -416,34 +416,34 @@ void SDIO_DMA_disable(void) {
     简介:    get the flags state of SDIO
     参数[输入]:  flag: flags state of SDIO
                 one or more parameters can be selected which are shown as below:
-      参数:        SDIO_FLAG_CCRCERR: command response received (CRC check failed) flag
-      参数:        SDIO_FLAG_DTCRCERR: data block sent/received (CRC check failed) flag
-      参数:        SDIO_FLAG_CMDTMOUT: command response timeout flag
-      参数:        SDIO_FLAG_DTTMOUT: data timeout flag
-      参数:        SDIO_FLAG_TXURE: transmit FIFO underrun error occurs flag
-      参数:        SDIO_FLAG_RXORE: received FIFO overrun error occurs flag
-      参数:        SDIO_FLAG_CMDRECV: command response received (CRC check passed) flag
-      参数:        SDIO_FLAG_CMDSEND: command sent (no response required) flag
-      参数:        SDIO_FLAG_DTEND: data end (data counter, SDIO_DATACNT, is zero) flag
-      参数:        SDIO_FLAG_STBITE: start bit error in the bus flag
-      参数:        SDIO_FLAG_DTBLKEND: data block sent/received (CRC check passed) flag
-      参数:        SDIO_FLAG_CMDRUN: command transmission in progress flag
-      参数:        SDIO_FLAG_TXRUN: data transmission in progress flag
-      参数:        SDIO_FLAG_RXRUN: data reception in progress flag
-      参数:        SDIO_FLAG_TFH: transmit FIFO is half empty flag: at least 8 words can be written into the FIFO
-      参数:        SDIO_FLAG_RFH: receive FIFO is half full flag: at least 8 words can be read in the FIFO
-      参数:        SDIO_FLAG_TFF: transmit FIFO is full flag
-      参数:        SDIO_FLAG_RFF: receive FIFO is full flag
-      参数:        SDIO_FLAG_TFE: transmit FIFO is empty flag
-      参数:        SDIO_FLAG_RFE: receive FIFO is empty flag
-      参数:        SDIO_FLAG_TXDTVAL: data is valid in transmit FIFO flag
-      参数:        SDIO_FLAG_RXDTVAL: data is valid in receive FIFO flag
-      参数:        SDIO_FLAG_SDIOINT: SD I/O interrupt received flag
-      参数:        SDIO_FLAG_ATAEND: CE-ATA command completion signal received (only for CMD61) flag
+      参数:        SDIO_Flag_CCRCERR: command response received (CRC check failed) flag
+      参数:        SDIO_Flag_DTCRCERR: data block sent/received (CRC check failed) flag
+      参数:        SDIO_Flag_CMDTMOUT: command response timeout flag
+      参数:        SDIO_Flag_DTTMOUT: data timeout flag
+      参数:        SDIO_Flag_TXURE: transmit FIFO underrun error occurs flag
+      参数:        SDIO_Flag_RXORE: received FIFO overrun error occurs flag
+      参数:        SDIO_Flag_CMDRECV: command response received (CRC check passed) flag
+      参数:        SDIO_Flag_CMDSEND: command sent (no response required) flag
+      参数:        SDIO_Flag_DTEND: data end (data counter, SDIO_DATACNT, is zero) flag
+      参数:        SDIO_Flag_STBITE: start bit error in the bus flag
+      参数:        SDIO_Flag_DTBLKEND: data block sent/received (CRC check passed) flag
+      参数:        SDIO_Flag_CMDRUN: command transmission in progress flag
+      参数:        SDIO_Flag_TXRUN: data transmission in progress flag
+      参数:        SDIO_Flag_RXRUN: data reception in progress flag
+      参数:        SDIO_Flag_TFH: transmit FIFO is half empty flag: at least 8 words can be written into the FIFO
+      参数:        SDIO_Flag_RFH: receive FIFO is half full flag: at least 8 words can be read in the FIFO
+      参数:        SDIO_Flag_TFF: transmit FIFO is full flag
+      参数:        SDIO_Flag_RFF: receive FIFO is full flag
+      参数:        SDIO_Flag_TFE: transmit FIFO is empty flag
+      参数:        SDIO_Flag_RFE: receive FIFO is empty flag
+      参数:        SDIO_Flag_TXDTVAL: data is valid in transmit FIFO flag
+      参数:        SDIO_Flag_RXDTVAL: data is valid in receive FIFO flag
+      参数:        SDIO_Flag_SDIOINT: SD I/O interrupt received flag
+      参数:        SDIO_Flag_ATAEND: CE-ATA command completion signal received (only for CMD61) flag
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus SDIO_flag_get(uint32_t flag) {
+FlagStatus SDIO_Flag_Get(uint32_t flag) {
     FlagStatus temp_flag = RESET;
 
     if(RESET != (SDIO_STAT & flag)) {
@@ -457,23 +457,23 @@ FlagStatus SDIO_flag_get(uint32_t flag) {
     简介:    clear the pending flags of SDIO
     参数[输入]:  flag: flags state of SDIO
                 one or more parameters can be selected which are shown as below:
-      参数:        SDIO_FLAG_CCRCERR: command response received (CRC check failed) flag
-      参数:        SDIO_FLAG_DTCRCERR: data block sent/received (CRC check failed) flag
-      参数:        SDIO_FLAG_CMDTMOUT: command response timeout flag
-      参数:        SDIO_FLAG_DTTMOUT: data timeout flag
-      参数:        SDIO_FLAG_TXURE: transmit FIFO underrun error occurs flag
-      参数:        SDIO_FLAG_RXORE: received FIFO overrun error occurs flag
-      参数:        SDIO_FLAG_CMDRECV: command response received (CRC check passed) flag
-      参数:        SDIO_FLAG_CMDSEND: command sent (no response required) flag
-      参数:        SDIO_FLAG_DTEND: data end (data counter, SDIO_DATACNT, is zero) flag
-      参数:        SDIO_FLAG_STBITE: start bit error in the bus flag
-      参数:        SDIO_FLAG_DTBLKEND: data block sent/received (CRC check passed) flag
-      参数:        SDIO_FLAG_SDIOINT: SD I/O interrupt received flag
-      参数:        SDIO_FLAG_ATAEND: CE-ATA command completion signal received (only for CMD61) flag
+      参数:        SDIO_Flag_CCRCERR: command response received (CRC check failed) flag
+      参数:        SDIO_Flag_DTCRCERR: data block sent/received (CRC check failed) flag
+      参数:        SDIO_Flag_CMDTMOUT: command response timeout flag
+      参数:        SDIO_Flag_DTTMOUT: data timeout flag
+      参数:        SDIO_Flag_TXURE: transmit FIFO underrun error occurs flag
+      参数:        SDIO_Flag_RXORE: received FIFO overrun error occurs flag
+      参数:        SDIO_Flag_CMDRECV: command response received (CRC check passed) flag
+      参数:        SDIO_Flag_CMDSEND: command sent (no response required) flag
+      参数:        SDIO_Flag_DTEND: data end (data counter, SDIO_DATACNT, is zero) flag
+      参数:        SDIO_Flag_STBITE: start bit error in the bus flag
+      参数:        SDIO_Flag_DTBLKEND: data block sent/received (CRC check passed) flag
+      参数:        SDIO_Flag_SDIOINT: SD I/O interrupt received flag
+      参数:        SDIO_Flag_ATAEND: CE-ATA command completion signal received (only for CMD61) flag
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_flag_clear(uint32_t flag) {
+void SDIO_Flag_Clear(uint32_t flag) {
     SDIO_INTC = flag;
 }
 
@@ -508,7 +508,7 @@ void SDIO_flag_clear(uint32_t flag) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_Interrupt_enable(uint32_t int_flag) {
+void SDIO_Interrupt_Enable(uint32_t int_flag) {
     SDIO_INTEN |= int_flag;
 }
 
@@ -543,7 +543,7 @@ void SDIO_Interrupt_enable(uint32_t int_flag) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_Interrupt_disable(uint32_t int_flag) {
+void SDIO_Interrupt_Disable(uint32_t int_flag) {
     SDIO_INTEN &= ~int_flag;
 }
 
@@ -551,34 +551,34 @@ void SDIO_Interrupt_disable(uint32_t int_flag) {
     简介:    get the interrupt flags state of SDIO
     参数[输入]:  int_flag: interrupt flags state of SDIO
                 one or more parameters can be selected which are shown as below:
-      参数:        SDIO_INT_FLAG_CCRCERR: SDIO CCRCERR interrupt flag
-      参数:        SDIO_INT_FLAG_DTCRCERR: SDIO DTCRCERR interrupt flag
-      参数:        SDIO_INT_FLAG_CMDTMOUT: SDIO CMDTMOUT interrupt flag
-      参数:        SDIO_INT_FLAG_DTTMOUT: SDIO DTTMOUT interrupt flag
-      参数:        SDIO_INT_FLAG_TXURE: SDIO TXURE interrupt flag
-      参数:        SDIO_INT_FLAG_RXORE: SDIO RXORE interrupt flag
-      参数:        SDIO_INT_FLAG_CMDRECV: SDIO CMDRECV interrupt flag
-      参数:        SDIO_INT_FLAG_CMDSEND: SDIO CMDSEND interrupt flag
-      参数:        SDIO_INT_FLAG_DTEND: SDIO DTEND interrupt flag
-      参数:        SDIO_INT_FLAG_STBITE: SDIO STBITE interrupt flag
-      参数:        SDIO_INT_FLAG_DTBLKEND: SDIO DTBLKEND interrupt flag
-      参数:        SDIO_INT_FLAG_CMDRUN: SDIO CMDRUN interrupt flag
-      参数:        SDIO_INT_FLAG_TXRUN: SDIO TXRUN interrupt flag
-      参数:        SDIO_INT_FLAG_RXRUN: SDIO RXRUN interrupt flag
-      参数:        SDIO_INT_FLAG_TFH: SDIO TFH interrupt flag
-      参数:        SDIO_INT_FLAG_RFH: SDIO RFH interrupt flag
-      参数:        SDIO_INT_FLAG_TFF: SDIO TFF interrupt flag
-      参数:        SDIO_INT_FLAG_RFF: SDIO RFF interrupt flag
-      参数:        SDIO_INT_FLAG_TFE: SDIO TFE interrupt flag
-      参数:        SDIO_INT_FLAG_RFE: SDIO RFE interrupt flag
-      参数:        SDIO_INT_FLAG_TXDTVAL: SDIO TXDTVAL interrupt flag
-      参数:        SDIO_INT_FLAG_RXDTVAL: SDIO RXDTVAL interrupt flag
-      参数:        SDIO_INT_FLAG_SDIOINT: SDIO SDIOINT interrupt flag
-      参数:        SDIO_INT_FLAG_ATAEND: SDIO ATAEND interrupt flag
+      参数:        SDIO_INT_Flag_CCRCERR: SDIO CCRCERR interrupt flag
+      参数:        SDIO_INT_Flag_DTCRCERR: SDIO DTCRCERR interrupt flag
+      参数:        SDIO_INT_Flag_CMDTMOUT: SDIO CMDTMOUT interrupt flag
+      参数:        SDIO_INT_Flag_DTTMOUT: SDIO DTTMOUT interrupt flag
+      参数:        SDIO_INT_Flag_TXURE: SDIO TXURE interrupt flag
+      参数:        SDIO_INT_Flag_RXORE: SDIO RXORE interrupt flag
+      参数:        SDIO_INT_Flag_CMDRECV: SDIO CMDRECV interrupt flag
+      参数:        SDIO_INT_Flag_CMDSEND: SDIO CMDSEND interrupt flag
+      参数:        SDIO_INT_Flag_DTEND: SDIO DTEND interrupt flag
+      参数:        SDIO_INT_Flag_STBITE: SDIO STBITE interrupt flag
+      参数:        SDIO_INT_Flag_DTBLKEND: SDIO DTBLKEND interrupt flag
+      参数:        SDIO_INT_Flag_CMDRUN: SDIO CMDRUN interrupt flag
+      参数:        SDIO_INT_Flag_TXRUN: SDIO TXRUN interrupt flag
+      参数:        SDIO_INT_Flag_RXRUN: SDIO RXRUN interrupt flag
+      参数:        SDIO_INT_Flag_TFH: SDIO TFH interrupt flag
+      参数:        SDIO_INT_Flag_RFH: SDIO RFH interrupt flag
+      参数:        SDIO_INT_Flag_TFF: SDIO TFF interrupt flag
+      参数:        SDIO_INT_Flag_RFF: SDIO RFF interrupt flag
+      参数:        SDIO_INT_Flag_TFE: SDIO TFE interrupt flag
+      参数:        SDIO_INT_Flag_RFE: SDIO RFE interrupt flag
+      参数:        SDIO_INT_Flag_TXDTVAL: SDIO TXDTVAL interrupt flag
+      参数:        SDIO_INT_Flag_RXDTVAL: SDIO RXDTVAL interrupt flag
+      参数:        SDIO_INT_Flag_SDIOINT: SDIO SDIOINT interrupt flag
+      参数:        SDIO_INT_Flag_ATAEND: SDIO ATAEND interrupt flag
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus SDIO_Interrupt_flag_get(uint32_t int_flag) {
+FlagStatus SDIO_Interrupt_Flag_Get(uint32_t int_flag) {
     FlagStatus temp_flag = RESET;
 
     if(RESET != (SDIO_STAT & int_flag)) {
@@ -592,23 +592,23 @@ FlagStatus SDIO_Interrupt_flag_get(uint32_t int_flag) {
     简介:    clear the interrupt pending flags of SDIO
     参数[输入]:  int_flag: interrupt flags state of SDIO
                 one or more parameters can be selected which are shown as below:
-      参数:        SDIO_INT_FLAG_CCRCERR: command response received (CRC check failed) flag
-      参数:        SDIO_INT_FLAG_DTCRCERR: data block sent/received (CRC check failed) flag
-      参数:        SDIO_INT_FLAG_CMDTMOUT: command response timeout flag
-      参数:        SDIO_INT_FLAG_DTTMOUT: data timeout flag
-      参数:        SDIO_INT_FLAG_TXURE: transmit FIFO underrun error occurs flag
-      参数:        SDIO_INT_FLAG_RXORE: received FIFO overrun error occurs flag
-      参数:        SDIO_INT_FLAG_CMDRECV: command response received (CRC check passed) flag
-      参数:        SDIO_INT_FLAG_CMDSEND: command sent (no response required) flag
-      参数:        SDIO_INT_FLAG_DTEND: data end (data counter, SDIO_DATACNT, is zero) flag
-      参数:        SDIO_INT_FLAG_STBITE: start bit error in the bus flag
-      参数:        SDIO_INT_FLAG_DTBLKEND: data block sent/received (CRC check passed) flag
-      参数:        SDIO_INT_FLAG_SDIOINT: SD I/O interrupt received flag
-      参数:        SDIO_INT_FLAG_ATAEND: CE-ATA command completion signal received (only for CMD61) flag
+      参数:        SDIO_INT_Flag_CCRCERR: command response received (CRC check failed) flag
+      参数:        SDIO_INT_Flag_DTCRCERR: data block sent/received (CRC check failed) flag
+      参数:        SDIO_INT_Flag_CMDTMOUT: command response timeout flag
+      参数:        SDIO_INT_Flag_DTTMOUT: data timeout flag
+      参数:        SDIO_INT_Flag_TXURE: transmit FIFO underrun error occurs flag
+      参数:        SDIO_INT_Flag_RXORE: received FIFO overrun error occurs flag
+      参数:        SDIO_INT_Flag_CMDRECV: command response received (CRC check passed) flag
+      参数:        SDIO_INT_Flag_CMDSEND: command sent (no response required) flag
+      参数:        SDIO_INT_Flag_DTEND: data end (data counter, SDIO_DATACNT, is zero) flag
+      参数:        SDIO_INT_Flag_STBITE: start bit error in the bus flag
+      参数:        SDIO_INT_Flag_DTBLKEND: data block sent/received (CRC check passed) flag
+      参数:        SDIO_INT_Flag_SDIOINT: SD I/O interrupt received flag
+      参数:        SDIO_INT_Flag_ATAEND: CE-ATA command completion signal received (only for CMD61) flag
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_Interrupt_flag_clear(uint32_t int_flag) {
+void SDIO_Interrupt_Flag_Clear(uint32_t int_flag) {
     SDIO_INTC = int_flag;
 }
 
@@ -618,7 +618,7 @@ void SDIO_Interrupt_flag_clear(uint32_t int_flag) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_readwait_enable(void) {
+void SDIO_readwait_Enable(void) {
     SDIO_DATACTL |= SDIO_DATACTL_RWEN;
 }
 
@@ -628,7 +628,7 @@ void SDIO_readwait_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_readwait_disable(void) {
+void SDIO_readwait_Disable(void) {
     SDIO_DATACTL &= ~SDIO_DATACTL_RWEN;
 }
 
@@ -638,7 +638,7 @@ void SDIO_readwait_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_stop_readwait_enable(void) {
+void SDIO_Stop_readwait_Enable(void) {
     SDIO_DATACTL |= SDIO_DATACTL_RWSTOP;
 }
 
@@ -648,7 +648,7 @@ void SDIO_stop_readwait_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_stop_readwait_disable(void) {
+void SDIO_Stop_readwait_Disable(void) {
     SDIO_DATACTL &= ~SDIO_DATACTL_RWSTOP;
 }
 
@@ -661,7 +661,7 @@ void SDIO_stop_readwait_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_readwait_type_set(uint32_t readwait_type) {
+void SDIO_readwait_type_Set(uint32_t readwait_type) {
     if(SDIO_READWAITTYPE_CLK == readwait_type) {
         SDIO_DATACTL |= SDIO_DATACTL_RWTYPE;
     } else {
@@ -675,7 +675,7 @@ void SDIO_readwait_type_set(uint32_t readwait_type) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_operation_enable(void) {
+void SDIO_operation_Enable(void) {
     SDIO_DATACTL |= SDIO_DATACTL_IOEN;
 }
 
@@ -685,7 +685,7 @@ void SDIO_operation_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_operation_disable(void) {
+void SDIO_operation_Disable(void) {
     SDIO_DATACTL &= ~SDIO_DATACTL_IOEN;
 }
 
@@ -695,7 +695,7 @@ void SDIO_operation_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_suspend_enable(void) {
+void SDIO_suspend_Enable(void) {
     SDIO_CMDCTL |= SDIO_CMDCTL_SUSPEND;
 }
 
@@ -705,7 +705,7 @@ void SDIO_suspend_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_suspend_disable(void) {
+void SDIO_suspend_Disable(void) {
     SDIO_CMDCTL &= ~SDIO_CMDCTL_SUSPEND;
 }
 
@@ -715,7 +715,7 @@ void SDIO_suspend_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_ceata_command_enable(void) {
+void SDIO_Ceata_command_Enable(void) {
     SDIO_CMDCTL |= SDIO_CMDCTL_ATAEN;
 }
 
@@ -725,7 +725,7 @@ void SDIO_ceata_command_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_ceata_command_disable(void) {
+void SDIO_Ceata_command_Disable(void) {
     SDIO_CMDCTL &= ~SDIO_CMDCTL_ATAEN;
 }
 
@@ -735,7 +735,7 @@ void SDIO_ceata_command_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_ceata_Interrupt_enable(void) {
+void SDIO_Ceata_Interrupt_Enable(void) {
     SDIO_CMDCTL &= ~SDIO_CMDCTL_NINTEN;
 }
 
@@ -745,7 +745,7 @@ void SDIO_ceata_Interrupt_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_ceata_Interrupt_disable(void) {
+void SDIO_Ceata_Interrupt_Disable(void) {
     SDIO_CMDCTL |= SDIO_CMDCTL_NINTEN;
 }
 
@@ -755,7 +755,7 @@ void SDIO_ceata_Interrupt_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_ceata_command_completion_enable(void) {
+void SDIO_Ceata_command_completion_Enable(void) {
     SDIO_CMDCTL |= SDIO_CMDCTL_ENCMDC;
 }
 
@@ -765,6 +765,6 @@ void SDIO_ceata_command_completion_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void SDIO_ceata_command_completion_disable(void) {
+void SDIO_Ceata_command_completion_Disable(void) {
     SDIO_CMDCTL &= ~SDIO_CMDCTL_ENCMDC;
 }

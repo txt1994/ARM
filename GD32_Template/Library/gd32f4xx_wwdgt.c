@@ -64,7 +64,7 @@ void WWDGT_Enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void WWDGT_counter_Update(uint16_t counter_value) {
+void WWDGT_Counter_Update(uint16_t counter_value) {
     WWDGT_CTL = (uint32_t)(CTL_CNT(counter_value));
 }
 

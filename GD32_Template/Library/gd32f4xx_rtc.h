@@ -87,13 +87,13 @@ OF SUCH DAMAGE.
 
 /* bits definitions */
 /* RTC_TIME */
-#define RTC_TIME_SCU                       BITS(0,3)                            /*!< second units in BCD code */
-#define RTC_TIME_SCT                       BITS(4,6)                            /*!< second tens in BCD code */
-#define RTC_TIME_MNU                       BITS(8,11)                           /*!< minute units in BCD code */
-#define RTC_TIME_MNT                       BITS(12,14)                          /*!< minute tens in BCD code */
-#define RTC_TIME_HRU                       BITS(16,19)                          /*!< hour units in BCD code */
-#define RTC_TIME_HRT                       BITS(20,21)                          /*!< hour tens in BCD code */
-#define RTC_TIME_PM                        BIT(22)                              /*!< AM/PM notation */
+#define RTC_Time_SCU                       BITS(0,3)                            /*!< second units in BCD code */
+#define RTC_Time_SCT                       BITS(4,6)                            /*!< second tens in BCD code */
+#define RTC_Time_MNU                       BITS(8,11)                           /*!< minute units in BCD code */
+#define RTC_Time_MNT                       BITS(12,14)                          /*!< minute tens in BCD code */
+#define RTC_Time_HRU                       BITS(16,19)                          /*!< hour units in BCD code */
+#define RTC_Time_HRT                       BITS(20,21)                          /*!< hour tens in BCD code */
+#define RTC_Time_PM                        BIT(22)                              /*!< AM/PM notation */
 
 /* RTC_DATE */
 #define RTC_DATE_DAYU                      BITS(0,3)                            /*!< date units in BCD code */
@@ -236,7 +236,7 @@ typedef struct {
     uint8_t year;                                                               /*!< RTC year value: 0x0 - 0x99(BCD format) */
     uint8_t month;                                                              /*!< RTC month value */
     uint8_t date;                                                               /*!< RTC date value: 0x1 - 0x31(BCD format) */
-    uint8_t day_of_week;                                                        /*!< RTC weekday value */
+    uint8_t day_Of_week;                                                        /*!< RTC weekday value */
     uint8_t hour;                                                               /*!< RTC hour value */
     uint8_t minute;                                                             /*!< RTC minute value: 0x0 - 0x59(BCD format) */
     uint8_t second;                                                             /*!< RTC second value: 0x0 - 0x59(BCD format) */
@@ -244,7 +244,7 @@ typedef struct {
     uint16_t factor_syn;                                                        /*!< RTC synchronous prescaler value: 0x0 - 0x7FFF */
     uint32_t am_pm;                                                             /*!< RTC AM/PM value */
     uint32_t display_format;                                                    /*!< RTC time notation */
-} RTC_parameter_struct;
+} RTC_Parameter_Struct;
 
 /* structure for RTC alarm configuration */
 typedef struct {
@@ -255,7 +255,7 @@ typedef struct {
     uint8_t alarm_minute;                                                       /*!< RTC alarm minute value: 0x0 - 0x59(BCD format) */
     uint8_t alarm_second;                                                       /*!< RTC alarm second value: 0x0 - 0x59(BCD format) */
     uint32_t am_pm;                                                             /*!< RTC alarm AM/PM value */
-} RTC_alarm_struct;
+} RTC_alarm_Struct;
 
 /* structure for RTC time-stamp configuration */
 typedef struct {
@@ -266,31 +266,31 @@ typedef struct {
     uint8_t timestamp_minute;                                                   /*!< RTC time-stamp minute value: 0x0 - 0x59(BCD format) */
     uint8_t timestamp_second;                                                   /*!< RTC time-stamp second value: 0x0 - 0x59(BCD format) */
     uint32_t am_pm;                                                             /*!< RTC time-stamp AM/PM value */
-} RTC_timestamp_struct;
+} RTC_Timestamp_Struct;
 
 /* structure for RTC tamper configuration */
 typedef struct {
     uint32_t tamper_source;                                                     /*!< RTC tamper source */
     uint32_t tamper_trigger;                                                    /*!< RTC tamper trigger */
     uint32_t tamper_filter;                                                     /*!< RTC tamper consecutive samples needed during a voltage level detection */
-    uint32_t tamper_sample_frequency;                                           /*!< RTC tamper sampling frequency during a voltage level detection */
+    uint32_t tamper_Sample_frequency;                                           /*!< RTC tamper sampling frequency during a voltage level detection */
     ControlStatus tamper_precharge_enable;                                      /*!< RTC tamper precharge feature during a voltage level detection */
     uint32_t tamper_precharge_time;                                             /*!< RTC tamper precharge duration if precharge feature is enabled */
     ControlStatus tamper_with_timestamp;                                        /*!< RTC tamper time-stamp feature */
-} RTC_tamper_struct;
+} RTC_tamper_Struct;
 
 /* time register value */
-#define TIME_SC(regval)                    (BITS(0,6) & ((uint32_t)(regval) << 0))    /*!< write value to RTC_TIME_SC bit field */
-#define GET_TIME_SC(regval)                GET_BITS((regval),0,6)                     /*!< get value of RTC_TIME_SC bit field */
+#define TIME_SC(regval)                    (BITS(0,6) & ((uint32_t)(regval) << 0))    /*!< write value to RTC_Time_SC bit field */
+#define GET_Time_SC(regval)                GET_BITS((regval),0,6)                     /*!< get value of RTC_Time_SC bit field */
 
-#define TIME_MN(regval)                    (BITS(8,14) & ((uint32_t)(regval) << 8))   /*!< write value to RTC_TIME_MN bit field */
-#define GET_TIME_MN(regval)                GET_BITS((regval),8,14)                    /*!< get value of RTC_TIME_MN bit field */
+#define TIME_MN(regval)                    (BITS(8,14) & ((uint32_t)(regval) << 8))   /*!< write value to RTC_Time_MN bit field */
+#define GET_Time_MN(regval)                GET_BITS((regval),8,14)                    /*!< get value of RTC_Time_MN bit field */
 
-#define TIME_HR(regval)                    (BITS(16,21) & ((uint32_t)(regval) << 16)) /*!< write value to RTC_TIME_HR bit field */
-#define GET_TIME_HR(regval)                GET_BITS((regval),16,21)                   /*!< get value of RTC_TIME_HR bit field */
+#define TIME_HR(regval)                    (BITS(16,21) & ((uint32_t)(regval) << 16)) /*!< write value to RTC_Time_HR bit field */
+#define GET_Time_HR(regval)                GET_BITS((regval),16,21)                   /*!< get value of RTC_Time_HR bit field */
 
 #define RTC_AM                             ((uint32_t)0x00000000U)                    /*!< AM format */
-#define RTC_PM                             RTC_TIME_PM                                /*!< PM format */
+#define RTC_PM                             RTC_Time_PM                                /*!< PM format */
 
 /* date register value */
 #define DATE_DAY(regval)                   (BITS(0,5) & ((uint32_t)(regval) << 0))    /*!< write value to RTC_DATE_DAY bit field */
@@ -331,20 +331,20 @@ typedef struct {
 #define RTC_OS_ALARM1                      CTL_OS(2)                                  /*!< enable alarm1 flag output */
 #define RTC_OS_WAKEUP                      CTL_OS(3)                                  /*!< enable wakeup flag output */
 
-#define RTC_CALIBRATION_512HZ              RTC_CTL_COEN                               /*!< calibration output of 512Hz is enable */
-#define RTC_CALIBRATION_1HZ                (RTC_CTL_COEN | RTC_CTL_COS)               /*!< calibration output of 1Hz is enable */
+#define RTC_Calibration_512HZ              RTC_CTL_COEN                               /*!< calibration output of 512Hz is enable */
+#define RTC_Calibration_1HZ                (RTC_CTL_COEN | RTC_CTL_COS)               /*!< calibration output of 1Hz is enable */
 #define RTC_ALARM0_HIGH                    RTC_OS_ALARM0                              /*!< enable alarm0 flag output with high level */
 #define RTC_ALARM0_LOW                     (RTC_OS_ALARM0 | RTC_CTL_OPOL)             /*!< enable alarm0 flag output with low level*/
 #define RTC_ALARM1_HIGH                    RTC_OS_ALARM1                              /*!< enable alarm1 flag output with high level */
 #define RTC_ALARM1_LOW                     (RTC_OS_ALARM1 | RTC_CTL_OPOL)             /*!< enable alarm1 flag output with low level*/
-#define RTC_WAKEUP_HIGH                    RTC_OS_WAKEUP                              /*!< enable wakeup flag output with high level */
-#define RTC_WAKEUP_LOW                     (RTC_OS_WAKEUP | RTC_CTL_OPOL)             /*!< enable wakeup flag output with low level*/
+#define RTC_WakeUp_HIGH                    RTC_OS_WAKEUP                              /*!< enable wakeup flag output with high level */
+#define RTC_WakeUp_LOW                     (RTC_OS_WAKEUP | RTC_CTL_OPOL)             /*!< enable wakeup flag output with low level*/
 
 #define RTC_24HOUR                         ((uint32_t)0x00000000U)                    /*!< 24-hour format */
 #define RTC_12HOUR                         RTC_CTL_CS                                 /*!< 12-hour format */
 
-#define RTC_TIMESTAMP_RISING_EDGE          ((uint32_t)0x00000000U)                    /*!< rising edge is valid event edge for time-stamp event */
-#define RTC_TIMESTAMP_FALLING_EDGE         RTC_CTL_TSEG                               /*!< falling edge is valid event edge for time-stamp event */
+#define RTC_Timestamp_RISING_EDGE          ((uint32_t)0x00000000U)                    /*!< rising edge is valid event edge for time-stamp event */
+#define RTC_Timestamp_FALLING_EDGE         RTC_CTL_TSEG                               /*!< falling edge is valid event edge for time-stamp event */
 
 /* psc register value */
 #define PSC_FACTOR_S(regval)               (BITS(0,14) & ((uint32_t)(regval) << 0))   /*!< write value to RTC_PSC_FACTOR_S bit field */
@@ -414,12 +414,12 @@ typedef struct {
 /* hrfc register value */
 #define HRFC_CMSK(regval)                  (BITS(0,8) & ((uint32_t)(regval) << 0))    /*!< write value to RTC_HRFC_CMSK bit field */
 
-#define RTC_CALIBRATION_WINDOW_32S         ((uint32_t)0x00000000U)                    /*!< 2exp20 RTCCLK cycles, 32s if RTCCLK = 32768 Hz */
-#define RTC_CALIBRATION_WINDOW_16S         RTC_HRFC_CWND16                            /*!< 2exp19 RTCCLK cycles, 16s if RTCCLK = 32768 Hz */
-#define RTC_CALIBRATION_WINDOW_8S          RTC_HRFC_CWND8                             /*!< 2exp18 RTCCLK cycles, 8s if RTCCLK = 32768 Hz */
+#define RTC_Calibration_Window_32S         ((uint32_t)0x00000000U)                    /*!< 2exp20 RTCCLK cycles, 32s if RTCCLK = 32768 Hz */
+#define RTC_Calibration_Window_16S         RTC_HRFC_CWND16                            /*!< 2exp19 RTCCLK cycles, 16s if RTCCLK = 32768 Hz */
+#define RTC_Calibration_Window_8S          RTC_HRFC_CWND8                             /*!< 2exp18 RTCCLK cycles, 8s if RTCCLK = 32768 Hz */
 
-#define RTC_CALIBRATION_PLUS_SET           RTC_HRFC_FREQI                             /*!< increase RTC frequency by 488.5ppm */
-#define RTC_CALIBRATION_PLUS_RESET         ((uint32_t)0x00000000U)                    /*!< no effect */
+#define RTC_Calibration_PLUS_SET           RTC_HRFC_FREQI                             /*!< increase RTC frequency by 488.5ppm */
+#define RTC_Calibration_PLUS_RESET         ((uint32_t)0x00000000U)                    /*!< no effect */
 
 /* tamp register value */
 #define TAMP_FREQ(regval)                  (BITS(8,10) & ((uint32_t)(regval) << 8))  /*!< write value to RTC_TAMP_FREQ bit field */
@@ -447,15 +447,15 @@ typedef struct {
 #define RTC_TAMPER0                        RTC_TAMP_TP0EN                             /*!< tamper 0 detection enable */
 #define RTC_TAMPER1                        RTC_TAMP_TP1EN                             /*!< tamper 1 detection enable */
 
-#define RTC_TAMPER_TRIGGER_EDGE_RISING     ((uint32_t)0x00000000U)                    /*!< tamper detection is in rising edge mode */
-#define RTC_TAMPER_TRIGGER_EDGE_FALLING    RTC_TAMP_TP0EG                             /*!< tamper detection is in falling edge mode */
-#define RTC_TAMPER_TRIGGER_LEVEL_LOW       ((uint32_t)0x00000000U)                    /*!< tamper detection is in low level mode */
-#define RTC_TAMPER_TRIGGER_LEVEL_HIGH      RTC_TAMP_TP0EG                             /*!< tamper detection is in high level mode */
+#define RTC_TAMPER_Trigger_EDGE_RISING     ((uint32_t)0x00000000U)                    /*!< tamper detection is in rising edge mode */
+#define RTC_TAMPER_Trigger_EDGE_FALLING    RTC_TAMP_TP0EG                             /*!< tamper detection is in falling edge mode */
+#define RTC_TAMPER_Trigger_LEVEL_LOW       ((uint32_t)0x00000000U)                    /*!< tamper detection is in low level mode */
+#define RTC_TAMPER_Trigger_LEVEL_HIGH      RTC_TAMP_TP0EG                             /*!< tamper detection is in high level mode */
 
-#define RTC_TAMPER_TRIGGER_POS             ((uint32_t)0x00000001U)                    /* shift position of trigger relative to source */
+#define RTC_TAMPER_Trigger_POS             ((uint32_t)0x00000001U)                    /* shift position of trigger relative to source */
 
-#define RTC_ALARM_OUTPUT_OD                ((uint32_t)0x00000000U)                    /*!< RTC alarm output open-drain mode */
-#define RTC_ALARM_OUTPUT_PP                RTC_TAMP_AOT                               /*!< RTC alarm output push-pull mode */
+#define RTC_ALARM_OutPut_OD                ((uint32_t)0x00000000U)                    /*!< RTC alarm output open-drain mode */
+#define RTC_ALARM_OutPut_PP                RTC_TAMP_AOT                               /*!< RTC alarm output push-pull mode */
 
 /* ALRMXSS register value */
 #define ALRMXSS_SSC(regval)                (BITS(0,14) & ((uint32_t)(regval)<< 0))    /*!< write value to RTC_ALRMXSS_SSC bit field */
@@ -491,7 +491,7 @@ typedef struct {
 #define RTC_LOCK_KEY                       ((uint8_t)0xFFU)                           /*!< RTC lock key */
 
 /* registers reset value */
-#define RTC_REGISTER_RESET                 ((uint32_t)0x00000000U)                    /*!< RTC common register reset value */
+#define RTC_Register_RESET                 ((uint32_t)0x00000000U)                    /*!< RTC common register reset value */
 #define RTC_DATE_RESET                     ((uint32_t)0x00002101U)                    /*!< RTC_DATE register reset value */
 #define RTC_STAT_RESET                     ((uint32_t)0x00000000U)                    /*!< RTC_STAT register reset value */
 #define RTC_PSC_RESET                      ((uint32_t)0x007F00FFU)                    /*!< RTC_PSC register reset value */
@@ -521,83 +521,83 @@ typedef struct {
 #define RTC_AF1_TAMPER0                    RTC_TAMP_TP0SEL                            /*!< RTC_AF1 use for tamper0 */
 
 /* RTC flags */
-#define RTC_FLAG_ALRM0W                    RTC_STAT_ALRM0WF                           /*!< alarm0 configuration can be write flag */
-#define RTC_FLAG_ALRM1W                    RTC_STAT_ALRM1WF                           /*!< alarm1 configuration can be write flag */
-#define RTC_FLAG_WTW                       RTC_STAT_WTWF                              /*!< wakeup timer can be write flag */
-#define RTC_FLAG_SOP                       RTC_STAT_SOPF                              /*!< shift function operation pending flag */
-#define RTC_FLAG_YCM                       RTC_STAT_YCM                               /*!< year configuration mark status flag */
-#define RTC_FLAG_RSYN                      RTC_STAT_RSYNF                             /*!< register synchronization flag */
-#define RTC_FLAG_INIT                      RTC_STAT_INITF                             /*!< initialization state flag */
-#define RTC_FLAG_ALRM0                     RTC_STAT_ALRM0F                            /*!< alarm0 occurs flag */
-#define RTC_FLAG_ALRM1                     RTC_STAT_ALRM1F                            /*!< alarm1 occurs flag */
-#define RTC_FLAG_WT                        RTC_STAT_WTF                               /*!< wakeup timer occurs flag */
-#define RTC_FLAG_TS                        RTC_STAT_TSF                               /*!< time-stamp flag */
-#define RTC_FLAG_TSOVR                     RTC_STAT_TSOVRF                            /*!< time-stamp overflow flag */
-#define RTC_FLAG_TP0                       RTC_STAT_TP0F                              /*!< RTC tamper 0 detected flag */
-#define RTC_FLAG_TP1                       RTC_STAT_TP1F                              /*!< RTC tamper 1 detected flag */
+#define RTC_Flag_ALRM0W                    RTC_STAT_ALRM0WF                           /*!< alarm0 configuration can be write flag */
+#define RTC_Flag_ALRM1W                    RTC_STAT_ALRM1WF                           /*!< alarm1 configuration can be write flag */
+#define RTC_Flag_WTW                       RTC_STAT_WTWF                              /*!< wakeup timer can be write flag */
+#define RTC_Flag_SOP                       RTC_STAT_SOPF                              /*!< shift function operation pending flag */
+#define RTC_Flag_YCM                       RTC_STAT_YCM                               /*!< year configuration mark status flag */
+#define RTC_Flag_RSYN                      RTC_STAT_RSYNF                             /*!< register synchronization flag */
+#define RTC_Flag_INIT                      RTC_STAT_INITF                             /*!< initialization state flag */
+#define RTC_Flag_ALRM0                     RTC_STAT_ALRM0F                            /*!< alarm0 occurs flag */
+#define RTC_Flag_ALRM1                     RTC_STAT_ALRM1F                            /*!< alarm1 occurs flag */
+#define RTC_Flag_WT                        RTC_STAT_WTF                               /*!< wakeup timer occurs flag */
+#define RTC_Flag_TS                        RTC_STAT_TSF                               /*!< time-stamp flag */
+#define RTC_Flag_TSOVR                     RTC_STAT_TSOVRF                            /*!< time-stamp overflow flag */
+#define RTC_Flag_TP0                       RTC_STAT_TP0F                              /*!< RTC tamper 0 detected flag */
+#define RTC_Flag_TP1                       RTC_STAT_TP1F                              /*!< RTC tamper 1 detected flag */
 #define RTC_STAT_SCP                       RTC_STAT_SCPF                              /*!< smooth calibration pending flag */
 
 /* function declarations */
 /* reset most of the RTC registers */
 ErrStatus RTC_DeInit(void);
 /* initialize RTC registers */
-ErrStatus RTC_init(RTC_parameter_struct* RTC_initpara_struct);
+ErrStatus RTC_Init(RTC_Parameter_Struct* RTC_initpara_Struct);
 /* enter RTC init mode */
-ErrStatus RTC_init_mode_enter(void);
+ErrStatus RTC_init_Mode_enter(void);
 /* exit RTC init mode */
-void RTC_init_mode_exit(void);
+void RTC_init_Mode_exit(void);
 /* wait until RTC_TIME and RTC_DATE registers are synchronized with APB clock, and the shadow registers are updated */
-ErrStatus RTC_register_sync_Wait(void);
+ErrStatus RTC_Register_Sync_Wait(void);
 
 /* get current time and date */
-void RTC_current_time_get(RTC_parameter_struct* RTC_initpara_struct);
+void RTC_Current_Time_Get(RTC_Parameter_Struct* RTC_initpara_Struct);
 /* get current subsecond value */
-uint32_t RTC_subsecond_get(void);
+uint32_t RTC_SubSecond_Get(void);
 
 /* configure RTC alarm */
-void RTC_alarm_Config(uint8_t RTC_alarm, RTC_alarm_struct* RTC_alarm_time);
+void RTC_alarm_Config(uint8_t RTC_alarm, RTC_alarm_Struct* RTC_alarm_time);
 /* configure subsecond of RTC alarm */
-void RTC_alarm_subsecond_Config(uint8_t RTC_alarm, uint32_t mask_subsecond, uint32_t subsecond);
+void RTC_alarm_SubSecond_Config(uint8_t RTC_alarm, uint32_t mask_subsecond, uint32_t subsecond);
 /* get RTC alarm */
-void RTC_alarm_get(uint8_t RTC_alarm, RTC_alarm_struct* RTC_alarm_time);
+void RTC_alarm_Get(uint8_t RTC_alarm, RTC_alarm_Struct* RTC_alarm_time);
 /* get RTC alarm subsecond */
-uint32_t RTC_alarm_subsecond_get(uint8_t RTC_alarm);
+uint32_t RTC_alarm_SubSecond_Get(uint8_t RTC_alarm);
 /* enable RTC alarm */
-void RTC_alarm_enable(uint8_t RTC_alarm);
+void RTC_alarm_Enable(uint8_t RTC_alarm);
 /* disable RTC alarm */
-ErrStatus RTC_alarm_disable(uint8_t RTC_alarm);
+ErrStatus RTC_alarm_Disable(uint8_t RTC_alarm);
 
 /* enable RTC time-stamp */
-void RTC_timestamp_enable(uint32_t edge);
+void RTC_Timestamp_Enable(uint32_t edge);
 /* disable RTC time-stamp */
-void RTC_timestamp_disable(void);
+void RTC_Timestamp_Disable(void);
 /* get RTC timestamp time and date */
-void RTC_timestamp_get(RTC_timestamp_struct* RTC_timestamp);
+void RTC_Timestamp_Get(RTC_Timestamp_Struct* RTC_timestamp);
 /* get RTC time-stamp subsecond */
-uint32_t RTC_timestamp_subsecond_get(void);
+uint32_t RTC_Timestamp_SubSecond_Get(void);
 /* RTC time-stamp pin map */
-void RTC_timestamp_pin_map(uint32_t RTC_af);
+void RTC_Timestamp_Pin_map(uint32_t RTC_af);
 
 /* enable RTC tamper */
-void RTC_tamper_enable(RTC_tamper_struct* RTC_tamper);
+void RTC_tamper_Enable(RTC_tamper_Struct* RTC_tamper);
 /* disable RTC tamper */
-void RTC_tamper_disable(uint32_t source);
+void RTC_tamper_Disable(uint32_t source);
 /* RTC tamper0 pin map */
-void RTC_tamper0_pin_map(uint32_t RTC_af);
+void RTC_tamper0_Pin_map(uint32_t RTC_af);
 
 /* enable specified RTC interrupt */
-void RTC_Interrupt_enable(uint32_t interrupt);
+void RTC_Interrupt_Enable(uint32_t interrupt);
 /* disble specified RTC interrupt */
-void RTC_Interrupt_disable(uint32_t interrupt);
+void RTC_Interrupt_Disable(uint32_t interrupt);
 /* check specified flag */
-FlagStatus RTC_flag_get(uint32_t flag);
+FlagStatus RTC_Flag_Get(uint32_t flag);
 /* clear specified flag */
-void RTC_flag_clear(uint32_t flag);
+void RTC_Flag_Clear(uint32_t flag);
 
 /* configure RTC alarm output source */
-void RTC_alarm_output_Config(uint32_t source, uint32_t mode);
+void RTC_alarm_OutPut_Config(uint32_t source, uint32_t mode);
 /* configure RTC calibration output source */
-void RTC_calibration_output_Config(uint32_t source);
+void RTC_Calibration_OutPut_Config(uint32_t source);
 
 /* adjust the daylight saving time by adding or substracting one hour from the current time */
 void RTC_hour_adjust(uint32_t operation);
@@ -605,33 +605,33 @@ void RTC_hour_adjust(uint32_t operation);
 ErrStatus RTC_second_adjust(uint32_t add, uint32_t minus);
 
 /* enable RTC bypass shadow registers function */
-void RTC_bypass_shadow_enable(void);
+void RTC_bypass_Shadow_Enable(void);
 /* disable RTC bypass shadow registers function */
-void RTC_bypass_shadow_disable(void);
+void RTC_bypass_Shadow_Disable(void);
 
 /* enable RTC reference clock detection function */
-ErrStatus RTC_refclock_detection_enable(void);
+ErrStatus RTC_refclock_Detection_Enable(void);
 /* disable RTC reference clock detection function */
-ErrStatus RTC_refclock_detection_disable(void);
+ErrStatus RTC_refclock_Detection_Disable(void);
 
 /* enable RTC wakeup timer */
-void RTC_wakeup_enable(void);
+void RTC_WakeUp_Enable(void);
 /* disable RTC wakeup timer */
-ErrStatus RTC_wakeup_disable(void);
+ErrStatus RTC_WakeUp_Disable(void);
 /* set auto wakeup timer clock */
-ErrStatus RTC_wakeup_clock_set(uint8_t wakeup_clock);
+ErrStatus RTC_WakeUp_Clock_Set(uint8_t wakeup_clock);
 /* set auto wakeup timer value */
-ErrStatus RTC_wakeup_TIMER_set(uint16_t wakeup_timer);
+ErrStatus RTC_WakeUp_TIMER_Set(uint16_t wakeup_timer);
 /* get auto wakeup timer value */
-uint16_t RTC_wakeup_TIMER_get(void);
+uint16_t RTC_WakeUp_TIMER_Get(void);
 
 /* configure RTC smooth calibration */
-ErrStatus RTC_smooth_calibration_Config(uint32_t window, uint32_t plus, uint32_t minus);
+ErrStatus RTC_smooth_Calibration_Config(uint32_t window, uint32_t plus, uint32_t minus);
 /* enable RTC coarse calibration */
-ErrStatus RTC_coarse_calibration_enable(void);
+ErrStatus RTC_coarse_Calibration_Enable(void);
 /* disable RTC coarse calibration */
-ErrStatus RTC_coarse_calibration_disable(void);
+ErrStatus RTC_coarse_Calibration_Disable(void);
 /* configure RTC coarse calibration direction and step */
-ErrStatus RTC_coarse_calibration_Config(uint8_t direction, uint8_t step);
+ErrStatus RTC_coarse_Calibration_Config(uint8_t direction, uint8_t step);
 
 #endif /* GD32F4XX_RTC_H */

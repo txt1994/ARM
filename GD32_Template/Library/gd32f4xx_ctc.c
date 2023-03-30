@@ -37,13 +37,13 @@ OF SUCH DAMAGE.
 
 #include "gd32f4xx_ctc.h"
 
-#define CTC_FLAG_MASK            ((uint32_t)0x00000700U)
+#define CTC_Flag_MASK            ((uint32_t)0x00000700U)
 
 /* CTC register bit offset */
 #define CTC_TRIMVALUE_OFFSET     ((uint32_t)8U)
-#define CTC_TRIM_VALUE_OFFSET    ((uint32_t)8U)
+#define CTC_Trim_Value_OFFSET    ((uint32_t)8U)
 #define CTC_REFCAP_OFFSET        ((uint32_t)16U)
-#define CTC_LIMIT_VALUE_OFFSET   ((uint32_t)16U)
+#define CTC_Limit_Value_OFFSET   ((uint32_t)16U)
 
 /*!
     简介:    reset CTC clock trim controller
@@ -63,7 +63,7 @@ void CTC_DeInit(void) {
     参数[输出]:  无
     返回值:      无
 */
-void CTC_counter_enable(void) {
+void CTC_Counter_Enable(void) {
     CTC_CTL0 |= (uint32_t)CTC_CTL0_CNTEN;
 }
 
@@ -73,22 +73,22 @@ void CTC_counter_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void CTC_counter_disable(void) {
+void CTC_Counter_Disable(void) {
     CTC_CTL0 &= (uint32_t)(~CTC_CTL0_CNTEN);
 }
 
 /*!
     简介:    configure the IRC48M trim value
-    参数[输入]:  CTC_trim_value: 8-bit IRC48M trim value
+    参数[输入]:  CTC_Trim_value: 8-bit IRC48M trim value
       参数:        0x00 - 0x3F
     参数[输出]:  无
     返回值:      无
 */
-void CTC_irc48m_trim_value_Config(uint8_t trim_value) {
+void CTC_IRC48M_Trim_Value_Config(uint8_t trim_value) {
     /* clear TRIMVALUE bits */
     CTC_CTL0 &= (~(uint32_t)CTC_CTL0_TRIMVALUE);
     /* set TRIMVALUE bits */
-    CTC_CTL0 |= ((uint32_t)trim_value << CTC_TRIM_VALUE_OFFSET);
+    CTC_CTL0 |= ((uint32_t)trim_value << CTC_Trim_Value_OFFSET);
 }
 
 /*!
@@ -97,7 +97,7 @@ void CTC_irc48m_trim_value_Config(uint8_t trim_value) {
     参数[输出]:  无
     返回值:      无
 */
-void CTC_software_refsource_pulse_generate(void) {
+void CTC_Software_Refsource_Pulse_Generate(void) {
     CTC_CTL0 |= (uint32_t)CTC_CTL0_SWREFPUL;
 }
 
@@ -105,12 +105,12 @@ void CTC_software_refsource_pulse_generate(void) {
     简介:    configure hardware automatically trim mode
     参数[输入]:  hardmode:
                 only one parameter can be selected which is shown as below:
-      参数:        CTC_HARDWARE_TRIM_MODE_ENABLE: hardware automatically trim mode enable
-      参数:        CTC_HARDWARE_TRIM_MODE_DISABLE: hardware automatically trim mode disable
+      参数:        CTC_Hardware_Trim_Mode_ENABLE: hardware automatically trim mode enable
+      参数:        CTC_Hardware_Trim_Mode_DISABLE: hardware automatically trim mode disable
     参数[输出]:  无
     返回值:      无
 */
-void CTC_hardware_trim_mode_Config(uint32_t hardmode) {
+void CTC_Hardware_Trim_Mode_Config(uint32_t hardmode) {
     CTC_CTL0 &= (uint32_t)(~CTC_CTL0_AUTOTRIM);
     CTC_CTL0 |= (uint32_t)hardmode;
 }
@@ -119,12 +119,12 @@ void CTC_hardware_trim_mode_Config(uint32_t hardmode) {
     简介:    configure reference signal source polarity
     参数[输入]:  polarity:
                 only one parameter can be selected which is shown as below:
-      参数:        CTC_REFSOURCE_POLARITY_FALLING: reference signal source polarity is falling edge
-      参数:        CTC_REFSOURCE_POLARITY_RISING: reference signal source polarity is rising edge
+      参数:        CTC_Refsource_Polarity_FALLING: reference signal source polarity is falling edge
+      参数:        CTC_Refsource_Polarity_RISING: reference signal source polarity is rising edge
     参数[输出]:  无
     返回值:      无
 */
-void CTC_refsource_polarity_Config(uint32_t polarity) {
+void CTC_Refsource_Polarity_Config(uint32_t polarity) {
     CTC_CTL1 &= (uint32_t)(~CTC_CTL1_REFPOL);
     CTC_CTL1 |= (uint32_t)polarity;
 }
@@ -133,12 +133,12 @@ void CTC_refsource_polarity_Config(uint32_t polarity) {
     简介:    select reference signal source
     参数[输入]:  refs:
                 only one parameter can be selected which is shown as below:
-      参数:        CTC_REFSOURCE_GPIO: GPIO is selected
-      参数:        CTC_REFSOURCE_LXTAL: LXTAL is selected
+      参数:        CTC_Refsource_GPIO: GPIO is selected
+      参数:        CTC_Refsource_LXTAL: LXTAL is selected
     参数[输出]:  无
     返回值:      无
 */
-void CTC_refsource_signal_select(uint32_t refs) {
+void CTC_Refsource_Signal_Select(uint32_t refs) {
     CTC_CTL1 &= (uint32_t)(~CTC_CTL1_REFSEL);
     CTC_CTL1 |= (uint32_t)refs;
 }
@@ -147,18 +147,18 @@ void CTC_refsource_signal_select(uint32_t refs) {
     简介:    configure reference signal source prescaler
     参数[输入]:  prescaler:
                 only one parameter can be selected which is shown as below:
-      参数:        CTC_REFSOURCE_PSC_OFF: reference signal not divided
-      参数:        CTC_REFSOURCE_PSC_DIV2: reference signal divided by 2
-      参数:        CTC_REFSOURCE_PSC_DIV4: reference signal divided by 4
-      参数:        CTC_REFSOURCE_PSC_DIV8: reference signal divided by 8
-      参数:        CTC_REFSOURCE_PSC_DIV16: reference signal divided by 16
-      参数:        CTC_REFSOURCE_PSC_DIV32: reference signal divided by 32
-      参数:        CTC_REFSOURCE_PSC_DIV64: reference signal divided by 64
-      参数:        CTC_REFSOURCE_PSC_DIV128: reference signal divided by 128
+      参数:        CTC_Refsource_PSC_OFF: reference signal not divided
+      参数:        CTC_Refsource_PSC_DIV2: reference signal divided by 2
+      参数:        CTC_Refsource_PSC_DIV4: reference signal divided by 4
+      参数:        CTC_Refsource_PSC_DIV8: reference signal divided by 8
+      参数:        CTC_Refsource_PSC_DIV16: reference signal divided by 16
+      参数:        CTC_Refsource_PSC_DIV32: reference signal divided by 32
+      参数:        CTC_Refsource_PSC_DIV64: reference signal divided by 64
+      参数:        CTC_Refsource_PSC_DIV128: reference signal divided by 128
     参数[输出]:  无
     返回值:      无
 */
-void CTC_refsource_prescaler_Config(uint32_t prescaler) {
+void CTC_Refsource_Prescaler_Config(uint32_t prescaler) {
     CTC_CTL1 &= (uint32_t)(~CTC_CTL1_REFPSC);
     CTC_CTL1 |= (uint32_t)prescaler;
 }
@@ -170,9 +170,9 @@ void CTC_refsource_prescaler_Config(uint32_t prescaler) {
     参数[输出]:  无
     返回值:      无
 */
-void CTC_clock_limit_value_Config(uint8_t limit_value) {
+void CTC_Clock_Limit_Value_Config(uint8_t limit_value) {
     CTC_CTL1 &= (uint32_t)(~CTC_CTL1_CKLIM);
-    CTC_CTL1 |= (uint32_t)((uint32_t)limit_value << CTC_LIMIT_VALUE_OFFSET);
+    CTC_CTL1 |= (uint32_t)((uint32_t)limit_value << CTC_Limit_Value_OFFSET);
 }
 
 /*!
@@ -182,7 +182,7 @@ void CTC_clock_limit_value_Config(uint8_t limit_value) {
     参数[输出]:  无
     返回值:      无
 */
-void CTC_counter_reload_value_Config(uint16_t reload_value) {
+void CTC_Counter_Reload_Value_Config(uint16_t reload_value) {
     CTC_CTL1 &= (uint32_t)(~CTC_CTL1_RLVALUE);
     CTC_CTL1 |= (uint32_t)reload_value;
 }
@@ -193,7 +193,7 @@ void CTC_counter_reload_value_Config(uint16_t reload_value) {
     参数[输出]:  无
     返回值:     the 16-bit CTC counter capture value
 */
-uint16_t CTC_counter_capture_value_read(void) {
+uint16_t CTC_Counter_Capture_Value_Read(void) {
     uint16_t capture_value = 0U;
     capture_value = (uint16_t)((CTC_STAT & CTC_STAT_REFCAP) >> CTC_REFCAP_OFFSET);
     return (capture_value);
@@ -207,7 +207,7 @@ uint16_t CTC_counter_capture_value_read(void) {
       参数:        SET: CTC trim counter direction is down-counting
       参数:        RESET: CTC trim counter direction is up-counting
 */
-FlagStatus CTC_counter_direction_read(void) {
+FlagStatus CTC_Counter_Direction_Read(void) {
     if(RESET != (CTC_STAT & CTC_STAT_REFDIR)) {
         return SET;
     } else {
@@ -221,7 +221,7 @@ FlagStatus CTC_counter_direction_read(void) {
     参数[输出]:  无
     返回值:     the 16-bit CTC counter reload value
 */
-uint16_t CTC_counter_reload_value_read(void) {
+uint16_t CTC_Counter_Reload_Value_Read(void) {
     uint16_t reload_value = 0U;
     reload_value = (uint16_t)(CTC_CTL1 & CTC_CTL1_RLVALUE);
     return (reload_value);
@@ -233,7 +233,7 @@ uint16_t CTC_counter_reload_value_read(void) {
     参数[输出]:  无
     返回值:     the 8-bit IRC48M trim value
 */
-uint8_t CTC_irc48m_trim_value_read(void) {
+uint8_t CTC_IRC48M_Trim_Value_Read(void) {
     uint8_t trim_value = 0U;
     trim_value = (uint8_t)((CTC_CTL0 & CTC_CTL0_TRIMVALUE) >> CTC_TRIMVALUE_OFFSET);
     return (trim_value);
@@ -250,7 +250,7 @@ uint8_t CTC_irc48m_trim_value_read(void) {
     参数[输出]:  无
     返回值:      无
 */
-void CTC_Interrupt_enable(uint32_t interrupt) {
+void CTC_Interrupt_Enable(uint32_t interrupt) {
     CTC_CTL0 |= (uint32_t)interrupt;
 }
 
@@ -265,7 +265,7 @@ void CTC_Interrupt_enable(uint32_t interrupt) {
     参数[输出]:  无
     返回值:      无
 */
-void CTC_Interrupt_disable(uint32_t interrupt) {
+void CTC_Interrupt_Disable(uint32_t interrupt) {
     CTC_CTL0 &= (uint32_t)(~interrupt);
 }
 
@@ -273,21 +273,21 @@ void CTC_Interrupt_disable(uint32_t interrupt) {
     简介:    get CTC interrupt flag
     参数[输入]:  int_flag: the CTC interrupt flag
                 only one parameter can be selected which is shown as below:
-      参数:        CTC_INT_FLAG_CKOK: clock trim OK interrupt
-      参数:        CTC_INT_FLAG_CKWARN: clock trim warning interrupt
-      参数:        CTC_INT_FLAG_ERR: error interrupt
-      参数:        CTC_INT_FLAG_EREF: expect reference interrupt
-      参数:        CTC_INT_FLAG_CKERR: clock trim error bit interrupt
-      参数:        CTC_INT_FLAG_REFMISS: reference sync pulse miss interrupt
-      参数:        CTC_INT_FLAG_TRIMERR: trim value error interrupt
+      参数:        CTC_INT_Flag_CKOK: clock trim OK interrupt
+      参数:        CTC_INT_Flag_CKWARN: clock trim warning interrupt
+      参数:        CTC_INT_Flag_ERR: error interrupt
+      参数:        CTC_INT_Flag_EREF: expect reference interrupt
+      参数:        CTC_INT_Flag_CKERR: clock trim error bit interrupt
+      参数:        CTC_INT_Flag_REFMISS: reference sync pulse miss interrupt
+      参数:        CTC_INT_Flag_TRIMERR: trim value error interrupt
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus CTC_Interrupt_flag_get(uint32_t int_flag) {
+FlagStatus CTC_Interrupt_Flag_Get(uint32_t int_flag) {
     uint32_t interrupt_flag = 0U, intenable = 0U;
 
     /* check whether the interrupt is enabled */
-    if(RESET != (int_flag & CTC_FLAG_MASK)) {
+    if(RESET != (int_flag & CTC_Flag_MASK)) {
         intenable = CTC_CTL0 & CTC_CTL0_ERRIE;
     } else {
         intenable = CTC_CTL0 & int_flag;
@@ -307,18 +307,18 @@ FlagStatus CTC_Interrupt_flag_get(uint32_t int_flag) {
     简介:    clear CTC interrupt flag
     参数[输入]:  int_flag: the CTC interrupt flag
                 only one parameter can be selected which is shown as below:
-      参数:        CTC_INT_FLAG_CKOK: clock trim OK interrupt
-      参数:        CTC_INT_FLAG_CKWARN: clock trim warning interrupt
-      参数:        CTC_INT_FLAG_ERR: error interrupt
-      参数:        CTC_INT_FLAG_EREF: expect reference interrupt
-      参数:        CTC_INT_FLAG_CKERR: clock trim error bit interrupt
-      参数:        CTC_INT_FLAG_REFMISS: reference sync pulse miss interrupt
-      参数:        CTC_INT_FLAG_TRIMERR: trim value error interrupt
+      参数:        CTC_INT_Flag_CKOK: clock trim OK interrupt
+      参数:        CTC_INT_Flag_CKWARN: clock trim warning interrupt
+      参数:        CTC_INT_Flag_ERR: error interrupt
+      参数:        CTC_INT_Flag_EREF: expect reference interrupt
+      参数:        CTC_INT_Flag_CKERR: clock trim error bit interrupt
+      参数:        CTC_INT_Flag_REFMISS: reference sync pulse miss interrupt
+      参数:        CTC_INT_Flag_TRIMERR: trim value error interrupt
     参数[输出]:  无
     返回值:      无
 */
-void CTC_Interrupt_flag_clear(uint32_t int_flag) {
-    if(RESET != (int_flag & CTC_FLAG_MASK)) {
+void CTC_Interrupt_Flag_Clear(uint32_t int_flag) {
+    if(RESET != (int_flag & CTC_Flag_MASK)) {
         CTC_INTC |= CTC_INTC_ERRIC;
     } else {
         CTC_INTC |= int_flag;
@@ -329,17 +329,17 @@ void CTC_Interrupt_flag_clear(uint32_t int_flag) {
     简介:    get CTC flag
     参数[输入]:  flag: the CTC flag
                 only one parameter can be selected which is shown as below:
-      参数:        CTC_FLAG_CKOK: clock trim OK flag
-      参数:        CTC_FLAG_CKWARN: clock trim warning flag
-      参数:        CTC_FLAG_ERR: error flag
-      参数:        CTC_FLAG_EREF: expect reference flag
-      参数:        CTC_FLAG_CKERR: clock trim error bit
-      参数:        CTC_FLAG_REFMISS: reference sync pulse miss
-      参数:        CTC_FLAG_TRIMERR: trim value error bit
+      参数:        CTC_Flag_CKOK: clock trim OK flag
+      参数:        CTC_Flag_CKWARN: clock trim warning flag
+      参数:        CTC_Flag_ERR: error flag
+      参数:        CTC_Flag_EREF: expect reference flag
+      参数:        CTC_Flag_CKERR: clock trim error bit
+      参数:        CTC_Flag_REFMISS: reference sync pulse miss
+      参数:        CTC_Flag_TRIMERR: trim value error bit
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus CTC_flag_get(uint32_t flag) {
+FlagStatus CTC_Flag_Get(uint32_t flag) {
     if(RESET != (CTC_STAT & flag)) {
         return SET;
     } else {
@@ -351,18 +351,18 @@ FlagStatus CTC_flag_get(uint32_t flag) {
     简介:    clear CTC flag
     参数[输入]:  flag: the CTC flag
                 only one parameter can be selected which is shown as below:
-      参数:        CTC_FLAG_CKOK: clock trim OK flag
-      参数:        CTC_FLAG_CKWARN: clock trim warning flag
-      参数:        CTC_FLAG_ERR: error flag
-      参数:        CTC_FLAG_EREF: expect reference flag
-      参数:        CTC_FLAG_CKERR: clock trim error bit
-      参数:        CTC_FLAG_REFMISS: reference sync pulse miss
-      参数:        CTC_FLAG_TRIMERR: trim value error bit
+      参数:        CTC_Flag_CKOK: clock trim OK flag
+      参数:        CTC_Flag_CKWARN: clock trim warning flag
+      参数:        CTC_Flag_ERR: error flag
+      参数:        CTC_Flag_EREF: expect reference flag
+      参数:        CTC_Flag_CKERR: clock trim error bit
+      参数:        CTC_Flag_REFMISS: reference sync pulse miss
+      参数:        CTC_Flag_TRIMERR: trim value error bit
     参数[输出]:  无
     返回值:      无
 */
-void CTC_flag_clear(uint32_t flag) {
-    if(RESET != (flag & CTC_FLAG_MASK)) {
+void CTC_Flag_Clear(uint32_t flag) {
+    if(RESET != (flag & CTC_Flag_MASK)) {
         CTC_INTC |= CTC_INTC_ERRIC;
     } else {
         CTC_INTC |= flag;

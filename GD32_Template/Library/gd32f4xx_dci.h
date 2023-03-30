@@ -132,30 +132,30 @@ typedef struct {
     uint32_t vsync_polarity;                                         /*!< vertical polarity selection */
     uint32_t frame_rate;                                             /*!< frame capture rate */
     uint32_t interface_format;                                       /*!< digital camera interface format */
-} DCI_parameter_struct;
+} DCI_Parameter_Struct;
 
-#define DCI_CAPTURE_MODE_CONTINUOUS   ((uint32_t)0x00000000U)        /*!< continuous capture mode */
-#define DCI_CAPTURE_MODE_SNAPSHOT     DCI_CTL_SNAP                   /*!< snapshot capture mode */
+#define DCI_Capture_Mode_CONTINUOUS   ((uint32_t)0x00000000U)        /*!< continuous capture mode */
+#define DCI_Capture_Mode_SNAPSHOT     DCI_CTL_SNAP                   /*!< snapshot capture mode */
 
-#define DCI_CK_POLARITY_FALLING       ((uint32_t)0x00000000U)        /*!< capture at falling edge */
-#define DCI_CK_POLARITY_RISING        DCI_CTL_CKS                    /*!< capture at rising edge */
+#define DCI_CK_Polarity_FALLING       ((uint32_t)0x00000000U)        /*!< capture at falling edge */
+#define DCI_CK_Polarity_RISING        DCI_CTL_CKS                    /*!< capture at rising edge */
 
-#define DCI_HSYNC_POLARITY_LOW        ((uint32_t)0x00000000U)        /*!< low level during blanking period */
-#define DCI_HSYNC_POLARITY_HIGH       DCI_CTL_HPS                    /*!< high level during blanking period */
+#define DCI_HSYNC_Polarity_LOW        ((uint32_t)0x00000000U)        /*!< low level during blanking period */
+#define DCI_HSYNC_Polarity_HIGH       DCI_CTL_HPS                    /*!< high level during blanking period */
 
-#define DCI_VSYNC_POLARITY_LOW        ((uint32_t)0x00000000U)        /*!< low level during blanking period */
-#define DCI_VSYNC_POLARITY_HIGH       DCI_CTL_VPS                    /*!< high level during blanking period*/
+#define DCI_VSYNC_Polarity_LOW        ((uint32_t)0x00000000U)        /*!< low level during blanking period */
+#define DCI_VSYNC_Polarity_HIGH       DCI_CTL_VPS                    /*!< high level during blanking period*/
 
 #define CTL_FR(regval)                (BITS(8,9)&((uint32_t)(regval) << 8U))
-#define DCI_FRAME_RATE_ALL            CTL_FR(0)                      /*!< capture all frames */
-#define DCI_FRAME_RATE_1_2            CTL_FR(1)                      /*!< capture one in 2 frames */
-#define DCI_FRAME_RATE_1_4            CTL_FR(2)                      /*!< capture one in 4 frames */
+#define DCI_Frame_RATE_ALL            CTL_FR(0)                      /*!< capture all frames */
+#define DCI_Frame_RATE_1_2            CTL_FR(1)                      /*!< capture one in 2 frames */
+#define DCI_Frame_RATE_1_4            CTL_FR(2)                      /*!< capture one in 4 frames */
 
 #define CTL_DCIF(regval)              (BITS(10,11)&((uint32_t)(regval) << 10U))
-#define DCI_INTERFACE_FORMAT_8BITS    CTL_DCIF(0)                    /*!< 8-bit data on every pixel clock */
-#define DCI_INTERFACE_FORMAT_10BITS   CTL_DCIF(1)                    /*!< 10-bit data on every pixel clock */
-#define DCI_INTERFACE_FORMAT_12BITS   CTL_DCIF(2)                    /*!< 12-bit data on every pixel clock */
-#define DCI_INTERFACE_FORMAT_14BITS   CTL_DCIF(3)                    /*!< 14-bit data on every pixel clock */
+#define DCI_Interface_FORMAT_8BITS    CTL_DCIF(0)                    /*!< 8-bit data on every pixel clock */
+#define DCI_Interface_FORMAT_10BITS   CTL_DCIF(1)                    /*!< 10-bit data on every pixel clock */
+#define DCI_Interface_FORMAT_12BITS   CTL_DCIF(2)                    /*!< 12-bit data on every pixel clock */
+#define DCI_Interface_FORMAT_14BITS   CTL_DCIF(3)                    /*!< 14-bit data on every pixel clock */
 
 /* DCI interrupt constants definitions */
 #define DCI_INT_EF                    BIT(0)                         /*!< end of frame interrupt */
@@ -165,74 +165,74 @@ typedef struct {
 #define DCI_INT_EL                    BIT(4)                         /*!< end of line interrupt */
 
 /* DCI interrupt flag definitions */
-#define DCI_INT_FLAG_EF               BIT(0)                         /*!< end of frame interrupt flag */
-#define DCI_INT_FLAG_OVR              BIT(1)                         /*!< FIFO overrun interrupt flag */
-#define DCI_INT_FLAG_ESE              BIT(2)                         /*!< embedded synchronous error interrupt flag */
-#define DCI_INT_FLAG_VSYNC            BIT(3)                         /*!< vsync interrupt flag */
-#define DCI_INT_FLAG_EL               BIT(4)                         /*!< end of line interrupt flag */
+#define DCI_INT_Flag_EF               BIT(0)                         /*!< end of frame interrupt flag */
+#define DCI_INT_Flag_OVR              BIT(1)                         /*!< FIFO overrun interrupt flag */
+#define DCI_INT_Flag_ESE              BIT(2)                         /*!< embedded synchronous error interrupt flag */
+#define DCI_INT_Flag_VSYNC            BIT(3)                         /*!< vsync interrupt flag */
+#define DCI_INT_Flag_EL               BIT(4)                         /*!< end of line interrupt flag */
 
 /* DCI flag definitions */
-#define DCI_FLAG_HS                   DCI_STAT0_HS                   /*!< HS line status */
-#define DCI_FLAG_VS                   DCI_STAT0_VS                   /*!< VS line status */
-#define DCI_FLAG_FV                   DCI_STAT0_FV                   /*!< FIFO valid */
-#define DCI_FLAG_EF                   (DCI_STAT1_EFF | BIT(31))      /*!< end of frame flag */
-#define DCI_FLAG_OVR                  (DCI_STAT1_OVRF | BIT(31))     /*!< FIFO overrun flag */
-#define DCI_FLAG_ESE                  (DCI_STAT1_ESEF | BIT(31))     /*!< embedded synchronous error flag */
-#define DCI_FLAG_VSYNC                (DCI_STAT1_VSF | BIT(31))      /*!< vsync flag */
-#define DCI_FLAG_EL                   (DCI_STAT1_ELF | BIT(31))      /*!< end of line flag */
+#define DCI_Flag_HS                   DCI_STAT0_HS                   /*!< HS line status */
+#define DCI_Flag_VS                   DCI_STAT0_VS                   /*!< VS line status */
+#define DCI_Flag_FV                   DCI_STAT0_FV                   /*!< FIFO valid */
+#define DCI_Flag_EF                   (DCI_STAT1_EFF | BIT(31))      /*!< end of frame flag */
+#define DCI_Flag_OVR                  (DCI_STAT1_OVRF | BIT(31))     /*!< FIFO overrun flag */
+#define DCI_Flag_ESE                  (DCI_STAT1_ESEF | BIT(31))     /*!< embedded synchronous error flag */
+#define DCI_Flag_VSYNC                (DCI_STAT1_VSF | BIT(31))      /*!< vsync flag */
+#define DCI_Flag_EL                   (DCI_STAT1_ELF | BIT(31))      /*!< end of line flag */
 
 /* function declarations */
 /* initialization functions */
 /* DCI deinit */
 void DCI_DeInit(void);
 /* initialize DCI registers */
-void DCI_init(DCI_parameter_struct* DCI_struct);
+void DCI_Init(DCI_Parameter_Struct* DCI_Struct);
 
 /* enable DCI function */
-void DCI_enable(void);
+void DCI_Enable(void);
 /* disable DCI function */
-void DCI_disable(void);
+void DCI_Disable(void);
 /* enable DCI capture */
-void DCI_capture_enable(void);
+void DCI_Capture_Enable(void);
 /* disable DCI capture */
-void DCI_capture_disable(void);
+void DCI_Capture_Disable(void);
 /* enable DCI jpeg mode */
-void DCI_jpeg_enable(void);
+void DCI_Jpeg_Enable(void);
 /* disable DCI jpeg mode */
-void DCI_jpeg_disable(void);
+void DCI_Jpeg_Disable(void);
 
 /* function configuration */
 /* enable cropping window function */
-void DCI_crop_window_enable(void);
+void DCI_Crop_Window_Enable(void);
 /* disable cropping window function */
-void DCI_crop_window_disable(void);
+void DCI_Crop_Window_Disable(void);
 /* configure DCI cropping window */
-void DCI_crop_window_Config(uint16_t start_x, uint16_t start_y, uint16_t size_width, uint16_t size_height);
+void DCI_Crop_Window_Config(uint16_t start_x, uint16_t start_y, uint16_t size_width, uint16_t size_height);
 
 /* enable embedded synchronous mode */
-void DCI_embedded_sync_enable(void);
+void DCI_Embedded_Sync_Enable(void);
 /* disable embedded synchronous mode */
-void DCI_embedded_sync_disable(void);
+void DCI_Embedded_Sync_Disable(void);
 /* configure synchronous codes in embedded synchronous mode */
-void DCI_sync_codes_Config(uint8_t frame_start, uint8_t line_start, uint8_t line_end, uint8_t frame_end);
+void DCI_Sync_Codes_Config(uint8_t frame_start, uint8_t line_start, uint8_t line_end, uint8_t frame_end);
 /* configure synchronous codes unmask in embedded synchronous mode */
-void DCI_sync_codes_unmask_Config(uint8_t frame_start, uint8_t line_start, uint8_t line_end, uint8_t frame_end);
+void DCI_Sync_Codes_Unmask_Config(uint8_t frame_start, uint8_t line_start, uint8_t line_end, uint8_t frame_end);
 
 /* read DCI data register */
-uint32_t DCI_data_read(void);
+uint32_t DCI_Data_Read(void);
 
 /* interrupt & flag functions */
 /* get specified flag */
-FlagStatus DCI_flag_get(uint32_t flag);
+FlagStatus DCI_Flag_Get(uint32_t flag);
 /* enable specified DCI interrupt */
-void DCI_Interrupt_enable(uint32_t interrupt);
+void DCI_Interrupt_Enable(uint32_t interrupt);
 /* disable specified DCI interrupt */
-void DCI_Interrupt_disable(uint32_t interrupt);
+void DCI_Interrupt_Disable(uint32_t interrupt);
 
 
 /* get specified interrupt flag */
-FlagStatus DCI_Interrupt_flag_get(uint32_t int_flag);
+FlagStatus DCI_Interrupt_Flag_Get(uint32_t int_flag);
 /* clear specified interrupt flag */
-void DCI_Interrupt_flag_clear(uint32_t int_flag);
+void DCI_Interrupt_Flag_Clear(uint32_t int_flag);
 
 #endif /* GD32F4XX_DCI_H */

@@ -59,7 +59,7 @@ void DAC_DeInit(void) {
     参数[输出]:  无
     返回值:      无
 */
-void DAC_enable(uint32_t DAC_periph) {
+void DAC_Enable(uint32_t DAC_periph) {
     if(DAC0 == DAC_periph) {
         DAC_CTL |= DAC_CTL_DEN0;
     } else {
@@ -73,7 +73,7 @@ void DAC_enable(uint32_t DAC_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void DAC_disable(uint32_t DAC_periph) {
+void DAC_Disable(uint32_t DAC_periph) {
     if(DAC0 == DAC_periph) {
         DAC_CTL &= ~DAC_CTL_DEN0;
     } else {
@@ -87,7 +87,7 @@ void DAC_disable(uint32_t DAC_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void DAC_DMA_enable(uint32_t DAC_periph) {
+void DAC_DMA_Enable(uint32_t DAC_periph) {
     if(DAC0 == DAC_periph) {
         DAC_CTL |= DAC_CTL_DDMAEN0;
     } else {
@@ -101,7 +101,7 @@ void DAC_DMA_enable(uint32_t DAC_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void DAC_DMA_disable(uint32_t DAC_periph) {
+void DAC_DMA_Disable(uint32_t DAC_periph) {
     if(DAC0 == DAC_periph) {
         DAC_CTL &= ~DAC_CTL_DDMAEN0;
     } else {
@@ -115,7 +115,7 @@ void DAC_DMA_disable(uint32_t DAC_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void DAC_output_buffer_enable(uint32_t DAC_periph) {
+void DAC_OutPut_Buffer_Enable(uint32_t DAC_periph) {
     if(DAC0 == DAC_periph) {
         DAC_CTL &= ~DAC_CTL_DBOFF0;
     } else {
@@ -129,7 +129,7 @@ void DAC_output_buffer_enable(uint32_t DAC_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void DAC_output_buffer_disable(uint32_t DAC_periph) {
+void DAC_OutPut_Buffer_Disable(uint32_t DAC_periph) {
     if(DAC0 == DAC_periph) {
         DAC_CTL |= DAC_CTL_DBOFF0;
     } else {
@@ -143,7 +143,7 @@ void DAC_output_buffer_disable(uint32_t DAC_periph) {
     参数[输出]:  无
     返回值:     DAC output data
 */
-uint16_t DAC_output_value_get(uint32_t DAC_periph) {
+uint16_t DAC_OutPut_Value_Get(uint32_t DAC_periph) {
     uint16_t data = 0U;
 
     if(DAC0 == DAC_periph) {
@@ -169,7 +169,7 @@ uint16_t DAC_output_value_get(uint32_t DAC_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void DAC_data_set(uint32_t DAC_periph, uint32_t DAC_align, uint16_t data) {
+void DAC_Data_Set(uint32_t DAC_periph, uint32_t DAC_align, uint16_t data) {
     if(DAC0 == DAC_periph) {
         switch(DAC_align) {
         /* data right 12 bit alignment */
@@ -219,7 +219,7 @@ void DAC_data_set(uint32_t DAC_periph, uint32_t DAC_align, uint16_t data) {
     参数[输出]:  无
     返回值:      无
 */
-void DAC_trigger_enable(uint32_t DAC_periph) {
+void DAC_Trigger_Enable(uint32_t DAC_periph) {
     if(DAC0 == DAC_periph) {
         DAC_CTL |= DAC_CTL_DTEN0;
     } else {
@@ -233,7 +233,7 @@ void DAC_trigger_enable(uint32_t DAC_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void DAC_trigger_disable(uint32_t DAC_periph) {
+void DAC_Trigger_Disable(uint32_t DAC_periph) {
     if(DAC0 == DAC_periph) {
         DAC_CTL &= ~DAC_CTL_DTEN0;
     } else {
@@ -246,18 +246,18 @@ void DAC_trigger_disable(uint32_t DAC_periph) {
     参数[输入]:  DAC_periph: DACx(x = 0,1)
     参数[输入]:  triggersource: external triggers of DAC
                 only one parameter can be selected which is shown as below:
-      参数:        DAC_TRIGGER_T1_TRGO: TIMER1 TRGO
-      参数:        DAC_TRIGGER_T3_TRGO: TIMER3 TRGO
-      参数:        DAC_TRIGGER_T4_TRGO: TIMER4 TRGO
-      参数:        DAC_TRIGGER_T5_TRGO: TIMER5 TRGO
-      参数:        DAC_TRIGGER_T6_TRGO: TIMER6 TRGO
-      参数:        DAC_TRIGGER_T7_TRGO: TIMER7 TRGO
-      参数:        DAC_TRIGGER_EXTI_9: EXTI interrupt line9 event
-      参数:        DAC_TRIGGER_SOFTWARE: software trigger
+      参数:        DAC_Trigger_T1_TRGO: TIMER1 TRGO
+      参数:        DAC_Trigger_T3_TRGO: TIMER3 TRGO
+      参数:        DAC_Trigger_T4_TRGO: TIMER4 TRGO
+      参数:        DAC_Trigger_T5_TRGO: TIMER5 TRGO
+      参数:        DAC_Trigger_T6_TRGO: TIMER6 TRGO
+      参数:        DAC_Trigger_T7_TRGO: TIMER7 TRGO
+      参数:        DAC_Trigger_EXTI_9: EXTI interrupt line9 event
+      参数:        DAC_Trigger_SOFTWARE: software trigger
     参数[输出]:  无
     返回值:      无
 */
-void DAC_trigger_source_Config(uint32_t DAC_periph, uint32_t triggersource) {
+void DAC_Trigger_Source_Config(uint32_t DAC_periph, uint32_t triggersource) {
     if(DAC0 == DAC_periph) {
         /* configure DAC0 trigger source */
         DAC_CTL &= ~DAC_CTL_DTSEL0;
@@ -274,7 +274,7 @@ void DAC_trigger_source_Config(uint32_t DAC_periph, uint32_t triggersource) {
     参数[输入]:  DAC_periph: DACx(x = 0,1)
     返回值:      无
 */
-void DAC_software_trigger_enable(uint32_t DAC_periph) {
+void DAC_Software_Trigger_Enable(uint32_t DAC_periph) {
     if(DAC0 == DAC_periph) {
         DAC_SWT |= DAC_SWT_SWTR0;
     } else {
@@ -288,7 +288,7 @@ void DAC_software_trigger_enable(uint32_t DAC_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void DAC_software_trigger_disable(uint32_t DAC_periph) {
+void DAC_Software_Trigger_Disable(uint32_t DAC_periph) {
     if(DAC0 == DAC_periph) {
         DAC_SWT &= ~DAC_SWT_SWTR0;
     } else {
@@ -301,13 +301,13 @@ void DAC_software_trigger_disable(uint32_t DAC_periph) {
     参数[输入]:  DAC_periph: DACx(x = 0,1)
     参数[输入]:  wave_mode: noise wave mode
                 only one parameter can be selected which is shown as below:
-      参数:        DAC_WAVE_DISABLE: wave disable
-      参数:        DAC_WAVE_MODE_LFSR: LFSR noise mode
-      参数:        DAC_WAVE_MODE_TRIANGLE: triangle noise mode
+      参数:        DAC_Wave_DISABLE: wave disable
+      参数:        DAC_Wave_Mode_LFSR: LFSR noise mode
+      参数:        DAC_Wave_Mode_TRIANGLE: triangle noise mode
     参数[输出]:  无
     返回值:      无
 */
-void DAC_wave_mode_Config(uint32_t DAC_periph, uint32_t wave_mode) {
+void DAC_Wave_Mode_Config(uint32_t DAC_periph, uint32_t wave_mode) {
     if(DAC0 == DAC_periph) {
         /* configure DAC0 wave mode */
         DAC_CTL &= ~DAC_CTL_DWM0;
@@ -324,22 +324,22 @@ void DAC_wave_mode_Config(uint32_t DAC_periph, uint32_t wave_mode) {
     参数[输入]:  DAC_periph: DACx(x = 0,1)
     参数[输入]:  bit_width: noise wave bit width
                 only one parameter can be selected which is shown as below:
-      参数:        DAC_WAVE_BIT_WIDTH_1: bit width of the wave signal is 1
-      参数:        DAC_WAVE_BIT_WIDTH_2: bit width of the wave signal is 2
-      参数:        DAC_WAVE_BIT_WIDTH_3: bit width of the wave signal is 3
-      参数:        DAC_WAVE_BIT_WIDTH_4: bit width of the wave signal is 4
-      参数:        DAC_WAVE_BIT_WIDTH_5: bit width of the wave signal is 5
-      参数:        DAC_WAVE_BIT_WIDTH_6: bit width of the wave signal is 6
-      参数:        DAC_WAVE_BIT_WIDTH_7: bit width of the wave signal is 7
-      参数:        DAC_WAVE_BIT_WIDTH_8: bit width of the wave signal is 8
-      参数:        DAC_WAVE_BIT_WIDTH_9: bit width of the wave signal is 9
-      参数:        DAC_WAVE_BIT_WIDTH_10: bit width of the wave signal is 10
-      参数:        DAC_WAVE_BIT_WIDTH_11: bit width of the wave signal is 11
-      参数:        DAC_WAVE_BIT_WIDTH_12: bit width of the wave signal is 12
+      参数:        DAC_Wave_Bit_Width_1: bit width of the wave signal is 1
+      参数:        DAC_Wave_Bit_Width_2: bit width of the wave signal is 2
+      参数:        DAC_Wave_Bit_Width_3: bit width of the wave signal is 3
+      参数:        DAC_Wave_Bit_Width_4: bit width of the wave signal is 4
+      参数:        DAC_Wave_Bit_Width_5: bit width of the wave signal is 5
+      参数:        DAC_Wave_Bit_Width_6: bit width of the wave signal is 6
+      参数:        DAC_Wave_Bit_Width_7: bit width of the wave signal is 7
+      参数:        DAC_Wave_Bit_Width_8: bit width of the wave signal is 8
+      参数:        DAC_Wave_Bit_Width_9: bit width of the wave signal is 9
+      参数:        DAC_Wave_Bit_Width_10: bit width of the wave signal is 10
+      参数:        DAC_Wave_Bit_Width_11: bit width of the wave signal is 11
+      参数:        DAC_Wave_Bit_Width_12: bit width of the wave signal is 12
     参数[输出]:  无
     返回值:      无
 */
-void DAC_wave_bit_width_Config(uint32_t DAC_periph, uint32_t bit_width) {
+void DAC_Wave_Bit_Width_Config(uint32_t DAC_periph, uint32_t bit_width) {
     if(DAC0 == DAC_periph) {
         /* configure DAC0 wave bit width */
         DAC_CTL &= ~DAC_CTL_DWBW0;
@@ -356,22 +356,22 @@ void DAC_wave_bit_width_Config(uint32_t DAC_periph, uint32_t bit_width) {
     参数[输入]:  DAC_periph: DACx(x = 0,1)
     参数[输入]:  unmask_bits: unmask LFSR bits in DAC LFSR noise mode
                 only one parameter can be selected which is shown as below:
-      参数:        DAC_LFSR_BIT0: unmask the LFSR bit0
-      参数:        DAC_LFSR_BITS1_0: unmask the LFSR bits[1:0]
-      参数:        DAC_LFSR_BITS2_0: unmask the LFSR bits[2:0]
-      参数:        DAC_LFSR_BITS3_0: unmask the LFSR bits[3:0]
-      参数:        DAC_LFSR_BITS4_0: unmask the LFSR bits[4:0]
-      参数:        DAC_LFSR_BITS5_0: unmask the LFSR bits[5:0]
-      参数:        DAC_LFSR_BITS6_0: unmask the LFSR bits[6:0]
-      参数:        DAC_LFSR_BITS7_0: unmask the LFSR bits[7:0]
-      参数:        DAC_LFSR_BITS8_0: unmask the LFSR bits[8:0]
-      参数:        DAC_LFSR_BITS9_0: unmask the LFSR bits[9:0]
-      参数:        DAC_LFSR_BITS10_0: unmask the LFSR bits[10:0]
-      参数:        DAC_LFSR_BITS11_0: unmask the LFSR bits[11:0]
+      参数:        DAC_Lfsr_BIT0: unmask the LFSR bit0
+      参数:        DAC_Lfsr_BITS1_0: unmask the LFSR bits[1:0]
+      参数:        DAC_Lfsr_BITS2_0: unmask the LFSR bits[2:0]
+      参数:        DAC_Lfsr_BITS3_0: unmask the LFSR bits[3:0]
+      参数:        DAC_Lfsr_BITS4_0: unmask the LFSR bits[4:0]
+      参数:        DAC_Lfsr_BITS5_0: unmask the LFSR bits[5:0]
+      参数:        DAC_Lfsr_BITS6_0: unmask the LFSR bits[6:0]
+      参数:        DAC_Lfsr_BITS7_0: unmask the LFSR bits[7:0]
+      参数:        DAC_Lfsr_BITS8_0: unmask the LFSR bits[8:0]
+      参数:        DAC_Lfsr_BITS9_0: unmask the LFSR bits[9:0]
+      参数:        DAC_Lfsr_BITS10_0: unmask the LFSR bits[10:0]
+      参数:        DAC_Lfsr_BITS11_0: unmask the LFSR bits[11:0]
     参数[输出]:  无
     返回值:      无
 */
-void DAC_lfsr_noise_Config(uint32_t DAC_periph, uint32_t unmask_bits) {
+void DAC_Lfsr_Noise_Config(uint32_t DAC_periph, uint32_t unmask_bits) {
     if(DAC0 == DAC_periph) {
         /* configure DAC0 LFSR noise mode */
         DAC_CTL &= ~DAC_CTL_DWBW0;
@@ -388,22 +388,22 @@ void DAC_lfsr_noise_Config(uint32_t DAC_periph, uint32_t unmask_bits) {
     参数[输入]:  DAC_periph: DACx(x = 0,1)
     参数[输入]:  amplitude: triangle amplitude in DAC triangle noise mode
                 only one parameter can be selected which is shown as below:
-      参数:        DAC_TRIANGLE_AMPLITUDE_1: triangle amplitude is 1
-      参数:        DAC_TRIANGLE_AMPLITUDE_3: triangle amplitude is 3
-      参数:        DAC_TRIANGLE_AMPLITUDE_7: triangle amplitude is 7
-      参数:        DAC_TRIANGLE_AMPLITUDE_15: triangle amplitude is 15
-      参数:        DAC_TRIANGLE_AMPLITUDE_31: triangle amplitude is 31
-      参数:        DAC_TRIANGLE_AMPLITUDE_63: triangle amplitude is 63
-      参数:        DAC_TRIANGLE_AMPLITUDE_127: triangle amplitude is 127
-      参数:        DAC_TRIANGLE_AMPLITUDE_255: triangle amplitude is 255
-      参数:        DAC_TRIANGLE_AMPLITUDE_511: triangle amplitude is 511
-      参数:        DAC_TRIANGLE_AMPLITUDE_1023: triangle amplitude is 1023
-      参数:        DAC_TRIANGLE_AMPLITUDE_2047: triangle amplitude is 2047
-      参数:        DAC_TRIANGLE_AMPLITUDE_4095: triangle amplitude is 4095
+      参数:        DAC_Triangle_AMPLITUDE_1: triangle amplitude is 1
+      参数:        DAC_Triangle_AMPLITUDE_3: triangle amplitude is 3
+      参数:        DAC_Triangle_AMPLITUDE_7: triangle amplitude is 7
+      参数:        DAC_Triangle_AMPLITUDE_15: triangle amplitude is 15
+      参数:        DAC_Triangle_AMPLITUDE_31: triangle amplitude is 31
+      参数:        DAC_Triangle_AMPLITUDE_63: triangle amplitude is 63
+      参数:        DAC_Triangle_AMPLITUDE_127: triangle amplitude is 127
+      参数:        DAC_Triangle_AMPLITUDE_255: triangle amplitude is 255
+      参数:        DAC_Triangle_AMPLITUDE_511: triangle amplitude is 511
+      参数:        DAC_Triangle_AMPLITUDE_1023: triangle amplitude is 1023
+      参数:        DAC_Triangle_AMPLITUDE_2047: triangle amplitude is 2047
+      参数:        DAC_Triangle_AMPLITUDE_4095: triangle amplitude is 4095
     参数[输出]:  无
     返回值:      无
 */
-void DAC_triangle_noise_Config(uint32_t DAC_periph, uint32_t amplitude) {
+void DAC_Triangle_Noise_Config(uint32_t DAC_periph, uint32_t amplitude) {
     if(DAC0 == DAC_periph) {
         /* configure DAC0 triangle noise mode */
         DAC_CTL &= ~DAC_CTL_DWBW0;
@@ -421,7 +421,7 @@ void DAC_triangle_noise_Config(uint32_t DAC_periph, uint32_t amplitude) {
     参数[输出]:  无
     返回值:      无
 */
-void DAC_concurrent_enable(void) {
+void DAC_Concurrent_Enable(void) {
     uint32_t ctl = 0U;
     ctl = DAC_CTL_DEN0 | DAC_CTL_DEN1;
     DAC_CTL |= (ctl);
@@ -433,7 +433,7 @@ void DAC_concurrent_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void DAC_concurrent_disable(void) {
+void DAC_Concurrent_Disable(void) {
     uint32_t ctl = 0U;
     ctl = DAC_CTL_DEN0 | DAC_CTL_DEN1;
     DAC_CTL &= (~ctl);
@@ -445,7 +445,7 @@ void DAC_concurrent_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void DAC_concurrent_software_trigger_enable(void) {
+void DAC_Concurrent_Software_Trigger_Enable(void) {
     uint32_t swt = 0U;
     swt = DAC_SWT_SWTR0 | DAC_SWT_SWTR1;
     DAC_SWT |= (swt);
@@ -457,7 +457,7 @@ void DAC_concurrent_software_trigger_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void DAC_concurrent_software_trigger_disable(void) {
+void DAC_Concurrent_Software_Trigger_Disable(void) {
     uint32_t swt = 0U;
     swt = DAC_SWT_SWTR0 | DAC_SWT_SWTR1;
     DAC_SWT &= (~swt);
@@ -469,7 +469,7 @@ void DAC_concurrent_software_trigger_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void DAC_concurrent_output_buffer_enable(void) {
+void DAC_Concurrent_OutPut_Buffer_Enable(void) {
     uint32_t ctl = 0U;
     ctl = DAC_CTL_DBOFF0 | DAC_CTL_DBOFF1;
     DAC_CTL &= (~ctl);
@@ -481,7 +481,7 @@ void DAC_concurrent_output_buffer_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void DAC_concurrent_output_buffer_disable(void) {
+void DAC_Concurrent_OutPut_Buffer_Disable(void) {
     uint32_t ctl = 0U;
     ctl = DAC_CTL_DBOFF0 | DAC_CTL_DBOFF1;
     DAC_CTL |= (ctl);
@@ -499,7 +499,7 @@ void DAC_concurrent_output_buffer_disable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void DAC_concurrent_data_set(uint32_t DAC_align, uint16_t data0, uint16_t data1) {
+void DAC_Concurrent_Data_Set(uint32_t DAC_align, uint16_t data0, uint16_t data1) {
     uint32_t data = 0U;
 
     switch(DAC_align) {
@@ -532,7 +532,7 @@ void DAC_concurrent_data_set(uint32_t DAC_align, uint16_t data0, uint16_t data1)
     参数[输出]:  无
     返回值:      无
 */
-void DAC_concurrent_Interrupt_enable(void) {
+void DAC_Concurrent_Interrupt_Enable(void) {
     uint32_t ctl = 0U;
     ctl = DAC_CTL_DDUDRIE0 | DAC_CTL_DDUDRIE1;
     DAC_CTL |= (ctl);
@@ -544,7 +544,7 @@ void DAC_concurrent_Interrupt_enable(void) {
     参数[输出]:  无
     返回值:      无
 */
-void DAC_concurrent_Interrupt_disable(void) {
+void DAC_Concurrent_Interrupt_Disable(void) {
     uint32_t ctl = 0U;
     ctl = DAC_CTL_DDUDRIE0 | DAC_CTL_DDUDRIE1;
     DAC_CTL &= (~ctl);
@@ -556,7 +556,7 @@ void DAC_concurrent_Interrupt_disable(void) {
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus DAC_flag_get(uint32_t DAC_periph) {
+FlagStatus DAC_Flag_Get(uint32_t DAC_periph) {
     FlagStatus temp_flag = RESET;
 
     if(DAC0 == DAC_periph) {
@@ -580,7 +580,7 @@ FlagStatus DAC_flag_get(uint32_t DAC_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void DAC_flag_clear(uint32_t DAC_periph) {
+void DAC_Flag_Clear(uint32_t DAC_periph) {
     if(DAC0 == DAC_periph) {
         DAC_STAT |= DAC_STAT_DDUDR0;
     } else {
@@ -594,7 +594,7 @@ void DAC_flag_clear(uint32_t DAC_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void DAC_Interrupt_enable(uint32_t DAC_periph) {
+void DAC_Interrupt_Enable(uint32_t DAC_periph) {
     if(DAC0 == DAC_periph) {
         DAC_CTL |= DAC_CTL_DDUDRIE0;
     } else {
@@ -608,7 +608,7 @@ void DAC_Interrupt_enable(uint32_t DAC_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void DAC_Interrupt_disable(uint32_t DAC_periph) {
+void DAC_Interrupt_Disable(uint32_t DAC_periph) {
     if(DAC0 == DAC_periph) {
         DAC_CTL &= ~DAC_CTL_DDUDRIE0;
     } else {
@@ -622,7 +622,7 @@ void DAC_Interrupt_disable(uint32_t DAC_periph) {
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus DAC_Interrupt_flag_get(uint32_t DAC_periph) {
+FlagStatus DAC_Interrupt_Flag_Get(uint32_t DAC_periph) {
     FlagStatus temp_flag = RESET;
     uint32_t ddudr_flag = 0U, ddudrie_flag = 0U;
 
@@ -653,7 +653,7 @@ FlagStatus DAC_Interrupt_flag_get(uint32_t DAC_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void DAC_Interrupt_flag_clear(uint32_t DAC_periph) {
+void DAC_Interrupt_Flag_Clear(uint32_t DAC_periph) {
     if(DAC0 == DAC_periph) {
         DAC_STAT |= DAC_STAT_DDUDR0;
     } else {

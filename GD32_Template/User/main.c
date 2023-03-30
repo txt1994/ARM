@@ -1,4 +1,4 @@
-﻿/**
+/**
   ************************* Copyright ********************** 
   *
   *          (C) Copyright 2022,txt1994,China, GCU.
@@ -22,7 +22,7 @@ static uint8_t us = 0;
 static uint16_t ms = 0;
 
 void Delay_init(uint8_t Mhz) {
-    systick_clksource_set(SYSTICK_CLKSOURCE_HCLK_DIV8);
+    Systick_CLKsource_Set(SYSTICK_CLKSOURCE_HCLK_DIV8);
 
     us = Mhz / 8;
     ms = (uint16_t)us * 1000;

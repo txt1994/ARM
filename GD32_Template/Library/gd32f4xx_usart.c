@@ -102,7 +102,7 @@ void USART_DeInit(uint32_t USART_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_baudrate_Set(uint32_t USART_periph, uint32_t baudval) {
+void USART_Baudrate_Set(uint32_t USART_periph, uint32_t baudval) {
     uint32_t uclk = 0U, intdiv = 0U, fradiv = 0U, udiv = 0U;
 
     switch(USART_periph) {
@@ -205,7 +205,7 @@ void USART_Word_Length_Set(uint32_t USART_periph, uint32_t wlen) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_stop_bit_Set(uint32_t USART_periph, uint32_t stblen) {
+void USART_Stop_Bit_Set(uint32_t USART_periph, uint32_t stblen) {
     /* clear USART_CTL1 STB bits */
     USART_CTL1(USART_periph) &= ~USART_CTL1_STB;
     /* configure USART stop bits */
@@ -256,12 +256,12 @@ void USART_Transmit_Config(uint32_t USART_periph, uint32_t txconfig) {
     参数[输入]:  USART_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
     参数[输入]:  rxconfig: enable or disable USART receiver
                 only one parameter can be selected which is shown as below:
-      参数:        USART_RECEIVE_Enable: enable USART reception
-      参数:        USART_RECEIVE_Disable: disable USART reception
+      参数:        USART_Receive_Enable: enable USART reception
+      参数:        USART_Receive_Disable: disable USART reception
     参数[输出]:  无
     返回值:      无
 */
-void USART_receive_Config(uint32_t USART_periph, uint32_t rxconfig) {
+void USART_Receive_Config(uint32_t USART_periph, uint32_t rxconfig) {
     uint32_t ctl = 0U;
 
     ctl = USART_CTL0(USART_periph);
@@ -281,7 +281,7 @@ void USART_receive_Config(uint32_t USART_periph, uint32_t rxconfig) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_data_first_Config(uint32_t USART_periph, uint32_t msbf) {
+void USART_Data_First_Config(uint32_t USART_periph, uint32_t msbf) {
     uint32_t ctl = 0U;
 
     ctl = USART_CTL3(USART_periph);
@@ -294,7 +294,7 @@ void USART_data_first_Config(uint32_t USART_periph, uint32_t msbf) {
 /*!
     简介:    configure USART inversion
     参数[输入]:  USART_periph: USARTx(x=0,1,2,5)
-    参数[输入]:  invertpara: refer to enum USART_INVERT_Config
+    参数[输入]:  invertpara: refer to enum USART_Invert_Config
                 only one parameter can be selected which is shown as below:
       参数:        USART_DINV_Enable: data bit level inversion
       参数:        USART_DINV_Disable: data bit level not inversion
@@ -305,7 +305,7 @@ void USART_data_first_Config(uint32_t USART_periph, uint32_t msbf) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_invert_Config(uint32_t USART_periph, USART_invert_enum invertpara) {
+void USART_Invert_Config(uint32_t USART_periph, USART_Invert_enum invertpara) {
     /* inverted or not the specified siginal */
     switch(invertpara) {
     case USART_DINV_Enable:
@@ -347,7 +347,7 @@ void USART_invert_Config(uint32_t USART_periph, USART_invert_enum invertpara) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_oversample_Config(uint32_t USART_periph, uint32_t oversamp) {
+void USART_OverSample_Config(uint32_t USART_periph, uint32_t oversamp) {
     /*  clear OVSMOD bit */
     USART_CTL0(USART_periph) &= ~(USART_CTL0_OVSMOD);
     USART_CTL0(USART_periph) |= oversamp;
@@ -363,7 +363,7 @@ void USART_oversample_Config(uint32_t USART_periph, uint32_t oversamp) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_sample_bit_Config(uint32_t USART_periph, uint32_t obsm) {
+void USART_Sample_Bit_Config(uint32_t USART_periph, uint32_t obsm) {
     USART_CTL2(USART_periph) &= ~(USART_CTL2_OSB);
     USART_CTL2(USART_periph) |= obsm;
 }
@@ -374,7 +374,7 @@ void USART_sample_bit_Config(uint32_t USART_periph, uint32_t obsm) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_receiver_timeout_Enable(uint32_t USART_periph) {
+void USART_Receiver_Timeout_Enable(uint32_t USART_periph) {
     USART_CTL3(USART_periph) |= USART_CTL3_RTEN;
 }
 
@@ -384,7 +384,7 @@ void USART_receiver_timeout_Enable(uint32_t USART_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_receiver_timeout_Disable(uint32_t USART_periph) {
+void USART_Receiver_Timeout_Disable(uint32_t USART_periph) {
     USART_CTL3(USART_periph) &= ~(USART_CTL3_RTEN);
 }
 
@@ -395,7 +395,7 @@ void USART_receiver_timeout_Disable(uint32_t USART_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_receiver_timeout_threshold_Config(uint32_t USART_periph, uint32_t rtimeout) {
+void USART_Receiver_Timeout_Threshold_Config(uint32_t USART_periph, uint32_t rtimeout) {
     USART_RT(USART_periph) &= ~(USART_RT_RT);
     USART_RT(USART_periph) |= rtimeout;
 }
@@ -407,8 +407,8 @@ void USART_receiver_timeout_threshold_Config(uint32_t USART_periph, uint32_t rti
     参数[输出]:  无
     返回值:      无
 */
-void USART_data_transmit(uint32_t USART_periph, uint32_t data) {
-    USART_DATA(USART_periph) = ((uint16_t)USART_DATA_DATA & data);
+void USART_Data_Transmit(uint32_t USART_periph, uint32_t data) {
+    USART_DATA(USART_periph) = ((uint16_t)USART_Data_DATA & data);
 }
 
 /*!
@@ -417,7 +417,7 @@ void USART_data_transmit(uint32_t USART_periph, uint32_t data) {
     参数[输出]:  无
     返回值:     data of received
 */
-uint16_t USART_data_receive(uint32_t USART_periph) {
+uint16_t USART_Data_Receive(uint32_t USART_periph) {
     return (uint16_t)(GET_BITS(USART_DATA(USART_periph), 0U, 8U));
 }
 
@@ -428,7 +428,7 @@ uint16_t USART_data_receive(uint32_t USART_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_address_Config(uint32_t USART_periph, uint8_t addr) {
+void USART_Address_Config(uint32_t USART_periph, uint8_t addr) {
     USART_CTL1(USART_periph) &= ~(USART_CTL1_ADDR);
     USART_CTL1(USART_periph) |= (USART_CTL1_ADDR & addr);
 }
@@ -439,7 +439,7 @@ void USART_address_Config(uint32_t USART_periph, uint8_t addr) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_mute_mode_Enable(uint32_t USART_periph) {
+void USART_Mute_Mode_Enable(uint32_t USART_periph) {
     USART_CTL0(USART_periph) |= USART_CTL0_RWU;
 }
 
@@ -449,7 +449,7 @@ void USART_mute_mode_Enable(uint32_t USART_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_mute_mode_Disable(uint32_t USART_periph) {
+void USART_Mute_Mode_Disable(uint32_t USART_periph) {
     USART_CTL0(USART_periph) &= ~(USART_CTL0_RWU);
 }
 
@@ -463,7 +463,7 @@ void USART_mute_mode_Disable(uint32_t USART_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_mute_mode_wakeup_Config(uint32_t USART_periph, uint32_t wmehtod) {
+void USART_Mute_Mode_WakeUp_Config(uint32_t USART_periph, uint32_t wmehtod) {
     USART_CTL0(USART_periph) &= ~(USART_CTL0_WM);
     USART_CTL0(USART_periph) |= wmehtod;
 }
@@ -474,7 +474,7 @@ void USART_mute_mode_wakeup_Config(uint32_t USART_periph, uint32_t wmehtod) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_lin_mode_Enable(uint32_t USART_periph) {
+void USART_Lin_Mode_Enable(uint32_t USART_periph) {
     USART_CTL1(USART_periph) |= USART_CTL1_LMEN;
 }
 
@@ -484,7 +484,7 @@ void USART_lin_mode_Enable(uint32_t USART_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_lin_mode_Disable(uint32_t USART_periph) {
+void USART_Lin_Mode_Disable(uint32_t USART_periph) {
     USART_CTL1(USART_periph) &= ~(USART_CTL1_LMEN);
 }
 
@@ -498,7 +498,7 @@ void USART_lin_mode_Disable(uint32_t USART_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_lin_Break_detection_Length_Config(uint32_t USART_periph, uint32_t lblen) {
+void USART_Lin_Break_Detection_Length_Config(uint32_t USART_periph, uint32_t lblen) {
     USART_CTL1(USART_periph) &= ~(USART_CTL1_LBLEN);
     USART_CTL1(USART_periph) |= (USART_CTL1_LBLEN & lblen);
 }
@@ -509,7 +509,7 @@ void USART_lin_Break_detection_Length_Config(uint32_t USART_periph, uint32_t lbl
     参数[输出]:  无
     返回值:      无
 */
-void USART_send_break(uint32_t USART_periph) {
+void USART_Send_break(uint32_t USART_periph) {
     USART_CTL0(USART_periph) |= USART_CTL0_SBKCMD;
 }
 
@@ -519,7 +519,7 @@ void USART_send_break(uint32_t USART_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_halfduplex_Enable(uint32_t USART_periph) {
+void USART_HalfDuplex_Enable(uint32_t USART_periph) {
     USART_CTL2(USART_periph) |= USART_CTL2_HDEN;
 }
 
@@ -529,7 +529,7 @@ void USART_halfduplex_Enable(uint32_t USART_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_halfduplex_Disable(uint32_t USART_periph) {
+void USART_HalfDuplex_Disable(uint32_t USART_periph) {
     USART_CTL2(USART_periph) &= ~(USART_CTL2_HDEN);
 }
 
@@ -539,7 +539,7 @@ void USART_halfduplex_Disable(uint32_t USART_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_synchronous_clock_Enable(uint32_t USART_periph) {
+void USART_Synchronous_Clock_Enable(uint32_t USART_periph) {
     USART_CTL1(USART_periph) |= USART_CTL1_CKEN;
 }
 
@@ -549,7 +549,7 @@ void USART_synchronous_clock_Enable(uint32_t USART_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_synchronous_clock_Disable(uint32_t USART_periph) {
+void USART_Synchronous_Clock_Disable(uint32_t USART_periph) {
     USART_CTL1(USART_periph) &= ~(USART_CTL1_CKEN);
 }
 
@@ -571,7 +571,7 @@ void USART_synchronous_clock_Disable(uint32_t USART_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_synchronous_clock_Config(uint32_t USART_periph, uint32_t clen, uint32_t cph, uint32_t cpl) {
+void USART_Synchronous_Clock_Config(uint32_t USART_periph, uint32_t clen, uint32_t cph, uint32_t cpl) {
     uint32_t ctl = 0U;
 
     /* read USART_CTL1 register */
@@ -590,7 +590,7 @@ void USART_synchronous_clock_Config(uint32_t USART_periph, uint32_t clen, uint32
     参数[输出]:  无
     返回值:      无
 */
-void USART_guard_time_Config(uint32_t USART_periph, uint32_t guat) {
+void USART_Guard_Time_Config(uint32_t USART_periph, uint32_t guat) {
     USART_GP(USART_periph) &= ~(USART_GP_GUAT);
     USART_GP(USART_periph) |= (USART_GP_GUAT & ((guat) << GP_GUAT_OFFSET));
 }
@@ -601,7 +601,7 @@ void USART_guard_time_Config(uint32_t USART_periph, uint32_t guat) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_smartcard_mode_Enable(uint32_t USART_periph) {
+void USART_SmartCard_Mode_Enable(uint32_t USART_periph) {
     USART_CTL2(USART_periph) |= USART_CTL2_SCEN;
 }
 
@@ -611,7 +611,7 @@ void USART_smartcard_mode_Enable(uint32_t USART_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_smartcard_mode_Disable(uint32_t USART_periph) {
+void USART_SmartCard_Mode_Disable(uint32_t USART_periph) {
     USART_CTL2(USART_periph) &= ~(USART_CTL2_SCEN);
 }
 
@@ -621,7 +621,7 @@ void USART_smartcard_mode_Disable(uint32_t USART_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_smartcard_mode_nack_Enable(uint32_t USART_periph) {
+void USART_SmartCard_Mode_Nack_Enable(uint32_t USART_periph) {
     USART_CTL2(USART_periph) |= USART_CTL2_NKEN;
 }
 
@@ -631,7 +631,7 @@ void USART_smartcard_mode_nack_Enable(uint32_t USART_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_smartcard_mode_nack_Disable(uint32_t USART_periph) {
+void USART_SmartCard_Mode_Nack_Disable(uint32_t USART_periph) {
     USART_CTL2(USART_periph) &= ~(USART_CTL2_NKEN);
 }
 
@@ -642,7 +642,7 @@ void USART_smartcard_mode_nack_Disable(uint32_t USART_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_smartcard_autoretry_Config(uint32_t USART_periph, uint32_t scrtnum) {
+void USART_SmartCard_Autoretry_Config(uint32_t USART_periph, uint32_t scrtnum) {
     USART_CTL3(USART_periph) &= ~(USART_CTL3_SCRTNUM);
     USART_CTL3(USART_periph) |= (USART_CTL3_SCRTNUM & ((scrtnum) << CTL3_SCRTNUM_OFFSET));
 }
@@ -654,7 +654,7 @@ void USART_smartcard_autoretry_Config(uint32_t USART_periph, uint32_t scrtnum) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_block_Length_Config(uint32_t USART_periph, uint32_t bl) {
+void USART_Block_Length_Config(uint32_t USART_periph, uint32_t bl) {
     USART_RT(USART_periph) &= ~(USART_RT_BL);
     USART_RT(USART_periph) |= (USART_RT_BL & ((bl) << RT_BL_OFFSET));
 }
@@ -665,7 +665,7 @@ void USART_block_Length_Config(uint32_t USART_periph, uint32_t bl) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_irda_mode_Enable(uint32_t USART_periph) {
+void USART_IRDA_Mode_Enable(uint32_t USART_periph) {
     USART_CTL2(USART_periph) |= USART_CTL2_IREN;
 }
 
@@ -675,7 +675,7 @@ void USART_irda_mode_Enable(uint32_t USART_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_irda_mode_Disable(uint32_t USART_periph) {
+void USART_IRDA_Mode_Disable(uint32_t USART_periph) {
     USART_CTL2(USART_periph) &= ~(USART_CTL2_IREN);
 }
 
@@ -686,7 +686,7 @@ void USART_irda_mode_Disable(uint32_t USART_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_prescaler_Config(uint32_t USART_periph, uint8_t psc) {
+void USART_Prescaler_Config(uint32_t USART_periph, uint8_t psc) {
     USART_GP(USART_periph) &= ~(USART_GP_PSC);
     USART_GP(USART_periph) |= psc;
 }
@@ -701,7 +701,7 @@ void USART_prescaler_Config(uint32_t USART_periph, uint8_t psc) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_irda_lowpower_Config(uint32_t USART_periph, uint32_t irlp) {
+void USART_IRDA_Lowpower_Config(uint32_t USART_periph, uint32_t irlp) {
     USART_CTL2(USART_periph) &= ~(USART_CTL2_IRLP);
     USART_CTL2(USART_periph) |= (USART_CTL2_IRLP & irlp);
 }
@@ -801,7 +801,7 @@ void USART_Hardware_Flow_Coherence_Config(uint32_t USART_periph, uint32_t hcm) {
     参数[输出]:  无
     返回值:      无
 */
-void USART_DMA_receive_Config(uint32_t USART_periph, uint32_t dmacmd) {
+void USART_DMA_Receive_Config(uint32_t USART_periph, uint32_t dmacmd) {
     uint32_t ctl = 0U;
 
     ctl = USART_CTL2(USART_periph);
@@ -854,7 +854,7 @@ void USART_DMA_Transmit_Config(uint32_t USART_periph, uint32_t dmacmd) {
     返回值:     FlagStatus: SET or RESET
 */
 FlagStatus USART_Flag_Get(uint32_t USART_periph, USART_Flag_enum flag) {
-    if(RESET != (USART_REG_VAL(USART_periph, flag) & BIT(USART_BIT_POS(flag)))) {
+    if(RESET != (USART_REG_VAL(USART_periph, flag) & BIT(USART_Bit_POS(flag)))) {
         return SET;
     } else {
         return RESET;
@@ -877,7 +877,7 @@ FlagStatus USART_Flag_Get(uint32_t USART_periph, USART_Flag_enum flag) {
     返回值:      无
 */
 void USART_Flag_Clear(uint32_t USART_periph, USART_Flag_enum flag) {
-    USART_REG_VAL(USART_periph, flag) &= ~BIT(USART_BIT_POS(flag));
+    USART_REG_VAL(USART_periph, flag) &= ~BIT(USART_Bit_POS(flag));
 }
 
 /*!
@@ -899,7 +899,7 @@ void USART_Flag_Clear(uint32_t USART_periph, USART_Flag_enum flag) {
     返回值:      无
 */
 void USART_Interrupt_Enable(uint32_t USART_periph, USART_Interrupt_enum interrupt) {
-    USART_REG_VAL(USART_periph, interrupt) |= BIT(USART_BIT_POS(interrupt));
+    USART_REG_VAL(USART_periph, interrupt) |= BIT(USART_Bit_POS(interrupt));
 }
 
 /*!
@@ -921,7 +921,7 @@ void USART_Interrupt_Enable(uint32_t USART_periph, USART_Interrupt_enum interrup
     返回值:      无
 */
 void USART_Interrupt_Disable(uint32_t USART_periph, USART_Interrupt_enum interrupt) {
-    USART_REG_VAL(USART_periph, interrupt) &= ~BIT(USART_BIT_POS(interrupt));
+    USART_REG_VAL(USART_periph, interrupt) &= ~BIT(USART_Bit_POS(interrupt));
 }
 
 /*!
@@ -948,9 +948,9 @@ void USART_Interrupt_Disable(uint32_t USART_periph, USART_Interrupt_enum interru
 FlagStatus USART_Interrupt_Flag_Get(uint32_t USART_periph, USART_Interrupt_Flag_enum int_flag) {
     uint32_t intenable = 0U, flagstatus = 0U;
     /* get the interrupt enable bit status */
-    intenable = (USART_REG_VAL(USART_periph, int_flag) & BIT(USART_BIT_POS(int_flag)));
+    intenable = (USART_REG_VAL(USART_periph, int_flag) & BIT(USART_Bit_POS(int_flag)));
     /* get the corresponding flag bit status */
-    flagstatus = (USART_REG_VAL2(USART_periph, int_flag) & BIT(USART_BIT_POS2(int_flag)));
+    flagstatus = (USART_REG_VAL2(USART_periph, int_flag) & BIT(USART_Bit_POS2(int_flag)));
 
     if((0U != flagstatus) && (0U != intenable)) {
         return SET;
@@ -974,5 +974,5 @@ FlagStatus USART_Interrupt_Flag_Get(uint32_t USART_periph, USART_Interrupt_Flag_
     返回值:      无
 */
 void USART_Interrupt_Flag_Clear(uint32_t USART_periph, USART_Interrupt_Flag_enum int_flag) {
-    USART_REG_VAL2(USART_periph, int_flag) &= ~BIT(USART_BIT_POS2(int_flag));
+    USART_REG_VAL2(USART_periph, int_flag) &= ~BIT(USART_Bit_POS2(int_flag));
 }

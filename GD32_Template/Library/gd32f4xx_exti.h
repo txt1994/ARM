@@ -227,13 +227,13 @@ typedef enum {
     EXTI_20     = BIT(20),                                    /*!< EXTI line 20 */
     EXTI_21     = BIT(21),                                    /*!< EXTI line 21 */
     EXTI_22     = BIT(22),                                    /*!< EXTI line 22 */
-} EXTI_line_enum;
+} EXTI_Line_enum;
 
 /* external interrupt and event  */
 typedef enum {
     EXTI_INTERRUPT   = 0,                                     /*!< EXTI interrupt mode */
     EXTI_EVENT                                                /*!< EXTI event mode */
-} EXTI_mode_enum;
+} EXTI_Mode_enum;
 
 /* interrupt trigger mode */
 typedef enum {
@@ -247,28 +247,28 @@ typedef enum {
 /* deinitialize the EXTI */
 void EXTI_DeInit(void);
 /* enable the configuration of EXTI initialize */
-void EXTI_init(EXTI_line_enum linex, EXTI_mode_enum mode, EXTI_trig_type_enum trig_type);
+void EXTI_Init(EXTI_Line_enum linex, EXTI_Mode_enum mode, EXTI_trig_type_enum trig_type);
 /* enable the interrupts from EXTI line x */
-void EXTI_Interrupt_enable(EXTI_line_enum linex);
+void EXTI_Interrupt_Enable(EXTI_Line_enum linex);
 /* disable the interrupts from EXTI line x */
-void EXTI_Interrupt_disable(EXTI_line_enum linex);
+void EXTI_Interrupt_Disable(EXTI_Line_enum linex);
 /* enable the events from EXTI line x */
-void EXTI_event_enable(EXTI_line_enum linex);
+void EXTI_Event_Enable(EXTI_Line_enum linex);
 /* disable the events from EXTI line x */
-void EXTI_event_disable(EXTI_line_enum linex);
+void EXTI_Event_Disable(EXTI_Line_enum linex);
 /* EXTI software interrupt event enable */
-void EXTI_software_Interrupt_enable(EXTI_line_enum linex);
+void EXTI_Software_Interrupt_Enable(EXTI_Line_enum linex);
 /* EXTI software interrupt event disable */
-void EXTI_software_Interrupt_disable(EXTI_line_enum linex);
+void EXTI_Software_Interrupt_Disable(EXTI_Line_enum linex);
 
 /* interrupt & flag functions */
 /* get EXTI lines pending flag */
-FlagStatus EXTI_flag_get(EXTI_line_enum linex);
+FlagStatus EXTI_Flag_Get(EXTI_Line_enum linex);
 /* clear EXTI lines pending flag */
-void EXTI_flag_clear(EXTI_line_enum linex);
+void EXTI_Flag_Clear(EXTI_Line_enum linex);
 /* get EXTI lines flag when the interrupt flag is set */
-FlagStatus EXTI_Interrupt_flag_get(EXTI_line_enum linex);
+FlagStatus EXTI_Interrupt_Flag_Get(EXTI_Line_enum linex);
 /* clear EXTI lines pending flag */
-void EXTI_Interrupt_flag_clear(EXTI_line_enum linex);
+void EXTI_Interrupt_Flag_Clear(EXTI_Line_enum linex);
 
 #endif /* GD32F4XX_EXTI_H */

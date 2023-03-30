@@ -77,38 +77,38 @@ OF SUCH DAMAGE.
 /* control value */
 #define FWDGT_WRITEACCESS_ENABLE    ((uint16_t)0x5555U)             /*!< FWDGT_CTL bits write access enable value */
 #define FWDGT_WRITEACCESS_DISABLE   ((uint16_t)0x0000U)             /*!< FWDGT_CTL bits write access disable value */
-#define FWDGT_KEY_RELOAD            ((uint16_t)0xAAAAU)             /*!< FWDGT_CTL bits fwdgt counter reload value */
-#define FWDGT_KEY_ENABLE            ((uint16_t)0xCCCCU)             /*!< FWDGT_CTL bits fwdgt counter enable value */
+#define FWDGT_Key_RELOAD            ((uint16_t)0xAAAAU)             /*!< FWDGT_CTL bits fwdgt counter reload value */
+#define FWDGT_Key_ENABLE            ((uint16_t)0xCCCCU)             /*!< FWDGT_CTL bits fwdgt counter enable value */
 
 /* FWDGT timeout value */
 #define FWDGT_PSC_TIMEOUT           ((uint32_t)0x000FFFFFU)         /*!< FWDGT_PSC register write operation state flag timeout */
 #define FWDGT_RLD_TIMEOUT           ((uint32_t)0x000FFFFFU)         /*!< FWDGT_RLD register write operation state flag timeout */
 
 /* FWDGT flag definitions */
-#define FWDGT_FLAG_PUD              FWDGT_STAT_PUD                  /*!< FWDGT prescaler divider value update flag */
-#define FWDGT_FLAG_RUD              FWDGT_STAT_RUD                  /*!< FWDGT counter reload value update flag */
+#define FWDGT_Flag_PUD              FWDGT_STAT_PUD                  /*!< FWDGT prescaler divider value update flag */
+#define FWDGT_Flag_RUD              FWDGT_STAT_RUD                  /*!< FWDGT counter reload value update flag */
 
 /* write value to FWDGT_RLD_RLD bit field */
 #define RLD_RLD(regval)             (BITS(0,11) & ((uint32_t)(regval) << 0))
 
 /* function declarations */
 /* enable write access to FWDGT_PSC and FWDGT_RLD */
-void FWDGT_write_enable(void);
+void FWDGT_Write_Enable(void);
 /* disable write access to FWDGT_PSC and FWDGT_RLD */
-void FWDGT_write_disable(void);
+void FWDGT_Write_Disable(void);
 /* start the free watchdog timer counter */
-void FWDGT_enable(void);
+void FWDGT_Enable(void);
 
 /* configure the free watchdog timer counter prescaler value */
-ErrStatus FWDGT_prescaler_value_Config(uint16_t prescaler_value);
+ErrStatus FWDGT_Prescaler_Value_Config(uint16_t prescaler_value);
 /* configure the free watchdog timer counter reload value */
-ErrStatus FWDGT_reload_value_Config(uint16_t reload_value);
+ErrStatus FWDGT_Reload_Value_Config(uint16_t reload_value);
 /* reload the counter of FWDGT */
-void FWDGT_counter_reload(void);
+void FWDGT_Counter_reload(void);
 /* configure counter reload value, and prescaler divider value */
 ErrStatus FWDGT_Config(uint16_t reload_value, uint8_t prescaler_div);
 
 /* get flag state of FWDGT */
-FlagStatus FWDGT_flag_get(uint16_t flag);
+FlagStatus FWDGT_Flag_Get(uint16_t flag);
 
 #endif /* GD32F4XX_FWDGT_H */

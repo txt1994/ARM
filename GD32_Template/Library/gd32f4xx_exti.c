@@ -53,10 +53,10 @@ void EXTI_DeInit(void) {
 
 /*!
     简介:    initialize the EXTI
-    参数[输入]:  linex: EXTI line number, refer to EXTI_line_enum
+    参数[输入]:  linex: EXTI line number, refer to EXTI_Line_enum
                 only one parameter can be selected which is shown as below:
       参数:        EXTI_x (x=0..22): EXTI line x
-    参数[输入]:  mode: interrupt or event mode, refer to EXTI_mode_enum
+    参数[输入]:  mode: interrupt or event mode, refer to EXTI_Mode_enum
                 only one parameter can be selected which is shown as below:
       参数:        EXTI_INTERRUPT: interrupt mode
       参数:        EXTI_EVENT: event mode
@@ -69,8 +69,8 @@ void EXTI_DeInit(void) {
     参数[输出]:  无
     返回值:      无
 */
-void EXTI_init(EXTI_line_enum linex, \
-               EXTI_mode_enum mode, \
+void EXTI_Init(EXTI_Line_enum linex, \
+               EXTI_Mode_enum mode, \
                EXTI_trig_type_enum trig_type) {
     /* reset the EXTI line x */
     EXTI_INTEN &= ~(uint32_t)linex;
@@ -117,85 +117,85 @@ void EXTI_init(EXTI_line_enum linex, \
 
 /*!
     简介:    enable the interrupts from EXTI line x
-    参数[输入]:  linex: EXTI line number, refer to EXTI_line_enum
+    参数[输入]:  linex: EXTI line number, refer to EXTI_Line_enum
                 only one parameter can be selected which is shown as below:
       参数:        EXTI_x (x=0..22): EXTI line x
     参数[输出]:  无
     返回值:      无
 */
-void EXTI_Interrupt_enable(EXTI_line_enum linex) {
+void EXTI_Interrupt_Enable(EXTI_Line_enum linex) {
     EXTI_INTEN |= (uint32_t)linex;
 }
 
 /*!
     简介:    disable the interrupt from EXTI line x
-    参数[输入]:  linex: EXTI line number, refer to EXTI_line_enum
+    参数[输入]:  linex: EXTI line number, refer to EXTI_Line_enum
                 only one parameter can be selected which is shown as below:
       参数:        EXTI_x (x=0..22): EXTI line x
     参数[输出]:  无
     返回值:      无
 */
-void EXTI_Interrupt_disable(EXTI_line_enum linex) {
+void EXTI_Interrupt_Disable(EXTI_Line_enum linex) {
     EXTI_INTEN &= ~(uint32_t)linex;
 }
 
 /*!
     简介:    enable the events from EXTI line x
-    参数[输入]:  linex: EXTI line number, refer to EXTI_line_enum
+    参数[输入]:  linex: EXTI line number, refer to EXTI_Line_enum
                 only one parameter can be selected which is shown as below:
       参数:        EXTI_x (x=0..22): EXTI line x
     参数[输出]:  无
     返回值:      无
 */
-void EXTI_event_enable(EXTI_line_enum linex) {
+void EXTI_Event_Enable(EXTI_Line_enum linex) {
     EXTI_EVEN |= (uint32_t)linex;
 }
 
 /*!
     简介:    disable the events from EXTI line x
-    参数[输入]:  linex: EXTI line number, refer to EXTI_line_enum
+    参数[输入]:  linex: EXTI line number, refer to EXTI_Line_enum
                 only one parameter can be selected which is shown as below:
       参数:        EXTI_x (x=0..22): EXTI line x
     参数[输出]:  无
     返回值:      无
 */
-void EXTI_event_disable(EXTI_line_enum linex) {
+void EXTI_Event_Disable(EXTI_Line_enum linex) {
     EXTI_EVEN &= ~(uint32_t)linex;
 }
 
 /*!
     简介:    enable EXTI software interrupt event
-    参数[输入]:  linex: EXTI line number, refer to EXTI_line_enum
+    参数[输入]:  linex: EXTI line number, refer to EXTI_Line_enum
                 only one parameter can be selected which is shown as below:
       参数:        EXTI_x (x=0..22): EXTI line x
     参数[输出]:  无
     返回值:      无
 */
-void EXTI_software_Interrupt_enable(EXTI_line_enum linex) {
+void EXTI_Software_Interrupt_Enable(EXTI_Line_enum linex) {
     EXTI_SWIEV |= (uint32_t)linex;
 }
 
 /*!
     简介:    disable EXTI software interrupt event
-    参数[输入]:  linex: EXTI line number, refer to EXTI_line_enum
+    参数[输入]:  linex: EXTI line number, refer to EXTI_Line_enum
                 only one parameter can be selected which is shown as below:
       参数:        EXTI_x (x=0..22): EXTI line x
     参数[输出]:  无
     返回值:      无
 */
-void EXTI_software_Interrupt_disable(EXTI_line_enum linex) {
+void EXTI_Software_Interrupt_Disable(EXTI_Line_enum linex) {
     EXTI_SWIEV &= ~(uint32_t)linex;
 }
 
 /*!
     简介:    get EXTI lines flag
-    参数[输入]:  linex: EXTI line number, refer to EXTI_line_enum
+    参数[输入]:  linex: EXTI line number, refer to EXTI_Line_enum
                 only one parameter can be selected which is shown as below:
       参数:        EXTI_x (x=0..22): EXTI line x
     参数[输出]:  无
     返回值:     FlagStatus: status of flag (RESET or SET)
 */
-FlagStatus EXTI_flag_get(EXTI_line_enum linex) {
+FlagStatus EXTI_Flag_Get(EXTI_Line_enum linex) {
     if(RESET != (EXTI_PD & (uint32_t)linex)) {
         return SET;
     } else {
@@ -205,25 +205,25 @@ FlagStatus EXTI_flag_get(EXTI_line_enum linex) {
 
 /*!
     简介:    clear EXTI lines pending flag
-    参数[输入]:  linex: EXTI line number, refer to EXTI_line_enum
+    参数[输入]:  linex: EXTI line number, refer to EXTI_Line_enum
                 only one parameter can be selected which is shown as below:
       参数:        EXTI_x (x=0..22): EXTI line x
     参数[输出]:  无
     返回值:      无
 */
-void EXTI_flag_clear(EXTI_line_enum linex) {
+void EXTI_Flag_Clear(EXTI_Line_enum linex) {
     EXTI_PD = (uint32_t)linex;
 }
 
 /*!
     简介:    get EXTI lines flag when the interrupt flag is set
-    参数[输入]:  linex: EXTI line number, refer to EXTI_line_enum
+    参数[输入]:  linex: EXTI line number, refer to EXTI_Line_enum
                 only one parameter can be selected which is shown as below:
       参数:        EXTI_x (x=0..22): EXTI line x
     参数[输出]:  无
     返回值:     FlagStatus: status of flag (RESET or SET)
 */
-FlagStatus EXTI_Interrupt_flag_get(EXTI_line_enum linex) {
+FlagStatus EXTI_Interrupt_Flag_Get(EXTI_Line_enum linex) {
     uint32_t flag_left, flag_right;
 
     flag_left = EXTI_PD & (uint32_t)linex;
@@ -238,12 +238,12 @@ FlagStatus EXTI_Interrupt_flag_get(EXTI_line_enum linex) {
 
 /*!
     简介:    clear EXTI lines pending flag
-    参数[输入]:  linex: EXTI line number, refer to EXTI_line_enum
+    参数[输入]:  linex: EXTI line number, refer to EXTI_Line_enum
                 only one parameter can be selected which is shown as below:
       参数:        EXTI_x (x=0..22): EXTI line x
     参数[输出]:  无
     返回值:      无
 */
-void EXTI_Interrupt_flag_clear(EXTI_line_enum linex) {
+void EXTI_Interrupt_Flag_Clear(EXTI_Line_enum linex) {
     EXTI_PD = (uint32_t)linex;
 }

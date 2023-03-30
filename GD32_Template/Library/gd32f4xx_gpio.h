@@ -288,10 +288,10 @@ typedef FlagStatus bit_status;
 
 /* output mode definitions */
 #define CTL_CLTR(regval)           (BITS(0,1) & ((uint32_t)(regval) << 0))
-#define GPIO_MODE_INPUT            CTL_CLTR(0)               /*!< input mode */
-#define GPIO_MODE_OUTPUT           CTL_CLTR(1)               /*!< output mode */
-#define GPIO_MODE_AF               CTL_CLTR(2)               /*!< alternate function mode */
-#define GPIO_MODE_ANALOG           CTL_CLTR(3)               /*!< analog mode */
+#define GPIO_Mode_INPUT            CTL_CLTR(0)               /*!< input mode */
+#define GPIO_Mode_OUTPUT           CTL_CLTR(1)               /*!< output mode */
+#define GPIO_Mode_AF               CTL_CLTR(2)               /*!< alternate function mode */
+#define GPIO_Mode_ANALOG           CTL_CLTR(3)               /*!< analog mode */
 
 /* pull-up/ pull-down definitions */
 #define PUD_PUPD(regval)           (BITS(0,1) & ((uint32_t)(regval) << 0))
@@ -300,34 +300,34 @@ typedef FlagStatus bit_status;
 #define GPIO_PUPD_PULLDOWN         PUD_PUPD(2)               /*!< with pull-down resistor */
 
 /* GPIO pin definitions */
-#define GPIO_PIN_0                 BIT(0)                    /*!< GPIO pin 0 */
-#define GPIO_PIN_1                 BIT(1)                    /*!< GPIO pin 1 */
-#define GPIO_PIN_2                 BIT(2)                    /*!< GPIO pin 2 */
-#define GPIO_PIN_3                 BIT(3)                    /*!< GPIO pin 3 */
-#define GPIO_PIN_4                 BIT(4)                    /*!< GPIO pin 4 */
-#define GPIO_PIN_5                 BIT(5)                    /*!< GPIO pin 5 */
-#define GPIO_PIN_6                 BIT(6)                    /*!< GPIO pin 6 */
-#define GPIO_PIN_7                 BIT(7)                    /*!< GPIO pin 7 */
-#define GPIO_PIN_8                 BIT(8)                    /*!< GPIO pin 8 */
-#define GPIO_PIN_9                 BIT(9)                    /*!< GPIO pin 9 */
-#define GPIO_PIN_10                BIT(10)                   /*!< GPIO pin 10 */
-#define GPIO_PIN_11                BIT(11)                   /*!< GPIO pin 11 */
-#define GPIO_PIN_12                BIT(12)                   /*!< GPIO pin 12 */
-#define GPIO_PIN_13                BIT(13)                   /*!< GPIO pin 13 */
-#define GPIO_PIN_14                BIT(14)                   /*!< GPIO pin 14 */
-#define GPIO_PIN_15                BIT(15)                   /*!< GPIO pin 15 */
-#define GPIO_PIN_ALL               BITS(0,15)                /*!< GPIO pin all */
+#define GPIO_Pin_0                 BIT(0)                    /*!< GPIO pin 0 */
+#define GPIO_Pin_1                 BIT(1)                    /*!< GPIO pin 1 */
+#define GPIO_Pin_2                 BIT(2)                    /*!< GPIO pin 2 */
+#define GPIO_Pin_3                 BIT(3)                    /*!< GPIO pin 3 */
+#define GPIO_Pin_4                 BIT(4)                    /*!< GPIO pin 4 */
+#define GPIO_Pin_5                 BIT(5)                    /*!< GPIO pin 5 */
+#define GPIO_Pin_6                 BIT(6)                    /*!< GPIO pin 6 */
+#define GPIO_Pin_7                 BIT(7)                    /*!< GPIO pin 7 */
+#define GPIO_Pin_8                 BIT(8)                    /*!< GPIO pin 8 */
+#define GPIO_Pin_9                 BIT(9)                    /*!< GPIO pin 9 */
+#define GPIO_Pin_10                BIT(10)                   /*!< GPIO pin 10 */
+#define GPIO_Pin_11                BIT(11)                   /*!< GPIO pin 11 */
+#define GPIO_Pin_12                BIT(12)                   /*!< GPIO pin 12 */
+#define GPIO_Pin_13                BIT(13)                   /*!< GPIO pin 13 */
+#define GPIO_Pin_14                BIT(14)                   /*!< GPIO pin 14 */
+#define GPIO_Pin_15                BIT(15)                   /*!< GPIO pin 15 */
+#define GPIO_Pin_ALL               BITS(0,15)                /*!< GPIO pin all */
 
 /* GPIO mode configuration values */
-#define GPIO_MODE_SET(n, mode)     ((uint32_t)((uint32_t)(mode) << (2U * (n))))
-#define GPIO_MODE_MASK(n)          (0x3U << (2U * (n)))
+#define GPIO_Mode_Set(n, mode)     ((uint32_t)((uint32_t)(mode) << (2U * (n))))
+#define GPIO_Mode_MASK(n)          (0x3U << (2U * (n)))
 
 /* GPIO pull-up/ pull-down values */
-#define GPIO_PUPD_SET(n, pupd)     ((uint32_t)((uint32_t)(pupd) << (2U * (n))))
+#define GPIO_PUPD_Set(n, pupd)     ((uint32_t)((uint32_t)(pupd) << (2U * (n))))
 #define GPIO_PUPD_MASK(n)          (0x3U << (2U * (n)))
 
 /* GPIO output speed values */
-#define GPIO_OSPEED_SET(n, speed)  ((uint32_t)((uint32_t)(speed) << (2U * (n))))
+#define GPIO_OSPEED_Set(n, speed)  ((uint32_t)((uint32_t)(speed) << (2U * (n))))
 #define GPIO_OSPEED_MASK(n)        (0x3U << (2U * (n)))
 
 /* GPIO output type */
@@ -348,7 +348,7 @@ typedef FlagStatus bit_status;
 #define GPIO_OSPEED_MAX            GPIO_OSPEED_LEVEL3        /*!< GPIO very high output speed, max speed more than 50MHz */
 
 /* GPIO alternate function values */
-#define GPIO_AFR_SET(n, af)        ((uint32_t)((uint32_t)(af) << (4U * (n))))
+#define GPIO_AFR_Set(n, af)        ((uint32_t)((uint32_t)(af) << (4U * (n))))
 #define GPIO_AFR_MASK(n)           (0xFU << (4U * (n)))
 
 /* GPIO alternate function */
@@ -374,35 +374,35 @@ typedef FlagStatus bit_status;
 /* reset GPIO port */
 void GPIO_DeInit(uint32_t GPIO_periph);
 /* set GPIO mode */
-void GPIO_mode_set(uint32_t GPIO_periph, uint32_t mode, uint32_t pull_up_down, uint32_t pin);
+void GPIO_mode_Set(uint32_t GPIO_periph, uint32_t mode, uint32_t pull_Up_down, uint32_t pin);
 /* set GPIO output type and speed */
-void GPIO_output_options_set(uint32_t GPIO_periph, uint8_t otype, uint32_t speed, uint32_t pin);
+void GPIO_OutPut_options_Set(uint32_t GPIO_periph, uint8_t otype, uint32_t speed, uint32_t pin);
 
 /* set GPIO pin bit */
-void GPIO_bit_set(uint32_t GPIO_periph, uint32_t pin);
+void GPIO_Bit_Set(uint32_t GPIO_periph, uint32_t pin);
 /* reset GPIO pin bit */
-void GPIO_bit_reset(uint32_t GPIO_periph, uint32_t pin);
+void GPIO_Bit_Reset(uint32_t GPIO_periph, uint32_t pin);
 /* write data to the specified GPIO pin */
-void GPIO_bit_write(uint32_t GPIO_periph, uint32_t pin, bit_status bit_value);
+void GPIO_Bit_Write(uint32_t GPIO_periph, uint32_t pin, bit_status bit_value);
 /* write data to the specified GPIO port */
-void GPIO_port_write(uint32_t GPIO_periph, uint16_t data);
+void GPIO_port_Write(uint32_t GPIO_periph, uint16_t data);
 
 /* get GPIO pin input status */
-FlagStatus GPIO_input_bit_get(uint32_t GPIO_periph, uint32_t pin);
+FlagStatus GPIO_Input_Bit_Get(uint32_t GPIO_periph, uint32_t pin);
 /* get GPIO port input status */
-uint16_t GPIO_input_port_get(uint32_t GPIO_periph);
+uint16_t GPIO_Input_port_Get(uint32_t GPIO_periph);
 /* get GPIO pin output status */
-FlagStatus GPIO_output_bit_get(uint32_t GPIO_periph, uint32_t pin);
+FlagStatus GPIO_OutPut_Bit_Get(uint32_t GPIO_periph, uint32_t pin);
 /* get GPIO port output status */
-uint16_t GPIO_output_port_get(uint32_t GPIO_periph);
+uint16_t GPIO_OutPut_port_Get(uint32_t GPIO_periph);
 
 /* set GPIO alternate function */
-void GPIO_af_set(uint32_t GPIO_periph, uint32_t alt_func_num, uint32_t pin);
+void GPIO_af_Set(uint32_t GPIO_periph, uint32_t alt_func_num, uint32_t pin);
 /* lock GPIO pin bit */
-void GPIO_pin_lock(uint32_t GPIO_periph, uint32_t pin);
+void GPIO_Pin_lock(uint32_t GPIO_periph, uint32_t pin);
 
 /* toggle GPIO pin status */
-void GPIO_bit_toggle(uint32_t GPIO_periph, uint32_t pin);
+void GPIO_Bit_toggle(uint32_t GPIO_periph, uint32_t pin);
 /* toggle GPIO port status */
 void GPIO_port_toggle(uint32_t GPIO_periph);
 

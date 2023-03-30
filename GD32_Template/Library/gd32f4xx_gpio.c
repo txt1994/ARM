@@ -112,21 +112,21 @@ void GPIO_DeInit(uint32_t GPIO_periph) {
                 only one parameter can be selected which is shown as below:
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
     参数[输入]:  mode: GPIO pin mode
-      参数:        GPIO_MODE_INPUT: input mode
-      参数:        GPIO_MODE_OUTPUT: output mode
-      参数:        GPIO_MODE_AF: alternate function mode
-      参数:        GPIO_MODE_ANALOG: analog mode
-    参数[输入]:  pull_up_down: GPIO pin with pull-up or pull-down resistor
+      参数:        GPIO_Mode_INPUT: input mode
+      参数:        GPIO_Mode_OUTPUT: output mode
+      参数:        GPIO_Mode_AF: alternate function mode
+      参数:        GPIO_Mode_ANALOG: analog mode
+    参数[输入]:  pull_Up_down: GPIO pin with pull-up or pull-down resistor
       参数:        GPIO_PUPD_NONE: floating mode, no pull-up and pull-down resistors
       参数:        GPIO_PUPD_PULLUP: with pull-up resistor
       参数:        GPIO_PUPD_PULLDOWN:with pull-down resistor
     参数[输入]:  pin: GPIO pin
                 one or more parameters can be selected which are shown as below:
-      参数:        GPIO_PIN_x(x=0..15), GPIO_PIN_ALL
+      参数:        GPIO_Pin_x(x=0..15), GPIO_Pin_ALL
     参数[输出]:  无
     返回值:      无
 */
-void GPIO_mode_set(uint32_t GPIO_periph, uint32_t mode, uint32_t pull_up_down, uint32_t pin) {
+void GPIO_mode_Set(uint32_t GPIO_periph, uint32_t mode, uint32_t pull_Up_down, uint32_t pin) {
     uint16_t i;
     uint32_t ctl, pupd;
 
@@ -136,14 +136,14 @@ void GPIO_mode_set(uint32_t GPIO_periph, uint32_t mode, uint32_t pull_up_down, u
     for(i = 0U; i < 16U; i++) {
         if((1U << i) & pin) {
             /* clear the specified pin mode bits */
-            ctl &= ~GPIO_MODE_MASK(i);
+            ctl &= ~GPIO_Mode_MASK(i);
             /* set the specified pin mode bits */
-            ctl |= GPIO_MODE_SET(i, mode);
+            ctl |= GPIO_Mode_Set(i, mode);
 
             /* clear the specified pin pupd bits */
             pupd &= ~GPIO_PUPD_MASK(i);
             /* set the specified pin pupd bits */
-            pupd |= GPIO_PUPD_SET(i, pull_up_down);
+            pupd |= GPIO_PUPD_Set(i, pull_Up_down);
         }
     }
 
@@ -166,11 +166,11 @@ void GPIO_mode_set(uint32_t GPIO_periph, uint32_t mode, uint32_t pull_up_down, u
       参数:        GPIO_OSPEED_MAX: output max speed more than 50MHz
     参数[输入]:  pin: GPIO pin
                 one or more parameters can be selected which are shown as below:
-      参数:        GPIO_PIN_x(x=0..15), GPIO_PIN_ALL
+      参数:        GPIO_Pin_x(x=0..15), GPIO_Pin_ALL
     参数[输出]:  无
     返回值:      无
 */
-void GPIO_output_options_set(uint32_t GPIO_periph, uint8_t otype, uint32_t speed, uint32_t pin) {
+void GPIO_OutPut_options_Set(uint32_t GPIO_periph, uint8_t otype, uint32_t speed, uint32_t pin) {
     uint16_t i;
     uint32_t ospeedr;
 
@@ -188,7 +188,7 @@ void GPIO_output_options_set(uint32_t GPIO_periph, uint8_t otype, uint32_t speed
             /* clear the specified pin output speed bits */
             ospeedr &= ~GPIO_OSPEED_MASK(i);
             /* set the specified pin output speed bits */
-            ospeedr |= GPIO_OSPEED_SET(i, speed);
+            ospeedr |= GPIO_OSPEED_Set(i, speed);
         }
     }
 
@@ -202,11 +202,11 @@ void GPIO_output_options_set(uint32_t GPIO_periph, uint8_t otype, uint32_t speed
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
     参数[输入]:  pin: GPIO pin
                 one or more parameters can be selected which are shown as below:
-      参数:        GPIO_PIN_x(x=0..15), GPIO_PIN_ALL
+      参数:        GPIO_Pin_x(x=0..15), GPIO_Pin_ALL
     参数[输出]:  无
     返回值:      无
 */
-void GPIO_bit_set(uint32_t GPIO_periph, uint32_t pin) {
+void GPIO_Bit_Set(uint32_t GPIO_periph, uint32_t pin) {
     GPIO_BOP(GPIO_periph) = (uint32_t)pin;
 }
 
@@ -217,11 +217,11 @@ void GPIO_bit_set(uint32_t GPIO_periph, uint32_t pin) {
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
     参数[输入]:  pin: GPIO pin
                 one or more parameters can be selected which are shown as below:
-      参数:        GPIO_PIN_x(x=0..15), GPIO_PIN_ALL
+      参数:        GPIO_Pin_x(x=0..15), GPIO_Pin_ALL
     参数[输出]:  无
     返回值:      无
 */
-void GPIO_bit_reset(uint32_t GPIO_periph, uint32_t pin) {
+void GPIO_Bit_Reset(uint32_t GPIO_periph, uint32_t pin) {
     GPIO_BC(GPIO_periph) = (uint32_t)pin;
 }
 
@@ -232,14 +232,14 @@ void GPIO_bit_reset(uint32_t GPIO_periph, uint32_t pin) {
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
     参数[输入]:  pin: GPIO pin
                 one or more parameters can be selected which are shown as below:
-      参数:        GPIO_PIN_x(x=0..15), GPIO_PIN_ALL
+      参数:        GPIO_Pin_x(x=0..15), GPIO_Pin_ALL
     参数[输入]:  bit_value: SET or RESET
       参数:        RESET: clear the port pin
       参数:        SET: set the port pin
     参数[输出]:  无
     返回值:      无
 */
-void GPIO_bit_write(uint32_t GPIO_periph, uint32_t pin, bit_status bit_value) {
+void GPIO_Bit_Write(uint32_t GPIO_periph, uint32_t pin, bit_status bit_value) {
     if(RESET != bit_value) {
         GPIO_BOP(GPIO_periph) = (uint32_t)pin;
     } else {
@@ -256,7 +256,7 @@ void GPIO_bit_write(uint32_t GPIO_periph, uint32_t pin, bit_status bit_value) {
     参数[输出]:  无
     返回值:      无
 */
-void GPIO_port_write(uint32_t GPIO_periph, uint16_t data) {
+void GPIO_port_Write(uint32_t GPIO_periph, uint16_t data) {
     GPIO_OCTL(GPIO_periph) = (uint32_t)data;
 }
 
@@ -267,11 +267,11 @@ void GPIO_port_write(uint32_t GPIO_periph, uint16_t data) {
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
     参数[输入]:  pin: GPIO pin
                 one or more parameters can be selected which are shown as below:
-      参数:        GPIO_PIN_x(x=0..15), GPIO_PIN_ALL
+      参数:        GPIO_Pin_x(x=0..15), GPIO_Pin_ALL
     参数[输出]:  无
     返回值:     input status of GPIO pin: SET or RESET
 */
-FlagStatus GPIO_input_bit_get(uint32_t GPIO_periph, uint32_t pin) {
+FlagStatus GPIO_Input_Bit_Get(uint32_t GPIO_periph, uint32_t pin) {
     if((uint32_t)RESET != (GPIO_ISTAT(GPIO_periph) & (pin))) {
         return SET;
     } else {
@@ -287,7 +287,7 @@ FlagStatus GPIO_input_bit_get(uint32_t GPIO_periph, uint32_t pin) {
     参数[输出]:  无
     返回值:     input status of GPIO all pins
 */
-uint16_t GPIO_input_port_get(uint32_t GPIO_periph) {
+uint16_t GPIO_Input_port_Get(uint32_t GPIO_periph) {
     return ((uint16_t)GPIO_ISTAT(GPIO_periph));
 }
 
@@ -298,11 +298,11 @@ uint16_t GPIO_input_port_get(uint32_t GPIO_periph) {
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
     参数[输入]:  pin: GPIO pin
                 one or more parameters can be selected which are shown as below:
-      参数:        GPIO_PIN_x(x=0..15), GPIO_PIN_ALL
+      参数:        GPIO_Pin_x(x=0..15), GPIO_Pin_ALL
     参数[输出]:  无
     返回值:     output status of GPIO pin: SET or RESET
 */
-FlagStatus GPIO_output_bit_get(uint32_t GPIO_periph, uint32_t pin) {
+FlagStatus GPIO_OutPut_Bit_Get(uint32_t GPIO_periph, uint32_t pin) {
     if((uint32_t)RESET != (GPIO_OCTL(GPIO_periph) & (pin))) {
         return SET;
     } else {
@@ -318,7 +318,7 @@ FlagStatus GPIO_output_bit_get(uint32_t GPIO_periph, uint32_t pin) {
     参数[输出]:  无
     返回值:     output status of GPIO all pins
 */
-uint16_t GPIO_output_port_get(uint32_t GPIO_periph) {
+uint16_t GPIO_OutPut_port_Get(uint32_t GPIO_periph) {
     return ((uint16_t)GPIO_OCTL(GPIO_periph));
 }
 
@@ -346,11 +346,11 @@ uint16_t GPIO_output_port_get(uint32_t GPIO_periph) {
       参数:        GPIO_AF_15: EVENTOUT
     参数[输入]:  pin: GPIO pin
                 one or more parameters can be selected which are shown as below:
-      参数:        GPIO_PIN_x(x=0..15), GPIO_PIN_ALL
+      参数:        GPIO_Pin_x(x=0..15), GPIO_Pin_ALL
     参数[输出]:  无
     返回值:      无
 */
-void GPIO_af_set(uint32_t GPIO_periph, uint32_t alt_func_num, uint32_t pin) {
+void GPIO_af_Set(uint32_t GPIO_periph, uint32_t alt_func_num, uint32_t pin) {
     uint16_t i;
     uint32_t afrl, afrh;
 
@@ -361,7 +361,7 @@ void GPIO_af_set(uint32_t GPIO_periph, uint32_t alt_func_num, uint32_t pin) {
         if((1U << i) & pin) {
             /* clear the specified pin alternate function bits */
             afrl &= ~GPIO_AFR_MASK(i);
-            afrl |= GPIO_AFR_SET(i, alt_func_num);
+            afrl |= GPIO_AFR_Set(i, alt_func_num);
         }
     }
 
@@ -369,7 +369,7 @@ void GPIO_af_set(uint32_t GPIO_periph, uint32_t alt_func_num, uint32_t pin) {
         if((1U << i) & pin) {
             /* clear the specified pin alternate function bits */
             afrh &= ~GPIO_AFR_MASK(i - 8U);
-            afrh |= GPIO_AFR_SET(i - 8U, alt_func_num);
+            afrh |= GPIO_AFR_Set(i - 8U, alt_func_num);
         }
     }
 
@@ -384,11 +384,11 @@ void GPIO_af_set(uint32_t GPIO_periph, uint32_t alt_func_num, uint32_t pin) {
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
     参数[输入]:  pin: GPIO pin
                 one or more parameters can be selected which are shown as below:
-      参数:        GPIO_PIN_x(x=0..15), GPIO_PIN_ALL
+      参数:        GPIO_Pin_x(x=0..15), GPIO_Pin_ALL
     参数[输出]:  无
     返回值:      无
 */
-void GPIO_pin_lock(uint32_t GPIO_periph, uint32_t pin) {
+void GPIO_Pin_lock(uint32_t GPIO_periph, uint32_t pin) {
     uint32_t lock = 0x00010000U;
     lock |= pin;
 
@@ -407,11 +407,11 @@ void GPIO_pin_lock(uint32_t GPIO_periph, uint32_t pin) {
       参数:        GPIOx(x = A,B,C,D,E,F,G,H,I)
     参数[输入]:  pin: GPIO pin
                 one or more parameters can be selected which are shown as below:
-      参数:        GPIO_PIN_x(x=0..15), GPIO_PIN_ALL
+      参数:        GPIO_Pin_x(x=0..15), GPIO_Pin_ALL
     参数[输出]:  无
     返回值:      无
 */
-void GPIO_bit_toggle(uint32_t GPIO_periph, uint32_t pin) {
+void GPIO_Bit_toggle(uint32_t GPIO_periph, uint32_t pin) {
     GPIO_TG(GPIO_periph) = (uint32_t)pin;
 }
 

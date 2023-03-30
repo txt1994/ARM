@@ -127,49 +127,49 @@ OF SUCH DAMAGE.
 /* constants definitions */
 /* DAC trigger source */
 #define CTL_DTSEL(regval)       (BITS(3,5) & ((uint32_t)(regval) << 3))
-#define DAC_TRIGGER_T5_TRGO     CTL_DTSEL(0)                /*!< TIMER5 TRGO */
-#define DAC_TRIGGER_T7_TRGO     CTL_DTSEL(1)                /*!< TIMER7 TRGO */
-#define DAC_TRIGGER_T6_TRGO     CTL_DTSEL(2)                /*!< TIMER6 TRGO */
-#define DAC_TRIGGER_T4_TRGO     CTL_DTSEL(3)                /*!< TIMER4 TRGO */
-#define DAC_TRIGGER_T1_TRGO     CTL_DTSEL(4)                /*!< TIMER1 TRGO */
-#define DAC_TRIGGER_T3_TRGO     CTL_DTSEL(5)                /*!< TIMER3 TRGO */
-#define DAC_TRIGGER_EXTI_9      CTL_DTSEL(6)                /*!< EXTI interrupt line9 event */
-#define DAC_TRIGGER_SOFTWARE    CTL_DTSEL(7)                /*!< software trigger */
+#define DAC_Trigger_T5_TRGO     CTL_DTSEL(0)                /*!< TIMER5 TRGO */
+#define DAC_Trigger_T7_TRGO     CTL_DTSEL(1)                /*!< TIMER7 TRGO */
+#define DAC_Trigger_T6_TRGO     CTL_DTSEL(2)                /*!< TIMER6 TRGO */
+#define DAC_Trigger_T4_TRGO     CTL_DTSEL(3)                /*!< TIMER4 TRGO */
+#define DAC_Trigger_T1_TRGO     CTL_DTSEL(4)                /*!< TIMER1 TRGO */
+#define DAC_Trigger_T3_TRGO     CTL_DTSEL(5)                /*!< TIMER3 TRGO */
+#define DAC_Trigger_EXTI_9      CTL_DTSEL(6)                /*!< EXTI interrupt line9 event */
+#define DAC_Trigger_SOFTWARE    CTL_DTSEL(7)                /*!< software trigger */
 
 /* DAC noise wave mode */
 #define CTL_DWM(regval)         (BITS(6,7) & ((uint32_t)(regval) << 6))
-#define DAC_WAVE_DISABLE        CTL_DWM(0)                  /*!< wave disable */
-#define DAC_WAVE_MODE_LFSR      CTL_DWM(1)                  /*!< LFSR noise mode */
-#define DAC_WAVE_MODE_TRIANGLE  CTL_DWM(2)                  /*!< triangle noise mode */
+#define DAC_Wave_DISABLE        CTL_DWM(0)                  /*!< wave disable */
+#define DAC_Wave_Mode_LFSR      CTL_DWM(1)                  /*!< LFSR noise mode */
+#define DAC_Wave_Mode_TRIANGLE  CTL_DWM(2)                  /*!< triangle noise mode */
 
 /* DAC noise wave bit width */
 #define DWBW(regval)            (BITS(8,11) & ((uint32_t)(regval) << 8))
-#define DAC_WAVE_BIT_WIDTH_1    DWBW(0)                     /*!< bit width of the wave signal is 1 */
-#define DAC_WAVE_BIT_WIDTH_2    DWBW(1)                     /*!< bit width of the wave signal is 2 */
-#define DAC_WAVE_BIT_WIDTH_3    DWBW(2)                     /*!< bit width of the wave signal is 3 */
-#define DAC_WAVE_BIT_WIDTH_4    DWBW(3)                     /*!< bit width of the wave signal is 4 */
-#define DAC_WAVE_BIT_WIDTH_5    DWBW(4)                     /*!< bit width of the wave signal is 5 */
-#define DAC_WAVE_BIT_WIDTH_6    DWBW(5)                     /*!< bit width of the wave signal is 6 */
-#define DAC_WAVE_BIT_WIDTH_7    DWBW(6)                     /*!< bit width of the wave signal is 7 */
-#define DAC_WAVE_BIT_WIDTH_8    DWBW(7)                     /*!< bit width of the wave signal is 8 */
-#define DAC_WAVE_BIT_WIDTH_9    DWBW(8)                     /*!< bit width of the wave signal is 9 */
-#define DAC_WAVE_BIT_WIDTH_10   DWBW(9)                     /*!< bit width of the wave signal is 10 */
-#define DAC_WAVE_BIT_WIDTH_11   DWBW(10)                    /*!< bit width of the wave signal is 11 */
-#define DAC_WAVE_BIT_WIDTH_12   DWBW(11)                    /*!< bit width of the wave signal is 12 */
+#define DAC_Wave_Bit_Width_1    DWBW(0)                     /*!< bit width of the wave signal is 1 */
+#define DAC_Wave_Bit_Width_2    DWBW(1)                     /*!< bit width of the wave signal is 2 */
+#define DAC_Wave_Bit_Width_3    DWBW(2)                     /*!< bit width of the wave signal is 3 */
+#define DAC_Wave_Bit_Width_4    DWBW(3)                     /*!< bit width of the wave signal is 4 */
+#define DAC_Wave_Bit_Width_5    DWBW(4)                     /*!< bit width of the wave signal is 5 */
+#define DAC_Wave_Bit_Width_6    DWBW(5)                     /*!< bit width of the wave signal is 6 */
+#define DAC_Wave_Bit_Width_7    DWBW(6)                     /*!< bit width of the wave signal is 7 */
+#define DAC_Wave_Bit_Width_8    DWBW(7)                     /*!< bit width of the wave signal is 8 */
+#define DAC_Wave_Bit_Width_9    DWBW(8)                     /*!< bit width of the wave signal is 9 */
+#define DAC_Wave_Bit_Width_10   DWBW(9)                     /*!< bit width of the wave signal is 10 */
+#define DAC_Wave_Bit_Width_11   DWBW(10)                    /*!< bit width of the wave signal is 11 */
+#define DAC_Wave_Bit_Width_12   DWBW(11)                    /*!< bit width of the wave signal is 12 */
 
 /* unmask LFSR bits in DAC LFSR noise mode */
-#define DAC_LFSR_BIT0           DAC_WAVE_BIT_WIDTH_1        /*!< unmask the LFSR bit0 */
-#define DAC_LFSR_BITS1_0        DAC_WAVE_BIT_WIDTH_2        /*!< unmask the LFSR bits[1:0] */
-#define DAC_LFSR_BITS2_0        DAC_WAVE_BIT_WIDTH_3        /*!< unmask the LFSR bits[2:0] */
-#define DAC_LFSR_BITS3_0        DAC_WAVE_BIT_WIDTH_4        /*!< unmask the LFSR bits[3:0] */
-#define DAC_LFSR_BITS4_0        DAC_WAVE_BIT_WIDTH_5        /*!< unmask the LFSR bits[4:0] */
-#define DAC_LFSR_BITS5_0        DAC_WAVE_BIT_WIDTH_6        /*!< unmask the LFSR bits[5:0] */
-#define DAC_LFSR_BITS6_0        DAC_WAVE_BIT_WIDTH_7        /*!< unmask the LFSR bits[6:0] */
-#define DAC_LFSR_BITS7_0        DAC_WAVE_BIT_WIDTH_8        /*!< unmask the LFSR bits[7:0] */
-#define DAC_LFSR_BITS8_0        DAC_WAVE_BIT_WIDTH_9        /*!< unmask the LFSR bits[8:0] */
-#define DAC_LFSR_BITS9_0        DAC_WAVE_BIT_WIDTH_10       /*!< unmask the LFSR bits[9:0] */
-#define DAC_LFSR_BITS10_0       DAC_WAVE_BIT_WIDTH_11       /*!< unmask the LFSR bits[10:0] */
-#define DAC_LFSR_BITS11_0       DAC_WAVE_BIT_WIDTH_12       /*!< unmask the LFSR bits[11:0] */
+#define DAC_Lfsr_BIT0           DAC_Wave_Bit_Width_1        /*!< unmask the LFSR bit0 */
+#define DAC_Lfsr_BITS1_0        DAC_Wave_Bit_Width_2        /*!< unmask the LFSR bits[1:0] */
+#define DAC_Lfsr_BITS2_0        DAC_Wave_Bit_Width_3        /*!< unmask the LFSR bits[2:0] */
+#define DAC_Lfsr_BITS3_0        DAC_Wave_Bit_Width_4        /*!< unmask the LFSR bits[3:0] */
+#define DAC_Lfsr_BITS4_0        DAC_Wave_Bit_Width_5        /*!< unmask the LFSR bits[4:0] */
+#define DAC_Lfsr_BITS5_0        DAC_Wave_Bit_Width_6        /*!< unmask the LFSR bits[5:0] */
+#define DAC_Lfsr_BITS6_0        DAC_Wave_Bit_Width_7        /*!< unmask the LFSR bits[6:0] */
+#define DAC_Lfsr_BITS7_0        DAC_Wave_Bit_Width_8        /*!< unmask the LFSR bits[7:0] */
+#define DAC_Lfsr_BITS8_0        DAC_Wave_Bit_Width_9        /*!< unmask the LFSR bits[8:0] */
+#define DAC_Lfsr_BITS9_0        DAC_Wave_Bit_Width_10       /*!< unmask the LFSR bits[9:0] */
+#define DAC_Lfsr_BITS10_0       DAC_Wave_Bit_Width_11       /*!< unmask the LFSR bits[10:0] */
+#define DAC_Lfsr_BITS11_0       DAC_Wave_Bit_Width_12       /*!< unmask the LFSR bits[11:0] */
 
 /* DAC data alignment */
 #define DATA_ALIGN(regval)      (BITS(0,1) & ((uint32_t)(regval) << 0))
@@ -178,94 +178,94 @@ OF SUCH DAMAGE.
 #define DAC_ALIGN_8B_R          DATA_ALIGN(2)               /*!< data right 8 bit alignment */
 
 /* triangle amplitude in DAC triangle noise mode */
-#define DAC_TRIANGLE_AMPLITUDE_1    DAC_WAVE_BIT_WIDTH_1    /*!< triangle amplitude is 1 */
-#define DAC_TRIANGLE_AMPLITUDE_3    DAC_WAVE_BIT_WIDTH_2    /*!< triangle amplitude is 3 */
-#define DAC_TRIANGLE_AMPLITUDE_7    DAC_WAVE_BIT_WIDTH_3    /*!< triangle amplitude is 7 */
-#define DAC_TRIANGLE_AMPLITUDE_15   DAC_WAVE_BIT_WIDTH_4    /*!< triangle amplitude is 15 */
-#define DAC_TRIANGLE_AMPLITUDE_31   DAC_WAVE_BIT_WIDTH_5    /*!< triangle amplitude is 31 */
-#define DAC_TRIANGLE_AMPLITUDE_63   DAC_WAVE_BIT_WIDTH_6    /*!< triangle amplitude is 63 */
-#define DAC_TRIANGLE_AMPLITUDE_127  DAC_WAVE_BIT_WIDTH_7    /*!< triangle amplitude is 127 */
-#define DAC_TRIANGLE_AMPLITUDE_255  DAC_WAVE_BIT_WIDTH_8    /*!< triangle amplitude is 255 */
-#define DAC_TRIANGLE_AMPLITUDE_511  DAC_WAVE_BIT_WIDTH_9    /*!< triangle amplitude is 511 */
-#define DAC_TRIANGLE_AMPLITUDE_1023 DAC_WAVE_BIT_WIDTH_10   /*!< triangle amplitude is 1023 */
-#define DAC_TRIANGLE_AMPLITUDE_2047 DAC_WAVE_BIT_WIDTH_11   /*!< triangle amplitude is 2047 */
-#define DAC_TRIANGLE_AMPLITUDE_4095 DAC_WAVE_BIT_WIDTH_12   /*!< triangle amplitude is 4095 */
+#define DAC_Triangle_AMPLITUDE_1    DAC_Wave_Bit_Width_1    /*!< triangle amplitude is 1 */
+#define DAC_Triangle_AMPLITUDE_3    DAC_Wave_Bit_Width_2    /*!< triangle amplitude is 3 */
+#define DAC_Triangle_AMPLITUDE_7    DAC_Wave_Bit_Width_3    /*!< triangle amplitude is 7 */
+#define DAC_Triangle_AMPLITUDE_15   DAC_Wave_Bit_Width_4    /*!< triangle amplitude is 15 */
+#define DAC_Triangle_AMPLITUDE_31   DAC_Wave_Bit_Width_5    /*!< triangle amplitude is 31 */
+#define DAC_Triangle_AMPLITUDE_63   DAC_Wave_Bit_Width_6    /*!< triangle amplitude is 63 */
+#define DAC_Triangle_AMPLITUDE_127  DAC_Wave_Bit_Width_7    /*!< triangle amplitude is 127 */
+#define DAC_Triangle_AMPLITUDE_255  DAC_Wave_Bit_Width_8    /*!< triangle amplitude is 255 */
+#define DAC_Triangle_AMPLITUDE_511  DAC_Wave_Bit_Width_9    /*!< triangle amplitude is 511 */
+#define DAC_Triangle_AMPLITUDE_1023 DAC_Wave_Bit_Width_10   /*!< triangle amplitude is 1023 */
+#define DAC_Triangle_AMPLITUDE_2047 DAC_Wave_Bit_Width_11   /*!< triangle amplitude is 2047 */
+#define DAC_Triangle_AMPLITUDE_4095 DAC_Wave_Bit_Width_12   /*!< triangle amplitude is 4095 */
 
 /* function declarations */
 /* initialization functions */
 /* deinitialize DAC */
 void DAC_DeInit(void);
 /* enable DAC */
-void DAC_enable(uint32_t DAC_periph);
+void DAC_Enable(uint32_t DAC_periph);
 /* disable DAC */
-void DAC_disable(uint32_t DAC_periph);
+void DAC_Disable(uint32_t DAC_periph);
 /* enable DAC DMA */
-void DAC_DMA_enable(uint32_t DAC_periph);
+void DAC_DMA_Enable(uint32_t DAC_periph);
 /* disable DAC DMA */
-void DAC_DMA_disable(uint32_t DAC_periph);
+void DAC_DMA_Disable(uint32_t DAC_periph);
 /* enable DAC output buffer */
-void DAC_output_buffer_enable(uint32_t DAC_periph);
+void DAC_OutPut_Buffer_Enable(uint32_t DAC_periph);
 /* disable DAC output buffer */
-void DAC_output_buffer_disable(uint32_t DAC_periph);
+void DAC_OutPut_Buffer_Disable(uint32_t DAC_periph);
 /* get the last data output value */
-uint16_t DAC_output_value_get(uint32_t DAC_periph);
+uint16_t DAC_OutPut_Value_Get(uint32_t DAC_periph);
 /* set DAC data holding register value */
-void DAC_data_set(uint32_t DAC_periph, uint32_t DAC_align, uint16_t data);
+void DAC_Data_Set(uint32_t DAC_periph, uint32_t DAC_align, uint16_t data);
 
 /* DAC trigger configuration */
 /* enable DAC trigger */
-void DAC_trigger_enable(uint32_t DAC_periph);
+void DAC_Trigger_Enable(uint32_t DAC_periph);
 /* disable DAC trigger */
-void DAC_trigger_disable(uint32_t DAC_periph);
+void DAC_Trigger_Disable(uint32_t DAC_periph);
 /* configure DAC trigger source */
-void DAC_trigger_source_Config(uint32_t DAC_periph, uint32_t triggersource);
+void DAC_Trigger_Source_Config(uint32_t DAC_periph, uint32_t triggersource);
 /* enable DAC software trigger */
-void DAC_software_trigger_enable(uint32_t DAC_periph);
+void DAC_Software_Trigger_Enable(uint32_t DAC_periph);
 /* disable DAC software trigger */
-void DAC_software_trigger_disable(uint32_t DAC_periph);
+void DAC_Software_Trigger_Disable(uint32_t DAC_periph);
 
 /* DAC wave mode configuration */
 /* configure DAC wave mode */
-void DAC_wave_mode_Config(uint32_t DAC_periph, uint32_t wave_mode);
+void DAC_Wave_Mode_Config(uint32_t DAC_periph, uint32_t wave_mode);
 /* configure DAC wave bit width */
-void DAC_wave_bit_width_Config(uint32_t DAC_periph, uint32_t bit_width);
+void DAC_Wave_Bit_Width_Config(uint32_t DAC_periph, uint32_t bit_width);
 /* configure DAC LFSR noise mode */
-void DAC_lfsr_noise_Config(uint32_t DAC_periph, uint32_t unmask_bits);
+void DAC_Lfsr_Noise_Config(uint32_t DAC_periph, uint32_t unmask_bits);
 /* configure DAC triangle noise mode */
-void DAC_triangle_noise_Config(uint32_t DAC_periph, uint32_t amplitude);
+void DAC_Triangle_Noise_Config(uint32_t DAC_periph, uint32_t amplitude);
 
 /* DAC concurrent mode configuration */
 /* enable DAC concurrent mode */
-void DAC_concurrent_enable(void);
+void DAC_Concurrent_Enable(void);
 /* disable DAC concurrent mode */
-void DAC_concurrent_disable(void);
+void DAC_Concurrent_Disable(void);
 /* enable DAC concurrent software trigger */
-void DAC_concurrent_software_trigger_enable(void);
+void DAC_Concurrent_Software_Trigger_Enable(void);
 /* disable DAC concurrent software trigger */
-void DAC_concurrent_software_trigger_disable(void);
+void DAC_Concurrent_Software_Trigger_Disable(void);
 /* enable DAC concurrent buffer function */
-void DAC_concurrent_output_buffer_enable(void);
+void DAC_Concurrent_OutPut_Buffer_Enable(void);
 /* disable DAC concurrent buffer function */
-void DAC_concurrent_output_buffer_disable(void);
+void DAC_Concurrent_OutPut_Buffer_Disable(void);
 /* set DAC concurrent mode data holding register value */
-void DAC_concurrent_data_set(uint32_t DAC_align, uint16_t data0, uint16_t data1);
+void DAC_Concurrent_Data_Set(uint32_t DAC_align, uint16_t data0, uint16_t data1);
 /* enable DAC concurrent interrupt */
-void DAC_concurrent_Interrupt_enable(void);
+void DAC_Concurrent_Interrupt_Enable(void);
 /* disable DAC concurrent interrupt */
-void DAC_concurrent_Interrupt_disable(void);
+void DAC_Concurrent_Interrupt_Disable(void);
 
 /* DAC interrupt configuration */
 /* get the specified DAC flag(DAC DMA underrun flag) */
-FlagStatus DAC_flag_get(uint32_t DAC_periph);
+FlagStatus DAC_Flag_Get(uint32_t DAC_periph);
 /* clear the specified DAC flag(DAC DMA underrun flag) */
-void DAC_flag_clear(uint32_t DAC_periph);
+void DAC_Flag_Clear(uint32_t DAC_periph);
 /* enable DAC interrupt(DAC DMA underrun interrupt) */
-void DAC_Interrupt_enable(uint32_t DAC_periph);
+void DAC_Interrupt_Enable(uint32_t DAC_periph);
 /* disable DAC interrupt(DAC DMA underrun interrupt) */
-void DAC_Interrupt_disable(uint32_t DAC_periph);
+void DAC_Interrupt_Disable(uint32_t DAC_periph);
 /* get the specified DAC interrupt flag(DAC DMA underrun interrupt flag) */
-FlagStatus DAC_Interrupt_flag_get(uint32_t DAC_periph);
+FlagStatus DAC_Interrupt_Flag_Get(uint32_t DAC_periph);
 /* clear the specified DAC interrupt flag(DAC DMA underrun interrupt flag) */
-void DAC_Interrupt_flag_clear(uint32_t DAC_periph);
+void DAC_Interrupt_Flag_Clear(uint32_t DAC_periph);
 
 #endif /* GD32F4XX_DAC_H */

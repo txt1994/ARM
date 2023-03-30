@@ -90,11 +90,11 @@ OF SUCH DAMAGE.
 
 /* constants definitions */
 /* boot mode definitions */
-#define SYSCFG_BOOTMODE_FLASH               ((uint8_t)0x00U)          /*!< main flash memory remap */
-#define SYSCFG_BOOTMODE_BOOTLOADER          ((uint8_t)0x01U)          /*!< boot loader remap */
-#define SYSCFG_BOOTMODE_EXMC_SRAM           ((uint8_t)0x02U)          /*!< SRAM/NOR 0 and 1 of EXMC remap */
-#define SYSCFG_BOOTMODE_SRAM                ((uint8_t)0x03U)          /*!< SRAM0 of on-chip SRAM remap */
-#define SYSCFG_BOOTMODE_EXMC_SDRAM          ((uint8_t)0x04U)          /*!< SDRAM bank0 of EXMC remap */
+#define SYSCFG_BootMode_FLASH               ((uint8_t)0x00U)          /*!< main flash memory remap */
+#define SYSCFG_BootMode_BOOTLOADER          ((uint8_t)0x01U)          /*!< boot loader remap */
+#define SYSCFG_BootMode_EXMC_SRAM           ((uint8_t)0x02U)          /*!< SRAM/NOR 0 and 1 of EXMC remap */
+#define SYSCFG_BootMode_SRAM                ((uint8_t)0x03U)          /*!< SRAM0 of on-chip SRAM remap */
+#define SYSCFG_BootMode_EXMC_SDRAM          ((uint8_t)0x04U)          /*!< SDRAM bank0 of EXMC remap */
 
 /* FMC swap definitions */
 #define SYSCFG_FMC_SWP_BANK0                ((uint32_t)0x00000000U)   /*!< main flash Bank 0 is mapped at address 0x08000000 */
@@ -120,41 +120,41 @@ OF SUCH DAMAGE.
 #define EXTI_SS_MSTEP(pin)                  (EXTI_SS_JSTEP*((pin)%EXTI_SS_JSTEP))   /*!< EXTI source select moving step */
 
 /* EXTI source port definitions */
-#define EXTI_SOURCE_GPIOA                   ((uint8_t)0x00U)          /*!< EXTI GPIOA configuration */
-#define EXTI_SOURCE_GPIOB                   ((uint8_t)0x01U)          /*!< EXTI GPIOB configuration */
-#define EXTI_SOURCE_GPIOC                   ((uint8_t)0x02U)          /*!< EXTI GPIOC configuration */
-#define EXTI_SOURCE_GPIOD                   ((uint8_t)0x03U)          /*!< EXTI GPIOD configuration */
-#define EXTI_SOURCE_GPIOE                   ((uint8_t)0x04U)          /*!< EXTI GPIOE configuration */
-#define EXTI_SOURCE_GPIOF                   ((uint8_t)0x05U)          /*!< EXTI GPIOF configuration */
-#define EXTI_SOURCE_GPIOG                   ((uint8_t)0x06U)          /*!< EXTI GPIOG configuration */
-#define EXTI_SOURCE_GPIOH                   ((uint8_t)0x07U)          /*!< EXTI GPIOH configuration */
-#define EXTI_SOURCE_GPIOI                   ((uint8_t)0x08U)          /*!< EXTI GPIOI configuration */
+#define EXTI_Source_GPIOA                   ((uint8_t)0x00U)          /*!< EXTI GPIOA configuration */
+#define EXTI_Source_GPIOB                   ((uint8_t)0x01U)          /*!< EXTI GPIOB configuration */
+#define EXTI_Source_GPIOC                   ((uint8_t)0x02U)          /*!< EXTI GPIOC configuration */
+#define EXTI_Source_GPIOD                   ((uint8_t)0x03U)          /*!< EXTI GPIOD configuration */
+#define EXTI_Source_GPIOE                   ((uint8_t)0x04U)          /*!< EXTI GPIOE configuration */
+#define EXTI_Source_GPIOF                   ((uint8_t)0x05U)          /*!< EXTI GPIOF configuration */
+#define EXTI_Source_GPIOG                   ((uint8_t)0x06U)          /*!< EXTI GPIOG configuration */
+#define EXTI_Source_GPIOH                   ((uint8_t)0x07U)          /*!< EXTI GPIOH configuration */
+#define EXTI_Source_GPIOI                   ((uint8_t)0x08U)          /*!< EXTI GPIOI configuration */
 
 /* EXTI source pin definitions */
-#define EXTI_SOURCE_PIN0                    ((uint8_t)0x00U)          /*!< EXTI GPIO pin0 configuration */
-#define EXTI_SOURCE_PIN1                    ((uint8_t)0x01U)          /*!< EXTI GPIO pin1 configuration */
-#define EXTI_SOURCE_PIN2                    ((uint8_t)0x02U)          /*!< EXTI GPIO pin2 configuration */
-#define EXTI_SOURCE_PIN3                    ((uint8_t)0x03U)          /*!< EXTI GPIO pin3 configuration */
-#define EXTI_SOURCE_PIN4                    ((uint8_t)0x04U)          /*!< EXTI GPIO pin4 configuration */
-#define EXTI_SOURCE_PIN5                    ((uint8_t)0x05U)          /*!< EXTI GPIO pin5 configuration */
-#define EXTI_SOURCE_PIN6                    ((uint8_t)0x06U)          /*!< EXTI GPIO pin6 configuration */
-#define EXTI_SOURCE_PIN7                    ((uint8_t)0x07U)          /*!< EXTI GPIO pin7 configuration */
-#define EXTI_SOURCE_PIN8                    ((uint8_t)0x08U)          /*!< EXTI GPIO pin8 configuration */
-#define EXTI_SOURCE_PIN9                    ((uint8_t)0x09U)          /*!< EXTI GPIO pin9 configuration */
-#define EXTI_SOURCE_PIN10                   ((uint8_t)0x0AU)          /*!< EXTI GPIO pin10 configuration */
-#define EXTI_SOURCE_PIN11                   ((uint8_t)0x0BU)          /*!< EXTI GPIO pin11 configuration */
-#define EXTI_SOURCE_PIN12                   ((uint8_t)0x0CU)          /*!< EXTI GPIO pin12 configuration */
-#define EXTI_SOURCE_PIN13                   ((uint8_t)0x0DU)          /*!< EXTI GPIO pin13 configuration */
-#define EXTI_SOURCE_PIN14                   ((uint8_t)0x0EU)          /*!< EXTI GPIO pin14 configuration */
-#define EXTI_SOURCE_PIN15                   ((uint8_t)0x0FU)          /*!< EXTI GPIO pin15 configuration */
+#define EXTI_Source_PIN0                    ((uint8_t)0x00U)          /*!< EXTI GPIO pin0 configuration */
+#define EXTI_Source_PIN1                    ((uint8_t)0x01U)          /*!< EXTI GPIO pin1 configuration */
+#define EXTI_Source_PIN2                    ((uint8_t)0x02U)          /*!< EXTI GPIO pin2 configuration */
+#define EXTI_Source_PIN3                    ((uint8_t)0x03U)          /*!< EXTI GPIO pin3 configuration */
+#define EXTI_Source_PIN4                    ((uint8_t)0x04U)          /*!< EXTI GPIO pin4 configuration */
+#define EXTI_Source_PIN5                    ((uint8_t)0x05U)          /*!< EXTI GPIO pin5 configuration */
+#define EXTI_Source_PIN6                    ((uint8_t)0x06U)          /*!< EXTI GPIO pin6 configuration */
+#define EXTI_Source_PIN7                    ((uint8_t)0x07U)          /*!< EXTI GPIO pin7 configuration */
+#define EXTI_Source_PIN8                    ((uint8_t)0x08U)          /*!< EXTI GPIO pin8 configuration */
+#define EXTI_Source_PIN9                    ((uint8_t)0x09U)          /*!< EXTI GPIO pin9 configuration */
+#define EXTI_Source_PIN10                   ((uint8_t)0x0AU)          /*!< EXTI GPIO pin10 configuration */
+#define EXTI_Source_PIN11                   ((uint8_t)0x0BU)          /*!< EXTI GPIO pin11 configuration */
+#define EXTI_Source_PIN12                   ((uint8_t)0x0CU)          /*!< EXTI GPIO pin12 configuration */
+#define EXTI_Source_PIN13                   ((uint8_t)0x0DU)          /*!< EXTI GPIO pin13 configuration */
+#define EXTI_Source_PIN14                   ((uint8_t)0x0EU)          /*!< EXTI GPIO pin14 configuration */
+#define EXTI_Source_PIN15                   ((uint8_t)0x0FU)          /*!< EXTI GPIO pin15 configuration */
 
 /* ethernet PHY selection */
 #define SYSCFG_ENET_PHY_MII                 ((uint32_t)0x00000000U)   /*!< MII is selected for the Ethernet MAC */
 #define SYSCFG_ENET_PHY_RMII                ((uint32_t)0x00800000U)   /*!< RMII is selected for the Ethernet MAC */
 
 /* I/O compensation cell enable/disable */
-#define SYSCFG_COMPENSATION_ENABLE          ((uint32_t)0x00000001U)   /*!< I/O compensation cell enable */
-#define SYSCFG_COMPENSATION_DISABLE         ((uint32_t)0x00000000U)   /*!< I/O compensation cell disable */
+#define SYSCFG_Compensation_ENABLE          ((uint32_t)0x00000001U)   /*!< I/O compensation cell enable */
+#define SYSCFG_Compensation_DISABLE         ((uint32_t)0x00000000U)   /*!< I/O compensation cell disable */
 
 /* function declarations */
 /* initialization functions */
@@ -163,20 +163,20 @@ void SYSCFG_DeInit(void);
 
 /* function configuration */
 /* configure the boot mode */
-void SYSCFG_bootmode_Config(uint8_t SYSCFG_bootmode);
+void SYSCFG_BootMode_Config(uint8_t SYSCFG_bootmode);
 /* configure FMC memory mapping swap */
-void SYSCFG_FMC_swap_Config(uint32_t SYSCFG_FMC_swap);
+void SYSCFG_FMC_Swap_Config(uint32_t SYSCFG_FMC_swap);
 /* configure the EXMC swap */
-void SYSCFG_EXMC_swap_Config(uint32_t SYSCFG_EXMC_swap);
+void SYSCFG_EXMC_Swap_Config(uint32_t SYSCFG_EXMC_swap);
 /* configure the GPIO pin as EXTI Line */
-void SYSCFG_EXTI_line_Config(uint8_t EXTI_port, uint8_t EXTI_pin);
+void SYSCFG_EXTI_Line_Config(uint8_t EXTI_port, uint8_t EXTI_pin);
 /* configure the PHY interface for the ethernet MAC */
-void SYSCFG_ENET_phy_interface_Config(uint32_t SYSCFG_ENET_phy_interface);
+void SYSCFG_ENET_PHY_Interface_Config(uint32_t SYSCFG_ENET_PHY_interface);
 /* configure the I/O compensation cell */
-void SYSCFG_compensation_Config(uint32_t SYSCFG_compensation);
+void SYSCFG_Compensation_Config(uint32_t SYSCFG_compensation);
 
 /* interrupt & flag functions */
 /* check the I/O compensation cell is ready or not */
-FlagStatus SYSCFG_flag_get(void);
+FlagStatus SYSCFG_Flag_Get(void);
 
 #endif /* GD32F4XX_SYSCFG_H */

@@ -50,7 +50,7 @@ OF SUCH DAMAGE.
 
 /* bits definitions */
 /* CRC_DATA */
-#define CRC_DATA_DATA                  BITS(0,31)                      /*!< CRC calculation result bits */
+#define CRC_Data_DATA                  BITS(0,31)                      /*!< CRC calculation result bits */
 
 /* CRC_FDATA */
 #define CRC_FDATA_FDATA                BITS(0,7)                       /*!< CRC free data bits */
@@ -64,18 +64,18 @@ OF SUCH DAMAGE.
 void CRC_DeInit(void);
 
 /* reset data register(CRC_DATA) to the value of 0xFFFFFFFF */
-void CRC_data_register_reset(void);
+void CRC_Data_Register_Reset(void);
 /* read the value of the data register */
-uint32_t CRC_data_register_read(void);
+uint32_t CRC_Data_Register_Read(void);
 
 /* read the value of the free data register */
-uint8_t CRC_free_data_register_read(void);
+uint8_t CRC_Free_Data_Register_Read(void);
 /* write data to the free data register */
-void CRC_free_data_register_write(uint8_t free_data);
+void CRC_Free_Data_Register_Write(uint8_t free_data);
 
 /* calculate the CRC value of a 32-bit data */
-uint32_t CRC_single_data_calculate(uint32_t sdata);
+uint32_t CRC_Single_Data_Calculate(uint32_t sdata);
 /* calculate the CRC value of an array of 32-bit values */
-uint32_t CRC_block_data_calculate(uint32_t array[], uint32_t size);
+uint32_t CRC_Block_Data_Calculate(uint32_t array[], uint32_t size);
 
 #endif /* GD32F4XX_CRC_H */

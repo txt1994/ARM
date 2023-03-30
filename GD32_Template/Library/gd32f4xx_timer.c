@@ -141,11 +141,11 @@ void TIMER_DeInit(uint32_t TIMER_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_struct_para_init(TIMER_parameter_struct *initpara) {
+void TIMER_Struct_Para_Init(TIMER_Parameter_Struct *initpara) {
     /* initialize the init parameter struct member with the default value */
     initpara->prescaler         = 0U;
-    initpara->alignedmode       = TIMER_COUNTER_EDGE;
-    initpara->counterdirection  = TIMER_COUNTER_UP;
+    initpara->alignedmode       = TIMER_Counter_EDGE;
+    initpara->counterdirection  = TIMER_Counter_UP;
     initpara->period            = 65535U;
     initpara->clockdivision     = TIMER_CKDIV_DIV1;
     initpara->repetitioncounter = 0U;
@@ -156,15 +156,15 @@ void TIMER_struct_para_init(TIMER_parameter_struct *initpara) {
     参数[输入]:  TIMER_periph: TIMERx(x=0..13)
     参数[输入]:  initpara: init parameter struct
                 prescaler: prescaler value of the counter clock,0~65535
-                alignedmode: TIMER_COUNTER_EDGE,TIMER_COUNTER_CENTER_DOWN,TIMER_COUNTER_CENTER_UP,TIMER_COUNTER_CENTER_BOTH
-                counterdirection: TIMER_COUNTER_UP,TIMER_COUNTER_DOWN
+                alignedmode: TIMER_Counter_EDGE,TIMER_Counter_CENTER_DOWN,TIMER_Counter_CENTER_UP,TIMER_Counter_CENTER_BOTH
+                counterdirection: TIMER_Counter_UP,TIMER_Counter_DOWN
                 period: counter auto reload value,(TIMER1,TIMER4,32 bit)
                 clockdivision: TIMER_CKDIV_DIV1,TIMER_CKDIV_DIV2,TIMER_CKDIV_DIV4
                 repetitioncounter: counter repetition value,0~255
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_init(uint32_t TIMER_periph, TIMER_parameter_struct *initpara) {
+void TIMER_Init(uint32_t TIMER_periph, TIMER_Parameter_Struct *initpara) {
     /* configure the counter prescaler value */
     TIMER_PSC(TIMER_periph) = (uint16_t)initpara->prescaler;
 
@@ -200,7 +200,7 @@ void TIMER_init(uint32_t TIMER_periph, TIMER_parameter_struct *initpara) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_enable(uint32_t TIMER_periph) {
+void TIMER_Enable(uint32_t TIMER_periph) {
     TIMER_CTL0(TIMER_periph) |= (uint32_t)TIMER_CTL0_CEN;
 }
 
@@ -210,7 +210,7 @@ void TIMER_enable(uint32_t TIMER_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_disable(uint32_t TIMER_periph) {
+void TIMER_Disable(uint32_t TIMER_periph) {
     TIMER_CTL0(TIMER_periph) &= ~(uint32_t)TIMER_CTL0_CEN;
 }
 
@@ -220,7 +220,7 @@ void TIMER_disable(uint32_t TIMER_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_auto_reload_shadow_enable(uint32_t TIMER_periph) {
+void TIMER_Auto_Reload_Shadow_Enable(uint32_t TIMER_periph) {
     TIMER_CTL0(TIMER_periph) |= (uint32_t)TIMER_CTL0_ARSE;
 }
 
@@ -230,7 +230,7 @@ void TIMER_auto_reload_shadow_enable(uint32_t TIMER_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_auto_reload_shadow_disable(uint32_t TIMER_periph) {
+void TIMER_Auto_Reload_Shadow_Disable(uint32_t TIMER_periph) {
     TIMER_CTL0(TIMER_periph) &= ~(uint32_t)TIMER_CTL0_ARSE;
 }
 
@@ -240,7 +240,7 @@ void TIMER_auto_reload_shadow_disable(uint32_t TIMER_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_update_event_enable(uint32_t TIMER_periph) {
+void TIMER_Update_Event_Enable(uint32_t TIMER_periph) {
     TIMER_CTL0(TIMER_periph) &= ~(uint32_t)TIMER_CTL0_UPDIS;
 }
 
@@ -250,7 +250,7 @@ void TIMER_update_event_enable(uint32_t TIMER_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_update_event_disable(uint32_t TIMER_periph) {
+void TIMER_Update_Event_Disable(uint32_t TIMER_periph) {
     TIMER_CTL0(TIMER_periph) |= (uint32_t) TIMER_CTL0_UPDIS;
 }
 
@@ -259,14 +259,14 @@ void TIMER_update_event_disable(uint32_t TIMER_periph) {
     参数[输入]:  TIMER_periph: TIMERx(x=0..4,7)
     参数[输入]:  aligned:
                 only one parameter can be selected which is shown as below:
-      参数:        TIMER_COUNTER_EDGE: edge-aligned mode
-      参数:        TIMER_COUNTER_CENTER_DOWN: center-aligned and counting down assert mode
-      参数:        TIMER_COUNTER_CENTER_UP: center-aligned and counting up assert mode
-      参数:        TIMER_COUNTER_CENTER_BOTH: center-aligned and counting up/down assert mode
+      参数:        TIMER_Counter_EDGE: edge-aligned mode
+      参数:        TIMER_Counter_CENTER_DOWN: center-aligned and counting down assert mode
+      参数:        TIMER_Counter_CENTER_UP: center-aligned and counting up assert mode
+      参数:        TIMER_Counter_CENTER_BOTH: center-aligned and counting up/down assert mode
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_counter_alignment(uint32_t TIMER_periph, uint16_t aligned) {
+void TIMER_Counter_Alignment(uint32_t TIMER_periph, uint16_t aligned) {
     TIMER_CTL0(TIMER_periph) &= ~(uint32_t)TIMER_CTL0_CAM;
     TIMER_CTL0(TIMER_periph) |= (uint32_t)aligned;
 }
@@ -277,7 +277,7 @@ void TIMER_counter_alignment(uint32_t TIMER_periph, uint16_t aligned) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_counter_up_direction(uint32_t TIMER_periph) {
+void TIMER_Counter_Up_Direction(uint32_t TIMER_periph) {
     TIMER_CTL0(TIMER_periph) &= ~(uint32_t)TIMER_CTL0_DIR;
 }
 
@@ -287,7 +287,7 @@ void TIMER_counter_up_direction(uint32_t TIMER_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_counter_down_direction(uint32_t TIMER_periph) {
+void TIMER_Counter_Down_Direction(uint32_t TIMER_periph) {
     TIMER_CTL0(TIMER_periph) |= (uint32_t)TIMER_CTL0_DIR;
 }
 
@@ -297,15 +297,15 @@ void TIMER_counter_down_direction(uint32_t TIMER_periph) {
     参数[输入]:  prescaler: prescaler value,0~65535
     参数[输入]:  pscreload: prescaler reload mode
                 only one parameter can be selected which is shown as below:
-      参数:        TIMER_PSC_RELOAD_NOW: the prescaler is loaded right now
-      参数:        TIMER_PSC_RELOAD_UPDATE: the prescaler is loaded at the next update event
+      参数:        TIMER_PSC_Reload_NOW: the prescaler is loaded right now
+      参数:        TIMER_PSC_Reload_UPDATE: the prescaler is loaded at the next update event
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_prescaler_Config(uint32_t TIMER_periph, uint16_t prescaler, uint8_t pscreload) {
+void TIMER_Prescaler_Config(uint32_t TIMER_periph, uint16_t prescaler, uint8_t pscreload) {
     TIMER_PSC(TIMER_periph) = (uint32_t)prescaler;
 
-    if(TIMER_PSC_RELOAD_NOW == pscreload) {
+    if(TIMER_PSC_Reload_NOW == pscreload) {
         TIMER_SWEVG(TIMER_periph) |= (uint32_t)TIMER_SWEVG_UPG;
     }
 }
@@ -317,7 +317,7 @@ void TIMER_prescaler_Config(uint32_t TIMER_periph, uint16_t prescaler, uint8_t p
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_repetition_value_Config(uint32_t TIMER_periph, uint16_t repetition) {
+void TIMER_Repetition_Value_Config(uint32_t TIMER_periph, uint16_t repetition) {
     TIMER_CREP(TIMER_periph) = (uint32_t)repetition;
 }
 
@@ -328,7 +328,7 @@ void TIMER_repetition_value_Config(uint32_t TIMER_periph, uint16_t repetition) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_autoreload_value_Config(uint32_t TIMER_periph, uint32_t autoreload) {
+void TIMER_AutoReload_Value_Config(uint32_t TIMER_periph, uint32_t autoreload) {
     TIMER_CAR(TIMER_periph) = (uint32_t)autoreload;
 }
 
@@ -339,7 +339,7 @@ void TIMER_autoreload_value_Config(uint32_t TIMER_periph, uint32_t autoreload) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_counter_value_Config(uint32_t TIMER_periph, uint32_t counter) {
+void TIMER_Counter_Value_Config(uint32_t TIMER_periph, uint32_t counter) {
     TIMER_CNT(TIMER_periph) = (uint32_t)counter;
 }
 
@@ -349,7 +349,7 @@ void TIMER_counter_value_Config(uint32_t TIMER_periph, uint32_t counter) {
     参数[输出]:  无
     返回值:     counter value
 */
-uint32_t TIMER_counter_read(uint32_t TIMER_periph) {
+uint32_t TIMER_Counter_Read(uint32_t TIMER_periph) {
     uint32_t count_value = 0U;
     count_value = TIMER_CNT(TIMER_periph);
     return (count_value);
@@ -361,7 +361,7 @@ uint32_t TIMER_counter_read(uint32_t TIMER_periph) {
     参数[输出]:  无
     返回值:     prescaler register value
 */
-uint16_t TIMER_prescaler_read(uint32_t TIMER_periph) {
+uint16_t TIMER_Prescaler_Read(uint32_t TIMER_periph) {
     uint16_t prescaler_value = 0U;
     prescaler_value = (uint16_t)(TIMER_PSC(TIMER_periph));
     return (prescaler_value);
@@ -372,15 +372,15 @@ uint16_t TIMER_prescaler_read(uint32_t TIMER_periph) {
     参数[输入]:  TIMER_periph: TIMERx(x=0..8,11)
     参数[输入]:  spmode:
                 only one parameter can be selected which is shown as below:
-      参数:        TIMER_SP_MODE_SINGLE: single pulse mode
-      参数:        TIMER_SP_MODE_REPETITIVE: repetitive pulse mode
+      参数:        TIMER_SP_Mode_SINGLE: single pulse mode
+      参数:        TIMER_SP_Mode_REPETITIVE: repetitive pulse mode
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_single_pulse_mode_Config(uint32_t TIMER_periph, uint32_t spmode) {
-    if(TIMER_SP_MODE_SINGLE == spmode) {
+void TIMER_Single_Pulse_Mode_Config(uint32_t TIMER_periph, uint32_t spmode) {
+    if(TIMER_SP_Mode_SINGLE == spmode) {
         TIMER_CTL0(TIMER_periph) |= (uint32_t)TIMER_CTL0_SPM;
-    } else if(TIMER_SP_MODE_REPETITIVE == spmode) {
+    } else if(TIMER_SP_Mode_REPETITIVE == spmode) {
         TIMER_CTL0(TIMER_periph) &= ~((uint32_t)TIMER_CTL0_SPM);
     } else {
         /* illegal parameters */
@@ -392,15 +392,15 @@ void TIMER_single_pulse_mode_Config(uint32_t TIMER_periph, uint32_t spmode) {
     参数[输入]:  TIMER_periph: TIMERx(x=0..13)
     参数[输入]:  update:
                 only one parameter can be selected which is shown as below:
-      参数:        TIMER_UPDATE_SRC_GLOBAL: update generate by setting of UPG bit or the counter overflow/underflow,or the slave mode controller trigger
-      参数:        TIMER_UPDATE_SRC_REGULAR: update generate only by counter overflow/underflow
+      参数:        TIMER_Update_SRC_GLOBAL: update generate by setting of UPG bit or the counter overflow/underflow,or the slave mode controller trigger
+      参数:        TIMER_Update_SRC_REGULAR: update generate only by counter overflow/underflow
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_update_source_Config(uint32_t TIMER_periph, uint32_t update) {
-    if(TIMER_UPDATE_SRC_REGULAR == update) {
+void TIMER_Update_Source_Config(uint32_t TIMER_periph, uint32_t update) {
+    if(TIMER_Update_SRC_REGULAR == update) {
         TIMER_CTL0(TIMER_periph) |= (uint32_t)TIMER_CTL0_UPS;
-    } else if(TIMER_UPDATE_SRC_GLOBAL == update) {
+    } else if(TIMER_Update_SRC_GLOBAL == update) {
         TIMER_CTL0(TIMER_periph) &= ~(uint32_t)TIMER_CTL0_UPS;
     } else {
         /* illegal parameters */
@@ -422,7 +422,7 @@ void TIMER_update_source_Config(uint32_t TIMER_periph, uint32_t update) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_DMA_enable(uint32_t TIMER_periph, uint16_t dma) {
+void TIMER_DMA_Enable(uint32_t TIMER_periph, uint16_t dma) {
     TIMER_DMAINTEN(TIMER_periph) |= (uint32_t) dma;
 }
 
@@ -441,7 +441,7 @@ void TIMER_DMA_enable(uint32_t TIMER_periph, uint16_t dma) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_DMA_disable(uint32_t TIMER_periph, uint16_t dma) {
+void TIMER_DMA_Disable(uint32_t TIMER_periph, uint16_t dma) {
     TIMER_DMAINTEN(TIMER_periph) &= (~(uint32_t)(dma));
 }
 
@@ -455,7 +455,7 @@ void TIMER_DMA_disable(uint32_t TIMER_periph, uint16_t dma) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_channel_DMA_request_source_select(uint32_t TIMER_periph, uint8_t DMA_request) {
+void TIMER_Channel_DMA_Request_Source_Select(uint32_t TIMER_periph, uint8_t DMA_request) {
     if(TIMER_DMAREQUEST_UPDATEEVENT == DMA_request) {
         TIMER_CTL1(TIMER_periph) |= (uint32_t)TIMER_CTL1_DMAS;
     } else if(TIMER_DMAREQUEST_CHANNELEVENT == DMA_request) {
@@ -496,7 +496,7 @@ void TIMER_channel_DMA_request_source_select(uint32_t TIMER_periph, uint8_t DMA_
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_DMA_transfer_Config(uint32_t TIMER_periph, uint32_t DMA_baseaddr, uint32_t DMA_lenth) {
+void TIMER_DMA_Transfer_Config(uint32_t TIMER_periph, uint32_t DMA_baseaddr, uint32_t DMA_lenth) {
     TIMER_DMACFG(TIMER_periph) &= (~(uint32_t)(TIMER_DMACFG_DMATA | TIMER_DMACFG_DMATC));
     TIMER_DMACFG(TIMER_periph) |= (uint32_t)(DMA_baseaddr | DMA_lenth);
 }
@@ -506,18 +506,18 @@ void TIMER_DMA_transfer_Config(uint32_t TIMER_periph, uint32_t DMA_baseaddr, uin
     参数[输入]:  TIMER_periph: please refer to the following parameters
     参数[输入]:  event: the timer software event generation sources
                 one or more parameters can be selected which are shown as below:
-      参数:        TIMER_EVENT_SRC_UPG: update event,TIMERx(x=0..13)
-      参数:        TIMER_EVENT_SRC_CH0G: channel 0 capture or compare event generation,TIMERx(x=0..4,7..13)
-      参数:        TIMER_EVENT_SRC_CH1G: channel 1 capture or compare event generation,TIMERx(x=0..4,7,8,11)
-      参数:        TIMER_EVENT_SRC_CH2G: channel 2 capture or compare event generation,TIMERx(x=0..4,7)
-      参数:        TIMER_EVENT_SRC_CH3G: channel 3 capture or compare event generation,TIMERx(x=0..4,7)
-      参数:        TIMER_EVENT_SRC_CMTG: channel commutation event generation,TIMERx(x=0,7)
-      参数:        TIMER_EVENT_SRC_TRGG: trigger event generation,TIMERx(x=0..4,7,8,11)
-      参数:        TIMER_EVENT_SRC_BRKG:  break event generation,TIMERx(x=0,7)
+      参数:        TIMER_Event_SRC_UPG: update event,TIMERx(x=0..13)
+      参数:        TIMER_Event_SRC_CH0G: channel 0 capture or compare event generation,TIMERx(x=0..4,7..13)
+      参数:        TIMER_Event_SRC_CH1G: channel 1 capture or compare event generation,TIMERx(x=0..4,7,8,11)
+      参数:        TIMER_Event_SRC_CH2G: channel 2 capture or compare event generation,TIMERx(x=0..4,7)
+      参数:        TIMER_Event_SRC_CH3G: channel 3 capture or compare event generation,TIMERx(x=0..4,7)
+      参数:        TIMER_Event_SRC_CMTG: channel commutation event generation,TIMERx(x=0,7)
+      参数:        TIMER_Event_SRC_TRGG: trigger event generation,TIMERx(x=0..4,7,8,11)
+      参数:        TIMER_Event_SRC_BRKG:  break event generation,TIMERx(x=0,7)
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_event_software_generate(uint32_t TIMER_periph, uint16_t event) {
+void TIMER_Event_Software_Generate(uint32_t TIMER_periph, uint16_t event) {
     TIMER_SWEVG(TIMER_periph) |= (uint32_t)event;
 }
 
@@ -527,32 +527,32 @@ void TIMER_event_software_generate(uint32_t TIMER_periph, uint16_t event) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_break_struct_para_init(TIMER_break_parameter_struct *breakpara) {
+void TIMER_Break_Struct_Para_Init(TIMER_Break_Parameter_Struct *breakpara) {
     /* initialize the break parameter struct member with the default value */
-    breakpara->runoffstate     = TIMER_ROS_STATE_DISABLE;
-    breakpara->ideloffstate    = TIMER_IOS_STATE_DISABLE;
+    breakpara->runoffstate     = TIMER_ROS_State_DISABLE;
+    breakpara->ideloffstate    = TIMER_IOS_State_DISABLE;
     breakpara->deadtime        = 0U;
-    breakpara->breakpolarity   = TIMER_BREAK_POLARITY_LOW;
+    breakpara->breakpolarity   = TIMER_Break_Polarity_LOW;
     breakpara->outputautostate = TIMER_OUTAUTO_DISABLE;
     breakpara->protectmode     = TIMER_CCHP_PROT_OFF;
-    breakpara->breakstate      = TIMER_BREAK_DISABLE;
+    breakpara->breakstate      = TIMER_Break_DISABLE;
 }
 
 /*!
     简介:      configure TIMER break function
     参数[输入]:  TIMER_periph: TIMERx(x=0,7)
     参数[输入]:  breakpara: TIMER break parameter struct
-                runoffstate: TIMER_ROS_STATE_ENABLE,TIMER_ROS_STATE_DISABLE
-                ideloffstate: TIMER_IOS_STATE_ENABLE,TIMER_IOS_STATE_DISABLE
+                runoffstate: TIMER_ROS_State_ENABLE,TIMER_ROS_State_DISABLE
+                ideloffstate: TIMER_IOS_State_ENABLE,TIMER_IOS_State_DISABLE
                 deadtime: 0~255
-                breakpolarity: TIMER_BREAK_POLARITY_LOW,TIMER_BREAK_POLARITY_HIGH
+                breakpolarity: TIMER_Break_Polarity_LOW,TIMER_Break_Polarity_HIGH
                 outputautostate: TIMER_OUTAUTO_ENABLE,TIMER_OUTAUTO_DISABLE
                 protectmode: TIMER_CCHP_PROT_OFF,TIMER_CCHP_PROT_0,TIMER_CCHP_PROT_1,TIMER_CCHP_PROT_2
-                breakstate: TIMER_BREAK_ENABLE,TIMER_BREAK_DISABLE
+                breakstate: TIMER_Break_ENABLE,TIMER_Break_DISABLE
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_break_Config(uint32_t TIMER_periph, TIMER_break_parameter_struct *breakpara) {
+void TIMER_Break_Config(uint32_t TIMER_periph, TIMER_Break_Parameter_Struct *breakpara) {
     TIMER_CCHP(TIMER_periph) = (uint32_t)(((uint32_t)(breakpara->runoffstate)) |
                                           ((uint32_t)(breakpara->ideloffstate)) |
                                           ((uint32_t)(breakpara->deadtime)) |
@@ -568,7 +568,7 @@ void TIMER_break_Config(uint32_t TIMER_periph, TIMER_break_parameter_struct *bre
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_break_enable(uint32_t TIMER_periph) {
+void TIMER_Break_Enable(uint32_t TIMER_periph) {
     TIMER_CCHP(TIMER_periph) |= (uint32_t)TIMER_CCHP_BRKEN;
 }
 
@@ -578,7 +578,7 @@ void TIMER_break_enable(uint32_t TIMER_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_break_disable(uint32_t TIMER_periph) {
+void TIMER_Break_Disable(uint32_t TIMER_periph) {
     TIMER_CCHP(TIMER_periph) &= ~(uint32_t)TIMER_CCHP_BRKEN;
 }
 
@@ -588,7 +588,7 @@ void TIMER_break_disable(uint32_t TIMER_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_automatic_output_enable(uint32_t TIMER_periph) {
+void TIMER_Automatic_OutPut_Enable(uint32_t TIMER_periph) {
     TIMER_CCHP(TIMER_periph) |= (uint32_t)TIMER_CCHP_OAEN;
 }
 
@@ -598,7 +598,7 @@ void TIMER_automatic_output_enable(uint32_t TIMER_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_automatic_output_disable(uint32_t TIMER_periph) {
+void TIMER_Automatic_OutPut_Disable(uint32_t TIMER_periph) {
     TIMER_CCHP(TIMER_periph) &= ~(uint32_t)TIMER_CCHP_OAEN;
 }
 
@@ -609,7 +609,7 @@ void TIMER_automatic_output_disable(uint32_t TIMER_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_primary_output_Config(uint32_t TIMER_periph, ControlStatus newvalue) {
+void TIMER_Primary_OutPut_Config(uint32_t TIMER_periph, ControlStatus newvalue) {
     if(ENABLE == newvalue) {
         TIMER_CCHP(TIMER_periph) |= (uint32_t)TIMER_CCHP_POEN;
     } else {
@@ -624,7 +624,7 @@ void TIMER_primary_output_Config(uint32_t TIMER_periph, ControlStatus newvalue) 
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_channel_control_shadow_Config(uint32_t TIMER_periph, ControlStatus newvalue) {
+void TIMER_Channel_Control_Shadow_Config(uint32_t TIMER_periph, ControlStatus newvalue) {
     if(ENABLE == newvalue) {
         TIMER_CTL1(TIMER_periph) |= (uint32_t)TIMER_CTL1_CCSE;
     } else {
@@ -642,7 +642,7 @@ void TIMER_channel_control_shadow_Config(uint32_t TIMER_periph, ControlStatus ne
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_channel_control_shadow_update_Config(uint32_t TIMER_periph, uint8_t ccuctl) {
+void TIMER_Channel_Control_Shadow_Update_Config(uint32_t TIMER_periph, uint8_t ccuctl) {
     if(TIMER_UPDATECTL_CCU == ccuctl) {
         TIMER_CTL1(TIMER_periph) &= (~(uint32_t)TIMER_CTL1_CCUC);
     } else if(TIMER_UPDATECTL_CCUTRI == ccuctl) {
@@ -658,14 +658,14 @@ void TIMER_channel_control_shadow_update_Config(uint32_t TIMER_periph, uint8_t c
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_channel_output_struct_para_init(TIMER_oc_parameter_struct *ocpara) {
+void TIMER_Channel_OutPut_Struct_Para_Init(TIMER_oc_Parameter_Struct *ocpara) {
     /* initialize the channel output parameter struct member with the default value */
     ocpara->outputstate  = (uint16_t)TIMER_CCX_DISABLE;
     ocpara->outputnstate = TIMER_CCXN_DISABLE;
-    ocpara->ocpolarity   = TIMER_OC_POLARITY_HIGH;
-    ocpara->ocnpolarity  = TIMER_OCN_POLARITY_HIGH;
-    ocpara->ocidlestate  = TIMER_OC_IDLE_STATE_LOW;
-    ocpara->ocnidlestate = TIMER_OCN_IDLE_STATE_LOW;
+    ocpara->ocpolarity   = TIMER_OC_Polarity_HIGH;
+    ocpara->ocnpolarity  = TIMER_OCN_Polarity_HIGH;
+    ocpara->ocidlestate  = TIMER_OC_IDLE_State_LOW;
+    ocpara->ocnidlestate = TIMER_OCN_IDLE_State_LOW;
 }
 
 /*!
@@ -680,14 +680,14 @@ void TIMER_channel_output_struct_para_init(TIMER_oc_parameter_struct *ocpara) {
     参数[输入]:  ocpara: TIMER channeln output parameter struct
                 outputstate: TIMER_CCX_ENABLE,TIMER_CCX_DISABLE
                 outputnstate: TIMER_CCXN_ENABLE,TIMER_CCXN_DISABLE
-                ocpolarity: TIMER_OC_POLARITY_HIGH,TIMER_OC_POLARITY_LOW
-                ocnpolarity: TIMER_OCN_POLARITY_HIGH,TIMER_OCN_POLARITY_LOW
-                ocidlestate: TIMER_OC_IDLE_STATE_LOW,TIMER_OC_IDLE_STATE_HIGH
-                ocnidlestate: TIMER_OCN_IDLE_STATE_LOW,TIMER_OCN_IDLE_STATE_HIGH
+                ocpolarity: TIMER_OC_Polarity_HIGH,TIMER_OC_Polarity_LOW
+                ocnpolarity: TIMER_OCN_Polarity_HIGH,TIMER_OCN_Polarity_LOW
+                ocidlestate: TIMER_OC_IDLE_State_LOW,TIMER_OC_IDLE_State_HIGH
+                ocnidlestate: TIMER_OCN_IDLE_State_LOW,TIMER_OCN_IDLE_State_HIGH
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_channel_output_Config(uint32_t TIMER_periph, uint16_t channel, TIMER_oc_parameter_struct *ocpara) {
+void TIMER_Channel_OutPut_Config(uint32_t TIMER_periph, uint16_t channel, TIMER_oc_Parameter_Struct *ocpara) {
     switch(channel) {
     /* configure TIMER_CH_0 */
     case TIMER_CH_0:
@@ -825,18 +825,18 @@ void TIMER_channel_output_Config(uint32_t TIMER_periph, uint16_t channel, TIMER_
       参数:        TIMER_CH_3: TIMER channel3(TIMERx(x=0..4,7))
     参数[输入]:  ocmode: channel output compare mode
                 only one parameter can be selected which is shown as below:
-      参数:        TIMER_OC_MODE_TIMING: timing mode
-      参数:        TIMER_OC_MODE_ACTIVE: active mode
-      参数:        TIMER_OC_MODE_INACTIVE: inactive mode
-      参数:        TIMER_OC_MODE_TOGGLE: toggle mode
-      参数:        TIMER_OC_MODE_LOW: force low mode
-      参数:        TIMER_OC_MODE_HIGH: force high mode
-      参数:        TIMER_OC_MODE_PWM0: PWM0 mode
-      参数:        TIMER_OC_MODE_PWM1: PWM1 mode
+      参数:        TIMER_OC_Mode_TIMING: timing mode
+      参数:        TIMER_OC_Mode_ACTIVE: active mode
+      参数:        TIMER_OC_Mode_INACTIVE: inactive mode
+      参数:        TIMER_OC_Mode_TOGGLE: toggle mode
+      参数:        TIMER_OC_Mode_LOW: force low mode
+      参数:        TIMER_OC_Mode_HIGH: force high mode
+      参数:        TIMER_OC_Mode_PWM0: PWM0 mode
+      参数:        TIMER_OC_Mode_PWM1: PWM1 mode
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_channel_output_mode_Config(uint32_t TIMER_periph, uint16_t channel, uint16_t ocmode) {
+void TIMER_Channel_OutPut_Mode_Config(uint32_t TIMER_periph, uint16_t channel, uint16_t ocmode) {
     switch(channel) {
     /* configure TIMER_CH_0 */
     case TIMER_CH_0:
@@ -880,7 +880,7 @@ void TIMER_channel_output_mode_Config(uint32_t TIMER_periph, uint16_t channel, u
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_channel_output_pulse_value_Config(uint32_t TIMER_periph, uint16_t channel, uint32_t pulse) {
+void TIMER_Channel_OutPut_Pulse_Value_Config(uint32_t TIMER_periph, uint16_t channel, uint32_t pulse) {
     switch(channel) {
     /* configure TIMER_CH_0 */
     case TIMER_CH_0:
@@ -918,12 +918,12 @@ void TIMER_channel_output_pulse_value_Config(uint32_t TIMER_periph, uint16_t cha
       参数:        TIMER_CH_3: TIMER channel3(TIMERx(x=0..4,7))
     参数[输入]:  ocshadow: channel output shadow state
                 only one parameter can be selected which is shown as below:
-      参数:        TIMER_OC_SHADOW_ENABLE: channel output shadow state enable
-      参数:        TIMER_OC_SHADOW_DISABLE: channel output shadow state disable
+      参数:        TIMER_OC_Shadow_ENABLE: channel output shadow state enable
+      参数:        TIMER_OC_Shadow_DISABLE: channel output shadow state disable
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_channel_output_shadow_Config(uint32_t TIMER_periph, uint16_t channel, uint16_t ocshadow) {
+void TIMER_Channel_OutPut_Shadow_Config(uint32_t TIMER_periph, uint16_t channel, uint16_t ocshadow) {
     switch(channel) {
     /* configure TIMER_CH_0 */
     case TIMER_CH_0:
@@ -965,12 +965,12 @@ void TIMER_channel_output_shadow_Config(uint32_t TIMER_periph, uint16_t channel,
       参数:        TIMER_CH_3: TIMER channel3(TIMERx(x=0..4,7))
     参数[输入]:  ocfast: channel output fast function
                 only one parameter can be selected which is shown as below:
-      参数:        TIMER_OC_FAST_ENABLE: channel output fast function enable
-      参数:        TIMER_OC_FAST_DISABLE: channel output fast function disable
+      参数:        TIMER_OC_Fast_ENABLE: channel output fast function enable
+      参数:        TIMER_OC_Fast_DISABLE: channel output fast function disable
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_channel_output_fast_Config(uint32_t TIMER_periph, uint16_t channel, uint16_t ocfast) {
+void TIMER_Channel_OutPut_Fast_Config(uint32_t TIMER_periph, uint16_t channel, uint16_t ocfast) {
     switch(channel) {
     /* configure TIMER_CH_0 */
     case TIMER_CH_0:
@@ -1012,12 +1012,12 @@ void TIMER_channel_output_fast_Config(uint32_t TIMER_periph, uint16_t channel, u
       参数:        TIMER_CH_3: TIMER channel3(TIMERx(x=0..4,7))
     参数[输入]:  occlear: channel output clear function
                 only one parameter can be selected which is shown as below:
-      参数:        TIMER_OC_CLEAR_ENABLE: channel output clear function enable
-      参数:        TIMER_OC_CLEAR_DISABLE: channel output clear function disable
+      参数:        TIMER_OC_Clear_ENABLE: channel output clear function enable
+      参数:        TIMER_OC_Clear_DISABLE: channel output clear function disable
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_channel_output_clear_Config(uint32_t TIMER_periph, uint16_t channel, uint16_t occlear) {
+void TIMER_Channel_OutPut_Clear_Config(uint32_t TIMER_periph, uint16_t channel, uint16_t occlear) {
     switch(channel) {
     /* configure TIMER_CH_0 */
     case TIMER_CH_0:
@@ -1059,12 +1059,12 @@ void TIMER_channel_output_clear_Config(uint32_t TIMER_periph, uint16_t channel, 
       参数:        TIMER_CH_3: TIMER channel3(TIMERx(x=0..4,7))
     参数[输入]:  ocpolarity: channel output polarity
                 only one parameter can be selected which is shown as below:
-      参数:        TIMER_OC_POLARITY_HIGH: channel output polarity is high
-      参数:        TIMER_OC_POLARITY_LOW: channel output polarity is low
+      参数:        TIMER_OC_Polarity_HIGH: channel output polarity is high
+      参数:        TIMER_OC_Polarity_LOW: channel output polarity is low
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_channel_output_polarity_Config(uint32_t TIMER_periph, uint16_t channel, uint16_t ocpolarity) {
+void TIMER_Channel_OutPut_Polarity_Config(uint32_t TIMER_periph, uint16_t channel, uint16_t ocpolarity) {
     switch(channel) {
     /* configure TIMER_CH_0 */
     case TIMER_CH_0:
@@ -1105,12 +1105,12 @@ void TIMER_channel_output_polarity_Config(uint32_t TIMER_periph, uint16_t channe
       参数:        TIMER_CH_2: TIMER channel2(TIMERx(x=0..4,7))
     参数[输入]:  ocnpolarity: channel complementary output polarity
                 only one parameter can be selected which is shown as below:
-      参数:        TIMER_OCN_POLARITY_HIGH: channel complementary output polarity is high
-      参数:        TIMER_OCN_POLARITY_LOW: channel complementary output polarity is low
+      参数:        TIMER_OCN_Polarity_HIGH: channel complementary output polarity is high
+      参数:        TIMER_OCN_Polarity_LOW: channel complementary output polarity is low
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_channel_complementary_output_polarity_Config(uint32_t TIMER_periph, uint16_t channel, uint16_t ocnpolarity) {
+void TIMER_Channel_Complementary_OutPut_Polarity_Config(uint32_t TIMER_periph, uint16_t channel, uint16_t ocnpolarity) {
     switch(channel) {
     /* configure TIMER_CH_0 */
     case TIMER_CH_0:
@@ -1151,7 +1151,7 @@ void TIMER_channel_complementary_output_polarity_Config(uint32_t TIMER_periph, u
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_channel_output_state_Config(uint32_t TIMER_periph, uint16_t channel, uint32_t state) {
+void TIMER_Channel_OutPut_State_Config(uint32_t TIMER_periph, uint16_t channel, uint32_t state) {
     switch(channel) {
     /* configure TIMER_CH_0 */
     case TIMER_CH_0:
@@ -1197,7 +1197,7 @@ void TIMER_channel_output_state_Config(uint32_t TIMER_periph, uint16_t channel, 
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_channel_complementary_output_state_Config(uint32_t TIMER_periph, uint16_t channel, uint16_t ocnstate) {
+void TIMER_Channel_Complementary_OutPut_State_Config(uint32_t TIMER_periph, uint16_t channel, uint16_t ocnstate) {
     switch(channel) {
     /* configure TIMER_CH_0 */
     case TIMER_CH_0:
@@ -1228,10 +1228,10 @@ void TIMER_channel_complementary_output_state_Config(uint32_t TIMER_periph, uint
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_channel_input_struct_para_init(TIMER_ic_parameter_struct *icpara) {
+void TIMER_Channel_Input_Struct_Para_Init(TIMER_ic_Parameter_Struct *icpara) {
     /* initialize the channel input parameter struct member with the default value */
-    icpara->icpolarity  = TIMER_IC_POLARITY_RISING;
-    icpara->icselection = TIMER_IC_SELECTION_DIRECTTI;
+    icpara->icpolarity  = TIMER_IC_Polarity_RISING;
+    icpara->icselection = TIMER_IC_Selection_DIRECTTI;
     icpara->icprescaler = TIMER_IC_PSC_DIV1;
     icpara->icfilter    = 0U;
 }
@@ -1246,14 +1246,14 @@ void TIMER_channel_input_struct_para_init(TIMER_ic_parameter_struct *icpara) {
       参数:        TIMER_CH_2: TIMER channel2(TIMERx(x=0..4,7))
       参数:        TIMER_CH_3: TIMER channel3(TIMERx(x=0..4,7))
      参数[输入]:  icpara: TIMER channel intput parameter struct
-                 icpolarity: TIMER_IC_POLARITY_RISING,TIMER_IC_POLARITY_FALLING,TIMER_IC_POLARITY_BOTH_EDGE
-                 icselection: TIMER_IC_SELECTION_DIRECTTI,TIMER_IC_SELECTION_INDIRECTTI,TIMER_IC_SELECTION_ITS
+                 icpolarity: TIMER_IC_Polarity_RISING,TIMER_IC_Polarity_FALLING,TIMER_IC_Polarity_BOTH_EDGE
+                 icselection: TIMER_IC_Selection_DIRECTTI,TIMER_IC_Selection_INDIRECTTI,TIMER_IC_Selection_ITS
                  icprescaler: TIMER_IC_PSC_DIV1,TIMER_IC_PSC_DIV2,TIMER_IC_PSC_DIV4,TIMER_IC_PSC_DIV8
                  icfilter: 0~15
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_input_capture_Config(uint32_t TIMER_periph, uint16_t channel, TIMER_ic_parameter_struct *icpara) {
+void TIMER_Input_Capture_Config(uint32_t TIMER_periph, uint16_t channel, TIMER_ic_Parameter_Struct *icpara) {
     switch(channel) {
     /* configure TIMER_CH_0 */
     case TIMER_CH_0:
@@ -1340,7 +1340,7 @@ void TIMER_input_capture_Config(uint32_t TIMER_periph, uint16_t channel, TIMER_i
     }
 
     /* configure TIMER channel input capture prescaler value */
-    TIMER_channel_input_capture_prescaler_Config(TIMER_periph, channel, (uint16_t)(icpara->icprescaler));
+    TIMER_Channel_Input_Capture_Prescaler_Config(TIMER_periph, channel, (uint16_t)(icpara->icprescaler));
 }
 
 /*!
@@ -1361,7 +1361,7 @@ void TIMER_input_capture_Config(uint32_t TIMER_periph, uint16_t channel, TIMER_i
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_channel_input_capture_prescaler_Config(uint32_t TIMER_periph, uint16_t channel, uint16_t prescaler) {
+void TIMER_Channel_Input_Capture_Prescaler_Config(uint32_t TIMER_periph, uint16_t channel, uint16_t prescaler) {
     switch(channel) {
     /* configure TIMER_CH_0 */
     case TIMER_CH_0:
@@ -1404,7 +1404,7 @@ void TIMER_channel_input_capture_prescaler_Config(uint32_t TIMER_periph, uint16_
     参数[输出]:  无
     返回值:     channel capture compare register value
 */
-uint32_t TIMER_channel_capture_value_register_read(uint32_t TIMER_periph, uint16_t channel) {
+uint32_t TIMER_Channel_Capture_Value_Register_Read(uint32_t TIMER_periph, uint16_t channel) {
     uint32_t count_value = 0U;
 
     switch(channel) {
@@ -1443,29 +1443,29 @@ uint32_t TIMER_channel_capture_value_register_read(uint32_t TIMER_periph, uint16
       参数:        TIMER_CH_0: TIMER channel0
       参数:        TIMER_CH_1: TIMER channel1
      参数[输入]:  icpwm:TIMER channel intput pwm parameter struct
-                 icpolarity: TIMER_IC_POLARITY_RISING,TIMER_IC_POLARITY_FALLING
-                 icselection: TIMER_IC_SELECTION_DIRECTTI,TIMER_IC_SELECTION_INDIRECTTI
+                 icpolarity: TIMER_IC_Polarity_RISING,TIMER_IC_Polarity_FALLING
+                 icselection: TIMER_IC_Selection_DIRECTTI,TIMER_IC_Selection_INDIRECTTI
                  icprescaler: TIMER_IC_PSC_DIV1,TIMER_IC_PSC_DIV2,TIMER_IC_PSC_DIV4,TIMER_IC_PSC_DIV8
                  icfilter: 0~15
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_input_pwm_capture_Config(uint32_t TIMER_periph, uint16_t channel, TIMER_ic_parameter_struct *icpwm) {
+void TIMER_Input_PWM_Capture_Config(uint32_t TIMER_periph, uint16_t channel, TIMER_ic_Parameter_Struct *icpwm) {
     uint16_t icpolarity  = 0x0U;
     uint16_t icselection = 0x0U;
 
     /* Set channel input polarity */
-    if(TIMER_IC_POLARITY_RISING == icpwm->icpolarity) {
-        icpolarity = TIMER_IC_POLARITY_FALLING;
+    if(TIMER_IC_Polarity_RISING == icpwm->icpolarity) {
+        icpolarity = TIMER_IC_Polarity_FALLING;
     } else {
-        icpolarity = TIMER_IC_POLARITY_RISING;
+        icpolarity = TIMER_IC_Polarity_RISING;
     }
 
     /* Set channel input mode selection */
-    if(TIMER_IC_SELECTION_DIRECTTI == icpwm->icselection) {
-        icselection = TIMER_IC_SELECTION_INDIRECTTI;
+    if(TIMER_IC_Selection_DIRECTTI == icpwm->icselection) {
+        icselection = TIMER_IC_Selection_INDIRECTTI;
     } else {
-        icselection = TIMER_IC_SELECTION_DIRECTTI;
+        icselection = TIMER_IC_Selection_DIRECTTI;
     }
 
     if(TIMER_CH_0 == channel) {
@@ -1486,7 +1486,7 @@ void TIMER_input_pwm_capture_Config(uint32_t TIMER_periph, uint16_t channel, TIM
         /* set the CH0EN bit */
         TIMER_CHCTL2(TIMER_periph) |= (uint32_t)TIMER_CHCTL2_CH0EN;
         /* configure TIMER channel input capture prescaler value */
-        TIMER_channel_input_capture_prescaler_Config(TIMER_periph, TIMER_CH_0, (uint16_t)(icpwm->icprescaler));
+        TIMER_Channel_Input_Capture_Prescaler_Config(TIMER_periph, TIMER_CH_0, (uint16_t)(icpwm->icprescaler));
 
         /* reset the CH1EN bit */
         TIMER_CHCTL2(TIMER_periph) &= (~(uint32_t)TIMER_CHCTL2_CH1EN);
@@ -1505,7 +1505,7 @@ void TIMER_input_pwm_capture_Config(uint32_t TIMER_periph, uint16_t channel, TIM
         /* set the CH1EN bit */
         TIMER_CHCTL2(TIMER_periph) |= (uint32_t)TIMER_CHCTL2_CH1EN;
         /* configure TIMER channel input capture prescaler value */
-        TIMER_channel_input_capture_prescaler_Config(TIMER_periph, TIMER_CH_1, (uint16_t)(icpwm->icprescaler));
+        TIMER_Channel_Input_Capture_Prescaler_Config(TIMER_periph, TIMER_CH_1, (uint16_t)(icpwm->icprescaler));
     } else {
         /* reset the CH1EN bit */
         TIMER_CHCTL2(TIMER_periph) &= (~(uint32_t)TIMER_CHCTL2_CH1EN);
@@ -1524,7 +1524,7 @@ void TIMER_input_pwm_capture_Config(uint32_t TIMER_periph, uint16_t channel, TIM
         /* set the CH1EN bit */
         TIMER_CHCTL2(TIMER_periph) |= (uint32_t)TIMER_CHCTL2_CH1EN;
         /* configure TIMER channel input capture prescaler value */
-        TIMER_channel_input_capture_prescaler_Config(TIMER_periph, TIMER_CH_1, (uint16_t)(icpwm->icprescaler));
+        TIMER_Channel_Input_Capture_Prescaler_Config(TIMER_periph, TIMER_CH_1, (uint16_t)(icpwm->icprescaler));
 
         /* reset the CH0EN bit */
         TIMER_CHCTL2(TIMER_periph) &= (~(uint32_t)TIMER_CHCTL2_CH0EN);
@@ -1543,7 +1543,7 @@ void TIMER_input_pwm_capture_Config(uint32_t TIMER_periph, uint16_t channel, TIM
         /* set the CH0EN bit */
         TIMER_CHCTL2(TIMER_periph) |= (uint32_t)TIMER_CHCTL2_CH0EN;
         /* configure TIMER channel input capture prescaler value */
-        TIMER_channel_input_capture_prescaler_Config(TIMER_periph, TIMER_CH_0, (uint16_t)(icpwm->icprescaler));
+        TIMER_Channel_Input_Capture_Prescaler_Config(TIMER_periph, TIMER_CH_0, (uint16_t)(icpwm->icprescaler));
     }
 }
 
@@ -1557,7 +1557,7 @@ void TIMER_input_pwm_capture_Config(uint32_t TIMER_periph, uint16_t channel, TIM
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_hall_mode_Config(uint32_t TIMER_periph, uint32_t hallmode) {
+void TIMER_Hall_Mode_Config(uint32_t TIMER_periph, uint32_t hallmode) {
     if(TIMER_HALLINTERFACE_ENABLE == hallmode) {
         TIMER_CTL1(TIMER_periph) |= (uint32_t)TIMER_CTL1_TI0S;
     } else if(TIMER_HALLINTERFACE_DISABLE == hallmode) {
@@ -1583,7 +1583,7 @@ void TIMER_hall_mode_Config(uint32_t TIMER_periph, uint32_t hallmode) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_input_trigger_source_select(uint32_t TIMER_periph, uint32_t intrigger) {
+void TIMER_Input_Trigger_Source_Select(uint32_t TIMER_periph, uint32_t intrigger) {
     TIMER_SMCFG(TIMER_periph) &= (~(uint32_t)TIMER_SMCFG_TRGS);
     TIMER_SMCFG(TIMER_periph) |= (uint32_t)intrigger;
 }
@@ -1604,7 +1604,7 @@ void TIMER_input_trigger_source_select(uint32_t TIMER_periph, uint32_t intrigger
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_master_output_trigger_source_select(uint32_t TIMER_periph, uint32_t outrigger) {
+void TIMER_Master_OutPut_Trigger_Source_Select(uint32_t TIMER_periph, uint32_t outrigger) {
     TIMER_CTL1(TIMER_periph) &= (~(uint32_t)TIMER_CTL1_MMC);
     TIMER_CTL1(TIMER_periph) |= (uint32_t)outrigger;
 }
@@ -1614,19 +1614,19 @@ void TIMER_master_output_trigger_source_select(uint32_t TIMER_periph, uint32_t o
     参数[输入]:  TIMER_periph: TIMERx(x=0..4,7,8,11)
     参数[输入]:  slavemode:
                 only one parameter can be selected which is shown as below:
-      参数:        TIMER_SLAVE_MODE_DISABLE: slave mode disable(TIMERx(x=0..4,7,8,11))
+      参数:        TIMER_Slave_Mode_DISABLE: slave mode disable(TIMERx(x=0..4,7,8,11))
       参数:        TIMER_ENCODER_MODE0: encoder mode 0(TIMERx(x=0..4,7))
       参数:        TIMER_ENCODER_MODE1: encoder mode 1(TIMERx(x=0..4,7))
       参数:        TIMER_ENCODER_MODE2: encoder mode 2(TIMERx(x=0..4,7))
-      参数:        TIMER_SLAVE_MODE_RESTART: restart mode(TIMERx(x=0..4,7,8,11))
-      参数:        TIMER_SLAVE_MODE_PAUSE: pause mode(TIMERx(x=0..4,7,8,11))
-      参数:        TIMER_SLAVE_MODE_EVENT: event mode(TIMERx(x=0..4,7,8,11))
-      参数:        TIMER_SLAVE_MODE_EXTERNAL0: external clock mode 0.(TIMERx(x=0..4,7,8,11))
+      参数:        TIMER_Slave_Mode_RESTART: restart mode(TIMERx(x=0..4,7,8,11))
+      参数:        TIMER_Slave_Mode_PAUSE: pause mode(TIMERx(x=0..4,7,8,11))
+      参数:        TIMER_Slave_Mode_EVENT: event mode(TIMERx(x=0..4,7,8,11))
+      参数:        TIMER_Slave_Mode_EXTERNAL0: external clock mode 0.(TIMERx(x=0..4,7,8,11))
     参数[输出]:  无
     返回值:      无
 */
 
-void TIMER_slave_mode_select(uint32_t TIMER_periph, uint32_t slavemode) {
+void TIMER_Slave_Mode_Select(uint32_t TIMER_periph, uint32_t slavemode) {
     TIMER_SMCFG(TIMER_periph) &= (~(uint32_t)TIMER_SMCFG_SMC);
 
     TIMER_SMCFG(TIMER_periph) |= (uint32_t)slavemode;
@@ -1637,15 +1637,15 @@ void TIMER_slave_mode_select(uint32_t TIMER_periph, uint32_t slavemode) {
     参数[输入]:  TIMER_periph: TIMERx(x=0..4,7,8,11)
     参数[输入]:  masterslave:
                 only one parameter can be selected which is shown as below:
-      参数:        TIMER_MASTER_SLAVE_MODE_ENABLE: master slave mode enable
-      参数:        TIMER_MASTER_SLAVE_MODE_DISABLE: master slave mode disable
+      参数:        TIMER_Master_Slave_Mode_ENABLE: master slave mode enable
+      参数:        TIMER_Master_Slave_Mode_DISABLE: master slave mode disable
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_master_slave_mode_Config(uint32_t TIMER_periph, uint32_t masterslave) {
-    if(TIMER_MASTER_SLAVE_MODE_ENABLE == masterslave) {
+void TIMER_Master_Slave_Mode_Config(uint32_t TIMER_periph, uint32_t masterslave) {
+    if(TIMER_Master_Slave_Mode_ENABLE == masterslave) {
         TIMER_SMCFG(TIMER_periph) |= (uint32_t)TIMER_SMCFG_MSM;
-    } else if(TIMER_MASTER_SLAVE_MODE_DISABLE == masterslave) {
+    } else if(TIMER_Master_Slave_Mode_DISABLE == masterslave) {
         TIMER_SMCFG(TIMER_periph) &= ~(uint32_t)TIMER_SMCFG_MSM;
     } else {
         /* illegal parameters */
@@ -1669,7 +1669,7 @@ void TIMER_master_slave_mode_Config(uint32_t TIMER_periph, uint32_t masterslave)
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_external_trigger_Config(uint32_t TIMER_periph, uint32_t extprescaler,
+void TIMER_External_Trigger_Config(uint32_t TIMER_periph, uint32_t extprescaler,
                                    uint32_t extpolarity, uint32_t extfilter) {
     TIMER_SMCFG(TIMER_periph) &= (~(uint32_t)(TIMER_SMCFG_ETP | TIMER_SMCFG_ETPSC | TIMER_SMCFG_ETFC));
     TIMER_SMCFG(TIMER_periph) |= (uint32_t)(extprescaler | extpolarity);
@@ -1686,22 +1686,22 @@ void TIMER_external_trigger_Config(uint32_t TIMER_periph, uint32_t extprescaler,
       参数:        TIMER_ENCODER_MODE2: counter counts on both CI0FE0 and CI1FE1 edges depending on the level of the other input
     参数[输入]:  ic0polarity:
                 only one parameter can be selected which is shown as below:
-      参数:        TIMER_IC_POLARITY_RISING: capture rising edge
-      参数:        TIMER_IC_POLARITY_FALLING: capture falling edge
+      参数:        TIMER_IC_Polarity_RISING: capture rising edge
+      参数:        TIMER_IC_Polarity_FALLING: capture falling edge
     参数[输入]:  ic1polarity:
                 only one parameter can be selected which is shown as below:
-      参数:        TIMER_IC_POLARITY_RISING: capture rising edge
-      参数:        TIMER_IC_POLARITY_FALLING: capture falling edge
+      参数:        TIMER_IC_Polarity_RISING: capture rising edge
+      参数:        TIMER_IC_Polarity_FALLING: capture falling edge
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_quadrature_decoder_mode_Config(uint32_t TIMER_periph, uint32_t decomode,
+void TIMER_Quadrature_Decoder_Mode_Config(uint32_t TIMER_periph, uint32_t decomode,
         uint16_t ic0polarity, uint16_t ic1polarity) {
     TIMER_SMCFG(TIMER_periph) &= (~(uint32_t)TIMER_SMCFG_SMC);
     TIMER_SMCFG(TIMER_periph) |= (uint32_t)decomode;
 
     TIMER_CHCTL0(TIMER_periph) &= (uint32_t)(((~(uint32_t)TIMER_CHCTL0_CH0MS)) & ((~(uint32_t)TIMER_CHCTL0_CH1MS)));
-    TIMER_CHCTL0(TIMER_periph) |= (uint32_t)(TIMER_IC_SELECTION_DIRECTTI | ((uint32_t)TIMER_IC_SELECTION_DIRECTTI << 8U));
+    TIMER_CHCTL0(TIMER_periph) |= (uint32_t)(TIMER_IC_Selection_DIRECTTI | ((uint32_t)TIMER_IC_Selection_DIRECTTI << 8U));
 
     TIMER_CHCTL2(TIMER_periph) &= (~(uint32_t)(TIMER_CHCTL2_CH0P | TIMER_CHCTL2_CH0NP));
     TIMER_CHCTL2(TIMER_periph) &= (~(uint32_t)(TIMER_CHCTL2_CH1P | TIMER_CHCTL2_CH1NP));
@@ -1714,7 +1714,7 @@ void TIMER_quadrature_decoder_mode_Config(uint32_t TIMER_periph, uint32_t decomo
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_internal_clock_Config(uint32_t TIMER_periph) {
+void TIMER_Internal_Clock_Config(uint32_t TIMER_periph) {
     TIMER_SMCFG(TIMER_periph) &= ~(uint32_t)TIMER_SMCFG_SMC;
 }
 
@@ -1730,10 +1730,10 @@ void TIMER_internal_clock_Config(uint32_t TIMER_periph) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_internal_trigger_as_external_clock_Config(uint32_t TIMER_periph, uint32_t intrigger) {
-    TIMER_input_trigger_source_select(TIMER_periph, intrigger);
+void TIMER_Internal_Trigger_As_External_Clock_Config(uint32_t TIMER_periph, uint32_t intrigger) {
+    TIMER_Input_Trigger_Source_Select(TIMER_periph, intrigger);
     TIMER_SMCFG(TIMER_periph) &= ~(uint32_t)TIMER_SMCFG_SMC;
-    TIMER_SMCFG(TIMER_periph) |= (uint32_t)TIMER_SLAVE_MODE_EXTERNAL0;
+    TIMER_SMCFG(TIMER_periph) |= (uint32_t)TIMER_Slave_Mode_EXTERNAL0;
 }
 
 /*!
@@ -1746,13 +1746,13 @@ void TIMER_internal_trigger_as_external_clock_Config(uint32_t TIMER_periph, uint
       参数:        TIMER_SMCFG_TRGSEL_CI1FE1: filtered TIMER input 1
     参数[输入]:  extpolarity:
                 only one parameter can be selected which is shown as below:
-      参数:        TIMER_IC_POLARITY_RISING: active high or rising edge active
-      参数:        TIMER_IC_POLARITY_FALLING: active low or falling edge active
+      参数:        TIMER_IC_Polarity_RISING: active high or rising edge active
+      参数:        TIMER_IC_Polarity_FALLING: active low or falling edge active
     参数[输入]:  extfilter: a value between 0 and 15
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_external_trigger_as_external_clock_Config(uint32_t TIMER_periph, uint32_t extrigger,
+void TIMER_External_Trigger_As_External_Clock_Config(uint32_t TIMER_periph, uint32_t extrigger,
         uint16_t extpolarity, uint32_t extfilter) {
     if(TIMER_SMCFG_TRGSEL_CI1FE1 == extrigger) {
         /* reset the CH1EN bit */
@@ -1764,7 +1764,7 @@ void TIMER_external_trigger_as_external_clock_Config(uint32_t TIMER_periph, uint
         /* reset the CH1MS bit */
         TIMER_CHCTL0(TIMER_periph) &= (~(uint32_t)TIMER_CHCTL0_CH1MS);
         /* set the CH1MS bit */
-        TIMER_CHCTL0(TIMER_periph) |= (uint32_t)((uint32_t)TIMER_IC_SELECTION_DIRECTTI << 8U);
+        TIMER_CHCTL0(TIMER_periph) |= (uint32_t)((uint32_t)TIMER_IC_Selection_DIRECTTI << 8U);
         /* reset the CH1CAPFLT bit */
         TIMER_CHCTL0(TIMER_periph) &= (~(uint32_t)TIMER_CHCTL0_CH1CAPFLT);
         /* set the CH1CAPFLT bit */
@@ -1781,7 +1781,7 @@ void TIMER_external_trigger_as_external_clock_Config(uint32_t TIMER_periph, uint
         /* reset the CH0MS bit */
         TIMER_CHCTL0(TIMER_periph) &= (~(uint32_t)TIMER_CHCTL0_CH0MS);
         /* set the CH0MS bit */
-        TIMER_CHCTL0(TIMER_periph) |= (uint32_t)TIMER_IC_SELECTION_DIRECTTI;
+        TIMER_CHCTL0(TIMER_periph) |= (uint32_t)TIMER_IC_Selection_DIRECTTI;
         /* reset the CH0CAPFLT bit */
         TIMER_CHCTL0(TIMER_periph) &= (~(uint32_t)TIMER_CHCTL0_CH0CAPFLT);
         /* reset the CH0CAPFLT bit */
@@ -1791,11 +1791,11 @@ void TIMER_external_trigger_as_external_clock_Config(uint32_t TIMER_periph, uint
     }
 
     /* select TIMER input trigger source */
-    TIMER_input_trigger_source_select(TIMER_periph, extrigger);
+    TIMER_Input_Trigger_Source_Select(TIMER_periph, extrigger);
     /* reset the SMC bit */
     TIMER_SMCFG(TIMER_periph) &= (~(uint32_t)TIMER_SMCFG_SMC);
     /* set the SMC bit */
-    TIMER_SMCFG(TIMER_periph) |= (uint32_t)TIMER_SLAVE_MODE_EXTERNAL0;
+    TIMER_SMCFG(TIMER_periph) |= (uint32_t)TIMER_Slave_Mode_EXTERNAL0;
 }
 
 /*!
@@ -1815,15 +1815,15 @@ void TIMER_external_trigger_as_external_clock_Config(uint32_t TIMER_periph, uint
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_external_clock_mode0_Config(uint32_t TIMER_periph, uint32_t extprescaler,
+void TIMER_External_Clock_Mode0_Config(uint32_t TIMER_periph, uint32_t extprescaler,
                                        uint32_t extpolarity, uint32_t extfilter) {
     /* configure TIMER external trigger input */
-    TIMER_external_trigger_Config(TIMER_periph, extprescaler, extpolarity, extfilter);
+    TIMER_External_Trigger_Config(TIMER_periph, extprescaler, extpolarity, extfilter);
 
     /* reset the SMC bit,TRGS bit */
     TIMER_SMCFG(TIMER_periph) &= (~(uint32_t)(TIMER_SMCFG_SMC | TIMER_SMCFG_TRGS));
     /* set the SMC bit,TRGS bit */
-    TIMER_SMCFG(TIMER_periph) |= (uint32_t)(TIMER_SLAVE_MODE_EXTERNAL0 | TIMER_SMCFG_TRGSEL_ETIFP);
+    TIMER_SMCFG(TIMER_periph) |= (uint32_t)(TIMER_Slave_Mode_EXTERNAL0 | TIMER_SMCFG_TRGSEL_ETIFP);
 }
 
 /*!
@@ -1843,10 +1843,10 @@ void TIMER_external_clock_mode0_Config(uint32_t TIMER_periph, uint32_t extpresca
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_external_clock_mode1_Config(uint32_t TIMER_periph, uint32_t extprescaler,
+void TIMER_External_Clock_Mode1_Config(uint32_t TIMER_periph, uint32_t extprescaler,
                                        uint32_t extpolarity, uint32_t extfilter) {
     /* configure TIMER external trigger input */
-    TIMER_external_trigger_Config(TIMER_periph, extprescaler, extpolarity, extfilter);
+    TIMER_External_Trigger_Config(TIMER_periph, extprescaler, extpolarity, extfilter);
 
     TIMER_SMCFG(TIMER_periph) |= (uint32_t)TIMER_SMCFG_SMC1;
 }
@@ -1857,7 +1857,7 @@ void TIMER_external_clock_mode1_Config(uint32_t TIMER_periph, uint32_t extpresca
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_external_clock_mode1_disable(uint32_t TIMER_periph) {
+void TIMER_External_Clock_Mode1_Disable(uint32_t TIMER_periph) {
     TIMER_SMCFG(TIMER_periph) &= ~(uint32_t)TIMER_SMCFG_SMC1;
 }
 
@@ -1873,13 +1873,13 @@ void TIMER_external_clock_mode1_disable(uint32_t TIMER_periph) {
       参数:        TIMER4_CI3_RMP_GPIO: timer4 channel 3 input remap to GPIO pin
       参数:        TIMER4_CI3_RMP_IRC32K: timer4 channel 3 input remap to IRC32K
       参数:        TIMER4_CI3_RMP_LXTAL: timer4 channel 3 input remap to  LXTAL
-      参数:        TIMER4_CI3_RMP_RTC_WAKEUP_INT: timer4 channel 3 input remap to RTC wakeup interrupt
+      参数:        TIMER4_CI3_RMP_RTC_WakeUp_INT: timer4 channel 3 input remap to RTC wakeup interrupt
       参数:        TIMER10_ITI1_RMP_GPIO: timer10 internal trigger input1 remap based on GPIO setting
       参数:        TIMER10_ITI1_RMP_RTC_HXTAL_DIV: timer10 internal trigger input1 remap  HXTAL _DIV(clock used for RTC which is HXTAL clock divided by RTCDIV bits in RCU_CFG0 register)
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_channel_remap_Config(uint32_t TIMER_periph, uint32_t remap) {
+void TIMER_Channel_Remap_Config(uint32_t TIMER_periph, uint32_t remap) {
     TIMER_IRMP(TIMER_periph) = (uint32_t)remap;
 }
 
@@ -1893,7 +1893,7 @@ void TIMER_channel_remap_Config(uint32_t TIMER_periph, uint32_t remap) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_write_chxval_register_Config(uint32_t TIMER_periph, uint16_t ccsel) {
+void TIMER_Write_Chxval_Register_Config(uint32_t TIMER_periph, uint16_t ccsel) {
     if(TIMER_CHVSEL_ENABLE == ccsel) {
         TIMER_CFG(TIMER_periph) |= (uint32_t)TIMER_CFG_CHVSEL;
     } else if(TIMER_CHVSEL_DISABLE == ccsel) {
@@ -1913,7 +1913,7 @@ void TIMER_write_chxval_register_Config(uint32_t TIMER_periph, uint16_t ccsel) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_output_value_selection_Config(uint32_t TIMER_periph, uint16_t outsel) {
+void TIMER_OutPut_Value_Selection_Config(uint32_t TIMER_periph, uint16_t outsel) {
     if(TIMER_OUTSEL_ENABLE == outsel) {
         TIMER_CFG(TIMER_periph) |= (uint32_t)TIMER_CFG_OUTSEL;
     } else if(TIMER_OUTSEL_DISABLE == outsel) {
@@ -1928,22 +1928,22 @@ void TIMER_output_value_selection_Config(uint32_t TIMER_periph, uint16_t outsel)
     参数[输入]:  TIMER_periph: please refer to the following parameters
     参数[输入]:  flag: the timer interrupt flags
                 only one parameter can be selected which is shown as below:
-      参数:        TIMER_FLAG_UP: update flag,TIMERx(x=0..13)
-      参数:        TIMER_FLAG_CH0: channel 0 flag,TIMERx(x=0..4,7..13)
-      参数:        TIMER_FLAG_CH1: channel 1 flag,TIMERx(x=0..4,7,8,11)
-      参数:        TIMER_FLAG_CH2: channel 2 flag,TIMERx(x=0..4,7)
-      参数:        TIMER_FLAG_CH3: channel 3 flag,TIMERx(x=0..4,7)
-      参数:        TIMER_FLAG_CMT: channel control update flag,TIMERx(x=0,7)
-      参数:        TIMER_FLAG_TRG: trigger flag,TIMERx(x=0,7,8,11)
-      参数:        TIMER_FLAG_BRK: break flag,TIMERx(x=0,7)
-      参数:        TIMER_FLAG_CH0O: channel 0 overcapture flag,TIMERx(x=0..4,7..11)
-      参数:        TIMER_FLAG_CH1O: channel 1 overcapture flag,TIMERx(x=0..4,7,8,11)
-      参数:        TIMER_FLAG_CH2O: channel 2 overcapture flag,TIMERx(x=0..4,7)
-      参数:        TIMER_FLAG_CH3O: channel 3 overcapture flag,TIMERx(x=0..4,7)
+      参数:        TIMER_Flag_UP: update flag,TIMERx(x=0..13)
+      参数:        TIMER_Flag_CH0: channel 0 flag,TIMERx(x=0..4,7..13)
+      参数:        TIMER_Flag_CH1: channel 1 flag,TIMERx(x=0..4,7,8,11)
+      参数:        TIMER_Flag_CH2: channel 2 flag,TIMERx(x=0..4,7)
+      参数:        TIMER_Flag_CH3: channel 3 flag,TIMERx(x=0..4,7)
+      参数:        TIMER_Flag_CMT: channel control update flag,TIMERx(x=0,7)
+      参数:        TIMER_Flag_TRG: trigger flag,TIMERx(x=0,7,8,11)
+      参数:        TIMER_Flag_BRK: break flag,TIMERx(x=0,7)
+      参数:        TIMER_Flag_CH0O: channel 0 overcapture flag,TIMERx(x=0..4,7..11)
+      参数:        TIMER_Flag_CH1O: channel 1 overcapture flag,TIMERx(x=0..4,7,8,11)
+      参数:        TIMER_Flag_CH2O: channel 2 overcapture flag,TIMERx(x=0..4,7)
+      参数:        TIMER_Flag_CH3O: channel 3 overcapture flag,TIMERx(x=0..4,7)
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus TIMER_flag_get(uint32_t TIMER_periph, uint32_t flag) {
+FlagStatus TIMER_Flag_Get(uint32_t TIMER_periph, uint32_t flag) {
     if(RESET != (TIMER_INTF(TIMER_periph) & flag)) {
         return SET;
     } else {
@@ -1956,22 +1956,22 @@ FlagStatus TIMER_flag_get(uint32_t TIMER_periph, uint32_t flag) {
     参数[输入]:  TIMER_periph: please refer to the following parameters
     参数[输入]:  flag: the timer interrupt flags
                 only one parameter can be selected which is shown as below:
-      参数:        TIMER_FLAG_UP: update flag,TIMERx(x=0..13)
-      参数:        TIMER_FLAG_CH0: channel 0 flag,TIMERx(x=0..4,7..13)
-      参数:        TIMER_FLAG_CH1: channel 1 flag,TIMERx(x=0..4,7,8,11)
-      参数:        TIMER_FLAG_CH2: channel 2 flag,TIMERx(x=0..4,7)
-      参数:        TIMER_FLAG_CH3: channel 3 flag,TIMERx(x=0..4,7)
-      参数:        TIMER_FLAG_CMT: channel control update flag,TIMERx(x=0,7)
-      参数:        TIMER_FLAG_TRG: trigger flag,TIMERx(x=0,7,8,11)
-      参数:        TIMER_FLAG_BRK: break flag,TIMERx(x=0,7)
-      参数:        TIMER_FLAG_CH0O: channel 0 overcapture flag,TIMERx(x=0..4,7..11)
-      参数:        TIMER_FLAG_CH1O: channel 1 overcapture flag,TIMERx(x=0..4,7,8,11)
-      参数:        TIMER_FLAG_CH2O: channel 2 overcapture flag,TIMERx(x=0..4,7)
-      参数:        TIMER_FLAG_CH3O: channel 3 overcapture flag,TIMERx(x=0..4,7)
+      参数:        TIMER_Flag_UP: update flag,TIMERx(x=0..13)
+      参数:        TIMER_Flag_CH0: channel 0 flag,TIMERx(x=0..4,7..13)
+      参数:        TIMER_Flag_CH1: channel 1 flag,TIMERx(x=0..4,7,8,11)
+      参数:        TIMER_Flag_CH2: channel 2 flag,TIMERx(x=0..4,7)
+      参数:        TIMER_Flag_CH3: channel 3 flag,TIMERx(x=0..4,7)
+      参数:        TIMER_Flag_CMT: channel control update flag,TIMERx(x=0,7)
+      参数:        TIMER_Flag_TRG: trigger flag,TIMERx(x=0,7,8,11)
+      参数:        TIMER_Flag_BRK: break flag,TIMERx(x=0,7)
+      参数:        TIMER_Flag_CH0O: channel 0 overcapture flag,TIMERx(x=0..4,7..11)
+      参数:        TIMER_Flag_CH1O: channel 1 overcapture flag,TIMERx(x=0..4,7,8,11)
+      参数:        TIMER_Flag_CH2O: channel 2 overcapture flag,TIMERx(x=0..4,7)
+      参数:        TIMER_Flag_CH3O: channel 3 overcapture flag,TIMERx(x=0..4,7)
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_flag_clear(uint32_t TIMER_periph, uint32_t flag) {
+void TIMER_Flag_Clear(uint32_t TIMER_periph, uint32_t flag) {
     TIMER_INTF(TIMER_periph) = (~(uint32_t)flag);
 }
 
@@ -1991,7 +1991,7 @@ void TIMER_flag_clear(uint32_t TIMER_periph, uint32_t flag) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_Interrupt_enable(uint32_t TIMER_periph, uint32_t interrupt) {
+void TIMER_Interrupt_Enable(uint32_t TIMER_periph, uint32_t interrupt) {
     TIMER_DMAINTEN(TIMER_periph) |= (uint32_t) interrupt;
 }
 
@@ -2011,7 +2011,7 @@ void TIMER_Interrupt_enable(uint32_t TIMER_periph, uint32_t interrupt) {
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_Interrupt_disable(uint32_t TIMER_periph, uint32_t interrupt) {
+void TIMER_Interrupt_Disable(uint32_t TIMER_periph, uint32_t interrupt) {
     TIMER_DMAINTEN(TIMER_periph) &= (~(uint32_t)interrupt);
 }
 
@@ -2020,18 +2020,18 @@ void TIMER_Interrupt_disable(uint32_t TIMER_periph, uint32_t interrupt) {
     参数[输入]:  TIMER_periph: please refer to the following parameters
     参数[输入]:  interrupt: the timer interrupt bits
                 only one parameter can be selected which is shown as below:
-      参数:        TIMER_INT_FLAG_UP: update interrupt flag,TIMERx(x=0..13)
-      参数:        TIMER_INT_FLAG_CH0: channel 0 interrupt flag,TIMERx(x=0..4,7..13)
-      参数:        TIMER_INT_FLAG_CH1: channel 1 interrupt flag,TIMERx(x=0..4,7,8,11)
-      参数:        TIMER_INT_FLAG_CH2: channel 2 interrupt flag,TIMERx(x=0..4,7)
-      参数:        TIMER_INT_FLAG_CH3: channel 3 interrupt flag,TIMERx(x=0..4,7)
-      参数:        TIMER_INT_FLAG_CMT: channel commutation interrupt flag,TIMERx(x=0,7)
-      参数:        TIMER_INT_FLAG_TRG: trigger interrupt flag,TIMERx(x=0,7,8,11)
-      参数:        TIMER_INT_FLAG_BRK:  break interrupt flag,TIMERx(x=0,7)
+      参数:        TIMER_INT_Flag_UP: update interrupt flag,TIMERx(x=0..13)
+      参数:        TIMER_INT_Flag_CH0: channel 0 interrupt flag,TIMERx(x=0..4,7..13)
+      参数:        TIMER_INT_Flag_CH1: channel 1 interrupt flag,TIMERx(x=0..4,7,8,11)
+      参数:        TIMER_INT_Flag_CH2: channel 2 interrupt flag,TIMERx(x=0..4,7)
+      参数:        TIMER_INT_Flag_CH3: channel 3 interrupt flag,TIMERx(x=0..4,7)
+      参数:        TIMER_INT_Flag_CMT: channel commutation interrupt flag,TIMERx(x=0,7)
+      参数:        TIMER_INT_Flag_TRG: trigger interrupt flag,TIMERx(x=0,7,8,11)
+      参数:        TIMER_INT_Flag_BRK:  break interrupt flag,TIMERx(x=0,7)
     参数[输出]:  无
     返回值:     FlagStatus: SET or RESET
 */
-FlagStatus TIMER_Interrupt_flag_get(uint32_t TIMER_periph, uint32_t interrupt) {
+FlagStatus TIMER_Interrupt_Flag_Get(uint32_t TIMER_periph, uint32_t interrupt) {
     uint32_t val;
     val = (TIMER_DMAINTEN(TIMER_periph) & interrupt);
 
@@ -2047,17 +2047,17 @@ FlagStatus TIMER_Interrupt_flag_get(uint32_t TIMER_periph, uint32_t interrupt) {
     参数[输入]:  TIMER_periph: please refer to the following parameters
     参数[输入]:  interrupt: the timer interrupt bits
                 only one parameter can be selected which is shown as below:
-      参数:        TIMER_INT_FLAG_UP: update interrupt flag,TIMERx(x=0..13)
-      参数:        TIMER_INT_FLAG_CH0: channel 0 interrupt flag,TIMERx(x=0..4,7..13)
-      参数:        TIMER_INT_FLAG_CH1: channel 1 interrupt flag,TIMERx(x=0..4,7,8,11)
-      参数:        TIMER_INT_FLAG_CH2: channel 2 interrupt flag,TIMERx(x=0..4,7)
-      参数:        TIMER_INT_FLAG_CH3: channel 3 interrupt flag,TIMERx(x=0..4,7)
-      参数:        TIMER_INT_FLAG_CMT: channel commutation interrupt flag,TIMERx(x=0,7)
-      参数:        TIMER_INT_FLAG_TRG: trigger interrupt flag,TIMERx(x=0,7,8,11)
-      参数:        TIMER_INT_FLAG_BRK:  break interrupt flag,TIMERx(x=0,7)
+      参数:        TIMER_INT_Flag_UP: update interrupt flag,TIMERx(x=0..13)
+      参数:        TIMER_INT_Flag_CH0: channel 0 interrupt flag,TIMERx(x=0..4,7..13)
+      参数:        TIMER_INT_Flag_CH1: channel 1 interrupt flag,TIMERx(x=0..4,7,8,11)
+      参数:        TIMER_INT_Flag_CH2: channel 2 interrupt flag,TIMERx(x=0..4,7)
+      参数:        TIMER_INT_Flag_CH3: channel 3 interrupt flag,TIMERx(x=0..4,7)
+      参数:        TIMER_INT_Flag_CMT: channel commutation interrupt flag,TIMERx(x=0,7)
+      参数:        TIMER_INT_Flag_TRG: trigger interrupt flag,TIMERx(x=0,7,8,11)
+      参数:        TIMER_INT_Flag_BRK:  break interrupt flag,TIMERx(x=0,7)
     参数[输出]:  无
     返回值:      无
 */
-void TIMER_Interrupt_flag_clear(uint32_t TIMER_periph, uint32_t interrupt) {
+void TIMER_Interrupt_Flag_Clear(uint32_t TIMER_periph, uint32_t interrupt) {
     TIMER_INTF(TIMER_periph) = (~(uint32_t)interrupt);
 }

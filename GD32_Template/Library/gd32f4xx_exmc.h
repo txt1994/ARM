@@ -250,13 +250,13 @@ OF SUCH DAMAGE.
 /* EXMC NOR/SRAM timing initialize structure */
 typedef struct {
     uint32_t asyn_access_mode;                                          /*!< asynchronous access mode */
-    uint32_t syn_data_latency;                                          /*!< configure the data latency */
+    uint32_t syn_Data_latency;                                          /*!< configure the data latency */
     uint32_t syn_clk_division;                                          /*!< configure the clock divide ratio */
     uint32_t bus_latency;                                               /*!< configure the bus latency */
-    uint32_t asyn_data_setuptime;                                       /*!< configure the data setup time, asynchronous access mode valid */
-    uint32_t asyn_address_holdtime;                                     /*!< configure the address hold time, asynchronous access mode valid */
-    uint32_t asyn_address_setuptime;                                    /*!< configure the address setup time, asynchronous access mode valid */
-} EXMC_norsram_timing_parameter_struct;
+    uint32_t asyn_Data_setuptime;                                       /*!< configure the data setup time, asynchronous access mode valid */
+    uint32_t asyn_Address_holdtime;                                     /*!< configure the address hold time, asynchronous access mode valid */
+    uint32_t asyn_Address_setuptime;                                    /*!< configure the address setup time, asynchronous access mode valid */
+} EXMC_norsram_timing_Parameter_Struct;
 
 /* EXMC NOR/SRAM initialize structure */
 typedef struct {
@@ -267,16 +267,16 @@ typedef struct {
     uint32_t nwait_signal;                                              /*!< enable or disable the NWAIT signal while in synchronous bust mode */
     uint32_t memory_write;                                              /*!< enable or disable the write operation */
     uint32_t nwait_Config;                                              /*!< NWAIT signal configuration */
-    uint32_t wrap_burst_mode;                                           /*!< enable or disable the wrap burst mode */
+    uint32_t wrap_Burst_mode;                                           /*!< enable or disable the wrap burst mode */
     uint32_t nwait_polarity;                                            /*!< specifies the polarity of NWAIT signal from memory */
     uint32_t burst_mode;                                                /*!< enable or disable the burst mode */
     uint32_t databus_width;                                             /*!< specifies the databus width of external memory */
     uint32_t memory_type;                                               /*!< specifies the type of external memory */
-    uint32_t address_data_mux;                                          /*!< specifies whether the data bus and address bus are multiplexed */
-    EXMC_norsram_timing_parameter_struct* read_write_timing;            /*!< timing parameters for read and write if the extendedmode is not used or the timing
+    uint32_t address_Data_mux;                                          /*!< specifies whether the data bus and address bus are multiplexed */
+    EXMC_norsram_timing_Parameter_Struct* read_Write_timing;            /*!< timing parameters for read and write if the extendedmode is not used or the timing
                                                                              parameters for read if the extendedmode is used. */
-    EXMC_norsram_timing_parameter_struct* write_timing;                 /*!< timing parameters for write when the extendedmode is used. */
-} EXMC_norsram_parameter_struct;
+    EXMC_norsram_timing_Parameter_Struct* write_timing;                 /*!< timing parameters for write when the extendedmode is used. */
+} EXMC_norsram_Parameter_Struct;
 
 /* EXMC NAND/PC card timing initialize structure */
 typedef struct {
@@ -284,7 +284,7 @@ typedef struct {
     uint32_t holdtime;                                                  /*!< configure the address hold time(or the data hold time for write operation) */
     uint32_t waittime;                                                  /*!< configure the minimum wait time */
     uint32_t setuptime;                                                 /*!< configure the address setup time */
-} EXMC_nand_pccard_timing_parameter_struct;
+} EXMC_nand_pccard_timing_Parameter_Struct;
 
 /* EXMC NAND initialize structure */
 typedef struct {
@@ -295,19 +295,19 @@ typedef struct {
     uint32_t ecc_logic;                                                 /*!< enable or disable the ECC calculation logic */
     uint32_t databus_width;                                             /*!< the NAND flash databus width */
     uint32_t wait_feature;                                              /*!< enable or disable the wait feature */
-    EXMC_nand_pccard_timing_parameter_struct* common_space_timing;      /*!< the timing parameters for NAND flash common space */
-    EXMC_nand_pccard_timing_parameter_struct* attribute_space_timing;   /*!< the timing parameters for NAND flash attribute space */
-} EXMC_nand_parameter_struct;
+    EXMC_nand_pccard_timing_Parameter_Struct* common_space_timing;      /*!< the timing parameters for NAND flash common space */
+    EXMC_nand_pccard_timing_Parameter_Struct* attribute_space_timing;   /*!< the timing parameters for NAND flash attribute space */
+} EXMC_nand_Parameter_Struct;
 
 /* EXMC PC card initialize structure */
 typedef struct {
     uint32_t atr_latency;                                               /*!< configure the latency of ALE low to RB low */
     uint32_t ctr_latency;                                               /*!< configure the latency of CLE low to RB low */
     uint32_t wait_feature;                                              /*!< enable or disable the wait feature */
-    EXMC_nand_pccard_timing_parameter_struct*  common_space_timing;     /*!< the timing parameters for PC card common space */
-    EXMC_nand_pccard_timing_parameter_struct*  attribute_space_timing;  /*!< the timing parameters for PC card attribute space */
-    EXMC_nand_pccard_timing_parameter_struct*  io_space_timing;         /*!< the timing parameters for PC card IO space */
-} EXMC_pccard_parameter_struct;
+    EXMC_nand_pccard_timing_Parameter_Struct*  common_space_timing;     /*!< the timing parameters for PC card common space */
+    EXMC_nand_pccard_timing_Parameter_Struct*  attribute_space_timing;  /*!< the timing parameters for PC card attribute space */
+    EXMC_nand_pccard_timing_Parameter_Struct*  io_space_timing;         /*!< the timing parameters for PC card IO space */
+} EXMC_pccard_Parameter_Struct;
 
 /* EXMC SDRAM timing initialize structure */
 typedef struct {
@@ -315,10 +315,10 @@ typedef struct {
     uint32_t row_precharge_delay;                                       /*!< configure the row precharge delay */
     uint32_t write_recovery_delay;                                      /*!< configure the write recovery delay */
     uint32_t auto_refresh_delay;                                        /*!< configure the auto refresh delay */
-    uint32_t row_address_select_delay;                                  /*!< configure the row address select delay */
+    uint32_t row_Address_Select_delay;                                  /*!< configure the row address select delay */
     uint32_t exit_selfrefresh_delay;                                    /*!< configure the exit self-refresh delay */
-    uint32_t load_mode_register_delay;                                  /*!< configure the load mode register delay */
-} EXMC_sdram_timing_parameter_struct;
+    uint32_t load_Mode_Register_delay;                                  /*!< configure the load mode register delay */
+} EXMC_sdram_timing_Parameter_Struct;
 
 /* EXMC SDRAM initialize structure */
 typedef struct {
@@ -326,22 +326,22 @@ typedef struct {
     uint32_t pipeline_read_delay;                                       /*!< the delay for reading data after CAS latency in HCLK clock cycles */
     uint32_t burst_read_switch;                                         /*!< enable or disable the burst read */
     uint32_t sdclock_Config;                                            /*!< the SDCLK memory clock for both SDRAM banks */
-    uint32_t write_protection;                                          /*!< enable or disable SDRAM bank write protection function */
+    uint32_t write_Protection;                                          /*!< enable or disable SDRAM bank write protection function */
     uint32_t cas_latency;                                               /*!< configure the SDRAM CAS latency */
     uint32_t internal_bank_number;                                      /*!< the number of internal bank */
     uint32_t data_width;                                                /*!< the databus width of SDRAM memory */
-    uint32_t row_address_width;                                         /*!< the bit width of a row address */
-    uint32_t column_address_width;                                      /*!< the bit width of a column address */
-    EXMC_sdram_timing_parameter_struct* timing;                         /*!< the timing parameters for write and read SDRAM */
-} EXMC_sdram_parameter_struct;
+    uint32_t row_Address_width;                                         /*!< the bit width of a row address */
+    uint32_t column_Address_width;                                      /*!< the bit width of a column address */
+    EXMC_sdram_timing_Parameter_Struct* timing;                         /*!< the timing parameters for write and read SDRAM */
+} EXMC_sdram_Parameter_Struct;
 
 /* EXMC SDRAM command initialize structure */
 typedef struct {
-    uint32_t mode_register_content;                                     /*!< the SDRAM mode register content */
+    uint32_t mode_Register_content;                                     /*!< the SDRAM mode register content */
     uint32_t auto_refresh_number;                                       /*!< the number of successive auto-refresh cycles will be send when CMD = 011 */
     uint32_t bank_select;                                               /*!< the bank which command will be sent to */
     uint32_t command;                                                   /*!< the commands that will be sent to SDRAM */
-} EXMC_sdram_command_parameter_struct;
+} EXMC_sdram_command_Parameter_Struct;
 
 /* EXMC SQPISRAM initialize structure */
 typedef struct {
@@ -349,7 +349,7 @@ typedef struct {
     uint32_t id_length;                                                 /*!< SPI PSRAM ID length */
     uint32_t address_bits;                                              /*!< bit number of SPI PSRAM address phase */
     uint32_t command_bits;                                              /*!< bit number of SPI PSRAM command phase */
-} EXMC_sqpipsram_parameter_struct;
+} EXMC_sqpipsram_Parameter_Struct;
 
 /* EXMC register address */
 #define EXMC_SNCTL(region)                    REG32(EXMC + 0x08U*((uint32_t)(region)))                      /*!< EXMC SRAM/NOR flash control registers, region = 0,1,2,3 */
@@ -367,7 +367,7 @@ typedef struct {
 
 /* CRAM page size */
 #define SNCTL_CPS(regval)                   (BITS(16,18) & ((uint32_t)(regval) << 16))
-#define EXMC_CRAM_AUTO_SPLIT                SNCTL_CPS(0)                  /*!< automatic burst split on page boundary crossing */
+#define EXMC_CRAM_Auto_SPLIT                SNCTL_CPS(0)                  /*!< automatic burst split on page boundary crossing */
 #define EXMC_CRAM_PAGE_SIZE_128_BYTES       SNCTL_CPS(1)                  /*!< page size is 128 bytes */
 #define EXMC_CRAM_PAGE_SIZE_256_BYTES       SNCTL_CPS(2)                  /*!< page size is 256 bytes */
 #define EXMC_CRAM_PAGE_SIZE_512_BYTES       SNCTL_CPS(3)                  /*!< page size is 512 bytes */
@@ -375,21 +375,21 @@ typedef struct {
 
 /* NOR bank memory data bus width */
 #define SNCTL_NRW(regval)                   (BITS(4,5) & ((uint32_t)(regval) << 4))
-#define EXMC_NOR_DATABUS_WIDTH_8B           SNCTL_NRW(0)                  /*!< NOR data width is 8 bits */
-#define EXMC_NOR_DATABUS_WIDTH_16B          SNCTL_NRW(1)                  /*!< NOR data width is 16 bits */
+#define EXMC_NOR_DATABUS_Width_8B           SNCTL_NRW(0)                  /*!< NOR data width is 8 bits */
+#define EXMC_NOR_DATABUS_Width_16B          SNCTL_NRW(1)                  /*!< NOR data width is 16 bits */
 
 /* NOR bank memory type */
 #define SNCTL_NRTP(regval)                  (BITS(2,3) & ((uint32_t)(regval) << 2))
-#define EXMC_MEMORY_TYPE_SRAM               SNCTL_NRTP(0)                 /*!< SRAM,ROM */
-#define EXMC_MEMORY_TYPE_PSRAM              SNCTL_NRTP(1)                 /*!< PSRAM,CRAM */
-#define EXMC_MEMORY_TYPE_NOR                SNCTL_NRTP(2)                 /*!< NOR flash */
+#define EXMC_Memory_TYPE_SRAM               SNCTL_NRTP(0)                 /*!< SRAM,ROM */
+#define EXMC_Memory_TYPE_PSRAM              SNCTL_NRTP(1)                 /*!< PSRAM,CRAM */
+#define EXMC_Memory_TYPE_NOR                SNCTL_NRTP(2)                 /*!< NOR flash */
 
 /* asynchronous access mode */
 #define SNTCFG_ASYNCMOD(regval)             (BITS(28,29) & ((uint32_t)(regval) << 28))
-#define EXMC_ACCESS_MODE_A                  SNTCFG_ASYNCMOD(0)            /*!< mode A access */
-#define EXMC_ACCESS_MODE_B                  SNTCFG_ASYNCMOD(1)            /*!< mode B access */
-#define EXMC_ACCESS_MODE_C                  SNTCFG_ASYNCMOD(2)            /*!< mode C access */
-#define EXMC_ACCESS_MODE_D                  SNTCFG_ASYNCMOD(3)            /*!< mode D access */
+#define EXMC_ACCESS_Mode_A                  SNTCFG_ASYNCMOD(0)            /*!< mode A access */
+#define EXMC_ACCESS_Mode_B                  SNTCFG_ASYNCMOD(1)            /*!< mode B access */
+#define EXMC_ACCESS_Mode_C                  SNTCFG_ASYNCMOD(2)            /*!< mode C access */
+#define EXMC_ACCESS_Mode_D                  SNTCFG_ASYNCMOD(3)            /*!< mode D access */
 
 /* data latency for NOR flash */
 #define SNTCFG_DLAT(regval)                 (BITS(24,27) & ((uint32_t)(regval) << 24))
@@ -412,22 +412,22 @@ typedef struct {
 
 /* synchronous clock divide ratio */
 #define SNTCFG_CKDIV(regval)                (BITS(20,23) & ((uint32_t)(regval) << 20))
-#define EXMC_SYN_CLOCK_RATIO_DISABLE        SNTCFG_CKDIV(0)               /*!< EXMC_CLK disable */
-#define EXMC_SYN_CLOCK_RATIO_2_CLK          SNTCFG_CKDIV(1)               /*!< EXMC_CLK = 2*HCLK */
-#define EXMC_SYN_CLOCK_RATIO_3_CLK          SNTCFG_CKDIV(2)               /*!< EXMC_CLK = 3*HCLK */
-#define EXMC_SYN_CLOCK_RATIO_4_CLK          SNTCFG_CKDIV(3)               /*!< EXMC_CLK = 4*HCLK */
-#define EXMC_SYN_CLOCK_RATIO_5_CLK          SNTCFG_CKDIV(4)               /*!< EXMC_CLK = 5*HCLK */
-#define EXMC_SYN_CLOCK_RATIO_6_CLK          SNTCFG_CKDIV(5)               /*!< EXMC_CLK = 6*HCLK */
-#define EXMC_SYN_CLOCK_RATIO_7_CLK          SNTCFG_CKDIV(6)               /*!< EXMC_CLK = 7*HCLK */
-#define EXMC_SYN_CLOCK_RATIO_8_CLK          SNTCFG_CKDIV(7)               /*!< EXMC_CLK = 8*HCLK */
-#define EXMC_SYN_CLOCK_RATIO_9_CLK          SNTCFG_CKDIV(8)               /*!< EXMC_CLK = 9*HCLK */
-#define EXMC_SYN_CLOCK_RATIO_10_CLK         SNTCFG_CKDIV(9)               /*!< EXMC_CLK = 10*HCLK */
-#define EXMC_SYN_CLOCK_RATIO_11_CLK         SNTCFG_CKDIV(10)              /*!< EXMC_CLK = 11*HCLK */
-#define EXMC_SYN_CLOCK_RATIO_12_CLK         SNTCFG_CKDIV(11)              /*!< EXMC_CLK = 12*HCLK */
-#define EXMC_SYN_CLOCK_RATIO_13_CLK         SNTCFG_CKDIV(12)              /*!< EXMC_CLK = 13*HCLK */
-#define EXMC_SYN_CLOCK_RATIO_14_CLK         SNTCFG_CKDIV(13)              /*!< EXMC_CLK = 14*HCLK*/
-#define EXMC_SYN_CLOCK_RATIO_15_CLK         SNTCFG_CKDIV(14)              /*!< EXMC_CLK = 15*HCLK */
-#define EXMC_SYN_CLOCK_RATIO_16_CLK         SNTCFG_CKDIV(15)              /*!< EXMC_CLK = 16*HCLK */
+#define EXMC_SYN_Clock_RATIO_DISABLE        SNTCFG_CKDIV(0)               /*!< EXMC_CLK disable */
+#define EXMC_SYN_Clock_RATIO_2_CLK          SNTCFG_CKDIV(1)               /*!< EXMC_CLK = 2*HCLK */
+#define EXMC_SYN_Clock_RATIO_3_CLK          SNTCFG_CKDIV(2)               /*!< EXMC_CLK = 3*HCLK */
+#define EXMC_SYN_Clock_RATIO_4_CLK          SNTCFG_CKDIV(3)               /*!< EXMC_CLK = 4*HCLK */
+#define EXMC_SYN_Clock_RATIO_5_CLK          SNTCFG_CKDIV(4)               /*!< EXMC_CLK = 5*HCLK */
+#define EXMC_SYN_Clock_RATIO_6_CLK          SNTCFG_CKDIV(5)               /*!< EXMC_CLK = 6*HCLK */
+#define EXMC_SYN_Clock_RATIO_7_CLK          SNTCFG_CKDIV(6)               /*!< EXMC_CLK = 7*HCLK */
+#define EXMC_SYN_Clock_RATIO_8_CLK          SNTCFG_CKDIV(7)               /*!< EXMC_CLK = 8*HCLK */
+#define EXMC_SYN_Clock_RATIO_9_CLK          SNTCFG_CKDIV(8)               /*!< EXMC_CLK = 9*HCLK */
+#define EXMC_SYN_Clock_RATIO_10_CLK         SNTCFG_CKDIV(9)               /*!< EXMC_CLK = 10*HCLK */
+#define EXMC_SYN_Clock_RATIO_11_CLK         SNTCFG_CKDIV(10)              /*!< EXMC_CLK = 11*HCLK */
+#define EXMC_SYN_Clock_RATIO_12_CLK         SNTCFG_CKDIV(11)              /*!< EXMC_CLK = 12*HCLK */
+#define EXMC_SYN_Clock_RATIO_13_CLK         SNTCFG_CKDIV(12)              /*!< EXMC_CLK = 13*HCLK */
+#define EXMC_SYN_Clock_RATIO_14_CLK         SNTCFG_CKDIV(13)              /*!< EXMC_CLK = 14*HCLK*/
+#define EXMC_SYN_Clock_RATIO_15_CLK         SNTCFG_CKDIV(14)              /*!< EXMC_CLK = 15*HCLK */
+#define EXMC_SYN_Clock_RATIO_16_CLK         SNTCFG_CKDIV(15)              /*!< EXMC_CLK = 16*HCLK */
 
 /* ECC size */
 #define NPCTL_ECCSZ(regval)                 (BITS(17,19) & ((uint32_t)(regval) << 17))
@@ -440,52 +440,52 @@ typedef struct {
 
 /* ALE to RE delay */
 #define NPCTL_ATR(regval)                   (BITS(13,16) & ((uint32_t)(regval) << 13))
-#define EXMC_ALE_RE_DELAY_1_HCLK            NPCTL_ATR(0)                  /* ALE to RE delay = 1*HCLK */
-#define EXMC_ALE_RE_DELAY_2_HCLK            NPCTL_ATR(1)                  /* ALE to RE delay = 2*HCLK */
-#define EXMC_ALE_RE_DELAY_3_HCLK            NPCTL_ATR(2)                  /* ALE to RE delay = 3*HCLK */
-#define EXMC_ALE_RE_DELAY_4_HCLK            NPCTL_ATR(3)                  /* ALE to RE delay = 4*HCLK */
-#define EXMC_ALE_RE_DELAY_5_HCLK            NPCTL_ATR(4)                  /* ALE to RE delay = 5*HCLK */
-#define EXMC_ALE_RE_DELAY_6_HCLK            NPCTL_ATR(5)                  /* ALE to RE delay = 6*HCLK */
-#define EXMC_ALE_RE_DELAY_7_HCLK            NPCTL_ATR(6)                  /* ALE to RE delay = 7*HCLK */
-#define EXMC_ALE_RE_DELAY_8_HCLK            NPCTL_ATR(7)                  /* ALE to RE delay = 8*HCLK */
-#define EXMC_ALE_RE_DELAY_9_HCLK            NPCTL_ATR(8)                  /* ALE to RE delay = 9*HCLK */
-#define EXMC_ALE_RE_DELAY_10_HCLK           NPCTL_ATR(9)                  /* ALE to RE delay = 10*HCLK */
-#define EXMC_ALE_RE_DELAY_11_HCLK           NPCTL_ATR(10)                 /* ALE to RE delay = 11*HCLK */
-#define EXMC_ALE_RE_DELAY_12_HCLK           NPCTL_ATR(11)                 /* ALE to RE delay = 12*HCLK */
-#define EXMC_ALE_RE_DELAY_13_HCLK           NPCTL_ATR(12)                 /* ALE to RE delay = 13*HCLK */
-#define EXMC_ALE_RE_DELAY_14_HCLK           NPCTL_ATR(13)                 /* ALE to RE delay = 14*HCLK */
-#define EXMC_ALE_RE_DELAY_15_HCLK           NPCTL_ATR(14)                 /* ALE to RE delay = 15*HCLK */
-#define EXMC_ALE_RE_DELAY_16_HCLK           NPCTL_ATR(15)                 /* ALE to RE delay = 16*HCLK */
+#define EXMC_ALE_RE_Delay_1_HCLK            NPCTL_ATR(0)                  /* ALE to RE delay = 1*HCLK */
+#define EXMC_ALE_RE_Delay_2_HCLK            NPCTL_ATR(1)                  /* ALE to RE delay = 2*HCLK */
+#define EXMC_ALE_RE_Delay_3_HCLK            NPCTL_ATR(2)                  /* ALE to RE delay = 3*HCLK */
+#define EXMC_ALE_RE_Delay_4_HCLK            NPCTL_ATR(3)                  /* ALE to RE delay = 4*HCLK */
+#define EXMC_ALE_RE_Delay_5_HCLK            NPCTL_ATR(4)                  /* ALE to RE delay = 5*HCLK */
+#define EXMC_ALE_RE_Delay_6_HCLK            NPCTL_ATR(5)                  /* ALE to RE delay = 6*HCLK */
+#define EXMC_ALE_RE_Delay_7_HCLK            NPCTL_ATR(6)                  /* ALE to RE delay = 7*HCLK */
+#define EXMC_ALE_RE_Delay_8_HCLK            NPCTL_ATR(7)                  /* ALE to RE delay = 8*HCLK */
+#define EXMC_ALE_RE_Delay_9_HCLK            NPCTL_ATR(8)                  /* ALE to RE delay = 9*HCLK */
+#define EXMC_ALE_RE_Delay_10_HCLK           NPCTL_ATR(9)                  /* ALE to RE delay = 10*HCLK */
+#define EXMC_ALE_RE_Delay_11_HCLK           NPCTL_ATR(10)                 /* ALE to RE delay = 11*HCLK */
+#define EXMC_ALE_RE_Delay_12_HCLK           NPCTL_ATR(11)                 /* ALE to RE delay = 12*HCLK */
+#define EXMC_ALE_RE_Delay_13_HCLK           NPCTL_ATR(12)                 /* ALE to RE delay = 13*HCLK */
+#define EXMC_ALE_RE_Delay_14_HCLK           NPCTL_ATR(13)                 /* ALE to RE delay = 14*HCLK */
+#define EXMC_ALE_RE_Delay_15_HCLK           NPCTL_ATR(14)                 /* ALE to RE delay = 15*HCLK */
+#define EXMC_ALE_RE_Delay_16_HCLK           NPCTL_ATR(15)                 /* ALE to RE delay = 16*HCLK */
 
 /* CLE to RE delay */
 #define NPCTL_CTR(regval)                   (BITS(9,12) & ((uint32_t)(regval) << 9))
-#define EXMC_CLE_RE_DELAY_1_HCLK            NPCTL_CTR(0)                  /* CLE to RE delay = 1*HCLK */
-#define EXMC_CLE_RE_DELAY_2_HCLK            NPCTL_CTR(1)                  /* CLE to RE delay = 2*HCLK */
-#define EXMC_CLE_RE_DELAY_3_HCLK            NPCTL_CTR(2)                  /* CLE to RE delay = 3*HCLK */
-#define EXMC_CLE_RE_DELAY_4_HCLK            NPCTL_CTR(3)                  /* CLE to RE delay = 4*HCLK */
-#define EXMC_CLE_RE_DELAY_5_HCLK            NPCTL_CTR(4)                  /* CLE to RE delay = 5*HCLK */
-#define EXMC_CLE_RE_DELAY_6_HCLK            NPCTL_CTR(5)                  /* CLE to RE delay = 6*HCLK */
-#define EXMC_CLE_RE_DELAY_7_HCLK            NPCTL_CTR(6)                  /* CLE to RE delay = 7*HCLK */
-#define EXMC_CLE_RE_DELAY_8_HCLK            NPCTL_CTR(7)                  /* CLE to RE delay = 8*HCLK */
-#define EXMC_CLE_RE_DELAY_9_HCLK            NPCTL_CTR(8)                  /* CLE to RE delay = 9*HCLK */
-#define EXMC_CLE_RE_DELAY_10_HCLK           NPCTL_CTR(9)                  /* CLE to RE delay = 10*HCLK */
-#define EXMC_CLE_RE_DELAY_11_HCLK           NPCTL_CTR(10)                 /* CLE to RE delay = 11*HCLK */
-#define EXMC_CLE_RE_DELAY_12_HCLK           NPCTL_CTR(11)                 /* CLE to RE delay = 12*HCLK */
-#define EXMC_CLE_RE_DELAY_13_HCLK           NPCTL_CTR(12)                 /* CLE to RE delay = 13*HCLK */
-#define EXMC_CLE_RE_DELAY_14_HCLK           NPCTL_CTR(13)                 /* CLE to RE delay = 14*HCLK */
-#define EXMC_CLE_RE_DELAY_15_HCLK           NPCTL_CTR(14)                 /* CLE to RE delay = 15*HCLK */
-#define EXMC_CLE_RE_DELAY_16_HCLK           NPCTL_CTR(15)                 /* CLE to RE delay = 16*HCLK */
+#define EXMC_CLE_RE_Delay_1_HCLK            NPCTL_CTR(0)                  /* CLE to RE delay = 1*HCLK */
+#define EXMC_CLE_RE_Delay_2_HCLK            NPCTL_CTR(1)                  /* CLE to RE delay = 2*HCLK */
+#define EXMC_CLE_RE_Delay_3_HCLK            NPCTL_CTR(2)                  /* CLE to RE delay = 3*HCLK */
+#define EXMC_CLE_RE_Delay_4_HCLK            NPCTL_CTR(3)                  /* CLE to RE delay = 4*HCLK */
+#define EXMC_CLE_RE_Delay_5_HCLK            NPCTL_CTR(4)                  /* CLE to RE delay = 5*HCLK */
+#define EXMC_CLE_RE_Delay_6_HCLK            NPCTL_CTR(5)                  /* CLE to RE delay = 6*HCLK */
+#define EXMC_CLE_RE_Delay_7_HCLK            NPCTL_CTR(6)                  /* CLE to RE delay = 7*HCLK */
+#define EXMC_CLE_RE_Delay_8_HCLK            NPCTL_CTR(7)                  /* CLE to RE delay = 8*HCLK */
+#define EXMC_CLE_RE_Delay_9_HCLK            NPCTL_CTR(8)                  /* CLE to RE delay = 9*HCLK */
+#define EXMC_CLE_RE_Delay_10_HCLK           NPCTL_CTR(9)                  /* CLE to RE delay = 10*HCLK */
+#define EXMC_CLE_RE_Delay_11_HCLK           NPCTL_CTR(10)                 /* CLE to RE delay = 11*HCLK */
+#define EXMC_CLE_RE_Delay_12_HCLK           NPCTL_CTR(11)                 /* CLE to RE delay = 12*HCLK */
+#define EXMC_CLE_RE_Delay_13_HCLK           NPCTL_CTR(12)                 /* CLE to RE delay = 13*HCLK */
+#define EXMC_CLE_RE_Delay_14_HCLK           NPCTL_CTR(13)                 /* CLE to RE delay = 14*HCLK */
+#define EXMC_CLE_RE_Delay_15_HCLK           NPCTL_CTR(14)                 /* CLE to RE delay = 15*HCLK */
+#define EXMC_CLE_RE_Delay_16_HCLK           NPCTL_CTR(15)                 /* CLE to RE delay = 16*HCLK */
 
 /* NAND bank memory data bus width */
 #define NPCTL_NDW(regval)                   (BITS(4,5) & ((uint32_t)(regval) << 4))
-#define EXMC_NAND_DATABUS_WIDTH_8B          NPCTL_NDW(0)                  /*!< NAND data width is 8 bits */
-#define EXMC_NAND_DATABUS_WIDTH_16B         NPCTL_NDW(1)                  /*!< NAND data width is 16 bits */
+#define EXMC_NAND_DATABUS_Width_8B          NPCTL_NDW(0)                  /*!< NAND data width is 8 bits */
+#define EXMC_NAND_DATABUS_Width_16B         NPCTL_NDW(1)                  /*!< NAND data width is 16 bits */
 
 /* SDRAM pipeline delay */
 #define SDCTL_PIPED(regval)                 (BITS(13,14) & ((uint32_t)(regval) << 13))
-#define EXMC_PIPELINE_DELAY_0_HCLK          SDCTL_PIPED(0)                /*!< 0 HCLK clock cycle delay */
-#define EXMC_PIPELINE_DELAY_1_HCLK          SDCTL_PIPED(1)                /*!< 1 HCLK clock cycle delay */
-#define EXMC_PIPELINE_DELAY_2_HCLK          SDCTL_PIPED(2)                /*!< 2 HCLK clock cycle delay */
+#define EXMC_PIPELINE_Delay_0_HCLK          SDCTL_PIPED(0)                /*!< 0 HCLK clock cycle delay */
+#define EXMC_PIPELINE_Delay_1_HCLK          SDCTL_PIPED(1)                /*!< 1 HCLK clock cycle delay */
+#define EXMC_PIPELINE_Delay_2_HCLK          SDCTL_PIPED(2)                /*!< 2 HCLK clock cycle delay */
 
 /* SDRAM clock configuration */
 #define SDCTL_SDCLK(regval)                 (BITS(10,11) & ((uint32_t)(regval) << 10))
@@ -501,69 +501,69 @@ typedef struct {
 
 /* SDRAM data bus width */
 #define SDCTL_SDW(regval)                   (BITS(4,5) & ((uint32_t)(regval) << 4))
-#define EXMC_SDRAM_DATABUS_WIDTH_8B         SDCTL_SDW(0)                  /*!< SDRAM data width 8 bits */
-#define EXMC_SDRAM_DATABUS_WIDTH_16B        SDCTL_SDW(1)                  /*!< SDRAM data width 16 bits */
-#define EXMC_SDRAM_DATABUS_WIDTH_32B        SDCTL_SDW(2)                  /*!< SDRAM data width 32 bits */
+#define EXMC_SDRAM_DATABUS_Width_8B         SDCTL_SDW(0)                  /*!< SDRAM data width 8 bits */
+#define EXMC_SDRAM_DATABUS_Width_16B        SDCTL_SDW(1)                  /*!< SDRAM data width 16 bits */
+#define EXMC_SDRAM_DATABUS_Width_32B        SDCTL_SDW(2)                  /*!< SDRAM data width 32 bits */
 
 /* SDRAM row address bit width */
 #define SDCTL_RAW(regval)                   (BITS(2,3) & ((uint32_t)(regval) << 2))
-#define EXMC_SDRAM_ROW_ADDRESS_11           SDCTL_RAW(0)                  /*!< row address bit width is 11 bits */
-#define EXMC_SDRAM_ROW_ADDRESS_12           SDCTL_RAW(1)                  /*!< row address bit width is 12 bits */
-#define EXMC_SDRAM_ROW_ADDRESS_13           SDCTL_RAW(2)                  /*!< row address bit width is 13 bits */
+#define EXMC_SDRAM_ROW_Address_11           SDCTL_RAW(0)                  /*!< row address bit width is 11 bits */
+#define EXMC_SDRAM_ROW_Address_12           SDCTL_RAW(1)                  /*!< row address bit width is 12 bits */
+#define EXMC_SDRAM_ROW_Address_13           SDCTL_RAW(2)                  /*!< row address bit width is 13 bits */
 
 /* SDRAM column address bit width */
 #define SDCTL_CAW(regval)                   (BITS(0,1) & ((uint32_t)(regval) << 0))
-#define EXMC_SDRAM_COW_ADDRESS_8            SDCTL_CAW(0)                  /*!< column address bit width is 8 bits */
-#define EXMC_SDRAM_COW_ADDRESS_9            SDCTL_CAW(1)                  /*!< column address bit width is 9 bits */
-#define EXMC_SDRAM_COW_ADDRESS_10           SDCTL_CAW(2)                  /*!< column address bit width is 10 bits */
-#define EXMC_SDRAM_COW_ADDRESS_11           SDCTL_CAW(3)                  /*!< column address bit width is 11 bits */
+#define EXMC_SDRAM_COW_Address_8            SDCTL_CAW(0)                  /*!< column address bit width is 8 bits */
+#define EXMC_SDRAM_COW_Address_9            SDCTL_CAW(1)                  /*!< column address bit width is 9 bits */
+#define EXMC_SDRAM_COW_Address_10           SDCTL_CAW(2)                  /*!< column address bit width is 10 bits */
+#define EXMC_SDRAM_COW_Address_11           SDCTL_CAW(3)                  /*!< column address bit width is 11 bits */
 
 /* SDRAM number of successive auto-refresh */
 #define SDCMD_NARF(regval)                  (BITS(5,8) & ((uint32_t)(regval) << 5))
-#define EXMC_SDRAM_AUTO_REFLESH_1_SDCLK     SDCMD_NARF(0)                 /*!< 1 auto-refresh cycle */
-#define EXMC_SDRAM_AUTO_REFLESH_2_SDCLK     SDCMD_NARF(1)                 /*!< 2 auto-refresh cycles */
-#define EXMC_SDRAM_AUTO_REFLESH_3_SDCLK     SDCMD_NARF(2)                 /*!< 3 auto-refresh cycles */
-#define EXMC_SDRAM_AUTO_REFLESH_4_SDCLK     SDCMD_NARF(3)                 /*!< 4 auto-refresh cycles */
-#define EXMC_SDRAM_AUTO_REFLESH_5_SDCLK     SDCMD_NARF(4)                 /*!< 5 auto-refresh cycles */
-#define EXMC_SDRAM_AUTO_REFLESH_6_SDCLK     SDCMD_NARF(5)                 /*!< 6 auto-refresh cycles */
-#define EXMC_SDRAM_AUTO_REFLESH_7_SDCLK     SDCMD_NARF(6)                 /*!< 7 auto-refresh cycles */
-#define EXMC_SDRAM_AUTO_REFLESH_8_SDCLK     SDCMD_NARF(7)                 /*!< 8 auto-refresh cycles */
-#define EXMC_SDRAM_AUTO_REFLESH_9_SDCLK     SDCMD_NARF(8)                 /*!< 9 auto-refresh cycles */
-#define EXMC_SDRAM_AUTO_REFLESH_10_SDCLK    SDCMD_NARF(9)                 /*!< 10 auto-refresh cycles */
-#define EXMC_SDRAM_AUTO_REFLESH_11_SDCLK    SDCMD_NARF(10)                /*!< 11 auto-refresh cycles */
-#define EXMC_SDRAM_AUTO_REFLESH_12_SDCLK    SDCMD_NARF(11)                /*!< 12 auto-refresh cycles */
-#define EXMC_SDRAM_AUTO_REFLESH_13_SDCLK    SDCMD_NARF(12)                /*!< 13 auto-refresh cycles */
-#define EXMC_SDRAM_AUTO_REFLESH_14_SDCLK    SDCMD_NARF(13)                /*!< 14 auto-refresh cycles */
-#define EXMC_SDRAM_AUTO_REFLESH_15_SDCLK    SDCMD_NARF(14)                /*!< 15 auto-refresh cycles */
+#define EXMC_SDRAM_Auto_REFLESH_1_SDCLK     SDCMD_NARF(0)                 /*!< 1 auto-refresh cycle */
+#define EXMC_SDRAM_Auto_REFLESH_2_SDCLK     SDCMD_NARF(1)                 /*!< 2 auto-refresh cycles */
+#define EXMC_SDRAM_Auto_REFLESH_3_SDCLK     SDCMD_NARF(2)                 /*!< 3 auto-refresh cycles */
+#define EXMC_SDRAM_Auto_REFLESH_4_SDCLK     SDCMD_NARF(3)                 /*!< 4 auto-refresh cycles */
+#define EXMC_SDRAM_Auto_REFLESH_5_SDCLK     SDCMD_NARF(4)                 /*!< 5 auto-refresh cycles */
+#define EXMC_SDRAM_Auto_REFLESH_6_SDCLK     SDCMD_NARF(5)                 /*!< 6 auto-refresh cycles */
+#define EXMC_SDRAM_Auto_REFLESH_7_SDCLK     SDCMD_NARF(6)                 /*!< 7 auto-refresh cycles */
+#define EXMC_SDRAM_Auto_REFLESH_8_SDCLK     SDCMD_NARF(7)                 /*!< 8 auto-refresh cycles */
+#define EXMC_SDRAM_Auto_REFLESH_9_SDCLK     SDCMD_NARF(8)                 /*!< 9 auto-refresh cycles */
+#define EXMC_SDRAM_Auto_REFLESH_10_SDCLK    SDCMD_NARF(9)                 /*!< 10 auto-refresh cycles */
+#define EXMC_SDRAM_Auto_REFLESH_11_SDCLK    SDCMD_NARF(10)                /*!< 11 auto-refresh cycles */
+#define EXMC_SDRAM_Auto_REFLESH_12_SDCLK    SDCMD_NARF(11)                /*!< 12 auto-refresh cycles */
+#define EXMC_SDRAM_Auto_REFLESH_13_SDCLK    SDCMD_NARF(12)                /*!< 13 auto-refresh cycles */
+#define EXMC_SDRAM_Auto_REFLESH_14_SDCLK    SDCMD_NARF(13)                /*!< 14 auto-refresh cycles */
+#define EXMC_SDRAM_Auto_REFLESH_15_SDCLK    SDCMD_NARF(14)                /*!< 15 auto-refresh cycles */
 
 /* SDRAM command selection */
 #define SDCMD_CMD(regval)                   (BITS(0,2) & ((uint32_t)(regval) << 0))
-#define EXMC_SDRAM_NORMAL_OPERATION         SDCMD_CMD(0)                  /*!< normal operation command */
-#define EXMC_SDRAM_CLOCK_ENABLE             SDCMD_CMD(1)                  /*!< clock enable command */
+#define EXMC_SDRAM_Normal_OPERATION         SDCMD_CMD(0)                  /*!< normal operation command */
+#define EXMC_SDRAM_Clock_ENABLE             SDCMD_CMD(1)                  /*!< clock enable command */
 #define EXMC_SDRAM_PRECHARGE_ALL            SDCMD_CMD(2)                  /*!< precharge all command */
-#define EXMC_SDRAM_AUTO_REFRESH             SDCMD_CMD(3)                  /*!< auto-refresh command */
-#define EXMC_SDRAM_LOAD_MODE_REGISTER       SDCMD_CMD(4)                  /*!< load mode register command */
+#define EXMC_SDRAM_Auto_REFRESH             SDCMD_CMD(3)                  /*!< auto-refresh command */
+#define EXMC_SDRAM_LOAD_Mode_REGISTER       SDCMD_CMD(4)                  /*!< load mode register command */
 #define EXMC_SDRAM_SELF_REFRESH             SDCMD_CMD(5)                  /*!< self-refresh command */
 #define EXMC_SDRAM_POWERDOWN_ENTRY          SDCMD_CMD(6)                  /*!< power-down entry command */
 
 /* SDRAM the delayed sample clock of read data */
 #define SDRSCTL_SDSC(regval)                (BITS(4,7) & ((uint32_t)(regval) << 4))
-#define EXMC_SDRAM_0_DELAY_CELL             SDRSCTL_SDSC(0)               /*!< select the clock after 0 delay cell */
-#define EXMC_SDRAM_1_DELAY_CELL             SDRSCTL_SDSC(1)               /*!< select the clock after 1 delay cell */
-#define EXMC_SDRAM_2_DELAY_CELL             SDRSCTL_SDSC(2)               /*!< select the clock after 2 delay cell */
-#define EXMC_SDRAM_3_DELAY_CELL             SDRSCTL_SDSC(3)               /*!< select the clock after 3 delay cell */
-#define EXMC_SDRAM_4_DELAY_CELL             SDRSCTL_SDSC(4)               /*!< select the clock after 4 delay cell */
-#define EXMC_SDRAM_5_DELAY_CELL             SDRSCTL_SDSC(5)               /*!< select the clock after 5 delay cell */
-#define EXMC_SDRAM_6_DELAY_CELL             SDRSCTL_SDSC(6)               /*!< select the clock after 6 delay cell */
-#define EXMC_SDRAM_7_DELAY_CELL             SDRSCTL_SDSC(7)               /*!< select the clock after 7 delay cell */
-#define EXMC_SDRAM_8_DELAY_CELL             SDRSCTL_SDSC(8)               /*!< select the clock after 8 delay cell */
-#define EXMC_SDRAM_9_DELAY_CELL             SDRSCTL_SDSC(9)               /*!< select the clock after 9 delay cell */
-#define EXMC_SDRAM_10_DELAY_CELL            SDRSCTL_SDSC(10)              /*!< select the clock after 10 delay cell */
-#define EXMC_SDRAM_11_DELAY_CELL            SDRSCTL_SDSC(11)              /*!< select the clock after 11 delay cell */
-#define EXMC_SDRAM_12_DELAY_CELL            SDRSCTL_SDSC(12)              /*!< select the clock after 12 delay cell */
-#define EXMC_SDRAM_13_DELAY_CELL            SDRSCTL_SDSC(13)              /*!< select the clock after 13 delay cell */
-#define EXMC_SDRAM_14_DELAY_CELL            SDRSCTL_SDSC(14)              /*!< select the clock after 14 delay cell */
-#define EXMC_SDRAM_15_DELAY_CELL            SDRSCTL_SDSC(15)              /*!< select the clock after 15 delay cell */
+#define EXMC_SDRAM_0_Delay_CELL             SDRSCTL_SDSC(0)               /*!< select the clock after 0 delay cell */
+#define EXMC_SDRAM_1_Delay_CELL             SDRSCTL_SDSC(1)               /*!< select the clock after 1 delay cell */
+#define EXMC_SDRAM_2_Delay_CELL             SDRSCTL_SDSC(2)               /*!< select the clock after 2 delay cell */
+#define EXMC_SDRAM_3_Delay_CELL             SDRSCTL_SDSC(3)               /*!< select the clock after 3 delay cell */
+#define EXMC_SDRAM_4_Delay_CELL             SDRSCTL_SDSC(4)               /*!< select the clock after 4 delay cell */
+#define EXMC_SDRAM_5_Delay_CELL             SDRSCTL_SDSC(5)               /*!< select the clock after 5 delay cell */
+#define EXMC_SDRAM_6_Delay_CELL             SDRSCTL_SDSC(6)               /*!< select the clock after 6 delay cell */
+#define EXMC_SDRAM_7_Delay_CELL             SDRSCTL_SDSC(7)               /*!< select the clock after 7 delay cell */
+#define EXMC_SDRAM_8_Delay_CELL             SDRSCTL_SDSC(8)               /*!< select the clock after 8 delay cell */
+#define EXMC_SDRAM_9_Delay_CELL             SDRSCTL_SDSC(9)               /*!< select the clock after 9 delay cell */
+#define EXMC_SDRAM_10_Delay_CELL            SDRSCTL_SDSC(10)              /*!< select the clock after 10 delay cell */
+#define EXMC_SDRAM_11_Delay_CELL            SDRSCTL_SDSC(11)              /*!< select the clock after 11 delay cell */
+#define EXMC_SDRAM_12_Delay_CELL            SDRSCTL_SDSC(12)              /*!< select the clock after 12 delay cell */
+#define EXMC_SDRAM_13_Delay_CELL            SDRSCTL_SDSC(13)              /*!< select the clock after 13 delay cell */
+#define EXMC_SDRAM_14_Delay_CELL            SDRSCTL_SDSC(14)              /*!< select the clock after 14 delay cell */
+#define EXMC_SDRAM_15_Delay_CELL            SDRSCTL_SDSC(15)              /*!< select the clock after 15 delay cell */
 
 /* SPI PSRAM ID length */
 #define SINIT_IDL(regval)                   (BITS(29,30) & ((uint32_t)(regval) << 29))
@@ -609,17 +609,17 @@ typedef struct {
 
 /* SPI PSRAM read command mode */
 #define SRCMD_RMODE(regval)                 (BITS(20,21) & ((uint32_t)(regval) << 20))
-#define EXMC_SQPIPSRAM_READ_MODE_DISABLE    SRCMD_RMODE(0)                /*!< not SPI mode */
-#define EXMC_SQPIPSRAM_READ_MODE_SPI        SRCMD_RMODE(1)                /*!< SPI mode */
-#define EXMC_SQPIPSRAM_READ_MODE_SQPI       SRCMD_RMODE(2)                /*!< SQPI mode */
-#define EXMC_SQPIPSRAM_READ_MODE_QPI        SRCMD_RMODE(3)                /*!< QPI mode */
+#define EXMC_SQPIPSRAM_READ_Mode_DISABLE    SRCMD_RMODE(0)                /*!< not SPI mode */
+#define EXMC_SQPIPSRAM_READ_Mode_SPI        SRCMD_RMODE(1)                /*!< SPI mode */
+#define EXMC_SQPIPSRAM_READ_Mode_SQPI       SRCMD_RMODE(2)                /*!< SQPI mode */
+#define EXMC_SQPIPSRAM_READ_Mode_QPI        SRCMD_RMODE(3)                /*!< QPI mode */
 
 /* SPI PSRAM write command mode */
 #define SRCMD_WMODE(regval)                 (BITS(20,21) & ((uint32_t)(regval) << 20))
-#define EXMC_SQPIPSRAM_WRITE_MODE_DISABLE   SRCMD_WMODE(0)                /*!< not SPI mode */
-#define EXMC_SQPIPSRAM_WRITE_MODE_SPI       SRCMD_WMODE(1)                /*!< SPI mode */
-#define EXMC_SQPIPSRAM_WRITE_MODE_SQPI      SRCMD_WMODE(2)                /*!< SQPI mode */
-#define EXMC_SQPIPSRAM_WRITE_MODE_QPI       SRCMD_WMODE(3)                /*!< QPI mode */
+#define EXMC_SQPIPSRAM_Write_Mode_DISABLE   SRCMD_WMODE(0)                /*!< not SPI mode */
+#define EXMC_SQPIPSRAM_Write_Mode_SPI       SRCMD_WMODE(1)                /*!< SPI mode */
+#define EXMC_SQPIPSRAM_Write_Mode_SQPI      SRCMD_WMODE(2)                /*!< SQPI mode */
+#define EXMC_SQPIPSRAM_Write_Mode_QPI       SRCMD_WMODE(3)                /*!< QPI mode */
 
 /* EXMC NOR/SRAM bank region definition */
 #define EXMC_BANK0_NORSRAM_REGION0          ((uint32_t)0x00000000U)       /*!< bank0 NOR/SRAM region0 */
@@ -628,8 +628,8 @@ typedef struct {
 #define EXMC_BANK0_NORSRAM_REGION3          ((uint32_t)0x00000003U)       /*!< bank0 NOR/SRAM region3 */
 
 /* EXMC consecutive clock */
-#define EXMC_CLOCK_SYN_MODE                 ((uint32_t)0x00000000U)       /*!< EXMC_CLK is generated only during synchronous access */
-#define EXMC_CLOCK_UNCONDITIONALLY          EXMC_SNCTL_CCK                /*!< EXMC_CLK is generated unconditionally */
+#define EXMC_Clock_SYN_MODE                 ((uint32_t)0x00000000U)       /*!< EXMC_CLK is generated only during synchronous access */
+#define EXMC_Clock_UNCONDITIONALLY          EXMC_SNCTL_CCK                /*!< EXMC_CLK is generated unconditionally */
 
 /* EXMC NOR/SRAM write mode */
 #define EXMC_ASYN_WRITE                     ((uint32_t)0x00000000U)       /*!< asynchronous write mode */
@@ -640,8 +640,8 @@ typedef struct {
 #define EXMC_NWAIT_Config_DURING            EXMC_SNCTL_NRWTCFG            /*!< NWAIT signal is active during wait state */
 
 /* EXMC NWAIT signal polarity configuration */
-#define EXMC_NWAIT_POLARITY_LOW             ((uint32_t)0x00000000U)       /*!< low level is active of NWAIT */
-#define EXMC_NWAIT_POLARITY_HIGH            EXMC_SNCTL_NRWTPOL            /*!< high level is active of NWAIT */
+#define EXMC_NWAIT_Polarity_LOW             ((uint32_t)0x00000000U)       /*!< low level is active of NWAIT */
+#define EXMC_NWAIT_Polarity_HIGH            EXMC_SNCTL_NRWTPOL            /*!< high level is active of NWAIT */
 
 /* EXMC NAND/PC card bank definition */
 #define EXMC_BANK1_NAND                     ((uint32_t)0x00000001U)       /*!< NAND flash bank1 */
@@ -667,140 +667,140 @@ typedef struct {
 /* SDRAM device status */
 #define EXMC_SDRAM_DEVICE_NORMAL            ((uint32_t)0x00000000U)       /*!< normal status */
 #define EXMC_SDRAM_DEVICE_SELF_REFRESH      ((uint32_t)0x00000001U)       /*!< self refresh status */
-#define EXMC_SDRAM_DEVICE_POWER_DOWN        ((uint32_t)0x00000002U)       /*!< power down status */
+#define EXMC_SDRAM_DEVICE_Power_DOWN        ((uint32_t)0x00000002U)       /*!< power down status */
 
 /* sample cycle of read data */
 #define EXMC_SDRAM_READSAMPLE_0_EXTRAHCLK   ((uint32_t)0x00000000U)       /*!< add 0 extra HCLK cycle to the read data sample clock besides the delay chain */
 #define EXMC_SDRAM_READSAMPLE_1_EXTRAHCLK   EXMC_SDRSCTL_SSCR             /*!< add 1 extra HCLK cycle to the read data sample clock besides the delay chain */
 
 /* read data sample polarity */
-#define EXMC_SQPIPSRAM_SAMPLE_RISING_EDGE   ((uint32_t)0x00000000U)       /*!< sample data at rising edge */
-#define EXMC_SQPIPSRAM_SAMPLE_FALLING_EDGE  EXMC_SINIT_POL                /*!< sample data at falling edge */
+#define EXMC_SQPIPSRAM_Sample_RISING_EDGE   ((uint32_t)0x00000000U)       /*!< sample data at rising edge */
+#define EXMC_SQPIPSRAM_Sample_FALLING_EDGE  EXMC_SINIT_POL                /*!< sample data at falling edge */
 
 /* SQPI SRAM command flag */
-#define EXMC_SEND_COMMAND_FLAG_RDID         EXMC_SRCMD_RDID               /*!< EXMC_SRCMD_RDID flag bit */
-#define EXMC_SEND_COMMAND_FLAG_SC           EXMC_SWCMD_SC                 /*!< EXMC_SWCMD_SC flag bit */
+#define EXMC_Send_COMMAND_Flag_RDID         EXMC_SRCMD_RDID               /*!< EXMC_SRCMD_RDID flag bit */
+#define EXMC_Send_COMMAND_Flag_SC           EXMC_SWCMD_SC                 /*!< EXMC_SWCMD_SC flag bit */
 
 /* EXMC flag bits */
-#define EXMC_NAND_PCCARD_FLAG_RISE          EXMC_NPINTEN_INTRS            /*!< interrupt rising edge status */
-#define EXMC_NAND_PCCARD_FLAG_LEVEL         EXMC_NPINTEN_INTHS            /*!< interrupt high-level status */
-#define EXMC_NAND_PCCARD_FLAG_FALL          EXMC_NPINTEN_INTFS            /*!< interrupt falling edge status */
-#define EXMC_NAND_PCCARD_FLAG_FIFOE         EXMC_NPINTEN_FFEPT            /*!< FIFO empty flag */
-#define EXMC_SDRAM_FLAG_REFRESH             EXMC_SDSDAT_REIF              /*!< refresh error interrupt flag */
-#define EXMC_SDRAM_FLAG_NREADY              EXMC_SDSDAT_NRDY              /*!< not ready status  */
+#define EXMC_NAND_PCCARD_Flag_RISE          EXMC_NPINTEN_INTRS            /*!< interrupt rising edge status */
+#define EXMC_NAND_PCCARD_Flag_LEVEL         EXMC_NPINTEN_INTHS            /*!< interrupt high-level status */
+#define EXMC_NAND_PCCARD_Flag_FALL          EXMC_NPINTEN_INTFS            /*!< interrupt falling edge status */
+#define EXMC_NAND_PCCARD_Flag_FIFOE         EXMC_NPINTEN_FFEPT            /*!< FIFO empty flag */
+#define EXMC_SDRAM_Flag_REFRESH             EXMC_SDSDAT_REIF              /*!< refresh error interrupt flag */
+#define EXMC_SDRAM_Flag_NREADY              EXMC_SDSDAT_NRDY              /*!< not ready status  */
 
 /* EXMC interrupt flag bits */
-#define EXMC_NAND_PCCARD_INT_FLAG_RISE      EXMC_NPINTEN_INTREN           /*!< rising edge interrupt and flag */
-#define EXMC_NAND_PCCARD_INT_FLAG_LEVEL     EXMC_NPINTEN_INTHEN           /*!< high-level interrupt and flag  */
-#define EXMC_NAND_PCCARD_INT_FLAG_FALL      EXMC_NPINTEN_INTFEN           /*!< falling edge interrupt and flag */
-#define EXMC_SDRAM_INT_FLAG_REFRESH         EXMC_SDARI_REIE               /*!< refresh error interrupt and flag  */
+#define EXMC_NAND_PCCARD_INT_Flag_RISE      EXMC_NPINTEN_INTREN           /*!< rising edge interrupt and flag */
+#define EXMC_NAND_PCCARD_INT_Flag_LEVEL     EXMC_NPINTEN_INTHEN           /*!< high-level interrupt and flag  */
+#define EXMC_NAND_PCCARD_INT_Flag_FALL      EXMC_NPINTEN_INTFEN           /*!< falling edge interrupt and flag */
+#define EXMC_SDRAM_INT_Flag_REFRESH         EXMC_SDARI_REIE               /*!< refresh error interrupt and flag  */
 
 /* function declarations */
 /* initialization functions */
 /* NOR/SRAM */
 /* deinitialize EXMC NOR/SRAM region */
 void EXMC_norsram_DeInit(uint32_t EXMC_norsram_region);
-/* initialize EXMC_norsram_parameter_struct with the default values */
-void EXMC_norsram_struct_para_init(EXMC_norsram_parameter_struct* EXMC_norsram_init_struct);
+/* initialize EXMC_norsram_Parameter_Struct with the default values */
+void EXMC_norsram_Struct_Para_Init(EXMC_norsram_Parameter_Struct* EXMC_norsram_init_Struct);
 /* initialize EXMC NOR/SRAM region */
-void EXMC_norsram_init(EXMC_norsram_parameter_struct* EXMC_norsram_init_struct);
+void EXMC_norsram_Init(EXMC_norsram_Parameter_Struct* EXMC_norsram_init_Struct);
 /* enable EXMC NOR/SRAM region */
-void EXMC_norsram_enable(uint32_t EXMC_norsram_region);
+void EXMC_norsram_Enable(uint32_t EXMC_norsram_region);
 /* disable EXMC NOR/SRAM region */
-void EXMC_norsram_disable(uint32_t EXMC_norsram_region);
+void EXMC_norsram_Disable(uint32_t EXMC_norsram_region);
 /* NAND */
 /* deinitialize EXMC NAND bank */
 void EXMC_nand_DeInit(uint32_t EXMC_nand_bank);
-/* initialize EXMC_nand_parameter_struct with the default values */
-void EXMC_nand_struct_para_init(EXMC_nand_parameter_struct* EXMC_nand_init_struct);
+/* initialize EXMC_nand_Parameter_Struct with the default values */
+void EXMC_nand_Struct_Para_Init(EXMC_nand_Parameter_Struct* EXMC_nand_init_Struct);
 /* initialize EXMC NAND bank */
-void EXMC_nand_init(EXMC_nand_parameter_struct* EXMC_nand_init_struct);
+void EXMC_nand_Init(EXMC_nand_Parameter_Struct* EXMC_nand_init_Struct);
 /* enable EXMC NAND bank */
-void EXMC_nand_enable(uint32_t EXMC_nand_bank);
+void EXMC_nand_Enable(uint32_t EXMC_nand_bank);
 /* disable EXMC NAND bank */
-void EXMC_nand_disable(uint32_t EXMC_nand_bank);
+void EXMC_nand_Disable(uint32_t EXMC_nand_bank);
 /* PC card */
 /* deinitialize EXMC PC card bank */
 void EXMC_pccard_DeInit(void);
-/* initialize EXMC_pccard_parameter_struct with the default values */
-void EXMC_pccard_struct_para_init(EXMC_pccard_parameter_struct* EXMC_pccard_init_struct);
+/* initialize EXMC_pccard_Parameter_Struct with the default values */
+void EXMC_pccard_Struct_Para_Init(EXMC_pccard_Parameter_Struct* EXMC_pccard_init_Struct);
 /* initialize EXMC PC card bank */
-void EXMC_pccard_init(EXMC_pccard_parameter_struct* EXMC_pccard_init_struct);
+void EXMC_pccard_Init(EXMC_pccard_Parameter_Struct* EXMC_pccard_init_Struct);
 /* enable EXMC PC card bank */
-void EXMC_pccard_enable(void);
+void EXMC_pccard_Enable(void);
 /* disable EXMC PC card bank */
-void EXMC_pccard_disable(void);
+void EXMC_pccard_Disable(void);
 /* SDRAM */
 /* deinitialize EXMC SDRAM device */
 void EXMC_sdram_DeInit(uint32_t EXMC_sdram_device);
-/* initialize EXMC_sdram_parameter_struct with the default values */
-void EXMC_sdram_struct_para_init(EXMC_sdram_parameter_struct* EXMC_sdram_init_struct);
+/* initialize EXMC_sdram_Parameter_Struct with the default values */
+void EXMC_sdram_Struct_Para_Init(EXMC_sdram_Parameter_Struct* EXMC_sdram_init_Struct);
 /* initialize EXMC SDRAM device */
-void EXMC_sdram_init(EXMC_sdram_parameter_struct* EXMC_sdram_init_struct);
-/* initialize EXMC_sdram_command_parameter_struct with the default values */
-void EXMC_sdram_struct_command_para_init(EXMC_sdram_command_parameter_struct *EXMC_sdram_command_init_struct);
+void EXMC_sdram_Init(EXMC_sdram_Parameter_Struct* EXMC_sdram_init_Struct);
+/* initialize EXMC_sdram_command_Parameter_Struct with the default values */
+void EXMC_sdram_Struct_command_Para_Init(EXMC_sdram_command_Parameter_Struct *EXMC_sdram_command_init_Struct);
 /* SQPIPSRAM */
 /* deinitialize EXMC SQPIPSRAM */
 void EXMC_sqpipsram_DeInit(void);
-/* initialize EXMC_sqpipsram_parameter_struct with the default values */
-void EXMC_sqpipsram_struct_para_init(EXMC_sqpipsram_parameter_struct* EXMC_sqpipsram_init_struct);
+/* initialize EXMC_sqpipsram_Parameter_Struct with the default values */
+void EXMC_sqpipsram_Struct_Para_Init(EXMC_sqpipsram_Parameter_Struct* EXMC_sqpipsram_init_Struct);
 /* initialize EXMC SQPIPSRAM */
-void EXMC_sqpipsram_init(EXMC_sqpipsram_parameter_struct* EXMC_sqpipsram_init_struct);
+void EXMC_sqpipsram_Init(EXMC_sqpipsram_Parameter_Struct* EXMC_sqpipsram_init_Struct);
 
 /* function configuration */
 /* NOR/SRAM */
 /* configure consecutive clock */
-void EXMC_norsram_consecutive_clock_Config(uint32_t clock_mode);
+void EXMC_norsram_consecutive_Clock_Config(uint32_t clock_mode);
 /* configure CRAM page size */
 void EXMC_norsram_page_size_Config(uint32_t EXMC_norsram_region, uint32_t page_size);
 /* NAND */
 /* enable or disable the EXMC NAND ECC function */
 void EXMC_nand_ecc_Config(uint32_t EXMC_nand_bank, ControlStatus newvalue);
 /* get the EXMC ECC value */
-uint32_t EXMC_ecc_get(uint32_t EXMC_nand_bank);
+uint32_t EXMC_ecc_Get(uint32_t EXMC_nand_bank);
 /* SDRAM */
 /* enable or disable read sample */
-void EXMC_sdram_readsample_enable(ControlStatus newvalue);
+void EXMC_sdram_readsample_Enable(ControlStatus newvalue);
 /* configure the delayed sample clock of read data */
 void EXMC_sdram_readsample_Config(uint32_t delay_cell, uint32_t extra_hclk);
 /* configure the SDRAM memory command */
-void EXMC_sdram_command_Config(EXMC_sdram_command_parameter_struct* EXMC_sdram_command_init_struct);
+void EXMC_sdram_command_Config(EXMC_sdram_command_Parameter_Struct* EXMC_sdram_command_init_Struct);
 /* set auto-refresh interval */
-void EXMC_sdram_refresh_count_set(uint32_t EXMC_count);
+void EXMC_sdram_refresh_count_Set(uint32_t EXMC_count);
 /* set the number of successive auto-refresh command */
-void EXMC_sdram_autorefresh_number_set(uint32_t EXMC_number);
+void EXMC_sdram_autorefresh_Number_Set(uint32_t EXMC_number);
 /* configure the write protection function */
-void EXMC_sdram_write_protection_Config(uint32_t EXMC_sdram_device, ControlStatus newvalue);
+void EXMC_sdram_Write_Protection_Config(uint32_t EXMC_sdram_device, ControlStatus newvalue);
 /* get the status of SDRAM device0 or device1 */
-uint32_t EXMC_sdram_bankstatus_get(uint32_t EXMC_sdram_device);
+uint32_t EXMC_sdram_bankstatus_Get(uint32_t EXMC_sdram_device);
 /* SQPIPSRAM */
 /* set the read command */
-void EXMC_sqpipsram_read_command_set(uint32_t read_command_mode, uint32_t read_Wait_cycle, uint32_t read_command_code);
+void EXMC_sqpipsram_read_command_Set(uint32_t read_command_mode, uint32_t read_Wait_cycle, uint32_t read_command_code);
 /* set the write command */
-void EXMC_sqpipsram_write_command_set(uint32_t write_command_mode, uint32_t write_Wait_cycle, uint32_t write_command_code);
+void EXMC_sqpipsram_Write_command_Set(uint32_t write_command_mode, uint32_t write_Wait_cycle, uint32_t write_command_code);
 /* send SPI read ID command */
-void EXMC_sqpipsram_read_id_command_send(void);
+void EXMC_sqpipsram_read_ID_command_send(void);
 /* send SPI special command which does not have address and data phase */
-void EXMC_sqpipsram_write_cmd_send(void);
+void EXMC_sqpipsram_Write_cmd_send(void);
 /* get the EXMC SPI ID low data */
-uint32_t EXMC_sqpipsram_low_id_get(void);
+uint32_t EXMC_sqpipsram_Low_ID_Get(void);
 /* get the EXMC SPI ID high data */
-uint32_t EXMC_sqpipsram_high_id_get(void);
+uint32_t EXMC_sqpipsram_high_ID_Get(void);
 /* get the bit value of EXMC send write command bit or read ID command */
-FlagStatus EXMC_sqpipsram_send_command_state_get(uint32_t send_command_flag);
+FlagStatus EXMC_sqpipsram_Send_command_State_Get(uint32_t send_command_flag);
 
 /* interrupt & flag functions */
 /* enable EXMC interrupt */
-void EXMC_Interrupt_enable(uint32_t EXMC_bank, uint32_t interrupt);
+void EXMC_Interrupt_Enable(uint32_t EXMC_bank, uint32_t interrupt);
 /* disable EXMC interrupt */
-void EXMC_Interrupt_disable(uint32_t EXMC_bank, uint32_t interrupt);
+void EXMC_Interrupt_Disable(uint32_t EXMC_bank, uint32_t interrupt);
 /* get EXMC flag status */
-FlagStatus EXMC_flag_get(uint32_t EXMC_bank, uint32_t flag);
+FlagStatus EXMC_Flag_Get(uint32_t EXMC_bank, uint32_t flag);
 /* clear EXMC flag status */
-void EXMC_flag_clear(uint32_t EXMC_bank, uint32_t flag);
+void EXMC_Flag_Clear(uint32_t EXMC_bank, uint32_t flag);
 /* get EXMC interrupt flag */
-FlagStatus EXMC_Interrupt_flag_get(uint32_t EXMC_bank, uint32_t interrupt);
+FlagStatus EXMC_Interrupt_Flag_Get(uint32_t EXMC_bank, uint32_t interrupt);
 /* clear EXMC interrupt flag */
-void EXMC_Interrupt_flag_clear(uint32_t EXMC_bank, uint32_t interrupt);
+void EXMC_Interrupt_Flag_Clear(uint32_t EXMC_bank, uint32_t interrupt);
 
 #endif /* GD32F4XX_EXMC_H */

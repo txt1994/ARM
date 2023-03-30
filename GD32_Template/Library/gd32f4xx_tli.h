@@ -209,14 +209,14 @@ typedef struct {
     uint32_t signalpolarity_vs;               /*!< vertical pulse polarity selection */
     uint32_t signalpolarity_de;               /*!< data enable polarity selection */
     uint32_t signalpolarity_pixelck;          /*!< pixel clock polarity selection */
-} TLI_parameter_struct;
+} TLI_Parameter_Struct;
 
 /* TLI layer parameter struct definitions */
 typedef struct {
-    uint16_t layer_window_rightpos;           /*!< window right position */
-    uint16_t layer_window_leftpos;            /*!< window left position */
-    uint16_t layer_window_bottompos;          /*!< window bottom position */
-    uint16_t layer_window_toppos;             /*!< window top position */
+    uint16_t layer_Window_rightpos;           /*!< window right position */
+    uint16_t layer_Window_leftpos;            /*!< window left position */
+    uint16_t layer_Window_bottompos;          /*!< window bottom position */
+    uint16_t layer_Window_toppos;             /*!< window top position */
     uint32_t layer_ppf;                       /*!< packeted pixel format */
     uint8_t  layer_sa;                        /*!< specified alpha */
     uint8_t  layer_default_alpha;             /*!< the default color alpha */
@@ -225,19 +225,19 @@ typedef struct {
     uint8_t  layer_default_blue;              /*!< the default color blue */
     uint32_t layer_acf1;                      /*!< alpha calculation factor 1 of blending method */
     uint32_t layer_acf2;                      /*!< alpha calculation factor 2 of blending method */
-    uint32_t layer_frame_bufaddr;             /*!< frame buffer base address */
-    uint16_t layer_frame_buf_stride_offset;   /*!< frame buffer stride offset */
-    uint16_t layer_frame_line_length;         /*!< frame line length */
-    uint16_t layer_frame_total_line_number;   /*!< frame total line number */
-} TLI_layer_parameter_struct;
+    uint32_t layer_Frame_bufaddr;             /*!< frame buffer base address */
+    uint16_t layer_Frame_buf_stride_offset;   /*!< frame buffer stride offset */
+    uint16_t layer_Frame_Line_length;         /*!< frame line length */
+    uint16_t layer_Frame_total_Line_number;   /*!< frame total line number */
+} TLI_Layer_Parameter_Struct;
 
 /* TLI layer LUT parameter struct definitions */
 typedef struct {
     uint32_t layer_table_addr;                /*!< look up table write address */
-    uint8_t layer_lut_channel_red;            /*!< red channel of a LUT entry */
-    uint8_t layer_lut_channel_green;          /*!< green channel of a LUT entry */
-    uint8_t layer_lut_channel_blue;           /*!< blue channel of a LUT entry */
-} TLI_layer_lut_parameter_struct;
+    uint8_t layer_Lut_Channel_red;            /*!< red channel of a LUT entry */
+    uint8_t layer_Lut_Channel_green;          /*!< green channel of a LUT entry */
+    uint8_t layer_Lut_Channel_blue;           /*!< blue channel of a LUT entry */
+} TLI_Layer_Lut_Parameter_Struct;
 
 /* packeted pixel format */
 typedef enum {
@@ -249,7 +249,7 @@ typedef enum {
     LAYER_PPF_L8,                            /*!< layerx pixel format L8 */
     LAYER_PPF_AL44,                          /*!< layerx pixel format AL44 */
     LAYER_PPF_AL88                           /*!< layerx pixel format AL88 */
-} TLI_layer_ppf_enum;
+} TLI_Layer_ppf_enum;
 
 /* TLI flags */
 #define TLI_Flag_VDE                   TLI_STAT_VDE                /*!< current VDE status */
@@ -274,12 +274,12 @@ typedef enum {
 #define TLI_INT_Flag_LCR               BIT(3)                      /*!< layer configuration reloaded interrupt flag */
 
 /* layer reload configure */
-#define TLI_FRAME_BLANK_RELOAD_EN     ((uint8_t)0x00U)             /*!< the layer configuration will be reloaded at frame blank */
-#define TLI_REQUEST_RELOAD_EN         ((uint8_t)0x01U)             /*!< the layer configuration will be reloaded after this bit sets */
+#define TLI_Frame_BLANK_Reload_EN     ((uint8_t)0x00U)             /*!< the layer configuration will be reloaded at frame blank */
+#define TLI_Request_Reload_EN         ((uint8_t)0x01U)             /*!< the layer configuration will be reloaded after this bit sets */
 
 /* dither function */
-#define TLI_DITHER_DISABLE            ((uint8_t)0x00U)             /*!< dither function disable */
-#define TLI_DITHER_ENABLE             ((uint8_t)0x01U)             /*!< dither function enable */
+#define TLI_Dither_DISABLE            ((uint8_t)0x00U)             /*!< dither function disable */
+#define TLI_Dither_ENABLE             ((uint8_t)0x01U)             /*!< dither function enable */
 
 /* horizontal pulse polarity selection */
 #define TLI_HSYN_ACTLIVE_LOW          ((uint32_t)0x00000000U)      /*!< horizontal synchronous pulse active low */
@@ -290,8 +290,8 @@ typedef enum {
 #define TLI_VSYN_ACTLIVE_HIGHT        TLI_CTL_VPPS                 /*!< vertical synchronous pulse active high */
 
 /* pixel clock polarity selection */
-#define TLI_PIXEL_CLOCK_TLI           ((uint32_t)0x00000000U)      /*!< pixel clock is TLI clock */
-#define TLI_PIXEL_CLOCK_INVERTEDTLI   TLI_CTL_CLKPS                /*!< pixel clock is inverted TLI clock */
+#define TLI_PIXEL_Clock_TLI           ((uint32_t)0x00000000U)      /*!< pixel clock is TLI clock */
+#define TLI_PIXEL_Clock_INVERTEDTLI   TLI_CTL_CLKPS                /*!< pixel clock is inverted TLI clock */
 
 /* data enable polarity selection */
 #define TLI_DE_ACTLIVE_LOW            ((uint32_t)0x00000000U)      /*!< data enable active low */
@@ -312,51 +312,51 @@ typedef enum {
 /* deinitialize TLI registers */
 void TLI_DeInit(void);
 /* initialize the parameters of TLI parameter structure with the default values, it is suggested
-  that call this function after a TLI_parameter_struct structure is defined */
-void TLI_struct_para_Init(TLI_parameter_struct *TLI_struct);
+  that call this function after a TLI_Parameter_Struct structure is defined */
+void TLI_Struct_Para_Init(TLI_Parameter_Struct *TLI_Struct);
 /* initialize TLI */
-void TLI_Init(TLI_parameter_struct *TLI_struct);
+void TLI_Init(TLI_Parameter_Struct *TLI_Struct);
 /* configure TLI dither function */
-void TLI_dither_Config(uint8_t dither_stat);
+void TLI_Dither_Config(uint8_t dither_stat);
 /* enable TLI */
 void TLI_Enable(void);
 /* disable TLI */
 void TLI_Disable(void);
 /* configurate TLI reload mode */
-void TLI_reload_Config(uint8_t reload_mod);
+void TLI_Reload_Config(uint8_t reload_mod);
 
 /* TLI layer configuration functions */
 /* initialize the parameters of TLI layer structure with the default values, it is suggested
-  that call this function after a TLI_layer_parameter_struct structure is defined */
-void TLI_layer_struct_para_Init(TLI_layer_parameter_struct *layer_struct);
+  that call this function after a TLI_Layer_Parameter_Struct structure is defined */
+void TLI_Layer_Struct_Para_Init(TLI_Layer_Parameter_Struct *layer_Struct);
 /* initialize TLI layer */
-void TLI_layer_Init(uint32_t layerx, TLI_layer_parameter_struct *layer_struct);
+void TLI_Layer_Init(uint32_t layerx, TLI_Layer_Parameter_Struct *layer_Struct);
 /* reconfigure window position */
-void TLI_layer_window_offset_modify(uint32_t layerx, uint16_t offset_x, uint16_t offset_y);
+void TLI_Layer_Window_Offset_Modify(uint32_t layerx, uint16_t offset_x, uint16_t offset_y);
 /* initialize the parameters of TLI layer LUT structure with the default values, it is suggested
-  that call this function after a TLI_layer_lut_parameter_struct structure is defined */
-void TLI_lut_struct_para_Init(TLI_layer_lut_parameter_struct *lut_struct);
+  that call this function after a TLI_Layer_Lut_Parameter_Struct structure is defined */
+void TLI_Lut_Struct_Para_Init(TLI_Layer_Lut_Parameter_Struct *lut_Struct);
 /* initialize TLI layer LUT */
-void TLI_lut_Init(uint32_t layerx, TLI_layer_lut_parameter_struct *lut_struct);
+void TLI_Lut_Init(uint32_t layerx, TLI_Layer_Lut_Parameter_Struct *lut_Struct);
 /* initialize TLI layer color key */
-void TLI_Color_key_Init(uint32_t layerx, uint8_t redkey, uint8_t greenkey, uint8_t bluekey);
+void TLI_Color_Key_Init(uint32_t layerx, uint8_t redkey, uint8_t greenkey, uint8_t bluekey);
 /* enable TLI layer */
-void TLI_layer_Enable(uint32_t layerx);
+void TLI_Layer_Enable(uint32_t layerx);
 /* disable TLI layer */
-void TLI_layer_Disable(uint32_t layerx);
+void TLI_Layer_Disable(uint32_t layerx);
 /* enable TLI layer color keying */
-void TLI_Color_key_Enable(uint32_t layerx);
+void TLI_Color_Key_Enable(uint32_t layerx);
 /* disable TLI layer color keying */
-void TLI_Color_key_Disable(uint32_t layerx);
+void TLI_Color_Key_Disable(uint32_t layerx);
 /* enable TLI layer LUT */
-void TLI_lut_Enable(uint32_t layerx);
+void TLI_Lut_Enable(uint32_t layerx);
 /* disable TLI layer LUT */
-void TLI_lut_Disable(uint32_t layerx);
+void TLI_Lut_Disable(uint32_t layerx);
 
 /* set line mark value */
-void TLI_line_mark_Set(uint16_t line_num);
+void TLI_Line_Mark_Set(uint16_t line_num);
 /* get current displayed position */
-uint32_t TLI_current_pos_Get(void);
+uint32_t TLI_Current_Pos_Get(void);
 
 /* flag and interrupt functions */
 /* enable TLI interrupt */
@@ -366,7 +366,7 @@ void TLI_Interrupt_Disable(uint32_t int_flag);
 /* get TLI interrupt flag */
 FlagStatus TLI_Interrupt_Flag_Get(uint32_t int_flag);
 /* clear TLI interrupt flag */
-void TLI_Interrupt_Flag_clear(uint32_t int_flag);
+void TLI_Interrupt_Flag_Clear(uint32_t int_flag);
 /* get TLI flag or state in TLI_INTF register or TLI_STAT register */
 FlagStatus TLI_Flag_Get(uint32_t flag);
 

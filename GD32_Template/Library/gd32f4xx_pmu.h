@@ -111,8 +111,8 @@ OF SUCH DAMAGE.
 
 /* PMU high-driver mode switch */
 #define CTL_HDS(regval)               (BIT(17)&((uint32_t)(regval)<<17))
-#define PMU_HIGHDR_SWITCH_NONE        CTL_HDS(0)                        /*!< no high-driver mode switch */
-#define PMU_HIGHDR_SWITCH_EN          CTL_HDS(1)                        /*!< high-driver mode switch */
+#define PMU_HIGHDR_Switch_NONE        CTL_HDS(0)                        /*!< no high-driver mode switch */
+#define PMU_HIGHDR_Switch_EN          CTL_HDS(1)                        /*!< high-driver mode switch */
 
 /* PMU low-driver mode enable in deep-sleep mode */
 #define CTL_LDEN(regval)              (BITS(18,19)&((uint32_t)(regval)<<18))
@@ -130,18 +130,18 @@ OF SUCH DAMAGE.
 #define PMU_LDRF_LOWDRIVER            CS_LDRF(3)                        /*!< low-driver mode in deep-sleep mode */
 
 /* PMU flag definitions */
-#define PMU_FLAG_WAKEUP               PMU_CS_WUF                        /*!< wakeup flag status */
-#define PMU_FLAG_STANDBY              PMU_CS_STBF                       /*!< standby flag status */
-#define PMU_FLAG_LVD                  PMU_CS_LVDF                       /*!< lvd flag status */
-#define PMU_FLAG_BLDORF               PMU_CS_BLDORF                     /*!< backup SRAM LDO ready flag */
-#define PMU_FLAG_LDOVSRF              PMU_CS_LDOVSRF                    /*!< LDO voltage select ready flag */
-#define PMU_FLAG_HDRF                 PMU_CS_HDRF                       /*!< high-driver ready flag */
-#define PMU_FLAG_HDSRF                PMU_CS_HDSRF                      /*!< high-driver switch ready flag */
-#define PMU_FLAG_LDRF                 PMU_CS_LDRF                       /*!< low-driver mode ready flag */
+#define PMU_Flag_WAKEUP               PMU_CS_WUF                        /*!< wakeup flag status */
+#define PMU_Flag_STANDBY              PMU_CS_STBF                       /*!< standby flag status */
+#define PMU_Flag_LVD                  PMU_CS_LVDF                       /*!< lvd flag status */
+#define PMU_Flag_BLDORF               PMU_CS_BLDORF                     /*!< backup SRAM LDO ready flag */
+#define PMU_Flag_LDOVSRF              PMU_CS_LDOVSRF                    /*!< LDO voltage select ready flag */
+#define PMU_Flag_HDRF                 PMU_CS_HDRF                       /*!< high-driver ready flag */
+#define PMU_Flag_HDSRF                PMU_CS_HDSRF                      /*!< high-driver switch ready flag */
+#define PMU_Flag_LDRF                 PMU_CS_LDRF                       /*!< low-driver mode ready flag */
 
 /* PMU flag reset definitions */
-#define PMU_FLAG_RESET_WAKEUP         ((uint8_t)0x00U)                  /*!< wakeup flag reset */
-#define PMU_FLAG_RESET_STANDBY        ((uint8_t)0x01U)                  /*!< standby flag reset */
+#define PMU_Flag_RESET_WAKEUP         ((uint8_t)0x00U)                  /*!< wakeup flag reset */
+#define PMU_Flag_RESET_STANDBY        ((uint8_t)0x01U)                  /*!< standby flag reset */
 
 /* PMU command constants definitions */
 #define WFI_CMD                       ((uint8_t)0x00U)                  /*!< use WFI command */
@@ -153,27 +153,27 @@ void PMU_DeInit(void);
 
 /* LVD functions */
 /* select low voltage detector threshold */
-void PMU_lvd_select(uint32_t lvdt_n);
+void PMU_lvd_Select(uint32_t lvdt_n);
 /* disable PMU lvd */
-void PMU_lvd_disable(void);
+void PMU_lvd_Disable(void);
 
 /* LDO functions */
 /* select LDO output voltage */
-void PMU_ldo_output_select(uint32_t ldo_output);
+void PMU_ldo_OutPut_Select(uint32_t ldo_output);
 
 /* functions of low-driver mode and high-driver mode */
 /* enable high-driver mode */
-void PMU_highdriver_mode_enable(void);
+void PMU_highdriver_Mode_Enable(void);
 /* disable high-driver mode */
-void PMU_highdriver_mode_disable(void);
+void PMU_highdriver_Mode_Disable(void);
 /* switch high-driver mode */
-void PMU_highdriver_switch_select(uint32_t highdr_switch);
+void PMU_highdriver_Switch_Select(uint32_t highdr_switch);
 /* enable low-driver mode in deep-sleep */
-void PMU_lowdriver_mode_enable(void);
+void PMU_lowdriver_Mode_Enable(void);
 /* disable low-driver mode in deep-sleep */
-void PMU_lowdriver_mode_disable(void);
+void PMU_lowdriver_Mode_Disable(void);
 /* in deep-sleep mode, driver mode when use low power LDO */
-void PMU_lowpower_driver_Config(uint32_t mode);
+void PMU_Lowpower_driver_Config(uint32_t mode);
 /* in deep-sleep mode, driver mode when use normal power LDO */
 void PMU_normalpower_driver_Config(uint32_t mode);
 
@@ -185,22 +185,22 @@ void PMU_to_deepsleepmode(uint32_t ldo, uint32_t lowdrive, uint8_t deepsleepmode
 /* PMU work in standby mode */
 void PMU_to_standbymode(void);
 /* enable PMU wakeup pin */
-void PMU_wakeup_pin_enable(void);
+void PMU_WakeUp_Pin_Enable(void);
 /* disable PMU wakeup pin */
-void PMU_wakeup_pin_disable(void);
+void PMU_WakeUp_Pin_Disable(void);
 
 /* backup related functions */
 /* backup SRAM LDO on */
 void PMU_backup_ldo_Config(uint32_t bkp_ldo);
 /* enable write access to the registers in backup domain */
-void PMU_backup_write_enable(void);
+void PMU_backup_Write_Enable(void);
 /* disable write access to the registers in backup domain */
-void PMU_backup_write_disable(void);
+void PMU_backup_Write_Disable(void);
 
 /* flag functions */
 /* get flag state */
-FlagStatus PMU_flag_get(uint32_t flag);
+FlagStatus PMU_Flag_Get(uint32_t flag);
 /* clear flag bit */
-void PMU_flag_clear(uint32_t flag);
+void PMU_Flag_Clear(uint32_t flag);
 
 #endif /* GD32F4XX_PMU_H */

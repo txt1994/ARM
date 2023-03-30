@@ -16,6 +16,7 @@
 
   **********************************************************
  */
+#include "stm32f4xx.h"                  // Device header
 
 #include "stm32f4xx_conf.h"
 void RCC_HSE_Config(uint32_t pllm, uint32_t plln, uint32_t pllp, uint32_t pllq);

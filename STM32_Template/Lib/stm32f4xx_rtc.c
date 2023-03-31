@@ -1990,7 +1990,7 @@ void RTC_TamperPullUpCmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable precharge of the selected Tamper pin */
+        /* 使能precharge of the selected Tamper pin */
         RTC->TAFCR &= (uint32_t)~RTC_TAFCR_TAMPPUDIS;
     } else {
         /* Disable precharge of the selected Tamper pin */

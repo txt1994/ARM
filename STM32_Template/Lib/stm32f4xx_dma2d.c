@@ -104,9 +104,9 @@
   */
 
 void DMA2D_DeInit(void) {
-    /* Enable DMA2D reset state */
+    /* 使能DMA2D 复位状态 */
     RCC_AHB1PeriphResetCmd(RCC_AHB1Periph_DMA2D, ENABLE);
-    /* 释放DMA2D from reset state */
+    /* 释放DMA2D from 复位状态 */
     RCC_AHB1PeriphResetCmd(RCC_AHB1Periph_DMA2D, DISABLE);
 }
 
@@ -504,7 +504,7 @@ void DMA2D_DeadTimeConfig(uint32_t DMA2D_DeadTime, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable and Configures the dead time */
+        /* 使能and Configures the dead time */
         DMA2D->AMTCR &= (uint32_t)DEAD_MASK;
         DeadTime = DMA2D_DeadTime << 8;
         DMA2D->AMTCR |= (DeadTime | DMA2D_AMTCR_EN);

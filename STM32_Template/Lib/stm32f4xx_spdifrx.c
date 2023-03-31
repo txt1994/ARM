@@ -79,9 +79,9 @@
   * 返回值: 无
   */
 void SPDIFRX_DeInit(void) {
-    /* Enable SPDIFRX reset state */
+    /* 使能SPDIFRX 复位状态 */
     RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPDIFRX, ENABLE);
-    /* 释放SPDIFRX from reset state */
+    /* 释放SPDIFRX from 复位状态 */
     RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPDIFRX, DISABLE);
 }
 

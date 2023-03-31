@@ -135,9 +135,9 @@
   * 返回值: 无
   */
 void QSPI_DeInit(void) {
-    /* Enable QSPI reset state */
+    /* 使能QSPI 复位状态 */
     RCC_AHB3PeriphResetCmd(RCC_AHB3Periph_QSPI, ENABLE);
-    /* 释放QSPI from reset state */
+    /* 释放QSPI from 复位状态 */
     RCC_AHB3PeriphResetCmd(RCC_AHB3Periph_QSPI, DISABLE);
 }
 
@@ -297,7 +297,7 @@ void QSPI_Cmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable QSPI 外设 */
+        /* 使能QSPI 外设 */
         QUADSPI->CR |= QUADSPI_CR_EN;
     } else {
         /* Disable QSPI 外设 */
@@ -500,7 +500,7 @@ void QSPI_TimeoutCounterCmd(FunctionalState NewState) {
         /* 设备不忙 */
     {
         if (NewState != DISABLE) {
-            /* Enable Timeout Counter */
+            /* 使能Timeout Counter */
             QUADSPI->CR |= QUADSPI_CR_TCEN;
         } else {
             /* Disable Timeout Counter */
@@ -524,7 +524,7 @@ void QSPI_AutoPollingModeStopCmd(FunctionalState NewState) {
         /* 设备不忙 */
     {
         if (NewState != DISABLE) {
-            /* Enable Automatic Polling Mode Stop */
+            /* 使能Automatic Polling Mode Stop */
             QUADSPI->CR |= QUADSPI_CR_APMS;
         } else {
             /* Disable Automatic Polling Mode Stop */
@@ -629,7 +629,7 @@ void QSPI_DMACmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable DMA */
+        /* 使能DMA */
         QUADSPI->CR |= QUADSPI_CR_DMAEN;
     } else {
         /* Disable DMA */

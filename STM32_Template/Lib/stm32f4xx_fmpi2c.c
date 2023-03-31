@@ -140,9 +140,9 @@ void FMPI2C_DeInit(FMPI2C_TypeDef* FMPI2Cx) {
     assert_param(IS_FMPI2C_ALL_PERIPH(FMPI2Cx));
 
     if (FMPI2Cx == FMPI2C1) {
-        /* Enable FMPI2C1 reset state */
+        /* 使能FMPI2C1 复位状态 */
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_FMPI2C1, ENABLE);
-        /* 释放FMPI2C1 from reset state */
+        /* 释放FMPI2C1 from 复位状态 */
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_FMPI2C1, DISABLE);
     }
 }
@@ -188,7 +188,7 @@ void FMPI2C_Init(FMPI2C_TypeDef* FMPI2Cx, FMPI2C_InitTypeDef* FMPI2C_InitStruct)
     /* 写入FMPI2Cx TIMING */
     FMPI2Cx->TIMINGR = FMPI2C_InitStruct->FMPI2C_Timing & TIMING_CLEAR_MASK;
 
-    /* Enable FMPI2Cx 外设 */
+    /* 使能FMPI2Cx 外设 */
     FMPI2Cx->CR1 |= FMPI2C_CR1_PE;
 
     /*---------------------------- FMPI2Cx OAR1 配置 ---------------------*/
@@ -205,7 +205,7 @@ void FMPI2C_Init(FMPI2C_TypeDef* FMPI2Cx, FMPI2C_InitTypeDef* FMPI2C_InitStruct)
                         (uint32_t)FMPI2C_InitStruct->FMPI2C_OwnAddress1);
     /* 写入FMPI2Cx OAR1 */
     FMPI2Cx->OAR1 = tmpreg;
-    /* Enable Own Address1 acknowledgement */
+    /* 使能Own Address1 acknowledgement */
     FMPI2Cx->OAR1 |= FMPI2C_OAR1_OA1EN;
 
     /*---------------------------- FMPI2Cx MODE 配置 ---------------------*/
@@ -288,7 +288,7 @@ void FMPI2C_SoftwareResetCmd(FMPI2C_TypeDef* FMPI2Cx) {
        3 APB clock cycles to perform the software reset functionality */
     *(__IO uint32_t *)(uint32_t)FMPI2Cx;
 
-    /* Enable 外设 */
+    /* 使能外设 */
     FMPI2Cx->CR1 |= FMPI2C_CR1_PE;
 }
 
@@ -336,7 +336,7 @@ void FMPI2C_StretchClockCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable clock stretching */
+        /* 使能clock stretching */
         FMPI2Cx->CR1 &= (uint32_t)~((uint32_t)FMPI2C_CR1_NOSTRETCH);
     } else {
         /* Disable clock stretching  */
@@ -357,7 +357,7 @@ void FMPI2C_DualAddressCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable own address 2 */
+        /* 使能own address 2 */
         FMPI2Cx->OAR2 |= FMPI2C_OAR2_OA2EN;
     } else {
         /* Disable own address 2 */
@@ -416,7 +416,7 @@ void FMPI2C_GeneralCallCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable general call mode */
+        /* 使能general call mode */
         FMPI2Cx->CR1 |= FMPI2C_CR1_GCEN;
     } else {
         /* Disable general call mode */
@@ -437,7 +437,7 @@ void FMPI2C_SlaveByteControlCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewStat
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable slave byte control */
+        /* 使能slave byte control */
         FMPI2Cx->CR1 |= FMPI2C_CR1_SBC;
     } else {
         /* Disable slave byte control */
@@ -486,7 +486,7 @@ void FMPI2C_10BitAddressingModeCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewS
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable 10-bit addressing mode */
+        /* 使能10-bit addressing mode */
         FMPI2Cx->CR2 |= FMPI2C_CR2_ADD10;
     } else {
         /* Disable 10-bit addressing mode */
@@ -542,7 +542,7 @@ void FMPI2C_AutoEndCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable Auto end mode */
+        /* 使能Auto end mode */
         FMPI2Cx->CR2 |= FMPI2C_CR2_AUTOEND;
     } else {
         /* Disable Auto end mode */
@@ -563,7 +563,7 @@ void FMPI2C_ReloadCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable Auto Reload mode */
+        /* 使能Auto Reload mode */
         FMPI2Cx->CR2 |= FMPI2C_CR2_RELOAD;
     } else {
         /* Disable Auto Reload mode */
@@ -676,7 +676,7 @@ void FMPI2C_10BitAddressHeaderCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewSt
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable 10-bit header only mode */
+        /* 使能10-bit header only mode */
         FMPI2Cx->CR2 |= FMPI2C_CR2_HEAD10R;
     } else {
         /* Disable 10-bit header only mode */
@@ -697,10 +697,10 @@ void FMPI2C_AcknowledgeConfig(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState)
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable ACK generation */
+        /* 使能ACK generation */
         FMPI2Cx->CR2 &= (uint32_t)~((uint32_t)FMPI2C_CR2_NACK);
     } else {
-        /* Enable NACK generation */
+        /* 使能NACK generation */
         FMPI2Cx->CR2 |= FMPI2C_CR2_NACK;
     }
 }
@@ -834,7 +834,7 @@ void FMPI2C_SMBusAlertCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable SMBus alert */
+        /* 使能SMBus alert */
         FMPI2Cx->CR1 |= FMPI2C_CR1_ALERTEN;
     } else {
         /* Disable SMBus alert */
@@ -855,7 +855,7 @@ void FMPI2C_ClockTimeoutCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable Clock Timeout */
+        /* 使能Clock Timeout */
         FMPI2Cx->TIMEOUTR |= FMPI2C_TIMEOUTR_TIMOUTEN;
     } else {
         /* Disable Clock Timeout */
@@ -876,7 +876,7 @@ void FMPI2C_ExtendedClockTimeoutCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState New
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable Clock Timeout */
+        /* 使能Clock Timeout */
         FMPI2Cx->TIMEOUTR |= FMPI2C_TIMEOUTR_TEXTEN;
     } else {
         /* Disable Clock Timeout */
@@ -897,7 +897,7 @@ void FMPI2C_IdleClockTimeoutCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewStat
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable Clock Timeout */
+        /* 使能Clock Timeout */
         FMPI2Cx->TIMEOUTR |= FMPI2C_TIMEOUTR_TIDLE;
     } else {
         /* Disable Clock Timeout */
@@ -970,7 +970,7 @@ void FMPI2C_CalculatePEC(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable PEC calculation */
+        /* 使能PEC calculation */
         FMPI2Cx->CR1 |= FMPI2C_CR1_PECEN;
     } else {
         /* Disable PEC calculation */
@@ -991,7 +991,7 @@ void FMPI2C_PECRequestCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable PEC transmission/reception request */
+        /* 使能PEC transmission/reception request */
         FMPI2Cx->CR1 |= FMPI2C_CR2_PECBYTE;
     } else {
         /* Disable PEC transmission/reception request */

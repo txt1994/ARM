@@ -207,10 +207,10 @@ void DCMI_CROPCmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用 DCMI Crop feature */
+        /* 启用 DCMI 裁剪功能 */
         DCMI->CR |= (uint32_t)DCMI_CR_CROP;
     } else {
-        /* 禁用 DCMI Crop feature */
+        /* 禁用 DCMI 裁剪功能 */
         DCMI->CR &= ~(uint32_t)DCMI_CR_CROP;
     }
 }
@@ -461,8 +461,7 @@ ITStatus DCMI_GetITStatus(uint16_t DCMI_IT) {
   * 返回值: 无
   */
 void DCMI_ClearITPendingBit(uint16_t DCMI_IT) {
-    /* 清除 interrupt pending Bit by writing in the ICR register 1 in the
-    corresponding pending Bit position*/
+    /* 清除通过在相应的挂起位位置写入ICR寄存器1来中断挂起位*/
 
     DCMI->ICR = DCMI_IT;
 }

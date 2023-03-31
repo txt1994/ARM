@@ -131,18 +131,18 @@ void I2C_DeInit(I2C_TypeDef* I2Cx) {
     if (I2Cx == I2C1) {
         /* 使能I2C1复位状态 */
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_I2C1, ENABLE);
-        /* 释放I2C1 from reset state */
+        /* 释放I2C1 from 复位状态 */
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_I2C1, DISABLE);
     } else if (I2Cx == I2C2) {
         /* 使能I2C2复位状态 */
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_I2C2, ENABLE);
-        /* 释放I2C2 from reset state */
+        /* 释放I2C2 from 复位状态 */
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_I2C2, DISABLE);
     } else {
         if (I2Cx == I2C3) {
             /* 使能I2C3复位状态 */
             RCC_APB1PeriphResetCmd(RCC_APB1Periph_I2C3, ENABLE);
-            /* 释放I2C3 from reset state */
+            /* 释放I2C3 from 复位状态 */
             RCC_APB1PeriphResetCmd(RCC_APB1Periph_I2C3, DISABLE);
         }
     }
@@ -483,7 +483,7 @@ void I2C_DualAddressCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable dual addressing mode */
+        /* 使能dual addressing mode */
         I2Cx->OAR2 |= I2C_OAR2_ENDUAL;
     } else {
         /* Disable dual addressing mode */
@@ -504,7 +504,7 @@ void I2C_GeneralCallCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable general call */
+        /* 使能general call */
         I2Cx->CR1 |= I2C_CR1_ENGC;
     } else {
         /* Disable general call */

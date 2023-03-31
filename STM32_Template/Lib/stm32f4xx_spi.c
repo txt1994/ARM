@@ -203,35 +203,35 @@ void SPI_I2S_DeInit(SPI_TypeDef* SPIx) {
     assert_param(IS_SPI_ALL_PERIPH(SPIx));
 
     if (SPIx == SPI1) {
-        /* Enable SPI1 reset state */
+        /* 使能SPI1 复位状态 */
         RCC_APB2PeriphResetCmd(RCC_APB2Periph_SPI1, ENABLE);
-        /* 释放SPI1 from reset state */
+        /* 释放SPI1 from 复位状态 */
         RCC_APB2PeriphResetCmd(RCC_APB2Periph_SPI1, DISABLE);
     } else if (SPIx == SPI2) {
-        /* Enable SPI2 reset state */
+        /* 使能SPI2 复位状态 */
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPI2, ENABLE);
-        /* 释放SPI2 from reset state */
+        /* 释放SPI2 from 复位状态 */
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPI2, DISABLE);
     } else if (SPIx == SPI3) {
-        /* Enable SPI3 reset state */
+        /* 使能SPI3 复位状态 */
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPI3, ENABLE);
-        /* 释放SPI3 from reset state */
+        /* 释放SPI3 from 复位状态 */
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPI3, DISABLE);
     } else if (SPIx == SPI4) {
-        /* Enable SPI4 reset state */
+        /* 使能SPI4 复位状态 */
         RCC_APB2PeriphResetCmd(RCC_APB2Periph_SPI4, ENABLE);
-        /* 释放SPI4 from reset state */
+        /* 释放SPI4 from 复位状态 */
         RCC_APB2PeriphResetCmd(RCC_APB2Periph_SPI4, DISABLE);
     } else if (SPIx == SPI5) {
-        /* Enable SPI5 reset state */
+        /* 使能SPI5 复位状态 */
         RCC_APB2PeriphResetCmd(RCC_APB2Periph_SPI5, ENABLE);
-        /* 释放SPI5 from reset state */
+        /* 释放SPI5 from 复位状态 */
         RCC_APB2PeriphResetCmd(RCC_APB2Periph_SPI5, DISABLE);
     } else {
         if (SPIx == SPI6) {
-            /* Enable SPI6 reset state */
+            /* 使能SPI6 复位状态 */
             RCC_APB2PeriphResetCmd(RCC_APB2Periph_SPI6, ENABLE);
-            /* 释放SPI6 from reset state */
+            /* 释放SPI6 from 复位状态 */
             RCC_APB2PeriphResetCmd(RCC_APB2Periph_SPI6, DISABLE);
         }
     }

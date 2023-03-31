@@ -115,9 +115,9 @@
   */
 
 void LTDC_DeInit(void) {
-    /* Enable LTDC reset state */
+    /* 使能LTDC 复位状态 */
     RCC_APB2PeriphResetCmd(RCC_APB2Periph_LTDC, ENABLE);
-    /* 释放LTDC from reset state */
+    /* 释放LTDC from 复位状态 */
     RCC_APB2PeriphResetCmd(RCC_APB2Periph_LTDC, DISABLE);
 }
 
@@ -223,7 +223,7 @@ void LTDC_Cmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable LTDC by setting LTDCEN 位 */
+        /* 使能LTDC by setting LTDCEN 位 */
         LTDC->GCR |= (uint32_t)LTDC_GCR_LTDCEN;
     } else {
         /* Disable LTDC by clearing LTDCEN 位 */
@@ -243,7 +243,7 @@ void LTDC_DitherCmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable Dither by setting DTEN 位 */
+        /* 使能Dither by setting DTEN 位 */
         LTDC->GCR |= (uint32_t)LTDC_GCR_DTEN;
     } else {
         /* Disable Dither by clearing DTEN 位 */
@@ -451,7 +451,7 @@ void LTDC_LayerCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable LTDC_Layer by setting LEN 位 */
+        /* 使能LTDC_Layer by setting LEN 位 */
         LTDC_Layerx->CR |= (uint32_t)LTDC_LxCR_LEN;
     } else {
         /* Disable LTDC_Layer by clearing LEN 位 */
@@ -533,7 +533,7 @@ void LTDC_ColorKeyingConfig(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_ColorKeying_In
     assert_param(IS_LTDC_CKEYING(LTDC_colorkeying_InitStruct->LTDC_ColorKeyRed));
 
     if (NewState != DISABLE) {
-        /* Enable LTDC color keying by setting COLKEN 位 */
+        /* 使能LTDC color keying by setting COLKEN 位 */
         LTDC_Layerx->CR |= (uint32_t)LTDC_LxCR_COLKEN;
 
         /* Sets the color keying values */
@@ -578,7 +578,7 @@ void LTDC_CLUTCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Enable CLUT by setting CLUTEN 位 */
+        /* 使能CLUT by setting CLUTEN 位 */
         LTDC_Layerx->CR |= (uint32_t)LTDC_LxCR_CLUTEN;
     } else {
         /* Disable CLUT by clearing CLUTEN 位 */

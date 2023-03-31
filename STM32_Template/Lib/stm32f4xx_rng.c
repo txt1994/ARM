@@ -96,17 +96,17 @@
   */
 void RNG_DeInit(void) {
     #if defined(STM32F40_41xxx) || defined(STM32F427_437xx) || defined(STM32F429_439xx) || defined(STM32F469_479xx)
-    /* Enable RNG reset state */
+    /* 使能RNG 复位状态 */
     RCC_AHB2PeriphResetCmd(RCC_AHB2Periph_RNG, ENABLE);
 
-    /* 释放RNG from reset state */
+    /* 释放RNG from 复位状态 */
     RCC_AHB2PeriphResetCmd(RCC_AHB2Periph_RNG, DISABLE);
     #endif /* STM32F40_41xxx || STM32F427_437xx || STM32F429_439xx || STM32F469_479xx */
     #if defined(STM32F410xx)
-    /* Enable RNG reset state */
+    /* 使能RNG 复位状态 */
     RCC_AHB1PeriphResetCmd(RCC_AHB1Periph_RNG, ENABLE);
 
-    /* 释放RNG from reset state */
+    /* 释放RNG from 复位状态 */
     RCC_AHB1PeriphResetCmd(RCC_AHB1Periph_RNG, DISABLE);
     #endif /* STM32F410xx*/
 }

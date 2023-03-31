@@ -128,9 +128,9 @@ void DSI_DeInit(DSI_TypeDef *DSIx) {
     assert_param(IS_DSI_ALL_PERIPH(DSIx));
 
     if(DSIx == DSI) {
-        /* Enable DSI reset state */
+        /* 使能DSI 复位状态 */
         RCC_APB2PeriphResetCmd(RCC_APB2Periph_DSI, ENABLE);
-        /* 释放DSI from reset state */
+        /* 释放DSI from 复位状态 */
         RCC_APB2PeriphResetCmd(RCC_APB2Periph_DSI, DISABLE);
     }
 }
@@ -365,27 +365,27 @@ void DSI_ConfigVideoMode(DSI_TypeDef *DSIx, DSI_VidCfgTypeDef *VidCfg) {
     DSIx->LPMCR &= ~DSI_LPMCR_VLPSIZE;
     DSIx->LPMCR |= VidCfg->LPVACTLargestPacketSize;
 
-    /* Enable LP transition in HFP period */
+    /* 使能LP transition in HFP period */
     DSIx->VMCR &= ~DSI_VMCR_LPHFPE;
     DSIx->VMCR |= VidCfg->LPHorizontalFrontPorchEnable;
 
-    /* Enable LP transition in HBP period */
+    /* 使能LP transition in HBP period */
     DSIx->VMCR &= ~DSI_VMCR_LPHBPE;
     DSIx->VMCR |= VidCfg->LPHorizontalBackPorchEnable;
 
-    /* Enable LP transition in VACT period */
+    /* 使能LP transition in VACT period */
     DSIx->VMCR &= ~DSI_VMCR_LPVAE;
     DSIx->VMCR |= VidCfg->LPVerticalActiveEnable;
 
-    /* Enable LP transition in VFP period */
+    /* 使能LP transition in VFP period */
     DSIx->VMCR &= ~DSI_VMCR_LPVFPE;
     DSIx->VMCR |= VidCfg->LPVerticalFrontPorchEnable;
 
-    /* Enable LP transition in VBP period */
+    /* 使能LP transition in VBP period */
     DSIx->VMCR &= ~DSI_VMCR_LPVBPE;
     DSIx->VMCR |= VidCfg->LPVerticalBackPorchEnable;
 
-    /* Enable LP transition in vertical sync period */
+    /* 使能LP transition in vertical sync period */
     DSIx->VMCR &= ~DSI_VMCR_LPVSAE;
     DSIx->VMCR |= VidCfg->LPVerticalSyncActiveEnable;
 
@@ -987,7 +987,7 @@ void DSI_PatternGeneratorStart(DSI_TypeDef *DSIx, uint32_t Mode, uint32_t Orient
     DSIx->VMCR &= ~(DSI_VMCR_PGM | DSI_VMCR_PGO);
     DSIx->VMCR |= ((Mode << 20) | (Orientation << 24));
 
-    /* Enable pattern generator by setting PGE 位 */
+    /* 使能pattern generator by setting PGE 位 */
     DSIx->VMCR |= DSI_VMCR_PGE;
 
 }

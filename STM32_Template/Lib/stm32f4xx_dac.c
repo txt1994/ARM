@@ -175,7 +175,7 @@
 void DAC_DeInit(void) {
     /* 启用DAC复位状态 */
     RCC_APB1PeriphResetCmd(RCC_APB1Periph_DAC, ENABLE);
-    /* 释放DAC from reset state */
+    /* 释放DAC from 复位状态 */
     RCC_APB1PeriphResetCmd(RCC_APB1Periph_DAC, DISABLE);
 }
 

@@ -172,17 +172,17 @@ void SAI_DeInit(SAI_TypeDef* SAIx) {
     assert_param(IS_SAI_PERIPH(SAIx));
 
     if(SAIx == SAI1) {
-        /* Enable SAI1 reset state */
+        /* 使能SAI1 复位状态 */
         RCC_APB2PeriphResetCmd(RCC_APB2Periph_SAI1, ENABLE);
-        /* 释放SAI1 from reset state */
+        /* 释放SAI1 from 复位状态 */
         RCC_APB2PeriphResetCmd(RCC_APB2Periph_SAI1, DISABLE);
     } else {
         #if defined(STM32F446xx)
 
         if(SAIx == SAI2) {
-            /* Enable SAI2 reset state */
+            /* 使能SAI2 复位状态 */
             RCC_APB2PeriphResetCmd(RCC_APB2Periph_SAI2, ENABLE);
-            /* 释放SAI2 from reset state */
+            /* 释放SAI2 from 复位状态 */
             RCC_APB2PeriphResetCmd(RCC_APB2Periph_SAI2, DISABLE);
         }
 

@@ -74,9 +74,9 @@
                              初始化功能
  ===============================================================================
   本节提供的功能允许:
-   - Deinitialize  the DFSDM
-   - Initialize DFSDM serial channels transceiver
-   - Initialize DFSDM filter
+   - 取消初始化DFSDM
+   - 初始化DFSDM串行通道收发器
+   - 初始化DFSDM筛选器
 
 @endverbatim
   * @{
@@ -89,7 +89,7 @@
   *
   */
 void DFSDM_DeInit(void) {
-    /* Enable LPTx reset state */
+    /* 使能LPTx 复位状态 */
     RCC_APB2PeriphResetCmd(RCC_APB2Periph_DFSDM1, ENABLE);
     RCC_APB2PeriphResetCmd(RCC_APB2Periph_DFSDM1, DISABLE);
     #if defined(STM32F413_423xx)

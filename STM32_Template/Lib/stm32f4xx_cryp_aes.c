@@ -466,8 +466,8 @@ ErrorStatus CRYP_AES_CBC(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
   * 参数:  Ilength: 输入缓冲区的长度必须是16的倍数。
   * 参数:  Output: 指向返回缓冲区的指针。
   * 返回值: ErrorStatus枚举值:
-  *          - SUCCESS: 操作已完成
-  *          - ERROR: 操作失败
+  *          - SUCCESS	: 操作已完成
+  *          - ERROR	: 操作失败
   */
 ErrorStatus CRYP_AES_CTR(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
                          uint16_t Keysize, uint8_t *Input, uint32_t Ilength,

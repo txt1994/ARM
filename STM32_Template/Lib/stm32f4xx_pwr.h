@@ -184,21 +184,21 @@ extern "C" {
 /* 用于将 PWR 配置设置为默认复位状态的函数 ******/
 void PWR_DeInit(void); // 将压水堆外设寄存器去初始化为其默认复位值。
 
-/* 备份域访问函数 **********************************************/
+/* 备份域访问功能 **********************************************/
 void PWR_BackupAccessCmd(FunctionalState NewState); // 启用或禁用对备份域(RTC 寄存器、RTC 备份数据寄存器和备份 SRAM)的访问。
 
-/* PVD配置函数 ************************************************/
+/* PVD配置功能 ************************************************/
 void PWR_PVDLevelConfig(uint32_t PWR_PVDLevel); // 配置电源电压检测器(PVD)检测到的电压阈值。
 void PWR_PVDCmd(FunctionalState NewState); // 启用或禁用电源电压检测器 (PVD)。
 
-/* 唤醒管脚配置函数 ****************************************/
+/* 唤醒管脚配置功能 ****************************************/
 #if defined(STM32F40_41xxx) || defined(STM32F427_437xx) || defined(STM32F429_439xx) || defined(STM32F401xx) || defined(STM32F411xE)
 void PWR_WakeUpPinCmd(FunctionalState NewState); // 启用或禁用唤醒引脚功能。
 #endif /* STM32F40_41xxx || STM32F427_437xx || STM32F429_439xx || STM32F401xx || STM32F411xE */
 #if defined(STM32F410xx) || defined(STM32F412xG) || defined(STM32F413_423xx) ||defined(STM32F446xx)
 void PWR_WakeUpPinCmd(uint32_t PWR_WakeUpPinx, FunctionalState NewState);
 #endif /* STM32F410xx || STM32F412xG || STM32F413_423xx || STM32F446xx */
-/* 主要和备用稳压器配置函数 *************************/
+/* 主要和备用稳压器配置功能 *************************/
 void PWR_BackupRegulatorCmd(FunctionalState NewState); // 启用或禁用备份调节器。
 void PWR_MainRegulatorModeConfig(uint32_t PWR_Regulator_Voltage); // 配置主内部稳压器输出电压。
 void PWR_OverDriveCmd(FunctionalState NewState); // 启用或禁用过载。
@@ -215,15 +215,15 @@ void PWR_MainRegulatorLowVoltageCmd(FunctionalState NewState); // 启用或禁�
 void PWR_LowRegulatorLowVoltageCmd(FunctionalState NewState); // 启用或禁用低功率稳压器的低电压模式。
 #endif /* STM32F401xx || STM32F410xx || STM32F411xE || STM32F412xG || STM32F413_423xx */
 
-/* FLASH Power Down 配置函数 ***********************************/
+/* FLASH Power Down 配置功能 ***********************************/
 void PWR_FlashPowerDownCmd(FunctionalState NewState); // 启用或禁用STOP模式下的Flash断电函数。
 
-/* 低功率模式配置函数 ************************************/
+/* 低功率模式配置功能 ************************************/
 void PWR_EnterSTOPMode(uint32_t PWR_Regulator, uint8_t PWR_STOPEntry); // 进入停止模式。
 void PWR_EnterUnderDriveSTOPMode(uint32_t PWR_Regulator, uint8_t PWR_STOPEntry); // 进入驱动器不足停止模式。
 void PWR_EnterSTANDBYMode(void); // 进入待机模式。
 
-/* 标志管理函数 *************************************************/
+/* 标志管理功能 *************************************************/
 FlagStatus PWR_GetFlagStatus(uint32_t PWR_FLAG); // 检查是否设置了指定的 PWR 标志。
 void PWR_ClearFlag(uint32_t PWR_FLAG); // 清除 PWR 的挂起标志。
 

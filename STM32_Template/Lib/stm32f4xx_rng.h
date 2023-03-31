@@ -92,10 +92,10 @@ void RNG_DeInit(void); // 将 RNG 外设寄存器取消初始化为其默认复�
 /* 配置功能 *****************************************************/
 void RNG_Cmd(FunctionalState NewState); // 启用或禁用 RNG 外围设备。
 
-/* 获取 32 位随机数函数 ******************************************/
+/* 获取 32 位随机数功能 ******************************************/
 uint32_t RNG_GetRandomNumber(void); // 返回一个 32 位随机数。
 
-/* 中断和标志管理函数 **********************************/
+/* 中断和标志管理功能 **********************************/
 void RNG_ITConfig(FunctionalState NewState); // 启用或禁用 RNG 中断。
 FlagStatus RNG_GetFlagStatus(uint8_t RNG_FLAG); // 检查是否设置了指定的 RNG 标志。
 void RNG_ClearFlag(uint8_t RNG_FLAG); // 清除 RNG 标志。

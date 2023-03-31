@@ -6,12 +6,12 @@
   * 日期:    04-November-2016
   * 简介:    该文件提供了固件函数，用于管理通用同步异步接收机发射机(USART)的以下功能:
   *           + 初始化和配置
-  *           + Data transfers
+  *           + 数据传输
   *           + 多处理器通信
-  *           + LIN mode
-  *           + Half-duplex mode
+  *           + LIN 模式
+  *           + Half-duplex 模式
   *           + 智能卡模式
-  *           + IrDA mode
+  *           + IrDA 模式
   *           + DMA传输管理
   *           + 中断和标志管理
   *
@@ -987,14 +987,14 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
     [..]
     在轮询模式下，SPI通信可以由10个标志管理:
       (#) USART_FLAG_TXE : 指示发送缓冲寄存器的状态
-      (#) USART_FLAG_RXNE : 指示接收缓冲寄存器的状态
-      (#) USART_FLAG_TC : 指示传输操作的状态
-      (#) USART_FLAG_IDLE : 指示空闲线路的状态
+      (#) USART_FLAG_RXNE: 指示接收缓冲寄存器的状态
+      (#) USART_FLAG_TC  : 指示传输操作的状态
+      (#) USART_FLAG_IDLE: 指示空闲线路的状态
       (#) USART_FLAG_CTS : 指示nCTS输入的状态
       (#) USART_FLAG_LBD : 指示LIN中断检测的状态
-      (#) USART_FLAG_NE : 指示是否发生噪音错误
-      (#) USART_FLAG_FE : 指示是否发生帧错误
-      (#) USART_FLAG_PE : 指示是否发生奇偶校验错误
+      (#) USART_FLAG_NE  : 指示是否发生噪音错误
+      (#) USART_FLAG_FE  : 指示是否发生帧错误
+      (#) USART_FLAG_PE  : 指示是否发生奇偶校验错误
       (#) USART_FLAG_ORE : 指示是否发生超限错误
     [..]
     在此模式下，建议使用以下函数:
@@ -1009,25 +1009,25 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
       (#) 挂起的位:
 
         (##) USART_IT_TXE : 指示发送缓冲寄存器的状态
-        (##) USART_IT_RXNE : 指示接收缓冲寄存器的状态
-        (##) USART_IT_TC : 指示传输操作的状态
-        (##) USART_IT_IDLE : 指示空闲线路的状态
+        (##) USART_IT_RXNE: 指示接收缓冲寄存器的状态
+        (##) USART_IT_TC  : 指示传输操作的状态
+        (##) USART_IT_IDLE: 指示空闲线路的状态
         (##) USART_IT_CTS : 指示nCTS输入的状态
         (##) USART_IT_LBD : 指示LIN中断检测的状态
-        (##) USART_IT_NE : 指示是否发生噪音错误
-        (##) USART_IT_FE : 指示是否发生帧错误
-        (##) USART_IT_PE : 指示是否发生奇偶校验错误
+        (##) USART_IT_NE  : 指示是否发生噪音错误
+        (##) USART_IT_FE  : 指示是否发生帧错误
+        (##) USART_IT_PE  : 指示是否发生奇偶校验错误
         (##) USART_IT_ORE : 指示是否发生超限错误
 
       (#) 中断源:
 
         (##) USART_IT_TXE : 指定Tx缓冲区空中断的中断源。
-        (##) USART_IT_RXNE : 指定Rx缓冲区非空中断的中断源。
-        (##) USART_IT_TC : 指定传输完成中断的中断源。
-        (##) USART_IT_IDLE : 指定空闲线路中断的中断源。
+        (##) USART_IT_RXNE: 指定Rx缓冲区非空中断的中断源。
+        (##) USART_IT_TC  : 指定传输完成中断的中断源。
+        (##) USART_IT_IDLE: 指定空闲线路中断的中断源。
         (##) USART_IT_CTS : 指定CTS中断的中断源。
         (##) USART_IT_LBD : 指定LIN中断检测中断的中断源。
-        (##) USART_IT_PE : 指定中断源奇偶校验错误中断.
+        (##) USART_IT_PE  : 指定中断源奇偶校验错误中断.
         (##) USART_IT_ERR : 指定错误中断的中断源。
 
       -@@- 对一些参数进行编码，以便将其用作中断源或挂起位。

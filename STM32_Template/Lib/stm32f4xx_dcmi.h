@@ -267,7 +267,7 @@ typedef struct {
 /*  用于将 DCMI 配置设置为默认复位状态的函数 ****/
 void DCMI_DeInit(void); // 将 DCMI 寄存器取消初始化为其默认复位值。
 
-/* 初始化和配置函数 *********************************/
+/* 初始化和配置功能 *********************************/
 void DCMI_Init(DCMI_InitTypeDef* DCMI_InitStruct); // 根据 DCMI_InitStruct 中指定的参数初始化 DCMI。
 void DCMI_StructInit(DCMI_InitTypeDef* DCMI_InitStruct); // 用默认值填充每个 DCMI_InitStruct 成员。
 void DCMI_CROPConfig(DCMI_CROPInitTypeDef* DCMI_CROPInitStruct); // 根据 DCMI_CROPInitStruct 中指定的参数初始化 DCMI 外设 CROP 模式。

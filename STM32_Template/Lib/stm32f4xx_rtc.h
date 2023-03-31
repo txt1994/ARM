@@ -743,7 +743,7 @@ typedef struct {
 /*  用于将RTC配置设置为默认复位状态的函数 *****/
 ErrorStatus RTC_DeInit(void); // 将 RTC 寄存器去初始化为其默认复位值。
 
-/* 初始化和配置函数 *********************************/
+/* 初始化和配置功能 *********************************/
 ErrorStatus RTC_Init(RTC_InitTypeDef* RTC_InitStruct); // 根据RTC_InitStruct中指定的参数初始化 RTC 寄存器。
 void RTC_StructInit(RTC_InitTypeDef* RTC_InitStruct); // 用其默认值填充每个RTC_InitStruct成员。
 void RTC_WriteProtectionCmd(FunctionalState NewState); // 启用或禁用 RTC 寄存器写保护。
@@ -820,7 +820,7 @@ void RTC_OutputTypeConfig(uint32_t RTC_OutputType); // 配置 RTC 输出引脚�
 /* RTC_Shift_control_synchonisation_functions *********************************/
 ErrorStatus RTC_SynchroShiftConfig(uint32_t RTC_ShiftAdd1S, uint32_t RTC_ShiftSubFS); // 配置同步切换控制设置。
 
-/* 中断和标记管理函数 **********************************/
+/* 中断和标记管理功能 **********************************/
 void RTC_ITConfig(uint32_t RTC_IT, FunctionalState NewState); // 启用或禁用指定的 RTC 中断。
 FlagStatus RTC_GetFlagStatus(uint32_t RTC_FLAG); // 检查是否设置了指定的 RTC 标志。
 void RTC_ClearFlag(uint32_t RTC_FLAG); // 清除 RTC 的挂起标志。

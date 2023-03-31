@@ -219,7 +219,7 @@ typedef struct {
 /*  用于将 SPDIFRX 配置设置为默认复位状态的函数 *****/
 void SPDIFRX_DeInit(void); // 将 SPDIFRXx 外设寄存器取消初始化为其默认复位值。
 
-/* 初始化和配置函数 *********************************/
+/* 初始化和配置功能 *********************************/
 void SPDIFRX_Init(SPDIFRX_InitTypeDef* SPDIFRX_InitStruct); // 根据 SPDIFRX_InitStruct 中指定的参数初始化 SPDIFRX 外设。
 void SPDIFRX_StructInit(SPDIFRX_InitTypeDef* SPDIFRX_InitStruct); // 用其默认值填充每个 SPDIFRX_InitStruct 成员。
 void SPDIFRX_Cmd(uint32_t SPDIFRX_State); // 启用或禁用 SPDIFRX 外设。
@@ -228,14 +228,14 @@ void SPDIFRX_SetUserDataChannelStatusBits(FunctionalState NewState); // 启用�
 void SPDIFRX_SetValidityBit(FunctionalState NewState); // 启用或禁用 SPDIFRX 帧 x 位。
 void SPDIFRX_SetParityBit(FunctionalState NewState); // 启用或禁用 SPDIFRX 帧 x 位。
 
-/* 数据传输函数 ***************************************************/
+/* 数据传输功能 ***************************************************/
 uint32_t SPDIFRX_ReceiveData(void);
 
-/* DMA传输管理函数 *****************************************/
+/* DMA传输管理功能 *****************************************/
 void SPDIFRX_RxDMACmd(FunctionalState NewState); // 启用或禁用 SPDIFRX DMA 接口 (RX)。
 void SPDIFRX_CbDMACmd(FunctionalState NewState); // 启用或禁用 SPDIFRX DMA 接口(控制缓冲区)。
 
-/* 中断和标志管理函数 **********************************/
+/* 中断和标志管理功能 **********************************/
 void SPDIFRX_ITConfig(uint32_t SPDIFRX_IT, FunctionalState NewState); // 启用或禁用指定的 SPDIFRX 块中断。
 FlagStatus SPDIFRX_GetFlagStatus(uint32_t SPDIFRX_FLAG); // 检查是否设置了指定的 SPDIFRX 标志。
 void SPDIFRX_ClearFlag(uint32_t SPDIFRX_FLAG); // 清除指定的 SPDIFRX 标志。

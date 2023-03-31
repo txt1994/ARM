@@ -926,7 +926,7 @@ typedef struct {
 
 /* Exported macros -----------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
-/* 初始化和配置函数 *********************************/
+/* 初始化和配置功能 *********************************/
 void DSI_DeInit(DSI_TypeDef *DSIx); // 将 DSI 外设寄存器取消初始化为其默认复位值。
 void DSI_Init(DSI_TypeDef *DSIx, DSI_InitTypeDef* DSI_InitStruct, DSI_PLLInitTypeDef *PLLInit); // 将 DSIx 外设寄存器取消初始化为其默认复位值。
 void DSI_StructInit(DSI_InitTypeDef* DSI_InitStruct, DSI_HOST_TimeoutTypeDef* DSI_HOST_TimeoutInitStruct); // 用默认值填充每个 DSI_InitStruct 成员。
@@ -948,12 +948,12 @@ void DSI_Shutdown(DSI_TypeDef *DSIx, uint32_t Shutdown); // 控制视频模式�
 /* 与 STM32F4XX 标准外设库版本号 V1.6.0 兼容的别名 */
 #define DSI_ConfigLowPowerCommand DSI_ConfigCommand
 
-/* 数据传输管理函数 ****************************************/
+/* 数据传输管理功能 ****************************************/
 void DSI_ShortWrite(DSI_TypeDef *DSIx, uint32_t ChannelID, uint32_t Mode, uint32_t Param1, uint32_t Param2); // DCS或通用短写命令
 void DSI_LongWrite(DSI_TypeDef *DSIx, uint32_t ChannelID, uint32_t Mode, uint32_t NbParams, uint32_t Param1, uint8_t* ParametersTable); // DCS或通用长写命令
 void DSI_Read(DSI_TypeDef *DSIx, uint32_t ChannelNbr, uint8_t* Array, uint32_t Size, uint32_t Mode, uint32_t DCSCmd, uint8_t* ParametersTable); // 读取命令(DCS或通用)
 
-/* 低功耗函数 ********************************************************/
+/* 低功耗功能 ********************************************************/
 void DSI_EnterULPMData(DSI_TypeDef *DSIx); // 在D-PHY PLL运行的情况下进入ULPM(超低功率模式)(只有数据通道在ULPM中)
 void DSI_ExitULPMData(DSI_TypeDef *DSIx); // 在D-PHY PLL运行的情况下退出ULPM(超低功率模式)(只有数据通道在ULPM中)
 void DSI_EnterULPM(DSI_TypeDef *DSIx); // 在D-PHY PLL关闭的情况下进入ULPM(超低功率模式)(数据和时钟通道都在ULPM中)
@@ -969,7 +969,7 @@ void DSI_ForceDataLanesInRX(DSI_TypeDef *DSIx, FunctionalState State); // BTA后
 void DSI_SetPullDown(DSI_TypeDef *DSIx, FunctionalState State); // 启用车道上的下拉按钮，以防止未使用时出现浮动状态
 void DSI_SetContentionDetectionOff(DSI_TypeDef *DSIx, FunctionalState State); // 关闭数据通道上的竞争检测
 
-/* 中断和标志管理函数 **********************************/
+/* 中断和标志管理功能 **********************************/
 void DSI_ITConfig(DSI_TypeDef* DSIx, uint32_t DSI_IT, FunctionalState NewState); // 启用或禁用指定的DSI中断。
 FlagStatus DSI_GetFlagStatus(DSI_TypeDef* DSIx, uint16_t DSI_FLAG); // 检查是否设置了指定的DSI标志。
 void DSI_ClearFlag(DSI_TypeDef* DSIx, uint16_t DSI_FLAG); // 清除指定的DSI标志。

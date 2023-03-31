@@ -432,7 +432,7 @@ typedef struct {
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 
-/* 初始化和配置函数 *********************************/
+/* 初始化和配置功能 *********************************/
 void QSPI_DeInit(void); // 将 QSPI 外设寄存器取消初始化为其默认复位值。
 void QSPI_Init(QSPI_InitTypeDef* QSPI_InitStruct); // 根据 QSPI_InitStruct 中指定的参数初始化 QSPI 外设。
 void QSPI_StructInit(QSPI_InitTypeDef* QSPI_InitStruct); // 用其默认值填充每个 QSPI_InitStruct 成员。
@@ -451,7 +451,7 @@ void QSPI_AutoPollingModeStopCmd(FunctionalState NewState); // 发生匹配时�
 void QSPI_AbortRequest(void); // 中止正在进行的命令序列。
 void QSPI_DualFlashMode_Cmd(FunctionalState NewState); // 启用或禁用 QSPI 双闪存模式。
 
-/* 数据传输函数 ***************************************************/
+/* 数据传输功能 ***************************************************/
 void     QSPI_SendData8(uint8_t Data); // 通过 QSPI 外设传输 8 位数据。
 void     QSPI_SendData16(uint16_t Data); // 通过 QSPI 外设传输 16 位数据。
 void     QSPI_SendData32(uint32_t Data); // 通过 QSPI 外设传输 32 位数据。
@@ -459,10 +459,10 @@ uint8_t  QSPI_ReceiveData8(void); // 返回 QSPI 外设最近接收到的 8 位�
 uint16_t QSPI_ReceiveData16(void); // 返回 QSPI 外设最近接收到的 16 位数据。
 uint32_t QSPI_ReceiveData32(void); // 返回 QSPI 外设最近接收到的 32 位数据。
 
-/* DMA传输管理函数 *****************************************/
+/* DMA传输管理功能 *****************************************/
 void QSPI_DMACmd(FunctionalState NewState); // 启用或禁用间接模式的 DMA。
 
-/* 中断和标志管理函数 **********************************/
+/* 中断和标志管理功能 **********************************/
 void       QSPI_ITConfig(uint32_t QSPI_IT, FunctionalState NewState); // 启用或禁用指定的 QSPI 中断。
 uint32_t   QSPI_GetFIFOLevel(void); // 返回当前 QSPI FIFO 填充级别。
 FlagStatus QSPI_GetFlagStatus(uint32_t QSPI_FLAG); // 检查是否设置了指定的 QSPI 标志。

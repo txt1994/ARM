@@ -153,12 +153,12 @@ typedef struct {
 /*  用于将 EXTI 配置设置为默认复位状态的函数 *****/
 void EXTI_DeInit(void); // 将 EXTI 外设寄存器取消初始化为其默认复位值。
 
-/* 初始化和配置函数 *********************************/
+/* 初始化和配置功能 *********************************/
 void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct); // 根据 EXTI_InitStruct 中指定的参数初始化 EXTI 外设。
 void EXTI_StructInit(EXTI_InitTypeDef* EXTI_InitStruct); // 用其重置值填充每个 EXTI_InitStruct 成员。
 void EXTI_GenerateSWInterrupt(uint32_t EXTI_Line); // 在选定的 EXTI 线上产生一个软件中断。
 
-/* 中断和标志管理函数 **********************************/
+/* 中断和标志管理功能 **********************************/
 FlagStatus EXTI_GetFlagStatus(uint32_t EXTI_Line); // 检查是否设置了指定的 EXTI 行标志。
 void EXTI_ClearFlag(uint32_t EXTI_Line); // 清除 EXTI 的行挂起标志。
 ITStatus EXTI_GetITStatus(uint32_t EXTI_Line); // 检查指定的 EXTI 行是否被断言。

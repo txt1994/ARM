@@ -465,20 +465,20 @@ typedef struct {
 /*  用于将 SDIO 配置设置为默认复位状态的函数 ****/
 void SDIO_DeInit(void); // 将SDIO外设寄存器去初始化为其默认复位值。
 
-/* 初始化和配置函数 *********************************/
+/* 初始化和配置功能 *********************************/
 void SDIO_Init(SDIO_InitTypeDef* SDIO_InitStruct); // 根据SDIO_InitStruct中指定的参数初始化SDIO外设。
 void SDIO_StructInit(SDIO_InitTypeDef* SDIO_InitStruct); // 用每个SDIO_InitStruct成员的默认值填充其默认值。
 void SDIO_ClockCmd(FunctionalState NewState); // 启用或禁用 SDIO 时钟。
 void SDIO_SetPowerState(uint32_t SDIO_PowerState); // 设置控制器的电源状态。
 uint32_t SDIO_GetPowerState(void); // 获取控制器的电源状态。
 
-/* 命令路径状态机 (CPSM) 管理函数 *********************/
+/* 命令路径状态机 (CPSM) 管理功能 *********************/
 void SDIO_SendCommand(SDIO_CmdInitTypeDef *SDIO_CmdInitStruct); // 根据SDIO_CmdInitStruct中指定的参数初始化SDIO命令并发送命令。
 void SDIO_CmdStructInit(SDIO_CmdInitTypeDef* SDIO_CmdInitStruct); // 用每个SDIO_CmdInitStruct成员的默认值填充该成员。
 uint8_t SDIO_GetCommandResponse(void); // 返回接收到响应的最后一个命令的命令索引
 uint32_t SDIO_GetResponse(uint32_t SDIO_RESP); // 返回从卡收到的对最后一个命令的响应。
 
-/* 数据路径状态机 (DPSM) 管理函数 ************************/
+/* 数据路径状态机 (DPSM) 管理功能 ************************/
 void SDIO_DataConfig(SDIO_DataInitTypeDef* SDIO_DataInitStruct); // 根据SDIO_DataInitStruct中指定的参数初始化 SDIO 数据路径。
 void SDIO_DataStructInit(SDIO_DataInitTypeDef* SDIO_DataInitStruct); // 用每个SDIO_DataInitStruct成员的默认值填充每个成员。
 uint32_t SDIO_GetDataCounter(void); // 返回要传输的剩余数据字节数。
@@ -498,10 +498,10 @@ void SDIO_CommandCompletionCmd(FunctionalState NewState); // 启用或禁用命�
 void SDIO_CEATAITCmd(FunctionalState NewState); // 启用或禁用 CE-ATA 中断。
 void SDIO_SendCEATACmd(FunctionalState NewState); // 发送 CE-ATA 命令 (CMD61)。
 
-/* DMA 传输管理函数 *****************************************/
+/* DMA 传输管理功能 *****************************************/
 void SDIO_DMACmd(FunctionalState NewState); // 启用或禁用 SDIO DMA 请求。
 
-/* 中断和标志管理函数 **********************************/
+/* 中断和标志管理功能 **********************************/
 void SDIO_ITConfig(uint32_t SDIO_IT, FunctionalState NewState); // 启用或禁用 SDIO 中断。
 FlagStatus SDIO_GetFlagStatus(uint32_t SDIO_FLAG); // 检查是否设置了指定的 SDIO 标志。
 void SDIO_ClearFlag(uint32_t SDIO_FLAG); // 清除 SDIO 的挂起标志。

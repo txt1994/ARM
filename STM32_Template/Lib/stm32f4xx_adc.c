@@ -56,7 +56,8 @@
       ***注入通道组配置***
      =============================================
      [..]
-        (+) 要配置 ADC 注入通道组功能，请使用 ADC_InjectedChannelConfig() 和 ADC_InjectedSequencerLengthConfig() 函数。
+        (+) 要配置 ADC 注入通道组功能，请使用 ADC_InjectedChannelConfig() 
+			和 ADC_InjectedSequencerLengthConfig() 函数。
         (+) 要激活连续模式，请使用 ADC_continuousModeCmd() 函数。
         (+) 要激活注入不连续模式，请使用 ADC_InjectedDiscModeCmd() 函数。
         (+) 要激活 AutoInjected 模式，请使用 ADC_AutoInjectedConvCmd() 函数。
@@ -397,13 +398,13 @@ void ADC_Cmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
   * 参数:  ADCx:其中x可以是1、2或3，以选择ADC外围设备。
   * 参数:  ADC_AnalogWatchdog:ADC模拟看门狗配置。
   *        此参数可以是以下值之一:
-  * arg ADC_AnalogWatchdog_SingleRegEnable:单个常规通道上的模拟看门狗
-  * arg ADC_AnalogWatchdog_SingleInjecEnable:单注入通道上的模拟看门狗
-  * arg ADC_AnalogWatchdog_SingleRegOrInjectEnable:单个常规或注入通道上的模拟看门狗
-  * arg ADC_AnalogWatchdog_AllRegEnable:所有常规通道上的模拟看门狗
-  * arg ADC_AnalogWatchdog_AllInjectEnable:所有注入通道上的模拟看门狗
-  * arg ADC_AnalogWatchdog_AllRegAllInjectEnable:所有常规和注入通道上的模拟看门狗
-  * arg ADC_AnalogWatchdog_None:模拟看门狗没有保护通道
+  * 		arg ADC_AnalogWatchdog_SingleRegEnable			:单个常规通道上的模拟看门狗
+  * 		arg ADC_AnalogWatchdog_SingleInjecEnable		:单注入通道上的模拟看门狗
+  * 		arg ADC_AnalogWatchdog_SingleRegOrInjectEnable	:单个常规或注入通道上的模拟看门狗
+  * 		arg ADC_AnalogWatchdog_AllRegEnable				:所有常规通道上的模拟看门狗
+  * 		arg ADC_AnalogWatchdog_AllInjectEnable			:所有注入通道上的模拟看门狗
+  * 		arg ADC_AnalogWatchdog_AllRegAllInjectEnable	:所有常规和注入通道上的模拟看门狗
+  * 		arg ADC_AnalogWatchdog_None						:模拟看门狗没有保护通道
   * 返回值: 无
   */
 void ADC_AnalogWatchdogCmd(ADC_TypeDef* ADCx, uint32_t ADC_AnalogWatchdog) {
@@ -979,10 +980,10 @@ void ADC_DMARequestAfterLastTransferCmd(ADC_TypeDef* ADCx, FunctionalState NewSt
   * 简介:  在多 ADC 模式下最后一次传输后启用或禁用 ADC DMA 请求。
   * 参数:  NewState: 最后一次传输后所选ADC DMA请求的新状态。
   *          此参数可以是:ENABLE或DISABLE。
-  * note   if Enabled, DMA requests are issued as long as data are converted and
-  *         DMA mode for multi ADC mode (selected using ADC_CommonInit() function
-  *         by ADC_CommonInitStruct.ADC_DMAAccessMode structure member) is
-  *          ADC_DMAAccessMode_1, ADC_DMAAccessMode_2 or ADC_DMAAccessMode_3.
+  * note   如果启用，则只要转换数据，就会发出DMA请求，
+		   并且多ADC模式的DMA模式（由ADC_CommonInitStruct.ADC_DMAAccessMode
+		   结构成员使用ADC_CommonInit（）函数选择）为ADC_DMAAccessMode_1、
+		   ADC_DMAccessMode_2或ADC_DMAAccessMode_3。
   * 返回值: 无
   */
 void ADC_MultiModeDMARequestAfterLastTransferCmd(FunctionalState NewState) {

@@ -1042,13 +1042,13 @@ typedef struct {
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
 
-/* NOR/SRAM 控制器函数 **********************************************/
+/* NOR/SRAM 控制器功能 **********************************************/
 void FMC_NORSRAMDeInit(uint32_t FMC_Bank); // 将 FMC NOR/SRAM 组寄存器取消初始化为其默认复位值。
 void FMC_NORSRAMInit(FMC_NORSRAMInitTypeDef* FMC_NORSRAMInitStruct); // 根据 FMC_NORSRAMInitStruct 中指定的参数初始化 FMC NOR/SRAM Bank。
 void FMC_NORSRAMStructInit(FMC_NORSRAMInitTypeDef* FMC_NORSRAMInitStruct); // 用默认值填充每个 FMC_NORSRAMInitStruct 成员。
 void FMC_NORSRAMCmd(uint32_t FMC_Bank, FunctionalState NewState); // 启用或禁用指定的 NOR/SRAM 存储库。
 
-/* NAND 控制器函数 **************************************************/
+/* NAND 控制器功能 **************************************************/
 void     FMC_NANDDeInit(uint32_t FMC_Bank); // 将 FMC NAND Banks 寄存器取消初始化为其默认复位值。
 void     FMC_NANDInit(FMC_NANDInitTypeDef* FMC_NANDInitStruct); // 根据 FMC_NANDInitStruct 中指定的参数初始化 FMC NAND Bank。
 void     FMC_NANDStructInit(FMC_NANDInitTypeDef* FMC_NANDInitStruct); // 用默认值填充每个 FMC_NANDInitStruct 成员
@@ -1056,13 +1056,13 @@ void     FMC_NANDCmd(uint32_t FMC_Bank, FunctionalState NewState); // 启用或�
 void     FMC_NANDECCCmd(uint32_t FMC_Bank, FunctionalState NewState); // 启用或禁用 FMC NAND ECC 功能。
 uint32_t FMC_GetECC(uint32_t FMC_Bank); // 返回纠错码寄存器值。
 
-/* PCCARD 控制器函数 ************************************************/
+/* PCCARD 控制器功能 ************************************************/
 void FMC_PCCARDDeInit(void); // 将 FMC PCCARD 组寄存器取消初始化为其默认复位值。
 void FMC_PCCARDInit(FMC_PCCARDInitTypeDef* FMC_PCCARDInitStruct); // 根据 FMC_PCCARDInitStruct 中指定的参数初始化 FMC PCCARD Bank。
 void FMC_PCCARDStructInit(FMC_PCCARDInitTypeDef* FMC_PCCARDInitStruct); // 用默认值填充每个 FMC_PCCARDInitStruct 成员。
 void FMC_PCCARDCmd(FunctionalState NewState); // 启用或禁用 PCCARD 存储库。
 
-/* SDRAM 控制器函数 ************************************************/
+/* SDRAM 控制器功能 ************************************************/
 void     FMC_SDRAMDeInit(uint32_t FMC_Bank); // 将 FMC SDRAM 组寄存器取消初始化为其默认复位值。
 void     FMC_SDRAMInit(FMC_SDRAMInitTypeDef* FMC_SDRAMInitStruct); // 根据 FMC_SDRAMInitStruct 中指定的参数初始化 FMC SDRAM Bank
 void     FMC_SDRAMStructInit(FMC_SDRAMInitTypeDef* FMC_SDRAMInitStruct); // 用默认值填充每个 FMC_SDRAMInitStruct 成员。
@@ -1072,7 +1072,7 @@ void     FMC_SetRefreshCount(uint32_t FMC_Count); // 定义 SDRAM 内存刷新�
 void     FMC_SetAutoRefresh_Number(uint32_t FMC_Number); // 设置连续 SDRAM 内存自动刷新命令的数量。
 void     FMC_SDRAMWriteProtectionConfig(uint32_t SDRAM_Bank, FunctionalState NewState); // 启用或禁用对指定 FMC SDRAM Bank 的写保护。
 
-/* 中断和标志管理函数 **********************************/
+/* 中断和标志管理功能 **********************************/
 void       FMC_ITConfig(uint32_t FMC_Bank, uint32_t FMC_IT, FunctionalState NewState); // 启用或禁用指定的 FMC 中断。
 FlagStatus FMC_GetFlagStatus(uint32_t FMC_Bank, uint32_t FMC_FLAG); // 检查是否设置了指定的 FMC 标志。
 void       FMC_ClearFlag(uint32_t FMC_Bank, uint32_t FMC_FLAG); // 清除 FMC 的挂起标志。

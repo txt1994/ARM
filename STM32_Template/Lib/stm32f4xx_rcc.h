@@ -943,7 +943,7 @@ void        RCC_PCLK1Config(uint32_t RCC_HCLK); // 配置低速 APB 时钟 (PCLK
 void        RCC_PCLK2Config(uint32_t RCC_HCLK); // 配置高速 APB 时钟 (PCLK2)。
 void        RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks); // 返回不同片上时钟的频率;SYSCLK，HCLK，PCLK1和PCLK2。
 
-/* 外设时钟配置函数 **********************************/
+/* 外设时钟配置功能 **********************************/
 void        RCC_RTCCLKConfig(uint32_t RCC_RTCCLKSource); // 配置 RTC 时钟 (RTCCLK)。
 void        RCC_RTCCLKCmd(FunctionalState NewState); // 启用或禁用 RTC 时钟。
 void        RCC_BackupResetCmd(FunctionalState NewState); // 强制或释放备份域重置。

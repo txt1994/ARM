@@ -398,7 +398,7 @@ typedef struct {
 /* Exported functions ------------------------------------------------------- */
 
 
-/* 初始化和配置函数 *********************************/
+/* 初始化和配置功能 *********************************/
 void FMPI2C_DeInit(FMPI2C_TypeDef* FMPI2Cx); // 将 FMPI2Cx 外设寄存器取消初始化为其默认复位值。
 void FMPI2C_Init(FMPI2C_TypeDef* FMPI2Cx, FMPI2C_InitTypeDef* FMPI2C_InitStruct); // 根据 FMPI2C_InitStruct 中指定的参数初始化 FMPI2Cx 外设。
 void FMPI2C_StructInit(FMPI2C_InitTypeDef* FMPI2C_InitStruct); // 用默认值填充每个 FMPI2C_InitStruct 成员。
@@ -413,7 +413,7 @@ void FMPI2C_SlaveByteControlCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewStat
 void FMPI2C_SlaveAddressConfig(FMPI2C_TypeDef* FMPI2Cx, uint16_t Address); // 配置启动生成后要发送的从地址。
 void FMPI2C_10BitAddressingModeCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState); // 启用或禁用主设备的 FMPI2C 10 位寻址模式。
 
-/* 通讯处理函数 ******************************************/
+/* 通讯处理功能 ******************************************/
 void FMPI2C_AutoEndCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState); // 启用或禁用 FMPI2C 自动结束模式(传输 nbytes 数据时自动发送停止条件)。
 void FMPI2C_ReloadCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState); // 启用或禁用 FMPI2C nbytes 重载模式。
 void FMPI2C_NumberOfBytesConfig(FMPI2C_TypeDef* FMPI2Cx, uint8_t Number_Bytes); // 配置要发送/接收的字节数。
@@ -426,7 +426,7 @@ uint8_t FMPI2C_GetAddressMatched(FMPI2C_TypeDef* FMPI2Cx); // 返回 FMPI2C 从�
 uint16_t FMPI2C_GetTransferDirection(FMPI2C_TypeDef* FMPI2Cx); // 返回 FMPI2C 从机接收到的请求。
 void FMPI2C_TransferHandling(FMPI2C_TypeDef* FMPI2Cx, uint16_t Address, uint8_t Number_Bytes, uint32_t ReloadEndMode, uint32_t StartStopMode); // 在开始传输或传输期间(TC 或 TCR 标志置位)处理 FMPI2Cx 通信。
 
-/*  SMBUS管理函数 ************************************************/
+/*  SMBUS管理功能 ************************************************/
 void FMPI2C_SMBusAlertCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState); // 启用或禁用 FMPI2C SMBus 警报。
 void FMPI2C_ClockTimeoutCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState); // 启用或禁用 FMPI2C 时钟超时(SCL 超时检测)。
 void FMPI2C_ExtendedClockTimeoutCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState); // 启用或禁用 FMPI2C 扩展时钟超时(SCL 累积超时检测)。
@@ -437,17 +437,17 @@ void FMPI2C_CalculatePEC(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState); // 
 void FMPI2C_PECRequestCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState); // 启用或禁用 FMPI2C PEC 发送/接收请求。
 uint8_t FMPI2C_GetPEC(FMPI2C_TypeDef* FMPI2Cx); // 返回 FMPI2C PEC。
 
-/* FMPI2C寄存器管理函数 *****************************************/
+/* FMPI2C寄存器管理功能 *****************************************/
 uint32_t FMPI2C_ReadRegister(FMPI2C_TypeDef* FMPI2Cx, uint8_t FMPI2C_Register); // 读取指定的 FMPI2C 寄存器并返回其值。
 
-/* 数据传输管理函数 ****************************************/
+/* 数据传输管理功能 ****************************************/
 void FMPI2C_SendData(FMPI2C_TypeDef* FMPI2Cx, uint8_t Data); // 通过 FMPI2Cx 外设发送一个数据字节。
 uint8_t FMPI2C_ReceiveData(FMPI2C_TypeDef* FMPI2Cx); // 返回 FMPI2Cx 外设最近接收的数据。
 
-/* DMA 传输管理函数 *****************************************/
+/* DMA 传输管理功能 *****************************************/
 void FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalState NewState); // 启用或禁用 FMPI2C DMA 接口。
 
-/* 中断和标志管理函数 **********************************/
+/* 中断和标志管理功能 **********************************/
 FlagStatus FMPI2C_GetFlagStatus(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_FLAG); // 检查是否设置了指定的 FMPI2C 标志。
 void FMPI2C_ClearFlag(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_FLAG); // 清除 FMPI2Cx 的挂起标志。
 ITStatus FMPI2C_GetITStatus(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_IT); // 检查是否发生了指定的 FMPI2C 中断。

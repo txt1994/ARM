@@ -196,12 +196,12 @@ typedef struct {
 /*  用于将 HASH 配置设置为默认重置状态的函数 ****/
 void HASH_DeInit(void); // 将 HASH 外设寄存器取消初始化为其默认复位值。
 
-/* HASH 配置函数 ************************************************/
+/* HASH 配置功能 ************************************************/
 void HASH_Init(HASH_InitTypeDef* HASH_InitStruct); // 根据HASH_InitStruct结构中的指定参数初始化 HASH 外设。
 void HASH_StructInit(HASH_InitTypeDef* HASH_InitStruct); // 用每个HASH_InitStruct成员的默认值填充该成员。
 void HASH_Reset(void); // 重置 HASH 处理器内核，以便 HASH 准备好计算新消息的消息摘要。
 
-/* HASH 消息摘要生成函数 ***********************************/
+/* HASH 消息摘要生成功能 ***********************************/
 void HASH_DataIn(uint32_t Data); // 在数据输入 FIFO 中写入数据。
 uint8_t HASH_GetInFIFOWordsNbr(void); // 返回已推送到 IN FIFO 中的字数。
 void HASH_SetLastWordValidBitsNbr(uint16_t ValidNumber); // 配置消息最后一个字中的有效位数。
@@ -209,27 +209,27 @@ void HASH_StartDigest(void); // 启动消息填充和最终消息的计算。
 void HASH_AutoStartDigest(FunctionalState NewState); // 启用或禁用自动启动消息填充和在 DMA 传输结束时计算最终消息摘要。
 void HASH_GetDigest(HASH_MsgDigest* HASH_MessageDigest); // 提供消息摘要结果。
 
-/* HASH 上下文交换函数 ********************************************/
+/* HASH 上下文交换功能 ********************************************/
 void HASH_SaveContext(HASH_Context* HASH_ContextSave); // 保存哈希外围上下文。
 void HASH_RestoreContext(HASH_Context* HASH_ContextRestore); // 还原哈希外围上下文。
 
-/* HASH DMA接口函数 ************************************************/
+/* HASH DMA接口功能 ************************************************/
 void HASH_DMACmd(FunctionalState NewState); // 启用或禁用哈希 DMA 接口。
 
-/* HASH 中断和标志管理函数 *****************************/
+/* HASH 中断和标志管理功能 *****************************/
 void HASH_ITConfig(uint32_t HASH_IT, FunctionalState NewState); // 启用或禁用指定的 HASH 中断
 FlagStatus HASH_GetFlagStatus(uint32_t HASH_FLAG); // 检查是否设置了指定的 HASH 标志。
 void HASH_ClearFlag(uint32_t HASH_FLAG); // 清除哈希标志。
 ITStatus HASH_GetITStatus(uint32_t HASH_IT); // 检查指定的 HASH 中断是否发生。
 void HASH_ClearITPendingBit(uint32_t HASH_IT); // 清除哈希中断挂起位。
 
-/* 高级 SHA1 函数 **************************************************/
+/* 高级 SHA1 功能 **************************************************/
 ErrorStatus HASH_SHA1(uint8_t *Input, uint32_t Ilen, uint8_t Output[20]); // 计算哈希 SHA1 摘要。
 ErrorStatus HMAC_SHA1(uint8_t *Key, uint32_t Keylen,
                       uint8_t *Input, uint32_t Ilen,
                       uint8_t Output[20]); // 计算 HMAC SHA1 摘要。
 
-/* 高级 MD5 函数 ***************************************************/
+/* 高级 MD5 功能 ***************************************************/
 ErrorStatus HASH_MD5(uint8_t *Input, uint32_t Ilen, uint8_t Output[16]); // 计算HASH MD5 摘要。
 ErrorStatus HMAC_MD5(uint8_t *Key, uint32_t Keylen,
                      uint8_t *Input, uint32_t Ilen,

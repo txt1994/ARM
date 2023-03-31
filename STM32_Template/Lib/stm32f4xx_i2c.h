@@ -542,7 +542,7 @@ typedef struct {
 /*  Function used to set the I2C configuration to the default reset state *****/
 void I2C_DeInit(I2C_TypeDef* I2Cx); // 将I2Cx外设寄存器取消初始化为其默认复位值。
 
-/* 初始化和配置函数 *********************************/
+/* 初始化和配置功能 *********************************/
 void I2C_Init(I2C_TypeDef* I2Cx, I2C_InitTypeDef* I2C_InitStruct); // 根据I2C_InitStruct中的指定参数初始化I2Cx外设。
 void I2C_StructInit(I2C_InitTypeDef* I2C_InitStruct); // 用每个I2C_InitStruct成员的默认值填充其默认值。
 void I2C_Cmd(I2C_TypeDef* I2Cx, FunctionalState NewState); // 启用或禁用指定的 I2C 外设。
@@ -562,11 +562,11 @@ void I2C_NACKPositionConfig(I2C_TypeDef* I2Cx, uint16_t I2C_NACKPosition); // �
 void I2C_SMBusAlertConfig(I2C_TypeDef* I2Cx, uint16_t I2C_SMBusAlert); // 针对指定的 I2C 将 SMBusAlert 引脚驱动至高电平或低电平。
 void I2C_ARPCmd(I2C_TypeDef* I2Cx, FunctionalState NewState); // 启用或禁用指定的 I2C ARP。
 
-/* 数据传输函数 ***************************************************/
+/* 数据传输功能 ***************************************************/
 void I2C_SendData(I2C_TypeDef* I2Cx, uint8_t Data); // 通过 I2Cx 外设发送一个数据字节。
 uint8_t I2C_ReceiveData(I2C_TypeDef* I2Cx); // 返回 I2Cx 外设最近接收到的数据。
 
-/* PEC 管理函数 ***************************************************/
+/* PEC 管理功能 ***************************************************/
 void I2C_TransmitPEC(I2C_TypeDef* I2Cx, FunctionalState NewState); // 启用或禁用指定的 I2C PEC 传输。
 void I2C_PECPositionConfig(I2C_TypeDef* I2Cx, uint16_t I2C_PECPosition); // 选择指定的 I2C PEC 位置。
 void I2C_CalculatePEC(I2C_TypeDef* I2Cx, FunctionalState NewState); // 启用或禁用传输字节的 PEC 值计算。

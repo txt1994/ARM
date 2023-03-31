@@ -269,7 +269,7 @@ typedef struct {
 /*  用于将 CRYP 配置设置为默认复位状态的函数 ****/
 void CRYP_DeInit(void);
 
-/* CRYP 初始化和配置函数 ****************************/
+/* CRYP 初始化和配置功能 ****************************/
 void CRYP_Init(CRYP_InitTypeDef* CRYP_InitStruct); // 根据 CRYP_InitStruct 中指定的参数初始化 CRYP 外设。
 void CRYP_StructInit(CRYP_InitTypeDef* CRYP_InitStruct); // 用默认值填充每个 CRYP_InitStruct 成员。
 void CRYP_KeyInit(CRYP_KeyInitTypeDef* CRYP_KeyInitStruct); // 根据 CRYP_KeyInitStruct 中指定的参数初始化 CRYP 密钥。
@@ -279,25 +279,25 @@ void CRYP_IVStructInit(CRYP_IVInitTypeDef* CRYP_IVInitStruct); // 用默认值�
 void CRYP_Cmd(FunctionalState NewState); // 根据 CRYP_InitStruct 中指定的参数初始化 CRYP 外设。
 void CRYP_PhaseConfig(uint32_t CRYP_Phase); // 配置 AES-CCM 和 AES-GCM 阶段。
 void CRYP_FIFOFlush(void); // 刷新 IN 和 OUT FIFO(即 FIFO 的读写指针被复位)
-/* CRYP 数据处理函数 *********************************************/
+/* CRYP 数据处理功能 *********************************************/
 void CRYP_DataIn(uint32_t Data); // 将数据写入数据输入寄存器 (DIN)。
 uint32_t CRYP_DataOut(void); // 返回最后输入到输出 FIFO 的数据。
 
-/* CRYP 上下文交换函数 ********************************************/
+/* CRYP 上下文交换功能 ********************************************/
 ErrorStatus CRYP_SaveContext(CRYP_Context* CRYP_ContextSave,
                              CRYP_KeyInitTypeDef* CRYP_KeyInitStruct); // 保存 CRYP 外围设备上下文。
 void CRYP_RestoreContext(CRYP_Context* CRYP_ContextRestore); // 恢复 CRYP 外围设备上下文。
 
-/* CRYP DMA接口函数 ************************************************/
+/* CRYP DMA接口功能 ************************************************/
 void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState); // 启用或禁用 CRYP DMA 接口。
 
-/* 中断和标志管理函数 **********************************/
+/* 中断和标志管理功能 **********************************/
 void CRYP_ITConfig(uint8_t CRYP_IT, FunctionalState NewState); // 启用或禁用指定的 CRYP 中断。
 ITStatus CRYP_GetITStatus(uint8_t CRYP_IT); // 检查是否发生了指定的 CRYP 中断。
 FunctionalState CRYP_GetCmdStatus(void); // 返回 CRYP 外设是启用还是禁用。
 FlagStatus CRYP_GetFlagStatus(uint8_t CRYP_FLAG); // 检查是否设置了指定的 CRYP 标志。
 
-/* 高级 AES 函数 **************************************************/
+/* 高级 AES 功能 **************************************************/
 ErrorStatus CRYP_AES_ECB(uint8_t Mode,
                          uint8_t *Key, uint16_t Keysize,
                          uint8_t *Input, uint32_t Ilength,
@@ -329,7 +329,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
                          uint8_t* Output,
                          uint8_t* AuthTAG, uint32_t TAGSize); // 在 CCM 模式下使用 AES 进行加密和解密。
 
-/* 高级 TDES 函数 **************************************************/
+/* 高级 TDES 功能 **************************************************/
 ErrorStatus CRYP_TDES_ECB(uint8_t Mode,
                           uint8_t Key[24],
                           uint8_t *Input, uint32_t Ilength,
@@ -341,7 +341,7 @@ ErrorStatus CRYP_TDES_CBC(uint8_t Mode,
                           uint8_t *Input, uint32_t Ilength,
                           uint8_t *Output); // 在 CBC 模式下使用 TDES 进行加密和解密。
 
-/* 高级 DES 函数 **************************************************/
+/* 高级 DES 功能 **************************************************/
 ErrorStatus CRYP_DES_ECB(uint8_t Mode,
                          uint8_t Key[8],
                          uint8_t *Input, uint32_t Ilength,

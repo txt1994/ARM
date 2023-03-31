@@ -491,7 +491,7 @@ typedef struct {
 /*  用于将 SPI 配置设置为默认复位状态的函数 *****/
 void SPI_I2S_DeInit(SPI_TypeDef* SPIx); // 将 SPIx 外设寄存器取消初始化为其缺省复位值。
 
-/* 初始化和配置函数 *********************************/
+/* 初始化和配置功能 *********************************/
 void SPI_Init(SPI_TypeDef* SPIx, SPI_InitTypeDef* SPI_InitStruct); // 根据SPI_InitStruct中指定的参数初始化 SPIx 外设。
 void I2S_Init(SPI_TypeDef* SPIx, I2S_InitTypeDef* I2S_InitStruct); // 根据I2S_InitStruct中指定的参数初始化 SPIx 外设。
 void SPI_StructInit(SPI_InitTypeDef* SPI_InitStruct); // 用其默认值填充每个SPI_InitStruct成员。
@@ -506,20 +506,20 @@ void SPI_TIModeCmd(SPI_TypeDef* SPIx, FunctionalState NewState); // 启用或禁
 
 void I2S_FullDuplexConfig(SPI_TypeDef* I2Sxext, I2S_InitTypeDef* I2S_InitStruct); // 根据I2S_InitStruct中的指定参数，使用扩展名 I2Sxext 为 I2Sx 外设配置全双工模式。
 
-/* 数据传输函数 ***************************************************/
+/* 数据传输功能 ***************************************************/
 void SPI_I2S_SendData(SPI_TypeDef* SPIx, uint16_t Data); // 通过 SPIx/I2Sx 外设传输数据。
 uint16_t SPI_I2S_ReceiveData(SPI_TypeDef* SPIx); // 返回 SPIx/I2Sx 外设最近接收到的数据。
 
-/* 硬件 CRC 计算函数 *****************************************/
+/* 硬件 CRC 计算功能 *****************************************/
 void SPI_CalculateCRC(SPI_TypeDef* SPIx, FunctionalState NewState); // 启用或禁用传输字节的 CRC 值计算。
 void SPI_TransmitCRC(SPI_TypeDef* SPIx); // 传输 SPIx CRC 值。
 uint16_t SPI_GetCRC(SPI_TypeDef* SPIx, uint8_t SPI_CRC); // 返回指定 SPI 的发送或接收 CRC 寄存器值。
 uint16_t SPI_GetCRCPolynomial(SPI_TypeDef* SPIx); // 	返回指定 SPI 的 CRC 多项式寄存器值。
 
-/* DMA传输管理函数 *****************************************/
+/* DMA传输管理功能 *****************************************/
 void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState NewState); // 启用或禁用 SPIx/I2Sx DMA 接口。
 
-/* 中断和标志管理函数 **********************************/
+/* 中断和标志管理功能 **********************************/
 void SPI_I2S_ITConfig(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT, FunctionalState NewState); // 启用或禁用指定的 SPI/I2S 中断。
 FlagStatus SPI_I2S_GetFlagStatus(SPI_TypeDef* SPIx, uint16_t SPI_I2S_FLAG); // 检查是否设置了指定的SPIx/I2Sx标志。
 void SPI_I2S_ClearFlag(SPI_TypeDef* SPIx, uint16_t SPI_I2S_FLAG); // 清除 SPIx CRC 错误 (CRCERR) 标志。

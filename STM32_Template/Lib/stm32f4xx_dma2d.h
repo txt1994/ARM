@@ -422,7 +422,7 @@ typedef struct {
 /*  用于将 DMA2D 配置设置为默认复位状态的函数 *****/
 void DMA2D_DeInit(void); // 将 DMA2D 外设寄存器取消初始化为其默认复位值。
 
-/* 初始化和配置函数 *********************************/
+/* 初始化和配置功能 *********************************/
 void DMA2D_Init(DMA2D_InitTypeDef* DMA2D_InitStruct); // 根据 DMA2D_InitStruct 中指定的参数初始化 DMA2D 外设。
 void DMA2D_StructInit(DMA2D_InitTypeDef* DMA2D_InitStruct); // 用默认值填充每个DMA2D_InitStruct成员。
 void DMA2D_StartTransfer(void); // 启动 DMA2D 传输。

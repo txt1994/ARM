@@ -107,7 +107,7 @@ void IWDG_SetPrescaler(uint8_t IWDG_Prescaler); // 设置IWDG预分频器值。
 void IWDG_SetReload(uint16_t Reload); // 设置 IWDG 重新加载值。
 void IWDG_ReloadCounter(void); // 使用重新加载寄存器中定义的值重新加载 IWDG 计数器(禁用对IWDG_PR和IWDG_RLR寄存器的写入访问)。
 
-/* IWDG 激活函数 ***************************************************/
+/* IWDG 激活功能 ***************************************************/
 void IWDG_Enable(void); // 启用 IWDG(禁用对IWDG_PR和IWDG_RLR寄存器的写访问)。
 
 /* 标志管理功能 ***************************************************/

@@ -549,7 +549,7 @@ typedef struct {
 /*  用于将 GPIO 配置设置为默认复位状态的函数 ****/
 void GPIO_DeInit(GPIO_TypeDef* GPIOx); // 将 GPIOx 外设寄存器取消初始化为其缺省复位值。
 
-/* 初始化和配置函数 *********************************/
+/* 初始化和配置功能 *********************************/
 void GPIO_Init(GPIO_TypeDef* GPIOx, GPIO_InitTypeDef* GPIO_InitStruct); // 根据GPIO_InitStruct中指定的参数初始化 GPIOx 外设。
 void GPIO_StructInit(GPIO_InitTypeDef* GPIO_InitStruct); // 用每个GPIO_InitStruct成员的默认值填充该成员。
 void GPIO_PinLockConfig(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin); // 锁定 GPIO 引脚配置寄存器。

@@ -570,23 +570,23 @@ typedef struct {
 /*  用于将 ADC 配置设置为默认复位状态的函数 *****/
 void ADC_DeInit(void);
 
-/* 初始化和配置函数 *********************************/
+/* 初始化和配置功能 *********************************/
 void ADC_Init(ADC_TypeDef* ADCx, ADC_InitTypeDef* ADC_InitStruct); // 根据 ADC_InitStruct 中指定的参数初始化 ADCx 外设。
 void ADC_StructInit(ADC_InitTypeDef* ADC_InitStruct); //  ADC_InitStruct 中的每一个参数按缺省值填入
 void ADC_CommonInit(ADC_CommonInitTypeDef* ADC_CommonInitStruct);
 void ADC_CommonStructInit(ADC_CommonInitTypeDef* ADC_CommonInitStruct);
 void ADC_Cmd(ADC_TypeDef* ADCx, FunctionalState NewState); // 使能或者失能指定的 ADC
 
-/* 模拟看门狗配置函数 ************************************/
+/* 模拟看门狗配置功能 ************************************/
 void ADC_AnalogWatchdogCmd(ADC_TypeDef* ADCx, uint32_t ADC_AnalogWatchdog); // 使能或者失能指定单个/全体，规则/注入组通道上的模拟看门狗
 void ADC_AnalogWatchdogThresholdsConfig(ADC_TypeDef* ADCx, uint16_t HighThreshold, uint16_t LowThreshold); // 设置模拟看门狗的高/低阈值
 void ADC_AnalogWatchdogSingleChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channel); // 对单个 ADC 通道设置模拟看门狗
 
-/* 温度传感器、Vrefint 和 VBAT 管理函数 ******************/
+/* 温度传感器、Vrefint 和 VBAT 管理功能 ******************/
 void ADC_TempSensorVrefintCmd(FunctionalState NewState); // 使能或者失能温度传感器和内部参考电压通道
 void ADC_VBATCmd(FunctionalState NewState); // 启用或禁用 VBAT(电压电池)通道。
 
-/* 常规频道配置函数 ***********************************/
+/* 常规频道配置功能 ***********************************/
 void ADC_RegularChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channel, uint8_t Rank, uint8_t ADC_SampleTime); // 设置指定 ADC 的规则组通道，设置它们的转化顺序和采样时间
 void ADC_SoftwareStartConv(ADC_TypeDef* ADCx); // 启用常规通道的选定 ADC 软件启动转换。
 FlagStatus ADC_GetSoftwareStartConvStatus(ADC_TypeDef* ADCx); // 获取 ADC 软件转换启动状态
@@ -597,12 +597,12 @@ void ADC_DiscModeCmd(ADC_TypeDef* ADCx, FunctionalState NewState); // 使能或�
 uint16_t ADC_GetConversionValue(ADC_TypeDef* ADCx); // 返回最近一次 ADCx 规则组的转换结果
 uint32_t ADC_GetMultiModeConversionValue(void); // 返回所选多模式下最后一次 ADC1、ADC2 和 ADC3 常规转换结果数据。
 
-/* 常规通道 DMA 配置函数 *******************************/
+/* 常规通道 DMA 配置功能 *******************************/
 void ADC_DMACmd(ADC_TypeDef* ADCx, FunctionalState NewState); // 使能或者失能指定的 ADC 的 DMA 请求
 void ADC_DMARequestAfterLastTransferCmd(ADC_TypeDef* ADCx, FunctionalState NewState); // 在最后一次传输后启用或禁用 ADC DMA 请求(单 ADC 模式)
 void ADC_MultiModeDMARequestAfterLastTransferCmd(FunctionalState NewState); // 在多 ADC 模式下最后一次传输后启用或禁用 ADC DMA 请求。
 
-/* 注入通道配置函数 **********************************/
+/* 注入通道配置功能 **********************************/
 void ADC_InjectedChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channel, uint8_t Rank, uint8_t ADC_SampleTime); // 设置指定 ADC 的注入组通道，设置它们的转化顺序和采样时间
 void ADC_InjectedSequencerLengthConfig(ADC_TypeDef* ADCx, uint8_t Length); // 设置注入组通道的转换序列长度
 void ADC_SetInjectedOffset(ADC_TypeDef* ADCx, uint8_t ADC_InjectedChannel, uint16_t Offset); // 设置注入组通道的转换偏移值
@@ -614,7 +614,7 @@ void ADC_AutoInjectedConvCmd(ADC_TypeDef* ADCx, FunctionalState NewState); // �
 void ADC_InjectedDiscModeCmd(ADC_TypeDef* ADCx, FunctionalState NewState); // 使能或者失能指定 ADC 的注入组间断模式
 uint16_t ADC_GetInjectedConversionValue(ADC_TypeDef* ADCx, uint8_t ADC_InjectedChannel); // 返回 ADC 指定注入通道的转换结果
 
-/* 中断和标志管理函数 **********************************/
+/* 中断和标志管理功能 **********************************/
 void ADC_ITConfig(ADC_TypeDef* ADCx, uint16_t ADC_IT, FunctionalState NewState); // 使能或者失能指定的 ADC 的中断
 FlagStatus ADC_GetFlagStatus(ADC_TypeDef* ADCx, uint8_t ADC_FLAG); // 检查制定 ADC 标志位置 1 与否
 void ADC_ClearFlag(ADC_TypeDef* ADCx, uint8_t ADC_FLAG); // 清除 ADCx 的待处理标志位

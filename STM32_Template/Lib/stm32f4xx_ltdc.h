@@ -438,7 +438,7 @@ typedef struct {
 /*  Function used to set the LTDC configuration to the default reset state *****/
 void LTDC_DeInit(void); // 将 LTDC 外设寄存器去初始化为其默认复位值。
 
-/* 初始化和配置函数 *********************************/
+/* 初始化和配置功能 *********************************/
 void LTDC_Init(LTDC_InitTypeDef* LTDC_InitStruct); // 根据LTDC_InitStruct中指定的参数初始化LTDC外设。
 void LTDC_StructInit(LTDC_InitTypeDef* LTDC_InitStruct); // 用其默认值填充每个LTDC_InitStruct成员。
 void LTDC_Cmd(FunctionalState NewState); // 启用或禁用 LTDC 控制器。
@@ -464,7 +464,7 @@ void LTDC_LayerAddress(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t Address); // �
 void LTDC_LayerSize(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t Width, uint32_t Height); // 重新配置图层大小。
 void LTDC_LayerPixelFormat(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t PixelFormat); // 重新配置图层像素格式。
 
-/* 中断和标记管理函数 **********************************/
+/* 中断和标记管理功能 **********************************/
 void LTDC_ITConfig(uint32_t LTDC_IT, FunctionalState NewState); // 启用或禁用指定的 LTDC 的中断。
 FlagStatus LTDC_GetFlagStatus(uint32_t LTDC_FLAG); // 检查是否设置了指定的 LTDC 标志。
 void LTDC_ClearFlag(uint32_t LTDC_FLAG); // 清除 LTDC 的挂起标志。

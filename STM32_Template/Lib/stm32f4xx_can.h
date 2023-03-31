@@ -570,7 +570,7 @@ typedef struct {
 /*  用于将 CAN 配置设置为默认复位状态的函数 *****/
 void CAN_DeInit(CAN_TypeDef* CANx);
 
-/* 初始化和配置函数 *********************************/
+/* 初始化和配置功能 *********************************/
 uint8_t CAN_Init(CAN_TypeDef* CANx, CAN_InitTypeDef* CAN_InitStruct); // 根据 CAN_InitStruct 中指定的参数初始化外设 CAN 的寄存器
 #if defined(STM32F413_423xx)
 void CAN_FilterInit(CAN_TypeDef* CANx, CAN_FilterInitTypeDef* CAN_FilterInitStruct); // 根据 CAN_FilterInitStruct 中指定的参数初始化外设 CAN 的寄存器
@@ -586,27 +586,27 @@ void CAN_SlaveStartBank(uint8_t CAN_BankNumber);
 void CAN_DBGFreeze(CAN_TypeDef* CANx, FunctionalState NewState); // 启用或禁用 CAN 的 DBG 冻结。
 void CAN_TTComModeCmd(CAN_TypeDef* CANx, FunctionalState NewState); // 启用或禁用 CAN Time TriggerOperation 通信模式。
 
-/* CAN 帧传输函数 ******************************************/
+/* CAN 帧传输功能 ******************************************/
 uint8_t CAN_Transmit(CAN_TypeDef* CANx, CanTxMsg* TxMessage); // 开始一个消息的传输
 uint8_t CAN_TransmitStatus(CAN_TypeDef* CANx, uint8_t TransmitMailbox); // 检查消息传输的状态
 void CAN_CancelTransmit(CAN_TypeDef* CANx, uint8_t Mailbox); // 取消一个传输请求
 
-/* CAN 帧接收函数 *********************************************/
+/* CAN 帧接收功能 *********************************************/
 void CAN_Receive(CAN_TypeDef* CANx, uint8_t FIFONumber, CanRxMsg* RxMessage); // 接收一个消息
 void CAN_FIFORelease(CAN_TypeDef* CANx, uint8_t FIFONumber); // 释放一个 FIFO
 uint8_t CAN_MessagePending(CAN_TypeDef* CANx, uint8_t FIFONumber); // 返回挂号的信息数量
 
-/* 操作模式函数 **************************************************/
+/* 操作模式功能 **************************************************/
 uint8_t CAN_OperatingModeRequest(CAN_TypeDef* CANx, uint8_t CAN_OperatingMode); // 选择 CAN 操作模式。
 uint8_t CAN_Sleep(CAN_TypeDef* CANx); //  CAN 进入低功耗模式
 uint8_t CAN_WakeUp(CAN_TypeDef* CANx); // 将 CAN 唤醒
 
-/* CAN 总线错误管理函数 *****************************************/
+/* CAN 总线错误管理功能 *****************************************/
 uint8_t CAN_GetLastErrorCode(CAN_TypeDef* CANx); // 返回 CANx 的最后一个错误代码 (LEC)。
 uint8_t CAN_GetReceiveErrorCounter(CAN_TypeDef* CANx); // 返回 CANx 接收错误计数器 (REC)。
 uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx); // 返回 9 位 CANx 发送错误计数器 (TEC) 的 LSB。
 
-/* 中断和标志管理函数 **********************************/
+/* 中断和标志管理功能 **********************************/
 void CAN_ITConfig(CAN_TypeDef* CANx, uint32_t CAN_IT, FunctionalState NewState); // 使能或者失能指定的 CAN 中断
 FlagStatus CAN_GetFlagStatus(CAN_TypeDef* CANx, uint32_t CAN_FLAG); // 检查指定的 CAN 标志位被设置与否
 void CAN_ClearFlag(CAN_TypeDef* CANx, uint32_t CAN_FLAG); // 清除 CAN 的待处理标志位

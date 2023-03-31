@@ -583,7 +583,7 @@ typedef struct {
 /*  用于将 SAI 配置设置为默认复位状态的函数 *****/
 void SAI_DeInit(SAI_TypeDef* SAIx); // 将 SAIx 外设寄存器取消初始化为其默认复位值。
 
-/* 初始化和配置函数 *********************************/
+/* 初始化和配置功能 *********************************/
 void SAI_Init(SAI_Block_TypeDef* SAI_Block_x, SAI_InitTypeDef* SAI_InitStruct); // 根据 SAI_InitStruct 中指定的参数初始化 SAI Block x 外设。
 void SAI_FrameInit(SAI_Block_TypeDef* SAI_Block_x, SAI_FrameInitTypeDef* SAI_FrameInitStruct); // 根据 SAI_FrameInitStruct 中指定的参数初始化 SAI Block Audio 帧。
 void SAI_SlotInit(SAI_Block_TypeDef* SAI_Block_x, SAI_SlotInitTypeDef* SAI_SlotInitStruct); // 根据 SAI_SlotInitStruct 中指定的参数初始化 SAI Block 音频 Slot。
@@ -603,14 +603,14 @@ void SAI_FlushFIFO(SAI_Block_TypeDef* SAI_Block_x); // 重新初始化 FIFO 指�
 defined(STM32F469_479xx) || defined(STM32F413_423xx) || defined(STM32F446xx)
 void SAI_BlockSynchroConfig(SAI_InitTypeDef* SAI_InitStruct, SAI_TypeDef* SAIx); // 配置 SAI Block 同步模式
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469_479xx || STM32F413_423xx || STM32F446xx */
-/* 数据传输函数 ***************************************************/
+/* 数据传输功能 ***************************************************/
 void SAI_SendData(SAI_Block_TypeDef* SAI_Block_x, uint32_t Data); // 通过 SAI 模块 x 外设传输数据。
 uint32_t SAI_ReceiveData(SAI_Block_TypeDef* SAI_Block_x); // 返回 SAI 模块 x 外设最近接收到的数据。
 
-/* DMA 传输管理函数 *****************************************/
+/* DMA 传输管理功能 *****************************************/
 void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState); // 启用或禁用 SAI Block x DMA 接口。
 
-/* 中断和标志管理函数 **********************************/
+/* 中断和标志管理功能 **********************************/
 void SAI_ITConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT, FunctionalState NewState); // 启用或禁用指定的 SAI 块中断。
 FlagStatus SAI_GetFlagStatus(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_FLAG); // 检查是否设置了指定的 SAI 块 x 标志。
 void SAI_ClearFlag(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_FLAG); // 清除指定的 SAI Block x 标志。

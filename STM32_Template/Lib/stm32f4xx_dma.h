@@ -552,21 +552,21 @@ typedef struct {
 /*  用于将 DMA 配置设置为默认复位状态的函数 *****/
 void DMA_DeInit(DMA_Stream_TypeDef* DMAy_Streamx); // 将 DMAy Streamx 寄存器取消初始化为其默认复位值。
 
-/* 初始化和配置函数 *********************************/
+/* 初始化和配置功能 *********************************/
 void DMA_Init(DMA_Stream_TypeDef* DMAy_Streamx, DMA_InitTypeDef* DMA_InitStruct); // 根据 DMA_InitStruct 结构中的指定参数初始化 DMAy Streamx。
 void DMA_StructInit(DMA_InitTypeDef* DMA_InitStruct); // 用默认值填充每个 DMA_InitStruct 成员。
 void DMA_Cmd(DMA_Stream_TypeDef* DMAy_Streamx, FunctionalState NewState); // 启用或禁用指定的 DMAy Streamx。
 
-/* 可选配置函数 *******************************************/
+/* 可选配置功能 *******************************************/
 void DMA_PeriphIncOffsetSizeConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_Pincos); /* 设置 PINC(外设增量地址模式)位时，
 																							配置外设地址是否应随数据大小(使用 PSIZE 位配置)或等于 4 的固定偏移量(32 位对齐地址)递增。*/
 void DMA_FlowControllerConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_FlowCtrl); // 当禁用 DMAy Streamx 时，配置下一个事务(外设或内存)的流控制器。
 
-/* 数据计数器函数 *****************************************************/
+/* 数据计数器功能 *****************************************************/
 void DMA_SetCurrDataCounter(DMA_Stream_TypeDef* DMAy_Streamx, uint16_t Counter); // 写入要在 DMAy Streamx 上传输的数据单元的数量。
 uint16_t DMA_GetCurrDataCounter(DMA_Stream_TypeDef* DMAy_Streamx); // 返回当前 DMAy Streamx 传输中剩余数据单元的数量。
 
-/* 双缓冲模式函数 ***********************************************/
+/* 双缓冲模式功能 ***********************************************/
 void DMA_DoubleBufferModeConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t Memory1BaseAddr,
                                 uint32_t DMA_CurrentMemory); // 当禁用 DMAy Streamx 时，配置双缓冲模式和当前内存目标。
 void DMA_DoubleBufferModeCmd(DMA_Stream_TypeDef* DMAy_Streamx, FunctionalState NewState); // 启用或禁用选定 DMA 流的双缓冲模式。
@@ -574,7 +574,7 @@ void DMA_MemoryTargetConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t MemoryBas
                             uint32_t DMA_MemoryTarget); // 为双缓冲区模式下的下一个缓冲区传输配置内存地址(用于动态使用)。
 uint32_t DMA_GetCurrentMemoryTarget(DMA_Stream_TypeDef* DMAy_Streamx); // 返回双缓冲区传输使用的当前内存目标。
 
-/* 中断和标志管理函数 **********************************/
+/* 中断和标志管理功能 **********************************/
 FunctionalState DMA_GetCmdStatus(DMA_Stream_TypeDef* DMAy_Streamx); // 返回指定 DMAy Streamx 的 EN 位的状态。
 uint32_t DMA_GetFIFOStatus(DMA_Stream_TypeDef* DMAy_Streamx); // 返回当前的 DMAy Streamx FIFO 填充级别。
 FlagStatus DMA_GetFlagStatus(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_FLAG); // 检查是否设置了指定的 DMAy Streamx 标志。

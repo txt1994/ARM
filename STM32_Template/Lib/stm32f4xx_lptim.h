@@ -333,7 +333,7 @@ typedef struct {
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 
-/* 初始化函数 ***************************************************/
+/* 初始化功能 ***************************************************/
 void LPTIM_DeInit(LPTIM_TypeDef* LPTIMx); // 将 LPTIMx 外设寄存器取消初始化为其默认复位值。
 void LPTIM_Init(LPTIM_TypeDef* LPTIMx, LPTIM_InitTypeDef* LPTIM_InitStruct); // 根据 LPTIM_InitStruct 中指定的参数初始化 LPTIMx 外设。
 void LPTIM_StructInit(LPTIM_InitTypeDef* LPTIM_InitStruct); // 用默认值填充每个 LPTIM_InitStruct 成员。

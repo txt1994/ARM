@@ -5,19 +5,19 @@
   * 版本:    V1.8.0
   * 日期:    04-November-2016
   * 简介:    此文件提供固件功能，以管理实时时钟(RTC)外围设备的以下功能:
-  *           +初始化
-  *           +日历(时间和日期)配置
-  *           +警报(警报A和警报B)配置
-  *           +唤醒定时器配置
-  *           +夏令时配置
-  *           +输出引脚配置
-  *           +粗数字校准配置
-  *           +平滑数字校准配置
-  *           +时间戳配置
-  *           +篡改配置
-  *           +备份数据寄存器配置
-  *           +换档控制同步
-  *           +RTC篡改和时间戳引脚选择和输出类型配置
+  *           + 初始化
+  *           + 日历(时间和日期)配置
+  *           + 警报(警报A和警报B)配置
+  *           + 唤醒定时器配置
+  *           + 夏令时配置
+  *           + 输出引脚配置
+  *           + 粗数字校准配置
+  *           + 平滑数字校准配置
+  *           + 时间戳配置
+  *           + 篡改配置
+  *           + 备份数据寄存器配置
+  *           + 换档控制同步
+  *           + RTC篡改和时间戳引脚选择和输出类型配置
   *           + 中断和标志管理
   *
 @verbatim
@@ -1839,7 +1839,7 @@ uint32_t RTC_GetTimeStampSubSecond(void) {
   *          取值为RTC_Tamper_1或RTC_Tamper 2
   * 参数:  RTC_TamperTrigger: 指定触发篡改事件的篡改pin上的触发器。
   *   此参数可以是以下值之一:
-  *     @arg RTC_TamperTrigger_RisingEdge: Rising Edge of the tamper pin causes tamper event.
+  *     @arg RTC_TamperTrigger_RisingEdge: 防篡改销的上升边缘会导致篡改事件。
   *     @arg RTC_TamperTrigger_FallingEdge: Falling Edge of the tamper pin causes tamper event.
   *     @arg RTC_TamperTrigger_LowLevel: Low Level of the tamper pin causes tamper event.
   *     @arg RTC_TamperTrigger_HighLevel: High Level of the tamper pin causes tamper event.

@@ -466,7 +466,7 @@ void RCC_PLLConfig(uint32_t RCC_PLLSource, uint32_t PLLM, uint32_t PLLN, uint32_
   *          此参数可以是以下值之一:
   *            @arg RCC_PLLSource_HSI: HSI 选择振荡器时钟作为PLL时钟点
   *            @arg RCC_PLLSource_HSE: HSE 选择振荡器时钟作为PLL时钟点
-  * 注意:   该时钟源（RCC_PLLSource）对于主PLL和PLLI2S是通用的。
+  * 注意:   该时钟源(RCC_PLLSource)对于主PLL和PLLI2S是通用的。
   *
   * 参数:  PLLM: 指定PLL VCO输入时钟的分频因子
   *          此参数必须是介于 0 and 63.
@@ -479,7 +479,7 @@ void RCC_PLLConfig(uint32_t RCC_PLLSource, uint32_t PLLM, uint32_t PLLN, uint32_
   * 注意:   您必须正确设置PLLN参数，
   *			以确保VCO输出频率在100和432 MHz之间。
   *
-  * 参数:  PLLP: 指定主系统时钟（SYSCLK）的分频因子
+  * 参数:  PLLP: 指定主系统时钟(SYSCLK)的分频因子
   *          此参数必须是范围{2、4、6或8}中的数字。
   * 注意:   您必须正确设置PLLP参数，
   *			使其在系统时钟频率上不超过168 MHz。
@@ -510,7 +510,7 @@ void RCC_PLLConfig(uint32_t RCC_PLLSource, uint32_t PLLM, uint32_t PLLN, uint32_
   * 注意:   启用主PLL后，应用软件应等待PLLRDY标志
 			被设置，指示PLL时钟稳定，可以用作系统时钟源。
   * 注意:   如果主PLL用作系统时钟源，则不能禁用它
-  * 注意:   当进入STOP（停止）和STANDBY（待机）模式时，主PLL被硬件禁用。
+  * 注意:   当进入STOP(停止)和STANDBY(待机)模式时，主PLL被硬件禁用。
   * 参数:  NewState: 新状态-> main PLL. 此参数可以是:ENABLE或DISABLE。
   * 返回值: 无
   */
@@ -786,9 +786,9 @@ void RCC_PLLSAICmd(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用Clock Security System.
   * 注意:   如果在HSE振荡器时钟上检测到故障，该振荡器将自动禁用，
-			并生成一个中断来通知软件故障（时钟安全系统中断，CSSI），
+			并生成一个中断来通知软件故障(时钟安全系统中断，CSSI)，
 			从而允许MCU执行救援操作。
-			CSSI链接到Cortex-M4 NMI（非屏蔽中断）异常向量。
+			CSSI链接到Cortex-M4 NMI(非屏蔽中断)异常向量。
   * 参数:  NewState: 新状态-> Clock Security System.
   *         此参数可以是:ENABLE或DISABLE。
   * 返回值: 无
@@ -800,7 +800,7 @@ void RCC_ClockSecuritySystemCmd(FunctionalState NewState) {
 }
 
 /**
-  * 简介:  选择要在MCO1引脚（PA8）上输出的时钟源。
+  * 简介:  选择要在MCO1引脚(PA8)上输出的时钟源。
   * 注意:   应在备用功能模式下配置PA8。
   * 参数:  RCC_MCO1Source: 指定要输出的时钟源。
   *          此参数可以是以下值之一:
@@ -841,7 +841,7 @@ void RCC_MCO1Config(uint32_t RCC_MCO1Source, uint32_t RCC_MCO1Div) {
 }
 
 /**
-  * 简介:  选择要在MCO2引脚（PC9）上输出的时钟源。
+  * 简介:  选择要在MCO2引脚(PC9)上输出的时钟源。
   * 注意:   应在备用功能模式下配置PC9。
   * 参数:  RCC_MCO2Source: 指定要输出的时钟源。
   *          此参数可以是以下值之一:

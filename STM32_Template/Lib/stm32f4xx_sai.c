@@ -148,14 +148,11 @@ defined (STM32F413_423xx)
             ##### 初始化和配置函数 #####
  ===============================================================================
   [..]
-  This section provides a set of functions allowing to initialize the SAI Audio
-  Block Mode, Audio Protocol, Data size, Synchronization between audio block,
-  Master clock Divider, Fifo threshold, Frame configuration, slot configuration,
-  Tristate mode, Companding mode and Mute mode.
+  本节提供了一组功能，允许初始化SAI音频块模式、音频协议、数据大小、
+  音频块之间的同步、主时钟分频器、Fifo阈值、帧配置、
+  插槽配置、三态模式、压缩模式和静音模式。
   [..]
-  The SAI_Init(), SAI_FrameInit() and SAI_SlotInit() functions follows the SAI Block
-  configuration procedures for Master mode and Slave mode (details for these procedures
-  are available in reference manual(RM0090).
+  SAI_Init()、SAI_FrameInit()和SAI_SlotInit()。
 
 @endverbatim
   * @{
@@ -163,7 +160,7 @@ defined (STM32F413_423xx)
 
 /**
   * 简介:  将 SAIx 外设寄存器取消初始化为其默认复位值。
-  * 参数:  SAIx: To select the SAIx peripheral, where x can be the different instances
+  * 参数:  SAIx: 要选择SAIx外设，其中x可以是不同的实例
   *
   * 返回值: 无
   */

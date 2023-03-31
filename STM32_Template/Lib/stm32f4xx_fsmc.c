@@ -472,7 +472,7 @@ void FSMC_NANDInit(FSMC_NANDInitTypeDef* FSMC_NANDInitStruct) {
   * 返回值: 无
   */
 void FSMC_NANDStructInit(FSMC_NANDInitTypeDef* FSMC_NANDInitStruct) {
-    /* Reset NAND Init structure parameters values */
+    /* 重置NAND Init结构参数值 */
     FSMC_NANDInitStruct->FSMC_Bank = FSMC_Bank2_NAND;
     FSMC_NANDInitStruct->FSMC_Waitfeature = FSMC_Waitfeature_Disable;
     FSMC_NANDInitStruct->FSMC_MemoryDataWidth = FSMC_MemoryDataWidth_8b;

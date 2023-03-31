@@ -415,7 +415,7 @@ void RCC_LSICmd(FunctionalState NewState) {
   * 注意:   该时钟源(RCC_PLLSource)是主PLL和PLLI2S的通用时钟源。
   *
   * 参数:  PLLM: specifies the division factor for PLL VCO input clock
-  *          This parameter must be a number between 0 and 63.
+  *          此参数必须是介于 0 and 63.
   * 注意:   You have to set the PLLM parameter correctly to ensure that the VCO input
   *         frequency ranges from 1 to 2 MHz. It is recommended to select a frequency
   *         of 2 MHz to limit PLL jitter.
@@ -431,7 +431,7 @@ void RCC_LSICmd(FunctionalState NewState) {
   *         the System clock frequency.
   *
   * 参数:  PLLQ: specifies the division factor for OTG FS, SDIO and RNG clocks
-  *          This parameter must be a number between 4 and 15.
+  *          此参数必须是介于 4 and 15.
   *
   * 参数:  PLLR: specifies the division factor for I2S, SAI, SYSTEM, SPDIF in STM32F446xx devices
   *          此参数必须是介于2和7之间的数字。
@@ -462,34 +462,33 @@ void RCC_PLLConfig(uint32_t RCC_PLLSource, uint32_t PLLM, uint32_t PLLN, uint32_
   * 简介:  配置主PLL时钟源、乘法和除法因子。
   * 注意:   这个函数必须在主PLL被禁用时才使用。
   *
-  * 参数:  RCC_PLLSource: specifies the PLL entry clock source.
+  * 参数:  RCC_PLLSource: 指定PLL入口时钟源。
   *          此参数可以是以下值之一:
-  *            @arg RCC_PLLSource_HSI: HSI oscillator clock selected as PLL clock entry
-  *            @arg RCC_PLLSource_HSE: HSE oscillator clock selected as PLL clock entry
-  * 注意:   This clock source (RCC_PLLSource) is common for the main PLL and PLLI2S.
+  *            @arg RCC_PLLSource_HSI: HSI 选择振荡器时钟作为PLL时钟点
+  *            @arg RCC_PLLSource_HSE: HSE 选择振荡器时钟作为PLL时钟点
+  * 注意:   该时钟源（RCC_PLLSource）对于主PLL和PLLI2S是通用的。
   *
-  * 参数:  PLLM: specifies the division factor for PLL VCO input clock
-  *          This parameter must be a number between 0 and 63.
-  * 注意:   You have to set the PLLM parameter correctly to ensure that the VCO input
-  *         frequency ranges from 1 to 2 MHz. It is recommended to select a frequency
-  *         of 2 MHz to limit PLL jitter.
+  * 参数:  PLLM: 指定PLL VCO输入时钟的分频因子
+  *          此参数必须是介于 0 and 63.
+  * 注意:   您必须正确设置PLLM参数，以确保VCO输入频率
+			在1到2 MHz之间。
+			建议选择2 MHz的频率来限制PLL抖动。
   *
-  * 参数:  PLLN: specifies the multiplication factor for PLL VCO output clock
+  * 参数:  PLLN: 指定PLL VCO输出时钟的倍增因子
   *          必须为50 ~ 432之间的数字。
-  * 注意:   You have to set the PLLN parameter correctly to ensure that the VCO
-  *         output frequency is between 100 and 432 MHz.
+  * 注意:   您必须正确设置PLLN参数，
+  *			以确保VCO输出频率在100和432 MHz之间。
   *
-  * 参数:  PLLP: specifies the division factor for main system clock (SYSCLK)
+  * 参数:  PLLP: 指定主系统时钟（SYSCLK）的分频因子
   *          此参数必须是范围{2、4、6或8}中的数字。
-  * 注意:   You have to set the PLLP parameter correctly to not exceed 168 MHz on
-  *         the System clock frequency.
+  * 注意:   您必须正确设置PLLP参数，
+  *			使其在系统时钟频率上不超过168 MHz。
   *
-  * 参数:  PLLQ: specifies the division factor for OTG FS, SDIO and RNG clocks
-  *          This parameter must be a number between 4 and 15.
-  * 注意:   If the USB OTG FS is used in your application, you have to set the
-  *         PLLQ parameter correctly to have 48 MHz clock for the USB. However,
-  *         the SDIO and RNG need a frequency lower than or equal to 48 MHz to work
-  *         correctly.
+  * 参数:  PLLQ: 指定OTG FS、SDIO和RNG时钟的分频因子
+  *          此参数必须是介于 4 and 15.
+  * 注意:   如果您的应用程序中使用USB OTG FS，
+			则必须正确设置PLLQ参数，使USB具有48 MHz时钟。
+			然而，SDIO和RNG需要低于或等于48MHz的频率才能正常工作。
   *
   * 返回值: 无
   */
@@ -508,11 +507,10 @@ void RCC_PLLConfig(uint32_t RCC_PLLSource, uint32_t PLLM, uint32_t PLLN, uint32_
 
 /**
   * 简介:  启用或禁用main PLL.
-  * 注意:   After enabling the main PLL, the application software should wait on
-  *         PLLRDY flag to be set indicating that PLL clock is stable and can
-  *         be used as system clock source.
-  * 注意:   The main PLL can not be disabled if it is used as system clock source
-  * 注意:   The main PLL is disabled by hardware when entering STOP and STANDBY modes.
+  * 注意:   启用主PLL后，应用软件应等待PLLRDY标志
+			被设置，指示PLL时钟稳定，可以用作系统时钟源。
+  * 注意:   如果主PLL用作系统时钟源，则不能禁用它
+  * 注意:   当进入STOP（停止）和STANDBY（待机）模式时，主PLL被硬件禁用。
   * 参数:  NewState: 新状态-> main PLL. 此参数可以是:ENABLE或DISABLE。
   * 返回值: 无
   */
@@ -787,11 +785,10 @@ void RCC_PLLSAICmd(FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用Clock Security System.
-  * 注意:   If a failure is detected on the HSE oscillator clock, this oscillator
-  *         is automatically disabled and an interrupt is generated to inform the
-  *         software about the failure (Clock Security System Interrupt, CSSI),
-  *         allowing the MCU to perform rescue operations. The CSSI is linked to
-  *         the Cortex-M4 NMI (Non-Maskable Interrupt) exception vector.
+  * 注意:   如果在HSE振荡器时钟上检测到故障，该振荡器将自动禁用，
+			并生成一个中断来通知软件故障（时钟安全系统中断，CSSI），
+			从而允许MCU执行救援操作。
+			CSSI链接到Cortex-M4 NMI（非屏蔽中断）异常向量。
   * 参数:  NewState: 新状态-> Clock Security System.
   *         此参数可以是:ENABLE或DISABLE。
   * 返回值: 无
@@ -803,21 +800,21 @@ void RCC_ClockSecuritySystemCmd(FunctionalState NewState) {
 }
 
 /**
-  * 简介:  Selects the clock source to output on MCO1 pin(PA8).
-  * 注意:   PA8 should be configured in alternate function mode.
-  * 参数:  RCC_MCO1Source: specifies the clock source to output.
+  * 简介:  选择要在MCO1引脚（PA8）上输出的时钟源。
+  * 注意:   应在备用功能模式下配置PA8。
+  * 参数:  RCC_MCO1Source: 指定要输出的时钟源。
   *          此参数可以是以下值之一:
-  *            @arg RCC_MCO1Source_HSI: HSI clock selected as MCO1 source
-  *            @arg RCC_MCO1Source_LSE: LSE clock selected as MCO1 source
-  *            @arg RCC_MCO1Source_HSE: HSE clock selected as MCO1 source
-  *            @arg RCC_MCO1Source_PLLCLK: main PLL clock selected as MCO1 source
-  * 参数:  RCC_MCO1Div: specifies the MCO1 prescaler.
+  *            @arg RCC_MCO1Source_HSI: 选择HSI时钟作为MCO1源
+  *            @arg RCC_MCO1Source_LSE: 选择LSE时钟作为MCO1源
+  *            @arg RCC_MCO1Source_HSE: 选择HSE时钟作为MCO1源
+  *            @arg RCC_MCO1Source_PLLCLK: 选择主PLL时钟作为MCO1源
+  * 参数:  RCC_MCO1Div: 指定MCO1预分频器。
   *          此参数可以是以下值之一:
-  *            @arg RCC_MCO1Div_1: no division applied to MCO1 clock
-  *            @arg RCC_MCO1Div_2: division by 2 applied to MCO1 clock
-  *            @arg RCC_MCO1Div_3: division by 3 applied to MCO1 clock
-  *            @arg RCC_MCO1Div_4: division by 4 applied to MCO1 clock
-  *            @arg RCC_MCO1Div_5: division by 5 applied to MCO1 clock
+  *            @arg RCC_MCO1Div_1: MCO1时钟没有分频
+  *            @arg RCC_MCO1Div_2: 除以2应用于MCO1时钟
+  *            @arg RCC_MCO1Div_3: 除以3应用于MCO1时钟
+  *            @arg RCC_MCO1Div_4: 除以4应用于MCO1时钟
+  *            @arg RCC_MCO1Div_5: 除以5应用于MCO1时钟
   * 返回值: 无
   */
 void RCC_MCO1Config(uint32_t RCC_MCO1Source, uint32_t RCC_MCO1Div) {
@@ -844,9 +841,9 @@ void RCC_MCO1Config(uint32_t RCC_MCO1Source, uint32_t RCC_MCO1Div) {
 }
 
 /**
-  * 简介:  Selects the clock source to output on MCO2 pin(PC9).
-  * 注意:   PC9 should be configured in alternate function mode.
-  * 参数:  RCC_MCO2Source: specifies the clock source to output.
+  * 简介:  选择要在MCO2引脚（PC9）上输出的时钟源。
+  * 注意:   应在备用功能模式下配置PC9。
+  * 参数:  RCC_MCO2Source: 指定要输出的时钟源。
   *          此参数可以是以下值之一:
   *            @arg RCC_MCO2Source_SYSCLK: System clock (SYSCLK) selected as MCO2 source
   *            @arg RCC_MCO2SOURCE_PLLI2SCLK: PLLI2S clock selected as MCO2 source, available for all STM32F4 devices except STM32F410xx
@@ -1374,7 +1371,7 @@ void RCC_RTCCLKCmd(FunctionalState NewState) {
 }
 
 /**
-  * 简介:  Forces or releases the Backup domain reset.
+  * 简介:  强制或释放备份域重置。
   * 注意:   This function resets the RTC peripheral (including the backup registers)
   *         and the RTC clock source selection in RCC_CSR register.
   * 注意:   The BKPSRAM is not affected by this reset.
@@ -1646,7 +1643,7 @@ void RCC_SAIBlockBCLKConfig(uint32_t RCC_SAIBlockBCLKSource) {
   * 注意:   This function must be called before enabling the PLLI2S.
   *
   * 参数:  RCC_PLLI2SDivQ: specifies the PLLI2S division factor for SAI1 clock .
-  *          This parameter must be a number between 1 and 32.
+  *          此参数必须是介于 1 and 32.
   *          SAI1 clock frequency = f(PLLI2S_Q) / RCC_PLLI2SDivQ
   *
   * 返回值: 无
@@ -1677,7 +1674,7 @@ void RCC_SAIPLLI2SClkDivConfig(uint32_t RCC_PLLI2SDivQ) {
   * 注意:   This function must be called before enabling the PLLSAI.
   *
   * 参数:  RCC_PLLSAIDivQ: specifies the PLLSAI division factor for SAI1 clock .
-  *          This parameter must be a number between 1 and 32.
+  *          此参数必须是介于 1 and 32.
   *          SAI1 clock frequency = f(PLLSAI_Q) / RCC_PLLSAIDivQ
   *
   * 返回值: 无
@@ -1707,7 +1704,7 @@ void RCC_SAIPLLSAIClkDivConfig(uint32_t RCC_PLLSAIDivQ) {
   * 注意:   This function can be used only for STM32F413_423xx
   *
   * 参数:   RCC_PLLI2SDivR: specifies the PLLI2S division factor for SAI1 clock.
-  *          This parameter must be a number between 1 and 32.
+  *          此参数必须是介于 1 and 32.
   *          SAI1 clock frequency = f(PLLI2SR) / RCC_PLLI2SDivR
   * 返回值: 无
   */
@@ -1737,7 +1734,7 @@ void RCC_SAIPLLI2SRClkDivConfig(uint32_t RCC_PLLI2SDivR) {
   * 注意:   This function must be called before enabling the PLLSAI.
   *
   * 参数:  RCC_PLLDivR: specifies the PLL division factor for SAI1 clock.
-  *          This parameter must be a number between 1 and 32.
+  *          此参数必须是介于 1 and 32.
   *          SAI1 clock frequency = f(PLLR) / RCC_PLLDivR
   *
   * 返回值: 无

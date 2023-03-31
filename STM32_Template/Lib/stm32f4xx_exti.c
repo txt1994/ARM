@@ -21,7 +21,7 @@
    (#) EXTI线路18连接到USB OTG FS唤醒暂停事件
    (#) EXTI线路19连接到以太网唤醒事件
    (#) EXTI线路20连接到USB OTG HS(在FS中配置)唤醒事件
-   (#) EXTI行21连接到RTC篡改和时间戳事件
+   (#) EXTI线路21连接到RTC篡改和时间戳事件
    (#) EXTI线路22连接至RTC唤醒事件
    (#) EXTI线路23连接到LPTIM唤醒事件
 

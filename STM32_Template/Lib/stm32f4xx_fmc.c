@@ -487,7 +487,7 @@ void FMC_NANDInit(FMC_NANDInitTypeDef* FMC_NANDInitStruct) {
   * 返回值: 无
   */
 void FMC_NANDStructInit(FMC_NANDInitTypeDef* FMC_NANDInitStruct) {
-    /* Reset NAND Init structure parameters values */
+    /* 重置NAND Init结构参数值 */
     FMC_NANDInitStruct->FMC_Bank = FMC_Bank2_NAND;
     FMC_NANDInitStruct->FMC_Waitfeature = FMC_Waitfeature_Disable;
     FMC_NANDInitStruct->FMC_MemoryDataWidth = FMC_NAND_MemoryDataWidth_16b;
@@ -648,7 +648,7 @@ void FMC_PCCARDDeInit(void) {
   * 返回值: 无
   */
 void FMC_PCCARDInit(FMC_PCCARDInitTypeDef* FMC_PCCARDInitStruct) {
-    /* temporary registers */
+    /* 临时寄存器 */
     uint32_t tmppcr = 0, tmpmem = 0, tmppatt = 0, tmppio = 0;
 
     /* 检查参数 */
@@ -842,7 +842,7 @@ void FMC_SDRAMDeInit(uint32_t FMC_Bank) {
   * 返回值: 无
   */
 void FMC_SDRAMInit(FMC_SDRAMInitTypeDef* FMC_SDRAMInitStruct) {
-    /* temporary registers */
+    /* 临时寄存器 */
     uint32_t tmpr1 = 0, tmpr2 = 0, tmpr3 = 0, tmpr4 = 0;
 
     /* 检查参数 */

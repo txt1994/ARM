@@ -99,7 +99,7 @@
   */
 __RAM_FUNC FLASH_FlashInterfaceCmd(FunctionalState NewState) {
     if (NewState != DISABLE) {
-        /* Start the flash interface while System Run */
+        /* 在系统运行时启动闪存接口 */
         CLEAR_BIT(PWR->CR, PWR_CR_FISSR);
     } else {
         /* 系统运行时停止闪存界面 */
@@ -118,10 +118,10 @@ __RAM_FUNC FLASH_FlashInterfaceCmd(FunctionalState NewState) {
   */
 __RAM_FUNC FLASH_FlashSleepModeCmd(FunctionalState NewState) {
     if (NewState != DISABLE) {
-        /* 启用 flash sleep while System Run */
+        /* 启用 flash sleep 系统运行时 */
         SET_BIT(PWR->CR, PWR_CR_FMSSR);
     } else {
-        /* 禁用 flash sleep while System Run */
+        /* 禁用 flash sleep 系统运行时 */
         CLEAR_BIT(PWR->CR, PWR_CR_FMSSR);
     }
 }

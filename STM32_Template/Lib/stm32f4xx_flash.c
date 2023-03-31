@@ -102,28 +102,28 @@
           设备电源电压正确编程等待状态(LATENCY)的数量。
     [..]
       对于STM32F405xx/07xx和STM32P415xx/17xx设备
- +-------------------------------------------------------------------------------------+
- | Latency       |                HCLK时钟频率 (MHz)                                    |
- |               |---------------------------------------------------------------------|
+ +---------------------------------------------------------------------------------------+
+ | Latency       |                HCLK时钟频率 (MHz)                                     |
+ |               |-----------------------------------------------------------------------|
  |               |    电压范围     |    电压范围     | voltage range   | voltage range   |
- |               | 2.7 V - 3.6 V  | 2.4 V - 2.7 V  | 2.1 V - 2.4 V   | 1.8 V - 2.1 V   |
- |---------------|----------------|----------------|-----------------|-----------------|
- |0WS(1CPU cycle)|0 < HCLK <= 30  |0 < HCLK <= 24  |0 < HCLK <= 22   |0 < HCLK <= 20   |
- |---------------|----------------|----------------|-----------------|-----------------|
- |1WS(2CPU cycle)|30 < HCLK <= 60 |24 < HCLK <= 48 |22 < HCLK <= 44  |20 < HCLK <= 40  |
- |---------------|----------------|----------------|-----------------|-----------------|
- |2WS(3CPU cycle)|60 < HCLK <= 90 |48 < HCLK <= 72 |44 < HCLK <= 66  |40 < HCLK <= 60  |
- |---------------|----------------|----------------|-----------------|-----------------|
- |3WS(4CPU cycle)|90 < HCLK <= 120|72 < HCLK <= 96 |66 < HCLK <= 88  |60 < HCLK <= 80  |
- |---------------|----------------|----------------|-----------------|-----------------|
- |4WS(5CPU cycle)|120< HCLK <= 150|96 < HCLK <= 120|88 < HCLK <= 110 |80 < HCLK <= 100 |
- |---------------|----------------|----------------|-----------------|-----------------|
- |5WS(6CPU cycle)|150< HCLK <= 168|120< HCLK <= 144|110 < HCLK <= 132|100 < HCLK <= 120|
- |---------------|----------------|----------------|-----------------|-----------------|
- |6WS(7CPU cycle)|      NA        |144< HCLK <= 168|132 < HCLK <= 154|120 < HCLK <= 140|
- |---------------|----------------|----------------|-----------------|-----------------|
- |7WS(8CPU cycle)|      NA        |      NA        |154 < HCLK <= 168|140 < HCLK <= 160|
- +---------------|----------------|----------------|-----------------|-----------------+
+ |               | 2.7 V - 3.6 V   |  2.4 V - 2.7 V  | 2.1 V - 2.4 V   | 1.8 V - 2.1 V   |
+ |---------------|-----------------|-----------------|-----------------|-----------------|
+ |0WS(1CPU cycle)|0 < HCLK <= 30   | 0 < HCLK <= 24  |0 < HCLK <= 22   |0 < HCLK <= 20   |
+ |---------------|-----------------|-----------------|-----------------|-----------------|
+ |1WS(2CPU cycle)|30 < HCLK <= 60  |24 < HCLK <= 48  |22 < HCLK <= 44  |20 < HCLK <= 40  |
+ |---------------|-----------------|-----------------|-----------------|-----------------|
+ |2WS(3CPU cycle)|60 < HCLK <= 90  |48 < HCLK <= 72  |44 < HCLK <= 66  |40 < HCLK <= 60  |
+ |---------------|-----------------|-----------------|-----------------|-----------------|
+ |3WS(4CPU cycle)|90 < HCLK <= 120 |72 < HCLK <= 96  |66 < HCLK <= 88  |60 < HCLK <= 80  |
+ |---------------|-----------------|-----------------|-----------------|-----------------|
+ |4WS(5CPU cycle)|120< HCLK <= 150 |96 < HCLK <= 120 |88 < HCLK <= 110 |80 < HCLK <= 100 |
+ |---------------|-----------------|-----------------|-----------------|-----------------|
+ |5WS(6CPU cycle)|150< HCLK <= 168 |120< HCLK <= 144 |110 < HCLK <= 132|100 < HCLK <= 120|
+ |---------------|-----------------|-----------------|-----------------|-----------------|
+ |6WS(7CPU cycle)|      NA         |144< HCLK <= 168 |132 < HCLK <= 154|120 < HCLK <= 140|
+ |---------------|-----------------|-----------------|-----------------|-----------------|
+ |7WS(8CPU cycle)|      NA         |      NA         |154 < HCLK <= 168|140 < HCLK <= 160|
+ +---------------|-----------------|-----------------|-----------------|-----------------+
 
     [..]
       For STM32F42xxx/43xxx devices
@@ -457,21 +457,21 @@ FLASH_Status FLASH_EraseSector(uint32_t FLASH_Sector, uint8_t VoltageRange) {
         tmp_psize = FLASH_PSIZE_DOUBLE_WORD;
     }
 
-    /* Wait for last operation to be completed */
+    /* 等待最后一次操作完成 */
     status = FLASH_WaitForLastOperation();
 
     if(status == FLASH_COMPLETE) {
-        /* if the previous operation is completed, proceed to erase the sector */
+        /* 如果上一次操作完成，则继续擦除扇区 */
         FLASH->CR &= CR_PSIZE_MASK;
         FLASH->CR |= tmp_psize;
         FLASH->CR &= SECTOR_MASK;
         FLASH->CR |= FLASH_CR_SER | FLASH_Sector;
         FLASH->CR |= FLASH_CR_STRT;
 
-        /* Wait for last operation to be completed */
+        /* 等待最后一次操作完成 */
         status = FLASH_WaitForLastOperation();
 
-        /* if the erase operation is completed, disable the SER 位 */
+        /* 如果擦除操作完成，则禁用SER位 */
         FLASH->CR &= (~FLASH_CR_SER);
         FLASH->CR &= SECTOR_MASK;
     }
@@ -499,7 +499,7 @@ FLASH_Status FLASH_EraseAllSectors(uint8_t VoltageRange) {
     uint32_t tmp_psize = 0x0;
     FLASH_Status status = FLASH_COMPLETE;
 
-    /* Wait for last operation to be completed */
+    /* 等待最后一次操作完成 */
     status = FLASH_WaitForLastOperation();
     assert_param(IS_VOLTAGERANGE(VoltageRange));
 
@@ -514,17 +514,17 @@ FLASH_Status FLASH_EraseAllSectors(uint8_t VoltageRange) {
     }
 
     if(status == FLASH_COMPLETE) {
-        /* if the previous operation is completed, proceed to erase all sectors */
+        /* 如果上一次操作完成，则继续擦除所有扇区 */
         #if defined(STM32F427_437xx) || defined(STM32F429_439xx) || defined(STM32F469_479xx)
         FLASH->CR &= CR_PSIZE_MASK;
         FLASH->CR |= tmp_psize;
         FLASH->CR |= (FLASH_CR_MER1 | FLASH_CR_MER2);
         FLASH->CR |= FLASH_CR_STRT;
 
-        /* Wait for last operation to be completed */
+        /* 等待最后一次操作完成 */
         status = FLASH_WaitForLastOperation();
 
-        /* if the erase operation is completed, disable the MER 位 */
+        /* 如果擦除操作完成，则禁用 MER 位 */
         FLASH->CR &= ~(FLASH_CR_MER1 | FLASH_CR_MER2);
         #endif /* STM32F427_437xx ||  STM32F429_439xx ||  STM32F469_479xx */
 
@@ -534,10 +534,10 @@ FLASH_Status FLASH_EraseAllSectors(uint8_t VoltageRange) {
         FLASH->CR |= FLASH_CR_MER;
         FLASH->CR |= FLASH_CR_STRT;
 
-        /* Wait for last operation to be completed */
+        /* 等待最后一次操作完成 */
         status = FLASH_WaitForLastOperation();
 
-        /* if the erase operation is completed, disable the MER 位 */
+        /* 如果擦除操作完成，则禁用 MER 位 */
         FLASH->CR &= (~FLASH_CR_MER);
         #endif /* STM32F40_41xxx || STM32F401xx || STM32F410xx || STM32F411xE || STM32F412xG || STM32F413_423xx || STM32F446xx */
 
@@ -568,7 +568,7 @@ FLASH_Status FLASH_EraseAllBank1Sectors(uint8_t VoltageRange) {
     uint32_t tmp_psize = 0x0;
     FLASH_Status status = FLASH_COMPLETE;
 
-    /* Wait for last operation to be completed */
+    /* 等待最后一次操作完成 */
     status = FLASH_WaitForLastOperation();
     assert_param(IS_VOLTAGERANGE(VoltageRange));
 
@@ -583,16 +583,16 @@ FLASH_Status FLASH_EraseAllBank1Sectors(uint8_t VoltageRange) {
     }
 
     if(status == FLASH_COMPLETE) {
-        /* if the previous operation is completed, proceed to erase all sectors */
+        /* 如果上一次操作完成，则继续擦除所有扇区 */
         FLASH->CR &= CR_PSIZE_MASK;
         FLASH->CR |= tmp_psize;
         FLASH->CR |= FLASH_CR_MER1;
         FLASH->CR |= FLASH_CR_STRT;
 
-        /* Wait for last operation to be completed */
+        /* 等待最后一次操作完成 */
         status = FLASH_WaitForLastOperation();
 
-        /* if the erase operation is completed, disable the MER 位 */
+        /* 如果擦除操作完成，则禁用 MER 位 */
         FLASH->CR &= (~FLASH_CR_MER1);
 
     }
@@ -623,7 +623,7 @@ FLASH_Status FLASH_EraseAllBank2Sectors(uint8_t VoltageRange) {
     uint32_t tmp_psize = 0x0;
     FLASH_Status status = FLASH_COMPLETE;
 
-    /* Wait for last operation to be completed */
+    /* 等待最后一次操作完成 */
     status = FLASH_WaitForLastOperation();
     assert_param(IS_VOLTAGERANGE(VoltageRange));
 
@@ -638,16 +638,16 @@ FLASH_Status FLASH_EraseAllBank2Sectors(uint8_t VoltageRange) {
     }
 
     if(status == FLASH_COMPLETE) {
-        /* if the previous operation is completed, proceed to erase all sectors */
+        /* 如果上一次操作完成，则继续擦除所有扇区 */
         FLASH->CR &= CR_PSIZE_MASK;
         FLASH->CR |= tmp_psize;
         FLASH->CR |= FLASH_CR_MER2;
         FLASH->CR |= FLASH_CR_STRT;
 
-        /* Wait for last operation to be completed */
+        /* 等待最后一次操作完成 */
         status = FLASH_WaitForLastOperation();
 
-        /* if the erase operation is completed, disable the MER 位 */
+        /* 如果擦除操作完成，则禁用 MER 位 */
         FLASH->CR &= (~FLASH_CR_MER2);
 
     }
@@ -673,21 +673,21 @@ FLASH_Status FLASH_ProgramDoubleWord(uint32_t Address, uint64_t Data) {
     /* 检查参数 */
     assert_param(IS_FLASH_ADDRESS(Address));
 
-    /* Wait for last operation to be completed */
+    /* 等待最后一次操作完成 */
     status = FLASH_WaitForLastOperation();
 
     if(status == FLASH_COMPLETE) {
-        /* if the previous operation is completed, proceed to program the new data */
+        /* 如果上一个操作已完成，则继续对新数据进行编程 */
         FLASH->CR &= CR_PSIZE_MASK;
         FLASH->CR |= FLASH_PSIZE_DOUBLE_WORD;
         FLASH->CR |= FLASH_CR_PG;
 
         *(__IO uint64_t*)Address = Data;
 
-        /* Wait for last operation to be completed */
+        /* 等待最后一次操作完成 */
         status = FLASH_WaitForLastOperation();
 
-        /* if the program operation is completed, disable the PG 位 */
+        /* 如果程序操作完成，禁用 PG 位 */
         FLASH->CR &= (~FLASH_CR_PG);
     }
 
@@ -714,21 +714,21 @@ FLASH_Status FLASH_ProgramWord(uint32_t Address, uint32_t Data) {
     /* 检查参数 */
     assert_param(IS_FLASH_ADDRESS(Address));
 
-    /* Wait for last operation to be completed */
+    /* 等待最后一次操作完成 */
     status = FLASH_WaitForLastOperation();
 
     if(status == FLASH_COMPLETE) {
-        /* if the previous operation is completed, proceed to program the new data */
+        /* 如果上一个操作已完成，则继续对新数据进行编程 */
         FLASH->CR &= CR_PSIZE_MASK;
         FLASH->CR |= FLASH_PSIZE_WORD;
         FLASH->CR |= FLASH_CR_PG;
 
         *(__IO uint32_t*)Address = Data;
 
-        /* Wait for last operation to be completed */
+        /* 等待最后一次操作完成 */
         status = FLASH_WaitForLastOperation();
 
-        /* if the program operation is completed, disable the PG 位 */
+        /* 如果程序操作完成，禁用 PG 位 */
         FLASH->CR &= (~FLASH_CR_PG);
     }
 
@@ -754,21 +754,21 @@ FLASH_Status FLASH_ProgramHalfWord(uint32_t Address, uint16_t Data) {
     /* 检查参数 */
     assert_param(IS_FLASH_ADDRESS(Address));
 
-    /* Wait for last operation to be completed */
+    /* 等待最后一次操作完成 */
     status = FLASH_WaitForLastOperation();
 
     if(status == FLASH_COMPLETE) {
-        /* if the previous operation is completed, proceed to program the new data */
+        /* 如果上一个操作已完成，则继续对新数据进行编程 */
         FLASH->CR &= CR_PSIZE_MASK;
         FLASH->CR |= FLASH_PSIZE_HALF_WORD;
         FLASH->CR |= FLASH_CR_PG;
 
         *(__IO uint16_t*)Address = Data;
 
-        /* Wait for last operation to be completed */
+        /* 等待最后一次操作完成 */
         status = FLASH_WaitForLastOperation();
 
-        /* if the program operation is completed, disable the PG 位 */
+        /* 如果程序操作完成，禁用 PG 位 */
         FLASH->CR &= (~FLASH_CR_PG);
     }
 
@@ -794,21 +794,21 @@ FLASH_Status FLASH_ProgramByte(uint32_t Address, uint8_t Data) {
     /* 检查参数 */
     assert_param(IS_FLASH_ADDRESS(Address));
 
-    /* Wait for last operation to be completed */
+    /* 等待最后一次操作完成 */
     status = FLASH_WaitForLastOperation();
 
     if(status == FLASH_COMPLETE) {
-        /* if the previous operation is completed, proceed to program the new data */
+        /* 如果上一个操作已完成，则继续对新数据进行编程 */
         FLASH->CR &= CR_PSIZE_MASK;
         FLASH->CR |= FLASH_PSIZE_BYTE;
         FLASH->CR |= FLASH_CR_PG;
 
         *(__IO uint8_t*)Address = Data;
 
-        /* Wait for last operation to be completed */
+        /* 等待最后一次操作完成 */
         status = FLASH_WaitForLastOperation();
 
-        /* if the program operation is completed, disable the PG 位 */
+        /* 如果程序操作完成，禁用 PG 位 */
         FLASH->CR &= (~FLASH_CR_PG);
     }
 
@@ -893,7 +893,7 @@ void FLASH_OB_Unlock(void) {
   * 返回值: 无
   */
 void FLASH_OB_Lock(void) {
-    /* 设置 OPTLOCK Bit to lock the FLASH Option Byte Registers access */
+    /* 设置用于锁定FLASH选项字节寄存器访问的OPTLOCK位 */
     FLASH->OPTCR |= FLASH_OPTCR_OPTLOCK;
 }
 
@@ -1120,7 +1120,7 @@ void FLASH_OB_UserConfig(uint8_t OB_IWDG, uint8_t OB_STOP, uint8_t OB_STDBY) {
     assert_param(IS_OB_STOP_SOURCE(OB_STOP));
     assert_param(IS_OB_STDBY_SOURCE(OB_STDBY));
 
-    /* Wait for last operation to be completed */
+    /* 等待最后一次操作完成 */
     status = FLASH_WaitForLastOperation();
 
     if(status == FLASH_COMPLETE) {
@@ -1192,7 +1192,7 @@ FLASH_Status FLASH_OB_Launch(void) {
     /* 设置 OPTSTRT bit in OPTCR 寄存器 */
     *(__IO uint8_t *)OPTCR_BYTE0_ADDRESS |= FLASH_OPTCR_OPTSTRT;
 
-    /* Wait for last operation to be completed */
+    /* 等待最后一次操作完成 */
     status = FLASH_WaitForLastOperation();
 
     return status;

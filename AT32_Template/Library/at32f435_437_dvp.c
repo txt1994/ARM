@@ -41,8 +41,8 @@
 
 /**
   * @brief  reset the dvp register
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void DVP_Reset(void) {
     CRM_Periph_Reset(CRM_DVP_Periph_Reset, TRUE);
@@ -52,7 +52,7 @@ void DVP_Reset(void) {
 /**
   * @brief  enable or disable dvp capture
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void DVP_Capture_Enable(confirm_state new_state) {
     DVP->ctrl_bit.cap = new_state;
@@ -61,10 +61,10 @@ void DVP_Capture_Enable(confirm_state new_state) {
 /**
   * @brief  set dvp capture mode
   * @param  cap_Mode
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DVP_CAP_FUNC_Mode_CONTINUOUS
   *         - DVP_CAP_FUNC_Mode_SINGLE
-  * @retval none
+  * @retval 无
   */
 void DVP_Capture_Mode_Set(DVP_cfm_Type cap_Mode) {
     DVP->ctrl_bit.cfm = cap_Mode;
@@ -73,7 +73,7 @@ void DVP_Capture_Mode_Set(DVP_cfm_Type cap_Mode) {
 /**
   * @brief  set dvp cropping window enable
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void DVP_Window_Crop_Enable(confirm_state new_state) {
     DVP->ctrl_bit.crp = new_state;
@@ -87,7 +87,7 @@ void DVP_Window_Crop_Enable(confirm_state new_state) {
   * @param  crop_h: cropping window vertical line number
   * @param  bytes: the number of bytes corresponding to one pixel
   *         eg. y8:bytes = 1, rgb565:bytes = 2
-  * @retval none
+  * @retval 无
   */
 void DVP_Window_Crop_Set(uint16_t crop_x, uint16_t crop_y, uint16_t crop_w, uint16_t crop_h, uint8_t bytes) {
     DVP->cwst = ((crop_x * bytes) | (crop_y << 16));
@@ -97,7 +97,7 @@ void DVP_Window_Crop_Set(uint16_t crop_x, uint16_t crop_y, uint16_t crop_w, uint
 /**
   * @brief  enable or disable dvp jpeg
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void DVP_Jpeg_Enable(confirm_state new_state) {
     DVP->ctrl_bit.jpeg = new_state;
@@ -106,10 +106,10 @@ void DVP_Jpeg_Enable(confirm_state new_state) {
 /**
   * @brief  set dvp synchronization mode
   * @param  sync_Mode
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DVP_Sync_Mode_HARDWARE
   *         - DVP_Sync_Mode_EMBEDDED
-  * @retval none
+  * @retval 无
   */
 void DVP_Sync_Mode_Set(DVP_sm_Type sync_Mode) {
     DVP->ctrl_bit.sm = sync_Mode;
@@ -121,7 +121,7 @@ void DVP_Sync_Mode_Set(DVP_sm_Type sync_Mode) {
   * @param  fmec(0x00~0xFF): frame end code
   * @param  lnsc(0x00~0xFF): line start code
   * @param  lnec(0x00~0xFF): line end code
-  * @retval none
+  * @retval 无
   */
 void DVP_Sync_code_Set(uint8_t fmsc, uint8_t fmec, uint8_t lnsc, uint8_t lnec) {
     DVP->scr = (fmsc | (lnsc << 8) | (lnec << 16) | (fmec << 24));
@@ -133,7 +133,7 @@ void DVP_Sync_code_Set(uint8_t fmsc, uint8_t fmec, uint8_t lnsc, uint8_t lnec) {
   * @param  fmeu(0x00~0xFF): frame end unmask
   * @param  lnsu(0x00~0xFF): line start unmask
   * @param  lneu(0x00~0xFF): line end unmask
-  * @retval none
+  * @retval 无
   */
 void DVP_Sync_unmask_Set(uint8_t fmsu, uint8_t fmeu, uint8_t lnsu, uint8_t lneu) {
     DVP->sur = (fmsu | (lnsu << 8) | (lneu << 16) | (fmeu << 24));
@@ -142,10 +142,10 @@ void DVP_Sync_unmask_Set(uint8_t fmsu, uint8_t fmeu, uint8_t lnsu, uint8_t lneu)
 /**
   * @brief  set dvp pixel clock polarity
   * @param  edge
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DVP_CLK_Polarity_RISING
   *         - DVP_CLK_Polarity_FALLING
-  * @retval none
+  * @retval 无
   */
 void DVP_PCLK_Polarity_Set(DVP_ckp_Type edge) {
     DVP->ctrl_bit.ckp = edge;
@@ -154,24 +154,24 @@ void DVP_PCLK_Polarity_Set(DVP_ckp_Type edge) {
 /**
   * @brief  set dvp horizontal synchronization polarity
   * @param  hsync_pol
-  *         this parameter can be one of the following values:
-  *         - DVP_Hsync_Polarity_HIGH
-  *         - DVP_Hsync_Polarity_LOW
-  * @retval none
+  *         该参数可以是以下值之一:
+  *         - DVP_HSync_Polarity_HIGH
+  *         - DVP_HSync_Polarity_LOW
+  * @retval 无
   */
-void DVP_Hsync_Polarity_Set(DVP_hsp_Type hsync_pol) {
+void DVP_HSync_Polarity_Set(DVP_hsp_Type hsync_pol) {
     DVP->ctrl_bit.hsp = hsync_pol;
 }
 
 /**
   * @brief  set dvp vertical synchronization polarity
   * @param  vsync_pol
-  *         this parameter can be one of the following values:
-  *         - DVP_Vsync_Polarity_LOW
-  *         - DVP_Vsync_Polarity_HIGH
-  * @retval none
+  *         该参数可以是以下值之一:
+  *         - DVP_VSync_Polarity_LOW
+  *         - DVP_VSync_Polarity_HIGH
+  * @retval 无
   */
-void DVP_Vsync_Polarity_Set(DVP_vsp_Type vsync_pol) {
+void DVP_VSync_Polarity_Set(DVP_vsp_Type vsync_pol) {
     DVP->ctrl_bit.vsp = vsync_pol;
 }
 
@@ -179,11 +179,11 @@ void DVP_Vsync_Polarity_Set(DVP_vsp_Type vsync_pol) {
   * @brief  config dvp basic frame rate control
   * @note   this function only work in continuous fire mode(ctrl_bit.cfm = 0)
   * @param  DVP_bfrc
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DVP_BFRC_ALL
   *         - DVP_BFRC_HALF
   *         - DVP_BFRC_QUARTER
-  * @retval none
+  * @retval 无
   */
 void DVP_Basic_Frame_rate_Control_Set(DVP_bfrc_Type DVP_bfrc) {
     DVP->ctrl_bit.bfrc = DVP_bfrc;
@@ -192,12 +192,12 @@ void DVP_Basic_Frame_rate_Control_Set(DVP_bfrc_Type DVP_bfrc) {
 /**
   * @brief  config dvp pixel data length
   * @param  DVP_pdl
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DVP_Pixel_Data_Length_8
   *         - DVP_Pixel_Data_Length_10
   *         - DVP_Pixel_Data_Length_12
   *         - DVP_Pixel_Data_Length_14
-  * @retval none
+  * @retval 无
   */
 void DVP_Pixel_Data_Length_Set(DVP_pdl_Type DVP_pdl) {
     DVP->ctrl_bit.pdl = DVP_pdl;
@@ -206,7 +206,7 @@ void DVP_Pixel_Data_Length_Set(DVP_pdl_Type DVP_pdl) {
 /**
   * @brief  enable or disable dvp function
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void DVP_Enable(confirm_state new_state) {
     DVP->ctrl_bit.ena = new_state;
@@ -215,10 +215,10 @@ void DVP_Enable(confirm_state new_state) {
 /**
   * @brief  set dvp zoomout select
   * @param  DVP_pcdes: pixel capture/drop selection extension (Only work when pcdc = 2)
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DVP_PCDES_CAP_FIRST
   *         - DVP_PCDES_DROP_FIRST
-  * @retval none
+  * @retval 无
   */
 void DVP_ZoomOut_Select(DVP_pcdes_Type DVP_pcdes) {
     DVP->actrl_bit.pcdes = DVP_pcdes;
@@ -227,24 +227,24 @@ void DVP_ZoomOut_Select(DVP_pcdes_Type DVP_pcdes) {
 /**
   * @brief  set dvp zoomout configuration
   * @param  DVP_pcdc: basic pixel capture/drop control
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DVP_PCDC_ALL
   *         - DVP_PCDC_ONE_In_TWO
   *         - DVP_PCDC_ONE_In_FOUR
   *         - DVP_PCDC_TWO_In_FOUR
   * @param  DVP_pcds: pixel capture/drop selection
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DVP_PCDS_CAP_FIRST
   *         - DVP_PCDS_DROP_FIRST
   * @param  DVP_lcdc: line capture/drop control
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DVP_LCDC_ALL
   *         - DVP_LCDC_ONE_In_TWO
   * @param  DVP_lcds: line capture/drop selection
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DVP_LCDS_CAP_FIRST
   *         - DVP_LCDS_DROP_FIRST
-  * @retval none
+  * @retval 无
   */
 void DVP_ZoomOut_Set(DVP_pcdc_Type DVP_pcdc, DVP_pcds_Type DVP_pcds, DVP_lcdc_Type DVP_lcdc, DVP_lcds_Type DVP_lcds) {
     DVP->ctrl_bit.pcdc = DVP_pcdc;
@@ -256,7 +256,7 @@ void DVP_ZoomOut_Set(DVP_pcdc_Type DVP_pcdc, DVP_pcds_Type DVP_pcds, DVP_lcdc_Ty
 /**
   * @brief  get dvp basic status
   * @param  DVP_Status_Basic_Type:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DVP_Status_HSYN
   *         - DVP_Status_VSYN
   *         - DVP_Status_OFNE
@@ -277,14 +277,14 @@ flag_status DVP_Basic_Status_Get(DVP_Status_Basic_Type DVP_Status_basic) {
 /**
   * @brief  enable or disable dvp interrupt
   * @param  DVP_int:
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - DVP_CFD_INT
   *         - DVP_OVR_INT
   *         - DVP_ESE_INT
   *         - DVP_VS_INT
   *         - DVP_HS_INT
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void DVP_Interrupt_Enable(uint32_t DVP_int, confirm_state new_state) {
     if(new_state == TRUE) {
@@ -297,7 +297,7 @@ void DVP_Interrupt_Enable(uint32_t DVP_int, confirm_state new_state) {
 /**
   * @brief  get dvp event/interrupt flag status
   * @param  flag
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         event flag:
   *         - DVP_CFD_EVT_FLAG
   *         - DVP_OVR_EVT_FLAG
@@ -335,7 +335,7 @@ flag_status DVP_Flag_Get(uint32_t flag) {
 /**
   * @brief  clear dvp's pending flags
   * @param  flag
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         event flag:
   *         - DVP_CFD_EVT_FLAG
   *         - DVP_OVR_EVT_FLAG
@@ -348,7 +348,7 @@ flag_status DVP_Flag_Get(uint32_t flag) {
   *         - DVP_ESE_INT_FLAG
   *         - DVP_VS_INT_FLAG
   *         - DVP_HS_INT_FLAG
-  * @retval none
+  * @retval 无
   */
 void DVP_Flag_Clear(uint32_t flag) {
     flag &= ~0x80000000;
@@ -358,7 +358,7 @@ void DVP_Flag_Clear(uint32_t flag) {
 /**
   * @brief  set dvp enhanced image scaling resize enable
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void DVP_Enhanced_Scaling_Resize_Enable(confirm_state new_state) {
     DVP->actrl_bit.eisre = new_state;
@@ -369,7 +369,7 @@ void DVP_Enhanced_Scaling_Resize_Enable(confirm_state new_state) {
   * @param  des_w(0x0001~0x1FFF): horizontal scaling resize target size (target image width)
   * @param  src_h(0x0001~0x1FFF): vertical scaling resize source size (source image height)
   * @param  des_h(0x0001~0x1FFF): vertical scaling resize target size (target image height)
-  * @retval none
+  * @retval 无
   */
 void DVP_Enhanced_Scaling_Resize_Set(uint16_t src_w, uint16_t des_w, uint16_t src_h, uint16_t des_h) {
     if((!DVP->ctrl_bit.pcdc) && (!DVP->ctrl_bit.lcdc) && DVP->actrl_bit.efdf) {
@@ -383,7 +383,7 @@ void DVP_Enhanced_Scaling_Resize_Set(uint16_t src_w, uint16_t des_w, uint16_t sr
   * @param  efrcsf(0x00~0x1F): original frame rate contorl factor
   * @param  efrctf(0x00~0x1F): enhanced frame rate contorl factor
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void DVP_Enhanced_Framerate_Set(uint16_t efrcsf, uint16_t efrctf, confirm_state new_state) {
     if((!DVP->ctrl_bit.cfm) && (!DVP->ctrl_bit.bfrc) && (efrctf <= efrcsf)) {
@@ -397,7 +397,7 @@ void DVP_Enhanced_Framerate_Set(uint16_t efrcsf, uint16_t efrctf, confirm_state 
   * @brief  set dvp monochrome image binarization configuration
   * @param  mibthd(0x00~0xFF): monochrome image binarization threshold
   * @param  new_state: (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void DVP_Monochrome_Image_Binarization_Set(uint8_t mibthd, confirm_state new_state) {
     DVP->bth_bit.mibthd = mibthd;
@@ -407,13 +407,13 @@ void DVP_Monochrome_Image_Binarization_Set(uint8_t mibthd, confirm_state new_sta
 /**
   * @brief  set dvp enhanced function data format configuration
   * @param  DVP_efdf: enhanced function data format
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DVP_EFDF_ByPass
   *         - DVP_EFDF_YUV422_UYVY
   *         - DVP_EFDF_YUV422_YUYV
   *         - DVP_EFDF_RGB565_555
   *         - DVP_EFDF_Y8
-  * @retval none
+  * @retval 无
   */
 void DVP_Enhanced_Data_Format_Set(DVP_efdf_Type DVP_efdf) {
     DVP->actrl_bit.efdf = DVP_efdf;
@@ -422,16 +422,16 @@ void DVP_Enhanced_Data_Format_Set(DVP_efdf_Type DVP_efdf) {
 /**
   * @brief  set dvp input data un-used condition/number configuration
   * @param  DVP_idus: input data un-used condition
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DVP_IDUS_MSB
   *         - DVP_IDUS_LSB
   * @param  DVP_idun: input data un-used number
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DVP_IDUN_0
   *         - DVP_IDUN_2
   *         - DVP_IDUN_4
   *         - DVP_IDUN_6
-  * @retval none
+  * @retval 无
   */
 void DVP_Input_Data_Unused_Set(DVP_idus_Type DVP_idus, DVP_idun_Type DVP_idun) {
     DVP->actrl_bit.idus = DVP_idus;
@@ -441,10 +441,10 @@ void DVP_Input_Data_Unused_Set(DVP_idus_Type DVP_idus, DVP_idun_Type DVP_idun) {
 /**
   * @brief  set dvp dma burst transfer configuration
   * @param  DVP_dmabt: dma burst transfer configuration
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DVP_DMABT_SINGLE
   *         - DVP_DMABT_BURST
-  * @retval none
+  * @retval 无
   */
 void DVP_DMA_Burst_Set(DVP_dmabt_Type DVP_dmabt) {
     DVP->actrl_bit.dmabt = DVP_dmabt;
@@ -453,14 +453,14 @@ void DVP_DMA_Burst_Set(DVP_dmabt_Type DVP_dmabt) {
 /**
   * @brief  set dvp hsync/vsync event interrupt strategy configuration
   * @param  DVP_hseid: hsync event interrupt strategy
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DVP_HSEID_Line_END
   *         - DVP_HSEID_Line_Start
   * @param  DVP_vseid: vsync event interrupt strategy
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DVP_VSEID_Frame_END
   *         - DVP_VSEID_FRMAE_Start
-  * @retval none
+  * @retval 无
   */
 void DVP_Sync_Event_Interrupt_Set(DVP_hseid_Type DVP_hseid, DVP_vseid_Type DVP_vseid) {
     DVP->actrl_bit.hseid = DVP_hseid;

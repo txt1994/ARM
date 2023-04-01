@@ -42,7 +42,7 @@
 /**
   * @brief  reset eDMA_streamx channely register.
   * @param  eDMA_streamx:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
   *         - EDMA_STREAM3
@@ -51,7 +51,7 @@
   *         - EDMA_STREAM6
   *         - EDMA_STREAM7
   *         - EDMA_STREAM8
-  * @retval none.
+  * @retval 无.
   */
 void eDMA_Reset(eDMA_Stream_Type *eDMA_streamx) {
     /* reset registers for the selected stream */
@@ -105,7 +105,7 @@ void eDMA_Reset(eDMA_Stream_Type *eDMA_streamx) {
 /**
   * @brief  edma init.
   * @param  eDMA_streamx:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
   *         - EDMA_STREAM3
@@ -115,26 +115,26 @@ void eDMA_Reset(eDMA_Stream_Type *eDMA_streamx) {
   *         - EDMA_STREAM7
   *         - EDMA_STREAM8
   * @param  eDMA_Init_struct: pointer to a eDMA_Init_Type structure.
-  * @retval none.
+  * @retval 无.
   */
 void eDMA_Init(eDMA_Stream_Type *eDMA_streamx, eDMA_Init_Type *eDMA_Init_struct) {
     /* config dtd bits */
     eDMA_streamx->ctrl_bit.dtd = eDMA_Init_struct->direction;
 
     /* config pincm bit */
-    eDMA_streamx->ctrl_bit.pincm = eDMA_Init_struct->peripheral_inc_Enable;
+    eDMA_streamx->ctrl_bit.pincm = eDMA_Init_struct->Peripheral_Inc_Enable;
 
     /* config mincm bit*/
-    eDMA_streamx->ctrl_bit.mincm = eDMA_Init_struct->memory_inc_Enable;
+    eDMA_streamx->ctrl_bit.mincm = eDMA_Init_struct->Memory_Inc_Enable;
 
     /* config pwidth bits */
-    eDMA_streamx->ctrl_bit.pwidth = eDMA_Init_struct->peripheral_Data_width;
+    eDMA_streamx->ctrl_bit.pwidth = eDMA_Init_struct->Peripheral_Data_Width;
 
     /* config mwidth bits */
-    eDMA_streamx->ctrl_bit.mwidth = eDMA_Init_struct->memory_Data_width;
+    eDMA_streamx->ctrl_bit.mwidth = eDMA_Init_struct->Memory_Data_Width;
 
     /* config lm bit */
-    eDMA_streamx->ctrl_bit.lm = eDMA_Init_struct->loop_Mode_Enable;
+    eDMA_streamx->ctrl_bit.lm = eDMA_Init_struct->Loop_Mode_Enable;
 
     /* config spl bits */
     eDMA_streamx->ctrl_bit.spl = eDMA_Init_struct->priority;
@@ -152,10 +152,10 @@ void eDMA_Init(eDMA_Stream_Type *eDMA_streamx, eDMA_Init_Type *eDMA_Init_struct)
     eDMA_streamx->fctrl_bit.fthsel = eDMA_Init_struct->fifo_threshold;
 
     /* config dtcnt */
-    eDMA_streamx->dtcnt = eDMA_Init_struct->buffer_size;
+    eDMA_streamx->dtcnt = eDMA_Init_struct->Buffer_Size;
 
     /* config paddr */
-    eDMA_streamx->paddr = eDMA_Init_struct->peripheral_Base_Addr;
+    eDMA_streamx->paddr = eDMA_Init_struct->Peripheral_Base_Addr;
 
     /* config m0addr */
     eDMA_streamx->m0addr = eDMA_Init_struct->memory0_Base_Addr;
@@ -164,29 +164,29 @@ void eDMA_Init(eDMA_Stream_Type *eDMA_streamx, eDMA_Init_Type *eDMA_Init_struct)
 /**
   * @brief  edma init struct config with its default value.
   * @param  eDMA_Init_struct: pointer to a eDMA_Init_Type structure which will be initialized.
-  * @retval none.
+  * @retval 无.
   */
 void eDMA_Default_Para_Init(eDMA_Init_Type *eDMA_Init_struct) {
-    eDMA_Init_struct->buffer_size = 0;
-    eDMA_Init_struct->loop_Mode_Enable = FALSE;
+    eDMA_Init_struct->Buffer_Size = 0;
+    eDMA_Init_struct->Loop_Mode_Enable = FALSE;
     eDMA_Init_struct->direction = EDMA_Dir_PERIPHERAL_To_MEMORY;
     eDMA_Init_struct->fifo_threshold = EDMA_FIFO_Threshold_1QUARTER;
     eDMA_Init_struct->fifo_Mode_Enable = FALSE;
     eDMA_Init_struct->memory0_Base_Addr = 0;
     eDMA_Init_struct->memory_Burst_Mode = EDMA_Memory_SINGLE;
-    eDMA_Init_struct->memory_Data_width = EDMA_Memory_Data_Width_BYTE;
-    eDMA_Init_struct->memory_inc_Enable = FALSE;
-    eDMA_Init_struct->peripheral_Base_Addr = 0;
+    eDMA_Init_struct->Memory_Data_Width = EDMA_Memory_Data_Width_BYTE;
+    eDMA_Init_struct->Memory_Inc_Enable = FALSE;
+    eDMA_Init_struct->Peripheral_Base_Addr = 0;
     eDMA_Init_struct->peripheral_Burst_Mode = EDMA_PERIPHERAL_SINGLE;
-    eDMA_Init_struct->peripheral_Data_width = EDMA_PERIPHERAL_Data_Width_BYTE;
-    eDMA_Init_struct->peripheral_inc_Enable = FALSE;
+    eDMA_Init_struct->Peripheral_Data_Width = EDMA_Peripheral_Data_Width_BYTE;
+    eDMA_Init_struct->Peripheral_Inc_Enable = FALSE;
     eDMA_Init_struct->priority = EDMA_Priority_LOW;
 }
 
 /**
   * @brief  enable or disable the edma streamx.
   * @param  eDMA_streamx:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
   *         - EDMA_STREAM3
@@ -196,7 +196,7 @@ void eDMA_Default_Para_Init(eDMA_Init_Type *eDMA_Init_struct) {
   *         - EDMA_STREAM7
   *         - EDMA_STREAM8
   * @param  new_state (TRUE or FALSE).
-  * @retval none.
+  * @retval 无.
   */
 void eDMA_Stream_Enable(eDMA_Stream_Type *eDMA_streamx, confirm_state new_state) {
     eDMA_streamx->ctrl_bit.sen = new_state;
@@ -205,7 +205,7 @@ void eDMA_Stream_Enable(eDMA_Stream_Type *eDMA_streamx, confirm_state new_state)
 /**
   * @brief  enable or disable the edma streamx interrupts.
   * @param  eDMA_streamx:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
   *         - EDMA_STREAM3
@@ -215,14 +215,14 @@ void eDMA_Stream_Enable(eDMA_Stream_Type *eDMA_streamx, confirm_state new_state)
   *         - EDMA_STREAM7
   *         - EDMA_STREAM8
   * @param  eDMA_int:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_FDT_INT
   *         - EDMA_HDT_INT
   *         - EDMA_DTERR_INT
   *         - EDMA_DMERR_INT
   *         - EDMA_FERR_INT
   * @param  new_state (TRUE or FALSE).
-  * @retval none.
+  * @retval 无.
   */
 void eDMA_Interrupt_Enable(eDMA_Stream_Type *eDMA_streamx, uint32_t eDMA_int, confirm_state new_state) {
     if((eDMA_int & EDMA_FERR_INT) != 0) {
@@ -245,7 +245,7 @@ void eDMA_Interrupt_Enable(eDMA_Stream_Type *eDMA_streamx, uint32_t eDMA_int, co
 /**
   * @brief  config the edma peripheral increment offset size mode.
   * @param  eDMA_streamx:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
   *         - EDMA_STREAM3
@@ -255,10 +255,10 @@ void eDMA_Interrupt_Enable(eDMA_Stream_Type *eDMA_streamx, uint32_t eDMA_int, co
   *         - EDMA_STREAM7
   *         - EDMA_STREAM8
   * @param  offset: peripheral increment offset size.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_PERIPHERAL_INC_PSIZE
   *         - EDMA_PERIPHERAL_INC_4_BYTE
-  * @retval none.
+  * @retval 无.
   */
 void eDMA_peripheral_inc_Offset_Set(eDMA_Stream_Type *eDMA_streamx, eDMA_peripheral_inc_Offset_Type offset) {
     eDMA_streamx->ctrl_bit.pincos = offset;
@@ -267,7 +267,7 @@ void eDMA_peripheral_inc_Offset_Set(eDMA_Stream_Type *eDMA_streamx, eDMA_periphe
 /**
   * @brief  enable or disable the edma streamx flow controller.
   * @param  eDMA_streamx:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
   *         - EDMA_STREAM3
@@ -277,7 +277,7 @@ void eDMA_peripheral_inc_Offset_Set(eDMA_Stream_Type *eDMA_streamx, eDMA_periphe
   *         - EDMA_STREAM7
   *         - EDMA_STREAM8
   * @param  new_state (TRUE or FALSE).
-  * @retval none.
+  * @retval 无.
   */
 void eDMA_Flow_Controller_Enable(eDMA_Stream_Type *eDMA_streamx, confirm_state new_state) {
     eDMA_streamx->ctrl_bit.pfctrl = new_state;
@@ -286,7 +286,7 @@ void eDMA_Flow_Controller_Enable(eDMA_Stream_Type *eDMA_streamx, confirm_state n
 /**
   * @brief  set the number of data to be transferred.
   * @param  eDMA_streamx:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
   *         - EDMA_STREAM3
@@ -296,7 +296,7 @@ void eDMA_Flow_Controller_Enable(eDMA_Stream_Type *eDMA_streamx, confirm_state n
   *         - EDMA_STREAM7
   *         - EDMA_STREAM8
   * @param  data_Number: the number of data to be transferred (0x0000~0xFFFF).
-  * @retval none.
+  * @retval 无.
   */
 void eDMA_Data_Number_Set(eDMA_Stream_Type *eDMA_streamx, uint16_t data_Number) {
     /* write the number of data units to be transferred */
@@ -306,7 +306,7 @@ void eDMA_Data_Number_Set(eDMA_Stream_Type *eDMA_streamx, uint16_t data_Number) 
 /**
   * @brief  get the number of data to be transferred.
   * @param  eDMA_streamx:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
   *         - EDMA_STREAM3
@@ -324,7 +324,7 @@ uint16_t eDMA_Data_Number_Get(eDMA_Stream_Type *eDMA_streamx) {
 /**
   * @brief  config the the double buffer mode.
   * @param  eDMA_streamx:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
   *         - EDMA_STREAM3
@@ -335,10 +335,10 @@ uint16_t eDMA_Data_Number_Get(eDMA_Stream_Type *eDMA_streamx) {
   *         - EDMA_STREAM8
   * @param  memory1_Addr: the address of the second buffer.
   * @param  current_memory: specifies the target area of the first transfer.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_Memory_0
   *         - EDMA_Memory_1
-  * @retval none.
+  * @retval 无.
   */
 void eDMA_Double_Buffer_Mode_Init(eDMA_Stream_Type *eDMA_streamx, uint32_t memory1_Addr, eDMA_Memory_Type current_memory) {
     if(current_memory != EDMA_Memory_0) {
@@ -353,7 +353,7 @@ void eDMA_Double_Buffer_Mode_Init(eDMA_Stream_Type *eDMA_streamx, uint32_t memor
 /**
   * @brief  enable or disable the double memory mode.
   * @param  eDMA_streamx:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
   *         - EDMA_STREAM3
@@ -363,7 +363,7 @@ void eDMA_Double_Buffer_Mode_Init(eDMA_Stream_Type *eDMA_streamx, uint32_t memor
   *         - EDMA_STREAM7
   *         - EDMA_STREAM8
   * @param  new_state (TRUE or FALSE).
-  * @retval none.
+  * @retval 无.
   */
 void eDMA_Double_Buffer_Mode_Enable(eDMA_Stream_Type *eDMA_streamx, confirm_state new_state) {
     if(new_state != FALSE) {
@@ -376,7 +376,7 @@ void eDMA_Double_Buffer_Mode_Enable(eDMA_Stream_Type *eDMA_streamx, confirm_stat
 /**
   * @brief  config the memory address in double buffer mode.
   * @param  eDMA_streamx:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
   *         - EDMA_STREAM3
@@ -387,10 +387,10 @@ void eDMA_Double_Buffer_Mode_Enable(eDMA_Stream_Type *eDMA_streamx, confirm_stat
   *         - EDMA_STREAM8
   * @param  memory_Addr: the address of the buffer.
   * @param  memory_target: indicates the which memory addr register will be config.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_Memory_0
   *         - EDMA_Memory_1
-  * @retval none.
+  * @retval 无.
   */
 void eDMA_Memory_Addr_Set(eDMA_Stream_Type *eDMA_streamx, uint32_t memory_Addr, uint32_t memory_target) {
     if(memory_target != EDMA_Memory_0) {
@@ -403,7 +403,7 @@ void eDMA_Memory_Addr_Set(eDMA_Stream_Type *eDMA_streamx, uint32_t memory_Addr, 
 /**
   * @brief  get the current memory target.
   * @param  eDMA_streamx:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
   *         - EDMA_STREAM3
@@ -423,7 +423,7 @@ eDMA_Memory_Type eDMA_Memory_Target_Get(eDMA_Stream_Type *eDMA_streamx) {
 /**
   * @brief  get the enable status of edma streamx.
   * @param  eDMA_streamx:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
   *         - EDMA_STREAM3
@@ -445,7 +445,7 @@ flag_status eDMA_Stream_Status_Get(eDMA_Stream_Type *eDMA_streamx) {
 /**
   * @brief  get the fifo level status.
   * @param  eDMA_streamx:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_STREAM1
   *         - EDMA_STREAM2
   *         - EDMA_STREAM3
@@ -469,7 +469,7 @@ uint8_t eDMA_FIFO_Status_Get(eDMA_Stream_Type *eDMA_streamx) {
 /**
   * @brief  get the edma flag.
   * @param  eDMA_flag:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_FERR1_FLAG   - EDMA_DMERR1_FLAG  - EDMA_DTERR1_FLAG  - EDMA_HDT1_FLAG   - EDMA_FDT1_FLAG
   *         - EDMA_FERR2_FLAG   - EDMA_DMERR2_FLAG  - EDMA_DTERR2_FLAG  - EDMA_HDT2_FLAG   - EDMA_FDT2_FLAG
   *         - EDMA_FERR3_FLAG   - EDMA_DMERR3_FLAG  - EDMA_DTERR3_FLAG  - EDMA_HDT3_FLAG   - EDMA_FDT3_FLAG
@@ -499,7 +499,7 @@ flag_status eDMA_Flag_Get(uint32_t eDMA_flag) {
 /**
   * @brief  clear the edma flag.
   * @param  eDMA_flag:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_FERR1_FLAG   - EDMA_DMERR1_FLAG  - EDMA_DTERR1_FLAG  - EDMA_HDT1_FLAG   - EDMA_FDT1_FLAG
   *         - EDMA_FERR2_FLAG   - EDMA_DMERR2_FLAG  - EDMA_DTERR2_FLAG  - EDMA_HDT2_FLAG   - EDMA_FDT2_FLAG
   *         - EDMA_FERR3_FLAG   - EDMA_DMERR3_FLAG  - EDMA_DTERR3_FLAG  - EDMA_HDT3_FLAG   - EDMA_FDT3_FLAG
@@ -508,7 +508,7 @@ flag_status eDMA_Flag_Get(uint32_t eDMA_flag) {
   *         - EDMA_FERR6_FLAG   - EDMA_DMERR6_FLAG  - EDMA_DTERR6_FLAG  - EDMA_HDT6_FLAG   - EDMA_FDT6_FLAG
   *         - EDMA_FERR7_FLAG   - EDMA_DMERR7_FLAG  - EDMA_DTERR7_FLAG  - EDMA_HDT7_FLAG   - EDMA_FDT7_FLAG
   *         - EDMA_FERR8_FLAG   - EDMA_DMERR8_FLAG  - EDMA_DTERR8_FLAG  - EDMA_HDT8_FLAG   - EDMA_FDT8_FLAG
-  * @retval none.
+  * @retval 无.
   */
 void eDMA_Flag_Clear(uint32_t eDMA_flag) {
     if(eDMA_flag > ((uint32_t)0x20000000)) {
@@ -521,7 +521,7 @@ void eDMA_Flag_Clear(uint32_t eDMA_flag) {
 /**
   * @brief  initialize the edma 2d mode.
   * @param  eDMA_streamx_2d:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_STREAM1_2D
   *         - EDMA_STREAM2_2D
   *         - EDMA_STREAM3_2D
@@ -534,7 +534,7 @@ void eDMA_Flag_Clear(uint32_t eDMA_flag) {
   * @param  dst_stride: destination stride(-32768 ~ 32767).
   * @param  xcnt: x dimension transfer count(0x0000~ 0xFFFF).
   * @param  ycnt: y dimension transfer count(0x0000~ 0xFFFF).
-  * @retval none.
+  * @retval 无.
   */
 void eDMA_2D_Init(eDMA_Stream_2D_Type *eDMA_streamx_2d, int16_t src_stride, int16_t dst_stride, uint16_t xcnt, uint16_t ycnt) {
     eDMA_streamx_2d->s2dcnt = (uint32_t)((ycnt << 16) | (xcnt));
@@ -545,7 +545,7 @@ void eDMA_2D_Init(eDMA_Stream_2D_Type *eDMA_streamx_2d, int16_t src_stride, int1
 /**
   * @brief  enable or disable the edma 2d mode.
   * @param  eDMA_streamx_2d:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_STREAM1_2D
   *         - EDMA_STREAM2_2D
   *         - EDMA_STREAM3_2D
@@ -555,7 +555,7 @@ void eDMA_2D_Init(eDMA_Stream_2D_Type *eDMA_streamx_2d, int16_t src_stride, int1
   *         - EDMA_STREAM7_2D
   *         - EDMA_STREAM8_2D
   * @param  new_state (TRUE or FALSE).
-  * @retval none.
+  * @retval 无.
   */
 void eDMA_2D_Enable(eDMA_Stream_2D_Type *eDMA_streamx_2d, confirm_state new_state) {
     uint32_t offset;
@@ -572,7 +572,7 @@ void eDMA_2D_Enable(eDMA_Stream_2D_Type *eDMA_streamx_2d, confirm_state new_stat
 /**
   * @brief  initialize the edma link list.
   * @param  eDMA_streamx_ll:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMA_STREAM1_LL
   *         - EDMA_STREAM2_LL
   *         - EDMA_STREAM3_LL
@@ -582,7 +582,7 @@ void eDMA_2D_Enable(eDMA_Stream_2D_Type *eDMA_streamx_2d, confirm_state new_stat
   *         - EDMA_STREAM7_LL
   *         - EDMA_STREAM8_LL
   * @param  pointer: link list pointer.
-  * @retval none.
+  * @retval 无.
   */
 void eDMA_Link_List_Init(eDMA_Stream_Link_List_Type *eDMA_streamx_ll, uint32_t pointer) {
     eDMA_streamx_ll->llp = pointer;
@@ -591,7 +591,7 @@ void eDMA_Link_List_Init(eDMA_Stream_Link_List_Type *eDMA_streamx_ll, uint32_t p
 /**
   * @brief  enable or disable the edma stream link list mode.
   * @param  eDMA_streamx_ll:
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - EDMA_STREAM1_LL
   *         - EDMA_STREAM2_LL
   *         - EDMA_STREAM3_LL
@@ -601,7 +601,7 @@ void eDMA_Link_List_Init(eDMA_Stream_Link_List_Type *eDMA_streamx_ll, uint32_t p
   *         - EDMA_STREAM7_LL
   *         - EDMA_STREAM8_LL
   * @param  new_state (TRUE or FALSE).
-  * @retval none.
+  * @retval 无.
   */
 void eDMA_Link_List_Enable(eDMA_Stream_Link_List_Type *eDMA_streamx_ll, confirm_state new_state) {
     uint32_t offset;
@@ -618,7 +618,7 @@ void eDMA_Link_List_Enable(eDMA_Stream_Link_List_Type *eDMA_streamx_ll, confirm_
 /**
   * @brief  enable or disable the edma edmamux.
   * @param  new_state (TRUE or FALSE).
-  * @retval none.
+  * @retval 无.
   */
 void eDMAMUX_Enable(confirm_state new_state) {
     EDMA->muxsel_bit.tblsel = new_state;
@@ -627,7 +627,7 @@ void eDMAMUX_Enable(confirm_state new_state) {
 /**
   * @brief  edmamux init.
   * @param  eDMAMUX_Channelx:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMAMUX_ChanneL1
   *         - EDMAMUX_ChanneL2
   *         - EDMAMUX_ChanneL3
@@ -637,7 +637,7 @@ void eDMAMUX_Enable(confirm_state new_state) {
   *         - EDMAMUX_ChanneL7
   *         - EDMAMUX_ChanneL8
   * @param  eDMAMUX_req_id:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMAMUX_DMAREQ_ID_REQ_G1       - EDMAMUX_DMAREQ_ID_REQ_G2       - EDMAMUX_DMAREQ_ID_REQ_G3       - EDMAMUX_DMAREQ_ID_REQ_G4
   *         - EDMAMUX_DMAREQ_ID_ADC1         - EDMAMUX_DMAREQ_ID_ADC2         - EDMAMUX_DMAREQ_ID_ADC3         - EDMAMUX_DMAREQ_ID_DAC1
   *         - EDMAMUX_DMAREQ_ID_DAC2         - EDMAMUX_DMAREQ_ID_TMR6_OVERFLOW- EDMAMUX_DMAREQ_ID_TMR7_OVERFLOW- EDMAMUX_DMAREQ_ID_SPI1_RX
@@ -662,7 +662,7 @@ void eDMAMUX_Enable(confirm_state new_state) {
   *         - EDMAMUX_DMAREQ_ID_TMR5_CH4     - EDMAMUX_DMAREQ_ID_TMR5_OVERFLOW- EDMAMUX_DMAREQ_ID_TMR5_TRIG    - EDMAMUX_DMAREQ_ID_TMR20_CH1
   *         - EDMAMUX_DMAREQ_ID_TMR20_CH2    - EDMAMUX_DMAREQ_ID_TMR20_CH3    - EDMAMUX_DMAREQ_ID_TMR20_CH4    - EDMAMUX_DMAREQ_ID_TMR20_OVERFLOW
   *         - EDMAMUX_DMAREQ_ID_TMR20_TRIG   - EDMAMUX_DMAREQ_ID_TMR20_HALL   - EDMAMUX_DMAREQ_ID_DVP
-  * @retval none.
+  * @retval 无.
   */
 void eDMAMUX_Init(eDMAMUX_Channel_Type *eDMAMUX_Channelx, eDMAMUX_Requst_ID_sel_Type eDMAMUX_req_id) {
     eDMAMUX_Channelx->muxctrl_bit.reqsel = eDMAMUX_req_id;
@@ -671,20 +671,20 @@ void eDMAMUX_Init(eDMAMUX_Channel_Type *eDMAMUX_Channelx, eDMAMUX_Requst_ID_sel_
 /**
   * @brief  edmamux sync init struct config with its default value.
   * @param  eDMAMUX_Sync_Init_struct: pointer to a eDMAMUX_Sync_Init_Type structure which will be initialized.
-  * @retval none.
+  * @retval 无.
   */
 void eDMAMUX_Sync_Default_Para_Init(eDMAMUX_Sync_Init_Type *eDMAMUX_Sync_Init_struct) {
-    eDMAMUX_Sync_Init_struct->sync_Enable = FALSE;
-    eDMAMUX_Sync_Init_struct->sync_Event_Enable = FALSE;
-    eDMAMUX_Sync_Init_struct->sync_polarity = EDMAMUX_Sync_Polarity_Disable;
-    eDMAMUX_Sync_Init_struct->sync_Request_Number = 0x0;
-    eDMAMUX_Sync_Init_struct->sync_signal_sel = EDMAMUX_Sync_ID_EXINT0;
+    eDMAMUX_Sync_Init_struct->Sync_Enable = FALSE;
+    eDMAMUX_Sync_Init_struct->Sync_Event_Enable = FALSE;
+    eDMAMUX_Sync_Init_struct->Sync_Polarity = EDMAMUX_Sync_Polarity_Disable;
+    eDMAMUX_Sync_Init_struct->Sync_Request_Number = 0x0;
+    eDMAMUX_Sync_Init_struct->Sync_Signal_Sel = EDMAMUX_Sync_ID_EXINT0;
 }
 
 /**
   * @brief  edmamux synchronization config.
   * @param  eDMAMUX_Channelx:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMAMUX_ChanneL1
   *         - EDMAMUX_ChanneL2
   *         - EDMAMUX_ChanneL3
@@ -694,44 +694,44 @@ void eDMAMUX_Sync_Default_Para_Init(eDMAMUX_Sync_Init_Type *eDMAMUX_Sync_Init_st
   *         - EDMAMUX_ChanneL7
   *         - EDMAMUX_ChanneL8
   * @param  eDMAMUX_Sync_Init_struct: ointer to a eDMAMUX_Sync_Init_Type structure.
-  * @retval none.
+  * @retval 无.
   */
 void eDMAMUX_Sync_Config(eDMAMUX_Channel_Type *eDMAMUX_Channelx, eDMAMUX_Sync_Init_Type *eDMAMUX_Sync_Init_struct) {
-    eDMAMUX_Channelx->muxctrl_bit.syncsel = eDMAMUX_Sync_Init_struct->sync_signal_sel;
-    eDMAMUX_Channelx->muxctrl_bit.syncpol = eDMAMUX_Sync_Init_struct->sync_polarity;
-    eDMAMUX_Channelx->muxctrl_bit.reqcnt  = eDMAMUX_Sync_Init_struct->sync_Request_Number;
-    eDMAMUX_Channelx->muxctrl_bit.evtgen  = eDMAMUX_Sync_Init_struct->sync_Event_Enable;
-    eDMAMUX_Channelx->muxctrl_bit.syncen  = eDMAMUX_Sync_Init_struct->sync_Enable;
+    eDMAMUX_Channelx->muxctrl_bit.syncsel = eDMAMUX_Sync_Init_struct->Sync_Signal_Sel;
+    eDMAMUX_Channelx->muxctrl_bit.syncpol = eDMAMUX_Sync_Init_struct->Sync_Polarity;
+    eDMAMUX_Channelx->muxctrl_bit.reqcnt  = eDMAMUX_Sync_Init_struct->Sync_Request_Number;
+    eDMAMUX_Channelx->muxctrl_bit.evtgen  = eDMAMUX_Sync_Init_struct->Sync_Event_Enable;
+    eDMAMUX_Channelx->muxctrl_bit.syncen  = eDMAMUX_Sync_Init_struct->Sync_Enable;
 }
 
 /**
   * @brief  edmamux request generator init struct config with its default value.
   * @param  eDMAMUX_Gen_Init_struct: pointer to a eDMAMUX_Gen_Init_Type structure which will be initialized.
-  * @retval none.
+  * @retval 无.
   */
 void eDMAMUX_Generator_Default_Para_Init(eDMAMUX_Gen_Init_Type *eDMAMUX_Gen_Init_struct) {
-    eDMAMUX_Gen_Init_struct->gen_Enable         = FALSE;
-    eDMAMUX_Gen_Init_struct->gen_polarity       = EDMAMUX_Gen_Polarity_Disable;
-    eDMAMUX_Gen_Init_struct->gen_Request_Number = 0x0;
-    eDMAMUX_Gen_Init_struct->gen_signal_sel     = EDMAMUX_Gen_ID_EXINT0;
+    eDMAMUX_Gen_Init_struct->Gen_Enable         = FALSE;
+    eDMAMUX_Gen_Init_struct->Gen_Polarity       = EDMAMUX_Gen_Polarity_Disable;
+    eDMAMUX_Gen_Init_struct->Gen_Request_Number = 0x0;
+    eDMAMUX_Gen_Init_struct->Gen_Signal_Sel     = EDMAMUX_Gen_ID_EXINT0;
 }
 
 /**
   * @brief  edmamux request generator init.
   * @param  eDMAMUX_Gen_Init_struct: pointer to a eDMAMUX_Gen_Init_Type structure which will be initialized.
-  * @retval none.
+  * @retval 无.
   */
 void eDMAMUX_Generator_Config(eDMAMUX_Generator_Type *eDMAMUX_Gen_x, eDMAMUX_Gen_Init_Type *eDMAMUX_Gen_Init_struct) {
-    eDMAMUX_Gen_x->gctrl_bit.sigsel  = eDMAMUX_Gen_Init_struct->gen_signal_sel;
-    eDMAMUX_Gen_x->gctrl_bit.gpol    = eDMAMUX_Gen_Init_struct->gen_polarity;
-    eDMAMUX_Gen_x->gctrl_bit.greqcnt = eDMAMUX_Gen_Init_struct->gen_Request_Number;
-    eDMAMUX_Gen_x->gctrl_bit.gen     = eDMAMUX_Gen_Init_struct->gen_Enable;
+    eDMAMUX_Gen_x->gctrl_bit.sigsel  = eDMAMUX_Gen_Init_struct->Gen_Signal_Sel;
+    eDMAMUX_Gen_x->gctrl_bit.gpol    = eDMAMUX_Gen_Init_struct->Gen_Polarity;
+    eDMAMUX_Gen_x->gctrl_bit.greqcnt = eDMAMUX_Gen_Init_struct->Gen_Request_Number;
+    eDMAMUX_Gen_x->gctrl_bit.gen     = eDMAMUX_Gen_Init_struct->Gen_Enable;
 }
 
 /**
   * @brief  enable or disable the edmamux sync interrupts.
   * @param  eDMAMUX_Channelx:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMAMUX_ChanneL1
   *         - EDMAMUX_ChanneL2
   *         - EDMAMUX_ChanneL3
@@ -741,7 +741,7 @@ void eDMAMUX_Generator_Config(eDMAMUX_Generator_Type *eDMAMUX_Gen_x, eDMAMUX_Gen
   *         - EDMAMUX_ChanneL7
   *         - EDMAMUX_ChanneL8
   * @param  new_state (TRUE or FALSE).
-  * @retval none.
+  * @retval 无.
   */
 void eDMAMUX_Sync_Interrupt_Enable(eDMAMUX_Channel_Type *eDMAMUX_Channelx, confirm_state new_state) {
     if(new_state != FALSE) {
@@ -754,13 +754,13 @@ void eDMAMUX_Sync_Interrupt_Enable(eDMAMUX_Channel_Type *eDMAMUX_Channelx, confi
 /**
   * @brief  enable or disable the edmamux request generator interrupts.
   * @param  eDMAMUX_Gen_x: pointer to a eDMAMUX_Generator_Type structure.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EDMAMUX_GENERATOR1
   *         - EDMAMUX_GENERATOR2
   *         - EDMAMUX_GENERATOR3
   *         - EDMAMUX_GENERATOR4
   * @param  new_state (TRUE or FALSE).
-  * @retval none.
+  * @retval 无.
   */
 void eDMAMUX_Generator_Interrupt_Enable(eDMAMUX_Generator_Type *eDMAMUX_Gen_x, confirm_state new_state) {
     if(new_state != FALSE) {
@@ -773,7 +773,7 @@ void eDMAMUX_Generator_Interrupt_Enable(eDMAMUX_Generator_Type *eDMAMUX_Gen_x, c
 /**
   * @brief  edmamux sync flag get.
   * @param  flag
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - EDMAMUX_Sync_OV1_FLAG
   *         - EDMAMUX_Sync_OV2_FLAG
   *         - EDMAMUX_Sync_OV3_FLAG
@@ -795,7 +795,7 @@ flag_status eDMAMUX_Sync_Flag_Get(uint32_t flag) {
 /**
   * @brief  edmamux sync flag clear.
   * @param  flag
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - EDMAMUX_Sync_OV1_FLAG
   *         - EDMAMUX_Sync_OV2_FLAG
   *         - EDMAMUX_Sync_OV3_FLAG
@@ -804,7 +804,7 @@ flag_status eDMAMUX_Sync_Flag_Get(uint32_t flag) {
   *         - EDMAMUX_Sync_OV6_FLAG
   *         - EDMAMUX_Sync_OV7_FLAG
   *         - EDMAMUX_Sync_OV8_FLAG
-  * @retval none.
+  * @retval 无.
   */
 void eDMAMUX_Sync_Flag_Clear(uint32_t flag) {
     EDMA->muxsyncclr = flag;
@@ -813,7 +813,7 @@ void eDMAMUX_Sync_Flag_Clear(uint32_t flag) {
 /**
   * @brief  edmamux request generator flag get.
   * @param  flag
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - EDMAMUX_Gen_Trig_OV1_FLAG
   *         - EDMAMUX_Gen_Trig_OV2_FLAG
   *         - EDMAMUX_Gen_Trig_OV3_FLAG
@@ -831,12 +831,12 @@ flag_status eDMAMUX_Generator_Flag_Get(uint32_t flag) {
 /**
   * @brief  edmamux request generator flag clear.
   * @param  flag
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - EDMAMUX_Gen_Trig_OV1_FLAG
   *         - EDMAMUX_Gen_Trig_OV2_FLAG
   *         - EDMAMUX_Gen_Trig_OV3_FLAG
   *         - EDMAMUX_Gen_Trig_OV4_FLAG
-  * @retval none.
+  * @retval 无.
   */
 void eDMAMUX_Generator_Flag_Clear(uint32_t flag) {
     EDMA->muxgclr = flag;

@@ -66,8 +66,8 @@ uint8_t ERTC_BCD_To_Num(uint8_t bcd) {
 
 /**
   * @brief  enable write protection.
-  * @param  none.
-  * @retval none
+  * @param  无.
+  * @retval 无
   */
 void ERTC_Write_Protect_Enable(void) {
     ERTC->wp = 0xFF;
@@ -75,8 +75,8 @@ void ERTC_Write_Protect_Enable(void) {
 
 /**
   * @brief  disable write protection.
-  * @param  none.
-  * @retval none
+  * @param  无.
+  * @retval 无
   */
 void ERTC_Write_Protect_Disable(void) {
     ERTC->wp = 0xCA;
@@ -85,7 +85,7 @@ void ERTC_Write_Protect_Disable(void) {
 
 /**
   * @brief  ertc wait register update finish.
-  * @param  none.
+  * @param  无.
   * @retval error_status (ERROR or SUCCESS).
   */
 error_status ERTC_Wait_Update(void) {
@@ -108,14 +108,14 @@ error_status ERTC_Wait_Update(void) {
 /**
   * @brief  ertc wait flag status.
   * @param  flag: flag to wait.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_ALAWF_FLAG: alarm a register allows write flag.
   *         - ERTC_ALBWF_FLAG: alarm b register allows write flag.
   *         - ERTC_WATWF_FLAG: wakeup timer register allows write flag.
   *         - ERTC_TADJF_FLAG: time adjustment flag.
   *         - ERTC_CALUPDF_FLAG: calibration value update completed flag.
   * @param  status: status to wait.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - SET.
   *         - RESET.
   * @retval error_status (ERROR or SUCCESS).
@@ -139,7 +139,7 @@ error_status ERTC_Wait_flag(uint32_t flag, flag_status status) {
 
 /**
   * @brief  ertc enter init mode.
-  * @param  none.
+  * @param  无.
   * @retval error_status (ERROR or SUCCESS).
   */
 error_status ERTC_Init_Mode_Enter(void) {
@@ -166,8 +166,8 @@ error_status ERTC_Init_Mode_Enter(void) {
 
 /**
   * @brief  ertc exit init mode.
-  * @param  none.
-  * @retval none.
+  * @param  无.
+  * @retval 无.
   */
 void ERTC_Init_Mode_Exit(void) {
     ERTC->sts = 0xFFFFFF7F;
@@ -175,7 +175,7 @@ void ERTC_Init_Mode_Exit(void) {
 
 /**
   * @brief  ertc reset all register.
-  * @param  none.
+  * @param  无.
   * @retval error_status (ERROR or SUCCESS).
   */
 error_status ERTC_Reset(void) {
@@ -245,7 +245,7 @@ error_status ERTC_Divider_Set(uint16_t div_a, uint16_t div_b) {
 /**
   * @brief  ertc hour mode set.
   * @param  mode: hour mode.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_HOUR_Mode_24: 24-hour format.
   *         - ERTC_HOUR_Mode_12: 12-hour format.
   * @retval error_status (ERROR or SUCCESS).
@@ -319,7 +319,7 @@ error_status ERTC_Date_Set(uint8_t year, uint8_t month, uint8_t date, uint8_t we
   * @param  min: minute (0~59).
   * @param  sec: second (0~59).
   * @param  ampm: hour mode.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_24H: 24-hour format.
   *         - ERTC_AM: 12-hour format, ante meridiem.
   *         - ERTC_PM: 12-hour format, post meridiem.
@@ -361,7 +361,7 @@ error_status ERTC_Time_Set(uint8_t hour, uint8_t min, uint8_t sec, ERTC_am_pm_Ty
 /**
   * @brief  get calendar
   * @param  time: ertc time.
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_Calendar_Get(ERTC_Time_Type* time) {
     ERTC_reg_Time_Type reg_tm;
@@ -383,7 +383,7 @@ void ERTC_Calendar_Get(ERTC_Time_Type* time) {
 
 /**
   * @brief  get current sub second.
-  * @param  none.
+  * @param  无.
   * @retval sub second.
   */
 uint32_t ERTC_Sub_Second_Get(void) {
@@ -399,11 +399,11 @@ uint32_t ERTC_Sub_Second_Get(void) {
 /**
   * @brief  set which bits are irrelevant to the alarm match.
   * @param  alarm_x: select the alarm.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_ALA: alarm a.
   *         - ERTC_ALB: alarm b.
   * @param  mask: select which bits are irrelevant to the alarm match.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_Alarm_Mask_NONE: match all.
   *         - ERTC_Alarm_Mask_SEC: don't match seconds.
   *         - ERTC_Alarm_Mask_MIN: don't match minute.
@@ -411,7 +411,7 @@ uint32_t ERTC_Sub_Second_Get(void) {
   *         - ERTC_Alarm_Mask_Date_WEEK: don't match date or week.
   *         - ERTC_Alarm_Mask_ALL: don't match all.
   * @param  alarm: alarm para.
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_Alarm_Mask_Set(ERTC_Alarm_Type alarm_x, uint32_t mask) {
     uint32_t reg;
@@ -442,14 +442,14 @@ void ERTC_Alarm_Mask_Set(ERTC_Alarm_Type alarm_x, uint32_t mask) {
 /**
   * @brief  alarm week or date mode select.
   * @param  alarm_x: select the alarm.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_ALA: alarm a.
   *         - ERTC_ALB: alarm b.
   * @param  wk: week or date mode select.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_SLECT_DATE: slect date mode.
   *         - ERTC_SLECT_WEEK: slect week mode.
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_Alarm_week_Date_Select(ERTC_Alarm_Type alarm_x, ERTC_week_Date_Select_Type wk) {
     /* disable write protection */
@@ -468,7 +468,7 @@ void ERTC_Alarm_week_Date_Select(ERTC_Alarm_Type alarm_x, ERTC_week_Date_Select_
 /**
   * @brief  set alarm.
   * @param  alarm_x: select the alarm.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_ALA: alarm a.
   *         - ERTC_ALB: alarm b.
   * @param  week_day: week or date.
@@ -478,12 +478,12 @@ void ERTC_Alarm_week_Date_Select(ERTC_Alarm_Type alarm_x, ERTC_week_Date_Select_
   * @param  min: minute (0~59).
   * @param  sec: second (0~59).
   * @param  ampm: hour mode.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_24H: 24-hour format.
   *         - ERTC_AM: 12-hour format, ante meridiem.
   *         - ERTC_PM: 12-hour format, post meridiem.
   * @param  alarm: alarm para.
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_Alarm_Set(ERTC_Alarm_Type alarm_x, uint8_t week_date, uint8_t hour, uint8_t min, uint8_t sec, ERTC_am_pm_Type ampm) {
     ERTC_reg_Alarm_Type reg;
@@ -516,12 +516,12 @@ void ERTC_Alarm_Set(ERTC_Alarm_Type alarm_x, uint8_t week_date, uint8_t hour, ui
 /**
   * @brief  set alarm sub second.
   * @param  alarm_x: select the alarm.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_ALA: alarm a.
   *         - ERTC_ALB: alarm b.
   * @param  value: sub second value.
   * @param  mask: sub second mask.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_Alarm_SBS_Mask_ALL: do not match the sub-second.
   *         - ERTC_Alarm_SBS_Mask_14_1: only compare bit [0].
   *         - ERTC_Alarm_SBS_Mask_14_2: only compare bit [1:0].
@@ -538,7 +538,7 @@ void ERTC_Alarm_Set(ERTC_Alarm_Type alarm_x, uint8_t week_date, uint8_t hour, ui
   *         - ERTC_Alarm_SBS_Mask_14_13: only compare bit [12:0].
   *         - ERTC_Alarm_SBS_Mask_14: only compare bit [13:0].
   *         - ERTC_Alarm_SBS_Mask_NONE:  compare bit [14:0].
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_Alarm_Sub_Second_Set(ERTC_Alarm_Type alarm_x, uint32_t value, ERTC_Alarm_sbs_Mask_Type mask) {
     /* disable write protection */
@@ -559,7 +559,7 @@ void ERTC_Alarm_Sub_Second_Set(ERTC_Alarm_Type alarm_x, uint32_t value, ERTC_Ala
 /**
   * @brief  enable or disable alarm clock.
   * @param  alarm_x: select the alarm.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_ALA: alarm a.
   *         - ERTC_ALB: alarm b.
   * @param  new_state (TRUE or FALSE).
@@ -596,11 +596,11 @@ error_status ERTC_Alarm_Enable(ERTC_Alarm_Type alarm_x, confirm_state new_state)
 /**
   * @brief  get alarm value.
   * @param  alarm_x: select the alarm.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_ALA: alarm a.
   *         - ERTC_ALB: alarm b.
   * @param  alarm: alarm para.
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_Alarm_Get(ERTC_Alarm_Type alarm_x, ERTC_Alarm_Value_Type* alarm) {
     ERTC_reg_Alarm_Type reg;
@@ -626,7 +626,7 @@ void ERTC_Alarm_Get(ERTC_Alarm_Type alarm_x, ERTC_Alarm_Value_Type* alarm) {
 /**
   * @brief  get alarm sub second.
   * @param  alarm_x: select the alarm.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_ALA: alarm a.
   *         - ERTC_ALB: alarm b.
   * @retval sub second.
@@ -642,14 +642,14 @@ uint32_t ERTC_Alarm_Sub_Second_Get(ERTC_Alarm_Type alarm_x) {
 /**
   * @brief  set wakeup timer clock.
   * @param  clock: wakeup timer clock source.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_WAT_CLK_ERTCCLK_DIV16: ERTC_CLK / 16.
   *         - ERTC_WAT_CLK_ERTCCLK_DIV8: ERTC_CLK / 8.
   *         - ERTC_WAT_CLK_ERTCCLK_DIV4: ERTC_CLK / 4.
   *         - ERTC_WAT_CLK_ERTCCLK_DIV2: ERTC_CLK / 2.
   *         - ERTC_WAT_CLK_CK_B_16BITS: CK_B, wakeup counter = ERTC_WAT
   *         - ERTC_WAT_CLK_CK_B_17BITS: CK_B, wakeup counter = ERTC_WAT + 65535.
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_WakeUp_Clock_Set(ERTC_WakeUp_Clock_Type clock) {
     /* disable write protection */
@@ -664,7 +664,7 @@ void ERTC_WakeUp_Clock_Set(ERTC_WakeUp_Clock_Type clock) {
 /**
   * @brief  set wakeup counter.
   * @param  counter: wakeup counter(0~65535).
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_WakeUp_Counter_Set(uint32_t counter) {
     /* disable write protection */
@@ -678,7 +678,7 @@ void ERTC_WakeUp_Counter_Set(uint32_t counter) {
 
 /**
   * @brief  get wakeup counter.
-  * @param  none.
+  * @param  无.
   * @retval wakeup counter.
   */
 uint16_t ERTC_WakeUp_Counter_Get(void) {
@@ -711,12 +711,12 @@ error_status ERTC_WakeUp_Enable(confirm_state new_state) {
 /**
   * @brief  config the smooth calibration.
   * @param  period: calibration period.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_Smooth_CAL_Period_32: 32 second calibration period.
   *         - ERTC_Smooth_CAL_Period_16: 16 second calibration period.
   *         - ERTC_Smooth_CAL_Period_8: 8 second calibration period.
   * @param  clk_add: add clock.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_Smooth_CAL_CLK_ADD_0: do not increase clock.
   *         - ERTC_Smooth_CAL_CLK_ADD_512: add 512 clocks.
   * @param  clk_dec: decrease clock(0~511).
@@ -764,7 +764,7 @@ error_status ERTC_Smooth_Calibration_Config(ERTC_Smooth_CAL_Period_Type period, 
 /**
   * @brief  set the coarse digital calibration.
   * @param  dir: calibration direction.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_CAL_Dir_POSITIVE: positive calibration.
   *         - ERTC_CAL_Dir_NEGATIVE: negative calibration.
   * @param  value: calibration value(0~31).
@@ -820,10 +820,10 @@ error_status ERTC_Coarse_Calibration_Enable(confirm_state new_state) {
 /**
   * @brief  calibration output source select.
   * @param  output: output source.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_CAL_OutPut_512HZ: output 512 hz.
   *         - ERTC_CAL_OutPut_1HZ: output 1 hz.
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_CAL_OutPut_Select(ERTC_CAL_OutPut_Select_Type output) {
     /* disable write protection */
@@ -838,7 +838,7 @@ void ERTC_CAL_OutPut_Select(ERTC_CAL_OutPut_Select_Type output) {
 /**
   * @brief  enable or disable calibration output.
   * @param  new_state (TRUE or FALSE).
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_CAL_OutPut_Enable(confirm_state new_state) {
     /* disable write protection */
@@ -853,7 +853,7 @@ void ERTC_CAL_OutPut_Enable(confirm_state new_state) {
 /**
   * @brief  adjust the time.
   * @param  add1s: second operation.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_Time_ADD_NONE: none operation.
   *         - ERTC_Time_ADD_1S: add 1 second.
   * @param  decsbs: decrease sub second(0~0x7FFF).
@@ -894,14 +894,14 @@ error_status ERTC_Time_Adjust(ERTC_Time_Adjust_Type add1s, uint32_t decsbs) {
 /**
   * @brief  config the daylight saving time.
   * @param  operation: time adjust.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_DST_ADD_1H: add 1 hour.
   *         - ERTC_DST_DEC_1H: dec 1 hour.
   * @param  save: operation save.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_DST_SAVE_0: set the bpr register value to 0.
   *         - ERTC_DST_SAVE_1: set the bpr register value to 1.
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_DayLight_Set(ERTC_dst_Operation_Type operation, ERTC_dst_save_Type save) {
     /* disable write protection */
@@ -921,7 +921,7 @@ void ERTC_DayLight_Set(ERTC_dst_Operation_Type operation, ERTC_dst_save_Type sav
 
 /**
   * @brief  get the bpr value.
-  * @param  none.
+  * @param  无.
   * @retval bpr value.
   */
 uint8_t ERTC_DayLight_BPR_Get(void) {
@@ -957,7 +957,7 @@ error_status ERTC_refer_Clock_Detect_Enable(confirm_state new_state) {
 /**
   * @brief  enable or disable direct read mode.
   * @param  new_state (TRUE or FALSE).
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_Direct_Read_Enable(confirm_state new_state) {
     /* disable write protection */
@@ -972,20 +972,20 @@ void ERTC_Direct_Read_Enable(confirm_state new_state) {
 /**
   * @brief  set the output mode.
   * @param  source: output source.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_OutPut_Disable: diable output.
   *         - ERTC_OutPut_Alarm_A: output alarm a event.
   *         - ERTC_OutPut_Alarm_B: output alarm b event.
   *         - ERTC_OutPut_WAKEUP: output wakeup event.
   * @param  polarity: output polarity.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_OutPut_Polarity_HIGH: when the event occurs, the output is high.
   *         - ERTC_OutPut_Polarity_LOW: when the event occurs, the output is low.
   * @param  type: output type.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_OutPut_Type_Open_DRAIN: open drain output.
   *         - ERTC_OutPut_Type_PUSH_PULL: push pull output.
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_OutPut_Set(ERTC_OutPut_Source_Type source, ERTC_OutPut_Polarity_Type polarity, ERTC_OutPut_Type type) {
     /* disable write protection */
@@ -1004,7 +1004,7 @@ void ERTC_OutPut_Set(ERTC_OutPut_Source_Type source, ERTC_OutPut_Polarity_Type p
 /**
   * @brief  timestamp detection pin selection.
   * @param  pin: data register
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_Pin_PC13: pc13 is used as timestamp detection pin.
   *         - ERTC_Pin_PA0: pa0 is used as timestamp detection pin.
   * @retval data value.
@@ -1022,10 +1022,10 @@ void ERTC_TimeStamp_Pin_Select(ERTC_Pin_Select_Type pin) {
 /**
   * @brief  set the timestamp valid edge.
   * @param  edge: calibration period.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_TimeStamp_Edge_RISING : rising edge trigger.
   *         - ERTC_TimeStamp_Edge_FALLING: falling edge trigger.
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_TimeStamp_Valid_Edge_Set(ERTC_TimeStamp_Valid_Edge_Type edge) {
     /* disable write protection */
@@ -1040,7 +1040,7 @@ void ERTC_TimeStamp_Valid_Edge_Set(ERTC_TimeStamp_Valid_Edge_Type edge) {
 /**
   * @brief  enable or disable timestamp.
   * @param  new_state (TRUE or FALSE).
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_TimeStamp_Enable(confirm_state new_state) {
     /* disable write protection */
@@ -1056,7 +1056,7 @@ void ERTC_TimeStamp_Enable(confirm_state new_state) {
   * @brief  get the timestamp.
   * @param  time: time.
   * @param  date: date.
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_TimeStamp_Get(ERTC_Time_Type* time) {
     ERTC_reg_tstm_Type tmtime;
@@ -1077,7 +1077,7 @@ void ERTC_TimeStamp_Get(ERTC_Time_Type* time) {
 
 /**
   * @brief  get the timestamp sub second.
-  * @param  none.
+  * @param  无.
   * @retval timestamp sub second.
   */
 uint32_t ERTC_TimeStamp_Sub_Second_Get(void) {
@@ -1087,7 +1087,7 @@ uint32_t ERTC_TimeStamp_Sub_Second_Get(void) {
 /**
   * @brief  tamper 1 detection pin selection.
   * @param  pin: data register
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_Pin_PC13: pc13 is used as tamper 1 detection pin.
   *         - ERTC_Pin_PA0: pa0 is used as tamper 1 detection pin.
   * @retval data value.
@@ -1105,7 +1105,7 @@ void ERTC_Tamper_1_Pin_Select(ERTC_Pin_Select_Type pin) {
 /**
   * @brief  enable or disable tamper pin pull up.
   * @param  new_state (TRUE or FALSE).
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_Tamper_Pull_Up_Enable(confirm_state new_state) {
     /* disable write protection */
@@ -1120,12 +1120,12 @@ void ERTC_Tamper_Pull_Up_Enable(confirm_state new_state) {
 /**
   * @brief  set the tamper pin pre-charge time.
   * @param  precharge: tamper detection pre-charge time
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_Tamper_PR_1_ERTCCLK: pre-charge time is 1 ERTC_CLK.
   *         - ERTC_Tamper_PR_2_ERTCCLK: pre-charge time is 2 ERTC_CLK.
   *         - ERTC_Tamper_PR_4_ERTCCLK: pre-charge time is 4 ERTC_CLK.
   *         - ERTC_Tamper_PR_8_ERTCCLK: pre-charge time is 8 ERTC_CLK.
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_Tamper_Precharge_Set(ERTC_Tamper_Precharge_Type precharge) {
     /* disable write protection */
@@ -1140,12 +1140,12 @@ void ERTC_Tamper_Precharge_Set(ERTC_Tamper_Precharge_Type precharge) {
 /**
   * @brief  set the tamper filter time.
   * @param  filter: tamper filter.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_Tamper_Filter_Disable: disable filter function.
   *         - ERTC_Tamper_Filter_2: 2 consecutive samples arw valid, effective tamper event.
   *         - ERTC_Tamper_Filter_4: 4 consecutive samples arw valid, effective tamper event.
   *         - ERTC_Tamper_Filter_8: 8 consecutive samples arw valid, effective tamper event.
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_Tamper_Filter_Set(ERTC_Tamper_Filter_Type filter) {
     /* disable write protection */
@@ -1160,7 +1160,7 @@ void ERTC_Tamper_Filter_Set(ERTC_Tamper_Filter_Type filter) {
 /**
   * @brief  set the tamper detection frequency.
   * @param  freq: tamper detection frequency.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_Tamper_Freq_Div_32768: ERTC_CLK / 32768.
   *         - ERTC_Tamper_Freq_Div_16384: ERTC_CLK / 16384.
   *         - ERTC_Tamper_Freq_Div_8192: ERTC_CLK / 8192.
@@ -1169,7 +1169,7 @@ void ERTC_Tamper_Filter_Set(ERTC_Tamper_Filter_Type filter) {
   *         - ERTC_Tamper_Freq_Div_1024: ERTC_CLK / 1024.
   *         - ERTC_Tamper_Freq_Div_512: ERTC_CLK / 512.
   *         - ERTC_Tamper_Freq_Div_256: ERTC_CLK / 256.
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_Tamper_Detect_Freq_Set(ERTC_Tamper_Detect_Freq_Type freq) {
     /* disable write protection */
@@ -1184,17 +1184,17 @@ void ERTC_Tamper_Detect_Freq_Set(ERTC_Tamper_Detect_Freq_Type freq) {
 /**
   * @brief  set the tamper trigger.
   * @param  tamper_x: select the tamper.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_Tamper_1: tamper 1.
   *         - ERTC_Tamper_2: tamper 2.
   * @param  trigger: tamper valid edge.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_Tamper_Edge_RISING: rising gedge.
   *         - ERTC_Tamper_Edge_FALLING: falling gedge.
   *         - ERTC_Tamper_Edge_LOW: low level.
   *         - ERTC_Tamper_Edge_HIGH: high level.
   * @param  alarm: alarm para.
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_Tamper_Valid_Edge_Set(ERTC_Tamper_Select_Type tamper_x, ERTC_Tamper_Valid_Edge_Type trigger) {
     /* disable write protection */
@@ -1213,7 +1213,7 @@ void ERTC_Tamper_Valid_Edge_Set(ERTC_Tamper_Select_Type tamper_x, ERTC_Tamper_Va
 /**
   * @brief  enable or disable trigger timestamp when tamper event occurs.
   * @param  new_state (TRUE or FALSE).
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_Tamper_TimeStamp_Enable(confirm_state new_state) {
     /* disable write protection */
@@ -1228,11 +1228,11 @@ void ERTC_Tamper_TimeStamp_Enable(confirm_state new_state) {
 /**
   * @brief  enable or disable tamper.
   * @param  tamper_x: select the tamper.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_Tamper_1: tamper 1.
   *         - ERTC_Tamper_2: tamper 2.
   * @param  new_state (TRUE or FALSE).
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_Tamper_Enable(ERTC_Tamper_Select_Type tamper_x, confirm_state new_state) {
     /* disable write protection */
@@ -1251,14 +1251,14 @@ void ERTC_Tamper_Enable(ERTC_Tamper_Select_Type tamper_x, confirm_state new_stat
 /**
   * @brief  enable or disable interrupt.
   * @param  source: interrupts sources
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - ERTC_TP_INT: tamper interrupt.
   *         - ERTC_ALA_INT: alarm a interrupt.
   *         - ERTC_ALB_INT: alarm b interrupt.
   *         - ERTC_WAT_INT: wakeup timer interrupt.
   *         - ERTC_TS_INT: timestamp interrupt.
   * @param  new_state (TRUE or FALSE).
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_Interrupt_Enable(uint32_t source, confirm_state new_state) {
     /* disable write protection */
@@ -1287,7 +1287,7 @@ void ERTC_Interrupt_Enable(uint32_t source, confirm_state new_state) {
 /**
   * @brief  get interrupt status
   * @param  source
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_TP_INT: tamper interrupt.
   *         - ERTC_ALA_INT: alarm a interrupt.
   *         - ERTC_ALB_INT: alarm b interrupt.
@@ -1314,7 +1314,7 @@ flag_status ERTC_Interrupt_Get(uint32_t source) {
 /**
   * @brief  get flag status.
   * @param  flag: specifies the flag to check.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_ALAWF_FLAG: alarm a register allows write flag.
   *         - ERTC_ALBWF_FLAG: alarm b register allows write flag.
   *         - ERTC_WATWF_FLAG: wakeup timer register allows write flag.
@@ -1343,7 +1343,7 @@ flag_status ERTC_Flag_Get(uint32_t flag) {
 /**
   * @brief  clear flag status
   * @param  flag: specifies the flag to clear.
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - ERTC_ALAWF_FLAG: alarm a register allows write flag.
   *         - ERTC_ALBWF_FLAG: alarm b register allows write flag.
   *         - ERTC_WATWF_FLAG: wakeup timer register allows write flag.
@@ -1359,7 +1359,7 @@ flag_status ERTC_Flag_Get(uint32_t flag) {
   *         - ERTC_TP1F_FLAG: tamper detection 1 flag.
   *         - ERTC_TP2F_FLAG: tamper detection 2 flag.
   *         - ERTC_CALUPDF_FLAG: calibration value update completed flag.
-  * @retval none
+  * @retval 无
   */
 void ERTC_Flag_Clear(uint32_t flag) {
     ERTC->sts = ~(flag | 0x00000080) | (ERTC->sts_bit.imen << 7);
@@ -1368,14 +1368,14 @@ void ERTC_Flag_Clear(uint32_t flag) {
 /**
   * @brief  write data to the bpr register.
   * @param  dt: data register
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_DT1
   *         - ERTC_DT2
   *         - ...
   *         - ERTC_DT19
   *         - ERTC_DT20
   * @param  data: data to be write.
-  * @retval none.
+  * @retval 无.
   */
 void ERTC_BPR_Data_Write(ERTC_dt_Type dt, uint32_t data) {
     __IO uint32_t reg = 0;
@@ -1388,7 +1388,7 @@ void ERTC_BPR_Data_Write(ERTC_dt_Type dt, uint32_t data) {
 /**
   * @brief  read data from bpr register.
   * @param  dt: data register
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ERTC_DT1
   *         - ERTC_DT2
   *         - ...

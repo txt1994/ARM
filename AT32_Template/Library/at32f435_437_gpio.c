@@ -42,9 +42,9 @@
 /**
   * @brief  reset the gpio register
   * @param  gpio_x: to select the gpio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         GPIOA, GPIOB, GPIOC, GPIOD, GPIOE, GPIOF, GPIOG, GPIOH.
-  * @retval none
+  * @retval 无
   */
 void gpio_Reset(GPIO_Type *gpio_x) {
     if(gpio_x == GPIOA) {
@@ -77,10 +77,10 @@ void gpio_Reset(GPIO_Type *gpio_x) {
 /**
   * @brief  initialize the gpio peripheral.
   * @param  gpio_x: to select the gpio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         GPIOA, GPIOB, GPIOC, GPIOD, GPIOE, GPIOF, GPIOG, GPIOH.
   * @param  gpio_Init_struct: pointer to gpio init structure.
-  * @retval none
+  * @retval 无
   */
 void GPIO_Init(GPIO_Type *gpio_x, GPIO_Init_Type *gpio_Init_struct) {
     uint16_t pinx_value, pin_index = 0;
@@ -110,7 +110,7 @@ void GPIO_Init(GPIO_Type *gpio_x, GPIO_Init_Type *gpio_Init_struct) {
 /**
   * @brief  fill each gpio_Init_Type member with its default value.
   * @param  gpio_Init_struct : pointer to a gpio_Init_Type structure which will be initialized.
-  * @retval none
+  * @retval 无
   */
 void GPIO_Default_Para_Init(GPIO_Init_Type *gpio_Init_struct) {
     /* reset gpio init structure parameters values */
@@ -124,10 +124,10 @@ void GPIO_Default_Para_Init(GPIO_Init_Type *gpio_Init_struct) {
 /**
   * @brief  read the specified input port pin.
   * @param  gpio_x: to select the gpio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         GPIOA, GPIOB, GPIOC, GPIOD, GPIOE, GPIOF, GPIOG, GPIOH.
   * @param  pins: gpio pin number
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - GPIO_Pins_0
   *         - GPIO_Pins_1
   *         - GPIO_Pins_2
@@ -161,7 +161,7 @@ flag_status GPIO_Input_Data_Bit_Read(GPIO_Type *gpio_x, uint16_t pins) {
 /**
   * @brief  read the specified gpio input data port.
   * @param  gpio_x: to select the gpio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         GPIOA, GPIOB, GPIOC, GPIOD, GPIOE, GPIOF, GPIOG, GPIOH.
   * @retval gpio input data port value.
   */
@@ -172,10 +172,10 @@ uint16_t GPIO_Input_Data_Read(GPIO_Type *gpio_x) {
 /**
   * @brief  read the specified output port pin.
   * @param  gpio_x: to select the gpio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         GPIOA, GPIOB, GPIOC, GPIOD, GPIOE, GPIOF, GPIOG, GPIOH.
   * @param  pins: gpio pin number
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - GPIO_Pins_0
   *         - GPIO_Pins_1
   *         - GPIO_Pins_2
@@ -209,7 +209,7 @@ flag_status GPIO_OutPut_Data_Bit_Read(GPIO_Type *gpio_x, uint16_t pins) {
 /**
   * @brief  read the specified gpio ouput data port.
   * @param  gpio_x: to select the gpio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         GPIOA, GPIOB, GPIOC, GPIOD, GPIOE, GPIOF, GPIOG, GPIOH.
   * @retval gpio input data port value.
   */
@@ -220,7 +220,7 @@ uint16_t GPIO_OutPut_Data_Read(GPIO_Type *gpio_x) {
 /**
   * @brief  set the selected data port bits.
   * @param  gpio_x: to select the gpio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         GPIOA, GPIOB, GPIOC, GPIOD, GPIOE, GPIOF, GPIOG, GPIOH.
   * @param  pins: gpio pin number
   *         parameter can be any combination of gpio_Pin_x, gpio_Pin_x as following values:
@@ -241,7 +241,7 @@ uint16_t GPIO_OutPut_Data_Read(GPIO_Type *gpio_x) {
   *         - GPIO_Pins_14
   *         - GPIO_Pins_15
   *         - GPIO_Pins_ALL
-  * @retval none
+  * @retval 无
   */
 void GPIO_Bits_Set(GPIO_Type *gpio_x, uint16_t pins) {
     gpio_x->scr = pins;
@@ -250,7 +250,7 @@ void GPIO_Bits_Set(GPIO_Type *gpio_x, uint16_t pins) {
 /**
   * @brief  clear the selected data port bits.
   * @param  gpio_x: to select the gpio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         GPIOA, GPIOB, GPIOC, GPIOD, GPIOE, GPIOF, GPIOG, GPIOH.
   * @param  pins: gpio pin number
   *         parameter can be any combination of gpio_Pin_x, gpio_Pin_x as following values:
@@ -271,7 +271,7 @@ void GPIO_Bits_Set(GPIO_Type *gpio_x, uint16_t pins) {
   *         - GPIO_Pins_14
   *         - GPIO_Pins_15
   *         - GPIO_Pins_ALL
-  * @retval none
+  * @retval 无
   */
 void GPIO_Bits_Reset(GPIO_Type *gpio_x, uint16_t pins) {
     gpio_x->clr = pins;
@@ -280,7 +280,7 @@ void GPIO_Bits_Reset(GPIO_Type *gpio_x, uint16_t pins) {
 /**
   * @brief  set or clear the selected data port bit.
   * @param  gpio_x: to select the gpio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         GPIOA, GPIOB, GPIOC, GPIOD, GPIOE, GPIOF, GPIOG, GPIOH.
   * @param  pins: gpio pin number
   *         parameter can be any combination of gpio_Pin_x, gpio_Pin_x as following values:
@@ -302,7 +302,7 @@ void GPIO_Bits_Reset(GPIO_Type *gpio_x, uint16_t pins) {
   *         - GPIO_Pins_15
   *         - GPIO_Pins_ALL
   * @param  bit_state: specifies the value to be written to the selected bit (TRUE or FALSE).
-  * @retval none
+  * @retval 无
   */
 void GPIO_Bits_Write(GPIO_Type *gpio_x, uint16_t pins, confirm_state bit_state) {
     if(bit_state != FALSE) {
@@ -315,10 +315,10 @@ void GPIO_Bits_Write(GPIO_Type *gpio_x, uint16_t pins, confirm_state bit_state) 
 /**
   * @brief  write data to the specified gpio data port.
   * @param  gpio_x: to select the gpio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         GPIOA, GPIOB, GPIOC, GPIOD, GPIOE, GPIOF, GPIOG, GPIOH.
   * @param  port_value: specifies the value to be written to the port output data register.
-  * @retval none
+  * @retval 无
   */
 void GPIO_Port_Write(GPIO_Type *gpio_x, uint16_t port_value) {
     gpio_x->odt = port_value;
@@ -327,10 +327,10 @@ void GPIO_Port_Write(GPIO_Type *gpio_x, uint16_t port_value) {
 /**
   * @brief  write protect gpio pins configuration registers.
   * @param  gpio_x: to select the gpio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         GPIOA, GPIOB, GPIOC, GPIOD, GPIOE, GPIOF, GPIOG, GPIOH.
   * @param  pins: gpio pin number
-  *         this parameter can be any combination of the following:
+  *         该参数可以是 any combination of the following:
   *         - GPIO_Pins_0
   *         - GPIO_Pins_1
   *         - GPIO_Pins_2
@@ -348,7 +348,7 @@ void GPIO_Port_Write(GPIO_Type *gpio_x, uint16_t port_value) {
   *         - GPIO_Pins_14
   *         - GPIO_Pins_15
   *         - GPIO_Pins_ALL
-  * @retval none
+  * @retval 无
   */
 void GPIO_Pin_WP_Config(GPIO_Type *gpio_x, uint16_t pins) {
     uint32_t temp = 0x00010000;
@@ -369,7 +369,7 @@ void GPIO_Pin_WP_Config(GPIO_Type *gpio_x, uint16_t pins) {
 /**
   * @brief  enable or disable gpio pins huge driven.
   * @param  gpio_x: to select the gpio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         GPIOA, GPIOB, GPIOC, GPIOD, GPIOE, GPIOF, GPIOG, GPIOH.
   * @param  pins: gpio pin number
   *         parameter can be any combination of gpio_Pin_x, gpio_Pin_x as following values:
@@ -391,8 +391,8 @@ void GPIO_Pin_WP_Config(GPIO_Type *gpio_x, uint16_t pins) {
   *         - GPIO_Pins_15
   *         - GPIO_Pins_ALL
   * @param  new_state: new state of the slew rate.
-  *         this parameter can be: true or false.
-  * @retval none
+  *         该参数可以是: true or false.
+  * @retval 无
   */
 void GPIO_Pins_Huge_Driven_Config(GPIO_Type *gpio_x, uint16_t pins, confirm_state new_state) {
     if(new_state != FALSE) {
@@ -405,10 +405,10 @@ void GPIO_Pins_Huge_Driven_Config(GPIO_Type *gpio_x, uint16_t pins, confirm_stat
 /**
   * @brief  configure the pin's muxing function.
   * @param  gpio_x: to select the gpio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         GPIOA, GPIOB, GPIOC, GPIOD, GPIOE, GPIOF, GPIOG, GPIOH.
   * @param  gpio_Pin_source: specifies the pin for the muxing function.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - GPIO_Pins_SOURCE0
   *         - GPIO_Pins_SOURCE1
   *         - GPIO_Pins_SOURCE2
@@ -426,7 +426,7 @@ void GPIO_Pins_Huge_Driven_Config(GPIO_Type *gpio_x, uint16_t pins, confirm_stat
   *         - GPIO_Pins_SOURCE14
   *         - GPIO_Pins_SOURCE15
   * @param  gpio_mux: select the pin to used as muxing function.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - GPIO_MUX_0
   *         - GPIO_MUX_1
   *         - GPIO_MUX_2
@@ -443,7 +443,7 @@ void GPIO_Pins_Huge_Driven_Config(GPIO_Type *gpio_x, uint16_t pins, confirm_stat
   *         - GPIO_MUX_13
   *         - GPIO_MUX_14
   *         - GPIO_MUX_15
-  * @retval none
+  * @retval 无
   */
 void GPIO_Pin_Mux_Config(GPIO_Type *gpio_x, GPIO_Pins_Source_Type gpio_Pin_source, GPIO_Mux_Sel_Type gpio_mux) {
     uint32_t temp = 0x00;

@@ -42,10 +42,10 @@
 /**
   * @brief  tmr reset by crm reset register
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
-  * @retval none
+  * @retval 无
   */
 void TMR_Reset(TMR_Type *TMR_x) {
     if(TMR_x == TMR1) {
@@ -99,11 +99,11 @@ void TMR_Reset(TMR_Type *TMR_x) {
 /**
   * @brief  enable or disable tmr counter
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void TMR_Counter_Enable(TMR_Type *TMR_x, confirm_state new_state) {
     /* tmr counter enable  */
@@ -114,7 +114,7 @@ void TMR_Counter_Enable(TMR_Type *TMR_x, confirm_state new_state) {
   * @brief  init tmr output default para
   * @param  TMR_OutPut_struct
   *         - to the structure of TMR_OutPut_Config_Type
-  * @retval none
+  * @retval 无
   */
 void TMR_OutPut_Default_Para_Init(TMR_OutPut_Config_Type *TMR_OutPut_struct) {
     TMR_OutPut_struct->oc_Mode = TMR_OutPut_Control_OFF;
@@ -130,7 +130,7 @@ void TMR_OutPut_Default_Para_Init(TMR_OutPut_Config_Type *TMR_OutPut_struct) {
   * @brief  init tmr input default para
   * @param  TMR_Input_struct
   *         - to the structure of TMR_Input_Config_Type
-  * @retval none
+  * @retval 无
   */
 void TMR_Input_Default_Para_Init(TMR_Input_Config_Type *TMR_Input_struct) {
     TMR_Input_struct->input_Channel_Select = TMR_Select_Channel_1;
@@ -143,7 +143,7 @@ void TMR_Input_Default_Para_Init(TMR_Input_Config_Type *TMR_Input_struct) {
   * @brief  init tmr brkdt default para
   * @param  TMR_Brkdt_struct
   *         - to the structure of TMR_Brkdt_Config_Type
-  * @retval none
+  * @retval 无
   */
 void TMR_Brkdt_Default_Para_Init(TMR_Brkdt_Config_Type *TMR_Brkdt_struct) {
     TMR_Brkdt_struct->deadtime = 0x0;
@@ -158,13 +158,13 @@ void TMR_Brkdt_Default_Para_Init(TMR_Brkdt_Config_Type *TMR_Brkdt_struct) {
 /**
   * @brief  init tmr base
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  TMR_pr (for 16 bit tmr 0x0000~0xFFFF,
   *                  for 32 bit tmr 0x0000_0000~0xFFFF_FFFF)
   * @param  TMR_div (timer div value:0x0000~0xFFFF)
-  * @retval none
+  * @retval 无
   */
 void TMR_Base_Init(TMR_Type* TMR_x, uint32_t TMR_pr, uint32_t TMR_div) {
     /* set the pr value */
@@ -180,15 +180,15 @@ void TMR_Base_Init(TMR_Type* TMR_x, uint32_t TMR_pr, uint32_t TMR_div) {
 /**
   * @brief  set tmr clock source division
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  TMR_Clock_div
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Clock_DIV1
   *         - TMR_Clock_DIV2
   *         - TMR_Clock_DIV4
-  * @retval none
+  * @retval 无
   */
 void TMR_Clock_Source_Div_Set(TMR_Type *TMR_x, TMR_Clock_Division_Type TMR_Clock_div) {
     /* set tmr clock source division */
@@ -198,17 +198,17 @@ void TMR_Clock_Source_Div_Set(TMR_Type *TMR_x, TMR_Clock_Division_Type TMR_Clock
 /**
   * @brief  set tmr counter count direction
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  TMR_CNT_dir
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Count_UP
   *         - TMR_Count_DOWN
   *         - TMR_Count_TWO_WAY_1
   *         - TMR_Count_TWO_WAY_2
   *         - TMR_Count_TWO_WAY_3
-  * @retval none
+  * @retval 无
   */
 void TMR_CNT_Dir_Set(TMR_Type *TMR_x, TMR_Count_Mode_Type TMR_CNT_dir) {
     /* set the cnt direct */
@@ -218,10 +218,10 @@ void TMR_CNT_Dir_Set(TMR_Type *TMR_x, TMR_Count_Mode_Type TMR_CNT_dir) {
 /**
   * @brief  set the repetition counter register(rpr) value
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR8, TMR20
   * @param  TMR_rpr_value (0x0000~0xFFFF)
-  * @retval none
+  * @retval 无
   */
 void TMR_Repetition_Counter_Set(TMR_Type *TMR_x, uint8_t TMR_rpr_value) {
     /* set the repetition counter value */
@@ -231,12 +231,12 @@ void TMR_Repetition_Counter_Set(TMR_Type *TMR_x, uint8_t TMR_rpr_value) {
 /**
   * @brief  set tmr counter value
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  TMR_CNT_value (for 16 bit tmr 0x0000~0xFFFF,
   *                        for 32 bit tmr 0x0000_0000~0xFFFF_FFFF)
-  * @retval none
+  * @retval 无
   */
 void TMR_Counter_Value_Set(TMR_Type *TMR_x, uint32_t TMR_CNT_value) {
     /* set the tmr counter value */
@@ -246,7 +246,7 @@ void TMR_Counter_Value_Set(TMR_Type *TMR_x, uint32_t TMR_CNT_value) {
 /**
   * @brief  get tmr counter value
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @retval tmr counter value
@@ -258,12 +258,12 @@ uint32_t TMR_Counter_Value_Get(TMR_Type *TMR_x) {
 /**
   * @brief  set tmr div value
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  TMR_Div_value (for 16 bit tmr 0x0000~0xFFFF,
   *                        for 32 bit tmr 0x0000_0000~0xFFFF_FFFF)
-  * @retval none
+  * @retval 无
   */
 void TMR_Div_Value_Set(TMR_Type *TMR_x, uint32_t TMR_Div_value) {
     /* set the tmr div value */
@@ -273,7 +273,7 @@ void TMR_Div_Value_Set(TMR_Type *TMR_x, uint32_t TMR_Div_value) {
 /**
   * @brief  get tmr div value
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @retval tmr div value
@@ -285,11 +285,11 @@ uint32_t TMR_Div_Value_Get(TMR_Type *TMR_x) {
 /**
   * @brief  config tmr output channel
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  TMR_Channel
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_2
   *         - TMR_Select_Channel_3
@@ -297,7 +297,7 @@ uint32_t TMR_Div_Value_Get(TMR_Type *TMR_x) {
   *         - TMR_Select_Channel_5
   * @param  TMR_OutPut_struct
   *         - to the structure of TMR_OutPut_Config_Type
-  * @retval none
+  * @retval 无
   */
 void TMR_OutPut_Channel_Config(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel, \
                                TMR_OutPut_Config_Type *TMR_OutPut_struct) {
@@ -386,18 +386,18 @@ void TMR_OutPut_Channel_Config(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Chan
 /**
   * @brief  select tmr output channel mode
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  TMR_Channel
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_2
   *         - TMR_Select_Channel_3
   *         - TMR_Select_Channel_4
   *         - TMR_Select_Channel_5
   * @param  oc_Mode
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_OutPut_Control_OFF
   *         - TMR_OutPut_Control_HIGH
   *         - TMR_OutPut_Control_LOW
@@ -406,7 +406,7 @@ void TMR_OutPut_Channel_Config(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Chan
   *         - TMR_OutPut_Control_Force_LOW
   *         - TMR_OutPut_Control_PWM_Mode_A
   *         - TMR_OutPut_Control_PWM_Mode_B
-  * @retval none
+  * @retval 无
   */
 void TMR_OutPut_Channel_Mode_Select(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel, \
                                     TMR_OutPut_Control_Mode_Type oc_Mode) {
@@ -442,13 +442,13 @@ void TMR_OutPut_Channel_Mode_Select(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR
 /**
   * @brief  set tmr period value
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  TMR_pr_value: timer period register value of counter
   *                       (for 16 bit tmr 0x0000~0xFFFF,
   *                       for 32 bit tmr 0x0000_0000~0xFFFF_FFFF)
-  * @retval none
+  * @retval 无
   */
 void TMR_Period_Value_Set(TMR_Type *TMR_x, uint32_t TMR_pr_value) {
     /* set tmr period value */
@@ -458,7 +458,7 @@ void TMR_Period_Value_Set(TMR_Type *TMR_x, uint32_t TMR_pr_value) {
 /**
   * @brief  get tmr period value
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @retval timer period register value of counter
@@ -472,11 +472,11 @@ uint32_t TMR_Period_Value_Get(TMR_Type *TMR_x) {
 /**
   * @brief  set tmr channel value
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  TMR_Channel
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_2
   *         - TMR_Select_Channel_3
@@ -484,7 +484,7 @@ uint32_t TMR_Period_Value_Get(TMR_Type *TMR_x) {
   *         - TMR_Select_Channel_5
   * @param  TMR_Channel_value (for 16 bit tmr 0x0000~0xFFFF,
   *                       for 32 bit tmr 0x0000_0000~0xFFFF_FFFF)
-  * @retval none
+  * @retval 无
   */
 void TMR_Channel_Value_Set(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel, \
                            uint32_t TMR_Channel_value) {
@@ -522,11 +522,11 @@ void TMR_Channel_Value_Set(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel,
 /**
   * @brief  get tmr channel value
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  TMR_Channel
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_2
   *         - TMR_Select_Channel_3
@@ -571,11 +571,11 @@ uint32_t TMR_Channel_Value_Get(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Chan
 /**
   * @brief  set tmr period buffer
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void TMR_Period_Buffer_Enable(TMR_Type *TMR_x, confirm_state new_state) {
     /* tmr period buffer set */
@@ -585,18 +585,18 @@ void TMR_Period_Buffer_Enable(TMR_Type *TMR_x, confirm_state new_state) {
 /**
   * @brief  set tmr output channel buffer
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  TMR_Channel
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_2
   *         - TMR_Select_Channel_3
   *         - TMR_Select_Channel_4
   *         - TMR_Select_Channel_5
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void TMR_OutPut_Channel_Buffer_Enable(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel, \
                                       confirm_state new_state) {
@@ -634,18 +634,18 @@ void TMR_OutPut_Channel_Buffer_Enable(TMR_Type *TMR_x, TMR_Channel_Select_Type T
 /**
   * @brief  set tmr output channel immediately
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  TMR_Channel
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_2
   *         - TMR_Select_Channel_3
   *         - TMR_Select_Channel_4
   *         - TMR_Select_Channel_5
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void TMR_OutPut_Channel_Immediately_Set(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel, \
                                         confirm_state new_state) {
@@ -683,18 +683,18 @@ void TMR_OutPut_Channel_Immediately_Set(TMR_Type *TMR_x, TMR_Channel_Select_Type
 /**
   * @brief  set tmr output channel switch
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  TMR_Channel
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_2
   *         - TMR_Select_Channel_3
   *         - TMR_Select_Channel_4
   *         - TMR_Select_Channel_5
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void TMR_OutPut_Channel_Switch_Set(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel, \
                                    confirm_state new_state) {
@@ -732,10 +732,10 @@ void TMR_OutPut_Channel_Switch_Set(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_
 /**
   * @brief  enable or disable tmr one cycle mode
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8, TMR9, TMR12, TMR20
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void TMR_ONE_Cycle_Mode_Enable(TMR_Type *TMR_x, confirm_state new_state) {
     /* tmr one cycle mode enable */
@@ -745,10 +745,10 @@ void TMR_ONE_Cycle_Mode_Enable(TMR_Type *TMR_x, confirm_state new_state) {
 /**
   * @brief  enable or disable  tmr 32 bit function(plus mode)
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR2, TMR5
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void TMR_32_Bit_Function_Enable (TMR_Type *TMR_x, confirm_state new_state) {
     /* tmr 32 bit function(plus mode) enable,only for TMR2/TMR5 */
@@ -760,11 +760,11 @@ void TMR_32_Bit_Function_Enable (TMR_Type *TMR_x, confirm_state new_state) {
 /**
   * @brief  select tmr the overflow event sources
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void TMR_OverFlow_Request_Source_Set(TMR_Type *TMR_x, confirm_state new_state) {
     TMR_x->ctrl1_bit.ovfs = new_state;
@@ -773,11 +773,11 @@ void TMR_OverFlow_Request_Source_Set(TMR_Type *TMR_x, confirm_state new_state) {
 /**
   * @brief  enable or disable tmr overflow event generation
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void TMR_OverFlow_Event_Disable(TMR_Type *TMR_x, confirm_state new_state) {
     TMR_x->ctrl1_bit.ovfen = new_state;
@@ -786,18 +786,18 @@ void TMR_OverFlow_Event_Disable(TMR_Type *TMR_x, confirm_state new_state) {
 /**
   * @brief  init tmr input channel
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  input_struct
   *         - to the structure of TMR_Input_Config_Type
   * @param  divider_factor
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Channel_Input_Div_1
   *         - TMR_Channel_Input_Div_2
   *         - TMR_Channel_Input_Div_4
   *         - TMR_Channel_Input_Div_8
-  * @retval none
+  * @retval 无
   */
 void TMR_Input_Channel_Init(TMR_Type *TMR_x, TMR_Input_Config_Type *input_struct, \
                             TMR_Channel_Input_Divider_Type divider_factor) {
@@ -854,11 +854,11 @@ void TMR_Input_Channel_Init(TMR_Type *TMR_x, TMR_Input_Config_Type *input_struct
 /**
   * @brief  tmr channel enable
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  TMR_Channel
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_1C
   *         - TMR_Select_Channel_2
@@ -867,7 +867,7 @@ void TMR_Input_Channel_Init(TMR_Type *TMR_x, TMR_Input_Config_Type *input_struct
   *         - TMR_Select_Channel_3C
   *         - TMR_Select_Channel_4
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void TMR_Channel_Enable(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel, confirm_state new_state) {
     uint16_t channel;
@@ -911,17 +911,17 @@ void TMR_Channel_Enable(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel, co
 /**
   * @brief  set tmr input channel filter
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  TMR_Channel
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_2
   *         - TMR_Select_Channel_3
   *         - TMR_Select_Channel_4
   * @param  filter_value (0x0~0xf)
-  * @retval none
+  * @retval 无
   */
 void TMR_Input_Channel_Filter_Set(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel, \
                                   uint16_t filter_value) {
@@ -954,18 +954,18 @@ void TMR_Input_Channel_Filter_Set(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_C
 /**
   * @brief  config tmr pwm input
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  input_struct
   *         - to the structure of TMR_Input_Config_Type
   * @param  divider_factor
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Channel_Input_Div_1
   *         - TMR_Channel_Input_Div_2
   *         - TMR_Channel_Input_Div_4
   *         - TMR_Channel_Input_Div_8
-  * @retval none
+  * @retval 无
   */
 void TMR_PWM_Input_Config(TMR_Type *TMR_x, TMR_Input_Config_Type *input_struct, \
                           TMR_Channel_Input_Divider_Type divider_factor) {
@@ -1053,13 +1053,13 @@ void TMR_PWM_Input_Config(TMR_Type *TMR_x, TMR_Input_Config_Type *input_struct, 
 /**
   * @brief  select tmr channel1 input
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR20
   * @param  ch1_Connect
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_CHANEL1_ConnectED_C1IRAW
   *         - TMR_CHANEL1_2_3_ConnectED_C1IRAW_XOR
-  * @retval none
+  * @retval 无
   */
 void TMR_Channel1_Input_Select(TMR_Type *TMR_x, TMR_Channel1_Input_Connected_Type ch1_Connect) {
     TMR_x->ctrl2_bit.c1insel = ch1_Connect;
@@ -1068,22 +1068,22 @@ void TMR_Channel1_Input_Select(TMR_Type *TMR_x, TMR_Channel1_Input_Connected_Typ
 /**
   * @brief  set tmr input channel divider
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  TMR_Channel
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_2
   *         - TMR_Select_Channel_3
   *         - TMR_Select_Channel_4
   * @param  divider_factor
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Channel_Input_Div_1
   *         - TMR_Channel_Input_Div_2
   *         - TMR_Channel_Input_Div_4
   *         - TMR_Channel_Input_Div_8
-  * @retval none
+  * @retval 无
   */
 void TMR_Input_Channel_Divider_Set(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel, \
                                    TMR_Channel_Input_Divider_Type divider_factor) {
@@ -1116,10 +1116,10 @@ void TMR_Input_Channel_Divider_Set(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_
 /**
   * @brief  select tmr primary mode
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8, TMR20
   * @param  primary_Mode
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Primary_SEL_Reset
   *         - TMR_Primary_SEL_Enable
   *         - TMR_Primary_SEL_OVERFLOW
@@ -1128,7 +1128,7 @@ void TMR_Input_Channel_Divider_Set(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_
   *         - TMR_Primary_SEL_C2ORAW
   *         - TMR_Primary_SEL_C3ORAW
   *         - TMR_Primary_SEL_C4ORAW
-  * @retval none
+  * @retval 无
   */
 void TMR_Primary_Mode_Select(TMR_Type *TMR_x, TMR_Primary_Select_Type primary_Mode) {
     TMR_x->ctrl2_bit.ptos = primary_Mode;
@@ -1137,10 +1137,10 @@ void TMR_Primary_Mode_Select(TMR_Type *TMR_x, TMR_Primary_Select_Type primary_Mo
 /**
   * @brief  select tmr subordinate mode
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR12, TMR20
   * @param  sub_Mode
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Sub_Mode_DIABLE
   *         - TMR_Sub_Encoder_Mode_A
   *         - TMR_Sub_Encoder_Mode_B
@@ -1150,7 +1150,7 @@ void TMR_Primary_Mode_Select(TMR_Type *TMR_x, TMR_Primary_Select_Type primary_Mo
   *         - TMR_Sub_Trigger_Mode
   *         - TMR_Sub_External_Clock_Mode_A
 
-  * @retval none
+  * @retval 无
   */
 void TMR_Sub_Mode_Select(TMR_Type *TMR_x, TMR_Sub_Mode_Select_Type sub_Mode) {
     TMR_x->stctrl_bit.smsel = sub_Mode;
@@ -1159,13 +1159,13 @@ void TMR_Sub_Mode_Select(TMR_Type *TMR_x, TMR_Sub_Mode_Select_Type sub_Mode) {
 /**
   * @brief  select tmr channel dma
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR12, TMR20
   * @param  cc_DMA_Select
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_DMA_Request_BY_ChanneL
   *         - TMR_DMA_Request_BY_OVERFLOW
-  * @retval none
+  * @retval 无
   */
 void TMR_Channel_DMA_Select(TMR_Type *TMR_x, TMR_DMA_Request_Source_Type cc_DMA_Select) {
     TMR_x->ctrl2_bit.drs = cc_DMA_Select;
@@ -1174,10 +1174,10 @@ void TMR_Channel_DMA_Select(TMR_Type *TMR_x, TMR_DMA_Request_Source_Type cc_DMA_
 /**
   * @brief  select tmr hall
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR8, TMR20
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void TMR_Hall_Select(TMR_Type *TMR_x,  confirm_state new_state) {
     TMR_x->ctrl2_bit.ccfs = new_state;
@@ -1186,10 +1186,10 @@ void TMR_Hall_Select(TMR_Type *TMR_x,  confirm_state new_state) {
 /**
   * @brief  select tmr channel buffer
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR8, TMR20
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void TMR_Channel_Buffer_Enable(TMR_Type *TMR_x, confirm_state new_state) {
     TMR_x->ctrl2_bit.cbctrl = new_state;
@@ -1198,10 +1198,10 @@ void TMR_Channel_Buffer_Enable(TMR_Type *TMR_x, confirm_state new_state) {
 /**
   * @brief  select tmr trgout2
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR8, TMR20
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void TMR_Trgout2_Enable(TMR_Type *TMR_x, confirm_state new_state) {
     TMR_x->ctrl2_bit.trgout2en = new_state;
@@ -1210,10 +1210,10 @@ void TMR_Trgout2_Enable(TMR_Type *TMR_x, confirm_state new_state) {
 /**
   * @brief  select tmr sub-trigger
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR12, TMR20
   * @param  trigger_Select
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Sub_Input_SEL_IS0
   *         - TMR_Sub_Input_SEL_IS1
   *         - TMR_Sub_Input_SEL_IS2
@@ -1222,7 +1222,7 @@ void TMR_Trgout2_Enable(TMR_Type *TMR_x, confirm_state new_state) {
   *         - TMR_Sub_Input_SEL_C1DF1
   *         - TMR_Sub_Input_SEL_C2DF2
   *         - TMR_Sub_Input_SEL_EXTIN
-  * @retval none
+  * @retval 无
   */
 void TMR_Trigger_Input_Select(TMR_Type *TMR_x, sub_TMR_Input_sel_Type trigger_Select) {
     TMR_x->stctrl_bit.stis = trigger_Select;
@@ -1231,10 +1231,10 @@ void TMR_Trigger_Input_Select(TMR_Type *TMR_x, sub_TMR_Input_sel_Type trigger_Se
 /**
   * @brief  set tmr subordinate synchronization mode
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR12, TMR20
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void TMR_Sub_Sync_Mode_Set(TMR_Type *TMR_x, confirm_state new_state) {
     TMR_x->stctrl_bit.sts = new_state;
@@ -1243,11 +1243,11 @@ void TMR_Sub_Sync_Mode_Set(TMR_Type *TMR_x, confirm_state new_state) {
 /**
   * @brief  enable or disable tmr dma request
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  DMA_request
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_OverFlow_DMA_REQUEST
   *         - TMR_C1_DMA_REQUEST
   *         - TMR_C2_DMA_REQUEST
@@ -1256,7 +1256,7 @@ void TMR_Sub_Sync_Mode_Set(TMR_Type *TMR_x, confirm_state new_state) {
   *         - TMR_Hall_DMA_REQUEST
   *         - TMR_Trigger_DMA_REQUEST
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void TMR_DMA_Request_Enable(TMR_Type *TMR_x, TMR_DMA_Request_Type DMA_request, confirm_state new_state) {
     if(new_state == TRUE) {
@@ -1269,11 +1269,11 @@ void TMR_DMA_Request_Enable(TMR_Type *TMR_x, TMR_DMA_Request_Type DMA_request, c
 /**
   * @brief  enable or disable tmr interrupt
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  TMR_Interrupt
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_OVF_INT
   *         - TMR_C1_INT
   *         - TMR_C2_INT
@@ -1283,7 +1283,7 @@ void TMR_DMA_Request_Enable(TMR_Type *TMR_x, TMR_DMA_Request_Type DMA_request, c
   *         - TMR_Trigger_INT
   *         - TMR_BRK_INT
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void TMR_Interrupt_Enable(TMR_Type *TMR_x, uint32_t TMR_Interrupt, confirm_state new_state) {
     if(new_state == TRUE) {
@@ -1296,11 +1296,11 @@ void TMR_Interrupt_Enable(TMR_Type *TMR_x, uint32_t TMR_Interrupt, confirm_state
 /**
   * @brief  get tmr flag
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  TMR_flag
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_OVF_FLAG
   *         - TMR_C1_FLAG
   *         - TMR_C2_FLAG
@@ -1331,11 +1331,11 @@ flag_status TMR_Flag_Get(TMR_Type *TMR_x, uint32_t TMR_flag) {
 /**
   * @brief  clear tmr flag
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  TMR_flag
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - TMR_OVF_FLAG
   *         - TMR_C1_FLAG
   *         - TMR_C2_FLAG
@@ -1349,7 +1349,7 @@ flag_status TMR_Flag_Get(TMR_Type *TMR_x, uint32_t TMR_flag) {
   *         - TMR_C2_RECAPTURE_FLAG
   *         - TMR_C3_RECAPTURE_FLAG
   *         - TMR_C4_RECAPTURE_FLAG
-  * @retval none
+  * @retval 无
   */
 void TMR_Flag_Clear(TMR_Type *TMR_x, uint32_t TMR_flag) {
     TMR_x->ists = ~TMR_flag;
@@ -1358,11 +1358,11 @@ void TMR_Flag_Clear(TMR_Type *TMR_x, uint32_t TMR_flag) {
 /**
   * @brief  generate tmr event
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR6, TMR7, TMR8,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  TMR_event
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_OverFlow_SWTRIG
   *         - TMR_C1_SWTRIG
   *         - TMR_C2_SWTRIG
@@ -1371,7 +1371,7 @@ void TMR_Flag_Clear(TMR_Type *TMR_x, uint32_t TMR_flag) {
   *         - TMR_Hall_SWTRIG
   *         - TMR_Trigger_SWTRIG
   *         - TMR_BRK_SWTRIG
-  * @retval none
+  * @retval 无
   */
 void TMR_Event_SW_trigger(TMR_Type *TMR_x, TMR_Event_Trigger_Type TMR_event) {
     TMR_x->swevt |= TMR_event;
@@ -1380,10 +1380,10 @@ void TMR_Event_SW_trigger(TMR_Type *TMR_x, TMR_Event_Trigger_Type TMR_event) {
 /**
   * @brief  tmr output enable(oen),this function is important for advtm output enable
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR8, TMR20
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void TMR_OutPut_Enable(TMR_Type *TMR_x, confirm_state new_state) {
     TMR_x->brk_bit.oen = new_state;
@@ -1392,9 +1392,9 @@ void TMR_OutPut_Enable(TMR_Type *TMR_x, confirm_state new_state) {
 /**
   * @brief  set tmr select internal clock
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR12, TMR20
-  * @retval none
+  * @retval 无
   */
 void TMR_Internal_Clock_Set(TMR_Type *TMR_x) {
     TMR_x->stctrl_bit.smsel = TMR_Sub_Mode_DIABLE;
@@ -1403,11 +1403,11 @@ void TMR_Internal_Clock_Set(TMR_Type *TMR_x) {
 /**
   * @brief  set tmr output channel polarity
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  TMR_Channel
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_2
   *         - TMR_Select_Channel_3
@@ -1416,10 +1416,10 @@ void TMR_Internal_Clock_Set(TMR_Type *TMR_x) {
   *         - TMR_Select_Channel_2C
   *         - TMR_Select_Channel_3C
   * @param  oc_polarity
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Polarity_ACTIVE_HIGH
   *         - TMR_Polarity_ACTIVE_LOW
-  * @retval none
+  * @retval 无
   */
 void TMR_OutPut_Channel_Polarity_Set(TMR_Type *TMR_x, TMR_Channel_Select_Type TMR_Channel, \
                                      TMR_Polarity_active_Type oc_polarity) {
@@ -1464,20 +1464,20 @@ void TMR_OutPut_Channel_Polarity_Set(TMR_Type *TMR_x, TMR_Channel_Select_Type TM
 /**
   * @brief  config tmr external clock
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR20
   * @param  es_divide
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_ES_Frequency_Div_1
   *         - TMR_ES_Frequency_Div_2
   *         - TMR_ES_Frequency_Div_4
   *         - TMR_ES_Frequency_Div_8
   * @param  es_polarity
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_ES_Polarity_NON_INVERTED
   *         - TMR_ES_Polarity_INVERTED
   * @param  es_filter (0x0~0xf)
-  * @retval none
+  * @retval 无
   */
 void TMR_External_Clock_Config(TMR_Type *TMR_x, TMR_External_signal_Divider_Type es_divide, \
                                TMR_External_signal_Polarity_Type  es_polarity, uint16_t es_filter) {
@@ -1489,20 +1489,20 @@ void TMR_External_Clock_Config(TMR_Type *TMR_x, TMR_External_signal_Divider_Type
 /**
   * @brief  config tmr external clock mode1
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR12, TMR20
   * @param  es_divide
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_ES_Frequency_Div_1
   *         - TMR_ES_Frequency_Div_2
   *         - TMR_ES_Frequency_Div_4
   *         - TMR_ES_Frequency_Div_8
   * @param  es_polarity
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_ES_Polarity_NON_INVERTED
   *         - TMR_ES_Polarity_INVERTED
   * @param  es_filter (0x0~0xf)
-  * @retval none
+  * @retval 无
   */
 void TMR_External_Clock_Mode1_Config(TMR_Type *TMR_x, TMR_External_signal_Divider_Type es_divide, \
                                      TMR_External_signal_Polarity_Type  es_polarity, uint16_t es_filter) {
@@ -1514,20 +1514,20 @@ void TMR_External_Clock_Mode1_Config(TMR_Type *TMR_x, TMR_External_signal_Divide
 /**
   * @brief  config tmr external clock mode2
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR20
   * @param  es_divide
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_ES_Frequency_Div_1
   *         - TMR_ES_Frequency_Div_2
   *         - TMR_ES_Frequency_Div_4
   *         - TMR_ES_Frequency_Div_8
   * @param  es_polarity
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_ES_Polarity_NON_INVERTED
   *         - TMR_ES_Polarity_INVERTED
   * @param  es_filter (0x0~0xf)
-  * @retval none
+  * @retval 无
   */
 void TMR_External_Clock_Mode2_Config(TMR_Type *TMR_x, TMR_External_signal_Divider_Type es_divide, \
                                      TMR_External_signal_Polarity_Type  es_polarity, uint16_t es_filter) {
@@ -1538,24 +1538,24 @@ void TMR_External_Clock_Mode2_Config(TMR_Type *TMR_x, TMR_External_signal_Divide
 /**
   * @brief  config tmr encoder mode
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR20
   * @param  encoder_Mode
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Encoder_Mode_A
   *         - TMR_Encoder_Mode_B
   *         - TMR_Encoder_Mode_C
   * @param  ic1_polarity
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Input_RISING_EDGE
   *         - TMR_Input_FALLING_EDGE
   *         - TMR_Input_BOTH_EDGE
   * @param  ic2_polarity
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Input_RISING_EDGE
   *         - TMR_Input_FALLING_EDGE
   *         - TMR_Input_BOTH_EDGE
-  * @retval none
+  * @retval 无
   */
 void TMR_Encoder_Mode_Config(TMR_Type *TMR_x, TMR_Encoder_Mode_Type encoder_Mode, TMR_Input_Polarity_Type \
                              ic1_polarity, TMR_Input_Polarity_Type ic2_polarity) {
@@ -1577,21 +1577,21 @@ void TMR_Encoder_Mode_Config(TMR_Type *TMR_x, TMR_Encoder_Mode_Type encoder_Mode
 /**
   * @brief  set tmr force output
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR9, TMR10,
   *         TMR11, TMR12, TMR13, TMR14, TMR20
   * @param  TMR_Channel
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Select_Channel_1
   *         - TMR_Select_Channel_2
   *         - TMR_Select_Channel_3
   *         - TMR_Select_Channel_4
   *         - TMR_Select_Channel_5
   * @param  force_Output
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_Force_OutPut_HIGH
   *         - TMR_Force_OutPut_LOW
-  * @retval none
+  * @retval 无
   */
 void TMR_Force_OutPut_Set(TMR_Type *TMR_x,  TMR_Channel_Select_Type TMR_Channel, \
                           TMR_Force_OutPut_Type force_Output) {
@@ -1628,10 +1628,10 @@ void TMR_Force_OutPut_Set(TMR_Type *TMR_x,  TMR_Channel_Select_Type TMR_Channel,
 /**
   * @brief  config tmr dma control
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR2, TMR3, TMR4, TMR5, TMR8, TMR20
   * @param  DMA_length
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_DMA_Transfer_1BYTE
   *         - TMR_DMA_Transfer_2BYTES
   *         - TMR_DMA_Transfer_3BYTES
@@ -1639,7 +1639,7 @@ void TMR_Force_OutPut_Set(TMR_Type *TMR_x,  TMR_Channel_Select_Type TMR_Channel,
   *         - TMR_DMA_Transfer_17BYTES
   *         - TMR_DMA_Transfer_18BYTES
   * @param  DMA_Base_Address
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TMR_CTRL1_Address
   *         - TMR_CTRL2_Address
   *         - TMR_STCTRL_Address
@@ -1659,7 +1659,7 @@ void TMR_Force_OutPut_Set(TMR_Type *TMR_x,  TMR_Channel_Select_Type TMR_Channel,
   *         - TMR_C4DT_Address
   *         - TMR_BRK_Address
   *         - TMR_DMACTRL_Address
-  * @retval none
+  * @retval 无
   */
 void TMR_DMA_Control_Config(TMR_Type *TMR_x, TMR_DMA_Transfer_Length_Type DMA_length, \
                             TMR_DMA_Address_Type DMA_Base_Address) {
@@ -1670,11 +1670,11 @@ void TMR_DMA_Control_Config(TMR_Type *TMR_x, TMR_DMA_Transfer_Length_Type DMA_le
 /**
   * @brief  config tmr break mode and dead-time
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR1, TMR8, TMR20
   * @param  brkdt_struct
   *         - to the structure of TMR_Brkdt_Config_Type
-  * @retval none
+  * @retval 无
   */
 void TMR_Brkdt_Config(TMR_Type *TMR_x, TMR_Brkdt_Config_Type *brkdt_struct) {
     TMR_x->brk_bit.brken = brkdt_struct->brk_Enable;
@@ -1689,14 +1689,14 @@ void TMR_Brkdt_Config(TMR_Type *TMR_x, TMR_Brkdt_Config_Type *brkdt_struct) {
 /**
   * @brief  set tmr2/tmr5 input channel remap
   * @param  TMR_x: select the tmr peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         TMR2, TMR5
   * @param  input_remap
   *         - TMR2_TMR8TRGOUT_TMR5_GPIO
   *         - TMR2_PTP_TMR5_LICK
   *         - TMR2_OTG1FS_TMR5_LEXT
   *         - TMR2_OTG2FS_TMR5_ERTC
-  * @retval none
+  * @retval 无
   */
 void TMR_Iremap_Config(TMR_Type *TMR_x, TMR_Input_remap_Type input_remap) {
     if(TMR_x == TMR2) {

@@ -41,8 +41,8 @@
 
 /**
   * @brief  dac reset
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void DAC_Reset(void) {
     CRM_Periph_Reset(CRM_DAC_Periph_Reset, TRUE);
@@ -52,11 +52,11 @@ void DAC_Reset(void) {
 /**
   * @brief  enable or disable dac
   * @param  DAC_Select
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DAC1_Select
   *         - DAC2_Select
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void DAC_Enable(DAC_Select_Type DAC_Select, confirm_state new_state) {
     switch(DAC_Select) {
@@ -76,11 +76,11 @@ void DAC_Enable(DAC_Select_Type DAC_Select, confirm_state new_state) {
 /**
   * @brief  enable or disable dac output buffer
   * @param  DAC_Select
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DAC1_Select
   *         - DAC2_Select
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void DAC_OutPut_Buffer_Enable(DAC_Select_Type DAC_Select, confirm_state new_state) {
     new_state = (confirm_state)!new_state;
@@ -102,11 +102,11 @@ void DAC_OutPut_Buffer_Enable(DAC_Select_Type DAC_Select, confirm_state new_stat
 /**
   * @brief  enable or disable dac trigger
   * @param  DAC_Select
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DAC1_Select
   *         - DAC2_Select
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void DAC_Trigger_Enable(DAC_Select_Type DAC_Select, confirm_state new_state) {
     switch(DAC_Select) {
@@ -126,11 +126,11 @@ void DAC_Trigger_Enable(DAC_Select_Type DAC_Select, confirm_state new_state) {
 /**
   * @brief  select dac trigger
   * @param  DAC_Select
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DAC1_Select
   *         - DAC2_Select
   * @param  DAC_Trigger_source
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DAC_TMR6_Trgout_EVENT
   *         - DAC_TMR8_Trgout_EVENT
   *         - DAC_TMR7_Trgout_EVENT
@@ -139,7 +139,7 @@ void DAC_Trigger_Enable(DAC_Select_Type DAC_Select, confirm_state new_state) {
   *         - DAC_TMR4_Trgout_EVENT
   *         - DAC_External_Interrupt_Line_9
   *         - DAC_Software_TRIGGER
-  * @retval none
+  * @retval 无
   */
 void DAC_Trigger_Select(DAC_Select_Type DAC_Select, DAC_Trigger_Type DAC_Trigger_source) {
     switch(DAC_Select) {
@@ -159,10 +159,10 @@ void DAC_Trigger_Select(DAC_Select_Type DAC_Select, DAC_Trigger_Type DAC_Trigger
 /**
   * @brief  generate dac software trigger
   * @param  DAC_Select
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DAC1_Select
   *         - DAC2_Select
-  * @retval none
+  * @retval 无
   */
 void DAC_Software_Trigger_Generate(DAC_Select_Type DAC_Select) {
     switch(DAC_Select) {
@@ -181,8 +181,8 @@ void DAC_Software_Trigger_Generate(DAC_Select_Type DAC_Select) {
 
 /**
   * @brief  generate dac dual software trigger synchronously
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void DAC_Dual_Software_Trigger_Generate(void) {
     DAC->swtrg |= 0x03;
@@ -191,15 +191,15 @@ void DAC_Dual_Software_Trigger_Generate(void) {
 /**
   * @brief  generate dac wave
   * @param  DAC_Select
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DAC1_Select
   *         - DAC2_Select
   * @param  DAC_wave
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DAC_Wave_Generate_NONE
   *         - DAC_Wave_Generate_NOISE
   *         - DAC_Wave_Generate_TRIANGLE
-  * @retval none
+  * @retval 无
   */
 void DAC_Wave_Generate(DAC_Select_Type DAC_Select, DAC_Wave_Type DAC_wave) {
     switch(DAC_Select) {
@@ -219,11 +219,11 @@ void DAC_Wave_Generate(DAC_Select_Type DAC_Select, DAC_Wave_Type DAC_wave) {
 /**
   * @brief  select dac mask amplitude
   * @param  DAC_Select
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DAC1_Select
   *         - DAC2_Select
   * @param  DAC_Mask_amplitude
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DAC_LSFR_BIT0_Amplitude_1
   *         - DAC_LSFR_BIT10_Amplitude_3
   *         - DAC_LSFR_BIT20_Amplitude_7
@@ -236,7 +236,7 @@ void DAC_Wave_Generate(DAC_Select_Type DAC_Select, DAC_Wave_Type DAC_wave) {
   *         - DAC_LSFR_BIT90_Amplitude_1023
   *         - DAC_LSFR_BITA0_Amplitude_2047
   *         - DAC_LSFR_BITB0_Amplitude_4095
-  * @retval none
+  * @retval 无
   */
 void DAC_Mask_Amplitude_Select(DAC_Select_Type DAC_Select, DAC_Mask_Amplitude_Type DAC_Mask_amplitude) {
     switch(DAC_Select) {
@@ -256,11 +256,11 @@ void DAC_Mask_Amplitude_Select(DAC_Select_Type DAC_Select, DAC_Mask_Amplitude_Ty
 /**
   * @brief  enable or disable dac dma
   * @param  DAC_Select
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DAC1_Select
   *         - DAC2_Select
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void DAC_DMA_Enable(DAC_Select_Type DAC_Select, confirm_state new_state) {
     switch(DAC_Select) {
@@ -280,7 +280,7 @@ void DAC_DMA_Enable(DAC_Select_Type DAC_Select, confirm_state new_state) {
 /**
   * @brief  get dac data output
   * @param  DAC_Select
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DAC1_Select
   *         - DAC2_Select
   * @retval dac channel data output
@@ -307,12 +307,12 @@ uint16_t DAC_Data_OutPut_Get(DAC_Select_Type DAC_Select) {
 /**
   * @brief  set dac1 data
   * @param  dac1_aligned
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         DAC1_12BIT_RIGHT
   *         DAC1_12BIT_LEFT
   *         DAC1_8BIT_RIGHT
   * @param  dac1_data :indecate from selected data holding register
-  * @retval none
+  * @retval 无
   */
 void DAC_1_Data_Set(dac1_Aligned_Data_Type dac1_aligned, uint16_t dac1_data) {
     *(__IO uint32_t *) dac1_aligned = dac1_data;
@@ -321,12 +321,12 @@ void DAC_1_Data_Set(dac1_Aligned_Data_Type dac1_aligned, uint16_t dac1_data) {
 /**
   * @brief  set dac2 data
   * @param  dac2_aligned
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         DAC2_12BIT_RIGHT
   *         DAC2_12BIT_LEFT
   *         DAC2_8BIT_RIGHT
   * @param  dac2_data :indecate from selected data holding register
-  * @retval none
+  * @retval 无
   */
 void DAC_2_Data_Set(dac2_Aligned_Data_Type dac2_aligned, uint16_t dac2_data) {
     *(__IO uint32_t *) dac2_aligned = dac2_data;
@@ -335,13 +335,13 @@ void DAC_2_Data_Set(dac2_Aligned_Data_Type dac2_aligned, uint16_t dac2_data) {
 /**
   * @brief  set dac dual data
   * @param  DAC_dual
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         DAC_Dual_12BIT_RIGHT
   *         DAC_Dual_12BIT_LEFT
   *         DAC_Dual_8BIT_RIGHT
   * @param  data1 :dac1 channel indecate from selected data holding register
   * @param  data2 :dac1 channel indecate from selected data holding register
-  * @retval none
+  * @retval 无
   */
 void DAC_Dual_Data_Set(DAC_Dual_Data_Type DAC_dual, uint16_t data1, uint16_t data2) {
     switch(DAC_dual) {
@@ -365,11 +365,11 @@ void DAC_Dual_Data_Set(DAC_Dual_Data_Type DAC_dual, uint16_t data1, uint16_t dat
 /**
   * @brief  enable/disable dac dma udr interrupt
   * @param  DAC_Select
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DAC1_Select
   *         - DAC2_Select
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void DAC_UDR_Enable(DAC_Select_Type DAC_Select, confirm_state new_state) {
     switch(DAC_Select) {
@@ -389,7 +389,7 @@ void DAC_UDR_Enable(DAC_Select_Type DAC_Select, confirm_state new_state) {
 /**
   * @brief  get flag of the dac udr flag.
   * @param  DAC_Select
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DAC1_Select
   *         - DAC2_Select
   * @retval the new state of dac udr flag status(SET or RESET).
@@ -420,10 +420,10 @@ flag_status DAC_UDR_Flag_Get(DAC_Select_Type DAC_Select) {
 /**
   * @brief  clear the dac udr flag.
   * @param  DAC_Select
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DAC1_Select
   *         - DAC2_Select
-  * @retval none
+  * @retval 无
   */
 void DAC_UDR_Flag_Clear(DAC_Select_Type DAC_Select) {
     switch(DAC_Select) {

@@ -41,8 +41,8 @@
 
 /**
   * @brief  wdt enable ,the reload value will be sent to the counter
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void WDT_Enable(void) {
     WDT->cmd = WDT_CMD_Enable;
@@ -50,8 +50,8 @@ void WDT_Enable(void) {
 
 /**
   * @brief  reload wdt counter
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void WDT_Counter_reload(void) {
     WDT->cmd = WDT_CMD_RELOAD;
@@ -60,7 +60,7 @@ void WDT_Counter_reload(void) {
 /**
   * @brief  set wdt counter reload value
   * @param  reload_value (0x0000~0x0FFF)
-  * @retval none
+  * @retval 无
   */
 void WDT_Reload_Value_Set(uint16_t reload_value) {
     WDT->rld = reload_value;
@@ -69,7 +69,7 @@ void WDT_Reload_Value_Set(uint16_t reload_value) {
 /**
   * @brief  set wdt division divider
   * @param  division
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - WDT_CLK_Div_4
   *         - WDT_CLK_Div_8
   *         - WDT_CLK_Div_16
@@ -77,7 +77,7 @@ void WDT_Reload_Value_Set(uint16_t reload_value) {
   *         - WDT_CLK_Div_64
   *         - WDT_CLK_Div_128
   *         - WDT_CLK_Div_256
-  * @retval none
+  * @retval 无
   */
 void WDT_Divider_Set(WDT_Division_Type division) {
     WDT->div_bit.div = division;
@@ -86,7 +86,7 @@ void WDT_Divider_Set(WDT_Division_Type division) {
 /**
   * @brief  enable or disable wdt cmd register write
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void WDT_Register_Write_Enable( confirm_state new_state) {
     if(new_state == FALSE) {
@@ -99,7 +99,7 @@ void WDT_Register_Write_Enable( confirm_state new_state) {
 /**
   * @brief  get wdt flag
   * @param  WDT_flag
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - WDT_DIVF_Update_FLAG: division value update complete flag.
   *         - WDT_RLDF_Update_FLAG: reload value update complete flag.
   *         - WDT_WINF_Update_FLAG: window value update complete flag.
@@ -120,7 +120,7 @@ flag_status WDT_Flag_Get(uint16_t WDT_flag) {
 /**
   * @brief  wdt window counter value set
   * @param  window_cnt (0x0000~0x0FFF)
-  * @retval none
+  * @retval 无
   */
 void WDT_Window_Counter_Set(uint16_t window_cnt) {
     WDT->win_bit.win = window_cnt;

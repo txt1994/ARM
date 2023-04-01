@@ -42,9 +42,9 @@
 /**
   * @brief  reset the i2c register
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
-  * @retval none
+  * @retval 无
   */
 void I2C_Reset(I2C_Type *I2C_x) {
     if(I2C_x == I2C1) {
@@ -62,11 +62,11 @@ void I2C_Reset(I2C_Type *I2C_x) {
 /**
   * @brief  init i2c digit filters and clock control register.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  dfilters: number of digit filters (0x00~0x0F).
   * @param  clk: i2c clock control register (0x00000000~0xFFFFFFFF).
-  * @retval none
+  * @retval 无
   */
 void I2C_Init(I2C_Type *I2C_x, uint8_t dfilters, uint32_t clk) {
     /* disable i2c peripheral */
@@ -82,14 +82,14 @@ void I2C_Init(I2C_Type *I2C_x, uint8_t dfilters, uint32_t clk) {
 /**
   * @brief  config i2c own address 1.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  mode: i2c address mode.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - I2C_Address_Mode_7BIT: 7bit address.
   *         - I2C_Address_Mode_10BIT: 10bit address.
   * @param  address: own address 1, such as 0xB0.
-  * @retval none
+  * @retval 无
   */
 void I2C_Own_Address1_Set(I2C_Type *I2C_x, I2C_Address_Mode_Type mode, uint16_t address) {
     /* config address mode */
@@ -105,11 +105,11 @@ void I2C_Own_Address1_Set(I2C_Type *I2C_x, I2C_Address_Mode_Type mode, uint16_t 
 /**
   * @brief  config i2c own address 2 and mask.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  address: own address 1, such as 0xC0.
   * @param  mask: own address 2 mask.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - I2C_Addr2_NOMASK: compare bit      [7:1].
   *         - I2C_Addr2_MASK01: only compare bit [7:2].
   *         - I2C_Addr2_MASK02: only compare bit [7:2].
@@ -118,7 +118,7 @@ void I2C_Own_Address1_Set(I2C_Type *I2C_x, I2C_Address_Mode_Type mode, uint16_t 
   *         - I2C_Addr2_MASK05: only compare bit [7:5].
   *         - I2C_Addr2_MASK06: only compare bit [7:6].
   *         - I2C_Addr2_MASK07: only compare bit [7].
-  * @retval none
+  * @retval 无
   */
 void I2C_Own_Address2_Set(I2C_Type *I2C_x, uint8_t address, I2C_Addr2_Mask_Type mask) {
     I2C_x->oaddr2_bit.addr2mask = mask;
@@ -129,10 +129,10 @@ void I2C_Own_Address2_Set(I2C_Type *I2C_x, uint8_t address, I2C_Addr2_Mask_Type 
 /**
   * @brief  enable or disable own address 2.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  new_state (TRUE or FALSE).
-  * @retval none
+  * @retval 无
   */
 void I2C_Own_Address2_Enable(I2C_Type *I2C_x, confirm_state new_state) {
     I2C_x->oaddr2_bit.addr2en = new_state;
@@ -141,14 +141,14 @@ void I2C_Own_Address2_Enable(I2C_Type *I2C_x, confirm_state new_state) {
 /**
   * @brief  enable or disable smbus mode.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  mode: smbus device mode.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - I2C_SmBus_Mode_DEVICE: smbus device.
   *         - I2C_SmBus_Mode_HOST: smbus host.
   * @param  new_state (TRUE or FALSE).
-  * @retval none
+  * @retval 无
   */
 void I2C_SmBus_Enable(I2C_Type *I2C_x, I2C_SmBus_Mode_Type mode, confirm_state new_state) {
     switch (mode) {
@@ -168,10 +168,10 @@ void I2C_SmBus_Enable(I2C_Type *I2C_x, I2C_SmBus_Mode_Type mode, confirm_state n
 /**
   * @brief  enable or disable peripheral.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  new_state (TRUE or FALSE).
-  * @retval none
+  * @retval 无
   */
 void I2C_Enable(I2C_Type *I2C_x, confirm_state new_state) {
     I2C_x->ctrl1_bit.i2cen = new_state;
@@ -180,10 +180,10 @@ void I2C_Enable(I2C_Type *I2C_x, confirm_state new_state) {
 /**
   * @brief  enable or disable clock stretch.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  new_state (TRUE or FALSE).
-  * @retval none
+  * @retval 无
   */
 void I2C_Clock_Stretch_Enable(I2C_Type *I2C_x, confirm_state new_state) {
     I2C_x->ctrl1_bit.stretch = (!new_state);
@@ -192,10 +192,10 @@ void I2C_Clock_Stretch_Enable(I2C_Type *I2C_x, confirm_state new_state) {
 /**
   * @brief  enable or disable ack.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  new_state (TRUE or FALSE).
-  * @retval none.
+  * @retval 无.
   */
 void I2C_ACK_Enable(I2C_Type *I2C_x, confirm_state new_state) {
     I2C_x->ctrl2_bit.nacken  = (!new_state);
@@ -204,10 +204,10 @@ void I2C_ACK_Enable(I2C_Type *I2C_x, confirm_state new_state) {
 /**
   * @brief  enable or disable 10-bit address mode (master transfer).
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  new_state (TRUE or FALSE).
-  * @retval none
+  * @retval 无
   */
 void I2C_Addr10_Mode_Enable(I2C_Type *I2C_x, confirm_state new_state) {
     I2C_x->ctrl2_bit.addr10 = new_state;
@@ -216,10 +216,10 @@ void I2C_Addr10_Mode_Enable(I2C_Type *I2C_x, confirm_state new_state) {
 /**
   * @brief  config the slave address to be transmitted.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  address: slave address.
-  * @retval none
+  * @retval 无
   */
 void I2C_Transfer_Addr_Set(I2C_Type *I2C_x, uint16_t address) {
     I2C_x->ctrl2_bit.saddr = address & 0x03FF;
@@ -228,7 +228,7 @@ void I2C_Transfer_Addr_Set(I2C_Type *I2C_x, uint16_t address) {
 /**
   * @brief  get the slave address to be transmitted.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @retval slave address
   */
@@ -239,13 +239,13 @@ uint16_t I2C_Transfer_Addr_Get(I2C_Type *I2C_x) {
 /**
   * @brief  config the master transfer direction.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  I2C_direction: transfer request direction.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - I2C_Dir_Transmit: master request a write transfer.
   *         - I2C_Dir_Receive: master request a read transfer.
-  * @retval none
+  * @retval 无
   */
 void I2C_Transfer_Dir_Set(I2C_Type *I2C_x, I2C_Transfer_Dir_Type I2C_direction) {
     I2C_x->ctrl2_bit.dir = I2C_direction;
@@ -254,7 +254,7 @@ void I2C_Transfer_Dir_Set(I2C_Type *I2C_x, I2C_Transfer_Dir_Type I2C_direction) 
 /**
   * @brief  slave get the i2c transfer direction.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @retval the value of the slave direction
   *         - I2C_Dir_Transmit: master request a write transfer, slave enters receiver mode.
@@ -271,7 +271,7 @@ I2C_Transfer_Dir_Type I2C_Transfer_Dir_Get(I2C_Type *I2C_x) {
 /**
   * @brief  get the i2c slave matched address.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @retval slave matched address.
   */
@@ -282,10 +282,10 @@ uint8_t I2C_Matched_Addr_Get(I2C_Type *I2C_x) {
 /**
   * @brief  enable or disable auto send stop mode.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  new_state (TRUE or FALSE).
-  * @retval none
+  * @retval 无
   */
 void I2C_Auto_Stop_Enable(I2C_Type *I2C_x, confirm_state new_state) {
     I2C_x->ctrl2_bit.astopen = new_state;
@@ -294,10 +294,10 @@ void I2C_Auto_Stop_Enable(I2C_Type *I2C_x, confirm_state new_state) {
 /**
   * @brief  enable or disable cnt reload mode.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  new_state (TRUE or FALSE).
-  * @retval none
+  * @retval 无
   */
 void I2C_Reload_Enable(I2C_Type *I2C_x, confirm_state new_state) {
     I2C_x->ctrl2_bit.rlden = new_state;
@@ -306,10 +306,10 @@ void I2C_Reload_Enable(I2C_Type *I2C_x, confirm_state new_state) {
 /**
   * @brief  config the transfer cnt .
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  cnt: transfer cnt.
-  * @retval none
+  * @retval 无
   */
 void I2C_CNT_Set(I2C_Type *I2C_x, uint8_t cnt) {
     I2C_x->ctrl2_bit.cnt = cnt;
@@ -319,10 +319,10 @@ void I2C_CNT_Set(I2C_Type *I2C_x, uint8_t cnt) {
   * @brief  enable or disable read 10-bit header, this mode
   *         only used in 10-bit address mode read.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  new_state (TRUE or FALSE).
-  * @retval none
+  * @retval 无
   */
 void I2C_Addr10_header_Enable(I2C_Type *I2C_x, confirm_state new_state) {
     I2C_x->ctrl2_bit.readh10 = new_state;
@@ -331,10 +331,10 @@ void I2C_Addr10_header_Enable(I2C_Type *I2C_x, confirm_state new_state) {
 /**
   * @brief  enable or disable general call mode.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  new_state (TRUE or FALSE).
-  * @retval none
+  * @retval 无
   */
 void I2C_General_Call_Enable(I2C_Type *I2C_x, confirm_state new_state) {
     I2C_x->ctrl1_bit.gcaen = new_state;
@@ -343,13 +343,13 @@ void I2C_General_Call_Enable(I2C_Type *I2C_x, confirm_state new_state) {
 /**
   * @brief  drives the smbus alert pin high or low.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  level
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - I2C_SmBus_Alert_LOW: smbus alert set low.
   *         - I2C_SmBus_Alert_HIGH: smbus alert set high.
-  * @retval none
+  * @retval 无
   */
 void I2C_SmBus_Alert_Set(I2C_Type *I2C_x, I2C_SmBus_Alert_Set_Type level) {
     I2C_x->ctrl1_bit.smbalert = level;
@@ -358,10 +358,10 @@ void I2C_SmBus_Alert_Set(I2C_Type *I2C_x, I2C_SmBus_Alert_Set_Type level) {
 /**
   * @brief  enable or disable slave data control.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  new_state (TRUE or FALSE).
-  * @retval none
+  * @retval 无
   */
 void I2C_Slave_Data_Ctrl_Enable(I2C_Type *I2C_x, confirm_state new_state) {
     I2C_x->ctrl1_bit.sctrl = new_state;
@@ -370,10 +370,10 @@ void I2C_Slave_Data_Ctrl_Enable(I2C_Type *I2C_x, confirm_state new_state) {
 /**
   * @brief  enable or disable pec calculate.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  new_state (TRUE or FALSE).
-  * @retval none
+  * @retval 无
   */
 void I2C_PEC_Calculate_Enable(I2C_Type *I2C_x, confirm_state new_state) {
     I2C_x->ctrl1_bit.pecen = new_state;
@@ -382,10 +382,10 @@ void I2C_PEC_Calculate_Enable(I2C_Type *I2C_x, confirm_state new_state) {
 /**
   * @brief  enable or disable pec transfer.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  new_state (TRUE or FALSE).
-  * @retval none
+  * @retval 无
   */
 void I2C_PEC_Transmit_Enable(I2C_Type *I2C_x, confirm_state new_state) {
     I2C_x->ctrl2_bit.pecten = new_state;
@@ -394,7 +394,7 @@ void I2C_PEC_Transmit_Enable(I2C_Type *I2C_x, confirm_state new_state) {
 /**
   * @brief  get the i2c pec value.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @retval the value of the pec.
   */
@@ -405,10 +405,10 @@ uint8_t I2C_PEC_Value_Get(I2C_Type *I2C_x) {
 /**
   * @brief  config the i2c bus timeout.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  timeout: timeout (0x0000~0x0FFF).
-  * @retval none
+  * @retval 无
   */
 void I2C_TimeOut_Set(I2C_Type *I2C_x, uint16_t timeout) {
     I2C_x->timeout_bit.totime = timeout;
@@ -417,13 +417,13 @@ void I2C_TimeOut_Set(I2C_Type *I2C_x, uint16_t timeout) {
 /**
   * @brief  config the bus timeout detcet level.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  level
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - I2C_TimeOut_Detcet_HIGH: detect high level timeout.
   *         - I2C_TimeOut_Detcet_LOW: detect low level timeout.
-  * @retval none
+  * @retval 无
   */
 void I2C_TimeOut_Detcet_Set(I2C_Type *I2C_x, I2C_TimeOut_Detcet_Type mode) {
     I2C_x->timeout_bit.tomode = mode;
@@ -432,10 +432,10 @@ void I2C_TimeOut_Detcet_Set(I2C_Type *I2C_x, I2C_TimeOut_Detcet_Type mode) {
 /**
   * @brief  enable or disable bus timeout.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  new_state (TRUE or FALSE).
-  * @retval none
+  * @retval 无
   */
 void I2C_TimeOut_Enable(I2C_Type *I2C_x, confirm_state new_state) {
     I2C_x->timeout_bit.toen = new_state;
@@ -444,10 +444,10 @@ void I2C_TimeOut_Enable(I2C_Type *I2C_x, confirm_state new_state) {
 /**
   * @brief  config the i2c extend bus timeout.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  timeout: extend timeout (0x0000~0x0FFF).
-  * @retval none
+  * @retval 无
   */
 void I2C_Ext_TimeOut_Set(I2C_Type *I2C_x, uint16_t timeout) {
     I2C_x->timeout_bit.exttime = timeout;
@@ -456,10 +456,10 @@ void I2C_Ext_TimeOut_Set(I2C_Type *I2C_x, uint16_t timeout) {
 /**
   * @brief  enable or disable extend bus timeout.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  new_state (TRUE or FALSE).
-  * @retval none
+  * @retval 无
   */
 void I2C_Ext_TimeOut_Enable(I2C_Type *I2C_x, confirm_state new_state) {
     I2C_x->timeout_bit.exten = new_state;
@@ -468,10 +468,10 @@ void I2C_Ext_TimeOut_Enable(I2C_Type *I2C_x, confirm_state new_state) {
 /**
   * @brief  enable or disable interrupts.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  I2C_int: interrupts sources.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - I2C_TD_INT: transmit data interrupt.
   *         - I2C_RD_INT: receive data interrupt.
   *         - I2C_Addr_INT: address match interrupt.
@@ -480,7 +480,7 @@ void I2C_Ext_TimeOut_Enable(I2C_Type *I2C_x, confirm_state new_state) {
   *         - I2C_TDC_INT:  transmit data complete interrupt.
   *         - I2C_ERR_INT: bus error interrupt.
   * @param  new_state (TRUE or FALSE).
-  * @retval none
+  * @retval 无
   */
 void I2C_Interrupt_Enable(I2C_Type *I2C_x, uint32_t source, confirm_state new_state) {
     if (new_state != FALSE) {
@@ -493,10 +493,10 @@ void I2C_Interrupt_Enable(I2C_Type *I2C_x, uint32_t source, confirm_state new_st
 /**
   * @brief  get interrupt status
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  source
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - I2C_TD_INT: transmit data interrupt.
   *         - I2C_RD_INT: receive data interrupt.
   *         - I2C_Addr_INT: address match interrupt.
@@ -517,14 +517,14 @@ flag_status I2C_Interrupt_Get(I2C_Type *I2C_x, uint16_t source) {
 /**
   * @brief  enable or disable dma requests.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  DMA_req: dma transfer request.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - I2C_DMA_Request_TX: dma transmit request.
   *         - I2C_DMA_Request_RX: dma receive request.
   * @param  new_state (TRUE or FALSE).
-  * @retval none
+  * @retval 无
   */
 void I2C_DMA_Enable(I2C_Type *I2C_x, I2C_DMA_Request_Type DMA_req, confirm_state new_state) {
     if(DMA_req == I2C_DMA_Request_TX) {
@@ -537,21 +537,21 @@ void I2C_DMA_Enable(I2C_Type *I2C_x, I2C_DMA_Request_Type DMA_req, confirm_state
 /**
   * @brief  config data transfer.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  address: slave address.
   * @param  cnt: transfer conuter(0~255)
   * @param  rld_stop: config reload and gen stop condition mode.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - I2C_Auto_Stop_Mode: auto generate stop mode.
   *         - I2C_SOFT_Stop_Mode: soft generate stop mode.
   *         - I2C_Reload_Mode:  reload mode.
   * @param  start: config gen start condition mode.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - I2C_WITHOUT_Start: transfer data without start condition.
   *         - I2C_Gen_Start_Read: read data and generate start.
   *         - I2C_Gen_Start_Write: send data and generate start.
-  * @retval none
+  * @retval 无
   */
 void I2C_Transmit_Set(I2C_Type *I2C_x, uint16_t address, uint8_t cnt, I2C_Reload_Stop_Mode_Type rld_stop, I2C_Start_Mode_Type start) {
     uint32_t temp;
@@ -575,9 +575,9 @@ void I2C_Transmit_Set(I2C_Type *I2C_x, uint16_t address, uint8_t cnt, I2C_Reload
 /**
   * @brief  generate start condition.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
-  * @retval none
+  * @retval 无
   */
 void I2C_Start_Generate(I2C_Type *I2C_x) {
     I2C_x->ctrl2_bit.genstart = TRUE;
@@ -586,9 +586,9 @@ void I2C_Start_Generate(I2C_Type *I2C_x) {
 /**
   * @brief  generate stop condition.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
-  * @retval none
+  * @retval 无
   */
 void I2C_Stop_Generate(I2C_Type *I2C_x) {
     I2C_x->ctrl2_bit.genstop = TRUE;
@@ -597,10 +597,10 @@ void I2C_Stop_Generate(I2C_Type *I2C_x) {
 /**
   * @brief  send a byte through the i2c periph.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  data: byte to be transmitted.
-  * @retval none
+  * @retval 无
   */
 void I2C_Data_Send(I2C_Type *I2C_x, uint8_t data) {
     I2C_x->txdt = data;
@@ -609,7 +609,7 @@ void I2C_Data_Send(I2C_Type *I2C_x, uint8_t data) {
 /**
   * @brief  receive a byte through the i2c periph.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @retval the value of the received data.
   */
@@ -620,10 +620,10 @@ uint8_t I2C_Data_Receive(I2C_Type *I2C_x) {
 /**
   * @brief  get flag status.
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  flag: specifies the flag to check.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - I2C_TDBE_FLAG: transmit data buffer empty flag.
   *         - I2C_TDIS_FLAG: send interrupt status.
   *         - I2C_RDBF_FLAG: receive data buffer full flag.
@@ -653,10 +653,10 @@ flag_status I2C_Flag_Get(I2C_Type *I2C_x, uint32_t flag) {
 /**
   * @brief  clear flag status
   * @param  I2C_x: to select the i2c peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @param  flag: specifies the flag to clear.
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - I2C_AddrF_FLAG: 0~7 bit address match flag.
   *         - I2C_ACKFAIL_FLAG: acknowledge failure flag.
   *         - I2C_STOPF_FLAG: stop condition generation complete flag.
@@ -666,7 +666,7 @@ flag_status I2C_Flag_Get(I2C_Type *I2C_x, uint32_t flag) {
   *         - I2C_PECERR_FLAG: pec receive error flag.
   *         - I2C_TMOUT_FLAG: smbus timeout flag.
   *         - I2C_ALERTF_FLAG: smbus alert flag.
-  * @retval none
+  * @retval 无
   */
 void I2C_Flag_Clear(I2C_Type *I2C_x, uint32_t flag) {
     I2C_x->clr = flag;

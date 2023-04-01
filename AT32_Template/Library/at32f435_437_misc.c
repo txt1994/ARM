@@ -44,8 +44,8 @@
 
 /**
   * @brief  system reset
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void NVIC_System_Reset(void) {
     NVIC_SystemReset();
@@ -56,7 +56,7 @@ void NVIC_System_Reset(void) {
   * @param  irqn (IRQn_Type number)
   * @param  preempt_priority: preemptive priority value (starting from 0)
   * @param  sub_priority: subpriority value (starting from 0)
-  * @retval none
+  * @retval 无
   */
 void NVIC_IRQ_Enable(IRQn_Type irqn, uint32_t preempt_priority, uint32_t sub_priority) {
     uint32_t temp_priority = 0;
@@ -72,7 +72,7 @@ void NVIC_IRQ_Enable(IRQn_Type irqn, uint32_t preempt_priority, uint32_t sub_pri
 /**
   * @brief  disable nvic irq number
   * @param  irqn (IRQn_Type number)
-  * @retval none
+  * @retval 无
   */
 void NVIC_IRQ_Disable(IRQn_Type irqn) {
     NVIC_DisableIRQ(irqn);
@@ -81,13 +81,13 @@ void NVIC_IRQ_Disable(IRQn_Type irqn) {
 /**
   * @brief  config nvic priority group
   * @param  priority_group
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - NVIC_Priority_Group_0
   *         - NVIC_Priority_Group_1
   *         - NVIC_Priority_Group_2
   *         - NVIC_Priority_Group_3
   *         - NVIC_Priority_Group_4
-  * @retval none
+  * @retval 无
   */
 void NVIC_Priority_Group_Config(NVIC_Priority_Group_Type priority_group) {
     /* set the prigroup[10:8] bits according to NVIC_prioritygroup value */
@@ -97,11 +97,11 @@ void NVIC_Priority_Group_Config(NVIC_Priority_Group_Type priority_group) {
 /**
   * @brief  set the vector table location and offset.
   * @param  base
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - NVIC_VECTTAB_RAM
   *         - NVIC_VECTTAB_FLASH
   * @param  offset (vector table base offset field. this value must be a multiple of 0x200)
-  * @retval none
+  * @retval 无
   */
 void NVIC_Vector_Table_Set(uint32_t base, uint32_t offset) {
     SCB->VTOR = base | (offset & (uint32_t)0x1FFFFF80);
@@ -110,12 +110,12 @@ void NVIC_Vector_Table_Set(uint32_t base, uint32_t offset) {
 /**
   * @brief  config nvic lowpower mode
   * @param  lp_Mode
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - NVIC_LP_SEVONPEND
   *         - NVIC_LP_SLEEPDEEP
   *         - NVIC_LP_SLEEPONEXIT
   * @param  new_state (new state of lp condition. ENABLE or DISABLE)
-  * @retval none
+  * @retval 无
   */
 void NVIC_LowPower_Mode_Config(NVIC_LowPower_Mode_Type lp_Mode, confirm_state new_state) {
     if(new_state != FALSE) {
@@ -128,10 +128,10 @@ void NVIC_LowPower_Mode_Config(NVIC_LowPower_Mode_Type lp_Mode, confirm_state ne
 /**
   * @brief  config systick clock source
   * @param  source
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - Systick_Clock_Source_AHBCLK_DIV8
   *         - Systick_Clock_Source_AHBCLK_NODIV
-  * @retval none
+  * @retval 无
   */
 void Systick_Clock_Source_Config(Systick_Clock_Source_Type source) {
     if(source == Systick_Clock_Source_AHBCLK_NODIV) {

@@ -41,7 +41,7 @@
 
 /**
   * @brief  wwdt reset by crm reset register
-  * @retval none
+  * @retval 无
   */
 void wWDT_Reset(void) {
     CRM_Periph_Reset(CRM_WWDT_Periph_Reset, TRUE);
@@ -51,12 +51,12 @@ void wWDT_Reset(void) {
 /**
   * @brief  wwdt division set
   * @param  division
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - WWDT_PCLK1_Div_4096        (wwdt counter clock = (pclk1/4096)/1)
   *         - WWDT_PCLK1_Div_8192        (wwdt counter clock = (pclk1/4096)/2)
   *         - WWDT_PCLK1_Div_16384       (wwdt counter clock = (pclk1/4096)/4)
   *         - WWDT_PCLK1_Div_32768       (wwdt counter clock = (pclk1/4096)/8)
-  * @retval none
+  * @retval 无
   */
 void wWDT_Divider_Set(wWDT_Division_Type division) {
     WWDT->cfg_bit.div = division;
@@ -64,8 +64,8 @@ void wWDT_Divider_Set(wWDT_Division_Type division) {
 
 /**
   * @brief  wwdt reload counter interrupt flag clear
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void wWDT_Flag_Clear(void) {
     WWDT->sts = 0;
@@ -74,7 +74,7 @@ void wWDT_Flag_Clear(void) {
 /**
   * @brief  wwdt enable and the counter value load
   * @param  wWDT_cnt (0x40~0x7f)
-  * @retval none
+  * @retval 无
   */
 void wWDT_Enable(uint8_t wWDT_cnt) {
     WWDT->ctrl = wWDT_cnt | WWDT_EN_BIT;
@@ -82,8 +82,8 @@ void wWDT_Enable(uint8_t wWDT_cnt) {
 
 /**
   * @brief  wwdt reload counter interrupt enable
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void wWDT_Interrupt_Enable(void) {
     WWDT->cfg_bit.rldien = TRUE;
@@ -91,7 +91,7 @@ void wWDT_Interrupt_Enable(void) {
 
 /**
   * @brief  wwdt reload counter interrupt flag get
-  * @param  none
+  * @param  无
   * @retval state of reload counter interrupt flag
   */
 flag_status wWDT_Flag_Get(void) {
@@ -101,7 +101,7 @@ flag_status wWDT_Flag_Get(void) {
 /**
   * @brief  wwdt counter value set
   * @param  wWDT_cnt (0x40~0x7f)
-  * @retval none
+  * @retval 无
   */
 void wWDT_Counter_Set(uint8_t wWDT_cnt) {
     WWDT->ctrl_bit.cnt = wWDT_cnt;
@@ -110,7 +110,7 @@ void wWDT_Counter_Set(uint8_t wWDT_cnt) {
 /**
   * @brief  wwdt window counter value set
   * @param  window_cnt (0x40~0x7f)
-  * @retval none
+  * @retval 无
   */
 void wWDT_Window_Counter_Set(uint8_t window_cnt) {
     WWDT->cfg_bit.win = window_cnt;

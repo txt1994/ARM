@@ -41,8 +41,8 @@
 
 /**
   * @brief  reset the crc data register.
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void CRC_Data_Reset(void) {
     /* reset crc generator */
@@ -77,7 +77,7 @@ uint32_t CRC_Block_Calculate(uint32_t *pbuffer, uint32_t length) {
 
 /**
   * @brief  return the current crc value.
-  * @param  none
+  * @param  无
   * @retval 32-bit crc
   */
 uint32_t CRC_Data_Get(void) {
@@ -87,7 +87,7 @@ uint32_t CRC_Data_Get(void) {
 /**
   * @brief  store a 8-bit data in the common data register.
   * @param  cdt_value: 8-bit value to be stored in the common data register
-  * @retval none
+  * @retval 无
   */
 void CRC_Common_Data_Set(uint8_t cdt_value) {
     CRC->cdt_bit.cdt = cdt_value;
@@ -95,7 +95,7 @@ void CRC_Common_Data_Set(uint8_t cdt_value) {
 
 /**
   * @brief  return the 8-bit data stored in the common data register
-  * @param  none
+  * @param  无
   * @retval 8-bit value of the common data register
   */
 uint8_t CRC_Common_Data_Get(void) {
@@ -105,7 +105,7 @@ uint8_t CRC_Common_Data_Get(void) {
 /**
   * @brief  set the 32-bit initial data of crc
   * @param  value: initial data
-  * @retval none
+  * @retval 无
   */
 void CRC_Init_Data_Set(uint32_t value) {
     CRC->idt = value;
@@ -114,12 +114,12 @@ void CRC_Init_Data_Set(uint32_t value) {
 /**
   * @brief  control the reversal of the bit order in the input data
   * @param  value
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRC_Reverse_Input_NO_AFFECTE
   *         - CRC_Reverse_Input_BY_BYTE
   *         - CRC_Reverse_Input_BY_HALFWORD
   *         - CRC_Reverse_Input_BY_WORD
-  * @retval none.
+  * @retval 无.
   */
 void CRC_Reverse_Input_Data_Set(CRC_Reverse_Input_Type value) {
     CRC->ctrl_bit.revid = value;
@@ -128,10 +128,10 @@ void CRC_Reverse_Input_Data_Set(CRC_Reverse_Input_Type value) {
 /**
   * @brief  control the reversal of the bit order in the output data
   * @param  value
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRC_Reverse_OutPut_NO_AFFECTE
   *         - CRC_Reverse_OutPut_DATA
-  * @retval none.
+  * @retval 无.
   */
 void CRC_Reverse_OutPut_Data_Set(CRC_Reverse_OutPut_Type value) {
     CRC->ctrl_bit.revod = value;

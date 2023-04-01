@@ -43,10 +43,10 @@
   * @brief  enable/disable encryption for qspi.
   * @note   the function must be configured only when qspi in command-port mode!!!
   * @param  QSPI_x: select the qspi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         QSPI1,QSPI2.
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void QSPI_Encryption_Enable(QSPI_Type* QSPI_x, confirm_state new_state) {
     QSPI_x->ctrl_bit.keyen = new_state;
@@ -56,13 +56,13 @@ void QSPI_Encryption_Enable(QSPI_Type* QSPI_x, confirm_state new_state) {
   * @brief  set qspi sck mode.
   * @note   the function must be configured only when qspi in command-port mode!!!
   * @param  QSPI_x: select the qspi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         QSPI1,QSPI2.
   * @param  new_Mode: new state to be set
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - QSPI_SCK_Mode_0
   *         - QSPI_SCK_Mode_3
-  * @retval none
+  * @retval 无
   */
 void QSPI_SCK_Mode_Set(QSPI_Type* QSPI_x, QSPI_CLK_Mode_Type new_Mode) {
     QSPI_x->ctrl_bit.sckmode = new_Mode;
@@ -72,10 +72,10 @@ void QSPI_SCK_Mode_Set(QSPI_Type* QSPI_x, QSPI_CLK_Mode_Type new_Mode) {
   * @brief  set qspi clock division
   * @note   the function must be configured only when qspi in command-port mode!!!
   * @param  QSPI_x: select the qspi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         QSPI1,QSPI2.
   * @param  new_CLKdiv: new division value
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - QSPI_CLK_Div_2
   *         - QSPI_CLK_Div_4
   *         - QSPI_CLK_Div_6
@@ -84,7 +84,7 @@ void QSPI_SCK_Mode_Set(QSPI_Type* QSPI_x, QSPI_CLK_Mode_Type new_Mode) {
   *         - QSPI_CLK_Div_5
   *         - QSPI_CLK_Div_10
   *         - QSPI_CLK_Div_12
-  * @retval none
+  * @retval 无
   */
 void QSPI_CLK_Division_Set(QSPI_Type* QSPI_x, QSPI_CLK_Div_Type new_CLKdiv) {
     QSPI_x->ctrl_bit.clkdiv = new_CLKdiv;
@@ -94,10 +94,10 @@ void QSPI_CLK_Division_Set(QSPI_Type* QSPI_x, QSPI_CLK_Div_Type new_CLKdiv) {
   * @brief  enable/disable cache in xip mode
   * @note   the function must be configured only when qspi in command-port mode!!!
   * @param  QSPI_x: select the qspi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         QSPI1,QSPI2.
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void QSPI_Xip_Cache_ByPass_Set(QSPI_Type* QSPI_x, confirm_state new_state) {
     QSPI_x->xip_CMD_w3_bit.bypassc = new_state;
@@ -107,10 +107,10 @@ void QSPI_Xip_Cache_ByPass_Set(QSPI_Type* QSPI_x, confirm_state new_state) {
   * @brief  enable/disable interrupt when command is completed
   * @note   the function must be configured only when qspi in command-port mode!!!
   * @param  QSPI_x: select the qspi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         QSPI1,QSPI2.
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void QSPI_Interrupt_Enable(QSPI_Type* QSPI_x, confirm_state new_state) {
     QSPI_x->ctrl2_bit.cmdie = new_state;
@@ -119,10 +119,10 @@ void QSPI_Interrupt_Enable(QSPI_Type* QSPI_x, confirm_state new_state) {
 /**
   * @brief  get status flags.
   * @param  QSPI_x: select the qspi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         QSPI1,QSPI2.
   * @param  flag: specifies the flag to check.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - QSPI_RXFIFORDY_FLAG
   *         - QSPI_TXFIFORDY_FLAG
   *         - QSPI_CMDSTS_FLAG
@@ -154,12 +154,12 @@ flag_status QSPI_Flag_Get(QSPI_Type* QSPI_x, uint32_t flag) {
 /**
   * @brief  clear flags
   * @param  QSPI_x: select the qspi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         QSPI1,QSPI2.
   * @param  flag: flags to be clear
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - QSPI_CMDSTS_FLAG
-  * @retval none
+  * @retval 无
   */
 void QSPI_Flag_Clear(QSPI_Type* QSPI_x, uint32_t flag) {
     QSPI_x->cmdsts = QSPI_CMDSTS_FLAG;
@@ -169,14 +169,14 @@ void QSPI_Flag_Clear(QSPI_Type* QSPI_x, uint32_t flag) {
   * @brief  set dma threshold for dma rx
   * @note   the function must be configured only when qspi in command-port mode!!!
   * @param  QSPI_x: select the qspi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         QSPI1,QSPI2.
   * @param  new_threshold: value to set
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - QSPI_DMA_FIFO_THOD_WORD08
   *         - QSPI_DMA_FIFO_THOD_WORD16
   *         - QSPI_DMA_FIFO_THOD_WORD32
-  * @retval none
+  * @retval 无
   */
 void QSPI_DMA_RX_Threshold_Set(QSPI_Type* QSPI_x, QSPI_DMA_FIFO_thod_Type new_threshold) {
     QSPI_x->ctrl2_bit.rxfifo_thod = new_threshold;
@@ -186,14 +186,14 @@ void QSPI_DMA_RX_Threshold_Set(QSPI_Type* QSPI_x, QSPI_DMA_FIFO_thod_Type new_th
   * @brief  set dma threshold for dma tx
   * @note   the function must be configured only when qspi in command-port mode!!!
   * @param  QSPI_x: select the qspi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         QSPI1,QSPI2.
   * @param  new_threshold: value to set
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - QSPI_DMA_FIFO_THOD_WORD08
   *         - QSPI_DMA_FIFO_THOD_WORD16
   *         - QSPI_DMA_FIFO_THOD_WORD32
-  * @retval none
+  * @retval 无
   */
 void QSPI_DMA_TX_Threshold_Set(QSPI_Type* QSPI_x, QSPI_DMA_FIFO_thod_Type new_threshold) {
     QSPI_x->ctrl2_bit.txfifo_thod = new_threshold;
@@ -203,10 +203,10 @@ void QSPI_DMA_TX_Threshold_Set(QSPI_Type* QSPI_x, QSPI_DMA_FIFO_thod_Type new_th
   * @brief  enable/disable dma transfer
   * @note   the function must be configured only when qspi in command-port mode!!!
   * @param  QSPI_x: select the qspi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         QSPI1,QSPI2.
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void QSPI_DMA_Enable(QSPI_Type* QSPI_x, confirm_state new_state) {
     QSPI_x->ctrl2_bit.dmaen = new_state;
@@ -216,10 +216,10 @@ void QSPI_DMA_Enable(QSPI_Type* QSPI_x, confirm_state new_state) {
   * @brief  set wip position in status register of flash
   * @note   the function must be configured only when qspi in command-port mode!!!
   * @param  QSPI_x: select the qspi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         QSPI1,QSPI2.
   * @param  busy_pos: value to set
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - QSPI_Busy_Offset_0
   *         - QSPI_Busy_Offset_1
   *         - QSPI_Busy_Offset_2
@@ -228,7 +228,7 @@ void QSPI_DMA_Enable(QSPI_Type* QSPI_x, confirm_state new_state) {
   *         - QSPI_Busy_Offset_5
   *         - QSPI_Busy_Offset_6
   *         - QSPI_Busy_Offset_7
-  * @retval none
+  * @retval 无
   */
 void QSPI_Busy_Config(QSPI_Type* QSPI_x, QSPI_Busy_pos_Type busy_pos) {
     QSPI_x->ctrl_bit.busy = busy_pos;
@@ -237,10 +237,10 @@ void QSPI_Busy_Config(QSPI_Type* QSPI_x, QSPI_Busy_pos_Type busy_pos) {
 /**
   * @brief  enable xip mode or command-port mode.
   * @param  QSPI_x: select the qspi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         QSPI1,QSPI2.
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void QSPI_Xip_Enable(QSPI_Type* QSPI_x, confirm_state new_state) {
     /* skip if state is no change */
@@ -272,10 +272,10 @@ void QSPI_Xip_Enable(QSPI_Type* QSPI_x, confirm_state new_state) {
 /**
   * @brief  set command-port and QSPI_x will start to work
   * @param  QSPI_x: select the qspi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         QSPI1,QSPI2.
   * @param  QSPI_CMD_struct: pointer to qspi cmd structure
-  * @retval none
+  * @retval 无
   */
 void QSPI_CMD_Operation_kick(QSPI_Type* QSPI_x, QSPI_CMD_Type* QSPI_CMD_struct) {
     uint32_t w1_val = 0, w3_val = 0;
@@ -306,10 +306,10 @@ void QSPI_CMD_Operation_kick(QSPI_Type* QSPI_x, QSPI_CMD_Type* QSPI_CMD_struct) 
 /**
   * @brief  initial xip mode for QSPI_x
   * @param  QSPI_x: select the qspi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         QSPI1,QSPI2.
   * @param  xip_Init_struct: pointer to xip init structure.
-  * @retval none.
+  * @retval 无.
   */
 void QSPI_Xip_Init(QSPI_Type* QSPI_x, QSPI_Xip_Type* xip_Init_struct) {
     uint32_t xc0_val = 0, xc1_val = 0, xc2_val = 0;
@@ -368,7 +368,7 @@ uint32_t QSPI_Word_Read(QSPI_Type* QSPI_x) {
   * @brief  write one byte to qspi device in command mode
   * @param  QSPI_x: select the qspi peripheral.
   * @param  value:  8-bit data.
-  * @retval none.
+  * @retval 无.
   */
 void QSPI_Byte_Write(QSPI_Type* QSPI_x, uint8_t value) {
     QSPI_x->dt_u8 = value;
@@ -378,7 +378,7 @@ void QSPI_Byte_Write(QSPI_Type* QSPI_x, uint8_t value) {
   * @brief  write one half-word to qspi device in command mode
   * @param  QSPI_x: select the qspi peripheral.
   * @param  value:  16-bit data.
-  * @retval none.
+  * @retval 无.
   */
 void QSPI_Half_Word_Write(QSPI_Type* QSPI_x, uint16_t value) {
     QSPI_x->dt_u16 = value;
@@ -388,7 +388,7 @@ void QSPI_Half_Word_Write(QSPI_Type* QSPI_x, uint16_t value) {
   * @brief  write one word to qspi device in command mode
   * @param  QSPI_x: select the qspi peripheral.
   * @param  value:  32-bit data.
-  * @retval none.
+  * @retval 无.
   */
 void QSPI_Word_Write(QSPI_Type* QSPI_x, uint32_t value) {
     QSPI_x->dt = value;

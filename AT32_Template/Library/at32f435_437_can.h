@@ -330,7 +330,7 @@ typedef struct {
   * @brief  can baudrate structure definition
   */
 typedef struct {
-    uint16_t baudrate_div;                  /*!< baudrate division,this parameter can be 0x001~0x1000.*/
+    uint16_t baudrate_div;                  /*!< baudrate division,该参数可以是 0x001~0x1000.*/
 
     CAN_rsaw_Type rsaw_size;                /*!< resynchronization adjust width */
 
@@ -372,17 +372,17 @@ typedef struct {
   */
 typedef struct {
     uint32_t standard_id;                  /*!< specifies the 11 bits standard identifier.
-                                              this parameter can be a value between 0 to 0x7FF. */
+                                              该参数可以是 a value between 0 to 0x7FF. */
 
     uint32_t extended_id;                  /*!< specifies the 29 bits extended identifier.
-                                              this parameter can be a value between 0 to 0x1FFFFFFF. */
+                                              该参数可以是 a value between 0 to 0x1FFFFFFF. */
 
     CAN_Identifier_Type id_Type;           /*!< specifies identifier type for the transmit message.*/
 
     CAN_trans_Frame_Type frame_Type;       /*!< specifies frame type for the transmit message.*/
 
     uint8_t dlc;                           /*!< specifies frame data length that will be transmitted.
-                                              this parameter can be a value between 0 to 8 */
+                                              该参数可以是 a value between 0 to 8 */
 
     uint8_t data[8];                       /*!< contains the transmit data. it ranges from 0 to 0xFF. */
 
@@ -393,22 +393,22 @@ typedef struct {
   */
 typedef struct {
     uint32_t standard_id;                /*!< specifies the 11 bits standard identifier
-                                              this parameter can be a value between 0 to 0x7FF. */
+                                              该参数可以是 a value between 0 to 0x7FF. */
 
     uint32_t extended_id;                /*!< specifies the 29 bits extended identifier.
-                                              this parameter can be a value between 0 to 0x1FFFFFFF. */
+                                              该参数可以是 a value between 0 to 0x1FFFFFFF. */
 
     CAN_Identifier_Type id_Type;         /*!< specifies identifier type for the receive message.*/
 
     CAN_trans_Frame_Type frame_Type;     /*!< specifies frame type for the receive message.*/
 
     uint8_t dlc;                         /*!< specifies the frame data length that will be received.
-                                              this parameter can be a value between 0 to 8 */
+                                              该参数可以是 a value between 0 to 8 */
 
     uint8_t data[8];                     /*!< contains the receive data. it ranges from 0 to 0xFF.*/
 
     uint8_t filter_index;                /*!< specifies the message stored in which filter
-                                              this parameter can be a value between 0 to 0xFF */
+                                              该参数可以是 a value between 0 to 0xFF */
 } CAN_RX_Message_Type;
 
 /**

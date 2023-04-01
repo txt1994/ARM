@@ -42,7 +42,7 @@
 /**
   * @brief  reset dmax channely register.
   * @param  dmax_Channely:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DMA1_ChanneL1
   *         - DMA1_ChanneL2
   *         - DMA1_ChanneL3
@@ -57,7 +57,7 @@
   *         - DMA2_ChanneL5
   *         - DMA2_ChanneL6
   *         - DMA2_ChanneL7
-  * @retval none.
+  * @retval 无.
   */
 void DMA_Reset(DMA_Channel_Type *dmax_Channely) {
     uint32_t temp = 0;
@@ -81,7 +81,7 @@ void DMA_Reset(DMA_Channel_Type *dmax_Channely) {
 /**
   * @brief  set the number of data to be transferred.
   * @param  dmax_Channely:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DMA1_ChanneL1
   *         - DMA1_ChanneL2
   *         - DMA1_ChanneL3
@@ -97,7 +97,7 @@ void DMA_Reset(DMA_Channel_Type *dmax_Channely) {
   *         - DMA2_ChanneL6
   *         - DMA2_ChanneL7
   * @param  data_Number: the number of data to be transferred (0x0000~0xFFFF).
-  * @retval none.
+  * @retval 无.
   */
 void DMA_Data_Number_Set(DMA_Channel_Type *dmax_Channely, uint16_t data_Number) {
     dmax_Channely->dtcnt = data_Number;
@@ -106,7 +106,7 @@ void DMA_Data_Number_Set(DMA_Channel_Type *dmax_Channely, uint16_t data_Number) 
 /**
   * @brief  get the number of data to be transferred.
   * @param  dmax_Channely:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DMA1_ChanneL1
   *         - DMA1_ChanneL2
   *         - DMA1_ChanneL3
@@ -130,7 +130,7 @@ uint16_t DMA_Data_Number_Get(DMA_Channel_Type *dmax_Channely) {
 /**
   * @brief  enable or disable dma interrupt.
   * @param  dmax_Channely:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DMA1_ChanneL1
   *         - DMA1_ChanneL2
   *         - DMA1_ChanneL3
@@ -146,12 +146,12 @@ uint16_t DMA_Data_Number_Get(DMA_Channel_Type *dmax_Channely) {
   *         - DMA2_ChanneL6
   *         - DMA2_ChanneL7
   * @param  DMA_int:
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - DMA_FDT_INT
   *         - DMA_HDT_INT
   *         - DMA_DTERR_INT
   * @param  new_state (TRUE or FALSE)
-  * @retval none.
+  * @retval 无.
   */
 void DMA_Interrupt_Enable(DMA_Channel_Type *dmax_Channely, uint32_t DMA_int, confirm_state new_state) {
     if(new_state != FALSE) {
@@ -164,7 +164,7 @@ void DMA_Interrupt_Enable(DMA_Channel_Type *dmax_Channely, uint32_t DMA_int, con
 /**
   * @brief  enable or disable dma channel.
   * @param  dmax_Channely:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DMA1_ChanneL1
   *         - DMA1_ChanneL2
   *         - DMA1_ChanneL3
@@ -180,7 +180,7 @@ void DMA_Interrupt_Enable(DMA_Channel_Type *dmax_Channely, uint32_t DMA_int, con
   *         - DMA2_ChanneL6
   *         - DMA2_ChanneL7
   * @param  new_state (TRUE or FALSE).
-  * @retval none.
+  * @retval 无.
   */
 void DMA_Channel_Enable(DMA_Channel_Type *dmax_Channely, confirm_state new_state) {
     dmax_Channely->ctrl_bit.chen = new_state;
@@ -224,7 +224,7 @@ flag_status DMA_Flag_Get(uint32_t dmax_flag) {
 /**
   * @brief  dma flag clear.
   * @param  DMA_flag
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DMA1_GL1_FLAG        - DMA1_FDT1_FLAG        - DMA1_HDT1_FLAG        - DMA1_DTERR1_FLAG
   *         - DMA1_GL2_FLAG        - DMA1_FDT2_FLAG        - DMA1_HDT2_FLAG        - DMA1_DTERR2_FLAG
   *         - DMA1_GL3_FLAG        - DMA1_FDT3_FLAG        - DMA1_HDT3_FLAG        - DMA1_DTERR3_FLAG
@@ -239,7 +239,7 @@ flag_status DMA_Flag_Get(uint32_t dmax_flag) {
   *         - DMA2_GL5_FLAG        - DMA2_FDT5_FLAG        - DMA2_HDT5_FLAG        - DMA2_DTERR5_FLAG
   *         - DMA2_GL6_FLAG        - DMA2_FDT6_FLAG        - DMA2_HDT6_FLAG        - DMA2_DTERR6_FLAG
   *         - DMA2_GL7_FLAG        - DMA2_FDT7_FLAG        - DMA2_HDT7_FLAG        - DMA2_DTERR7_FLAG
-  * @retval none.
+  * @retval 无.
   */
 void DMA_Flag_Clear(uint32_t dmax_flag) {
     if(dmax_flag > ((uint32_t)0x10000000)) {
@@ -252,25 +252,25 @@ void DMA_Flag_Clear(uint32_t dmax_flag) {
 /**
   * @brief  dma init config with its default value.
   * @param  DMA_Init_struct: pointer to a DMA_Init_Type structure which will be initialized.
-  * @retval none.
+  * @retval 无.
   */
 void DMA_Default_Para_Init(DMA_Init_Type *DMA_Init_struct) {
-    DMA_Init_struct->peripheral_Base_Addr = 0;
-    DMA_Init_struct->memory_Base_Addr = 0;
+    DMA_Init_struct->Peripheral_Base_Addr = 0;
+    DMA_Init_struct->Memory_Base_Addr = 0;
     DMA_Init_struct->direction = DMA_Dir_PERIPHERAL_To_MEMORY;
-    DMA_Init_struct->buffer_size = 0;
-    DMA_Init_struct->peripheral_inc_Enable = FALSE;
-    DMA_Init_struct->memory_inc_Enable = FALSE;
-    DMA_Init_struct->peripheral_Data_width = DMA_PERIPHERAL_Data_Width_BYTE;
-    DMA_Init_struct->memory_Data_width = DMA_Memory_Data_Width_BYTE;
-    DMA_Init_struct->loop_Mode_Enable = FALSE;
+    DMA_Init_struct->Buffer_Size = 0;
+    DMA_Init_struct->Peripheral_Inc_Enable = FALSE;
+    DMA_Init_struct->Memory_Inc_Enable = FALSE;
+    DMA_Init_struct->Peripheral_Data_Width = DMA_Peripheral_Data_Width_BYTE;
+    DMA_Init_struct->Memory_Data_Width = DMA_Memory_Data_Width_BYTE;
+    DMA_Init_struct->Loop_Mode_Enable = FALSE;
     DMA_Init_struct->priority = DMA_Priority_LOW;
 }
 
 /**
   * @brief  dma init.
   * @param  dmax_Channely:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DMA1_ChanneL1
   *         - DMA1_ChanneL2
   *         - DMA1_ChanneL3
@@ -286,7 +286,7 @@ void DMA_Default_Para_Init(DMA_Init_Type *DMA_Init_struct) {
   *         - DMA2_ChanneL6
   *         - DMA2_ChanneL7
   * @param  DMA_Init_struct: pointer to a DMA_Init_Type structure.
-  * @retval none.
+  * @retval 无.
   */
 void DMA_Init(DMA_Channel_Type *dmax_Channely, DMA_Init_Type *DMA_Init_struct) {
     /* clear ctrl register dtd bit and m2m bit */
@@ -294,20 +294,20 @@ void DMA_Init(DMA_Channel_Type *dmax_Channely, DMA_Init_Type *DMA_Init_struct) {
     dmax_Channely->ctrl |= DMA_Init_struct->direction;
 
     dmax_Channely->ctrl_bit.chpl = DMA_Init_struct->priority;
-    dmax_Channely->ctrl_bit.mwidth = DMA_Init_struct->memory_Data_width;
-    dmax_Channely->ctrl_bit.pwidth = DMA_Init_struct->peripheral_Data_width;
-    dmax_Channely->ctrl_bit.mincm = DMA_Init_struct->memory_inc_Enable;
-    dmax_Channely->ctrl_bit.pincm = DMA_Init_struct->peripheral_inc_Enable;
-    dmax_Channely->ctrl_bit.lm = DMA_Init_struct->loop_Mode_Enable;
-    dmax_Channely->dtcnt_bit.cnt = DMA_Init_struct->buffer_size;
-    dmax_Channely->paddr = DMA_Init_struct->peripheral_Base_Addr;
-    dmax_Channely->maddr = DMA_Init_struct->memory_Base_Addr;
+    dmax_Channely->ctrl_bit.mwidth = DMA_Init_struct->Memory_Data_Width;
+    dmax_Channely->ctrl_bit.pwidth = DMA_Init_struct->Peripheral_Data_Width;
+    dmax_Channely->ctrl_bit.mincm = DMA_Init_struct->Memory_Inc_Enable;
+    dmax_Channely->ctrl_bit.pincm = DMA_Init_struct->Peripheral_Inc_Enable;
+    dmax_Channely->ctrl_bit.lm = DMA_Init_struct->Loop_Mode_Enable;
+    dmax_Channely->dtcnt_bit.cnt = DMA_Init_struct->Buffer_Size;
+    dmax_Channely->paddr = DMA_Init_struct->Peripheral_Base_Addr;
+    dmax_Channely->maddr = DMA_Init_struct->Memory_Base_Addr;
 }
 /**
   * @brief  dmamux init.
   * @param  DMA_x: pointer to a DMA_Type structure, can be DMA1 or DMA2.
   * @param  DMAMUX_Channelx:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DMA1MUX_ChanneL1
   *         - DMA1MUX_ChanneL2
   *         - DMA1MUX_ChanneL3
@@ -323,7 +323,7 @@ void DMA_Init(DMA_Channel_Type *dmax_Channely, DMA_Init_Type *DMA_Init_struct) {
   *         - DMA2MUX_ChanneL6
   *         - DMA2MUX_ChanneL7
   * @param  DMAMUX_req_sel:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DMAMUX_DMAREQ_ID_REQ_G1       - DMAMUX_DMAREQ_ID_REQ_G2       - DMAMUX_DMAREQ_ID_REQ_G3       - DMAMUX_DMAREQ_ID_REQ_G4
   *         - DMAMUX_DMAREQ_ID_ADC1         - DMAMUX_DMAREQ_ID_ADC2         - DMAMUX_DMAREQ_ID_ADC3         - DMAMUX_DMAREQ_ID_DAC1
   *         - DMAMUX_DMAREQ_ID_DAC2         - DMAMUX_DMAREQ_ID_TMR6_OVERFLOW- DMAMUX_DMAREQ_ID_TMR7_OVERFLOW- DMAMUX_DMAREQ_ID_SPI1_RX
@@ -348,7 +348,7 @@ void DMA_Init(DMA_Channel_Type *dmax_Channely, DMA_Init_Type *DMA_Init_struct) {
   *         - DMAMUX_DMAREQ_ID_TMR5_CH4     - DMAMUX_DMAREQ_ID_TMR5_OVERFLOW- DMAMUX_DMAREQ_ID_TMR5_TRIG    - DMAMUX_DMAREQ_ID_TMR20_CH1
   *         - DMAMUX_DMAREQ_ID_TMR20_CH2    - DMAMUX_DMAREQ_ID_TMR20_CH3    - DMAMUX_DMAREQ_ID_TMR20_CH4    - DMAMUX_DMAREQ_ID_TMR20_OVERFLOW
   *         - DMAMUX_DMAREQ_ID_TMR20_TRIG   - DMAMUX_DMAREQ_ID_TMR20_HALL   - DMAMUX_DMAREQ_ID_DVP
-  * @retval none.
+  * @retval 无.
   */
 void DMA_Flexible_Config(DMA_Type* DMA_x, DMAMUX_Channel_Type *DMAMUX_Channelx, DMAMUX_Requst_ID_sel_Type DMAMUX_req_sel) {
     DMA_x->muxsel_bit.tblsel = TRUE;
@@ -359,7 +359,7 @@ void DMA_Flexible_Config(DMA_Type* DMA_x, DMAMUX_Channel_Type *DMAMUX_Channelx, 
   * @brief  enable or disable the dmamux.
   * @param  DMA_x: pointer to a DMA_Type structure, can be DMA1 or DMA2.
   * @param  new_state (TRUE or FALSE) .
-  * @retval none.
+  * @retval 无.
   */
 void DMAMUX_Enable(DMA_Type *DMA_x, confirm_state new_state) {
     DMA_x->muxsel_bit.tblsel = new_state;
@@ -368,7 +368,7 @@ void DMAMUX_Enable(DMA_Type *DMA_x, confirm_state new_state) {
 /**
   * @brief  dmamux init.
   * @param  DMAMUX_Channelx:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DMA1MUX_ChanneL1
   *         - DMA1MUX_ChanneL2
   *         - DMA1MUX_ChanneL3
@@ -384,7 +384,7 @@ void DMAMUX_Enable(DMA_Type *DMA_x, confirm_state new_state) {
   *         - DMA2MUX_ChanneL6
   *         - DMA2MUX_ChanneL7
   * @param  DMAMUX_req_sel:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DMAMUX_DMAREQ_ID_REQ_G1       - DMAMUX_DMAREQ_ID_REQ_G2       - DMAMUX_DMAREQ_ID_REQ_G3       - DMAMUX_DMAREQ_ID_REQ_G4
   *         - DMAMUX_DMAREQ_ID_ADC1         - DMAMUX_DMAREQ_ID_ADC2         - DMAMUX_DMAREQ_ID_ADC3         - DMAMUX_DMAREQ_ID_DAC1
   *         - DMAMUX_DMAREQ_ID_DAC2         - DMAMUX_DMAREQ_ID_TMR6_OVERFLOW- DMAMUX_DMAREQ_ID_TMR7_OVERFLOW- DMAMUX_DMAREQ_ID_SPI1_RX
@@ -409,7 +409,7 @@ void DMAMUX_Enable(DMA_Type *DMA_x, confirm_state new_state) {
   *         - DMAMUX_DMAREQ_ID_TMR5_CH4     - DMAMUX_DMAREQ_ID_TMR5_OVERFLOW- DMAMUX_DMAREQ_ID_TMR5_TRIG    - DMAMUX_DMAREQ_ID_TMR20_CH1
   *         - DMAMUX_DMAREQ_ID_TMR20_CH2    - DMAMUX_DMAREQ_ID_TMR20_CH3    - DMAMUX_DMAREQ_ID_TMR20_CH4    - DMAMUX_DMAREQ_ID_TMR20_OVERFLOW
   *         - DMAMUX_DMAREQ_ID_TMR20_TRIG   - DMAMUX_DMAREQ_ID_TMR20_HALL   - DMAMUX_DMAREQ_ID_DVP
-  * @retval none.
+  * @retval 无.
   */
 void DMAMUX_Init(DMAMUX_Channel_Type *DMAMUX_Channelx, DMAMUX_Requst_ID_sel_Type DMAMUX_req_sel) {
     DMAMUX_Channelx->muxctrl_bit.reqsel = DMAMUX_req_sel;
@@ -418,20 +418,20 @@ void DMAMUX_Init(DMAMUX_Channel_Type *DMAMUX_Channelx, DMAMUX_Requst_ID_sel_Type
 /**
   * @brief  dmamux sync init struct config with its default value.
   * @param  DMAMUX_Sync_Init_struct: pointer to a DMAMUX_Sync_Init_Type structure which will be initialized.
-  * @retval none.
+  * @retval 无.
   */
 void DMAMUX_Sync_Default_Para_Init(DMAMUX_Sync_Init_Type *DMAMUX_Sync_Init_struct) {
-    DMAMUX_Sync_Init_struct->sync_Enable = FALSE;
-    DMAMUX_Sync_Init_struct->sync_Event_Enable = FALSE;
-    DMAMUX_Sync_Init_struct->sync_polarity = DMAMUX_Sync_Polarity_Disable;
-    DMAMUX_Sync_Init_struct->sync_Request_Number = 0x0;
-    DMAMUX_Sync_Init_struct->sync_signal_sel = (DMAMUX_Sync_ID_sel_Type)0;
+    DMAMUX_Sync_Init_struct->Sync_Enable = FALSE;
+    DMAMUX_Sync_Init_struct->Sync_Event_Enable = FALSE;
+    DMAMUX_Sync_Init_struct->Sync_Polarity = DMAMUX_Sync_Polarity_Disable;
+    DMAMUX_Sync_Init_struct->Sync_Request_Number = 0x0;
+    DMAMUX_Sync_Init_struct->Sync_Signal_Sel = (DMAMUX_Sync_ID_sel_Type)0;
 }
 
 /**
   * @brief  dmamux synchronization config.
   * @param  DMAMUX_Channelx:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DMA1MUX_ChanneL1
   *         - DMA1MUX_ChanneL2
   *         - DMA1MUX_ChanneL3
@@ -447,32 +447,32 @@ void DMAMUX_Sync_Default_Para_Init(DMAMUX_Sync_Init_Type *DMAMUX_Sync_Init_struc
   *         - DMA2MUX_ChanneL6
   *         - DMA2MUX_ChanneL7
   * @param  DMAMUX_Sync_Init_struct: ointer to a DMAMUX_Sync_Init_Type structure.
-  * @retval none.
+  * @retval 无.
   */
 void DMAMUX_Sync_Config(DMAMUX_Channel_Type *DMAMUX_Channelx, DMAMUX_Sync_Init_Type *DMAMUX_Sync_Init_struct) {
-    DMAMUX_Channelx->muxctrl_bit.syncsel = DMAMUX_Sync_Init_struct->sync_signal_sel;
-    DMAMUX_Channelx->muxctrl_bit.syncpol = DMAMUX_Sync_Init_struct->sync_polarity;
-    DMAMUX_Channelx->muxctrl_bit.reqcnt  = DMAMUX_Sync_Init_struct->sync_Request_Number;
-    DMAMUX_Channelx->muxctrl_bit.evtgen  = DMAMUX_Sync_Init_struct->sync_Event_Enable;
-    DMAMUX_Channelx->muxctrl_bit.syncen  = DMAMUX_Sync_Init_struct->sync_Enable;
+    DMAMUX_Channelx->muxctrl_bit.syncsel = DMAMUX_Sync_Init_struct->Sync_Signal_Sel;
+    DMAMUX_Channelx->muxctrl_bit.syncpol = DMAMUX_Sync_Init_struct->Sync_Polarity;
+    DMAMUX_Channelx->muxctrl_bit.reqcnt  = DMAMUX_Sync_Init_struct->Sync_Request_Number;
+    DMAMUX_Channelx->muxctrl_bit.evtgen  = DMAMUX_Sync_Init_struct->Sync_Event_Enable;
+    DMAMUX_Channelx->muxctrl_bit.syncen  = DMAMUX_Sync_Init_struct->Sync_Enable;
 }
 
 /**
   * @brief  dmamux request generator init struct config with its default value.
   * @param  DMAMUX_Gen_Init_struct: pointer to a DMAMUX_Gen_Init_Type structure which will be initialized.
-  * @retval none.
+  * @retval 无.
   */
 void DMAMUX_Generator_Default_Para_Init(DMAMUX_Gen_Init_Type *DMAMUX_Gen_Init_struct) {
-    DMAMUX_Gen_Init_struct->gen_Enable         = FALSE;
-    DMAMUX_Gen_Init_struct->gen_polarity       = DMAMUX_Gen_Polarity_Disable;
-    DMAMUX_Gen_Init_struct->gen_Request_Number = 0x0;
-    DMAMUX_Gen_Init_struct->gen_signal_sel     = (DMAMUX_Gen_ID_sel_Type)0x0;
+    DMAMUX_Gen_Init_struct->Gen_Enable         = FALSE;
+    DMAMUX_Gen_Init_struct->Gen_Polarity       = DMAMUX_Gen_Polarity_Disable;
+    DMAMUX_Gen_Init_struct->Gen_Request_Number = 0x0;
+    DMAMUX_Gen_Init_struct->Gen_Signal_Sel     = (DMAMUX_Gen_ID_sel_Type)0x0;
 }
 
 /**
   * @brief  dmamux request generator init.
   * @param  DMAMUX_Gen_x :
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DMA1MUX_GENERATOR1
   *         - DMA1MUX_GENERATOR2
   *         - DMA1MUX_GENERATOR3
@@ -482,19 +482,19 @@ void DMAMUX_Generator_Default_Para_Init(DMAMUX_Gen_Init_Type *DMAMUX_Gen_Init_st
   *         - DMA2MUX_GENERATOR3
   *         - DMA2MUX_GENERATOR4
   * @param  DMAMUX_Gen_Init_struct: pointer to a DMAMUX_Gen_Init_Type structure which will be initialized.
-  * @retval none.
+  * @retval 无.
   */
 void DMAMUX_Generator_Config(DMAMUX_Generator_Type *DMAMUX_Gen_x, DMAMUX_Gen_Init_Type *DMAMUX_Gen_Init_struct) {
-    DMAMUX_Gen_x->gctrl_bit.sigsel  = DMAMUX_Gen_Init_struct->gen_signal_sel;
-    DMAMUX_Gen_x->gctrl_bit.gpol    = DMAMUX_Gen_Init_struct->gen_polarity;
-    DMAMUX_Gen_x->gctrl_bit.greqcnt = DMAMUX_Gen_Init_struct->gen_Request_Number;
-    DMAMUX_Gen_x->gctrl_bit.gen     = DMAMUX_Gen_Init_struct->gen_Enable;
+    DMAMUX_Gen_x->gctrl_bit.sigsel  = DMAMUX_Gen_Init_struct->Gen_Signal_Sel;
+    DMAMUX_Gen_x->gctrl_bit.gpol    = DMAMUX_Gen_Init_struct->Gen_Polarity;
+    DMAMUX_Gen_x->gctrl_bit.greqcnt = DMAMUX_Gen_Init_struct->Gen_Request_Number;
+    DMAMUX_Gen_x->gctrl_bit.gen     = DMAMUX_Gen_Init_struct->Gen_Enable;
 }
 
 /**
   * @brief  enable or disable the dmamux sync interrupts.
   * @param  DMAMUX_Channelx:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DMA1MUX_ChanneL1
   *         - DMA1MUX_ChanneL2
   *         - DMA1MUX_ChanneL3
@@ -510,7 +510,7 @@ void DMAMUX_Generator_Config(DMAMUX_Generator_Type *DMAMUX_Gen_x, DMAMUX_Gen_Ini
   *         - DMA2MUX_ChanneL6
   *         - DMA2MUX_ChanneL7
   * @param  new_state (TRUE or FALSE).
-  * @retval none.
+  * @retval 无.
   */
 void DMAMUX_Sync_Interrupt_Enable(DMAMUX_Channel_Type *DMAMUX_Channelx, confirm_state new_state) {
     if(new_state != FALSE) {
@@ -523,7 +523,7 @@ void DMAMUX_Sync_Interrupt_Enable(DMAMUX_Channel_Type *DMAMUX_Channelx, confirm_
 /**
   * @brief  enable or disable the dmamux request generator interrupts.
   * @param  DMAMUX_Gen_x : pointer to a DMAMUX_Generator_Type structure.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DMA1MUX_GENERATOR1
   *         - DMA1MUX_GENERATOR2
   *         - DMA1MUX_GENERATOR3
@@ -533,7 +533,7 @@ void DMAMUX_Sync_Interrupt_Enable(DMAMUX_Channel_Type *DMAMUX_Channelx, confirm_
   *         - DMA2MUX_GENERATOR3
   *         - DMA2MUX_GENERATOR4
   * @param  new_state (TRUE or FALSE).
-  * @retval none.
+  * @retval 无.
   */
 void DMAMUX_Generator_Interrupt_Enable(DMAMUX_Generator_Type *DMAMUX_Gen_x, confirm_state new_state) {
     if(new_state != FALSE) {
@@ -547,7 +547,7 @@ void DMAMUX_Generator_Interrupt_Enable(DMAMUX_Generator_Type *DMAMUX_Gen_x, conf
   * @brief  dmamux sync flag get.
   * @param  DMA_x : pointer to a DMA_Type structure, can be DMA1 or DMA2.
   * @param  flag
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - DMAMUX_Sync_OV1_FLAG
   *         - DMAMUX_Sync_OV2_FLAG
   *         - DMAMUX_Sync_OV3_FLAG
@@ -569,7 +569,7 @@ flag_status DMAMUX_Sync_Flag_Get(DMA_Type *DMA_x, uint32_t flag) {
   * @brief  dmamux sync flag clear.
   * @param  DMA_x : pointer to a DMA_Type structure, can be DMA1 or DMA2.
   * @param  flag
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - DMAMUX_Sync_OV1_FLAG
   *         - DMAMUX_Sync_OV2_FLAG
   *         - DMAMUX_Sync_OV3_FLAG
@@ -577,7 +577,7 @@ flag_status DMAMUX_Sync_Flag_Get(DMA_Type *DMA_x, uint32_t flag) {
   *         - DMAMUX_Sync_OV5_FLAG
   *         - DMAMUX_Sync_OV6_FLAG
   *         - DMAMUX_Sync_OV7_FLAG
-  * @retval none.
+  * @retval 无.
   */
 void DMAMUX_Sync_Flag_Clear(DMA_Type *DMA_x, uint32_t flag) {
     DMA_x->muxsyncclr = flag;
@@ -587,7 +587,7 @@ void DMAMUX_Sync_Flag_Clear(DMA_Type *DMA_x, uint32_t flag) {
   * @brief  dmamux request generator flag get.
   * @param  DMA_x : pointer to a DMA_Type structure, can be DMA1 or DMA2.
   * @param  flag
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - DMAMUX_Gen_Trig_OV1_FLAG
   *         - DMAMUX_Gen_Trig_OV2_FLAG
   *         - DMAMUX_Gen_Trig_OV3_FLAG
@@ -606,12 +606,12 @@ flag_status DMAMUX_Generator_Flag_Get(DMA_Type *DMA_x, uint32_t flag) {
   * @brief  dmamux request generator flag clear.
   * @param  DMA_x : pointer to a DMA_Type structure, can be DMA1 or DMA2.
   * @param  flag
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - DMAMUX_Gen_Trig_OV1_FLAG
   *         - DMAMUX_Gen_Trig_OV2_FLAG
   *         - DMAMUX_Gen_Trig_OV3_FLAG
   *         - DMAMUX_Gen_Trig_OV4_FLAG
-  * @retval none.
+  * @retval 无.
   */
 void DMAMUX_Generator_Flag_Clear(DMA_Type *DMA_x, uint32_t flag) {
     DMA_x->muxgclr = flag;

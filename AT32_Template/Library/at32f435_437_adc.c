@@ -40,9 +40,9 @@
   */
 
 /**
-  * @brief  deinitialize the adc peripheral registers to their default reset values.
-  * @param  none
-  * @retval none
+  * @brief  复位 ADC 使其所有寄存器保持复位值.
+  * @param  无
+  * @retval 无
   */
 void ADC_Reset(void) {
     CRM_Periph_Reset(CRM_ADC_Periph_Reset, TRUE);
@@ -50,32 +50,32 @@ void ADC_Reset(void) {
 }
 
 /**
-  * @brief  enable or disable the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @brief  设定 A/D 转换器使能状态为关闭或开启.
+  * @param  ADC_x: 所选择的 ADC 外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
-  * @param  new_state: new state of a/d converter.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  * @param  new_state: A/D 转换器的预设状态.
+  *         该参数可以选取自其中之一: TRUE or FALSE.
+  * @retval 无
   */
 void ADC_Enable(ADC_Type *ADC_x, confirm_state new_state) {
     ADC_x->ctrl2_bit.adcen = new_state;
 }
 
 /**
-  * @brief  adc base default para init.
-  * @param  sequence_Mode: set the state of adc sequence mode.
-  *         this parameter can be:TRUE or FALSE
-  * @param  repeat_Mode: set the state of adc repeat conversion mode.
-  *         this parameter can be:TRUE or FALSE
-  * @param  data_align: set the state of adc data alignment.
-  *         this parameter can be one of the following values:
+  * @brief  为 adc_base_struct 指定初始默认值.
+  * @param  sequence_Mode: 设置adc序列模式的状态.
+  *         该参数可以是:TRUE or FALSE
+  * @param  repeat_Mode: 设置adc重复转换模式的状态.
+  *         该参数可以是:TRUE or FALSE
+  * @param  data_align: 设置adc数据对齐的状态.
+  *         该参数可以是以下值之一:
   *         - ADC_RIGHT_ALIGNMENT
   *         - ADC_LEFT_ALIGNMENT
-  * @param  ordinary_Channel_length: configure the adc ordinary channel sequence length.
-  *         this parameter can be:
+  * @param  ordinary_Channel_length: 配置adc普通通道序列长度.
+  *         该参数可以是:
   *         - (0x1~0xf)
-  * @retval none
+  * @retval 无
   */
 void ADC_Base_Default_Para_Init(ADC_Base_Config_Type *ADC_Base_struct) {
     ADC_Base_struct->sequence_Mode = FALSE;
@@ -85,22 +85,22 @@ void ADC_Base_Default_Para_Init(ADC_Base_Config_Type *ADC_Base_struct) {
 }
 
 /**
-  * @brief  initialize the adc peripheral according to the specified parameters.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @brief  将 adc_base_struct 中指定的参数初始化到外设 ADC 的寄存器.
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
-  * @param  sequence_Mode: set the state of adc sequence mode.
-  *         this parameter can be:TRUE or FALSE
-  * @param  repeat_Mode: set the state of adc repeat conversion mode.
-  *         this parameter can be:TRUE or FALSE
-  * @param  data_align: set the state of adc data alignment.
-  *         this parameter can be one of the following values:
+  * @param  sequence_Mode: 设置adc序列模式的状态.
+  *         该参数可以是:TRUE or FALSE
+  * @param  repeat_Mode: 设置adc重复转换模式的状态.
+  *         该参数可以是:TRUE or FALSE
+  * @param  data_align: 设置adc数据对齐的状态.
+  *         该参数可以是以下值之一:
   *         - ADC_RIGHT_ALIGNMENT
   *         - ADC_LEFT_ALIGNMENT
-  * @param  ordinary_Channel_length: configure the adc ordinary channel sequence length.
-  *         this parameter can be:
+  * @param  ordinary_Channel_length: 配置adc普通通道序列长度.
+  *         该参数可以是:
   *         - (0x1~0xf)
-  * @retval none
+  * @retval 无
   */
 void ADC_Base_Config(ADC_Type *ADC_x, ADC_Base_Config_Type *ADC_Base_struct) {
     ADC_x->ctrl1_bit.sqen = ADC_Base_struct->sequence_Mode;
@@ -110,22 +110,22 @@ void ADC_Base_Config(ADC_Type *ADC_x, ADC_Base_Config_Type *ADC_Base_struct) {
 }
 
 /**
-  * @brief  adc common default para init.
+  * @brief  为 adc_common_struct 指定初始默认值.
   * @param  combine_Mode: configure the adc combine_Mode mode.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_INDEPENDENT_Mode                       - ADC_Ordinary_SMLT_Preempt_SMLT_ONESLAVE_Mode   - ADC_Ordinary_SMLT_Preempt_INTERLTRIG_ONESLAVE_Mode
   *         - ADC_Preempt_SMLT_ONLY_ONESLAVE_Mode        - ADC_Ordinary_SMLT_ONLY_ONESLAVE_Mode           - ADC_Ordinary_Shift_ONLY_ONESLAVE_Mode
   *         - ADC_Preempt_INTERLTRIG_ONLY_ONESLAVE_Mode  - ADC_Ordinary_SMLT_Preempt_SMLT_TWOSLAVE_Mode   - ADC_Ordinary_SMLT_Preempt_INTERLTRIG_TWOSLAVE_Mode
   *         - ADC_Preempt_SMLT_ONLY_TWOSLAVE_Mode        - ADC_Ordinary_SMLT_ONLY_TWOSLAVE_Mode           - ADC_Ordinary_Shift_ONLY_TWOSLAVE_Mode
   *         - ADC_Preempt_INTERLTRIG_ONLY_TWOSLAVE_Mode
-  * @param  div: configure the adc division.
-  *         this parameter can be one of the following values:
+  * @param  div: 配置adc分频.
+  *         该参数可以是以下值之一:
   *         - ADC_HCLK_Div_2             - ADC_HCLK_Div_3             - ADC_HCLK_Div_4             - ADC_HCLK_Div_5
   *         - ADC_HCLK_Div_6             - ADC_HCLK_Div_7             - ADC_HCLK_Div_8             - ADC_HCLK_Div_9
   *         - ADC_HCLK_Div_10            - ADC_HCLK_Div_11            - ADC_HCLK_Div_12            - ADC_HCLK_Div_13
   *         - ADC_HCLK_Div_14            - ADC_HCLK_Div_15            - ADC_HCLK_Div_16            - ADC_HCLK_Div_17
   * @param  common_DMA_Mode: configure the adc common dma mode.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_Common_DMAMODE_Disable
   *         - ADC_Common_DMAMODE_1 <mode 1 can be used: all ordinary simultaneous mode,all ordinary shifting mode>
   *         - ADC_Common_DMAMODE_2 <mode 2 can be used: one slaver ordinary simultaneous mode,all ordinary shifting mode>
@@ -133,18 +133,18 @@ void ADC_Base_Config(ADC_Type *ADC_x, ADC_Base_Config_Type *ADC_Base_struct) {
   *         - ADC_Common_DMAMODE_4 <mode 4 can be used: two slaver ordinary simultaneous mode in 6/8 bit resolution,two slave ordinary shifting mode in 6/8 bit resolution>
   *         - ADC_Common_DMAMODE_5 <mode 5 can be used: all two slaver ordinary simultaneous mode,all two slave ordinary shifting mode>
   * @param  common_DMA_Request_Repeat_state: set the adc common dma request repeat state.
-  *         this parameter can be:TRUE or FALSE
+  *         该参数可以是:TRUE or FALSE
   * @param  sampling_interval: configure the ordinary shifting mode adjacent adc sampling interval.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_SAMPLING_INTERVAL_5CYCLES     - ADC_SAMPLING_INTERVAL_6CYCLES     - ADC_SAMPLING_INTERVAL_7CYCLES     - ADC_SAMPLING_INTERVAL_8CYCLES
   *         - ADC_SAMPLING_INTERVAL_9CYCLES     - ADC_SAMPLING_INTERVAL_10CYCLES    - ADC_SAMPLING_INTERVAL_11CYCLES    - ADC_SAMPLING_INTERVAL_12CYCLES
   *         - ADC_SAMPLING_INTERVAL_13CYCLES    - ADC_SAMPLING_INTERVAL_14CYCLES    - ADC_SAMPLING_INTERVAL_15CYCLES    - ADC_SAMPLING_INTERVAL_16CYCLES
   *         - ADC_SAMPLING_INTERVAL_17CYCLES    - ADC_SAMPLING_INTERVAL_18CYCLES    - ADC_SAMPLING_INTERVAL_19CYCLES    - ADC_SAMPLING_INTERVAL_20CYCLES
   * @param  tempervintrv_state: set the adc temperature sensor and vintrv state.
-  *         this parameter can be:TRUE or FALSE
+  *         该参数可以是:TRUE or FALSE
   * @param  vbat_state: set the adc voltage battery state.
-  *         this parameter can be:TRUE or FALSE
-  * @retval none
+  *         该参数可以是:TRUE or FALSE
+  * @retval 无
   */
 void ADC_Common_Default_Para_Init(ADC_Common_Config_Type *ADC_Common_struct) {
     ADC_Common_struct->combine_Mode = ADC_INDEPENDENT_Mode;
@@ -157,22 +157,22 @@ void ADC_Common_Default_Para_Init(ADC_Common_Config_Type *ADC_Common_struct) {
 }
 
 /**
-  * @brief  adc common default para init.
+  * @brief  将 adc_common_struct 中指定的参数初始化到 ADC 公共寄存器.
   * @param  combine_Mode: configure the adc combine_Mode mode.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_INDEPENDENT_Mode                       - ADC_Ordinary_SMLT_Preempt_SMLT_ONESLAVE_Mode   - ADC_Ordinary_SMLT_Preempt_INTERLTRIG_ONESLAVE_Mode
   *         - ADC_Preempt_SMLT_ONLY_ONESLAVE_Mode        - ADC_Ordinary_SMLT_ONLY_ONESLAVE_Mode           - ADC_Ordinary_Shift_ONLY_ONESLAVE_Mode
   *         - ADC_Preempt_INTERLTRIG_ONLY_ONESLAVE_Mode  - ADC_Ordinary_SMLT_Preempt_SMLT_TWOSLAVE_Mode   - ADC_Ordinary_SMLT_Preempt_INTERLTRIG_TWOSLAVE_Mode
   *         - ADC_Preempt_SMLT_ONLY_TWOSLAVE_Mode        - ADC_Ordinary_SMLT_ONLY_TWOSLAVE_Mode           - ADC_Ordinary_Shift_ONLY_TWOSLAVE_Mode
   *         - ADC_Preempt_INTERLTRIG_ONLY_TWOSLAVE_Mode
-  * @param  div: configure the adc division.
-  *         this parameter can be one of the following values:
+  * @param  div: 配置adc分频.
+  *         该参数可以是以下值之一:
   *         - ADC_HCLK_Div_2             - ADC_HCLK_Div_3             - ADC_HCLK_Div_4             - ADC_HCLK_Div_5
   *         - ADC_HCLK_Div_6             - ADC_HCLK_Div_7             - ADC_HCLK_Div_8             - ADC_HCLK_Div_9
   *         - ADC_HCLK_Div_10            - ADC_HCLK_Div_11            - ADC_HCLK_Div_12            - ADC_HCLK_Div_13
   *         - ADC_HCLK_Div_14            - ADC_HCLK_Div_15            - ADC_HCLK_Div_16            - ADC_HCLK_Div_17
   * @param  common_DMA_Mode: configure the adc common dma mode.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_Common_DMAMODE_Disable
   *         - ADC_Common_DMAMODE_1 <mode 1 can be used: all ordinary simultaneous mode,all ordinary shifting mode>
   *         - ADC_Common_DMAMODE_2 <mode 2 can be used: one slaver ordinary simultaneous mode,all ordinary shifting mode>
@@ -180,18 +180,18 @@ void ADC_Common_Default_Para_Init(ADC_Common_Config_Type *ADC_Common_struct) {
   *         - ADC_Common_DMAMODE_4 <mode 4 can be used: two slaver ordinary simultaneous mode in 6/8 bit resolution,two slave ordinary shifting mode in 6/8 bit resolution>
   *         - ADC_Common_DMAMODE_5 <mode 5 can be used: all two slaver ordinary simultaneous mode,all two slave ordinary shifting mode>
   * @param  common_DMA_Request_Repeat_state: set the adc common dma request repeat state.
-  *         this parameter can be:TRUE or FALSE
+  *         该参数可以是:TRUE or FALSE
   * @param  sampling_interval: configure the ordinary shifting mode adjacent adc sampling interval.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_SAMPLING_INTERVAL_5CYCLES     - ADC_SAMPLING_INTERVAL_6CYCLES     - ADC_SAMPLING_INTERVAL_7CYCLES     - ADC_SAMPLING_INTERVAL_8CYCLES
   *         - ADC_SAMPLING_INTERVAL_9CYCLES     - ADC_SAMPLING_INTERVAL_10CYCLES    - ADC_SAMPLING_INTERVAL_11CYCLES    - ADC_SAMPLING_INTERVAL_12CYCLES
   *         - ADC_SAMPLING_INTERVAL_13CYCLES    - ADC_SAMPLING_INTERVAL_14CYCLES    - ADC_SAMPLING_INTERVAL_15CYCLES    - ADC_SAMPLING_INTERVAL_16CYCLES
   *         - ADC_SAMPLING_INTERVAL_17CYCLES    - ADC_SAMPLING_INTERVAL_18CYCLES    - ADC_SAMPLING_INTERVAL_19CYCLES    - ADC_SAMPLING_INTERVAL_20CYCLES
   * @param  tempervintrv_state: set the adc temperature sensor and vintrv state.
-  *         this parameter can be:TRUE or FALSE
+  *         该参数可以是:TRUE or FALSE
   * @param  vbat_state: set the adc voltage battery state.
-  *         this parameter can be:TRUE or FALSE
-  * @retval none
+  *         该参数可以是:TRUE or FALSE
+  * @retval 无
   */
 void ADC_Common_Config(ADC_Common_Config_Type *ADC_Common_struct) {
     ADCCOM->cctrl_bit.mssel = ADC_Common_struct->combine_Mode;
@@ -211,17 +211,17 @@ void ADC_Common_Config(ADC_Common_Config_Type *ADC_Common_struct) {
 }
 
 /**
-  * @brief  set resolution of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @brief  设定 ADC 的转换分辨率.
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
-  * @param  resolution: set the conversion resolution.
-  *         this parameter can be one of the following values:
+  * @param  resolution: 选择 ADC 的转换分辨率.
+  *         该参数可以是以下值之一:
   *         - ADC_Resolution_12B
   *         - ADC_Resolution_10B
   *         - ADC_Resolution_8B
   *         - ADC_Resolution_6B
-  * @retval none
+  * @retval 无
   */
 void ADC_Resolution_Set(ADC_Type *ADC_x, ADC_Resolution_Type resolution) {
     ADC_x->ctrl1_bit.crsel = resolution;
@@ -230,8 +230,8 @@ void ADC_Resolution_Set(ADC_Type *ADC_x, ADC_Resolution_Type resolution) {
 /**
   * @brief  enable or disable the adc voltage battery.
   * @param  new_state: new state of the adc voltage battery.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void ADC_Voltage_Battery_Enable(confirm_state new_state) {
     ADCCOM->cctrl_bit.vbaten = new_state;
@@ -239,12 +239,12 @@ void ADC_Voltage_Battery_Enable(confirm_state new_state) {
 
 /**
   * @brief  enable or disable the adc dma transfer.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  new_state: new state of the adc dma transfer.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void ADC_DMA_Mode_Enable(ADC_Type *ADC_x, confirm_state new_state) {
     ADC_x->ctrl2_bit.ocdmaen = new_state;
@@ -252,12 +252,12 @@ void ADC_DMA_Mode_Enable(ADC_Type *ADC_x, confirm_state new_state) {
 
 /**
   * @brief  enable or disable the adc dma request repeat.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  new_state: the adc dma request repeat state.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void ADC_DMA_Request_Repeat_Enable(ADC_Type *ADC_x, confirm_state new_state) {
     ADC_x->ctrl2_bit.ocdrcen = new_state;
@@ -265,18 +265,18 @@ void ADC_DMA_Request_Repeat_Enable(ADC_Type *ADC_x, confirm_state new_state) {
 
 /**
   * @brief  enable or disable the specified adc interrupts.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  ADC_int: specifies the adc interrupt sources to be enabled or disabled.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_Occe_INT
   *         - ADC_VMOR_INT
   *         - ADC_PCCE_INT
   *         - ADC_OCCO_INT
   * @param  new_state: new state of the specified adc interrupts.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void ADC_Interrupt_Enable(ADC_Type *ADC_x, uint32_t ADC_int, confirm_state new_state) {
     if(new_state == TRUE) {
@@ -288,13 +288,13 @@ void ADC_Interrupt_Enable(ADC_Type *ADC_x, uint32_t ADC_int, confirm_state new_s
 
 /**
   * @brief  set calibration value of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  ADC_Calibration_value: calibration value of adc.
-  *         this parameter can be:
+  *         该参数可以是:
   *         - (0x00~0x7F)
-  * @retval none
+  * @retval 无
   */
 void ADC_Calibration_Value_Set(ADC_Type *ADC_x, uint8_t ADC_Calibration_value) {
     ADC_x->calval = ADC_Calibration_value;
@@ -302,10 +302,10 @@ void ADC_Calibration_Value_Set(ADC_Type *ADC_x, uint8_t ADC_Calibration_value) {
 
 /**
   * @brief  initialize calibration register of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
-  * @retval none
+  * @retval 无
   */
 void ADC_Calibration_Init(ADC_Type *ADC_x) {
     ADC_x->ctrl2_bit.adcalinit = TRUE;
@@ -313,8 +313,8 @@ void ADC_Calibration_Init(ADC_Type *ADC_x) {
 
 /**
   * @brief  get calibration register's initialize status of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @retval the new state of reset calibration register status(SET or RESET).
   */
@@ -328,10 +328,10 @@ flag_status ADC_Calibration_Init_Status_Get(ADC_Type *ADC_x) {
 
 /**
   * @brief  start calibration process of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
-  * @retval none
+  * @retval 无
   */
 void ADC_Calibration_Start(ADC_Type *ADC_x) {
     ADC_x->ctrl2_bit.adcal = TRUE;
@@ -339,8 +339,8 @@ void ADC_Calibration_Start(ADC_Type *ADC_x) {
 
 /**
   * @brief  get calibration status of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @retval the new state of calibration status(SET or RESET).
   */
@@ -354,11 +354,11 @@ flag_status ADC_Calibration_Status_Get(ADC_Type *ADC_x) {
 
 /**
   * @brief  enable or disable the voltage monitoring on single/all ordinary or preempt channels of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  ADC_Voltage_monitoring: choose the ADC_Voltage_monitoring config.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_VMONITOR_Single_ORDINARY
   *         - ADC_VMONITOR_Single_PREEMPT
   *         - ADC_VMONITOR_Single_Ordinary_PREEMPT
@@ -366,7 +366,7 @@ flag_status ADC_Calibration_Status_Get(ADC_Type *ADC_x) {
   *         - ADC_VMONITOR_All_PREEMPT
   *         - ADC_VMONITOR_All_Ordinary_PREEMPT
   *         - ADC_VMONITOR_NONE
-  * @retval none
+  * @retval 无
   */
 void ADC_Voltage_Monitor_Enable(ADC_Type *ADC_x, ADC_Voltage_monitoring_Type ADC_Voltage_monitoring) {
     ADC_x->ctrl1_bit.ocvmen = FALSE;
@@ -377,16 +377,16 @@ void ADC_Voltage_Monitor_Enable(ADC_Type *ADC_x, ADC_Voltage_monitoring_Type ADC
 
 /**
   * @brief  set voltage monitoring's high and low thresholds value of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  ADC_high_threshold: voltage monitoring's high thresholds value.
-  *         this parameter can be:
+  *         该参数可以是:
   *         - (0x000~0xFFF)
   * @param  ADC_Low_threshold: voltage monitoring's low thresholds value.
-  *         this parameter can be:
+  *         该参数可以是:
   *         - (0x000~0xFFF)
-  * @retval none
+  * @retval 无
   */
 void ADC_Voltage_Monitor_Threshold_Value_Set(ADC_Type *ADC_x, uint16_t ADC_high_threshold, uint16_t ADC_Low_threshold) {
     ADC_x->vmhb_bit.vmhb = ADC_high_threshold;
@@ -395,17 +395,17 @@ void ADC_Voltage_Monitor_Threshold_Value_Set(ADC_Type *ADC_x, uint16_t ADC_high_
 
 /**
   * @brief  select the voltage monitoring's channel of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  ADC_Channel: select the channel.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_Channel_0    - ADC_Channel_1    - ADC_Channel_2    - ADC_Channel_3
   *         - ADC_Channel_4    - ADC_Channel_5    - ADC_Channel_6    - ADC_Channel_7
   *         - ADC_Channel_8    - ADC_Channel_9    - ADC_Channel_10   - ADC_Channel_11
   *         - ADC_Channel_12   - ADC_Channel_13   - ADC_Channel_14   - ADC_Channel_15
   *         - ADC_Channel_16   - ADC_Channel_17   - ADC_Channel_18
-  * @retval none
+  * @retval 无
   */
 void ADC_Voltage_Monitor_Single_Channel_Select(ADC_Type *ADC_x, ADC_Channel_Select_Type ADC_Channel) {
     ADC_x->ctrl1_bit.vmcsel = ADC_Channel;
@@ -413,11 +413,11 @@ void ADC_Voltage_Monitor_Single_Channel_Select(ADC_Type *ADC_x, ADC_Channel_Sele
 
 /**
   * @brief  set ordinary channel's corresponding rank in the sequencer and sample time of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  ADC_Channel: select the channel.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_Channel_0    - ADC_Channel_1    - ADC_Channel_2    - ADC_Channel_3
   *         - ADC_Channel_4    - ADC_Channel_5    - ADC_Channel_6    - ADC_Channel_7
   *         - ADC_Channel_8    - ADC_Channel_9    - ADC_Channel_10   - ADC_Channel_11
@@ -427,7 +427,7 @@ void ADC_Voltage_Monitor_Single_Channel_Select(ADC_Type *ADC_x, ADC_Channel_Sele
   *         this parameter must be:
   *         - between 1 to 16
   * @param  ADC_sampletime: set the sampletime of adc channel.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_SAMPLETIME_2_5
   *         - ADC_SAMPLETIME_6_5
   *         - ADC_SAMPLETIME_12_5
@@ -436,7 +436,7 @@ void ADC_Voltage_Monitor_Single_Channel_Select(ADC_Type *ADC_x, ADC_Channel_Sele
   *         - ADC_SAMPLETIME_92_5
   *         - ADC_SAMPLETIME_247_5
   *         - ADC_SAMPLETIME_640_5
-  * @retval none
+  * @retval 无
   */
 void ADC_Ordinary_Channel_Set(ADC_Type *ADC_x, ADC_Channel_Select_Type ADC_Channel, uint8_t ADC_sequence, ADC_sampletime_Select_Type ADC_sampletime) {
     switch(ADC_Channel) {
@@ -592,13 +592,13 @@ void ADC_Ordinary_Channel_Set(ADC_Type *ADC_x, ADC_Channel_Select_Type ADC_Chann
 
 /**
   * @brief  set preempt channel lenghth of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  ADC_Channel_lenght: set the adc preempt channel lenghth.
-  *         this parameter can be:
+  *         该参数可以是:
   *         - (0x1~0x4)
-  * @retval none
+  * @retval 无
   */
 void ADC_Preempt_Channel_Length_Set(ADC_Type *ADC_x, uint8_t ADC_Channel_lenght) {
     ADC_x->psq_bit.pclen =  ADC_Channel_lenght - 1;
@@ -606,11 +606,11 @@ void ADC_Preempt_Channel_Length_Set(ADC_Type *ADC_x, uint8_t ADC_Channel_lenght)
 
 /**
   * @brief  configure preempt channel's corresponding rank in the sequencer and sample time of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  ADC_Channel: select the channel.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_Channel_0    - ADC_Channel_1    - ADC_Channel_2    - ADC_Channel_3
   *         - ADC_Channel_4    - ADC_Channel_5    - ADC_Channel_6    - ADC_Channel_7
   *         - ADC_Channel_8    - ADC_Channel_9    - ADC_Channel_10   - ADC_Channel_11
@@ -620,7 +620,7 @@ void ADC_Preempt_Channel_Length_Set(ADC_Type *ADC_x, uint8_t ADC_Channel_lenght)
   *         this parameter must be:
   *         - between 1 to 4
   * @param  ADC_sampletime: config the sampletime of adc channel.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_SAMPLETIME_2_5
   *         - ADC_SAMPLETIME_6_5
   *         - ADC_SAMPLETIME_12_5
@@ -629,7 +629,7 @@ void ADC_Preempt_Channel_Length_Set(ADC_Type *ADC_x, uint8_t ADC_Channel_lenght)
   *         - ADC_SAMPLETIME_92_5
   *         - ADC_SAMPLETIME_247_5
   *         - ADC_SAMPLETIME_640_5
-  * @retval none
+  * @retval 无
   */
 void ADC_Preempt_Channel_Set(ADC_Type *ADC_x, ADC_Channel_Select_Type ADC_Channel, uint8_t ADC_sequence, ADC_sampletime_Select_Type ADC_sampletime) {
     uint16_t sequence_index = 0;
@@ -742,11 +742,11 @@ void ADC_Preempt_Channel_Set(ADC_Type *ADC_x, ADC_Channel_Select_Type ADC_Channe
 /**
   * @brief  set the ordinary channel's external trigger edge and
   *         set external trigger event of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  ADC_Ordinary_trig: select the external trigger event.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_Ordinary_Trig_TMR1CH1     - ADC_Ordinary_Trig_TMR1CH2      - ADC_Ordinary_Trig_TMR1CH3      - ADC_Ordinary_Trig_TMR2CH2
   *         - ADC_Ordinary_Trig_TMR2CH3     - ADC_Ordinary_Trig_TMR2CH4      - ADC_Ordinary_Trig_TMR2TRGOUT   - ADC_Ordinary_Trig_TMR3CH1
   *         - ADC_Ordinary_Trig_TMR3TRGOUT  - ADC_Ordinary_Trig_TMR4CH4      - ADC_Ordinary_Trig_TMR5CH1      - ADC_Ordinary_Trig_TMR5CH2
@@ -756,12 +756,12 @@ void ADC_Preempt_Channel_Set(ADC_Type *ADC_x, ADC_Channel_Select_Type ADC_Channe
   *         - ADC_Ordinary_Trig_TMR6TRGOUT  - ADC_Ordinary_Trig_TMR3CH4      - ADC_Ordinary_Trig_TMR4CH1      - ADC_Ordinary_Trig_TMR1TRGOUT
   *         - ADC_Ordinary_Trig_TMR2CH1     - ADC_Ordinary_Trig_TMR7TRGOUT
   * @param  ADC_Ordinary_Trig_edge: ordinary channel conversion's external_Trigger_edge.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_Ordinary_Trig_Edge_NONE
   *         - ADC_Ordinary_Trig_Edge_RISING
   *         - ADC_Ordinary_Trig_Edge_FALLING
   *         - ADC_Ordinary_Trig_Edge_RISING_FALLING
-  * @retval none
+  * @retval 无
   */
 void ADC_Ordinary_Conversion_Trigger_Set(ADC_Type *ADC_x, ADC_Ordinary_Trig_Select_Type ADC_Ordinary_trig, ADC_Ordinary_Trig_Edge_Type ADC_Ordinary_Trig_edge) {
     if(ADC_Ordinary_trig > ADC_Ordinary_Trig_EXINT11) {
@@ -778,11 +778,11 @@ void ADC_Ordinary_Conversion_Trigger_Set(ADC_Type *ADC_x, ADC_Ordinary_Trig_Sele
 /**
   * @brief  enable or disable the preempt channel's external trigger and
   *         set external trigger event of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  ADC_Preempt_trig: select the external trigger event.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_Preempt_Trig_TMR1CH4      - ADC_Preempt_Trig_TMR1TRGOUT   - ADC_Preempt_Trig_TMR2CH1   - ADC_Preempt_Trig_TMR2TRGOUT
   *         - ADC_Preempt_Trig_TMR3CH2      - ADC_Preempt_Trig_TMR3CH4      - ADC_Preempt_Trig_TMR4CH1   - ADC_Preempt_Trig_TMR4CH2
   *         - ADC_Preempt_Trig_TMR4CH3      - ADC_Preempt_Trig_TMR4TRGOUT   - ADC_Preempt_Trig_TMR5CH4   - ADC_Preempt_Trig_TMR5TRGOUT
@@ -792,12 +792,12 @@ void ADC_Ordinary_Conversion_Trigger_Set(ADC_Type *ADC_x, ADC_Ordinary_Trig_Sele
   *         - ADC_Preempt_Trig_TMR3CH1      - ADC_Preempt_Trig_TMR6TRGOUT   - ADC_Preempt_Trig_TMR4CH4   - ADC_Preempt_Trig_TMR1CH3
   *         - ADC_Preempt_Trig_TMR20CH2     - ADC_Preempt_Trig_TMR7TRGOUT
   * @param  ADC_Preempt_Trig_edge: preempt channel conversion's external_Trigger_edge.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_Preempt_Trig_Edge_NONE
   *         - ADC_Preempt_Trig_Edge_RISING
   *         - ADC_Preempt_Trig_Edge_FALLING
   *         - ADC_Preempt_Trig_Edge_RISING_FALLING
-  * @retval none
+  * @retval 无
   */
 void ADC_Preempt_Conversion_Trigger_Set(ADC_Type *ADC_x, ADC_Preempt_Trig_Select_Type ADC_Preempt_trig, ADC_Preempt_Trig_Edge_Type ADC_Preempt_Trig_edge) {
     if(ADC_Preempt_trig > ADC_Preempt_Trig_EXINT15) {
@@ -813,19 +813,19 @@ void ADC_Preempt_Conversion_Trigger_Set(ADC_Type *ADC_x, ADC_Preempt_Trig_Select
 
 /**
   * @brief  set preempt channel's conversion value offset of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  ADC_Preempt_Channel: select the preempt channel.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_Preempt_Channel_1
   *         - ADC_Preempt_Channel_2
   *         - ADC_Preempt_Channel_3
   *         - ADC_Preempt_Channel_4
   * @param  ADC_Offset_value: set the adc preempt channel's conversion value offset.
-  *         this parameter can be:
+  *         该参数可以是:
   *         - (0x000~0xFFF)
-  * @retval none
+  * @retval 无
   */
 void ADC_Preempt_Offset_Value_Set(ADC_Type *ADC_x, ADC_Preempt_Channel_Type ADC_Preempt_Channel, uint16_t ADC_Offset_value) {
     switch(ADC_Preempt_Channel) {
@@ -852,13 +852,13 @@ void ADC_Preempt_Offset_Value_Set(ADC_Type *ADC_x, ADC_Preempt_Channel_Type ADC_
 
 /**
   * @brief  set partitioned mode channel count of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  ADC_Channel_count: configure the adc partitioned mode channel count.
-  *         this parameter can be:
+  *         该参数可以是:
   *         - (0x1~0x8)
-  * @retval none
+  * @retval 无
   */
 void ADC_Ordinary_Part_Count_Set(ADC_Type *ADC_x, uint8_t ADC_Channel_count) {
 
@@ -867,12 +867,12 @@ void ADC_Ordinary_Part_Count_Set(ADC_Type *ADC_x, uint8_t ADC_Channel_count) {
 
 /**
   * @brief  enable or disable the partitioned mode on ordinary channel of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  new_state: new state of ordinary channel's partitioned mode.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void ADC_Ordinary_Part_Mode_Enable(ADC_Type *ADC_x, confirm_state new_state) {
     ADC_x->ctrl1_bit.ocpen = new_state;
@@ -880,12 +880,12 @@ void ADC_Ordinary_Part_Mode_Enable(ADC_Type *ADC_x, confirm_state new_state) {
 
 /**
   * @brief  enable or disable the partitioned mode on preempt channel of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  new_state: new state of preempt channel's partitioned mode.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void ADC_Preempt_Part_Mode_Enable(ADC_Type *ADC_x, confirm_state new_state) {
     ADC_x->ctrl1_bit.pcpen = new_state;
@@ -893,12 +893,12 @@ void ADC_Preempt_Part_Mode_Enable(ADC_Type *ADC_x, confirm_state new_state) {
 
 /**
   * @brief  enable or disable automatic preempt group conversion of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  new_state: new state of automatic preempt group conversion.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void ADC_Preempt_Auto_Mode_Enable(ADC_Type *ADC_x, confirm_state new_state) {
     ADC_x->ctrl1_bit.pcautoen = new_state;
@@ -906,10 +906,10 @@ void ADC_Preempt_Auto_Mode_Enable(ADC_Type *ADC_x, confirm_state new_state) {
 
 /**
   * @brief  stop the ongoing conversion of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
-  * @retval none
+  * @retval 无
   */
 void ADC_Conversion_stop(ADC_Type *ADC_x) {
     ADC_x->ctrl2_bit.adabrt = TRUE;
@@ -917,8 +917,8 @@ void ADC_Conversion_stop(ADC_Type *ADC_x) {
 
 /**
   * @brief  get stop conversion's status of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @retval the new state of stop conversion's status(SET or RESET).
   */
@@ -932,12 +932,12 @@ flag_status ADC_Conversion_Stop_Status_Get(ADC_Type *ADC_x) {
 
 /**
   * @brief  enable or disable each ordinary channel conversion set occe flag of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  new_state: new state of each ordinary channel conversion set occe flag.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void ADC_Occe_Each_Conversion_Enable(ADC_Type *ADC_x, confirm_state new_state) {
     ADC_x->ctrl2_bit.eocsfen = new_state;
@@ -945,12 +945,12 @@ void ADC_Occe_Each_Conversion_Enable(ADC_Type *ADC_x, confirm_state new_state) {
 
 /**
   * @brief  enable or disable ordinary software start conversion of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  new_state: new state of ordinary software start conversion.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void ADC_Ordinary_Software_Trigger_Enable(ADC_Type *ADC_x, confirm_state new_state) {
     ADC_x->ctrl2_bit.ocswtrg = new_state;
@@ -958,8 +958,8 @@ void ADC_Ordinary_Software_Trigger_Enable(ADC_Type *ADC_x, confirm_state new_sta
 
 /**
   * @brief  get ordinary software start conversion status of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @retval the new state of ordinary software start conversion status(SET or RESET).
   */
@@ -973,12 +973,12 @@ flag_status ADC_Ordinary_Software_Trigger_Status_Get(ADC_Type *ADC_x) {
 
 /**
   * @brief  enable or disable preempt software start conversion of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  new_state: new state of preempt software start conversion.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void ADC_Preempt_Software_Trigger_Enable(ADC_Type *ADC_x, confirm_state new_state) {
     ADC_x->ctrl2_bit.pcswtrg = new_state;
@@ -986,8 +986,8 @@ void ADC_Preempt_Software_Trigger_Enable(ADC_Type *ADC_x, confirm_state new_stat
 
 /**
   * @brief  get preempt software start conversion status of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @retval the new state of preempt software start conversion status(SET or RESET).
   */
@@ -1001,8 +1001,8 @@ flag_status ADC_Preempt_Software_Trigger_Status_Get(ADC_Type *ADC_x) {
 
 /**
   * @brief  return the last conversion data for ordinary channel of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @retval the last conversion data for ordinary channel.
   */
@@ -1020,11 +1020,11 @@ uint32_t ADC_Combine_Ordinary_Conversion_Data_Get(void) {
 
 /**
   * @brief  return the conversion data for selection preempt channel of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  ADC_Preempt_Channel: select the preempt channel.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_Preempt_Channel_1
   *         - ADC_Preempt_Channel_2
   *         - ADC_Preempt_Channel_3
@@ -1060,18 +1060,18 @@ uint16_t ADC_Preempt_Conversion_Data_Get(ADC_Type *ADC_x, ADC_Preempt_Channel_Ty
 
 /**
   * @brief  get flag of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  ADC_flag: select the adc flag.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_VMOR_FLAG
   *         - ADC_Occe_FLAG
   *         - ADC_PCCE_FLAG
-  *         - ADC_PCCS_FLAG(no interrupt associated)
-  *         - ADC_OCCS_FLAG(no interrupt associated)
+  *         - ADC_PCCS_FLAG(无中断关联)
+  *         - ADC_OCCS_FLAG(无中断关联)
   *         - ADC_OCCO_FLAG
-  *         - ADC_RDY_FLAG(no interrupt associated)
+  *         - ADC_RDY_FLAG(无中断关联)
   * @retval the new state of adc flag status(SET or RESET).
   */
 flag_status ADC_Flag_Get(ADC_Type *ADC_x, uint8_t ADC_flag) {
@@ -1088,11 +1088,11 @@ flag_status ADC_Flag_Get(ADC_Type *ADC_x, uint8_t ADC_flag) {
 
 /**
   * @brief  clear flag of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         ADC1, ADC2, ADC3.
   * @param  ADC_flag: select the adc flag.
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - ADC_VMOR_FLAG
   *         - ADC_Occe_FLAG(also can clear by reading the ADC_x->odt)
   *         - ADC_PCCE_FLAG
@@ -1100,7 +1100,7 @@ flag_status ADC_Flag_Get(ADC_Type *ADC_x, uint8_t ADC_flag) {
   *         - ADC_OCCS_FLAG
   *         - ADC_OCCO_FLAG
   *         - note:"ADC_RDY_FLAG" cannot be choose!rdy bit is readonly bit,it means the adc is ready to accept conversion request
-  * @retval none
+  * @retval 无
   */
 void ADC_Flag_Clear(ADC_Type *ADC_x, uint32_t ADC_flag) {
     ADC_x->sts = ~ADC_flag;
@@ -1108,12 +1108,12 @@ void ADC_Flag_Clear(ADC_Type *ADC_x, uint32_t ADC_flag) {
 
 /**
   * @brief  enable or disable the ordinary oversampling of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  new_state: new state of ordinary oversampling.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void ADC_Ordinary_OverSample_Enable(ADC_Type *ADC_x, confirm_state new_state) {
     ADC_x->ovsp_bit.oosen = new_state;
@@ -1121,12 +1121,12 @@ void ADC_Ordinary_OverSample_Enable(ADC_Type *ADC_x, confirm_state new_state) {
 
 /**
   * @brief  enable or disable the preempt oversampling of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  new_state: new state of preempt oversampling.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void ADC_Preempt_OverSample_Enable(ADC_Type *ADC_x, confirm_state new_state) {
     ADC_x->ovsp_bit.posen = new_state;
@@ -1134,11 +1134,11 @@ void ADC_Preempt_OverSample_Enable(ADC_Type *ADC_x, confirm_state new_state) {
 
 /**
   * @brief  config the oversampling ratio and shift of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  ADC_OverSample_ratio: set the oversample ratio.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_OverSample_Ratio_2
   *         - ADC_OverSample_Ratio_4
   *         - ADC_OverSample_Ratio_8
@@ -1148,7 +1148,7 @@ void ADC_Preempt_OverSample_Enable(ADC_Type *ADC_x, confirm_state new_state) {
   *         - ADC_OverSample_Ratio_128
   *         - ADC_OverSample_Ratio_256
   * @param  ADC_OverSample_shift: set the oversample shift.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_OverSample_Shift_0
   *         - ADC_OverSample_Shift_1
   *         - ADC_OverSample_Shift_2
@@ -1158,7 +1158,7 @@ void ADC_Preempt_OverSample_Enable(ADC_Type *ADC_x, confirm_state new_state) {
   *         - ADC_OverSample_Shift_6
   *         - ADC_OverSample_Shift_7
   *         - ADC_OverSample_Shift_8
-  * @retval none
+  * @retval 无
   */
 void ADC_OverSample_Ratio_Shift_Set(ADC_Type *ADC_x, ADC_OverSample_Ratio_Type ADC_OverSample_ratio, ADC_OverSample_Shift_Type ADC_OverSample_shift) {
     ADC_x->ovsp_bit.osrsel = ADC_OverSample_ratio;
@@ -1167,12 +1167,12 @@ void ADC_OverSample_Ratio_Shift_Set(ADC_Type *ADC_x, ADC_OverSample_Ratio_Type A
 
 /**
   * @brief  enable or disable the ordinary oversampling trigger mode of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  new_state: new state of ordinary oversampling trigger mode.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void ADC_Ordinary_OverSample_Trig_Enable(ADC_Type *ADC_x, confirm_state new_state) {
     ADC_x->ovsp_bit.oostren = new_state;
@@ -1180,14 +1180,14 @@ void ADC_Ordinary_OverSample_Trig_Enable(ADC_Type *ADC_x, confirm_state new_stat
 
 /**
   * @brief  set ordinary oversample restart mode of the specified adc peripheral.
-  * @param  ADC_x: select the adc peripheral.
-  *         this parameter can be one of the following values:
+  * @param  ADC_x: 选择adc外设.
+  *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  ADC_or_OverSample_restart: ordinary oversample restart mode.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ADC_OverSample_CONTINUE
   *         - ADC_OverSample_RESTART
-  * @retval none
+  * @retval 无
   */
 void ADC_Ordinary_OverSample_Restart_Set(ADC_Type *ADC_x, ADC_Ordinary_OverSample_Restart_Type ADC_Ordinary_OverSample_restart) {
     ADC_x->ovsp_bit.oosrsel = ADC_Ordinary_OverSample_restart;

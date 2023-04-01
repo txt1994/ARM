@@ -51,8 +51,8 @@ static void EMAC_delay(uint32_t delay);
 
 /**
   * @brief  deinitialize the emac peripheral registers to their default reset values.
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void EMAC_Reset(void) {
     CRM_Periph_Reset(CRM_EMAC_Periph_Reset, TRUE);
@@ -62,7 +62,7 @@ void EMAC_Reset(void) {
 /**
   * @brief  initialize emac control structure
   * @param  EMAC_Control_Config_Type
-  * @retval none
+  * @retval 无
   */
 void EMAC_Control_Para_Init(EMAC_Control_Config_Type *control_para) {
     control_para->auto_nego = EMAC_Auto_NEGOTIATION_OFF;
@@ -83,8 +83,8 @@ void EMAC_Control_Para_Init(EMAC_Control_Config_Type *control_para) {
 
 /**
   * @brief  according to hclk to set mdc clock frequency.
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void EMAC_Clock_Range_Set(void) {
     uint8_t bits_value = 0;
@@ -115,7 +115,7 @@ void EMAC_Clock_Range_Set(void) {
 /**
   * @brief  configure emac control setting.
   * @param  control_struct: control setting of mac control register.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Control_Config(EMAC_Control_Config_Type *control_struct) {
     EMAC_Deferral_Check_Set(control_struct->deferral_check);
@@ -133,8 +133,8 @@ void EMAC_Control_Config(EMAC_Control_Config_Type *control_struct) {
 
 /**
   * @brief  reset emac dma
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void EMAC_DMA_Software_Reset_Set(void) {
     EMAC_DMA->bm_bit.swr = 1;
@@ -142,7 +142,7 @@ void EMAC_DMA_Software_Reset_Set(void) {
 
 /**
   * @brief  get emac dma reset status
-  * @param  none
+  * @param  无
   * @retval TRUE of FALSE
   */
 flag_status EMAC_DMA_Software_Reset_Get(void) {
@@ -155,8 +155,8 @@ flag_status EMAC_DMA_Software_Reset_Get(void) {
 
 /**
   * @brief  enable emac and dma reception/transmission
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void EMAC_Start(void) {
     /* enable transmit state machine of the mac for transmission on the mii */
@@ -177,8 +177,8 @@ void EMAC_Start(void) {
 
 /**
   * @brief  stop emac and dma reception/transmission
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void EMAC_Stop(void) {
     /* stop dma transmission */
@@ -257,7 +257,7 @@ error_status EMAC_PHY_Register_Read(uint8_t address, uint8_t reg, uint16_t *data
 /**
   * @brief  emac receiver enable.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Receiver_Enable(confirm_state new_state) {
     __IO uint32_t temp = 0;
@@ -272,7 +272,7 @@ void EMAC_Receiver_Enable(confirm_state new_state) {
 /**
   * @brief  emac transmitter enable.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Trasmitter_Enable(confirm_state new_state) {
     __IO uint32_t temp = 0;
@@ -287,7 +287,7 @@ void EMAC_Trasmitter_Enable(confirm_state new_state) {
 /**
   * @brief  emac defferal check enable, only avalible in half-duplex mode.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Deferral_Check_Set(confirm_state new_state) {
     EMAC->ctrl_bit.dc = new_state;
@@ -296,12 +296,12 @@ void EMAC_Deferral_Check_Set(confirm_state new_state) {
 /**
   * @brief  emac back-off limit, only avalible in half-duplex mode.
   * @param  slot_time: waiting time of retransmission after collision
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_BackOff_Limit_0
   *         - EMAC_BackOff_Limit_1
   *         - EMAC_BackOff_Limit_2
   *         - EMAC_BackOff_Limit_3
-  * @retval none
+  * @retval 无
   */
 void EMAC_BackOff_Limit_Set(EMAC_bol_Type slot_time) {
     EMAC->ctrl_bit.bl = slot_time;
@@ -310,7 +310,7 @@ void EMAC_BackOff_Limit_Set(EMAC_bol_Type slot_time) {
 /**
   * @brief  set mac automatic pad/CRC stripping.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Auto_pad_CRC_Stripping_Set(confirm_state new_state) {
     EMAC->ctrl_bit.acs = new_state;
@@ -319,7 +319,7 @@ void EMAC_Auto_pad_CRC_Stripping_Set(confirm_state new_state) {
 /**
   * @brief  transmittion retry disable.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Retry_Disable(confirm_state new_state) {
     EMAC->ctrl_bit.dr = new_state;
@@ -328,7 +328,7 @@ void EMAC_Retry_Disable(confirm_state new_state) {
 /**
   * @brief  set ipv4 checksum offload.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Ipv4_checksum_offload_Set(confirm_state new_state) {
     EMAC->ctrl_bit.ipc = new_state;
@@ -337,7 +337,7 @@ void EMAC_Ipv4_checksum_offload_Set(confirm_state new_state) {
 /**
   * @brief  enable loopback mode.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Loopback_Mode_Enable(confirm_state new_state) {
     EMAC->ctrl_bit.lm = new_state;
@@ -346,7 +346,7 @@ void EMAC_Loopback_Mode_Enable(confirm_state new_state) {
 /**
   * @brief  receive own disable.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Receive_Own_Disable(confirm_state new_state) {
     EMAC->ctrl_bit.dro = new_state;
@@ -355,7 +355,7 @@ void EMAC_Receive_Own_Disable(confirm_state new_state) {
 /**
   * @brief  carrier sense disbale.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Carrier_Sense_Disable(confirm_state new_state) {
     EMAC->ctrl_bit.dcs = new_state;
@@ -364,7 +364,7 @@ void EMAC_Carrier_Sense_Disable(confirm_state new_state) {
 /**
   * @brief  set minimum interframe gap between frames during transmission.
   * @param  number: interframe gap number.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_Frame_Gap_96BIT
   *         - EMAC_Frame_Gap_88BIT
   *         - EMAC_Frame_Gap_80BIT
@@ -373,7 +373,7 @@ void EMAC_Carrier_Sense_Disable(confirm_state new_state) {
   *         - EMAC_Frame_Gap_56BIT
   *         - EMAC_Frame_Gap_48BIT
   *         - EMAC_Frame_Gap_40BIT
-  * @retval none
+  * @retval 无
   */
 void EMAC_Interframe_Gap_Set(EMAC_intergrame_Gap_Type number) {
     EMAC->ctrl_bit.ifg = number;
@@ -382,7 +382,7 @@ void EMAC_Interframe_Gap_Set(EMAC_intergrame_Gap_Type number) {
 /**
   * @brief  jabber disable.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Jabber_Disable(confirm_state new_state) {
     EMAC->ctrl_bit.jd = new_state;
@@ -391,7 +391,7 @@ void EMAC_Jabber_Disable(confirm_state new_state) {
 /**
   * @brief  watchdog disable.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_WatchDog_Disable(confirm_state new_state) {
     EMAC->ctrl_bit.wd = new_state;
@@ -400,10 +400,10 @@ void EMAC_WatchDog_Disable(confirm_state new_state) {
 /**
   * @brief  set mac fast emac speed.
   * @param  speed: mac bandwidth
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_SPEED_10MBPS
   *         - EMAC_SPEED_100MBPS
-  * @retval none
+  * @retval 无
   */
 void EMAC_Fast_Speed_Set(EMAC_Speed_Type speed) {
     EMAC->ctrl_bit.fes = speed;
@@ -412,10 +412,10 @@ void EMAC_Fast_Speed_Set(EMAC_Speed_Type speed) {
 /**
   * @brief  set duplex mode.
   * @param  duplex_Mode: communication mode
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_Half_DUPLEX
   *         - EMAC_FULL_DUPLEX
-  * @retval none
+  * @retval 无
   */
 void EMAC_Duplex_Mode_Set(EMAC_Duplex_Type duplex_Mode) {
     EMAC->ctrl_bit.dm = duplex_Mode;
@@ -424,7 +424,7 @@ void EMAC_Duplex_Mode_Set(EMAC_Duplex_Type duplex_Mode) {
 /**
   * @brief  set mac promiscuous mode.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Promiscuous_Mode_Set(confirm_state new_state) {
     EMAC->frmf_bit.pr = new_state;
@@ -433,7 +433,7 @@ void EMAC_Promiscuous_Mode_Set(confirm_state new_state) {
 /**
   * @brief  hash unicast.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Hash_Unicast_Set(confirm_state new_state) {
     EMAC->frmf_bit.huc = new_state;
@@ -442,7 +442,7 @@ void EMAC_Hash_Unicast_Set(confirm_state new_state) {
 /**
   * @brief  hash multicast.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Hash_MultiCast_Set(confirm_state new_state) {
     EMAC->frmf_bit.hmc = new_state;
@@ -451,7 +451,7 @@ void EMAC_Hash_MultiCast_Set(confirm_state new_state) {
 /**
   * @brief  destination address inverse filtering.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Dstaddr_Inverse_Filter_Set(confirm_state new_state) {
     EMAC->frmf_bit.daif = new_state;
@@ -460,7 +460,7 @@ void EMAC_Dstaddr_Inverse_Filter_Set(confirm_state new_state) {
 /**
   * @brief  pass all multicasting frames.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Pass_All_MultiCasting_Set(confirm_state new_state) {
     EMAC->frmf_bit.pmc = new_state;
@@ -469,7 +469,7 @@ void EMAC_Pass_All_MultiCasting_Set(confirm_state new_state) {
 /**
   * @brief  broadcast frames disable.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_broadcast_Frames_Disable(confirm_state new_state) {
     EMAC->frmf_bit.dbf = new_state;
@@ -478,11 +478,11 @@ void EMAC_broadcast_Frames_Disable(confirm_state new_state) {
 /**
   * @brief  set mac how to pass control frames.
   * @param  condition: set what control frame can pass filter.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_Control_Frame_PASSING_NO
   *         - EMAC_Control_Frame_PASSING_ALL
   *         - EMAC_Control_Frame_PASSING_MATCH
-  * @retval none
+  * @retval 无
   */
 void EMAC_Pass_Control_Frames_Set(EMAC_Control_Frames_Filter_Type condition) {
     EMAC->frmf_bit.pcf = condition;
@@ -491,7 +491,7 @@ void EMAC_Pass_Control_Frames_Set(EMAC_Control_Frames_Filter_Type condition) {
 /**
   * @brief  source address inverse filtering.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Srcaddr_Inverse_Filter_Set(confirm_state new_state) {
     EMAC->frmf_bit.saif = new_state;
@@ -500,7 +500,7 @@ void EMAC_Srcaddr_Inverse_Filter_Set(confirm_state new_state) {
 /**
   * @brief  source address filtering.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Srcaddr_Filter_Set(confirm_state new_state) {
     EMAC->frmf_bit.saf = new_state;
@@ -509,7 +509,7 @@ void EMAC_Srcaddr_Filter_Set(confirm_state new_state) {
 /**
   * @brief  mac uses hash or perfect filter.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Hash_Perfect_Filter_Set(confirm_state new_state) {
     EMAC->frmf_bit.hpf = new_state;
@@ -518,7 +518,7 @@ void EMAC_Hash_Perfect_Filter_Set(confirm_state new_state) {
 /**
   * @brief  mac receives all frames.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Receive_All_Set(confirm_state new_state) {
     EMAC->frmf_bit.ra = new_state;
@@ -527,7 +527,7 @@ void EMAC_Receive_All_Set(confirm_state new_state) {
 /**
   * @brief  hash table high 32-bit.
   * @param  high32bits: the highest 32-bit of hash table.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Hash_Table_High32bits_Set(uint32_t high32bits) {
     EMAC->hth_bit.hth = high32bits;
@@ -536,7 +536,7 @@ void EMAC_Hash_Table_High32bits_Set(uint32_t high32bits) {
 /**
   * @brief  hash table low 32-bit.
   * @param  low32bits: the lowest 32-bit of hash table.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Hash_Table_Low32bits_Set(uint32_t low32bits) {
     EMAC->htl_bit.htl = low32bits;
@@ -544,7 +544,7 @@ void EMAC_Hash_Table_Low32bits_Set(uint32_t low32bits) {
 
 /**
   * @brief  mii busy status.
-  * @param  none
+  * @param  无
   * @retval SET or RESET
   */
 flag_status EMAC_MII_Busy_Get(void) {
@@ -558,7 +558,7 @@ flag_status EMAC_MII_Busy_Get(void) {
 /**
   * @brief  tell phy that will be written.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_MII_Write(confirm_state new_state) {
     EMAC->miiaddr_bit.mw = new_state;
@@ -567,7 +567,7 @@ void EMAC_MII_Write(confirm_state new_state) {
 /**
   * @brief  set flow control busy in full-duplex mode, back pressure activate in half-duplex mode.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_FCB_BPA_Set(confirm_state new_state) {
     EMAC->fctrl_bit.fcbbpa = new_state;
@@ -576,7 +576,7 @@ void EMAC_FCB_BPA_Set(confirm_state new_state) {
 /**
   * @brief  set transmit flow control.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Transmit_Flow_Control_Enable(confirm_state new_state) {
     EMAC->fctrl_bit.etf = new_state;
@@ -585,7 +585,7 @@ void EMAC_Transmit_Flow_Control_Enable(confirm_state new_state) {
 /**
   * @brief  set receive flow control.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Receive_Flow_Control_Enable(confirm_state new_state) {
     EMAC->fctrl_bit.erf = new_state;
@@ -594,7 +594,7 @@ void EMAC_Receive_Flow_Control_Enable(confirm_state new_state) {
 /**
   * @brief  set unicast pause frame detect.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Unicast_Pause_Frame_Detect(confirm_state new_state) {
     EMAC->fctrl_bit.dup = new_state;
@@ -603,12 +603,12 @@ void EMAC_Unicast_Pause_Frame_Detect(confirm_state new_state) {
 /**
   * @brief  set pause low threshold.
   * @param  pasue_threshold: pause slot time.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_Pause_4_SLOT_TIME
   *         - EMAC_Pause_28_SLOT_TIME
   *         - EMAC_Pause_144_SLOT_TIME
   *         - EMAC_Pause_256_SLOT_TIME
-  * @retval none
+  * @retval 无
   */
 void EMAC_Pause_Low_Threshold_Set(EMAC_Pause_slot_Threshold_Type pasue_threshold) {
     EMAC->fctrl_bit.plt = pasue_threshold;
@@ -617,7 +617,7 @@ void EMAC_Pause_Low_Threshold_Set(EMAC_Pause_slot_Threshold_Type pasue_threshold
 /**
   * @brief  set zero-quanta pause disable.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Zero_Quanta_Pause_Disable(confirm_state new_state) {
     EMAC->fctrl_bit.dzqp = new_state;
@@ -626,7 +626,7 @@ void EMAC_Zero_Quanta_Pause_Disable(confirm_state new_state) {
 /**
   * @brief  set pause time.
   * @param  pause_time: time slots to pause transmit frame.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Pause_Time_Set(uint16_t pause_time) {
     EMAC->fctrl_bit.pt = pause_time;
@@ -635,7 +635,7 @@ void EMAC_Pause_Time_Set(uint16_t pause_time) {
 /**
   * @brief  identify coming vlan frame field with setting value.
   * @param  identifier: it will be compared with coming frame.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Vlan_Tag_Identifier_Set(uint16_t identifier) {
     EMAC->vlt_bit.vti = identifier;
@@ -644,7 +644,7 @@ void EMAC_Vlan_Tag_Identifier_Set(uint16_t identifier) {
 /**
   * @brief  set 12-bit vlan identifier.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Vlan_Tag_Comparison_Set(confirm_state new_state) {
     EMAC->vlt_bit.etv = new_state;
@@ -653,7 +653,7 @@ void EMAC_Vlan_Tag_Comparison_Set(confirm_state new_state) {
 /**
   * @brief  set wakeup frame.
   * @param  value: it will be written to eight non transparent registers.
-  * @retval none
+  * @retval 无
   */
 void EMAC_WakeUp_Frame_Set(uint32_t value) {
     EMAC->rwff = value;
@@ -661,7 +661,7 @@ void EMAC_WakeUp_Frame_Set(uint32_t value) {
 
 /**
   * @brief  get wakeup frame.
-  * @param  none
+  * @param  无
   * @retval get value from eight non transparent registers.
   */
 uint32_t EMAC_WakeUp_Frame_Get(void) {
@@ -671,7 +671,7 @@ uint32_t EMAC_WakeUp_Frame_Get(void) {
 /**
   * @brief  all frame will be droppped except wakeup frame or magic packet.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Power_Down_Set(confirm_state new_state) {
     EMAC->pmtctrlsts_bit.pd = new_state;
@@ -680,7 +680,7 @@ void EMAC_Power_Down_Set(confirm_state new_state) {
 /**
   * @brief  magic packet enable
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Magic_Packet_Enable(confirm_state new_state) {
     EMAC->pmtctrlsts_bit.emp = new_state;
@@ -689,7 +689,7 @@ void EMAC_Magic_Packet_Enable(confirm_state new_state) {
 /**
   * @brief  wakeup frame enable
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_WakeUp_Frame_Enable(confirm_state new_state) {
     EMAC->pmtctrlsts_bit.erwf = new_state;
@@ -697,7 +697,7 @@ void EMAC_WakeUp_Frame_Enable(confirm_state new_state) {
 
 /**
   * @brief  received magic packet
-  * @param  none
+  * @param  无
   * @retval the new state of USART_flag (SET or RESET).
   */
 flag_status EMAC_Received_Magic_Packet_Get(void) {
@@ -710,7 +710,7 @@ flag_status EMAC_Received_Magic_Packet_Get(void) {
 
 /**
   * @brief  received wakeup frame.
-  * @param  none
+  * @param  无
   * @retval the new state of USART_flag (SET or RESET).
   */
 flag_status EMAC_Received_WakeUp_Frame_Get(void) {
@@ -724,7 +724,7 @@ flag_status EMAC_Received_WakeUp_Frame_Get(void) {
 /**
   * @brief  set unicast frame that passes DAF as wakeup frame.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Global_Unicast_Set(confirm_state new_state) {
     EMAC->pmtctrlsts_bit.guc = new_state;
@@ -733,7 +733,7 @@ void EMAC_Global_Unicast_Set(confirm_state new_state) {
 /**
   * @brief  reset wakeup frame filter resgister
   * @param new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_WakeUp_Frame_Filter_Reset(confirm_state new_state) {
     EMAC->pmtctrlsts_bit.rwffpr = new_state;
@@ -742,7 +742,7 @@ void EMAC_WakeUp_Frame_Filter_Reset(confirm_state new_state) {
 /**
   * @brief  read interrupt status
   * @param  flag: specifies the flag to check.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_PMT_FLAG
   *         - EMAC_MMC_FLAG
   *         - EMAC_MMCR_FLAG
@@ -761,11 +761,11 @@ flag_status EMAC_Interrupt_Status_Read(uint32_t flag) {
 /**
   * @brief  set interrupt mask
   * @param  mask_Type: mask the interrupt signal
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_Interrupt_PMT_MASK
   *         - EMAC_Interrupt_TST_MASK
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_Interrupt_Mask_Set(EMAC_Interrupt_Mask_Type mask_Type, confirm_state new_state) {
     switch(mask_Type) {
@@ -784,7 +784,7 @@ void EMAC_Interrupt_Mask_Set(EMAC_Interrupt_Mask_Type mask_Type, confirm_state n
 /**
   * @brief  set local mac address
   * @param  address: local address for mac0
-  * @retval none
+  * @retval 无
   */
 void EMAC_Local_Address_Set(uint8_t *address) {
     EMAC->a0h_bit.ma0h = (uint32_t)(address[5] << 8 | address[4]);
@@ -794,11 +794,11 @@ void EMAC_Local_Address_Set(uint8_t *address) {
 /**
   * @brief  set mac filter address
   * @param  mac: select which mac you want to set
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_Address_Filter_1
   *         - EMAC_Address_Filter_2
   *         - EMAC_Address_Filter_3
-  * @retval none
+  * @retval 无
   */
 void EMAC_Address_Filter_Set(EMAC_Address_Type mac, EMAC_Address_Filter_Type filter, EMAC_Address_Mask_Type mask_bit, confirm_state new_state) {
     switch(mac) {
@@ -828,13 +828,13 @@ void EMAC_Address_Filter_Set(EMAC_Address_Type mac, EMAC_Address_Filter_Type fil
 /**
   * @brief  set transmit/receive descriptor list address
   * @param  transfer_Type: it will be transmit or receive
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_DMA_Transmit
   *         - EMAC_DMA_Receive
   * @param  DMA_Desc_tab: pointer on the first tx desc list
   * @param  buff: pointer on the first tx/rx buffer list
   * @param  buffer_count: number of the used Tx desc in the list
-  * @retval none
+  * @retval 无
   */
 void EMAC_DMA_Descriptor_List_Address_Set(EMAC_DMA_TX_RX_Type transfer_Type, EMAC_DMA_Desc_Type *DMA_Desc_tab, uint8_t *buff, uint32_t buffer_count) {
     uint32_t i = 0;
@@ -891,10 +891,10 @@ void EMAC_DMA_Descriptor_List_Address_Set(EMAC_DMA_TX_RX_Type transfer_Type, EMA
   * @brief  enable or disable the specified dma rx descriptor receive interrupt
   * @param  DMA_RX_desc: pointer on a rx desc.
   * @param  new_state: new state of the specified dma rx descriptor interrupt.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - TRUE
   *         - FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_DMA_RX_Desc_Interrupt_Config(EMAC_DMA_Desc_Type *DMA_RX_desc, confirm_state new_state) {
     if (new_state != FALSE) {
@@ -909,7 +909,7 @@ void EMAC_DMA_RX_Desc_Interrupt_Config(EMAC_DMA_Desc_Type *DMA_RX_desc, confirm_
 /**
   * @brief  get transmit/receive descriptor list address
   * @param  transfer_Type: it will be transmit or receive
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_DMA_Transmit
   *         - EMAC_DMA_Receive
   * @retval transmit/receive descriptor list address
@@ -930,7 +930,7 @@ uint32_t EMAC_DMA_Descriptor_List_Address_Get(EMAC_DMA_TX_RX_Type transfer_Type)
 
 /**
   * @brief  get the size of received the received packet.
-  * @param  none
+  * @param  无
   * @retval received packet size
   */
 uint32_t EMAC_Received_Packet_size_Get(void) {
@@ -958,7 +958,7 @@ uint32_t EMAC_Dmarxdesc_Frame_Length_Get(EMAC_DMA_Desc_Type *DMA_RX_desc) {
 /**
   * @brief  init emac dma parameters
   * @param  EMAC_DMA_Config_Type
-  * @retval none
+  * @retval 无
   */
 void EMAC_DMA_Para_Init(EMAC_DMA_Config_Type *control_para) {
     control_para->aab_Enable = FALSE;
@@ -983,7 +983,7 @@ void EMAC_DMA_Para_Init(EMAC_DMA_Config_Type *control_para) {
 /**
   * @brief  configure emac dma
   * @param  EMAC_DMA_Config_Type
-  * @retval none
+  * @retval 无
   */
 void EMAC_DMA_Config(EMAC_DMA_Config_Type *control_para) {
     EMAC_DMA->bm_bit.aab = control_para->aab_Enable;
@@ -1009,13 +1009,13 @@ void EMAC_DMA_Config(EMAC_DMA_Config_Type *control_para) {
 /**
   * @brief  set rx tx priority
   * @param  ratio: rx tx priority ratio
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_DMA_1_RX_1_TX
   *         - EMAC_DMA_2_RX_1_TX
   *         - EMAC_DMA_3_RX_1_TX
   *         - EMAC_DMA_4_RX_1_TX
   * @param  new_state: TRUE or FALSE
-  * @retval none
+  * @retval 无
   */
 void EMAC_DMA_Arbitation_Set(EMAC_DMA_RX_TX_Ratio_Type ratio, confirm_state new_state) {
     EMAC_DMA->bm_bit.da = new_state;
@@ -1028,7 +1028,7 @@ void EMAC_DMA_Arbitation_Set(EMAC_DMA_RX_TX_Ratio_Type ratio, confirm_state new_
 /**
   * @brief  set descriptor skip mength
   * @param  length: descriptor skip length
-  * @retval none
+  * @retval 无
   */
 void EMAC_DMA_Descriptor_Skip_Length_Set(uint8_t length) {
     EMAC_DMA->bm_bit.dsl = length;
@@ -1037,7 +1037,7 @@ void EMAC_DMA_Descriptor_Skip_Length_Set(uint8_t length) {
 /**
   * @brief  set programmable burst length
   * @param  tx_length: tx programmable burst length
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_DMA_PBL_1
   *         - EMAC_DMA_PBL_2
   *         - EMAC_DMA_PBL_4
@@ -1045,7 +1045,7 @@ void EMAC_DMA_Descriptor_Skip_Length_Set(uint8_t length) {
   *         - EMAC_DMA_PBL_16
   *         - EMAC_DMA_PBL_32
   * @param  rx_length: rx programmable burst length
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_DMA_PBL_1
   *         - EMAC_DMA_PBL_2
   *         - EMAC_DMA_PBL_4
@@ -1053,7 +1053,7 @@ void EMAC_DMA_Descriptor_Skip_Length_Set(uint8_t length) {
   *         - EMAC_DMA_PBL_16
   *         - EMAC_DMA_PBL_32
   * @param  new_state: TRUE or FALSE
-  * @retval none
+  * @retval 无
   */
 void EMAC_DMA_Separate_pbl_Set(EMAC_DMA_pbl_Type tx_length, EMAC_DMA_pbl_Type rx_length, confirm_state new_state) {
     EMAC_DMA->bm_bit.usp = new_state;
@@ -1067,7 +1067,7 @@ void EMAC_DMA_Separate_pbl_Set(EMAC_DMA_pbl_Type tx_length, EMAC_DMA_pbl_Type rx
 /**
   * @brief  set 8 times programmable burst length
   * @param  new_state: TRUE or FALSE
-  * @retval none
+  * @retval 无
   */
 void EMAC_DMA_Eight_pbl_Mode_Set(confirm_state new_state) {
     EMAC_DMA->bm_bit.pblx8 = new_state;
@@ -1076,7 +1076,7 @@ void EMAC_DMA_Eight_pbl_Mode_Set(confirm_state new_state) {
 /**
   * @brief  set address-aligned beats
   * @param  new_state: TRUE or FALSE
-  * @retval none
+  * @retval 无
   */
 void EMAC_DMA_Address_Aligned_Beats_Set(confirm_state new_state) {
     EMAC_DMA->bm_bit.aab = new_state;
@@ -1085,11 +1085,11 @@ void EMAC_DMA_Address_Aligned_Beats_Set(confirm_state new_state) {
 /**
   * @brief  set transmit/receive poll demand
   * @param  transfer_Type: it will be transmit or receive
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_DMA_Transmit
   *         - EMAC_DMA_Receive
   * @param  value: it can be any number
-  * @retval none
+  * @retval 无
   */
 void EMAC_DMA_Poll_Demand_Set(EMAC_DMA_TX_RX_Type transfer_Type, uint32_t value) {
     switch(transfer_Type) {
@@ -1108,7 +1108,7 @@ void EMAC_DMA_Poll_Demand_Set(EMAC_DMA_TX_RX_Type transfer_Type, uint32_t value)
 /**
   * @brief  get transmit poll demand
   * @param  transfer_Type: it will be transmit or receive
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_DMA_Transmit
   *         - EMAC_DMA_Receive
   * @retval current transmit descriptor
@@ -1129,9 +1129,9 @@ uint32_t EMAC_DMA_Poll_Demand_Get(EMAC_DMA_TX_RX_Type transfer_Type) {
 
 /**
   * @brief  get receive dma process status
-  * @param  none
+  * @param  无
   * @retval every situation it describe in RM
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_DMA_RX_Reset_Stop_COMMAND
   *         - EMAC_DMA_RX_FETCH_DESCRIPTOR
   *         - EMAC_DMA_RX_WaitING_Packet
@@ -1171,9 +1171,9 @@ EMAC_DMA_Receive_Process_Status_Type EMAC_DMA_Receive_Status_Get(void) {
 
 /**
   * @brief  get transmit dma process status
-  * @param  none
+  * @param  无
   * @retval every situation it describe in RM
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_DMA_TX_Reset_Stop_COMMAND
   *         - EMAC_DMA_TX_FETCH_DESCRIPTOR
   *         - EMAC_DMA_TX_WaitING_FOR_STATUS
@@ -1214,7 +1214,7 @@ EMAC_DMA_Transmit_Process_Status_Type EMAC_DMA_Transmit_Status_Get(void) {
 /**
   * @brief  set dma operations
   * @param  ops: operations of dma
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_DMA_OPS_Start_Stop_Receive
   *         - EMAC_DMA_OPS_Second_Frame
   *         - EMAC_DMA_OPS_FORWARD_UNDERSIZED
@@ -1226,7 +1226,7 @@ EMAC_DMA_Transmit_Process_Status_Type EMAC_DMA_Transmit_Status_Get(void) {
   *         - EMAC_DMA_OPS_Receive_STORE_FORWARD
   *         - EMAC_DMA_OPS_DROP_Error_Disable
   * @param  new_state: TRUE or FALSE
-  * @retval none
+  * @retval 无
   */
 void EMAC_DMA_Operations_Set(EMAC_DMA_Operations_Type ops, confirm_state new_state) {
     __IO uint32_t temp = 0;
@@ -1290,12 +1290,12 @@ void EMAC_DMA_Operations_Set(EMAC_DMA_Operations_Type ops, confirm_state new_sta
 /**
   * @brief  set receive dma threshold
   * @param  value: receive threshold
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_DMA_RX_Threshold_64_BYTES
   *         - EMAC_DMA_RX_Threshold_32_BYTES
   *         - EMAC_DMA_RX_Threshold_96_BYTES
   *         - EMAC_DMA_RX_Threshold_128_BYTES
-  * @retval none
+  * @retval 无
   */
 void EMAC_DMA_Receive_Threshold_Set(EMAC_DMA_Receive_Threshold_Type value) {
     EMAC_DMA->opm_bit.rtc = value;
@@ -1304,7 +1304,7 @@ void EMAC_DMA_Receive_Threshold_Set(EMAC_DMA_Receive_Threshold_Type value) {
 /**
   * @brief  set transmit dma threshold
   * @param  value: transmit threshold
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_DMA_TX_Threshold_64_BYTES
   *         - EMAC_DMA_TX_Threshold_128_BYTES
   *         - EMAC_DMA_TX_Threshold_192_BYTES
@@ -1313,7 +1313,7 @@ void EMAC_DMA_Receive_Threshold_Set(EMAC_DMA_Receive_Threshold_Type value) {
   *         - EMAC_DMA_TX_Threshold_32_BYTES
   *         - EMAC_DMA_TX_Threshold_24_BYTES
   *         - EMAC_DMA_TX_Threshold_16_BYTES
-  * @retval none
+  * @retval 无
   */
 void EMAC_DMA_Transmit_Threshold_Set(EMAC_DMA_Transmit_Threshold_Type value) {
     EMAC_DMA->opm_bit.ttc = value;
@@ -1322,7 +1322,7 @@ void EMAC_DMA_Transmit_Threshold_Set(EMAC_DMA_Transmit_Threshold_Type value) {
 /**
   * @brief  enable dma interrupt
   * @param  it: interrupt type
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_DMA_Interrupt_TX
   *         - EMAC_DMA_Interrupt_TX_STOP
   *         - EMAC_DMA_Interrupt_TX_UNAVAILABLE
@@ -1339,7 +1339,7 @@ void EMAC_DMA_Transmit_Threshold_Set(EMAC_DMA_Transmit_Threshold_Type value) {
   *         - EMAC_DMA_Interrupt_ABNORMAL_SUMMARY
   *         - EMAC_DMA_Interrupt_NORMAL_SUMMARY
   * @param  new_state: TRUE or FALSE
-  * @retval none
+  * @retval 无
   */
 void EMAC_DMA_Interrupt_Enable(EMAC_DMA_Interrupt_Type it, confirm_state new_state) {
     switch(it) {
@@ -1422,7 +1422,7 @@ void EMAC_DMA_Interrupt_Enable(EMAC_DMA_Interrupt_Type it, confirm_state new_sta
 
 /**
   * @brief  get missed frames by the controller
-  * @param  none
+  * @param  无
   * @retval missed frames by the controller
   */
 uint16_t EMAC_DMA_Controller_Missing_Frame_Get(void) {
@@ -1432,7 +1432,7 @@ uint16_t EMAC_DMA_Controller_Missing_Frame_Get(void) {
 
 /**
   * @brief  get overflow bit for missed frame counter
-  * @param  none
+  * @param  无
   * @retval overflow bit for missed frame counter
   */
 uint8_t EMAC_DMA_Missing_OverFlow_Bit_Get(void) {
@@ -1442,7 +1442,7 @@ uint8_t EMAC_DMA_Missing_OverFlow_Bit_Get(void) {
 
 /**
   * @brief  get missed frames by the application
-  * @param  none
+  * @param  无
   * @retval missed frames by the application
   */
 uint16_t EMAC_DMA_Application_Missing_Frame_Get(void) {
@@ -1452,7 +1452,7 @@ uint16_t EMAC_DMA_Application_Missing_Frame_Get(void) {
 
 /**
   * @brief  get overflow bit for FIFO overflow counter
-  * @param  none
+  * @param  无
   * @retval overflow bit for FIFO overflow counter
   */
 uint8_t EMAC_DMA_FIFO_OverFlow_Bit_Get(void) {
@@ -1463,7 +1463,7 @@ uint8_t EMAC_DMA_FIFO_OverFlow_Bit_Get(void) {
 /**
   * @brief  get overflow bit for FIFO overflow counter
   * @param  transfer type: receive/transmit type
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_DMA_TX_DESCRIPTOR
   *         - EMAC_DMA_RX_DESCRIPTOR
   *         - EMAC_DMA_TX_BUFFER
@@ -1500,8 +1500,8 @@ uint32_t EMAC_DMA_tansfer_Address_Get(EMAC_DMA_Transfer_Address_Type transfer_Ty
 
 /**
   * @brief  reset all counter
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void EMAC_MMC_Counter_Reset(void) {
     EMAC_MMC->ctrl_bit.rc = TRUE;
@@ -1510,7 +1510,7 @@ void EMAC_MMC_Counter_Reset(void) {
 /**
   * @brief  counter stop counting from zero when it reaches maximum
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_MMC_Rollover_Stop(confirm_state new_state) {
     EMAC_MMC->ctrl_bit.scr = new_state;
@@ -1519,7 +1519,7 @@ void EMAC_MMC_Rollover_Stop(confirm_state new_state) {
 /**
   * @brief  enable reset on read
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_MMC_Reset_ON_Read_Enable(confirm_state new_state) {
     EMAC_MMC->ctrl_bit.rr = new_state;
@@ -1528,7 +1528,7 @@ void EMAC_MMC_Reset_ON_Read_Enable(confirm_state new_state) {
 /**
   * @brief  freeze mmc counter
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_MMC_Counter_Freeze(confirm_state new_state) {
     EMAC_MMC->ctrl_bit.fmc = new_state;
@@ -1537,7 +1537,7 @@ void EMAC_MMC_Counter_Freeze(confirm_state new_state) {
 /**
   * @brief  interupt status of received frames
   * @param  flag: specifies the flag to check.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - MMC_RX_CRC_ERROR
   *         - MMC_RX_ALIGN_ERROR
   *         - MMC_RX_Good_UNICAST
@@ -1554,7 +1554,7 @@ flag_status EMAC_MMC_Received_Status_Get(uint32_t flag) {
 /**
   * @brief  interupt status of transmit frames
   * @param  transmit_Type: transmit type.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - MMC_TX_Single_COL
   *         - MMC_TX_MULTIPLE_COL
   *         - MMC_TX_Good_FrameS
@@ -1571,12 +1571,12 @@ flag_status EMAC_MMC_Transmit_Status_Get(uint32_t flag) {
 /**
   * @brief  mask received mmc interrupt
   * @param  flag: specifies the flag to check.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - MMC_RX_CRC_ERROR
   *         - MMC_RX_ALIGN_ERROR
   *         - MMC_RX_Good_UNICAST
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_MMC_Received_Interrupt_Mask_Set(uint32_t flag, confirm_state new_state) {
     switch(flag) {
@@ -1600,12 +1600,12 @@ void EMAC_MMC_Received_Interrupt_Mask_Set(uint32_t flag, confirm_state new_state
 /**
   * @brief  mask transmit mmc interrupt
   * @param  transmit_Type: transmit type.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - MMC_TX_Single_COL
   *         - MMC_TX_MULTIPLE_COL
   *         - MMC_TX_Good_FrameS
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_MMC_Transmit_Interrupt_Mask_Set(uint32_t flag, confirm_state new_state) {
     switch(flag) {
@@ -1629,7 +1629,7 @@ void EMAC_MMC_Transmit_Interrupt_Mask_Set(uint32_t flag, confirm_state new_state
 /**
   * @brief  get good frame numbers as single collision occurs.
   * @param  flag: specifies the flag to check.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - MMC_TX_Single_COL
   *         - MMC_TX_MULTIPLE_COL
   *         - MMC_TX_Good_FrameS
@@ -1661,7 +1661,7 @@ uint32_t EMAC_MMC_Transmit_Good_Frames_Get(uint32_t flag) {
 /**
   * @brief  get good frame numbers as single collision occurs.
   * @param  flag: specifies the flag to check.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - MMC_RX_CRC_ERROR
   *         - MMC_RX_ALIGN_ERROR
   *         - MMC_RX_Good_UNICAST
@@ -1693,7 +1693,7 @@ uint32_t EMAC_MMC_Received_Error_Frames_Get(uint32_t flag) {
 /**
   * @brief  enable timestamp.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_TimeStamp_Enable(confirm_state new_state) {
     EMAC_PTP->tsctrl_bit.te = new_state;
@@ -1702,7 +1702,7 @@ void EMAC_PTP_TimeStamp_Enable(confirm_state new_state) {
 /**
   * @brief  enable timestamp fine update.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_TimeStamp_Fine_Update_Enable(confirm_state new_state) {
     EMAC_PTP->tsctrl_bit.tfcu = new_state;
@@ -1711,7 +1711,7 @@ void EMAC_PTP_TimeStamp_Fine_Update_Enable(confirm_state new_state) {
 /**
   * @brief  initialize timestamp time system.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_TimeStamp_System_Time_Init(confirm_state new_state) {
     EMAC_PTP->tsctrl_bit.ti = new_state;
@@ -1720,7 +1720,7 @@ void EMAC_PTP_TimeStamp_System_Time_Init(confirm_state new_state) {
 /**
   * @brief  update timestamp time system.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_TimeStamp_System_Time_Update(confirm_state new_state) {
     EMAC_PTP->tsctrl_bit.tu = new_state;
@@ -1729,7 +1729,7 @@ void EMAC_PTP_TimeStamp_System_Time_Update(confirm_state new_state) {
 /**
   * @brief  enable timestamp interrupt trigger.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_Interrupt_Trigger_Enable(confirm_state new_state) {
     EMAC_PTP->tsctrl_bit.tite = new_state;
@@ -1738,7 +1738,7 @@ void EMAC_PTP_Interrupt_Trigger_Enable(confirm_state new_state) {
 /**
   * @brief  update timestamp addend register.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_Addend_Register_Update(confirm_state new_state) {
     EMAC_PTP->tsctrl_bit.aru = new_state;
@@ -1747,7 +1747,7 @@ void EMAC_PTP_Addend_Register_Update(confirm_state new_state) {
 /**
   * @brief  enable timestamp snapshot for all received frames.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_SnapShot_Received_Frames_Enable(confirm_state new_state) {
     EMAC_PTP->tsctrl_bit.etaf = new_state;
@@ -1756,7 +1756,7 @@ void EMAC_PTP_SnapShot_Received_Frames_Enable(confirm_state new_state) {
 /**
   * @brief  enable digital rollover.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_SubSecond_Rollover_Enable(confirm_state new_state) {
     EMAC_PTP->tsctrl_bit.tdbrc = new_state;
@@ -1765,7 +1765,7 @@ void EMAC_PTP_SubSecond_Rollover_Enable(confirm_state new_state) {
 /**
   * @brief  enable packet snooping for version 2.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_PSV2_Enable(confirm_state new_state) {
     EMAC_PTP->tsctrl_bit.eppv2f = new_state;
@@ -1774,7 +1774,7 @@ void EMAC_PTP_PSV2_Enable(confirm_state new_state) {
 /**
   * @brief  enable snapshot over emac.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_SnapShot_EMAC_Frames_Enable(confirm_state new_state) {
     EMAC_PTP->tsctrl_bit.eppef = new_state;
@@ -1783,7 +1783,7 @@ void EMAC_PTP_SnapShot_EMAC_Frames_Enable(confirm_state new_state) {
 /**
   * @brief  enable snapshot for ipv6 frames.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_SnapShot_Ipv6_Frames_Enable(confirm_state new_state) {
     EMAC_PTP->tsctrl_bit.eppfsip6u = new_state;
@@ -1792,7 +1792,7 @@ void EMAC_PTP_SnapShot_Ipv6_Frames_Enable(confirm_state new_state) {
 /**
   * @brief  enable snapshot for ipv4 frames.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_SnapShot_Ipv4_Frames_Enable(confirm_state new_state) {
     EMAC_PTP->tsctrl_bit.eppfsip4u = new_state;
@@ -1801,7 +1801,7 @@ void EMAC_PTP_SnapShot_Ipv4_Frames_Enable(confirm_state new_state) {
 /**
   * @brief  enable snapshot for event message.
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_SnapShot_Event_Message_Enable(confirm_state new_state) {
     EMAC_PTP->tsctrl_bit.etsfem = new_state;
@@ -1810,7 +1810,7 @@ void EMAC_PTP_SnapShot_Event_Message_Enable(confirm_state new_state) {
 /**
   * @brief  enable snapshot for message relevant to master
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_SnapShot_Master_Event_Enable(confirm_state new_state) {
     EMAC_PTP->tsctrl_bit.esfmrtm = new_state;
@@ -1819,12 +1819,12 @@ void EMAC_PTP_SnapShot_Master_Event_Enable(confirm_state new_state) {
 /**
   * @brief  set clock node type
   * @param  node: select ptp packets for taking snapshot
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_PTP_NORMAL_CLOCK
   *         - EMAC_PTP_BOUNDARY_CLOCK
   *         - EMAC_PTP_End_To_End_CLOCK
   *         - EMAC_PTP_PEER_To_PEER_CLOCK
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_Clock_Node_Set(EMAC_PTP_Clock_Node_Type node) {
     EMAC_PTP->tsctrl_bit.sppfts = node;
@@ -1833,7 +1833,7 @@ void EMAC_PTP_Clock_Node_Set(EMAC_PTP_Clock_Node_Type node) {
 /**
   * @brief  enable ptp frame filtering mac address
   * @param  new_state: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_MAC_Address_Filter_Enable(confirm_state new_state) {
     EMAC_PTP->tsctrl_bit.emafpff = new_state;
@@ -1842,7 +1842,7 @@ void EMAC_PTP_MAC_Address_Filter_Enable(confirm_state new_state) {
 /**
   * @brief  set subsecond increment value
   * @param  value: add to subsecond value for every update
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_SubSecond_Increment_Set(uint8_t value) {
     EMAC_PTP->ssinc_bit.ssiv = value;
@@ -1850,7 +1850,7 @@ void EMAC_PTP_SubSecond_Increment_Set(uint8_t value) {
 
 /**
   * @brief  get system time second
-  * @param  none
+  * @param  无
   * @retval system time second
   */
 uint32_t EMAC_PTP_System_Second_Get(void) {
@@ -1860,7 +1860,7 @@ uint32_t EMAC_PTP_System_Second_Get(void) {
 
 /**
   * @brief  get system time subsecond
-  * @param  none
+  * @param  无
   * @retval system time subsecond
   */
 uint32_t EMAC_PTP_System_SubSecond_Get(void) {
@@ -1870,7 +1870,7 @@ uint32_t EMAC_PTP_System_SubSecond_Get(void) {
 
 /**
   * @brief  get system time sign
-  * @param  none
+  * @param  无
   * @retval TRUE or FALSE
   */
 confirm_state EMAC_PTP_System_Time_Sign_Get(void) {
@@ -1884,7 +1884,7 @@ confirm_state EMAC_PTP_System_Time_Sign_Get(void) {
 /**
   * @brief  set system time second
   * @param  second: system time second
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_System_Second_Set(uint32_t second) {
     EMAC_PTP->tshud_bit.ts = second;
@@ -1893,7 +1893,7 @@ void EMAC_PTP_System_Second_Set(uint32_t second) {
 /**
   * @brief  set system time subsecond
   * @param  subsecond: system time subsecond
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_System_SubSecond_Set(uint32_t subsecond) {
     EMAC_PTP->tslud_bit.tss = subsecond;
@@ -1902,7 +1902,7 @@ void EMAC_PTP_System_SubSecond_Set(uint32_t subsecond) {
 /**
   * @brief  set system time sign
   * @param  sign: TRUE or FALSE.
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_System_Time_Sign_Set(confirm_state sign) {
     if(sign) {
@@ -1915,7 +1915,7 @@ void EMAC_PTP_System_Time_Sign_Set(confirm_state sign) {
 /**
   * @brief  set time stamp addend
   * @param  value: to achieve time synchronization
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_TimeStamp_Addend_Set(uint32_t value) {
     EMAC_PTP->tsad_bit.tar = value;
@@ -1924,7 +1924,7 @@ void EMAC_PTP_TimeStamp_Addend_Set(uint32_t value) {
 /**
   * @brief  set target time stamp high
   * @param  value: to set target time second
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_Target_Second_Set(uint32_t value) {
     EMAC_PTP->tth_bit.ttsr = value;
@@ -1933,7 +1933,7 @@ void EMAC_PTP_Target_Second_Set(uint32_t value) {
 /**
   * @brief  set target time stamp low
   * @param  value: to set target time nanosecond
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_Target_NanoSecond_Set(uint32_t value) {
     EMAC_PTP->ttl_bit.ttlr = value;
@@ -1942,7 +1942,7 @@ void EMAC_PTP_Target_NanoSecond_Set(uint32_t value) {
 /**
   * @brief  set target time stamp low
   * @param  status: type of status
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_PTP_Second_OVERFLOW
   *         - EMAC_PTP_Target_Time_REACH
   * @retval TRUE or FALSE
@@ -1972,7 +1972,7 @@ confirm_state EMAC_PTP_TimeStamp_Status_Get(EMAC_PTP_TimeStamp_Status_Type statu
 /**
   * @brief  set pps frequency
   * @param  freq: pps frequency
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EMAC_PTP_PPS_1HZ
   *         - EMAC_PTP_PPS_2HZ
   *         - EMAC_PTP_PPS_4HZ
@@ -1989,7 +1989,7 @@ confirm_state EMAC_PTP_TimeStamp_Status_Get(EMAC_PTP_TimeStamp_Status_Type statu
   *         - EMAC_PTP_PPS_8192HZ
   *         - EMAC_PTP_PPS_16384HZ
   *         - EMAC_PTP_PPS_32768HZ
-  * @retval none
+  * @retval 无
   */
 void EMAC_PTP_PPS_Frequency_Set(EMAC_PTP_PPS_Control_Type freq) {
     EMAC_PTP->ppscr_bit.pofc = freq;
@@ -1998,7 +1998,7 @@ void EMAC_PTP_PPS_Frequency_Set(EMAC_PTP_PPS_Control_Type freq) {
 /**
   * @brief  this is delay function base on system clock.
   * @param  delay: delay time
-  * @retval none
+  * @retval 无
   */
 static void EMAC_delay(uint32_t delay) {
     __IO uint32_t delay_time = delay * (system_Core_clock / 8 / 1000);
@@ -2011,7 +2011,7 @@ static void EMAC_delay(uint32_t delay) {
 /**
   * @brief  check whether the specified emac dma flag is set or not.
   * @param  DMA_flag: specifies the emac dma flag to check.
-  *         this parameter can be one of emac dma flag status:
+  *         该参数可以是 one of emac dma flag status:
   *         - EMAC_DMA_Ti_FLAG
   *         - EMAC_DMA_TPS_FLAG
   *         - EMAC_DMA_TBU_FLAG
@@ -2042,7 +2042,7 @@ flag_status EMAC_DMA_Flag_Get(uint32_t DMA_flag) {
 /**
   * @brief  clear the emac dma flag.
   * @param  DMA_flag: specifies the emac dma flags to clear.
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - EMAC_DMA_Ti_FLAG
   *         - EMAC_DMA_TPS_FLAG
   *         - EMAC_DMA_TBU_FLAG
@@ -2058,7 +2058,7 @@ flag_status EMAC_DMA_Flag_Get(uint32_t DMA_flag) {
   *         - EMAC_DMA_ERI_FLAG
   *         - EMAC_DMA_AIS_FLAG
   *         - EMAC_DMA_NIS_FLAG
-  * @retval none
+  * @retval 无
   */
 void EMAC_DMA_Flag_Clear(uint32_t DMA_flag) {
     EMAC_DMA->sts = DMA_flag;

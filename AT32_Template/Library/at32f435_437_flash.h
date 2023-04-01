@@ -151,7 +151,7 @@ defined (AT32F437VMT7) || defined (AT32F437ZMT7)
 /**
   * @brief set the flash clock divider definition
   * @param  div: the flash clock divider.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - FLASH_Clock_Div_2
   *         - FLASH_Clock_Div_3
   *         - FLASH_Clock_Div_4

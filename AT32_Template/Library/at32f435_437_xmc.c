@@ -42,12 +42,12 @@
 /**
   * @brief  xmc nor or sram registers reset
   * @param  XMC_subbank
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - XMC_Bank1_NOR_SRAM1
   *         - XMC_Bank1_NOR_SRAM2
   *         - XMC_Bank1_NOR_SRAM3
   *         - XMC_Bank1_NOR_SRAM4
-  * @retval none
+  * @retval 无
   */
 void XMC_NOR_SRAM_Reset(XMC_NOR_SRAM_SubBank_Type XMC_subbank) {
     /* XMC_Bank1_NORSRAM1 */
@@ -69,7 +69,7 @@ void XMC_NOR_SRAM_Reset(XMC_NOR_SRAM_SubBank_Type XMC_subbank) {
   * @param  XMC_NORSRAM_Init_struct : pointer to a XMC_NORSRAM_Init_Type
   *         structure that contains the configuration information for
   *         the xmc nor/sram specified banks.
-  * @retval none
+  * @retval 无
   */
 void XMC_NOR_SRAM_Init(XMC_NORSRAM_Init_Type* XMC_NORSRAM_Init_struct) {
     /* bank1 nor/sram control register configuration */
@@ -102,7 +102,7 @@ void XMC_NOR_SRAM_Init(XMC_NORSRAM_Init_Type* XMC_NORSRAM_Init_struct) {
   * @param  XMC_w_Timing_struct : pointer to a XMC_NORSRAM_Timing_Init_Type
   *         structure that contains the configuration information for
   *         the xmc nor/sram specified banks.
-  * @retval none
+  * @retval 无
   */
 void XMC_NOR_SRAM_Timing_Config(XMC_NORSRAM_Timing_Init_Type* XMC_rw_Timing_struct,
                                 XMC_NORSRAM_Timing_Init_Type* XMC_w_Timing_struct) {
@@ -135,7 +135,7 @@ void XMC_NOR_SRAM_Timing_Config(XMC_NORSRAM_Timing_Init_Type* XMC_rw_Timing_stru
   * @brief  fill each XMC_NOR_SRAM_Init_struct member with its default value.
   * @param  XMC_NOR_SRAM_Init_struct: pointer to a XMC_NORSRAM_Init_Type
   *         structure which will be initialized.
-  * @retval none
+  * @retval 无
   */
 void XMC_NORSRAM_Default_Para_Init(XMC_NORSRAM_Init_Type* XMC_NOR_SRAM_Init_struct) {
     /* reset nor/sram init structure parameters values */
@@ -160,7 +160,7 @@ void XMC_NORSRAM_Default_Para_Init(XMC_NORSRAM_Init_Type* XMC_NOR_SRAM_Init_stru
   *         structure which will be initialized.
   * @param  XMC_w_Timing_struct: pointer to a XMC_NORSRAM_Timing_Init_Type
   *         structure which will be initialized.
-  * @retval none
+  * @retval 无
   */
 void XMC_NORSRAM_Timing_Default_Para_Init(XMC_NORSRAM_Timing_Init_Type* XMC_rw_Timing_struct,
         XMC_NORSRAM_Timing_Init_Type* XMC_w_Timing_struct) {
@@ -187,13 +187,13 @@ void XMC_NORSRAM_Timing_Default_Para_Init(XMC_NORSRAM_Timing_Init_Type* XMC_rw_T
 /**
   * @brief  enable or disable the specified nor/sram memory bank.
   * @param  XMC_subbank
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - XMC_Bank1_NOR_SRAM1
   *         - XMC_Bank1_NOR_SRAM2
   *         - XMC_Bank1_NOR_SRAM3
   *         - XMC_Bank1_NOR_SRAM4
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void XMC_NOR_SRAM_Enable(XMC_NOR_SRAM_SubBank_Type XMC_subbank, confirm_state new_state) {
     XMC_BANK1->ctrl_tmg_group[XMC_subbank].bk1ctrl_bit.en = new_state;
@@ -202,14 +202,14 @@ void XMC_NOR_SRAM_Enable(XMC_NOR_SRAM_SubBank_Type XMC_subbank, confirm_state ne
 /**
   * @brief  config the bus turnaround phase.
   * @param  XMC_Sub_bank
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - XMC_Bank1_NOR_SRAM1
   *         - XMC_Bank1_NOR_SRAM2
   *         - XMC_Bank1_NOR_SRAM3
   *         - XMC_Bank1_NOR_SRAM4
   * @param  w2w_timing :write timing
   * @param  r2r_timing :read timing
-  * @retval none
+  * @retval 无
   */
 void XMC_Ext_Timing_Config(XMC_NOR_SRAM_SubBank_Type XMC_Sub_bank, uint16_t w2w_timing, uint16_t r2r_timing) {
     XMC_BANK1->ext_bit[XMC_Sub_bank].buslatr2r = r2r_timing;
@@ -219,10 +219,10 @@ void XMC_Ext_Timing_Config(XMC_NOR_SRAM_SubBank_Type XMC_Sub_bank, uint16_t w2w_
 /**
   * @brief  xmc nand flash registers reset
   * @param  XMC_bank
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - XMC_Bank2_NAND
   *         - XMC_BANK3_NAND
-  * @retval none
+  * @retval 无
   */
 void XMC_NAND_Reset(XMC_class_bank_Type XMC_bank) {
     /* set the XMC_Bank2_nand registers to their reset values */
@@ -247,7 +247,7 @@ void XMC_NAND_Reset(XMC_class_bank_Type XMC_bank) {
   * @param  XMC_NAND_Init_struct : pointer to a XMC_NAND_Init_Type
   *         structure that contains the configuration information for the xmc
   *         nand specified banks.
-  * @retval none
+  * @retval 无
   */
 void XMC_NAND_Init(XMC_NAND_Init_Type* XMC_NAND_Init_struct) {
     uint32_t tempctrl = 0x0;
@@ -280,7 +280,7 @@ void XMC_NAND_Init(XMC_NAND_Init_Type* XMC_NAND_Init_struct) {
   * @param  XMC_special_spacetiming_struct : pointer to a XMC_NAND_PcCard_TimingInit_Type
   *         structure that contains the configuration information for the xmc
   *         nand specified banks.
-  * @retval none
+  * @retval 无
   */
 void XMC_NAND_Timing_Config(XMC_NAND_PcCard_TimingInit_Type* XMC_regular_spacetiming_struct,
                             XMC_NAND_PcCard_TimingInit_Type* XMC_special_spacetiming_struct) {
@@ -312,7 +312,7 @@ void XMC_NAND_Timing_Config(XMC_NAND_PcCard_TimingInit_Type* XMC_regular_spaceti
   * @brief  fill each XMC_NAND_Init_struct member with its default value.
   * @param  XMC_NAND_Init_struct: pointer to a XMC_NAND_Init_Type
   *         structure which will be initialized.
-  * @retval none
+  * @retval 无
   */
 void XMC_NAND_Default_Para_Init(XMC_NAND_Init_Type* XMC_NAND_Init_struct) {
     /* reset nand init structure parameters values */
@@ -331,7 +331,7 @@ void XMC_NAND_Default_Para_Init(XMC_NAND_Init_Type* XMC_NAND_Init_struct) {
   *         structure which will be initialized.
   * @param  XMC_special_spacetiming_struct: pointer to a XMC_NAND_PcCard_TimingInit_Type
   *         structure which will be initialized.
-  * @retval none
+  * @retval 无
   */
 void XMC_NAND_Timing_Default_Para_Init(XMC_NAND_PcCard_TimingInit_Type* XMC_regular_spacetiming_struct,
                                        XMC_NAND_PcCard_TimingInit_Type* XMC_special_spacetiming_struct) {
@@ -350,11 +350,11 @@ void XMC_NAND_Timing_Default_Para_Init(XMC_NAND_PcCard_TimingInit_Type* XMC_regu
 /**
   * @brief  enable or disable the specified nand memory bank.
   * @param  XMC_bank: specifies the xmc bank to be used
-  *   this parameter can be one of the following values:
+  *   该参数可以是以下值之一:
   *   - XMC_Bank2_NAND
   *   - XMC_BANK3_NAND
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void XMC_NAND_Enable(XMC_class_bank_Type XMC_bank, confirm_state new_state) {
     /* enable or disable the nand bank2 by setting the en bit in the bk2ctrl register */
@@ -370,11 +370,11 @@ void XMC_NAND_Enable(XMC_class_bank_Type XMC_bank, confirm_state new_state) {
 /**
   * @brief  enable or disable the xmc nand ecc feature.
   * @param  XMC_bank: specifies the xmc bank to be used
-  *   this parameter can be one of the following values:
+  *   该参数可以是以下值之一:
   *   - XMC_Bank2_NAND
   *   - XMC_BANK3_NAND
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void XMC_NAND_ecc_Enable(XMC_class_bank_Type XMC_bank, confirm_state new_state) {
     /* enable the selected nand bank2 ecc function by setting the eccen bit in the bk2ctrl register */
@@ -390,7 +390,7 @@ void XMC_NAND_ecc_Enable(XMC_class_bank_Type XMC_bank, confirm_state new_state) 
 /**
   * @brief  return the error correction code register value.
   * @param  XMC_bank: specifies the xmc bank to be used
-  *   this parameter can be one of the following values:
+  *   该参数可以是以下值之一:
   *   - XMC_Bank2_NAND
   *   - XMC_BANK3_NAND
   * @retval the error correction code (ecc) value.
@@ -414,10 +414,10 @@ uint32_t XMC_ecc_Get(XMC_class_bank_Type XMC_bank) {
 /**
   * @brief  xmc sdram registers reset
   * @param  XMC_bank
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - XMC_SDRAM_BANK1
   *         - XMC_SDRAM_BANK2
-  * @retval none
+  * @retval 无
   */
 void XMC_SDRAM_Reset(XMC_SDRAM_bank_Type XMC_bank) {
     XMC_SDRAM->ctrl[XMC_bank] = 0x000002D0;
@@ -436,7 +436,7 @@ void XMC_SDRAM_Reset(XMC_SDRAM_bank_Type XMC_bank) {
   * @param  XMC_SDRAM_Timing_struct : pointer to a XMC_SDRAM_Timing_Type
   *         structure that contains the configuration information for the xmc
   *         sdram specified banks.
-  * @retval none
+  * @retval 无
   */
 void XMC_SDRAM_Init(XMC_SDRAM_Init_Type *XMC_SDRAM_Init_struct, XMC_SDRAM_Timing_Type *XMC_SDRAM_Timing_struct) {
     if(XMC_SDRAM_Init_struct->sdram_bank == XMC_SDRAM_BANK1) {
@@ -490,7 +490,7 @@ void XMC_SDRAM_Init(XMC_SDRAM_Init_Type *XMC_SDRAM_Init_struct, XMC_SDRAM_Timing
   *         structure which will be initialized.
   * @param  XMC_SDRAM_Timing_struct: pointer to a XMC_SDRAM_Timing_Type
   *         structure which will be initialized.
-  * @retval none
+  * @retval 无
   */
 void XMC_SDRAM_Default_Para_Init(XMC_SDRAM_Init_Type *XMC_SDRAM_Init_struct, XMC_SDRAM_Timing_Type *XMC_SDRAM_Timing_struct) {
     /* reset sdram init structure parameters values */
@@ -518,7 +518,7 @@ void XMC_SDRAM_Default_Para_Init(XMC_SDRAM_Init_Type *XMC_SDRAM_Init_struct, XMC
   * @brief  sdram command confg
   * @param  XMC_SDRAM_CMD_struct: pointer to a XMC_SDRAM_CMD_Type
   *         structure which will be initialized.
-  * @retval none
+  * @retval 无
   */
 void XMC_SDRAM_CMD(XMC_SDRAM_CMD_Type *XMC_SDRAM_CMD_struct) {
     XMC_SDRAM->cmd = (XMC_SDRAM_CMD_struct->auto_refresh << 5) |
@@ -531,7 +531,7 @@ void XMC_SDRAM_CMD(XMC_SDRAM_CMD_Type *XMC_SDRAM_CMD_struct) {
 /**
   * @brief  get sdram bank status
   * @param  XMC_bank: specifies the xmc bank to be used
-  *   this parameter can be one of the following values:
+  *   该参数可以是以下值之一:
   *   - XMC_SDRAM_BANK1
   *   - XMC_SDRAM_BANK1
   * @retval the bank status
@@ -547,7 +547,7 @@ uint32_t XMC_SDRAM_Status_Get(XMC_SDRAM_bank_Type XMC_bank) {
 /**
   * @brief  set sdram refresh counter
   * @param  counter: xmc sdram refresh counter
-  * @retval none
+  * @retval 无
   */
 void XMC_SDRAM_Refresh_Counter_Set(uint32_t counter) {
     XMC_SDRAM->rcnt_bit.rc = counter;
@@ -556,7 +556,7 @@ void XMC_SDRAM_Refresh_Counter_Set(uint32_t counter) {
 /**
   * @brief  set sdram auto refresh number
   * @param  number: xmc sdram auto refresh number
-  * @retval none
+  * @retval 无
   */
 void XMC_SDRAM_Auto_Refresh_Set(uint32_t number) {
     XMC_SDRAM->cmd_bit.art = number;
@@ -565,19 +565,19 @@ void XMC_SDRAM_Auto_Refresh_Set(uint32_t number) {
 /**
   * @brief  enable or disable the specified xmc interrupts.
   * @param  XMC_bank: specifies the xmc bank to be used
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - XMC_Bank2_NAND
   *         - XMC_BANK3_NAND
   *         - XMC_BANK4_PCCARD
   *         - XMC_BANK5_6_SDRAM
   * @param  XMC_int: specifies the xmc interrupt sources to be enabled or disabled.
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - XMC_INT_RISING_EDGE
   *         - XMC_INT_LEVEL
   *         - XMC_INT_FALLING_EDGE
   *         - XMC_INT_ERR
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void XMC_Interrupt_Enable(XMC_class_bank_Type XMC_bank, XMC_Interrupt_sources_Type XMC_int, confirm_state new_state) {
     if(new_state != FALSE) {
@@ -620,20 +620,20 @@ void XMC_Interrupt_Enable(XMC_class_bank_Type XMC_bank, XMC_Interrupt_sources_Ty
 /**
   * @brief  check whether the specified xmc flag is set or not.
   * @param  XMC_bank: specifies the xmc bank to be used
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - XMC_Bank2_NAND
   *         - XMC_BANK3_NAND
   *         - XMC_BANK4_PCCARD
   *         - XMC_BANK5_6_SDRAM
   * @param  XMC_flag: specifies the flag to check.
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - XMC_RISINGEDGE_FLAG
   *         - XMC_LEVEL_FLAG
   *         - XMC_FALLINGEDGE_FLAG
   *         - XMC_FEMPT_FLAG
   *         - XMC_Busy_FLAG
   *         - XMC_ERR_FLAG
-  * @retval none
+  * @retval 无
   */
 flag_status XMC_Flag_Status_Get(XMC_class_bank_Type XMC_bank, XMC_Interrupt_Flag_Type XMC_flag) {
     flag_status status = RESET;
@@ -663,18 +663,18 @@ flag_status XMC_Flag_Status_Get(XMC_class_bank_Type XMC_bank, XMC_Interrupt_Flag
 /**
   * @brief  clear the xmc's pending flags.
   * @param  XMC_bank: specifies the xmc bank to be used
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - XMC_Bank2_NAND
   *         - XMC_BANK3_NAND
   *         - XMC_BANK4_PCCARD
   *         - XMC_BANK5_6_SDRAM
   * @param  XMC_flag: specifies the flag to check.
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - XMC_RISINGEDGE_FLAG
   *         - XMC_LEVEL_FLAG
   *         - XMC_FALLINGEDGE_FLAG
   *         - XMC_ERR_FLAG
-  * @retval none
+  * @retval 无
   */
 void XMC_Flag_Clear(XMC_class_bank_Type XMC_bank, XMC_Interrupt_Flag_Type XMC_flag) {
     __IO uint32_t int_state;
@@ -695,8 +695,8 @@ void XMC_Flag_Clear(XMC_class_bank_Type XMC_bank, XMC_Interrupt_Flag_Type XMC_fl
 
 /**
   * @brief  xmc pc card registers reset
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void XMC_PcCard_Reset(void) {
     /* Set the XMC_Bank4 registers to their reset values */
@@ -713,7 +713,7 @@ void XMC_PcCard_Reset(void) {
   * @param  XMC_PcCard_Init_struct : pointer to a XMC_PcCard_Init_Type
   *         structure that contains the configuration information for the xmc
   *         pccard bank.
-  * @retval none
+  * @retval 无
   */
 void XMC_PcCard_Init(XMC_PcCard_Init_Type* XMC_PcCard_Init_struct) {
     /* set the bk4ctrl register value according to XMC_PcCard_Init_struct parameters */
@@ -736,7 +736,7 @@ void XMC_PcCard_Init(XMC_PcCard_Init_Type* XMC_PcCard_Init_struct) {
   * @param  XMC_iospace_Timing_struct : pointer to a XMC_PcCard_Init_Type
   *         structure that contains the configuration information for the xmc
   *         pccard bank.
-  * @retval none
+  * @retval 无
   */
 void XMC_PcCard_Timing_Config(XMC_NAND_PcCard_TimingInit_Type* XMC_regular_spacetiming_struct,
                               XMC_NAND_PcCard_TimingInit_Type* XMC_special_spacetiming_struct,
@@ -763,7 +763,7 @@ void XMC_PcCard_Timing_Config(XMC_NAND_PcCard_TimingInit_Type* XMC_regular_space
   * @brief  fill each XMC_PcCard_Init_struct member with its default value.
   * @param  XMC_PcCard_Init_struct: pointer to a XMC_pccardinittype
   *         structure which will be initialized.
-  * @retval none
+  * @retval 无
   */
 void XMC_PcCard_Default_Para_Init(XMC_PcCard_Init_Type* XMC_PcCard_Init_struct) {
     /* reset pccard init structure parameters values */
@@ -784,7 +784,7 @@ void XMC_PcCard_Default_Para_Init(XMC_PcCard_Init_Type* XMC_PcCard_Init_struct) 
   * @param  XMC_iospace_Timing_struct : pointer to a XMC_PcCard_Init_Type
   *         structure that contains the configuration information for the xmc
   *         pccard bank.
-  * @retval none
+  * @retval 无
   */
 void XMC_PcCard_Timing_Default_Para_Init(XMC_NAND_PcCard_TimingInit_Type* XMC_regular_spacetiming_struct,
         XMC_NAND_PcCard_TimingInit_Type* XMC_special_spacetiming_struct,
@@ -808,7 +808,7 @@ void XMC_PcCard_Timing_Default_Para_Init(XMC_NAND_PcCard_TimingInit_Type* XMC_re
 /**
   * @brief  enable or disable the pccard memory bank.
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void XMC_PcCard_Enable(confirm_state new_state) {
     /* enable the pccard bank4 by setting the en bit in the bk4ctrl register */

@@ -41,7 +41,7 @@
 
 /**
   * @brief  get debug device id
-  * @param  none
+  * @param  无
   * @retval the debug device id
   */
 uint32_t DEBUG_Device_ID_Get(void) {
@@ -50,12 +50,12 @@ uint32_t DEBUG_Device_ID_Get(void) {
 /**
   * @brief  set periph debug mode
   * @param  periph_DEBUG_Mode
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - DEBUG_SLEEP
   *         - DEBUG_DEEPSLEEP
   *         - DEBUG_STANDBY
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void DEBUG_Low_Power_Mode_Set(uint32_t low_Power_Mode, confirm_state new_state) {
     if(new_state != FALSE) {
@@ -67,7 +67,7 @@ void DEBUG_Low_Power_Mode_Set(uint32_t low_Power_Mode, confirm_state new_state) 
 /**
   * @brief  set apb1 periph debug mode
   * @param  periph_DEBUG_Mode
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - DEBUG_TMR2_PAUSE                      - DEBUG_TMR3_PAUSE
   *         - DEBUG_TMR4_PAUSE                      - DEBUG_TMR5_PAUSE
   *         - DEBUG_TMR6_PAUSE                      - DEBUG_TMR7_PAUSE
@@ -78,7 +78,7 @@ void DEBUG_Low_Power_Mode_Set(uint32_t low_Power_Mode, confirm_state new_state) 
   *         - DEBUG_I2C2_SmBus_TIMEOUT              - DEBUG_I2C3_SmBus_TIMEOUT
   *         - DEBUG_CAN1_PAUSE                      - DEBUG_CAN2_PAUSE
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void DEBUG_APB1_Periph_Mode_Set(uint32_t apb1_periph, confirm_state new_state) {
     if(new_state != FALSE) {
@@ -90,12 +90,12 @@ void DEBUG_APB1_Periph_Mode_Set(uint32_t apb1_periph, confirm_state new_state) {
 /**
   * @brief  set apb2 periph debug mode
   * @param  periph_DEBUG_Mode
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - DEBUG_TMR1_PAUSE                      - DEBUG_TMR8_PAUSE
   *         - DEBUG_TMR20_PAUSE                     - DEBUG_TMR9_PAUSE
   *         - DEBUG_TMR10_PAUSE                     - DEBUG_TMR11_PAUSE
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void DEBUG_APB2_Periph_Mode_Set(uint32_t apb2_periph, confirm_state new_state) {
     if(new_state != FALSE) {

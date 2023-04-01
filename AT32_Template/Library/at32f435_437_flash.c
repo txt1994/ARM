@@ -42,7 +42,7 @@
 /**
   * @brief  check whether the specified flash flag is set or not.
   * @param  FLASH_flag: specifies the flash flag to check.
-  *         this parameter can be one of flash flag status:
+  *         该参数可以是 one of flash flag status:
   *         - FLASH_OBF_FLAG
   *         - FLASH_ODF_FLAG
   *         - FLASH_PRGMERR_FLAG
@@ -94,7 +94,7 @@ flag_status FLASH_Flag_Get(uint32_t FLASH_flag) {
 /**
   * @brief  clear the flash flag.
   * @param  FLASH_flag: specifies the flash flags to clear.
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - FLASH_ODF_FLAG
   *         - FLASH_PRGMERR_FLAG
   *         - FLASH_EPPERR_FLAG
@@ -104,7 +104,7 @@ flag_status FLASH_Flag_Get(uint32_t FLASH_flag) {
   *         - FLASH_Bank2_ODF_FLAG
   *         - FLASH_Bank2_PRGMERR_FLAG
   *         - FLASH_Bank2_EPPERR_FLAG
-  * @retval none
+  * @retval 无
   */
 void FLASH_Flag_Clear(uint32_t FLASH_flag) {
     uint32_t flag_position;
@@ -127,7 +127,7 @@ void FLASH_Flag_Clear(uint32_t FLASH_flag) {
 
 /**
   * @brief  return the flash operation status.
-  * @param  none
+  * @param  无
   * @retval status: the returned value can be: FLASH_OPERATE_BUSY,
   *         FLASH_PROGRAM_ERROR, FLASH_EPP_ERROR or FLASH_OPERATE_DONE.
   */
@@ -150,7 +150,7 @@ FLASH_Status_Type FLASH_Operation_Status_Get(void) {
 
 /**
   * @brief  return the flash bank1 operation status.
-  * @param  none
+  * @param  无
   * @retval status: the returned value can be: FLASH_OPERATE_BUSY,
   *         FLASH_PROGRAM_ERROR, FLASH_EPP_ERROR or FLASH_OPERATE_DONE.
   */
@@ -173,7 +173,7 @@ FLASH_Status_Type FLASH_Bank1_Operation_Status_Get(void) {
 
 /**
   * @brief  return the flash bank2 operation status.
-  * @param  none
+  * @param  无
   * @retval status: the returned value can be: FLASH_OPERATE_BUSY,
   *         FLASH_PROGRAM_ERROR, FLASH_EPP_ERROR or FLASH_OPERATE_DONE.
   */
@@ -268,8 +268,8 @@ FLASH_Status_Type FLASH_Bank2_Operation_Wait_For(uint32_t time_Out) {
 
 /**
   * @brief  unlock the flash controller.
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void FLASH_Unlock(void) {
     FLASH->unlock = FLASH_Unlock_KEY1;
@@ -280,8 +280,8 @@ void FLASH_Unlock(void) {
 
 /**
   * @brief  unlock the flash bank1 controller.
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void FLASH_Bank1_unlock(void) {
     FLASH->unlock = FLASH_Unlock_KEY1;
@@ -290,8 +290,8 @@ void FLASH_Bank1_unlock(void) {
 
 /**
   * @brief  unlock the flash bank2 controller.
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void FLASH_Bank2_unlock(void) {
     FLASH->unlock2 = FLASH_Unlock_KEY1;
@@ -300,8 +300,8 @@ void FLASH_Bank2_unlock(void) {
 
 /**
   * @brief  lock the flash controller.
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void FLASH_Lock(void) {
     FLASH->ctrl_bit.oplk = TRUE;
@@ -310,8 +310,8 @@ void FLASH_Lock(void) {
 
 /**
   * @brief  lock the flash bank1 controller.
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void FLASH_Bank1_lock(void) {
     FLASH->ctrl_bit.oplk = TRUE;
@@ -319,8 +319,8 @@ void FLASH_Bank1_lock(void) {
 
 /**
   * @brief  lock the flash bank2 controller.
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void FLASH_Bank2_lock(void) {
     FLASH->ctrl2_bit.oplk = TRUE;
@@ -398,7 +398,7 @@ FLASH_Status_Type FLASH_Block_Erase(uint32_t block_Address) {
 
 /**
   * @brief  erase flash all internal sectors.
-  * @param  none
+  * @param  无
   * @retval status: the returned value can be: FLASH_PROGRAM_ERROR,
   *         FLASH_EPP_ERROR, FLASH_OPERATE_DONE or FLASH_OPERATE_TIMEOUT.
   */
@@ -432,7 +432,7 @@ FLASH_Status_Type FLASH_Internal_All_Erase(void) {
 
 /**
   * @brief  erase flash bank1 sectors.
-  * @param  none
+  * @param  无
   * @retval status: the returned value can be: FLASH_PROGRAM_ERROR,
   *         FLASH_EPP_ERROR, FLASH_OPERATE_DONE or FLASH_OPERATE_TIMEOUT.
   */
@@ -454,7 +454,7 @@ FLASH_Status_Type FLASH_Bank1_Erase(void) {
 
 /**
   * @brief  erase flash bank2 sectors.
-  * @param  none
+  * @param  无
   * @retval status: the returned value can be: FLASH_PROGRAM_ERROR,
   *         FLASH_EPP_ERROR, FLASH_OPERATE_DONE or FLASH_OPERATE_TIMEOUT.
   */
@@ -478,7 +478,7 @@ FLASH_Status_Type FLASH_Bank2_Erase(void) {
   * @brief  erase the flash user system data.
   * @note   this functions erase all user system data except the fap byte.
   *         the eopb0 byte value change to 0xFF, sram size maybe change too.
-  * @param  none
+  * @param  无
   * @retval status: the returned value can be: FLASH_PROGRAM_ERROR,
   *         FLASH_EPP_ERROR, FLASH_OPERATE_DONE or FLASH_OPERATE_TIMEOUT.
   */
@@ -530,7 +530,7 @@ FLASH_Status_Type FLASH_User_System_Data_Erase(void) {
   * @note   the 256kb and below capacity mcu only support FLASH_Eopb0_SRAM_384K,
   *         FLASH_Eopb0_SRAM_448K or FLASH_Eopb0_SRAM_512K.
   * @param  data: the eopb0 value.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - FLASH_Eopb0_SRAM_512K
   *         - FLASH_Eopb0_SRAM_448K
   *         - FLASH_Eopb0_SRAM_384K
@@ -785,7 +785,7 @@ FLASH_Status_Type FLASH_EPP_Set(uint32_t *sector_bits) {
 /**
   * @brief  return the flash erase/program protection status.
   * @param  sector_bits: pointer to get the epps register.
-  * @retval none
+  * @retval 无
   */
 void FLASH_EPP_Status_Get(uint32_t *sector_bits) {
     /* return the flash erase/program protection register value */
@@ -798,7 +798,7 @@ void FLASH_EPP_Status_Get(uint32_t *sector_bits) {
   * @note   if the user has already programmed the other user system data before calling
   *         this function, must re-program them since this function erase all user system data.
   * @param  new_state: new state of the flash access protection.
-  *         this parameter can be: TRUE or FALSE.
+  *         该参数可以是: TRUE or FALSE.
   * @retval status: the returned value can be: FLASH_PROGRAM_ERROR,
   *         FLASH_EPP_ERROR, FLASH_OPERATE_DONE or FLASH_OPERATE_TIMEOUT.
   */
@@ -845,7 +845,7 @@ FLASH_Status_Type FLASH_Fap_Enable(confirm_state new_state) {
 
 /**
   * @brief  check the flash access protection status.
-  * @param  none
+  * @param  无
   * @retval flash access protection status(SET or RESET)
   */
 flag_status FLASH_Fap_Status_Get(void) {
@@ -908,7 +908,7 @@ FLASH_Status_Type FLASH_SSB_Set(uint8_t usd_ssb) {
 
 /**
   * @brief  return the flash system setting byte status.
-  * @param  none
+  * @param  无
   * @retval values from FLASH_usd register: WDT_ato_en(bit0), depslp_rst(bit1),
   *         stdby_rst(bit2) and btopt(bit3).
   */
@@ -920,7 +920,7 @@ uint8_t FLASH_SSB_Status_Get(void) {
 /**
   * @brief  enable or disable the specified flash interrupts.
   * @param  FLASH_int: specifies the flash interrupt sources to be enabled or disabled.
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - FLASH_ERR_INT
   *         - FLASH_ODF_INT
   *         - FLASH_Bank1_ERR_INT
@@ -928,8 +928,8 @@ uint8_t FLASH_SSB_Status_Get(void) {
   *         - FLASH_Bank2_ERR_INT
   *         - FLASH_Bank2_ODF_INT
   * @param  new_state: new state of the specified flash interrupts.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void FLASH_Interrupt_Enable(uint32_t FLASH_int, confirm_state new_state) {
     if(FLASH_int & FLASH_Bank1_ERR_INT)
@@ -1011,7 +1011,7 @@ error_status FLASH_sLib_Disable(uint32_t pwd) {
 
 /**
  * @brief  get remaining count of slib(range: 256~0).
- * @param  none
+ * @param  无
  * @retval uint32_t
  */
 uint32_t FLASH_sLib_Remaining_Count_Get(void) {
@@ -1020,7 +1020,7 @@ uint32_t FLASH_sLib_Remaining_Count_Get(void) {
 
 /**
   * @brief  get the slib state.
-  * @param  none
+  * @param  无
   * @retval SET or RESET
   */
 flag_status FLASH_sLib_State_Get(void) {
@@ -1032,7 +1032,7 @@ flag_status FLASH_sLib_State_Get(void) {
 
 /**
  * @brief  get the start sector of slib.
- * @param  none
+ * @param  无
  * @retval uint16_t
  */
 uint16_t FLASH_sLib_Start_Sector_Get(void) {
@@ -1041,7 +1041,7 @@ uint16_t FLASH_sLib_Start_Sector_Get(void) {
 
 /**
  * @brief  get the instruction start sector of slib.
- * @param  none
+ * @param  无
  * @retval uint16_t
  */
 uint16_t FLASH_sLib_Inststart_Sector_Get(void) {
@@ -1050,7 +1050,7 @@ uint16_t FLASH_sLib_Inststart_Sector_Get(void) {
 
 /**
  * @brief  get the end sector of slib.
- * @param  none
+ * @param  无
  * @retval uint16_t
  */
 uint16_t FLASH_sLib_End_Sector_Get(void) {
@@ -1074,8 +1074,8 @@ uint32_t FLASH_CRC_Calibrate(uint32_t start_sector, uint32_t sector_cnt) {
 /**
   * @brief  flash non-zero wait area boost enable.
   * @param  new_state: new state of the flash non-zero wait area boost operation.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void FLASH_NZW_Boost_Enable(confirm_state new_state) {
     FLASH->psr_bit.nzw_bst = new_state;
@@ -1084,8 +1084,8 @@ void FLASH_NZW_Boost_Enable(confirm_state new_state) {
 /**
   * @brief  flash continue read enable.
   * @param  new_state: new state of the flash continue read enable operation.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void FLASH_Continue_Read_Enable(confirm_state new_state) {
     FLASH->contr_bit.fcontr_en = new_state;

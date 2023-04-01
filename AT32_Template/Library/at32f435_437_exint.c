@@ -41,8 +41,8 @@
 
 /**
   * @brief  exint reset
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void EXINT_Reset(void) {
     EXINT->inten = 0x00000000;
@@ -56,7 +56,7 @@ void EXINT_Reset(void) {
   * @brief  exint default para init
   * @param  EXINT_struct
   *         - to the structure of EXINT_Init_Type
-  * @retval none
+  * @retval 无
   */
 void EXINT_Default_Para_Init(EXINT_Init_Type *EXINT_struct) {
     EXINT_struct->line_Enable = FALSE;
@@ -69,7 +69,7 @@ void EXINT_Default_Para_Init(EXINT_Init_Type *EXINT_struct) {
   * @brief  exint init
   * @param  EXINT_struct
   *         - to the structure of EXINT_Init_Type
-  * @retval none
+  * @retval 无
   */
 void EXINT_Init(EXINT_Init_Type *EXINT_struct) {
     uint32_t line_index = 0;
@@ -102,13 +102,13 @@ void EXINT_Init(EXINT_Init_Type *EXINT_struct) {
 /**
   * @brief  clear exint flag
   * @param  EXINT_line
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - EXINT_Line_0
   *         - EXINT_Line_1
   *         ...
   *         - EXINT_Line_21
   *         - EXINT_Line_22
-  * @retval none
+  * @retval 无
   */
 void EXINT_Flag_Clear(uint32_t EXINT_line) {
     EXINT->intsts = EXINT_line;
@@ -117,7 +117,7 @@ void EXINT_Flag_Clear(uint32_t EXINT_line) {
 /**
   * @brief  get exint flag
   * @param  EXINT_line
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EXINT_Line_0
   *         - EXINT_Line_1
   *         ...
@@ -142,13 +142,13 @@ flag_status EXINT_Flag_Get(uint32_t EXINT_line) {
 /**
   * @brief  generate exint software interrupt event
   * @param  EXINT_line
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EXINT_Line_0
   *         - EXINT_Line_1
   *         ...
   *         - EXINT_Line_21
   *         - EXINT_Line_22
-  * @retval none
+  * @retval 无
   */
 void EXINT_Software_Interrupt_Event_Generate(uint32_t EXINT_line) {
     EXINT->swtrg |= EXINT_line;
@@ -157,15 +157,15 @@ void EXINT_Software_Interrupt_Event_Generate(uint32_t EXINT_line) {
 /**
   * @brief  enable or disable exint interrupt
   * @param  EXINT_line
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - EXINT_Line_0
   *         - EXINT_Line_1
   *         ...
   *         - EXINT_Line_21
   *         - EXINT_Line_22
   * @param  new_state: new state of exint interrupt.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void EXINT_Interrupt_Enable(uint32_t EXINT_line, confirm_state new_state) {
     if(new_state == TRUE) {
@@ -178,15 +178,15 @@ void EXINT_Interrupt_Enable(uint32_t EXINT_line, confirm_state new_state) {
 /**
   * @brief  enable or disable exint event
   * @param  EXINT_line
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - EXINT_Line_0
   *         - EXINT_Line_1
   *         ...
   *         - EXINT_Line_21
   *         - EXINT_Line_22
   * @param  new_state: new state of exint event.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void EXINT_Event_Enable(uint32_t EXINT_line, confirm_state new_state) {
     if(new_state == TRUE) {

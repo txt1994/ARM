@@ -41,8 +41,8 @@
 
 /**
   * @brief  reset the crm register
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void CRM_Reset(void) {
     /* reset the crm clock configuration to the default reset state(for debug purpose) */
@@ -77,7 +77,7 @@ void CRM_Reset(void) {
 /**
   * @brief  enable or disable crm low speed external crystal bypass
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void CRM_Lext_ByPass(confirm_state new_state) {
     CRM->bpdc_bit.lextbyps = new_state;
@@ -86,7 +86,7 @@ void CRM_Lext_ByPass(confirm_state new_state) {
 /**
   * @brief  enable or disable crm high speed external crystal bypass
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void CRM_Hext_ByPass(confirm_state new_state) {
     CRM->ctrl_bit.hextbyps = new_state;
@@ -95,7 +95,7 @@ void CRM_Hext_ByPass(confirm_state new_state) {
 /**
   * @brief  get crm flag status
   * @param  flag
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_HICK_Stable_FLAG
   *         - CRM_Hext_Stable_FLAG
   *         - CRM_PLL_Stable_FLAG
@@ -130,7 +130,7 @@ flag_status CRM_Flag_Get(uint32_t flag) {
 
 /**
   * @brief  wait for hext stable
-  * @param  none
+  * @param  无
   * @retval error_status (ERROR or SUCCESS)
   */
 error_status CRM_Hext_Stable_Wait(void) {
@@ -153,7 +153,7 @@ error_status CRM_Hext_Stable_Wait(void) {
 /**
   * @brief  set the hick trimming value
   * @param  trim_value (0x00~0x3F)
-  * @retval none
+  * @retval 无
   */
 void CRM_HICK_Clock_Trimming_Set(uint8_t trim_value) {
     CRM->ctrl_bit.hicktrim = trim_value;
@@ -162,7 +162,7 @@ void CRM_HICK_Clock_Trimming_Set(uint8_t trim_value) {
 /**
   * @brief  set the crm calibration value
   * @param  cali_value (0x00~0xFF)
-  * @retval none
+  * @retval 无
   */
 void CRM_HICK_Clock_Calibration_Set(uint8_t cali_value) {
     /* enable write hick calibration */
@@ -178,7 +178,7 @@ void CRM_HICK_Clock_Calibration_Set(uint8_t cali_value) {
 /**
   * @brief  enable or disable the peripheral clock
   * @param  value
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_GPIOA_Periph_CLOCK        - CRM_GPIOB_Periph_CLOCK        - CRM_GPIOC_Periph_CLOCK       - CRM_GPIOD_Periph_CLOCK
   *         - CRM_GPIOE_Periph_CLOCK        - CRM_GPIOF_Periph_CLOCK        - CRM_GPIOG_Periph_CLOCK       - CRM_GPIOH_Periph_CLOCK
   *         - CRM_CRC_Periph_CLOCK          - CRM_EDMA_Periph_CLOCK         - CRM_DMA1_Periph_CLOCK        - CRM_DMA2_Periph_CLOCK
@@ -196,7 +196,7 @@ void CRM_HICK_Clock_Calibration_Set(uint8_t cali_value) {
   *         - CRM_SPI1_Periph_CLOCK         - CRM_SPI4_Periph_CLOCK         - CRM_SCFG_Periph_CLOCK        - CRM_TMR9_Periph_CLOCK
   *         - CRM_TMR10_Periph_CLOCK        - CRM_TMR11_Periph_CLOCK        - CRM_TMR20_Periph_CLOCK       - CRM_ACC_Periph_CLOCK
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void CRM_Periph_Clock_Enable(CRM_Periph_Clock_Type value, confirm_state new_state) {
     /* enable periph clock */
@@ -212,7 +212,7 @@ void CRM_Periph_Clock_Enable(CRM_Periph_Clock_Type value, confirm_state new_stat
 /**
   * @brief  enable or disable the peripheral reset
   * @param  value
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_GPIOA_Periph_Reset        - CRM_GPIOB_Periph_Reset        - CRM_GPIOC_Periph_Reset       - CRM_GPIOD_Periph_Reset
   *         - CRM_GPIOE_Periph_Reset        - CRM_GPIOF_Periph_Reset        - CRM_GPIOG_Periph_Reset       - CRM_GPIOH_Periph_Reset
   *         - CRM_CRC_Periph_Reset          - CRM_EDMA_Periph_Reset         - CRM_DMA1_Periph_Reset        - CRM_DMA2_Periph_Reset
@@ -229,7 +229,7 @@ void CRM_Periph_Clock_Enable(CRM_Periph_Clock_Type value, confirm_state new_stat
   *         - CRM_SPI4_Periph_Reset         - CRM_SCFG_Periph_Reset         - CRM_TMR9_Periph_Reset        - CRM_TMR10_Periph_Reset
   *         - CRM_TMR11_Periph_Reset        - CRM_TMR20_Periph_Reset        - CRM_ACC_Periph_Reset
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void CRM_Periph_Reset(CRM_Periph_Reset_Type value, confirm_state new_state) {
     /* enable periph reset */
@@ -245,7 +245,7 @@ void CRM_Periph_Reset(CRM_Periph_Reset_Type value, confirm_state new_state) {
 /**
   * @brief  enable or disable the peripheral clock in lowpower mode
   * @param  value
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_GPIOA_Periph_LOWPOWER     - CRM_GPIOB_Periph_LOWPOWER     - CRM_GPIOC_Periph_LOWPOWER    - CRM_GPIOD_Periph_LOWPOWER
   *         - CRM_GPIOE_Periph_LOWPOWER     - CRM_GPIOF_Periph_LOWPOWER     - CRM_GPIOG_Periph_LOWPOWER    - CRM_GPIOH_Periph_LOWPOWER
   *         - CRM_CRC_Periph_LOWPOWER       - CRM_EDMA_Periph_LOWPOWER      - CRM_DMA1_Periph_LOWPOWER     - CRM_DMA2_Periph_LOWPOWER
@@ -264,7 +264,7 @@ void CRM_Periph_Reset(CRM_Periph_Reset_Type value, confirm_state new_state) {
   *         - CRM_TMR10_Periph_LOWPOWER     - CRM_TMR11_Periph_LOWPOWER     - CRM_TMR20_Periph_LOWPOWER    - CRM_ACC_Periph_LOWPOWER
   *         - CRM_FLASH_Periph_LOWPOWER     - CRM_SRAM1_Periph_LOWPOWER     - CRM_SRAM2_Periph_LOWPOWER
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void CRM_Periph_LowPower_Mode_Enable(CRM_Periph_Clock_LowPower_Type value, confirm_state new_state) {
     /* enable periph clock in lowpower mode */
@@ -280,14 +280,14 @@ void CRM_Periph_LowPower_Mode_Enable(CRM_Periph_Clock_LowPower_Type value, confi
 /**
   * @brief  enable or disable the crm clock source
   * @param  source
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_Clock_Source_HICK
   *         - CRM_Clock_Source_HEXT
   *         - CRM_Clock_Source_PLL
   *         - CRM_Clock_Source_LEXT
   *         - CRM_Clock_Source_LICK
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void CRM_Clock_Source_Enable(CRM_Clock_Source_Type source, confirm_state new_state) {
     switch(source) {
@@ -319,7 +319,7 @@ void CRM_Clock_Source_Enable(CRM_Clock_Source_Type source, confirm_state new_sta
 /**
   * @brief  clear the crm reset flags
   * @param  flag
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         reset flag:
   *         - CRM_Pin_Reset_FLAG
   *         - CRM_POR_Reset_FLAG
@@ -335,7 +335,7 @@ void CRM_Clock_Source_Enable(CRM_Clock_Source_Type source, confirm_state new_sta
   *         - CRM_Hext_ReadY_INT_FLAG
   *         - CRM_PLL_ReadY_INT_FLAG
   *         - CRM_Clock_Failure_INT_FLAG
-  * @retval none
+  * @retval 无
   */
 void CRM_Flag_Clear(uint32_t flag) {
     switch(flag) {
@@ -384,7 +384,7 @@ void CRM_Flag_Clear(uint32_t flag) {
 /**
   * @brief  select ertc clock
   * @param  value
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_ERTC_Clock_NOCLK
   *         - CRM_ERTC_Clock_LEXT
   *         - CRM_ERTC_Clock_LICK
@@ -418,7 +418,7 @@ void CRM_Flag_Clear(uint32_t flag) {
   *         - CRM_ERTC_Clock_Hext_Div_29
   *         - CRM_ERTC_Clock_Hext_Div_30
   *         - CRM_ERTC_Clock_Hext_Div_31
-  * @retval none
+  * @retval 无
   */
 void CRM_ERTC_Clock_Select(CRM_ERTC_Clock_Type value) {
     CRM->cfg_bit.ertcdiv = ((value & 0x1F0) >> 4);
@@ -428,7 +428,7 @@ void CRM_ERTC_Clock_Select(CRM_ERTC_Clock_Type value) {
 /**
   * @brief  enable or disable ertc
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void CRM_ERTC_Clock_Enable(confirm_state new_state) {
     CRM->bpdc_bit.ertcen = new_state;
@@ -437,7 +437,7 @@ void CRM_ERTC_Clock_Enable(confirm_state new_state) {
 /**
   * @brief  set crm ahb division
   * @param  value
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_AHB_Div_1
   *         - CRM_AHB_Div_2
   *         - CRM_AHB_Div_4
@@ -447,7 +447,7 @@ void CRM_ERTC_Clock_Enable(confirm_state new_state) {
   *         - CRM_AHB_Div_128
   *         - CRM_AHB_Div_256
   *         - CRM_AHB_Div_512
-  * @retval none
+  * @retval 无
   */
 void CRM_AHB_Div_Set(CRM_AHB_Div_Type value) {
     CRM->cfg_bit.ahbdiv = value;
@@ -457,13 +457,13 @@ void CRM_AHB_Div_Set(CRM_AHB_Div_Type value) {
   * @brief  set crm apb1 division
   * @note   the maximum frequency of APB1/APB2 clock is 144 MHz
   * @param  value
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_APB1_Div_1
   *         - CRM_APB1_Div_2
   *         - CRM_APB1_Div_4
   *         - CRM_APB1_Div_8
   *         - CRM_APB1_Div_16
-  * @retval none
+  * @retval 无
   */
 void CRM_APB1_Div_Set(CRM_APB1_Div_Type value) {
     CRM->cfg_bit.apb1div = value;
@@ -473,13 +473,13 @@ void CRM_APB1_Div_Set(CRM_APB1_Div_Type value) {
   * @brief  set crm apb2 division
   * @note   the maximum frequency of APB1/APB2 clock is 144 MHz
   * @param  value
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_APB2_Div_1
   *         - CRM_APB2_Div_2
   *         - CRM_APB2_Div_4
   *         - CRM_APB2_Div_8
   *         - CRM_APB2_Div_16
-  * @retval none
+  * @retval 无
   */
 void CRM_APB2_Div_Set(CRM_APB2_Div_Type value) {
     CRM->cfg_bit.apb2div = value;
@@ -488,7 +488,7 @@ void CRM_APB2_Div_Set(CRM_APB2_Div_Type value) {
 /**
   * @brief  set usb division
   * @param  value
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_USB_Div_1_5
   *         - CRM_USB_Div_1
   *         - CRM_USB_Div_2_5
@@ -502,7 +502,7 @@ void CRM_APB2_Div_Set(CRM_APB2_Div_Type value) {
   *         - CRM_USB_Div_6_5
   *         - CRM_USB_Div_6
   *         - CRM_USB_Div_7
-  * @retval none
+  * @retval 无
   */
 void CRM_USB_Clock_Div_Set(CRM_USB_Div_Type value) {
     CRM->misc2_bit.usbdiv = value;
@@ -511,7 +511,7 @@ void CRM_USB_Clock_Div_Set(CRM_USB_Div_Type value) {
 /**
   * @brief  enable or disable clock failure detection
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void CRM_Clock_Failure_Detection_Enable(confirm_state new_state) {
     CRM->ctrl_bit.cfden = new_state;
@@ -520,7 +520,7 @@ void CRM_Clock_Failure_Detection_Enable(confirm_state new_state) {
 /**
   * @brief  battery powered domain software reset
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void CRM_Battery_Powered_Domain_Reset(confirm_state new_state) {
     CRM->bpdc_bit.bpdrst = new_state;
@@ -529,7 +529,7 @@ void CRM_Battery_Powered_Domain_Reset(confirm_state new_state) {
 /**
   * @brief  auto step clock switch enable
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void CRM_Auto_Step_Mode_Enable(confirm_state new_state) {
     if(new_state == TRUE)
@@ -541,10 +541,10 @@ void CRM_Auto_Step_Mode_Enable(confirm_state new_state) {
 /**
   * @brief  config hick divider select
   * @param  value
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_HICK48_DIV6
   *         - CRM_HICK48_NODIV
-  * @retval none
+  * @retval 无
   */
 void CRM_HICK_Divider_Select(CRM_HICK_Div_6_Type value) {
     CRM->misc1_bit.hickdiv = value;
@@ -553,10 +553,10 @@ void CRM_HICK_Divider_Select(CRM_HICK_Div_6_Type value) {
 /**
   * @brief  hick as system clock frequency select
   * @param  value
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_HICK_SCLK_8MHZ
   *         - CRM_HICK_SCLK_48MHZ
-  * @retval none
+  * @retval 无
   */
 void CRM_HICK_SCLK_Frequency_Select(CRM_HICK_SCLK_Frequency_Type value) {
     CRM_HICK_Divider_Select(CRM_HICK48_NODIV);
@@ -566,10 +566,10 @@ void CRM_HICK_SCLK_Frequency_Select(CRM_HICK_SCLK_Frequency_Type value) {
 /**
   * @brief  usb 48 mhz clock source select
   * @param  value
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_USB_Clock_Source_PLL
   *         - CRM_USB_Clock_Source_HICK
-  * @retval none
+  * @retval 无
   */
 void CRM_USB_Clock_Source_Select(CRM_USB_Clock_Source_Type value) {
     if(value == CRM_USB_Clock_Source_HICK) {
@@ -582,7 +582,7 @@ void CRM_USB_Clock_Source_Select(CRM_USB_Clock_Source_Type value) {
 /**
   * @brief  enable or disable clkout direct to tmr10 channel 1
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void CRM_CLKout_To_TMR10_Enable(confirm_state new_state) {
     CRM->misc2_bit.clk_To_tmr = new_state;
@@ -605,20 +605,20 @@ void CRM_CLKout_To_TMR10_Enable(confirm_state new_state) {
   *         500mhz <=  -------------------------------- <= 1200mhz
   *                               pll_ms
   * @param  clock_source
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_PLL_Source_HICK
   *         - CRM_PLL_Source_HEXT
   * @param  pll_ns (31~500)
   * @param  pll_ms (1~15)
   * @param  pll_fr
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_PLL_FR_1
   *         - CRM_PLL_FR_2
   *         - CRM_PLL_FR_4
   *         - CRM_PLL_FR_8
   *         - CRM_PLL_FR_16
   *         - CRM_PLL_FR_32
-  * @retval none
+  * @retval 无
   */
 void CRM_PLL_Config(CRM_PLL_Clock_Source_Type clock_source, uint16_t pll_ns, \
                     uint16_t pll_ms, CRM_PLL_FR_Type pll_fr) {
@@ -638,11 +638,11 @@ void CRM_PLL_Config(CRM_PLL_Clock_Source_Type clock_source, uint16_t pll_ns, \
 /**
   * @brief  select system clock source
   * @param  value
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_SCLK_HICK
   *         - CRM_SCLK_HEXT
   *         - CRM_SCLK_PLL
-  * @retval none
+  * @retval 无
   */
 void CRM_SysCLK_Switch(CRM_SCLK_Type value) {
     CRM->cfg_bit.sclksel = value;
@@ -650,7 +650,7 @@ void CRM_SysCLK_Switch(CRM_SCLK_Type value) {
 
 /**
   * @brief  indicate which clock source is used as system clock
-  * @param  none
+  * @param  无
   * @retval CRM_sclk
   *         this return can be one of the following values:
   *         - CRM_SCLK_HICK
@@ -665,7 +665,7 @@ CRM_SCLK_Type CRM_SysCLK_Switch_Status_Get(void) {
   * @brief  get crm clocks freqency
   * @param  clocks_struct
   *         - pointer to the CRM_Clocks_Freq_Type structure
-  * @retval none
+  * @retval 无
   */
 void CRM_Clocks_Freq_Get(CRM_Clocks_Freq_Type *clocks_struct) {
     uint32_t pll_ns = 0, pll_ms = 0, pll_fr = 0, pll_Clock_source = 0, pllrcsfreq = 0;
@@ -741,12 +741,12 @@ void CRM_Clocks_Freq_Get(CRM_Clocks_Freq_Type *clocks_struct) {
 /**
   * @brief  set crm clkout1
   * @param  clkout
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_CLKOUT1_HICK
   *         - CRM_CLKOUT1_LEXT
   *         - CRM_CLKOUT1_HEXT
   *         - CRM_CLKOUT1_PLL
-  * @retval none
+  * @retval 无
   */
 void CRM_Clock_Out1_Set(CRM_CLKout1_Select_Type clkout) {
     CRM->cfg_bit.clkout1_sel = clkout;
@@ -755,7 +755,7 @@ void CRM_Clock_Out1_Set(CRM_CLKout1_Select_Type clkout) {
 /**
   * @brief  set crm clkout2
   * @param  clkout
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_CLKOUT2_SCLK
   *         - CRM_CLKOUT2_HEXT
   *         - CRM_CLKOUT2_PLL
@@ -764,7 +764,7 @@ void CRM_Clock_Out1_Set(CRM_CLKout1_Select_Type clkout) {
   *         - CRM_CLKOUT2_HICK
   *         - CRM_CLKOUT2_LICK
   *         - CRM_CLKOUT2_LEXT
-  * @retval none
+  * @retval 无
   */
 void CRM_Clock_Out2_Set(CRM_CLKout2_Select_Type clkout) {
     if(clkout < 0x10) {
@@ -778,18 +778,18 @@ void CRM_Clock_Out2_Set(CRM_CLKout2_Select_Type clkout) {
 /**
   * @brief  set crm clkout1 division1
   * @param  div1
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_CLKOUT_INDEX_1
   *         - CRM_CLKOUT_INDEX_2
   * @param  div1
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_CLKOUT_DIV1_1
   *         - CRM_CLKOUT_DIV1_2
   *         - CRM_CLKOUT_DIV1_3
   *         - CRM_CLKOUT_DIV1_4
   *         - CRM_CLKOUT_DIV1_5
   * @param  div2
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_CLKOUT_Div2_1
   *         - CRM_CLKOUT_Div2_2
   *         - CRM_CLKOUT_Div2_4
@@ -799,7 +799,7 @@ void CRM_Clock_Out2_Set(CRM_CLKout2_Select_Type clkout) {
   *         - CRM_CLKOUT_Div2_128
   *         - CRM_CLKOUT_Div2_256
   *         - CRM_CLKOUT_Div2_512
-  * @retval none
+  * @retval 无
   */
 void CRM_CLKout_Div_Set(CRM_CLKout_index_Type index, CRM_CLKout_div1_Type div1, CRM_CLKout_Div2_Type div2) {
     if(index == CRM_CLKOUT_INDEX_1) {
@@ -814,10 +814,10 @@ void CRM_CLKout_Div_Set(CRM_CLKout_index_Type index, CRM_CLKout_div1_Type div1, 
 /**
   * @brief  set emac output pulse width
   * @param  width
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_EMAC_Pulse_125MS
   *         - CRM_EMAC_Pulse_1SCLK
-  * @retval none
+  * @retval 无
   */
 void CRM_EMAC_OutPut_Pulse_Set(CRM_EMAC_OutPut_Pulse_Type width) {
     CRM->misc2_bit.EMAC_PPS_sel = width;
@@ -826,14 +826,14 @@ void CRM_EMAC_OutPut_Pulse_Set(CRM_EMAC_OutPut_Pulse_Type width) {
 /**
   * @brief  config crm interrupt
   * @param  int
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - CRM_LICK_Stable_INT
   *         - CRM_Lext_Stable_INT
   *         - CRM_HICK_Stable_INT
   *         - CRM_Hext_Stable_INT
   *         - CRM_PLL_Stable_INT
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void CRM_Interrupt_Enable(uint32_t CRM_int, confirm_state new_state) {
     if(TRUE == new_state)
@@ -859,7 +859,7 @@ void CRM_Interrupt_Enable(uint32_t CRM_int, confirm_state new_state) {
   *         500mhz <=  -------------------------------- <= 1200mhz
   *                               pll_ms
   * @param  pll_rcs
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - CRM_PLL_Source_HICK
   *         - CRM_PLL_Source_HEXT
   * @param  target_SCLK_freq: target pll output frequency, such as 200 mhz (target_SCLK_freq: 200000000)

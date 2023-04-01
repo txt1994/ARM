@@ -161,9 +161,9 @@ typedef enum {
   * @brief edma peripheral data size type
   */
 typedef enum {
-    EDMA_PERIPHERAL_Data_Width_BYTE        = 0x00, /*!< peripheral data bus width is 8bit */
-    EDMA_PERIPHERAL_Data_Width_HALFWORD    = 0x01, /*!< peripheral data bus width is 16bit */
-    EDMA_PERIPHERAL_Data_Width_WORD        = 0x02  /*!< peripheral data bus width is 32bit */
+    EDMA_Peripheral_Data_Width_BYTE        = 0x00, /*!< peripheral data bus width is 8bit */
+    EDMA_Peripheral_Data_Width_HALFWORD    = 0x01, /*!< peripheral data bus width is 16bit */
+    EDMA_Peripheral_Data_Width_WORD        = 0x02  /*!< peripheral data bus width is 32bit */
 } eDMA_peripheral_Data_size_Type;
 
 /**
@@ -420,15 +420,15 @@ typedef enum {
   * @brief edma init type
   */
 typedef struct {
-    uint32_t                               peripheral_Base_Addr;       /*!< base addrress for peripheral */
+    uint32_t                               Peripheral_Base_Addr;       /*!< base addrress for peripheral */
     uint32_t                               memory0_Base_Addr;          /*!< base addrress for memory 0 */
     eDMA_Dir_Type                          direction;                  /*!< edma transmit direction, peripheral as source or as destnation  */
-    uint16_t                               buffer_size;                /*!< counter to transfer (0~0xFFFF)*/
-    confirm_state                          peripheral_inc_Enable;      /*!< periphera address increment after one transmit */
-    confirm_state                          memory_inc_Enable;          /*!< memory address increment after one transmit */
-    eDMA_peripheral_Data_size_Type         peripheral_Data_width;      /*!< peripheral data width for transmit */
-    eDMA_Memory_Data_size_Type             memory_Data_width;          /*!< memory data width for transmit */
-    confirm_state                          loop_Mode_Enable;           /*!< when loop mode enable, buffer size will reload if count to 0*/
+    uint16_t                               Buffer_Size;                /*!< counter to transfer (0~0xFFFF)*/
+    confirm_state                          Peripheral_Inc_Enable;      /*!< periphera address increment after one transmit */
+    confirm_state                          Memory_Inc_Enable;          /*!< memory address increment after one transmit */
+    eDMA_peripheral_Data_size_Type         Peripheral_Data_Width;      /*!< peripheral data width for transmit */
+    eDMA_Memory_Data_size_Type             Memory_Data_Width;          /*!< memory data width for transmit */
+    confirm_state                          Loop_Mode_Enable;           /*!< when loop mode enable, buffer size will reload if count to 0*/
     eDMA_Priority_level_Type               priority;                   /*!< edma priority can choose from very high, high, dedium or low */
     confirm_state                          fifo_Mode_Enable;           /*!< edma fifo mode enable */
     eDMA_FIFO_Threshold_Type               fifo_threshold;             /*!< edma fifo threshold vaule */
@@ -440,21 +440,21 @@ typedef struct {
   * @brief edmamux sync init type
   */
 typedef struct {
-    eDMAMUX_Sync_ID_sel_Type               sync_signal_sel;     /*!< edma dmamux synchronization input select */
-    eDMAMUX_Sync_pol_Type                  sync_polarity;       /*!< edma dmamux synchronization polarity */
-    uint32_t                               sync_Request_Number; /*!< edma dmamux number of dma requests before an output event is generated */
-    confirm_state                          sync_Event_Enable;   /*!< edma dmamux event generation disabled */
-    confirm_state                          sync_Enable;         /*!< edma dmamux synchronization enable */
+    eDMAMUX_Sync_ID_sel_Type               Sync_Signal_Sel;     /*!< edma dmamux synchronization input select */
+    eDMAMUX_Sync_pol_Type                  Sync_Polarity;       /*!< edma dmamux synchronization polarity */
+    uint32_t                               Sync_Request_Number; /*!< edma dmamux number of dma requests before an output event is generated */
+    confirm_state                          Sync_Event_Enable;   /*!< edma dmamux event generation disabled */
+    confirm_state                          Sync_Enable;         /*!< edma dmamux synchronization enable */
 } eDMAMUX_Sync_Init_Type;
 
 /**
   * @brief edmamux generator init type
   */
 typedef struct {
-    eDMAMUX_Gen_ID_sel_Type                gen_signal_sel;     /*!< edma dmamux generator dma request trigger input select */
-    eDMAMUX_Gen_pol_Type                   gen_polarity;       /*!< edma dmamux generator trigger polarity */
-    uint32_t                               gen_Request_Number; /*!< edma dmamux the number of dma requests to be generated after a trigger event */
-    confirm_state                          gen_Enable;         /*!< edma dmamux generator enable */
+    eDMAMUX_Gen_ID_sel_Type                Gen_Signal_Sel;     /*!< edma dmamux generator dma request trigger input select */
+    eDMAMUX_Gen_pol_Type                   Gen_Polarity;       /*!< edma dmamux generator trigger polarity */
+    uint32_t                               Gen_Request_Number; /*!< edma dmamux the number of dma requests to be generated after a trigger event */
+    confirm_state                          Gen_Enable;         /*!< edma dmamux generator enable */
 } eDMAMUX_Gen_Init_Type;
 
 /**

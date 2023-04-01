@@ -20,6 +20,4 @@
 #include "at32f435_437_conf.h"
 #include "at32f435_437_clock.h"
 int main(void) {
-    Systick_Clock_Source_Config(Systick_Clock_Source_AHBCLK_DIV8);
-    Systick_Config(1000);
 }

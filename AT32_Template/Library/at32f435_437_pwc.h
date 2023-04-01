@@ -64,7 +64,7 @@ extern "C" {
 /**
   * @brief  select ldo output voltage.
   * @param  val: set the ldo output voltage.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - PWC_LDO_OutPut_1V3: system clock up to 288MHz.
   *         - PWC_LDO_OutPut_1V2: system clock up to 240MHz.
   *         - PWC_LDO_OutPut_1V1: system clock up to 192MHz.

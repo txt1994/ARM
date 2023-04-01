@@ -155,9 +155,9 @@ typedef enum {
   * @brief dma peripheral data size type
   */
 typedef enum {
-    DMA_PERIPHERAL_Data_Width_BYTE         = 0x00, /*!< dma peripheral databus width 8bit */
-    DMA_PERIPHERAL_Data_Width_HALFWORD     = 0x01, /*!< dma peripheral databus width 16bit */
-    DMA_PERIPHERAL_Data_Width_WORD         = 0x02  /*!< dma peripheral databus width 32bit */
+    DMA_Peripheral_Data_Width_BYTE         = 0x00, /*!< dma peripheral databus width 8bit */
+    DMA_Peripheral_Data_Width_HALFWORD     = 0x01, /*!< dma peripheral databus width 16bit */
+    DMA_Peripheral_Data_Width_WORD         = 0x02  /*!< dma peripheral databus width 32bit */
 } DMA_peripheral_Data_size_Type;
 
 /**
@@ -362,15 +362,15 @@ typedef enum {
   * @brief dma init type
   */
 typedef struct {
-    uint32_t                               peripheral_Base_Addr;    /*!< base addrress for peripheral */
-    uint32_t                               memory_Base_Addr;        /*!< base addrress for memory */
+    uint32_t                               Peripheral_Base_Addr;    /*!< base addrress for peripheral */
+    uint32_t                               Memory_Base_Addr;        /*!< base addrress for memory */
     DMA_Dir_Type                           direction;               /*!< dma transmit direction, peripheral as source or as destnation  */
-    uint16_t                               buffer_size;             /*!< counter to transfer (0~0xFFFF) */
-    confirm_state                          peripheral_inc_Enable;   /*!< periphera address increment after one transmit */
-    confirm_state                          memory_inc_Enable;       /*!< memory address increment after one transmit */
-    DMA_peripheral_Data_size_Type          peripheral_Data_width;   /*!< peripheral data width for transmit */
-    DMA_Memory_Data_size_Type              memory_Data_width;       /*!< memory data width for transmit */
-    confirm_state                          loop_Mode_Enable;        /*!< when loop mode enable, buffer size will reload if count to 0*/
+    uint16_t                               Buffer_Size;             /*!< counter to transfer (0~0xFFFF) */
+    confirm_state                          Peripheral_Inc_Enable;   /*!< periphera address increment after one transmit */
+    confirm_state                          Memory_Inc_Enable;       /*!< memory address increment after one transmit */
+    DMA_peripheral_Data_size_Type          Peripheral_Data_Width;   /*!< peripheral data width for transmit */
+    DMA_Memory_Data_size_Type              Memory_Data_Width;       /*!< memory data width for transmit */
+    confirm_state                          Loop_Mode_Enable;        /*!< when loop mode enable, buffer size will reload if count to 0*/
     DMA_Priority_level_Type                priority;                /*!< dma priority can choose from very high,high,dedium or low */
 } DMA_Init_Type;
 
@@ -378,21 +378,21 @@ typedef struct {
   * @brief dmamux sync init type
   */
 typedef struct {
-    DMAMUX_Sync_ID_sel_Type                sync_signal_sel;     /*!< dma dmamux synchronization input select */
-    uint32_t                               sync_polarity;       /*!< dma dmamux synchronization polarity */
-    uint32_t                               sync_Request_Number; /*!< dma dmamux number of dma requests before an output event is generated  */
-    confirm_state                          sync_Event_Enable;   /*!< dma dmamux event generation disabled */
-    confirm_state                          sync_Enable;         /*!< dma dmamux synchronization enable */
+    DMAMUX_Sync_ID_sel_Type                Sync_Signal_Sel;     /*!< dma dmamux synchronization input select */
+    uint32_t                               Sync_Polarity;       /*!< dma dmamux synchronization polarity */
+    uint32_t                               Sync_Request_Number; /*!< dma dmamux number of dma requests before an output event is generated  */
+    confirm_state                          Sync_Event_Enable;   /*!< dma dmamux event generation disabled */
+    confirm_state                          Sync_Enable;         /*!< dma dmamux synchronization enable */
 } DMAMUX_Sync_Init_Type;
 
 /**
   * @brief dmamux generator init type
   */
 typedef struct {
-    DMAMUX_Gen_ID_sel_Type                 gen_signal_sel;     /*!< dma dmamux generator dma request trigger input select */
-    DMAMUX_Gen_pol_Type                    gen_polarity;       /*!< dma dmamux generator trigger polarity */
-    uint32_t                               gen_Request_Number; /*!< dma dmamux the number of dma requests to be generated after a trigger event  */
-    confirm_state                          gen_Enable;         /*!< dma dmamux generator enable */
+    DMAMUX_Gen_ID_sel_Type                 Gen_Signal_Sel;     /*!< dma dmamux generator dma request trigger input select */
+    DMAMUX_Gen_pol_Type                    Gen_Polarity;       /*!< dma dmamux generator trigger polarity */
+    uint32_t                               Gen_Request_Number; /*!< dma dmamux the number of dma requests to be generated after a trigger event  */
+    confirm_state                          Gen_Enable;         /*!< dma dmamux generator enable */
 } DMAMUX_Gen_Init_Type;
 
 /**

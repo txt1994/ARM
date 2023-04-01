@@ -119,16 +119,16 @@ typedef enum {
   * @brief dvp hsp type
   */
 typedef enum {
-    DVP_Hsync_Polarity_HIGH                = 0x00,
-    DVP_Hsync_Polarity_LOW                 = 0x01
+    DVP_HSync_Polarity_HIGH                = 0x00,
+    DVP_HSync_Polarity_LOW                 = 0x01
 } DVP_hsp_Type;
 
 /**
   * @brief dvp vsp type
   */
 typedef enum {
-    DVP_Vsync_Polarity_LOW                 = 0x00,
-    DVP_Vsync_Polarity_HIGH                = 0x01
+    DVP_VSync_Polarity_LOW                 = 0x00,
+    DVP_VSync_Polarity_HIGH                = 0x01
 } DVP_vsp_Type;
 
 /**
@@ -520,7 +520,6 @@ typedef struct {
 
 void DVP_Reset(void);
 void DVP_Capture_Enable(confirm_state new_state);
-void DVP_Capture_Enable(confirm_state new_state);
 void DVP_Capture_Mode_Set(DVP_cfm_Type cap_Mode);
 void DVP_Window_Crop_Enable(confirm_state new_state);
 void DVP_Window_Crop_Set(uint16_t crop_x, uint16_t crop_y, uint16_t crop_w, uint16_t crop_h, uint8_t bytes);
@@ -529,8 +528,8 @@ void DVP_Sync_Mode_Set(DVP_sm_Type sync_Mode);
 void DVP_Sync_code_Set(uint8_t fmsc, uint8_t fmec, uint8_t lnsc, uint8_t lnec);
 void DVP_Sync_unmask_Set(uint8_t fmsu, uint8_t fmeu, uint8_t lnsu, uint8_t lneu);
 void DVP_PCLK_Polarity_Set(DVP_ckp_Type eage);
-void DVP_Hsync_Polarity_Set(DVP_hsp_Type hsync_pol);
-void DVP_Vsync_Polarity_Set(DVP_vsp_Type vsync_pol);
+void DVP_HSync_Polarity_Set(DVP_hsp_Type hsync_pol);
+void DVP_VSync_Polarity_Set(DVP_vsp_Type vsync_pol);
 void DVP_Basic_Frame_rate_Control_Set(DVP_bfrc_Type DVP_bfrc);
 void DVP_Pixel_Data_Length_Set(DVP_pdl_Type DVP_pdl);
 void DVP_Enable(confirm_state new_state);

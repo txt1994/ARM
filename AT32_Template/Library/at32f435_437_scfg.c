@@ -41,8 +41,8 @@
 
 /**
   * @brief  scfg reset
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void SCFG_Reset(void) {
     CRM_Periph_Reset(CRM_SCFG_Periph_Reset, TRUE);
@@ -52,12 +52,12 @@ void SCFG_Reset(void) {
 /**
   * @brief  scfg xmc address mapping swap set
   * @param  XMC_Swap
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - SCFG_XMC_Swap_NONE
   *         - SCFG_XMC_Swap_Mode1
   *         - SCFG_XMC_Swap_Mode2
   *         - SCFG_XMC_Swap_Mode3
-  * @retval none
+  * @retval 无
   */
 void SCFG_XMC_Mapping_Swap_Set(SCFG_XMC_Swap_Type XMC_Swap) {
     SCFG->cfg1_bit.swap_xmc = XMC_Swap;
@@ -66,15 +66,15 @@ void SCFG_XMC_Mapping_Swap_Set(SCFG_XMC_Swap_Type XMC_Swap) {
 /**
   * @brief  scfg infrared config
   * @param  source
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - SCFG_IR_Source_TMR10
   *         - SCFG_IR_Source_USART1
   *         - SCFG_IR_Source_USART2
   * @param  polarity
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - SCFG_IR_Polarity_NO_AFFECTE
   *         - SCFG_IR_Polarity_REVERSE
-  * @retval none
+  * @retval 无
   */
 void SCFG_Infrared_Config(SCFG_IR_Source_Type source, SCFG_IR_Polarity_Type polarity) {
     SCFG->cfg1_bit.ir_src_sel = source;
@@ -84,13 +84,13 @@ void SCFG_Infrared_Config(SCFG_IR_Source_Type source, SCFG_IR_Polarity_Type pola
 /**
   * @brief  scfg memory address mapping set
   * @param  mem_map
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - SCFG_Mem_Map_MAIN_MEMORY
   *         - SCFG_Mem_Map_BOOT_MEMORY
   *         - SCFG_Mem_Map_XMC_BANK1
   *         - SCFG_Mem_Map_Internal_SRAM
   *         - SCFG_Mem_Map_XMC_SDRAM_BANK1
-  * @retval none
+  * @retval 无
   */
 void SCFG_Mem_Map_Set(SCFG_Mem_Map_Type mem_map) {
     SCFG->cfg1_bit.mem_Map_sel = mem_map;
@@ -99,10 +99,10 @@ void SCFG_Mem_Map_Set(SCFG_Mem_Map_Type mem_map) {
 /**
   * @brief  scfg emac interface set
   * @param  mode
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - SCFG_EMAC_Select_MII
   *         - SCFG_EMAC_Select_RMII
-  * @retval none
+  * @retval 无
   */
 void SCFG_EMAC_Interface_Set(SCFG_EMAC_Interface_Type mode) {
     SCFG->cfg2_bit.mii_rmii_sel = mode;
@@ -112,7 +112,7 @@ void SCFG_EMAC_Interface_Set(SCFG_EMAC_Interface_Type mode) {
   * @brief  select the gpio pin used as exint line.
   * @param  port_source:
   *         select the gpio port to be used as source for exint lines.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - SCFG_Port_Source_GPIOA
   *         - SCFG_Port_Source_GPIOB
   *         - SCFG_Port_Source_GPIOC
@@ -123,7 +123,7 @@ void SCFG_EMAC_Interface_Set(SCFG_EMAC_Interface_Type mode) {
   *         - SCFG_Port_Source_GPIOH
   * @param  pin_source:
   *         specifies the exint line to be configured.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - SCFG_Pins_SOURCE0
   *         - SCFG_Pins_SOURCE1
   *         - SCFG_Pins_SOURCE2
@@ -140,7 +140,7 @@ void SCFG_EMAC_Interface_Set(SCFG_EMAC_Interface_Type mode) {
   *         - SCFG_Pins_SOURCE13
   *         - SCFG_Pins_SOURCE14
   *         - SCFG_Pins_SOURCE15
-  * @retval none
+  * @retval 无
   */
 void SCFG_EXINT_Line_Config(SCFG_Port_Source_Type port_source, SCFG_Pins_Source_Type pin_source) {
     uint32_t tmp = 0x00;
@@ -175,7 +175,7 @@ void SCFG_EXINT_Line_Config(SCFG_Port_Source_Type port_source, SCFG_Pins_Source_
 /**
   * @brief  enable or disable gpio pins ultra driven.
   * @param  value:
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - SCFG_Ultra_Driven_PB3
   *         - SCFG_Ultra_Driven_PB9
   *         - SCFG_Ultra_Driven_PB10
@@ -186,7 +186,7 @@ void SCFG_EXINT_Line_Config(SCFG_Port_Source_Type port_source, SCFG_Pins_Source_
   *         - SCFG_Ultra_Driven_PF14
   *         - SCFG_Ultra_Driven_PF15
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void SCFG_Pins_Ultra_Driven_Enable(SCFG_Ultra_Driven_Pins_Type value, confirm_state new_state) {
     if(TRUE == new_state) {

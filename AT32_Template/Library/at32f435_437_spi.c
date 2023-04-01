@@ -42,9 +42,9 @@
 /**
   * @brief  spi reset by crm reset register
   * @param  SPI_x: select the spi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4
-  * @retval none
+  * @retval 无
   */
 void SPI_I2S_Reset(SPI_Type *SPI_x) {
     if(SPI_x == SPI1) {
@@ -66,7 +66,7 @@ void SPI_I2S_Reset(SPI_Type *SPI_x) {
   * @brief  spi init config with its default value.
   * @param  SPI_Init_struct : pointer to a SPI_Init_Type structure which will
   *         be initialized.
-  * @retval none
+  * @retval 无
   */
 void SPI_Default_Para_Init(SPI_Init_Type* SPI_Init_struct) {
     SPI_Init_struct->transmission_Mode = SPI_Transmit_FULL_DUPLEX;
@@ -82,10 +82,10 @@ void SPI_Default_Para_Init(SPI_Init_Type* SPI_Init_struct) {
 /**
   * @brief  spi init config with its setting value.
   * @param  SPI_x: select the spi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4
   * @param  SPI_Init_struct : pointer to a SPI_Init_Type structure which will be initialized.
-  * @retval none
+  * @retval 无
   */
 void SPI_Init(SPI_Type* SPI_x, SPI_Init_Type* SPI_Init_struct) {
     SPI_x->i2sctrl_bit.i2smsel = FALSE;
@@ -141,11 +141,11 @@ void SPI_Init(SPI_Type* SPI_x, SPI_Init_Type* SPI_Init_struct) {
 /**
   * @brief  enable or disable the ti mode for the spi peripheral.
   * @param  SPI_x: select the spi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4
   * @param  new_state: new state of ti mode.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void SPI_Ti_Mode_Enable(SPI_Type* SPI_x, confirm_state new_state) {
     SPI_x->ctrl2_bit.tien = new_state;
@@ -154,9 +154,9 @@ void SPI_Ti_Mode_Enable(SPI_Type* SPI_x, confirm_state new_state) {
 /**
   * @brief  spi next transmit crc for the spi peripheral.
   * @param  SPI_x: select the spi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4
-  * @retval none
+  * @retval 无
   */
 void SPI_CRC_Next_Transmit(SPI_Type* SPI_x) {
     SPI_x->ctrl1_bit.ntc = TRUE;
@@ -165,10 +165,10 @@ void SPI_CRC_Next_Transmit(SPI_Type* SPI_x) {
 /**
   * @brief  set the crc polynomial value for the spi peripheral.
   * @param  SPI_x: select the spi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4
   * @param  CRC_poly: crc polynomial value.
-  * @retval none
+  * @retval 无
   */
 void SPI_CRC_Polynomial_Set(SPI_Type* SPI_x, uint16_t CRC_poly) {
     SPI_x->cpoly_bit.cpoly = CRC_poly;
@@ -177,7 +177,7 @@ void SPI_CRC_Polynomial_Set(SPI_Type* SPI_x, uint16_t CRC_poly) {
 /**
   * @brief  return the crc polynomial register value for the spi peripheral.
   * @param  SPI_x: select the spi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4
   * @retval the select crc polynomial register value
   */
@@ -188,11 +188,11 @@ uint16_t SPI_CRC_Polynomial_Get(SPI_Type* SPI_x) {
 /**
   * @brief  enable or disable the hardware crc calculation for the spi peripheral.
   * @param  SPI_x: select the spi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4
   * @param  new_state: new state of crc calculation.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void SPI_CRC_Enable(SPI_Type* SPI_x, confirm_state new_state) {
     SPI_x->ctrl1_bit.ccen = new_state;
@@ -201,7 +201,7 @@ void SPI_CRC_Enable(SPI_Type* SPI_x, confirm_state new_state) {
 /**
   * @brief  return the transmit or the receive crc value for the spi peripheral.
   * @param  SPI_x: select the spi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4
   * @param  CRC_direction: select transmit or receive crc value to be read
   *         - SPI_CRC_RX
@@ -218,12 +218,12 @@ uint16_t SPI_CRC_Value_Get(SPI_Type* SPI_x, SPI_CRC_Direction_Type CRC_direction
 /**
   * @brief  enable or disable the hardware cs output for the spi peripheral.
   * @param  SPI_x: select the spi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4
   * @param  new_state: new state of spi master cs output.
-  *         this parameter can be: TRUE or FALSE.
+  *         该参数可以是: TRUE or FALSE.
   *         note:the bit only use in spi master mode
-  * @retval none
+  * @retval 无
   */
 void SPI_Hardware_CS_OutPut_Enable(SPI_Type* SPI_x, confirm_state new_state) {
     SPI_x->ctrl2_bit.hwcsoe = new_state;
@@ -232,15 +232,15 @@ void SPI_Hardware_CS_OutPut_Enable(SPI_Type* SPI_x, confirm_state new_state) {
 /**
   * @brief  set the software cs internal level for the spi peripheral.
   * @param  SPI_x: select the spi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4
   * @param  level: set the state of spi cs level.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - SPI_SWCS_Internal_LEVEL_LOW
   *         - SPI_SWCS_Internal_LEVEL_HIGHT
   *         note:the bit only use when swcsen bit is set.
   *         note:when use this bit,io operation on the cs pin are invalid.
-  * @retval none
+  * @retval 无
   */
 void SPI_Software_CS_Internal_level_Set(SPI_Type* SPI_x, SPI_Software_CS_level_Type level) {
     SPI_x->ctrl1_bit.swcsil = level;
@@ -249,12 +249,12 @@ void SPI_Software_CS_Internal_level_Set(SPI_Type* SPI_x, SPI_Software_CS_level_T
 /**
   * @brief  set the data frame bit num for the spi peripheral.
   * @param  SPI_x: select the spi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4
   * @param  bit_Num: set the data frame size
   *         - SPI_Frame_8BIT
   *         - SPI_Frame_16BIT
-  * @retval none
+  * @retval 无
   */
 void SPI_Frame_Bit_Num_Set(SPI_Type* SPI_x, SPI_Frame_Bit_Num_Type bit_Num) {
     SPI_x->ctrl1_bit.fbn = bit_Num;
@@ -263,13 +263,13 @@ void SPI_Frame_Bit_Num_Set(SPI_Type* SPI_x, SPI_Frame_Bit_Num_Type bit_Num) {
 /**
   * @brief  set the data transmission direction in single line bidirectiona half duplex mode of the spi peripheral.
   * @param  SPI_x: select the spi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4
   * @param  direction: data transfer direction
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - SPI_Half_Duplex_Direction_RX
   *         - SPI_Half_Duplex_Direction_TX
-  * @retval none
+  * @retval 无
   */
 void SPI_Half_Duplex_Direction_Set(SPI_Type* SPI_x, SPI_Half_Duplex_Direction_Type direction) {
     SPI_x->ctrl1_bit.slbtd = direction;
@@ -278,11 +278,11 @@ void SPI_Half_Duplex_Direction_Set(SPI_Type* SPI_x, SPI_Half_Duplex_Direction_Ty
 /**
   * @brief  enable or disable spi.
   * @param  SPI_x: select the spi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4
   * @param  new_state: new state of spi.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void SPI_Enable(SPI_Type* SPI_x, confirm_state new_state) {
     SPI_x->ctrl1_bit.spien = new_state;
@@ -292,7 +292,7 @@ void SPI_Enable(SPI_Type* SPI_x, confirm_state new_state) {
   * @brief  i2s init config with its default value.
   * @param  I2S_Init_struct : pointer to a I2S_Init_Type structure which will
   *         be initialized.
-  * @retval none
+  * @retval 无
   */
 void I2S_Default_Para_Init(I2S_Init_Type* I2S_Init_struct) {
     I2S_Init_struct->operation_Mode = I2S_Mode_Slave_TX;
@@ -306,10 +306,10 @@ void I2S_Default_Para_Init(I2S_Init_Type* I2S_Init_struct) {
 /**
   * @brief  i2s init config with its setting value.
   * @param  SPI_x: select the spi peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4 , I2S2EXT, I2S3EXT
   * @param  I2S_Init_struct : pointer to a I2S_Init_Type structure which will be initialized.
-  * @retval none
+  * @retval 无
   */
 void I2S_Init(SPI_Type* SPI_x, I2S_Init_Type* I2S_Init_struct) {
     CRM_Clocks_Freq_Type clocks_freq;
@@ -406,11 +406,11 @@ void I2S_Init(SPI_Type* SPI_x, I2S_Init_Type* I2S_Init_struct) {
 /**
   * @brief  enable or disable i2s.
   * @param  SPI_x: select the i2s peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4 , I2S2EXT, I2S3EXT
   * @param  new_state: new state of i2s.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void I2S_Enable(SPI_Type* SPI_x, confirm_state new_state) {
     SPI_x->i2sctrl_bit.i2sen = new_state;
@@ -419,16 +419,16 @@ void I2S_Enable(SPI_Type* SPI_x, confirm_state new_state) {
 /**
   * @brief  enable or disable the specified spi/i2s interrupts.
   * @param  SPI_x: select the spi/i2s peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4 , I2S2EXT, I2S3EXT
   * @param  SPI_I2S_int: specifies the spi/i2s interrupt sources to be enabled or disabled.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - SPI_I2S_Error_INT
   *         - SPI_I2S_RDBF_INT
   *         - SPI_I2S_TDBE_INT
   * @param  new_state: new state of the specified spi/i2s interrupts.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void SPI_I2S_Interrupt_Enable(SPI_Type* SPI_x, uint32_t SPI_I2S_int, confirm_state new_state) {
     if(new_state != FALSE) {
@@ -441,11 +441,11 @@ void SPI_I2S_Interrupt_Enable(SPI_Type* SPI_x, uint32_t SPI_I2S_int, confirm_sta
 /**
   * @brief  enable or disable the spi/i2s dma transmitter mode.
   * @param  SPI_x: select the spi/i2s peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4 , I2S2EXT, I2S3EXT
   * @param  new_state: new state of the dma request.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void SPI_I2S_DMATransmitter_Enable(SPI_Type* SPI_x, confirm_state new_state) {
     SPI_x->ctrl2_bit.dmaten = new_state;
@@ -454,11 +454,11 @@ void SPI_I2S_DMATransmitter_Enable(SPI_Type* SPI_x, confirm_state new_state) {
 /**
   * @brief  enable or disable the spi/i2s dma receiver mode.
   * @param  SPI_x: select the spi/i2s peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4 , I2S2EXT, I2S3EXT
   * @param  new_state: new state of the dma request.
-  *         this parameter can be: TRUE or FALSE.
-  * @retval none
+  *         该参数可以是: TRUE or FALSE.
+  * @retval 无
   */
 void SPI_I2S_DMA_Receiver_Enable(SPI_Type* SPI_x, confirm_state new_state) {
     SPI_x->ctrl2_bit.dmaren = new_state;
@@ -467,12 +467,12 @@ void SPI_I2S_DMA_Receiver_Enable(SPI_Type* SPI_x, confirm_state new_state) {
 /**
   * @brief  spi/i2s data transmit
   * @param  SPI_x: select the spi/i2s peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4 , I2S2EXT, I2S3EXT
   * @param  tx_data: the data to be transmit.
-  *         this parameter can be:
+  *         该参数可以是:
   *         - (0x0000~0xFFFF)
-  * @retval none
+  * @retval 无
   */
 void SPI_I2S_Data_Transmit(SPI_Type* SPI_x, uint16_t tx_data) {
     SPI_x->dt = tx_data;
@@ -481,7 +481,7 @@ void SPI_I2S_Data_Transmit(SPI_Type* SPI_x, uint16_t tx_data) {
 /**
   * @brief  spi/i2s data receive
   * @param  SPI_x: select the spi/i2s peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4 , I2S2EXT, I2S3EXT
   * @retval the received data value
   */
@@ -492,10 +492,10 @@ uint16_t SPI_I2S_Data_Receive(SPI_Type* SPI_x) {
 /**
   * @brief  get flag of the specified spi/i2s peripheral.
   * @param  SPI_x: select the spi/i2s peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4 , I2S2EXT, I2S3EXT
   * @param  SPI_I2S_flag: select the spi/i2s flag
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - SPI_I2S_RDBF_FLAG
   *         - SPI_I2S_TDBE_FLAG
   *         - I2S_ACS_FLAG    (this flag only use in i2s mode)
@@ -522,10 +522,10 @@ flag_status SPI_I2S_Flag_Get(SPI_Type* SPI_x, uint32_t SPI_I2S_flag) {
 /**
   * @brief  clear flag of the specified spi/i2s peripheral.
   * @param  SPI_x: select the spi/i2s peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4 , I2S2EXT, I2S3EXT
   * @param  SPI_I2S_flag: select the spi/i2s flag
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - SPI_CCERR_FLAG
   *         - SPI_I2S_RDBF_FLAG
   *         - I2S_TUERR_FLAG
@@ -536,7 +536,7 @@ flag_status SPI_I2S_Flag_Get(SPI_Type* SPI_x, uint32_t SPI_I2S_flag) {
   *         SPI_I2S_TDBE_FLAG  this flag is cleared when the tx buffer already contain data to be transmit.
   *         I2S_ACS_FLAG       this flag cann't cleared by software,the flag indicate the channel side(not use in pcm standard mode).
   *         SPI_I2S_BF_FLAG    this flag cann't cleared by software, it's set and cleared by hardware.
-  * @retval none
+  * @retval 无
   */
 void SPI_I2S_Flag_Clear(SPI_Type* SPI_x, uint32_t SPI_I2S_flag) {
     if(SPI_I2S_flag == SPI_CCERR_FLAG)

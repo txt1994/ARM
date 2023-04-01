@@ -43,7 +43,7 @@
 /**
   * @brief  usb global core soft reset
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @retval error status
@@ -72,10 +72,10 @@ error_status USB_Global_Reset(OTG_Global_Type *usbx) {
 /**
   * @brief  usb global initialization
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
-  * @retval none
+  * @retval 无
   */
 void USB_Global_Init(OTG_Global_Type *usbx) {
     /* reset otg moudle */
@@ -88,7 +88,7 @@ void USB_Global_Init(OTG_Global_Type *usbx) {
 /**
   * @brief  usb global select usb core (otg1 or otg2).
   * @param  USB_id: select otg1 or otg2
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - USB_OTG1_ID
   *         - USB_OTG2_ID
   * @retval usb global register type pointer
@@ -106,12 +106,12 @@ OTG_Global_Type *USB_Global_Select_Core(uint8_t USB_id) {
 /**
   * @brief  flush tx fifo
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @param  fifo_Num: tx fifo num,when fifo_Num=16,flush all tx fifo
   *         parameter as following values: 0-16
-  * @retval none
+  * @retval 无
   */
 void USB_Flush_TX_FIFO(OTG_Global_Type *usbx, uint32_t fifo_Num) {
     uint32_t timeout = 0;
@@ -131,10 +131,10 @@ void USB_Flush_TX_FIFO(OTG_Global_Type *usbx, uint32_t fifo_Num) {
 /**
   * @brief  flush rx fifo
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
-  * @retval none
+  * @retval 无
   */
 void USB_Flush_RX_FIFO(OTG_Global_Type *usbx) {
     uint32_t timeout = 0;
@@ -150,11 +150,11 @@ void USB_Flush_RX_FIFO(OTG_Global_Type *usbx) {
 /**
   * @brief  usb interrupt mask enable
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @param  interrupt:
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - USB_OTG_ModeMIS_INT
   *         - USB_OTG_OTGINT_INT
   *         - USB_OTG_SOF_INT
@@ -178,7 +178,7 @@ void USB_Flush_RX_FIFO(OTG_Global_Type *usbx) {
   *         - USB_OTG_DISCON_INT
   *         - USB_OTG_WKUP_INT
   * @param  new_state: TRUE or FALSE
-  * @retval none
+  * @retval 无
   */
 void USB_Global_Interrupt_Enable(OTG_Global_Type *usbx, uint16_t interrupt, confirm_state new_state) {
     if(new_state == TRUE) {
@@ -191,7 +191,7 @@ void USB_Global_Interrupt_Enable(OTG_Global_Type *usbx, uint16_t interrupt, conf
 /**
   * @brief  get all global core interrupt flag
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @retval intterupt flag
@@ -204,11 +204,11 @@ uint32_t USB_Global_Get_All_Interrupt(OTG_Global_Type *usbx) {
 /**
   * @brief  clear the global interrupt flag
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @param  flag: interrupt flag
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - USB_OTG_ModeMIS_FLAG
   *         - USB_OTG_OTGINT_FLAG
   *         - USB_OTG_SOF_FLAG
@@ -232,7 +232,7 @@ uint32_t USB_Global_Get_All_Interrupt(OTG_Global_Type *usbx) {
   *         - USB_OTG_CONIDSCHG_FLAG
   *         - USB_OTG_DISCON_FLAG
   *         - USB_OTG_WKUP_FLAG
-  * @retval none
+  * @retval 无
   */
 void USB_Global_Clear_Interrupt(OTG_Global_Type *usbx, uint32_t flag) {
     usbx->gintsts = flag;
@@ -241,9 +241,9 @@ void USB_Global_Clear_Interrupt(OTG_Global_Type *usbx, uint32_t flag) {
 /**
   * @brief  usb global interrupt enable
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         OTG1_GLOBAL , OTG2_GLOBAL
-  * @retval none
+  * @retval 无
   */
 void USB_Interrupt_Enable(OTG_Global_Type *usbx) {
     usbx->gahbcfg_bit.glbintmsk = TRUE;
@@ -252,10 +252,10 @@ void USB_Interrupt_Enable(OTG_Global_Type *usbx) {
 /**
   * @brief  usb global interrupt disable
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
-  * @retval none
+  * @retval 无
   */
 void USB_Interrupt_Disable(OTG_Global_Type *usbx) {
     usbx->gahbcfg_bit.glbintmsk = FALSE;
@@ -264,11 +264,11 @@ void USB_Interrupt_Disable(OTG_Global_Type *usbx) {
 /**
   * @brief  usb set rx fifo size
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @param  size: rx fifo size
-  * @retval none
+  * @retval 无
   */
 void USB_Set_RX_FIFO(OTG_Global_Type *usbx, uint16_t size) {
     usbx->grxfsiz = size;
@@ -277,12 +277,12 @@ void USB_Set_RX_FIFO(OTG_Global_Type *usbx, uint16_t size) {
 /**
   * @brief  usb set tx fifo size
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @param  txfifo: the fifo number
   * @param  size: tx fifo size
-  * @retval none
+  * @retval 无
   */
 void USB_Set_TX_FIFO(OTG_Global_Type *usbx, uint8_t txfifo, uint16_t size) {
     uint8_t i_index = 0;
@@ -307,15 +307,15 @@ void USB_Set_TX_FIFO(OTG_Global_Type *usbx, uint8_t txfifo, uint16_t size) {
 /**
   * @brief  set otg mode(device or host mode)
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @param  mode:
-            this parameter can be one of the following values:
+            该参数可以是以下值之一:
   *         - OTG_Device_Mode
   *         - OTG_HOST_Mode
   *         - OTG_DRD_Mode
-  * @retval none
+  * @retval 无
   */
 void USB_Global_Set_Mode(OTG_Global_Type *usbx, uint32_t mode) {
     /* set otg to device mode */
@@ -341,10 +341,10 @@ void USB_Global_Set_Mode(OTG_Global_Type *usbx, uint32_t mode) {
 /**
   * @brief  disable the transceiver power down mode
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
-  * @retval none
+  * @retval 无
   */
 void USB_Global_Power_ON(OTG_Global_Type *usbx) {
     /* core soft reset */
@@ -360,10 +360,10 @@ void USB_Global_Power_ON(OTG_Global_Type *usbx) {
 /**
   * @brief  usb stop phy clock
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
-  * @retval none
+  * @retval 无
   */
 void USB_Stop_PHY_CLK(OTG_Global_Type *usbx) {
     OTG_PCGCCTL(usbx)->pcgcctl_bit.stoppclk = TRUE;
@@ -372,10 +372,10 @@ void USB_Stop_PHY_CLK(OTG_Global_Type *usbx) {
 /**
   * @brief  usb open phy clock
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
-  * @retval none
+  * @retval 无
   */
 void USB_Open_PHY_CLK(OTG_Global_Type *usbx) {
     OTG_PCGCCTL(usbx)->pcgcctl_bit.stoppclk = FALSE;
@@ -387,7 +387,7 @@ void USB_Open_PHY_CLK(OTG_Global_Type *usbx) {
   * @param  pusr_buf: point to user buffer
   * @param  offset_Addr: endpoint tx offset address
   * @param  nbytes: number of bytes data write to usb buffer
-  * @retval none
+  * @retval 无
   */
 void USB_Write_Packet(OTG_Global_Type *usbx, uint8_t *pusr_buf, uint16_t num, uint16_t nbytes) {
     uint32_t n_index;
@@ -409,7 +409,7 @@ void USB_Write_Packet(OTG_Global_Type *usbx, uint8_t *pusr_buf, uint16_t num, ui
   * @param  pusr_buf: point to user buffer
   * @param  offset_Addr: endpoint rx offset address
   * @param  nbytes: number of bytes data write to usb buffer
-  * @retval none
+  * @retval 无
   */
 void USB_Read_Packet(OTG_Global_Type *usbx, uint8_t *pusr_buf, uint16_t num, uint16_t nbytes) {
     uint32_t n_index;
@@ -432,11 +432,11 @@ void USB_Read_Packet(OTG_Global_Type *usbx, uint8_t *pusr_buf, uint16_t num, uin
 /**
   * @brief  open usb endpoint
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @param  ept_info: endpoint information structure
-  * @retval none
+  * @retval 无
   */
 void USB_EPT_Open(OTG_Global_Type *usbx, USB_EPT_info *ept_info) {
     uint8_t mps = USB_EPT0_MPS_64;
@@ -487,11 +487,11 @@ void USB_EPT_Open(OTG_Global_Type *usbx, USB_EPT_info *ept_info) {
 /**
   * @brief  close usb endpoint
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @param  ept_info: endpoint information structure
-  * @retval none
+  * @retval 无
   */
 void USB_EPT_Close(OTG_Global_Type *usbx, USB_EPT_info *ept_info) {
     if(ept_info->inout == EPT_Dir_IN) {
@@ -507,11 +507,11 @@ void USB_EPT_Close(OTG_Global_Type *usbx, USB_EPT_info *ept_info) {
 /**
   * @brief  set endpoint tx or rx status to stall
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @param  ept_info: endpoint information structure
-  * @retval none
+  * @retval 无
   */
 void USB_EPT_Stall(OTG_Global_Type *usbx, USB_EPT_info *ept_info) {
     if(ept_info->inout == EPT_Dir_IN) {
@@ -532,11 +532,11 @@ void USB_EPT_Stall(OTG_Global_Type *usbx, USB_EPT_info *ept_info) {
 /**
   * @brief  clear endpoint tx or rx status to stall
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @param  ept_info: endpoint information structure
-  * @retval none
+  * @retval 无
   */
 void USB_EPT_Clear_Stall(OTG_Global_Type *usbx, USB_EPT_info *ept_info) {
     if(ept_info->inout == EPT_Dir_IN) {
@@ -557,7 +557,7 @@ void USB_EPT_Clear_Stall(OTG_Global_Type *usbx, USB_EPT_info *ept_info) {
 /**
   * @brief  get all out endpoint interrupt bits
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @retval out endpoint interrupt bits
@@ -570,7 +570,7 @@ uint32_t USB_Get_All_Out_Interrupt(OTG_Global_Type *usbx) {
 /**
   * @brief  get all in endpoint interrupt bits
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @retval in endpoint interrupt bits
@@ -584,7 +584,7 @@ uint32_t USB_Get_All_In_Interrupt(OTG_Global_Type *usbx) {
 /**
   * @brief  get out endpoint interrupt flag
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @param  eptn: endpoint number
@@ -598,7 +598,7 @@ uint32_t USB_EPT_Out_Interrupt(OTG_Global_Type *usbx, uint32_t eptn) {
 /**
   * @brief  get in endpoint interrupt flag
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @param  eptn: endpoint number
@@ -616,12 +616,12 @@ uint32_t USB_EPT_In_Interrupt(OTG_Global_Type *usbx, uint32_t eptn) {
 /**
   * @brief  clear out endpoint interrupt flag
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @param  eptn: endpoint number
   * @retval flag: interrupt flag
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - USB_OTG_DOEPINT_XFERC_FLAG
   *         - USB_OTG_DOEPINT_EPTDISD_FLAG
   *         - USB_OTG_DOEPINT_SetUP_FLAG
@@ -635,12 +635,12 @@ void USB_EPT_Out_Clear(OTG_Global_Type *usbx, uint32_t eptn, uint32_t flag) {
 /**
   * @brief  clear in endpoint interrupt flag
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @param  eptn: endpoint number
   * @retval flag: interrupt flag
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - USB_OTG_DIEPINT_XFERC_FLAG
   *         - USB_OTG_DIEPINT_EPTDISD_FLAG
   *         - USB_OTG_DIEPINT_TMROC_FLAG
@@ -656,11 +656,11 @@ void USB_EPT_In_Clear(OTG_Global_Type *usbx, uint32_t eptn, uint32_t flag) {
 /**
   * @brief  set the host assignment address
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @param  address: host assignment address
-  * @retval none
+  * @retval 无
   */
 void USB_Set_Address(OTG_Global_Type *usbx, uint8_t address) {
     OTG_DEVICE(usbx)->dcfg_bit.devaddr = address;
@@ -669,10 +669,10 @@ void USB_Set_Address(OTG_Global_Type *usbx, uint8_t address) {
 /**
   * @brief  enable endpoint 0 out
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
-  * @retval none
+  * @retval 无
   */
 void USB_EPT0_Start(OTG_Global_Type *usbx) {
     OTG_eptout_Type *USB_Outept = USB_OutEPT(usbx, 0);
@@ -686,10 +686,10 @@ void USB_EPT0_Start(OTG_Global_Type *usbx) {
 /**
   * @brief  endpoint 0 start setup
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
-  * @retval none
+  * @retval 无
   */
 void USB_EPT0_Setup(OTG_Global_Type *usbx) {
     USB_INEPT(usbx, 0)->diepctl_bit.mps = 0;
@@ -699,10 +699,10 @@ void USB_EPT0_Setup(OTG_Global_Type *usbx) {
 /**
   * @brief  connect usb device by enable pull-up
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
-  * @retval none
+  * @retval 无
   */
 void USB_Connect(OTG_Global_Type *usbx) {
     /* D+ 1.5k pull-up enable */
@@ -712,10 +712,10 @@ void USB_Connect(OTG_Global_Type *usbx) {
 /**
   * @brief  disconnect usb device by disable pull-up
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
-  * @retval none
+  * @retval 无
   */
 void USB_Disconnect(OTG_Global_Type *usbx) {
     /* D+ 1.5k pull-up disable */
@@ -726,10 +726,10 @@ void USB_Disconnect(OTG_Global_Type *usbx) {
 /**
   * @brief  usb remote wakeup set
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
-  * @retval none
+  * @retval 无
   */
 void USB_Remote_wkup_Set(OTG_Global_Type *usbx) {
     OTG_DEVICE(usbx)->dctl_bit.rwkupsig = TRUE;
@@ -738,10 +738,10 @@ void USB_Remote_wkup_Set(OTG_Global_Type *usbx) {
 /**
   * @brief  usb remote wakeup clear
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
-  * @retval none
+  * @retval 无
   */
 void USB_Remote_wkup_Clear(OTG_Global_Type *usbx) {
     OTG_DEVICE(usbx)->dctl_bit.rwkupsig = FALSE;
@@ -750,7 +750,7 @@ void USB_Remote_wkup_Clear(OTG_Global_Type *usbx) {
 /**
   * @brief  usb suspend status get
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @retval usb suspend status
@@ -764,11 +764,11 @@ uint8_t USB_Suspend_Status_Get(OTG_Global_Type *usbx) {
 /**
   * @brief  usb port power on
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @param  state: state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void USB_Port_Power_ON(OTG_Global_Type *usbx, confirm_state state) {
     OTG_HOST_Type *USB_host = OTG_HOST(usbx);
@@ -787,10 +787,10 @@ void USB_Port_Power_ON(OTG_Global_Type *usbx, confirm_state state) {
 /**
   * @brief  get current frame number
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
-  * @retval none
+  * @retval 无
   */
 uint32_t USBH_Get_Frame(OTG_Global_Type *usbx) {
     OTG_HOST_Type *USB_host = OTG_HOST(usbx);
@@ -800,24 +800,24 @@ uint32_t USBH_Get_Frame(OTG_Global_Type *usbx) {
 /**
   * @brief  enable one host channel
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @param  chn: host channel number
   * @param  ept_Num: devvice endpoint number
   * @param  dev_Address: device address
   * @param  type: channel transfer type
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - EPT_Control_Type
   *         - EPT_BULK_Type
   *         - EPT_INT_Type
   *         - EPT_ISO_Type
   * @param  maxpacket: support max packe size for this channel
   * @param  speed: device speed
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - USB_PRTSPD_FULL_SPEED
   *         - USB_PRTSPD_Low_SPEED
-  * @retval none
+  * @retval 无
   */
 void USB_HC_Enable(OTG_Global_Type *usbx,
                    uint8_t chn,
@@ -873,7 +873,7 @@ void USB_HC_Enable(OTG_Global_Type *usbx,
 /**
   * @brief  host read channel interrupt
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @retval interrupt flag
@@ -886,10 +886,10 @@ uint32_t USB_HCH_Read_Interrupt(OTG_Global_Type *usbx) {
 /**
   * @brief  disable host
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
-  * @retval none
+  * @retval 无
   */
 void USB_HOST_Disable(OTG_Global_Type *usbx) {
     uint32_t i_index = 0, count = 0;
@@ -927,11 +927,11 @@ void USB_HOST_Disable(OTG_Global_Type *usbx) {
 /**
   * @brief  halt channel
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @param  chn: channel number
-  * @retval none
+  * @retval 无
   */
 void USB_HCH_Halt(OTG_Global_Type *usbx, uint8_t chn) {
     uint32_t count = 0;
@@ -973,11 +973,11 @@ void USB_HCH_Halt(OTG_Global_Type *usbx, uint8_t chn) {
 /**
   * @brief  select full or low speed clock
   * @param  usbx: to select the otgfs peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - OTG1_GLOBAL
   *         - OTG2_GLOBAL
   * @param  clk: clock frequency
-  * @retval none
+  * @retval 无
   */
 void USBH_Fsls_CLKsel(OTG_Global_Type *usbx, uint8_t clk) {
     OTG_HOST_Type *USB_host = OTG_HOST(usbx);

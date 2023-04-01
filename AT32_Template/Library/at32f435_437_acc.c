@@ -42,11 +42,11 @@
 /**
   * @brief  enable or disable the acc calibration mode.
   * @param  ACC_trim: specifies the acc calibration type.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ACC_CAL_HICKCAL
   *         - ACC_CAL_HICKTRIM
-  * @param  new_state: specifies the acc calibration to be enabled or disabled.(TRUE or FALSE)
-  * @retval none
+  * @param  new_state:指定要启用或禁用的acc校准。(TRUE or FALSE)
+  * @retval 无
   */
 void ACC_Calibration_Mode_Enable(uint16_t ACC_trim, confirm_state new_state) {
     if(ACC_trim == ACC_CAL_HICKCAL) {
@@ -61,7 +61,7 @@ void ACC_Calibration_Mode_Enable(uint16_t ACC_trim, confirm_state new_state) {
 /**
   * @brief  store calibration step data in acc's ctrl1 register.
   * @param  step_value:  value to be stored in the acc's ctrl1 register
-  * @retval none
+  * @retval 无
   */
 void ACC_Step_Set(uint8_t step_value) {
     ACC->ctrl1_bit.step = step_value;
@@ -70,10 +70,10 @@ void ACC_Step_Set(uint8_t step_value) {
 /**
   * @brief  select sof sourse for acc in acc's ctrl1 register.
   * @param  sof_sel:  value to be stored in the acc's ctrl1 register
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         @arg ACC_SOF_OTG1
   *         @arg ACC_SOF_OTG2
-  * @retval none
+  * @retval 无
   */
 void ACC_SOF_Select(uint16_t sof_sel) {
     ACC->ctrl1 |= sof_sel;
@@ -82,11 +82,11 @@ void ACC_SOF_Select(uint16_t sof_sel) {
 /**
   * @brief  enable or disable the specified acc interrupts.
   * @param  ACC_int: specifies the acc interrupt sources to be enabled or disabled.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ACC_CALRDYIEN_INT
   *         - ACC_EIEN_INT
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void ACC_Interrupt_Enable(uint16_t ACC_int, confirm_state new_state) {
     if(ACC_int == ACC_CALRDYIEN_INT) {
@@ -98,7 +98,7 @@ void ACC_Interrupt_Enable(uint16_t ACC_int, confirm_state new_state) {
 
 /**
   * @brief  return the current acc hicktrim value.
-  * @param  none
+  * @param  无
   * @retval 8-bit hicktrim value.
   */
 uint8_t ACC_Hicktrim_Get(void) {
@@ -107,7 +107,7 @@ uint8_t ACC_Hicktrim_Get(void) {
 
 /**
   * @brief  return the current acc hickcal value.
-  * @param  none
+  * @param  无
   * @retval 8-bit hicktrim value.
   */
 uint8_t ACC_Hickcal_Get(void) {
@@ -117,7 +117,7 @@ uint8_t ACC_Hickcal_Get(void) {
 /**
   * @brief  wtire the value to  acc c1 register.
   * @param  ACC_C1_value
-  * @retval none.
+  * @retval 无.
   */
 void ACC_Write_C1(uint16_t ACC_C1_value) {
     ACC->c1 = ACC_C1_value;
@@ -126,7 +126,7 @@ void ACC_Write_C1(uint16_t ACC_C1_value) {
 /**
   * @brief  wtire the value to  acc c2 register.
   * @param  ACC_C2_value
-  * @retval none.
+  * @retval 无.
   */
 void ACC_Write_C2(uint16_t ACC_C2_value) {
     ACC->c2 = ACC_C2_value;
@@ -135,7 +135,7 @@ void ACC_Write_C2(uint16_t ACC_C2_value) {
 /**
   * @brief  wtire the value to  acc c3 register.
   * @param  ACC_C3_value
-  * @retval none.
+  * @retval 无.
   */
 void ACC_Write_C3(uint16_t ACC_C3_value) {
     ACC->c3 = ACC_C3_value;
@@ -143,7 +143,7 @@ void ACC_Write_C3(uint16_t ACC_C3_value) {
 
 /**
   * @brief  return the current acc c1 value.
-  * @param  none
+  * @param  无
   * @retval 16-bit c1 value.
   */
 uint16_t ACC_Read_C1(void) {
@@ -152,7 +152,7 @@ uint16_t ACC_Read_C1(void) {
 
 /**
   * @brief  return the current acc c2 value.
-  * @param  none
+  * @param  无
   * @retval 16-bit c2 value.
   */
 uint16_t ACC_Read_C2(void) {
@@ -161,7 +161,7 @@ uint16_t ACC_Read_C2(void) {
 
 /**
   * @brief  return the current acc c3 value.
-  * @param  none
+  * @param  无
   * @retval 16-bit c3 value.
   */
 uint16_t ACC_Read_C3(void) {
@@ -171,7 +171,7 @@ uint16_t ACC_Read_C3(void) {
 /**
   * @brief  check whether the specified acc flag is set or not.
   * @param  ACC_flag: specifies the flag to check.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - ACC_RSLOST_FLAG
   *         - ACC_CALRDY_FLAG
   * @retval  flag_status (SET or RESET)
@@ -186,10 +186,10 @@ flag_status ACC_Flag_Get(uint16_t ACC_flag) {
 /**
   * @brief  clear the specified acc flag is set or not.
   * @param  ACC_flag: specifies the flag to check.
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - ACC_RSLOST_FLAG
   *         - ACC_CALRDY_FLAG
-  * @retval  none
+  * @retval  无
   */
 void ACC_Flag_Clear(uint16_t ACC_flag) {
     ACC->sts = ~ACC_flag;

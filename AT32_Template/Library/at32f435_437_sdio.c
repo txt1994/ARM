@@ -42,9 +42,9 @@
 /**
   * @brief  reset the sdio register
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
-  * @retval none
+  * @retval 无
   */
 void SDIO_Reset(SDIO_Type *SDIO_x) {
     SDIO_x->pwrctrl = 0x0;
@@ -61,13 +61,13 @@ void SDIO_Reset(SDIO_Type *SDIO_x) {
 /**
   * @brief  set the power status of the controller
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  power_state
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - SDIO_Power_OFF
   *         - SDIO_Power_ON
-  * @retval none
+  * @retval 无
   */
 void SDIO_Power_Set(SDIO_Type *SDIO_x, SDIO_Power_State_Type power_state) {
     SDIO_x->pwrctrl_bit.ps = power_state;
@@ -76,7 +76,7 @@ void SDIO_Power_Set(SDIO_Type *SDIO_x, SDIO_Power_State_Type power_state) {
 /**
   * @brief  get power status.
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @retval SDIO_Power_State_Type (SDIO_Power_ON or SDIO_Power_OFF)
   */
@@ -87,14 +87,14 @@ SDIO_Power_State_Type SDIO_Power_Status_Get(SDIO_Type *SDIO_x) {
 /**
   * @brief  config sdio clock
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  clk_div: sdio clock divide factor(frequency = SDIO_CLK / [clk_psc + 2]).
   * @param  clk_edg
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - SDIO_Clock_Edge_RISING
   *         - SDIO_Clock_Edge_FALLING
-  * @retval none
+  * @retval 无
   */
 void SDIO_Clock_Config(SDIO_Type *SDIO_x, uint16_t clk_div, SDIO_Edge_phase_Type clk_edg) {
     /* config clock edge */
@@ -110,14 +110,14 @@ void SDIO_Clock_Config(SDIO_Type *SDIO_x, uint16_t clk_div, SDIO_Edge_phase_Type
 /**
   * @brief  config sdio bus width
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  width
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - SDIO_Bus_Width_D1
   *         - SDIO_Bus_Width_D4
   *         - SDIO_Bus_Width_D8
-  * @retval none
+  * @retval 无
   */
 void SDIO_Bus_Width_Config(SDIO_Type *SDIO_x, SDIO_Bus_Width_Type width) {
     SDIO_x->clkctrl_bit.busws = width;
@@ -126,10 +126,10 @@ void SDIO_Bus_Width_Config(SDIO_Type *SDIO_x, SDIO_Bus_Width_Type width) {
 /**
   * @brief  enable or disable clock divider bypss
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void SDIO_Clock_ByPass(SDIO_Type *SDIO_x, confirm_state new_state) {
     SDIO_x->clkctrl_bit.bypsen = new_state;
@@ -139,10 +139,10 @@ void SDIO_Clock_ByPass(SDIO_Type *SDIO_x, confirm_state new_state) {
   * @brief  enable or disable power saving mode, config SDIO_ck clock output
   *         when the bus is idle.
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void SDIO_Power_Saving_Mode_Enable(SDIO_Type *SDIO_x, confirm_state new_state) {
     SDIO_x->clkctrl_bit.pwrsven = new_state;
@@ -151,10 +151,10 @@ void SDIO_Power_Saving_Mode_Enable(SDIO_Type *SDIO_x, confirm_state new_state) {
 /**
   * @brief  enable or disable hardware flow control.
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void SDIO_Flow_Control_Enable(SDIO_Type *SDIO_x, confirm_state new_state) {
     SDIO_x->clkctrl_bit.hfcen = new_state;
@@ -163,10 +163,10 @@ void SDIO_Flow_Control_Enable(SDIO_Type *SDIO_x, confirm_state new_state) {
 /**
   * @brief  enable or disable SDIO_ck output.
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void SDIO_Clock_Enable(SDIO_Type *SDIO_x, confirm_state new_state) {
     SDIO_x->clkctrl_bit.clkoen = new_state;
@@ -175,10 +175,10 @@ void SDIO_Clock_Enable(SDIO_Type *SDIO_x, confirm_state new_state) {
 /**
   * @brief  enable or disable dma.
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void SDIO_DMA_Enable(SDIO_Type *SDIO_x, confirm_state new_state) {
     SDIO_x->dtctrl_bit.dmaen = new_state;
@@ -187,10 +187,10 @@ void SDIO_DMA_Enable(SDIO_Type *SDIO_x, confirm_state new_state) {
 /**
   * @brief  config corresponding interrupt.
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  int_opt
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - SDIO_CMDFAIL_INT
   *         - SDIO_DTFAIL_INT
   *         - SDIO_CMDTIMEOUT_INT
@@ -215,7 +215,7 @@ void SDIO_DMA_Enable(SDIO_Type *SDIO_x, confirm_state new_state) {
   *         - SDIO_RXBUF_INT
   *         - SDIO_SDIOIF_INT
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void SDIO_Interrupt_Enable(SDIO_Type *SDIO_x, uint32_t int_opt,  confirm_state new_state) {
     /* enable interrupt */
@@ -231,10 +231,10 @@ void SDIO_Interrupt_Enable(SDIO_Type *SDIO_x, uint32_t int_opt,  confirm_state n
 /**
   * @brief  get sdio flag.
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  flag
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - SDIO_CMDFAIL_FLAG
   *         - SDIO_DTFAIL_FLAG
   *         - SDIO_CMDTIMEOUT_FLAG
@@ -275,10 +275,10 @@ flag_status SDIO_Flag_Get(SDIO_Type *SDIO_x, uint32_t flag) {
 /**
   * @brief  clear sdio flag.
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  int_opt
-  *         this parameter can be any combination of the following values:
+  *         该参数可以是以下值的任意组合:
   *         - SDIO_CMDFAIL_FLAG
   *         - SDIO_DTFAIL_FLAG
   *         - SDIO_CMDTIMEOUT_FLAG
@@ -291,7 +291,7 @@ flag_status SDIO_Flag_Get(SDIO_Type *SDIO_x, uint32_t flag) {
   *         - SDIO_SBITERR_FLAG
   *         - SDIO_DTBLKCMPL_FLAG
   *         - SDIO_SDIOIF_FLAG
-  * @retval none
+  * @retval 无
   */
 void SDIO_Flag_Clear(SDIO_Type *SDIO_x, uint32_t flag) {
     SDIO_x->intclr = flag;
@@ -300,11 +300,11 @@ void SDIO_Flag_Clear(SDIO_Type *SDIO_x, uint32_t flag) {
 /**
   * @brief  config sdio command.
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  command_struct : pointer to a SDIO_Command_struct_Type structure
   *         that contains the configuration information for the sdio command.
-  * @retval none
+  * @retval 无
   */
 void SDIO_Command_Config(SDIO_Type *SDIO_x, SDIO_Command_struct_Type *command_struct) {
     /* disable command path state machine */
@@ -323,10 +323,10 @@ void SDIO_Command_Config(SDIO_Type *SDIO_x, SDIO_Command_struct_Type *command_st
 /**
   * @brief  enable or disable command path state machine(CPSM).
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void SDIO_Command_State_Machine_Enable(SDIO_Type *SDIO_x, confirm_state new_state) {
     SDIO_x->cmdctrl_bit.ccsmen = new_state;
@@ -335,7 +335,7 @@ void SDIO_Command_State_Machine_Enable(SDIO_Type *SDIO_x, confirm_state new_stat
 /**
   * @brief  get command index of last command for which response received.
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  new_state (TRUE or FALSE)
   * @retval uint8_t: command index
@@ -347,10 +347,10 @@ uint8_t SDIO_Command_Response_Get(SDIO_Type *SDIO_x) {
 /**
   * @brief  get response received from the card for the last command.
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  reg_index
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - SDIO_RSP1_INDEX
   *         - SDIO_RSP2_INDEX
   *         - SDIO_RSP3_INDEX
@@ -387,11 +387,11 @@ uint32_t SDIO_Response_Get(SDIO_Type *SDIO_x, SDIO_rsp_index_Type reg_index) {
 /**
   * @brief  config sdio data.
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  data_struct : pointer to a SDIO_Data_struct_Type structure
   *         that contains the configuration information for the sdio data.
-  * @retval none
+  * @retval 无
   */
 void SDIO_Data_Config(SDIO_Type *SDIO_x, SDIO_Data_struct_Type *data_struct) {
     /* disable data path state machine */
@@ -412,10 +412,10 @@ void SDIO_Data_Config(SDIO_Type *SDIO_x, SDIO_Data_struct_Type *data_struct) {
 /**
   * @brief  enable or disable data path state machine(DPSM).
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void SDIO_Data_State_Machine_Enable(SDIO_Type *SDIO_x, confirm_state new_state) {
     SDIO_x->dtctrl_bit.tfren = new_state;
@@ -424,7 +424,7 @@ void SDIO_Data_State_Machine_Enable(SDIO_Type *SDIO_x, confirm_state new_state) 
 /**
   * @brief  get the number of remaining data bytes to be transferred.
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @retval uint32_t: number of bytes
   */
@@ -435,7 +435,7 @@ uint32_t SDIO_Data_Counter_Get(SDIO_Type *SDIO_x) {
 /**
   * @brief  read a word data from sdio fifo.
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @retval uint32_t: data received
   */
@@ -446,7 +446,7 @@ uint32_t SDIO_Data_Read(SDIO_Type *SDIO_x) {
 /**
   * @brief  get the number of words left to be written to or read from fifo..
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @retval uint32_t: number of words
   */
@@ -457,10 +457,10 @@ uint32_t SDIO_Buffer_Counter_Get(SDIO_Type *SDIO_x) {
 /**
   * @brief  write one word data to fifo.
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  data: data to be transferred.
-  * @retval none
+  * @retval 无
   */
 void SDIO_Data_Write(SDIO_Type *SDIO_x, uint32_t data) {
     SDIO_x->buf = data;
@@ -469,13 +469,13 @@ void SDIO_Data_Write(SDIO_Type *SDIO_x, uint32_t data) {
 /**
   * @brief  set the read wait mode.
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  mode
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         - SDIO_Read_Wait_CONTROLLED_BY_D2
   *         - SDIO_Read_Wait_CONTROLLED_BY_CK
-  * @retval none
+  * @retval 无
   */
 void SDIO_Read_Wait_Mode_Set(SDIO_Type *SDIO_x, SDIO_Read_Wait_Mode_Type mode) {
     SDIO_x->dtctrl_bit.rdwtmode = mode;
@@ -484,10 +484,10 @@ void SDIO_Read_Wait_Mode_Set(SDIO_Type *SDIO_x, SDIO_Read_Wait_Mode_Type mode) {
 /**
   * @brief  enable or disable to start sd i/o read wait operation.
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void SDIO_Read_Wait_Start(SDIO_Type *SDIO_x, confirm_state new_state) {
     SDIO_x->dtctrl_bit.rdwtstart = new_state;
@@ -496,10 +496,10 @@ void SDIO_Read_Wait_Start(SDIO_Type *SDIO_x, confirm_state new_state) {
 /**
   * @brief  enable or disable to stop sd i/o read wait operation.
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void SDIO_Read_Wait_stop(SDIO_Type *SDIO_x, confirm_state new_state) {
     SDIO_x->dtctrl_bit.rdwtstop = new_state;
@@ -508,10 +508,10 @@ void SDIO_Read_Wait_stop(SDIO_Type *SDIO_x, confirm_state new_state) {
 /**
   * @brief  enable or disable the sd i/o function.
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void SDIO_IO_Function_Enable(SDIO_Type *SDIO_x, confirm_state new_state) {
     SDIO_x->dtctrl_bit.ioen = new_state;
@@ -520,10 +520,10 @@ void SDIO_IO_Function_Enable(SDIO_Type *SDIO_x, confirm_state new_state) {
 /**
   * @brief  enable or disable sd i/o suspend command sending.
   * @param  SDIO_x: to select the sdio peripheral.
-  *         this parameter can be one of the following values:
+  *         该参数可以是以下值之一:
   *         SDIO1, SDIO2.
   * @param  new_state (TRUE or FALSE)
-  * @retval none
+  * @retval 无
   */
 void SDIO_IO_Suspend_Command_Set(SDIO_Type *SDIO_x, confirm_state new_state) {
     SDIO_x->cmdctrl_bit.iosusp = new_state;

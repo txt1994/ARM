@@ -981,8 +981,8 @@ void ADC_DMARequestAfterLastTransferCmd(ADC_TypeDef* ADCx, FunctionalState NewSt
   * 参数:  NewState: 最后一次传输后所选ADC DMA请求的新状态。
   *          此参数可以是:ENABLE或DISABLE。
   * note   如果启用，则只要转换数据，就会发出DMA请求，
-		   并且多ADC模式的DMA模式（由ADC_CommonInitStruct.ADC_DMAAccessMode
-		   结构成员使用ADC_CommonInit（）函数选择）为ADC_DMAAccessMode_1、
+		   并且多ADC模式的DMA模式(由ADC_CommonInitStruct.ADC_DMAAccessMode
+		   结构成员使用ADC_CommonInit()函数选择)为ADC_DMAAccessMode_1、
 		   ADC_DMAccessMode_2或ADC_DMAAccessMode_3。
   * 返回值: 无
   */

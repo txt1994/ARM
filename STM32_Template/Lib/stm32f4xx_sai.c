@@ -190,12 +190,11 @@ void SAI_DeInit(SAI_TypeDef* SAIx) {
 /**
   * 简介:  根据 SAI_InitStruct 中指定的参数初始化 SAI Block x 外设。
   *
-  * 注意:   SAI clock is generated from a specific output of the PLLSAI or a specific
-  *         output of the PLLI2S or from an alternate function bypassing the PLL I2S.
+  * 注意:   SAI时钟是从PLLSAI的特定输出或PLLI2S的特定输出产生的，
+			或者是从绕过PLL I2S的替代功能产生的。
   *
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
-  * 参数:  SAI_InitStruct: pointer to a SAI_InitTypeDef structure that
-  *         contains the configuration information for the specified SAI Block 外设.
+  * 参数:  SAI_InitStruct: 指向SAI_InitTypeDef结构的指针，该结构包含指定SAI块的配置信息外设.
   * 返回值: 无
   */
 void SAI_Init(SAI_Block_TypeDef* SAI_Block_x, SAI_InitTypeDef* SAI_InitStruct) {
@@ -256,12 +255,11 @@ void SAI_Init(SAI_Block_TypeDef* SAI_Block_x, SAI_InitTypeDef* SAI_InitStruct) {
 /**
   * 简介:  根据 SAI_FrameInitStruct 中指定的参数初始化 SAI Block Audio 帧。
   *
-  * 注意:   this function has no meaning if the AC'97 or SPDIF audio protocol
-  *         are selected.
+  * 注意:   如果选择了AC’97或SPDIF音频协议，则此功能没有任何意义。
   *
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
-  * 参数:  SAI_FrameInitStruct: pointer to an SAI_FrameInitTypeDef structure that
-  *         contains the configuration of audio frame for a specified SAI Block
+  * 参数:  SAI_FrameInitStruct: 指向SAI_FrameInitTypeDef结构的指针，
+		   该结构包含指定SAI块的音频帧配置
   * 返回值: 无
   */
 void SAI_FrameInit(SAI_Block_TypeDef* SAI_Block_x, SAI_FrameInitTypeDef* SAI_FrameInitStruct) {
@@ -282,8 +280,7 @@ void SAI_FrameInit(SAI_Block_TypeDef* SAI_Block_x, SAI_FrameInitTypeDef* SAI_Fra
     tmpreg = SAI_Block_x->FRCR;
     /* 清除 FRL, FSALL, FSDEF, FSPOL, FSOFF 位 */
     tmpreg &= FRCR_CLEAR_MASK;
-    /* Configure SAI_Block_x Frame: Frame Length, Active Frame Length, Frame Synchronization
-       Definition, Frame Synchronization Polarity and Frame Synchronization Polarity */
+    /* 配置SAI_Block_x帧：帧长度、活动帧长度、帧同步定义、帧同步极性和帧同步极度 */
     /* Set FRL bits according to SAI_FrameLength value         */
     /* Set FSALL bits according to SAI_ActiveFrameLength 值 */
     /* Set FSDEF bit according to SAI_FSDefinition value       */
@@ -302,12 +299,11 @@ void SAI_FrameInit(SAI_Block_TypeDef* SAI_Block_x, SAI_FrameInitTypeDef* SAI_Fra
 /**
   * 简介:  根据 SAI_SlotInitStruct 中指定的参数初始化 SAI Block 音频 Slot。
   *
-  * 注意:   this function has no meaning if the AC'97 or SPDIF audio protocol
-  *         are selected.
+  * 注意:   如果选择了AC’97或SPDIF音频协议，则此函数没有任何意义。
   *
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
-  * 参数:  SAI_SlotInitStruct: pointer to an SAI_SlotInitTypeDef structure that
-  *         contains the configuration of audio slot for a specified SAI Block
+  * 参数:  SAI_SlotInitStruct: 指向SAI_SlotInitTypeDef结构的指针，
+		   该结构包含指定SAI块的音频插槽配置
   * 返回值: 无
   */
 void SAI_SlotInit(SAI_Block_TypeDef* SAI_Block_x, SAI_SlotInitTypeDef* SAI_SlotInitStruct) {
@@ -344,12 +340,11 @@ void SAI_SlotInit(SAI_Block_TypeDef* SAI_Block_x, SAI_SlotInitTypeDef* SAI_SlotI
 
 /**
   * 简介:  用默认值填充每个 SAI_InitStruct 成员。
-  * 参数:  SAI_InitStruct: pointer to a SAI_InitTypeDef structure which will
-  *         be initialized.
+  * 参数:  SAI_InitStruct: 指向将被初始化的SAI_InitTypeDef结构的指针。
   * 返回值: 无
   */
 void SAI_StructInit(SAI_InitTypeDef* SAI_InitStruct) {
-    /* Reset SAI init structure parameters values */
+    /* 重置SAI初始化结构参数值 */
     /* 初始化 SAI_AudioMode 成员 */
     SAI_InitStruct->SAI_AudioMode = SAI_Mode_MasterTx;
     /* 初始化 SAI_Protocol 成员 */
@@ -376,12 +371,11 @@ void SAI_StructInit(SAI_InitTypeDef* SAI_InitStruct) {
 
 /**
   * 简介:  用默认值填充每个 SAI_FrameInitStruct 成员。
-  * 参数:  SAI_FrameInitStruct: pointer to a SAI_FrameInitTypeDef structure
-  *         which will be initialized.
+  * 参数:  SAI_FrameInitStruct: 指向将被初始化的SAI_FrameInitTypeDef结构的指针。
   * 返回值: 无
   */
 void SAI_FrameStructInit(SAI_FrameInitTypeDef* SAI_FrameInitStruct) {
-    /* Reset SAI Frame init structure parameters values */
+    /* 重置SAI帧初始化结构参数值 */
     /* 初始化 SAI_FrameLength 成员 */
     SAI_FrameInitStruct->SAI_FrameLength = 8;
     /* 初始化 SAI_ActiveFrameLength 成员 */
@@ -396,12 +390,11 @@ void SAI_FrameStructInit(SAI_FrameInitTypeDef* SAI_FrameInitStruct) {
 
 /**
   * 简介:  用默认值填充每个 SAI_SlotInitStruct 成员。
-  * 参数:  SAI_SlotInitStruct: pointer to a SAI_SlotInitTypeDef structure
-  *         which will be initialized.
+  * 参数:  SAI_SlotInitStruct: 指向将被初始化的SAI_SlotInitTypeDef结构的指针。
   * 返回值: 无
   */
 void SAI_SlotStructInit(SAI_SlotInitTypeDef* SAI_SlotInitStruct) {
-    /* Reset SAI Slot init structure parameters values */
+    /* 重置SAI插槽初始化结构参数值 */
     /* 初始化 SAI_FirstBitOffset 成员 */
     SAI_SlotInitStruct->SAI_FirstBitOffset = 0;
     /* 初始化 SAI_SlotSize 成员 */
@@ -437,7 +430,7 @@ void SAI_Cmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
 /**
   * 简介:  为选定的 SAI 模块配置单声道模式。
   *
-  * 注意:  This function has a meaning only when the number of slot is equal to 2.
+  * 注意:  只有当插槽数量等于2时，此函数才有意义。
   *
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
   * 参数:  SAI_MonoMode: specifies the SAI block mono mode.
@@ -459,7 +452,7 @@ void SAI_MonoModeConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_Mono_StreoM
 /**
   * 简介:  为选定的 SAI 块配置数据线上的 TRIState 管理。
   *
-  * 注意:  This function has a meaning only when the SAI block is configured in transmitter
+  * 注意:  只有在变送器中配置SAI块时，此功能才有意义
   *
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
   * 参数:  SAI_TRIState: specifies the SAI block TRIState management.
@@ -501,17 +494,17 @@ void SAI_CompandingModeConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_Compa
     assert_param(IS_SAI_BLOCK_COMPANDING_MODE(SAI_CompandingMode));
     /* 清除 Companding Mode 位 */
     SAI_Block_x->CR2 &= ~(SAI_xCR2_COMP);
-    /* Set new Companding Mode 值 */
+    /* 设置新的压缩模式值 */
     SAI_Block_x->CR2 |= SAI_CompandingMode;
 }
 
 /**
   * 简介:  启用或禁用选定 SAI 模块的静音模式。
   *
-  * 注意:   This function has a meaning only when the audio block is transmitter
-  * 注意:   Mute mode is applied for an entire frame for all the valid slot
-  *         It becomes active at the end of an audio frame when set somewhere in a frame.
-  *         Mute mode exit occurs at the end of the frame in which the bit MUTE has been set.
+  * 注意:   只有当音频块是发射器时，此功能才有意义
+  * 注意:   静音模式适用于所有有效插槽的整个帧
+			当设置在音频帧的某个位置时，它在音频帧结束时变为活动。
+  *         静音模式退出发生在设置了位Mute的帧的末尾。
   *
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
   * 参数:  NewState: 新状态-> SAIx block.
@@ -524,10 +517,10 @@ void SAI_MuteModeCmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用 selected SAI block mute mode */
+        /* 启用 selected SAI block 静音模式 */
         SAI_Block_x->CR2 |= SAI_xCR2_MUTE;
     } else {
-        /* 禁用 selected SAI SS output */
+        /* 选择的SAI SS输出 */
         SAI_Block_x->CR2 &= ~(SAI_xCR2_MUTE);
     }
 }
@@ -535,15 +528,15 @@ void SAI_MuteModeCmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
 /**
   * 简介:  为选定的 SAI 模块配置静音值。
   *
-  * 注意:   This function has a meaning only when the audio block is transmitter
-  * 注意:   the configuration last value sent during mute mode has only a meaning
-  *          when the number of slot is lower or equal to 2 and if the MUTE bit is set.
+  * 注意:   只有当音频块是发射器时，此功能才有意义
+  * 注意:   在静音模式期间发送的配置最后值只有在时隙数量小于或等于2
+			并且设置了mute比特时才有意义。
   *
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
-  * 参数:  SAI_MuteValue: specifies the SAI block mute value.
+  * 参数:  SAI_MuteValue: 指定SAI块静音值。
   *          此参数可以是以下值之一:
-  *            @arg SAI_ZeroValue : bit value 0 is sent during Mute Mode
-  *            @arg SAI_LastSentValue : Last value is sent during Mute Mode
+  *            @arg SAI_ZeroValue : 在静音模式期间发送位值0
+  *            @arg SAI_LastSentValue : 静音模式下发送最后一个值
   * 返回值: 无
   */
 void SAI_MuteValueConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_MuteValue) {
@@ -553,7 +546,7 @@ void SAI_MuteValueConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_MuteValue)
 
     /* 清除 Mute value 位 */
     SAI_Block_x->CR2 &= ~(SAI_xCR2_MUTEVAL);
-    /* Set new Mute 值 */
+    /* 设置 new Mute 值 */
     SAI_Block_x->CR2 |= SAI_MuteValue;
 }
 
@@ -591,7 +584,7 @@ void SAI_BlockSynchroConfig(SAI_InitTypeDef* SAI_InitStruct, SAI_TypeDef* SAIx) 
 
     #if defined(STM32F446xx)
 
-    /* This setting must be done with both audio block (A & B) disabled         */
+    /* 必须在禁用音频块（A和B）的情况下进行此设置         */
     switch(SAI_InitStruct->SAI_SynchroExt) {
         case SAI_SyncExt_Disable :
             tmpregisterGCR = 0U;
@@ -677,16 +670,14 @@ void SAI_FlushFIFO(SAI_Block_TypeDef* SAI_Block_x) {
                        ##### 数据传输函数 #####
  ===============================================================================
   [..]
-  This section provides a set of functions allowing to manage the SAI data transfers.
+  本节提供了一组允许管理SAI数据传输的功能。
   [..]
-  In reception, data are received and then stored into an internal FIFO while
-  In transmission, data are first stored into an internal FIFO before being
-  transmitted.
+  在接收过程中，数据被接收，然后被存储到内部FIFO中，同时
+  在传输中，数据在传输之前首先存储在内部FIFO中。
   [..]
-  The read access of the SAI_xDR register can be done using the SAI_ReceiveData()
-  function and returns the Rx buffered value. Whereas a write access to the SAI_DR
-  can be done using SAI_SendData() function and stores the written data into
-  Tx buffer.
+  SAI_xDR寄存器的读取访问可以使用SAI_ReceiveData()函数完成，
+  并返回Rx缓冲值。而对SAI_DR的写入访问可以使用SAI_SendData()
+  函数来完成，并将写入的数据存储到Tx缓冲器中。
 
 @endverbatim
   * @{
@@ -717,7 +708,7 @@ void SAI_SendData(SAI_Block_TypeDef* SAI_Block_x, uint32_t Data) {
     /* 检查参数 */
     assert_param(IS_SAI_BLOCK_PERIPH(SAI_Block_x));
 
-    /* Write in the DR register the data to be sent */
+    /* 在DR寄存器中写入要发送的数据 */
     SAI_Block_x->DR = Data;
 }
 
@@ -725,12 +716,12 @@ void SAI_SendData(SAI_Block_TypeDef* SAI_Block_x, uint32_t Data) {
   * @}
   */
 
-/** @defgroup SAI_Group3 DMA传输管理 functions
- *  简介   DMA传输管理 functions
+/** @defgroup SAI_Group3 DMA传输管理功能 
+ *  简介   DMA传输管理功能 
   *
 @verbatim
  ===============================================================================
-                  ##### DMA传输管理 functions #####
+                  ##### DMA传输管理功能 #####
  ===============================================================================
 
 @endverbatim
@@ -750,10 +741,10 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用 selected SAI block mute mode */
+        /* 启用选择SAI块静音模式 */
         SAI_Block_x->CR1 |= SAI_xCR1_DMAEN;
     } else {
-        /* 禁用 selected SAI SS output */
+        /* 选择的SAI SS输出 */
         SAI_Block_x->CR1 &= ~(SAI_xCR1_DMAEN);
     }
 }
@@ -770,96 +761,77 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
             ##### 中断和标记管理函数 #####
  ===============================================================================
   [..]
-  This section provides a set of functions allowing to configure the SAI Interrupts
-  sources and check or clear the flags or pending bits status.
-  The user should identify which mode will be used in his application to manage
-  the communication: Polling mode, Interrupt mode or DMA mode.
+  本节提供了一组功能，允许配置SAI中断源并检查或清除标志或挂起位状态。
+  用户应确定在其应用程序中将使用哪种模式来管理通信:轮询模式、中断模式或DMA模式。
 
-  *** Polling Mode ***
+  *** 轮询模式 ***
   ====================
   [..]
-  In Polling Mode, the SAI communication can be managed by 7 flags:
-     (#) SAI_FLAG_FREQ : to indicate if there is a FIFO Request to write or to read.
-     (#) SAI_FLAG_MUTEDET : to indicate if a MUTE frame detected
-     (#) SAI_FLAG_OVRUDR : to indicate if an Overrun or Underrun error occur
-     (#) SAI_FLAG_AFSDET : to indicate if there is the detection of a audio frame
-                          synchronisation (FS) earlier than expected
-     (#) SAI_FLAG_LFSDET : to indicate if there is the detection of a audio frame
-                          synchronisation (FS) later than expected
-     (#) SAI_FLAG_CNRDY : to indicate if  the codec is not ready to communicate during
-                         the reception of the TAG 0 (slot0) of the AC97 audio frame
-     (#) SAI_FLAG_WCKCFG: to indicate if wrong clock configuration in master mode
-                         error occurs.
+  在轮询模式下，SAI通信可以由7个标志管理:
+     (#) SAI_FLAG_FREQ : 以指示是否存在要写入或要读取的FIFO请求。
+     (#) SAI_FLAG_MUTEDET : 以指示是否检测到MUTE帧
+     (#) SAI_FLAG_OVRUDR : 指示是否发生溢出或不足错误
+     (#) SAI_FLAG_AFSDET : 以指示是否存在比预期更早的音频帧同步（FS）的检测
+     (#) SAI_FLAG_LFSDET : 以指示是否检测到晚于预期的音频帧同步（FS）
+     (#) SAI_FLAG_CNRDY : 以指示编解码器在接收AC97音频帧的TAG 0（slot0）期间是否未准备好通信
+     (#) SAI_FLAG_WCKCFG: 以指示主模式中的错误时钟配置是否发生错误。
   [..]
-  In this Mode it is advised to use the following functions:
+  在此模式下，建议使用以下函数:
      (+) FlagStatus SAI_GetFlagStatus(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_FLAG);
      (+) void SAI_ClearFlag(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_FLAG);
 
-  *** Interrupt Mode ***
+  *** 中断模式 ***
   ======================
   [..]
-  In Interrupt Mode, the SAI communication can be managed by 7 interrupt sources
-  and 7 pending bits:
-  (+) Pending Bits:
-     (##) SAI_IT_FREQ : to indicate if there is a FIFO Request to write or to read.
-     (##) SAI_IT_MUTEDET : to indicate if a MUTE frame detected.
-     (##) SAI_IT_OVRUDR : to indicate if an Overrun or Underrun error occur.
-     (##) SAI_IT_AFSDET : to indicate if there is the detection of a audio frame
-                          synchronisation (FS) earlier than expected.
-     (##) SAI_IT_LFSDET : to indicate if there is the detection of a audio frame
-                          synchronisation (FS) later than expected.
-     (##) SAI_IT_CNRDY : to indicate if  the codec is not ready to communicate during
-                         the reception of the TAG 0 (slot0) of the AC97 audio frame.
-     (##) SAI_IT_WCKCFG: to indicate if wrong clock configuration in master mode
-                         error occurs.
+  在中断模式, SAI通信可以由7个中断源和7个未决位管理:
+  (+) 挂起的位:
+     (##) SAI_IT_FREQ : 以指示是否存在要写入或要读取的FIFO请求。
+     (##) SAI_IT_MUTEDET : 以指示是否检测到MUTE帧。
+     (##) SAI_IT_OVRUDR : 以指示是否发生溢出或不足运行错误。
+     (##) SAI_IT_AFSDET : 以指示是否存在比预期更早的音频帧同步（FS）的检测。
+     (##) SAI_IT_LFSDET : 以指示是否存在晚于预期的音频帧同步（FS）的检测。
+     (##) SAI_IT_CNRDY : 以指示编解码器在接收AC97音频帧的TAG 0（slot0）期间是否未准备好通信。
+     (##) SAI_IT_WCKCFG: 以指示主模式中的错误时钟配置是否发生错误。
 
   (+) 中断源:
-     (##) SAI_IT_FREQ : specifies the interrupt source for FIFO Request.
-     (##) SAI_IT_MUTEDET : specifies the interrupt source for MUTE frame detected.
-     (##) SAI_IT_OVRUDR : specifies the interrupt source for overrun or underrun error.
-     (##) SAI_IT_AFSDET : specifies the interrupt source for anticipated frame synchronization
-                          detection interrupt.
-     (##) SAI_IT_LFSDET : specifies the interrupt source for late frame synchronization
-                          detection interrupt.
-     (##) SAI_IT_CNRDY : specifies the interrupt source for codec not ready interrupt
-     (##) SAI_IT_WCKCFG: specifies the interrupt source for wrong clock configuration
-                         interrupt.
+     (##) SAI_IT_FREQ : 指定FIFO请求的中断源。
+     (##) SAI_IT_MUTEDET : 指定检测到的MUTE帧的中断源。
+     (##) SAI_IT_OVRUDR : 指定溢出或欠载错误的中断源。
+     (##) SAI_IT_AFSDET : 指定预期帧同步检测中断的中断源。
+     (##) SAI_IT_LFSDET : 指定延迟帧同步检测中断的中断源。
+     (##) SAI_IT_CNRDY : 指定编解码器未就绪中断的中断源
+     (##) SAI_IT_WCKCFG: 指定错误时钟配置中断的中断源。
   [..]
-  In this Mode it is advised to use the following functions:
+  在此模式下，建议使用以下函数:
      (+) void SAI_ITConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT, FunctionalState NewState);
      (+) ITStatus SAI_GetITStatus(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT);
      (+) void SAI_ClearITPendingBit(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT);
 
-  *** DMA Mode ***
+  *** DMA模式 ***
   ================
   [..]
-  In DMA Mode, each SAI audio block has an independent DMA interface in order to
-  read or to write into the SAI_xDR register (to hit the internal FIFO).
-  There is one DMA channel by audio block following basic DMA request/acknowledge
-  protocol.
+  在DMA模式, 每个SAI音频块具有独立的DMA接口，以便读取或写入SAI_xDR寄存器（以命中内部FIFO）。
+  按照基本DMA请求/确认协议，音频块有一个DMA通道。
   [..]
-  In this Mode it is advised to use the following function:
+  在此模式下，建议使用以下函数:
     (+) void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState);
   [..]
-  This section provides also functions allowing to
-   (+) Check the SAI Block enable status
-   (+)Check the FIFO status
+  本节还提供了允许
+   (+) 检查SAI块启用状态
+   (+) 检查FIFO状态
 
-  *** SAI Block Enable status ***
+  *** SAI Block启用状态 ***
   ===============================
   [..]
-  After disabling a SAI Block, it is recommended to check (or wait until) the SAI Block
-  is effectively disabled. If a Block is disabled while an audio frame transfer is ongoing
-  the current frame will be transferred and the block will be effectively disabled only at
-  the end of audio frame.
-  To monitor this state it is possible to use the following function:
+  禁用SAI块后，建议检查（或等待）SAI块被有效禁用。如果在音频
+  帧传输进行时禁用块，则当前帧将被传输，并且该块将仅在音频帧结束时被有效禁用。
+  要监控此状态，可以使用以下函数:
     (+) FunctionalState SAI_GetCmdStatus(SAI_Block_TypeDef* SAI_Block_x);
 
-  *** SAI Block FIFO status ***
+  *** SAI块FIFO状态 ***
   =============================
   [..]
-  It is possible to monitor the FIFO status when a transfer is ongoing using the following
-  function:
+  当传输正在进行时，可以使用以下功能监控FIFO状态:
     (+) uint32_t SAI_GetFIFOStatus(SAI_Block_TypeDef* SAI_Block_x);
 
 @endverbatim
@@ -871,16 +843,14 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
   * 参数:  SAI_IT: 指定要启用或禁用的SAI中断源。
   *          此参数可以是以下值之一:
-  *            @arg SAI_IT_FREQ: FIFO Request interrupt mask
-  *            @arg SAI_IT_MUTEDET: MUTE detection interrupt mask
-  *            @arg SAI_IT_OVRUDR: overrun/underrun interrupt mask
-  *            @arg SAI_IT_AFSDET: anticipated frame synchronization detection
-  *                                interrupt mask
-  *            @arg SAI_IT_LFSDET: late frame synchronization detection interrupt
-  *                                mask
-  *            @arg SAI_IT_CNRDY: codec not ready interrupt mask
-  *            @arg SAI_IT_WCKCFG: wrong clock configuration interrupt mask
-  * 参数:  NewState: 新状态-> specified SAI interrupt.
+  *            @arg SAI_IT_FREQ: FIFO请求中断掩码
+  *            @arg SAI_IT_MUTEDET: MUTE检测中断掩码
+  *            @arg SAI_IT_OVRUDR: 超限/欠载中断掩码
+  *            @arg SAI_IT_AFSDET: 预期帧同步检测中断掩码
+  *            @arg SAI_IT_LFSDET: 后期帧同步检测中断掩码
+  *            @arg SAI_IT_CNRDY: 编解码器未就绪中断掩码
+  *            @arg SAI_IT_WCKCFG: 错误的时钟配置中断掩码
+  * 参数:  NewState: 新状态-> specified SAI 中断.
   *          此参数可以是:ENABLE或DISABLE。
   * 返回值: 无
   */
@@ -891,10 +861,10 @@ void SAI_ITConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT, FunctionalSta
     assert_param(IS_SAI_BLOCK_CONFIG_IT(SAI_IT));
 
     if (NewState != DISABLE) {
-        /* 启用 selected SAI Block interrupt */
+        /* 启用 selected SAI Block 中断 */
         SAI_Block_x->IMR |= SAI_IT;
     } else {
-        /* 禁用 selected SAI Block interrupt */
+        /* 禁用 selected SAI Block 中断 */
         SAI_Block_x->IMR &= ~(SAI_IT);
     }
 }
@@ -1026,7 +996,7 @@ void SAI_ClearITPendingBit(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT) {
     assert_param(IS_SAI_BLOCK_PERIPH(SAI_Block_x));
     assert_param(IS_SAI_BLOCK_CONFIG_IT(SAI_IT));
 
-    /* 清除 selected SAI Block x interrupt pending 位 */
+    /* 清除 所选SAI块x中断挂起位 */
     SAI_Block_x->CLRFR |= SAI_IT;
 }
 
@@ -1034,11 +1004,9 @@ void SAI_ClearITPendingBit(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT) {
   * 简介:  返回指定 SAI 块 x 的 EN 位的状态。
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
   *
-  * 注意:    After disabling a SAI Block, it is recommended to check (or wait until)
-  *          the SAI Block is effectively disabled. If a Block is disabled while
-  *          an audio frame transfer is ongoing, the current frame will be
-  *          transferred and the block will be effectively disabled only at
-  *          the end of audio frame.
+  * 注意:    禁用SAI块后，建议检查（或等待）SAI块被有效禁用。
+			 如果在音频帧传输过程中禁用了块，则当前帧将被传输，
+			 并且该块将仅在音频帧结束时被有效禁用。
   *
   * 返回值: DMAy Streamx的当前状态(ENABLE或DISABLE)。
   */
@@ -1049,11 +1017,10 @@ FunctionalState SAI_GetCmdStatus(SAI_Block_TypeDef* SAI_Block_x) {
     assert_param(IS_SAI_BLOCK_PERIPH(SAI_Block_x));
 
     if ((SAI_Block_x->CR1 & (uint32_t)SAI_xCR1_SAIEN) != 0) {
-        /* The selected SAI Block x EN bit is set (audio frame transfer is ongoing) */
+        /* 已设置所选SAI Block x EN位（正在进行音频帧传输） */
         state = ENABLE;
     } else {
-        /* The selected SAI Block x EN bit is cleared (SAI Block is disabled and
-            all transfers are complete) */
+        /* 所选SAI块x EN位被清除（SAI块被禁用，所有传输都完成） */
         state = DISABLE;
     }
 

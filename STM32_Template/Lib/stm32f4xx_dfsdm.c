@@ -1379,11 +1379,11 @@ void DFSDM_DMATransferConfig(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_DMACon
   *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
   * 参数:  DFSDM_IT: 指定要启用或禁用的DFSDM中断源。
   *         此参数可以是以下值的任意组合:
-  *           @arg DFSDM_IT_JEOC:注入转换结束中断源
-  *           @arg DFSDM_IT_REOC:常规转换结束中断源
-  *           @arg DFSDM_IT_JOVR:注入的数据溢出中断源
-  *           @arg DFSDM_IT_ROVR:常规数据溢出中断源
-  *           @arg DFSDM_IT_AWD:模拟看门狗中断源
+    *           @arg DFSDM_IT_JEOC:注入转换结束中断源
+    *           @arg DFSDM_IT_REOC:常规转换结束中断源
+    *           @arg DFSDM_IT_JOVR:注入的数据溢出中断源
+    *           @arg DFSDM_IT_ROVR:常规数据溢出中断源
+    *           @arg DFSDM_IT_AWD:模拟看门狗中断源
   * 参数:  NewState:DFSDM中断的新状态。
   *         此参数可以是:ENABLE或DISABLE。
   * 返回值: 无

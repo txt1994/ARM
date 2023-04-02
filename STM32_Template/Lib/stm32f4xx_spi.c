@@ -175,13 +175,10 @@
  ===============================================================================
              ##### 初始化和配置函数 #####
  ===============================================================================
- [..] This section provides a set of functions allowing to initialize the SPI
-      Direction, SPI Mode, SPI Data Size, SPI Polarity, SPI Phase, SPI NSS
-      Management, SPI Baud Rate Prescaler, SPI First Bit and SPI CRC Polynomial.
+ [..] 本节提供了一组函数，允许初始化SPI方向、SPI模式、SPI数据大小、
+	  SPI极性、SPI相位、SPI NSS管理、SPI波特率预分级器、SPI第一位和SPI CRC多项式。
 
- [..] The SPI_Init() function follows the SPI configuration procedures for Master
-      mode and Slave mode (details for these procedures are available in reference
-      manual (RM0090)).
+ [..] SPI_Init()函数遵循主模式和从模式的SPI配置过程(这些过程的详细信息可参阅参考手册(RM0090))。
 
 @endverbatim
   * @{
@@ -189,12 +186,10 @@
 
 /**
   * 简介:  将 SPIx 外设寄存器取消初始化为其缺省复位值。
-  * 参数:  SPIx: To select the SPIx/I2Sx peripheral, where x can be: 1, 2, 3, 4, 5 or 6
-  *         in SPI mode or 2 or 3 in I2S mode.
+  * 参数:  SPIx: 选择SPIx/I2Sx外设，其中x在SPI模式下为1、2、3、4、5或6，在I2S模式下为2或3。
   *
-  * 注意:   The extended I2S blocks (ie. I2S2ext and I2S3ext blocks) are de-initialized
-  *         when the relative I2S peripheral is de-initialized (the extended block's clock
-  *         is managed by the I2S peripheral clock).
+  * 注意:   扩展的I2S块(即。I2S2ext和I2S3ext块)在相对
+			I2S外设去初始化时被去初始化(扩展块的时钟由I2S外设时钟管理)。
   *
   * 返回值: 无
   */
@@ -708,15 +703,12 @@ void I2S_FullDuplexConfig(SPI_TypeDef* I2Sxext, I2S_InitTypeDef* I2S_InitStruct)
                       ##### 数据传输函数 #####
  ===============================================================================
 
- [..] This section provides a set of functions allowing to manage the SPI data
-      transfers. In reception, data are received and then stored into an internal
-      Rx buffer while. In transmission, data are first stored into an internal Tx
-      buffer before being transmitted.
+ [..] 本节提供了一组允许管理SPI数据传输的函数。在接收中，数据被接收，
+	  然后存储到一个内部Rx缓冲区中。在传输中，数据在传输之前首先存储到内部Tx缓冲区中。
 
- [..] The read access of the SPI_DR register can be done using the SPI_I2S_ReceiveData()
-      function and returns the Rx buffered value. Whereas a write access to the SPI_DR
-      can be done using SPI_I2S_SendData() function and stores the written data into
-      Tx buffer.
+ [..] SPI_DR寄存器的读取访问可以使用SPI_I2S_ReceiveData()
+	  函数完成，并返回Rx缓冲值。而对SPI_DR的写入访问可以使用
+	  SPI_I2S_SendData()函数来完成，并将写入的数据存储到Tx缓冲器中。
 
 @endverbatim
   * @{
@@ -724,8 +716,9 @@ void I2S_FullDuplexConfig(SPI_TypeDef* I2Sxext, I2S_InitTypeDef* I2S_InitStruct)
 
 /**
   * 简介:  返回 SPIx/I2Sx 外设最近接收到的数据。
-  * 参数:  SPIx: To select the SPIx/I2Sx peripheral, where x can be: 1, 2, 3, 4, 5 or 6
-  *         in SPI mode or 2 or 3 in I2S mode or I2Sxext for I2S full duplex mode.
+  * 参数:  SPIx: 选择SPIx/I2Sx外设，其中x可以是：
+				 在SPI模式下为1、2、3、4、5或6，在I2S模式下
+				 为2或3，或者在I2S全双工模式下为I2Sxext。
   * 返回值: The value of 接收的数据。
   */
 uint16_t SPI_I2S_ReceiveData(SPI_TypeDef* SPIx) {
@@ -738,8 +731,9 @@ uint16_t SPI_I2S_ReceiveData(SPI_TypeDef* SPIx) {
 
 /**
   * 简介:  通过 SPIx/I2Sx 外设传输数据。
-  * 参数:  SPIx: To select the SPIx/I2Sx peripheral, where x can be: 1, 2, 3, 4, 5 or 6
-  *         in SPI mode or 2 or 3 in I2S mode or I2Sxext for I2S full duplex mode.
+  * 参数:  SPIx: 选择SPIx/I2Sx外围设备，其中x可以是：
+				 在SPI模式下为1、2、3、4、5或6，在I2S模式下为2或3，
+				 或者在I2S全双工模式下为I2Sxext。
   * 参数:  Data: 要传输的数据。
   * 返回值: 无
   */
@@ -747,7 +741,7 @@ void SPI_I2S_SendData(SPI_TypeDef* SPIx, uint16_t Data) {
     /* 检查参数 */
     assert_param(IS_SPI_ALL_PERIPH_EXT(SPIx));
 
-    /* Write in the DR register the data to be sent */
+    /* 在DR寄存器中写入要发送的数据 */
     SPIx->DR = Data;
 }
 
@@ -870,9 +864,9 @@ uint16_t SPI_GetCRC(SPI_TypeDef* SPIx, uint8_t SPI_CRC) {
 }
 
 /**
-  * 简介:  Returns the CRC Polynomial register value for the specified SPI.
+  * 简介:  返回指定SPI的CRC多项式寄存器值。
   * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择SPI外围设备。
-  * 返回值: The CRC Polynomial register value.
+  * 返回值: CRC多项式寄存器值。
   */
 uint16_t SPI_GetCRCPolynomial(SPI_TypeDef* SPIx) {
     /* 检查参数 */
@@ -886,12 +880,12 @@ uint16_t SPI_GetCRCPolynomial(SPI_TypeDef* SPIx) {
   * @}
   */
 
-/** @defgroup SPI_Group4 DMA传输管理 functions
- *  简介   DMA传输管理 functions
+/** @defgroup SPI_Group4 DMA传输管理 功能
+ *  简介   DMA传输管理 功能
   *
 @verbatim
  ===============================================================================
-                   ##### DMA传输管理 functions #####
+                   ##### DMA传输管理功能 #####
  ===============================================================================
 
 @endverbatim
@@ -900,13 +894,13 @@ uint16_t SPI_GetCRCPolynomial(SPI_TypeDef* SPIx) {
 
 /**
   * 简介:  启用或禁用 SPIx/I2Sx DMA 接口。
-  * 参数:  SPIx: To select the SPIx/I2Sx peripheral, where x can be: 1, 2, 3, 4, 5 or 6
-  *         in SPI mode or 2 or 3 in I2S mode or I2Sxext for I2S full duplex mode.
-  * 参数:  SPI_I2S_DMAReq: specifies the SPI DMA transfer request to be enabled or disabled.
+  * 参数:  SPIx: 选择SPIx/I2Sx外围设备，其中x可以是：在SPI模式下为1、2、3、4、5或6，
+				 在I2S模式下为2或3，或者在I2S全双工模式下为I2Sxext。
+  * 参数:  SPI_I2S_DMAReq: 指定要启用或禁用的SPI DMA传输请求。
   *          此参数可以是以下值的任意组合:
-  *            @arg SPI_I2S_DMAReq_Tx: Tx buffer DMA transfer request
-  *            @arg SPI_I2S_DMAReq_Rx: Rx buffer DMA transfer request
-  * 参数:  NewState: 新状态-> selected SPI DMA transfer request.
+  *            @arg SPI_I2S_DMAReq_Tx: Tx缓冲区DMA传输请求
+  *            @arg SPI_I2S_DMAReq_Rx: Rx缓冲区DMA传输请求
+  * 参数:  NewState: 新状态-> 选择的SPI DMA传输请求。
   *          此参数可以是:ENABLE或DISABLE。
   * 返回值: 无
   */
@@ -963,33 +957,31 @@ void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState 
  ======================
  [..] 在中断模式下，SPI通信可由3个中断源和7个挂起位管理:
    (+) Pending Bits:
-       (##) SPI_I2S_IT_TXE : to indicate the status of the transmit buffer register
-       (##) SPI_I2S_IT_RXNE : to indicate the status of the receive buffer register
-       (##) SPI_IT_CRCERR : to indicate if a CRC Calculation error occur (available in SPI mode only)
-       (##) SPI_IT_MODF : to indicate if a Mode Fault error occur (available in SPI mode only)
-       (##) SPI_I2S_IT_OVR : 指示是否发生超限错误
-       (##) I2S_IT_UDR : to indicate an Underrun Error occurs (available in I2S mode only).
-       (##) I2S_FLAG_TIFRFE : to indicate a Frame Format error occurs (available in TI mode only).
+	 (##) SPI_I2S_IT_TXE：指示发送缓冲寄存器的状态
+	 (##) SPI_I2S_IT_RXNE：指示接收缓冲寄存器的状态
+	 (##) SPI_IT_CRCERR：指示是否发生CRC计算错误(仅在SPI模式下可用)
+	 (##) SPI_IT_MODF：指示是否发生模式故障错误(仅适用于SPI模式)
+	 (##) SPI_I2S_IT_OVR：指示是否发生超限错误
+	 (##) I2S_IT_UDR：指示发生欠载错误(仅在I2S模式下可用)。
+	 (##) I2S_FLAG_TIFRFE：指示发生帧格式错误(仅在TI模式下可用)。
 
    (+) 中断源:
-       (##) SPI_I2S_IT_TXE: specifies the interrupt source for the Tx buffer empty
-            interrupt.
-       (##) SPI_I2S_IT_RXNE : specifies the interrupt source for the Rx buffer not
-            empty interrupt.
-       (##) SPI_I2S_IT_ERR : specifies the interrupt source for the errors interrupt.
+（##）SPI_I2S_IT_TXE：指定Tx缓冲区空中断的中断源。
+（##）SPI_I2S_IT_RXNE：指定Rx缓冲区非空中断的中断源。
+（##）SPI_I2S_IT_ERR：指定错误中断的中断源。
 
- [..] In this Mode it is advised to use the following functions:
+ [..] 在此模式下，建议使用以下函数:
    (+) void SPI_I2S_ITConfig(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT, FunctionalState NewState);
    (+) ITStatus SPI_I2S_GetITStatus(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT);
    (+) void SPI_I2S_ClearITPendingBit(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT);
 
- *** DMA Mode ***
+ *** DMA 模式 ***
  ================
- [..] In DMA Mode, the SPI communication can be managed by 2 DMA Channel requests:
-   (#) SPI_I2S_DMAReq_Tx: specifies the Tx buffer DMA transfer request
-   (#) SPI_I2S_DMAReq_Rx: specifies the Rx buffer DMA transfer request
+ [..] 在DMA模式下，SPI通信可以通过2个DMA通道请求进行管理:
+   (#) SPI_I2S_DMAReq_Tx: 指定Tx缓冲区DMA传输请求
+   (#) SPI_I2S_DMAReq_Rx: 指定Rx缓冲区DMA传输请求
 
- [..] In this Mode it is advised to use the following function:
+ [..] 在此模式下，建议使用以下函数:
    (+) void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState
        NewState);
 
@@ -999,12 +991,13 @@ void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState 
 
 /**
   * 简介:  启用或禁用指定的 SPI/I2S 中断。
-  * 参数:  SPIx: To select the SPIx/I2Sx peripheral, where x can be: 1, 2, 3, 4, 5 or 6
-  *         in SPI mode or 2 or 3 in I2S mode or I2Sxext for I2S full duplex mode.
-  * 参数:  SPI_I2S_IT: specifies the SPI interrupt source to be enabled or disabled.
+  * 参数:  SPIx: 选择SPIx/I2Sx外围设备，其中x可以是：
+				在SPI模式下为1、2、3、4、5或6，在I2S模式下为2或3，
+				或者在I2S全双工模式下为I2Sxext。
+  * 参数:  SPI_I2S_IT: 指定要启用或禁用的SPI中断源。
   *          此参数可以是以下值之一:
-  *            @arg SPI_I2S_IT_TXE: Tx buffer empty interrupt mask
-  *            @arg SPI_I2S_IT_RXNE: Rx buffer not empty interrupt mask
+  *            @arg SPI_I2S_IT_TXE: Tx缓冲区空中断掩码
+  *            @arg SPI_I2S_IT_RXNE: Rx缓冲区空中断掩码
   *            @arg SPI_I2S_IT_ERR: 错误中断 mask
   * 参数:  NewState: 新状态-> specified SPI interrupt.
   *          此参数可以是:ENABLE或DISABLE。
@@ -1071,21 +1064,17 @@ FlagStatus SPI_I2S_GetFlagStatus(SPI_TypeDef* SPIx, uint16_t SPI_I2S_FLAG) {
 
 /**
   * 简介:  清除 SPIx CRC 错误 (CRCERR) 标志。
-  * 参数:  SPIx: To select the SPIx/I2Sx peripheral, where x can be: 1, 2, 3, 4, 5 or 6
-  *         in SPI mode or 2 or 3 in I2S mode or I2Sxext for I2S full duplex mode.
-  * 参数:  SPI_I2S_FLAG: specifies the SPI flag to clear.
-  *          This function clears only CRCERR flag.
-  *            @arg SPI_FLAG_CRCERR: CRC Error flag.
+  * 参数:  SPIx：选择SPIx/I2Sx外围设备，其中x可以是：
+			SPI模式下的1、2、3、4、5或6，I2S模式下的2或3，I2S全双工模式下的I2Sxext。
+  * 参数:  SPI_I2S_FLAG：指定要清除的SPI标志。
+  *			此功能仅清除CRCERR标志。
+  *				@arg SPI_FLAG_CERRR:CRC错误标志。
   *
-  * 注意:   OVR (OverRun error) flag is cleared by software sequence: a read
-  *          operation to SPI_DR register (SPI_I2S_ReceiveData()) followed by a read
-  *          operation to SPI_SR register (SPI_I2S_GetFlagStatus()).
-  * 注意:   UDR (UnderRun error) flag is cleared by a read operation to
-  *          SPI_SR register (SPI_I2S_GetFlagStatus()).
-  * 注意:   MODF (Mode Fault) flag is cleared by software sequence: a read/write
-  *          operation to SPI_SR register (SPI_I2S_GetFlagStatus()) followed by a
-  *          write operation to SPI_CR1 register (SPI_Cmd() to enable the SPI).
-  *
+  * 注意:   OVR（OverRun error）标志由软件序列清除：对SPI_DR寄存器（SPI_I2S_ReceiveData（））进行
+			读取操作，然后对SPI_SR寄存器（SPI_I2S_GetFlagStatus（））执行读取操作。
+  * 注意:   通过对SPI_SR寄存器的读取操作（SPI_I2S_GetFlagStatus（））清除UDR（运行不足错误）标志。
+  * 注意:   MODF（模式故障）标志由软件序列清除：对SPI_SR寄存器（SPI_I2S_GetFlagStatus（））
+			进行读/写操作，然后对SPI_CR1寄存器（SPI_Cmd（）进行写操作以启用SPI）。
   * 返回值: 无
   */
 void SPI_I2S_ClearFlag(SPI_TypeDef* SPIx, uint16_t SPI_I2S_FLAG) {

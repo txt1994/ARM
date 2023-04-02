@@ -6,10 +6,10 @@
   * 日期:    04-November-2016
   * 简介:    此文件提供固件功能，以管理安全数字输入/输出接口(SDIO)外围设备的以下功能:
   *           + 初始化和配置
-  *           + Command path state machine (CPSM) management
-  *           + Data path state machine (DPSM) management
-  *           + SDIO IO Cards mode management
-  *           + CE-ATA mode management
+  *           + 命令路径状态机（CPSM）管理
+  *           + 数据路径状态机（DPSM）管理
+  *           + SDIO IO卡模式管理
+  *           + CE-ATA 模式管理
   *           + DMA传输管理
   *           + 中断和标志管理
   *
@@ -253,8 +253,7 @@ void SDIO_DeInit(void) {
 
 /**
   * 简介:  根据SDIO_InitStruct中指定的参数初始化SDIO外设。
-  * 参数:  SDIO_InitStruct : pointer to a SDIO_InitTypeDef structure
-  *         that contains the configuration information for the SDIO 外设.
+  * 参数:  SDIO_InitStruct : 指向SDIO_InitTypeDef结构的指针，该结构包含SDIO的配置信息外设.
   * 返回值: 无
   */
 void SDIO_Init(SDIO_InitTypeDef* SDIO_InitStruct) {
@@ -295,7 +294,7 @@ void SDIO_Init(SDIO_InitTypeDef* SDIO_InitStruct) {
   * 返回值: 无
   */
 void SDIO_StructInit(SDIO_InitTypeDef* SDIO_InitStruct) {
-    /* SDIO_InitStruct members default 值 */
+    /* SDIO_InitStruct 成员默认值 */
     SDIO_InitStruct->SDIO_ClockDiv = 0x00;
     SDIO_InitStruct->SDIO_ClockEdge = SDIO_ClockEdge_Rising;
     SDIO_InitStruct->SDIO_ClockBypass = SDIO_ClockBypass_Disable;
@@ -335,8 +334,7 @@ void SDIO_SetPowerState(uint32_t SDIO_PowerState) {
 /**
   * 简介:  获取控制器的电源状态。
   * 参数: 无
-  * 返回值: Power status of the controller. The returned value can be one of the
-  *         following values:
+  * 返回值: 控制器的电源状态。返回的值可以是以下值之一:
   *            - 0x00: Power OFF
   *            - 0x02: Power UP
   *            - 0x03: Power ON
@@ -349,16 +347,15 @@ uint32_t SDIO_GetPowerState(void) {
   * @}
   */
 
-/** @defgroup SDIO_Group2 Command path state machine (CPSM) management functions
- *  简介   Command path state machine (CPSM) management functions
+/** @defgroup SDIO_Group2 命令路径状态机（CPSM）管理功能
+ *  简介   命令路径状态机（CPSM）管理功能
  *
 @verbatim
  ===============================================================================
-        ##### Command path state machine (CPSM) management functions #####
+        ##### 命令路径状态机（CPSM）管理功能 #####
  ===============================================================================
 
-  This section provide functions allowing to program and read the Command path
-  state machine (CPSM).
+  本节提供了允许对命令路径状态机（CPSM）进行编程和读取的功能.
 
 @endverbatim
   * @{
@@ -366,9 +363,8 @@ uint32_t SDIO_GetPowerState(void) {
 
 /**
   * 简介:  根据SDIO_CmdInitStruct中指定的参数初始化SDIO命令并发送命令。
-  * 参数:  SDIO_CmdInitStruct : pointer to a SDIO_CmdInitTypeDef
-  *         structure that contains the configuration information for the SDIO
-  *         command.
+  * 参数:  SDIO_CmdInitStruct : 指向SDIO_CmdInitTypeDef结构的指针，
+								该结构包含SDIO命令的配置信息。
   * 返回值: 无
   */
 void SDIO_SendCommand(SDIO_CmdInitTypeDef *SDIO_CmdInitStruct) {
@@ -402,12 +398,11 @@ void SDIO_SendCommand(SDIO_CmdInitTypeDef *SDIO_CmdInitStruct) {
 
 /**
   * 简介:  用每个SDIO_CmdInitStruct成员的默认值填充该成员。
-  * 参数:  SDIO_CmdInitStruct: pointer to an SDIO_CmdInitTypeDef
-  *         structure which will be initialized.
+  * 参数:  SDIO_CmdInitStruct: 指向将被初始化的SDIO_CmdInitTypeDef结构的指针。
   * 返回值: 无
   */
 void SDIO_CmdStructInit(SDIO_CmdInitTypeDef* SDIO_CmdInitStruct) {
-    /* SDIO_CmdInitStruct members default 值 */
+    /* SDIO_CmdInitStruct 成员默认值 */
     SDIO_CmdInitStruct->SDIO_Argument = 0x00;
     SDIO_CmdInitStruct->SDIO_CmdIndex = 0x00;
     SDIO_CmdInitStruct->SDIO_Response = SDIO_Response_No;
@@ -418,7 +413,7 @@ void SDIO_CmdStructInit(SDIO_CmdInitTypeDef* SDIO_CmdInitStruct) {
 /**
   * 简介:  返回接收到响应的最后一个命令的命令索引
   * 参数: 无
-  * 返回值: Returns the command index of the last command response received.
+  * 返回值: 返回接收到的最后一个命令响应的命令索引。
   */
 uint8_t SDIO_GetCommandResponse(void) {
     return (uint8_t)(SDIO->RESPCMD);
@@ -426,7 +421,7 @@ uint8_t SDIO_GetCommandResponse(void) {
 
 /**
   * 简介:  返回从卡收到的对最后一个命令的响应。
-  * 参数:  SDIO_RESP: Specifies the SDIO response register.
+  * 参数:  SDIO_RESP: 指定SDIO响应寄存器。
   *          此参数可以是以下值之一:
   *            @arg SDIO_RESP1: Response Register 1
   *            @arg SDIO_RESP2: Response Register 2
@@ -449,16 +444,15 @@ uint32_t SDIO_GetResponse(uint32_t SDIO_RESP) {
   * @}
   */
 
-/** @defgroup SDIO_Group3 Data path state machine (DPSM) management functions
- *  简介   Data path state machine (DPSM) management functions
+/** @defgroup SDIO_Group3 数据路径状态机（DPSM）管理功能
+ *  简介   数据路径状态机（DPSM）管理功能
  *
 @verbatim
  ===============================================================================
-         ##### Data path state machine (DPSM) management functions #####
+         ##### 数据路径状态机（DPSM）管理功能 #####
  ===============================================================================
 
-  This section provide functions allowing to program and read the Data path
-  state machine (DPSM).
+  本节提供了允许对数据路径状态机（DPSM）进行编程和读取的功能.
 
 @endverbatim
   * @{
@@ -466,8 +460,8 @@ uint32_t SDIO_GetResponse(uint32_t SDIO_RESP) {
 
 /**
   * 简介:  根据SDIO_DataInitStruct中指定的参数初始化 SDIO 数据路径。
-  * 参数:  SDIO_DataInitStruct : pointer to a SDIO_DataInitTypeDef structure
-  *         that contains the configuration information for the SDIO command.
+  * 参数:  SDIO_DataInitStruct : 指向SDIO_DataInitTypeDef结构的指针，
+								 该结构包含SDIO命令的配置信息。
   * 返回值: 无
   */
 void SDIO_DataConfig(SDIO_DataInitTypeDef* SDIO_DataInitStruct) {
@@ -506,12 +500,11 @@ void SDIO_DataConfig(SDIO_DataInitTypeDef* SDIO_DataInitStruct) {
 
 /**
   * 简介:  用每个SDIO_DataInitStruct成员的默认值填充每个成员。
-  * 参数:  SDIO_DataInitStruct: pointer to an SDIO_DataInitTypeDef structure
-  *         which will be initialized.
+  * 参数:  SDIO_DataInitStruct: 指向将被初始化的SDIO_DataInitTypeDef结构的指针。
   * 返回值: 无
   */
 void SDIO_DataStructInit(SDIO_DataInitTypeDef* SDIO_DataInitStruct) {
-    /* SDIO_DataInitStruct members default 值 */
+    /* SDIO_DataInitStruct 成员默认值 */
     SDIO_DataInitStruct->SDIO_DataTimeOut = 0xFFFFFFFF;
     SDIO_DataInitStruct->SDIO_DataLength = 0x00;
     SDIO_DataInitStruct->SDIO_DataBlockSize = SDIO_DataBlockSize_1b;
@@ -523,7 +516,7 @@ void SDIO_DataStructInit(SDIO_DataInitTypeDef* SDIO_DataInitStruct) {
 /**
   * 简介:  返回要传输的剩余数据字节数。
   * 参数: 无
-  * 返回值: Number of remaining data bytes to be transferred
+  * 返回值: 要传输的剩余数据字节数
   */
 uint32_t SDIO_GetDataCounter(void) {
     return SDIO->DCOUNT;
@@ -540,7 +533,7 @@ uint32_t SDIO_ReadData(void) {
 
 /**
   * 简介:  将一个数据字写入 Tx FIFO。
-  * 参数:  Data: 32-bit data word to write.
+  * 参数:  Data: 要写入的32位数据字。
   * 返回值: 无
   */
 void SDIO_WriteData(uint32_t Data) {
@@ -653,7 +646,7 @@ void SDIO_SendSDIOSuspendCmd(FunctionalState NewState) {
                   ##### CE-ATA模式管理功能 #####
  ===============================================================================
 
-  This section provide functions allowing to program and read the CE-ATA card.
+  本节提供了允许对CE-ATA卡进行编程和读取的功能。
 
 @endverbatim
   * @{
@@ -707,10 +700,10 @@ void SDIO_SendCEATACmd(FunctionalState NewState) {
  *
 @verbatim
  ===============================================================================
-                  ##### DMA传输管理 functions #####
+                  ##### DMA传输管理功能 #####
  ===============================================================================
 
-  This section provide functions allowing to program SDIO DMA transfer.
+  本节提供了允许对SDIO DMA传输进行编程的功能。
 
 @endverbatim
   * @{
@@ -750,31 +743,30 @@ void SDIO_DMACmd(FunctionalState NewState) {
   * 简介:  启用或禁用SDIO 中断.
   * 参数:  SDIO_IT:开启或关闭SDIO中断源。
   *          可以为以下值之一或组合:
-  *            @arg SDIO_IT_CCRCFAIL: Command response received (CRC check failed) interrupt
-  *            @arg SDIO_IT_DCRCFAIL: Data block sent/received (CRC check failed) interrupt
-  *            @arg SDIO_IT_CTIMEOUT: Command response timeout interrupt
-  *            @arg SDIO_IT_DTIMEOUT: Data timeout interrupt
-  *            @arg SDIO_IT_TXUNDERR: Transmit FIFO underrun error interrupt
-  *            @arg SDIO_IT_RXOVERR:  Received FIFO overrun error interrupt
-  *            @arg SDIO_IT_CMDREND:  Command response received (CRC check passed) interrupt
-  *            @arg SDIO_IT_CMDSENT:  Command sent (no response required) interrupt
-  *            @arg SDIO_IT_DATAEND:  Data end (data counter, SDIDCOUNT, is zero) interrupt
-  *            @arg SDIO_IT_STBITERR: Start bit not detected on all data signals in wide
-  *                                   bus mode interrupt
-  *            @arg SDIO_IT_DBCKEND:  Data block sent/received (CRC check passed) interrupt
-  *            @arg SDIO_IT_CMDACT:   Command transfer in progress interrupt
-  *            @arg SDIO_IT_TXACT:    Data transmit in progress interrupt
-  *            @arg SDIO_IT_RXACT:    Data receive in progress interrupt
-  *            @arg SDIO_IT_TXFIFOHE: Transmit FIFO Half Empty interrupt
-  *            @arg SDIO_IT_RXFIFOHF: Receive FIFO Half Full interrupt
-  *            @arg SDIO_IT_TXFIFOF:  Transmit FIFO full interrupt
-  *            @arg SDIO_IT_RXFIFOF:  Receive FIFO full interrupt
-  *            @arg SDIO_IT_TXFIFOE:  Transmit FIFO empty interrupt
-  *            @arg SDIO_IT_RXFIFOE:  Receive FIFO empty interrupt
-  *            @arg SDIO_IT_TXDAVL:   Data available in transmit FIFO interrupt
-  *            @arg SDIO_IT_RXDAVL:   Data available in receive FIFO interrupt
-  *            @arg SDIO_IT_SDIOIT:   SD I/O interrupt received interrupt
-  *            @arg SDIO_IT_CEATAEND: CE-ATA command completion signal received for CMD61 interrupt
+  *             @arg SDIO_IT_CCRCFAIL:命令响应收到(CRC检查失败)中断
+  *             @arg SDIO_IT_DCRCFAIL:数据块发送/接收(CRC检查失败)中断
+  *             @arg SDIO_IT_CTIMEOUT:命令响应超时中断
+  *             @arg SDIO_IT_DTIMEOUT:数据超时中断
+  *             @arg SDIO_IT_TXUNDERR:发送FIFO欠运行错误中断
+  *             @arg SDIO_IT_RXOVERR: 收到FIFO溢出错误中断
+  *             @arg SDIO_IT_CMDREND:收到命令响应(CRC检查通过)中断
+  *             @arg SDIO_IT_CMDSENT:命令发送(不需要响应)中断
+  *             @arg sdidi_it_dataend:数据结束(数据计数器，SDIDCOUNT，是零)中断
+  *             @arg SDIO_IT_STBITERR:在宽总线模式中断中，所有数据信号都未检测到开始位
+  *             @arg SDIO_IT_DBCKEND:数据块发送/接收(CRC检查通过)中断
+  *             @arg SDIO_IT_CMDACT:命令传输中中断
+  *             @arg SDIO_IT_TXACT:数据传输中中断
+  *             @arg SDIO_IT_RXACT:数据接收中中断
+  *             @arg SDIO_IT_TXFIFOHE:发送FIFO半空中断
+  *             @arg SDIO_IT_RXFIFOHF:接收FIFO半满中断
+  *             @arg SDIO_IT_TXFIFOF:发送FIFO全中断
+  *             @arg SDIO_IT_RXFIFOF:接收FIFO全中断
+  *             @arg SDIO_IT_TXFIFOE:发送FIFO空中断
+  *             @arg SDIO_IT_RXFIFOE:接收FIFO空中断
+  *             @arg SDIO_IT_TXDAVL:传输FIFO中断中可用的数据
+  *             @arg SDIO_IT_RXDAVL:接收FIFO中断中可用的数据
+  *             @arg SDIO_IT_SDIOIT: SDI /O中断接收中断
+  *             @arg SDIO_IT_CEATAEND:接收到CMD61中断的CE-ATA命令完成信号
   * 参数:  NewState: 新状态-> specified SDIO interrupts.
   *          此参数可以是:ENABLE或DISABLE。
   * 返回值: 无
@@ -785,10 +777,10 @@ void SDIO_ITConfig(uint32_t SDIO_IT, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用 SDIO interrupts */
+        /* 启用 SDIO 中断 */
         SDIO->MASK |= SDIO_IT;
     } else {
-        /* 禁用 SDIO interrupts */
+        /* 禁用 SDIO 中断 */
         SDIO->MASK &= ~SDIO_IT;
     }
 }
@@ -797,30 +789,30 @@ void SDIO_ITConfig(uint32_t SDIO_IT, FunctionalState NewState) {
   * 简介:  检查是否设置了指定的 SDIO 标志。
   * 参数:  SDIO_FLAG: 指定要检查的标志。
   *          此参数可以是以下值之一:
-  *            @arg SDIO_FLAG_CCRCFAIL: Command response received (CRC check failed)
-  *            @arg SDIO_FLAG_DCRCFAIL: Data block sent/received (CRC check failed)
-  *            @arg SDIO_FLAG_CTIMEOUT: Command response timeout
-  *            @arg SDIO_FLAG_DTIMEOUT: Data timeout
-  *            @arg SDIO_FLAG_TXUNDERR: Transmit FIFO underrun error
-  *            @arg SDIO_FLAG_RXOVERR:  Received FIFO overrun error
-  *            @arg SDIO_FLAG_CMDREND:  Command response received (CRC check passed)
-  *            @arg SDIO_FLAG_CMDSENT:  Command sent (no response required)
-  *            @arg SDIO_FLAG_DATAEND:  Data end (data counter, SDIDCOUNT, is zero)
-  *            @arg SDIO_FLAG_STBITERR: Start bit not detected on all data signals in wide bus mode.
-  *            @arg SDIO_FLAG_DBCKEND:  Data block sent/received (CRC check passed)
-  *            @arg SDIO_FLAG_CMDACT:   Command transfer in progress
-  *            @arg SDIO_FLAG_TXACT:    Data transmit in progress
-  *            @arg SDIO_FLAG_RXACT:    Data receive in progress
-  *            @arg SDIO_FLAG_TXFIFOHE: Transmit FIFO Half Empty
-  *            @arg SDIO_FLAG_RXFIFOHF: Receive FIFO Half Full
-  *            @arg SDIO_FLAG_TXFIFOF:  Transmit FIFO full
-  *            @arg SDIO_FLAG_RXFIFOF:  Receive FIFO full
-  *            @arg SDIO_FLAG_TXFIFOE:  Transmit FIFO empty
-  *            @arg SDIO_FLAG_RXFIFOE:  Receive FIFO empty
-  *            @arg SDIO_FLAG_TXDAVL:   Data available in transmit FIFO
-  *            @arg SDIO_FLAG_RXDAVL:   Data available in receive FIFO
-  *            @arg SDIO_FLAG_SDIOIT:   SD I/O interrupt received
-  *            @arg SDIO_FLAG_CEATAEND: CE-ATA command completion signal received for CMD61
+  *           @arg SDIO_FLAG_CCRCFAIL:收到命令响应(CRC检查失败)
+  *           @arg SDIO_FLAG_DCRCFAIL:发送/接收数据块(CRC检查失败)
+  *           @arg SDIO_FLAG_CTIMEOUT:命令响应超时
+  *           @arg SDIO_FLAG_DTIMEOUT:数据超时
+  *           @arg SDIO_FLAG_TXUNDERR:发送FIFO欠运行错误
+  *           @arg SDIO_FLAG_RXOVERR: 收到FIFO溢出错误中断
+  *           @arg SDIO_FLAG_CMDREND:收到命令响应(CRC检查通过)
+  *           @arg SDIO_FLAG_CMDSENT:命令已发送(不需要响应)
+  *           @arg sdidi_flag_dataend:数据结束(数据计数器，SDIDCOUNT，是零)
+  *           @arg SDIO_FLAG_STBITERR:在宽总线模式下，所有数据信号上未检测到起始位。
+  *           @arg SDIO_FLAG_DBCKEND:发送/接收的数据块(通过CRC检查)
+  *           @arg SDIO_FLAG_CMDACT:命令传输中
+  *           @arg SDIO_FLAG_TXACT:数据传输中
+  *           @arg SDIO_FLAG_RXACT:数据接收中
+  *           @arg SDIO_FLAG_TXFIFOHE:发送FIFO半空
+  *           @arg SDIO_FLAG_RXFIFOHF:接收FIFO半满
+  *           @arg SDIO_FLAG_TXFIFOF:发送FIFO满
+  *           @arg SDIO_FLAG_RXFIFOF:接收FIFO已满
+  *           @arg SDIO_FLAG_TXFIFOE:发送FIFO空
+  *           @arg SDIO_FLAG_RXFIFOE:接收FIFO空
+  *           @arg SDIO_FLAG_TXDAVL:传输FIFO中可用的数据
+  *           @arg SDIO_FLAG_RXDAVL:接收FIFO中可用的数据
+  *           @arg SDIO_FLAG_SDIOIT:收到SDI /O中断
+  *           @arg SDIO_FLAG_CEATAEND:收到CMD61的CE-ATA命令完成信号
   * 返回值: 新状态-> SDIO_FLAG (SET or RESET).
   */
 FlagStatus SDIO_GetFlagStatus(uint32_t SDIO_FLAG) {
@@ -842,19 +834,19 @@ FlagStatus SDIO_GetFlagStatus(uint32_t SDIO_FLAG) {
   * 简介:  清除 SDIO 的挂起标志。
   * 参数:  SDIO_FLAG: 指定要清除的标志。
   *          可以为以下值之一或组合:
-  *            @arg SDIO_FLAG_CCRCFAIL: Command response received (CRC check failed)
-  *            @arg SDIO_FLAG_DCRCFAIL: Data block sent/received (CRC check failed)
-  *            @arg SDIO_FLAG_CTIMEOUT: Command response timeout
-  *            @arg SDIO_FLAG_DTIMEOUT: Data timeout
-  *            @arg SDIO_FLAG_TXUNDERR: Transmit FIFO underrun error
-  *            @arg SDIO_FLAG_RXOVERR:  Received FIFO overrun error
-  *            @arg SDIO_FLAG_CMDREND:  Command response received (CRC check passed)
-  *            @arg SDIO_FLAG_CMDSENT:  Command sent (no response required)
-  *            @arg SDIO_FLAG_DATAEND:  Data end (data counter, SDIDCOUNT, is zero)
-  *            @arg SDIO_FLAG_STBITERR: Start bit not detected on all data signals in wide bus mode
-  *            @arg SDIO_FLAG_DBCKEND:  Data block sent/received (CRC check passed)
-  *            @arg SDIO_FLAG_SDIOIT:   SD I/O interrupt received
-  *            @arg SDIO_FLAG_CEATAEND: CE-ATA command completion signal received for CMD61
+  *           @arg SDIO_FLAG_CCRCFAIL:收到命令响应(CRC检查失败)
+  *           @arg SDIO_FLAG_DCRCFAIL:发送/接收数据块(CRC检查失败)
+  *           @arg SDIO_FLAG_CTIMEOUT:命令响应超时
+  *           @arg SDIO_FLAG_DTIMEOUT:数据超时
+  *           @arg SDIO_FLAG_TXUNDERR:发送FIFO欠运行错误
+  *           @arg SDIO_FLAG_RXOVERR: Received FIFO overflow error
+  *           @arg SDIO_FLAG_CMDREND:收到命令响应(CRC检查通过)
+  *           @arg SDIO_FLAG_CMDSENT:命令已发送(不需要响应)
+  *           @arg sdidi_flag_dataend:数据结束(数据计数器，SDIDCOUNT，是零)
+  *           @arg SDIO_FLAG_STBITERR:在宽总线模式下，所有数据信号上未检测到起始位
+  *           @arg SDIO_FLAG_DBCKEND:发送/接收的数据块(通过CRC检查)
+  *           @arg SDIO_FLAG_SDIOIT:收到SDI I/O中断
+  *           @arg SDIO_FLAG_CEATAEND:收到CMD61的CE-ATA命令完成信号
   * 返回值: 无
   */
 void SDIO_ClearFlag(uint32_t SDIO_FLAG) {
@@ -868,31 +860,30 @@ void SDIO_ClearFlag(uint32_t SDIO_FLAG) {
   * 简介:  检查指定的SDIO中断是否发生。
   * 参数:  SDIO_IT: 指定要检查的SDIO中断源。
   *          此参数可以是以下值之一:
-  *            @arg SDIO_IT_CCRCFAIL: Command response received (CRC check failed) interrupt
-  *            @arg SDIO_IT_DCRCFAIL: Data block sent/received (CRC check failed) interrupt
-  *            @arg SDIO_IT_CTIMEOUT: Command response timeout interrupt
-  *            @arg SDIO_IT_DTIMEOUT: Data timeout interrupt
-  *            @arg SDIO_IT_TXUNDERR: Transmit FIFO underrun error interrupt
-  *            @arg SDIO_IT_RXOVERR:  Received FIFO overrun error interrupt
-  *            @arg SDIO_IT_CMDREND:  Command response received (CRC check passed) interrupt
-  *            @arg SDIO_IT_CMDSENT:  Command sent (no response required) interrupt
-  *            @arg SDIO_IT_DATAEND:  Data end (data counter, SDIDCOUNT, is zero) interrupt
-  *            @arg SDIO_IT_STBITERR: Start bit not detected on all data signals in wide
-  *                                   bus mode interrupt
-  *            @arg SDIO_IT_DBCKEND:  Data block sent/received (CRC check passed) interrupt
-  *            @arg SDIO_IT_CMDACT:   Command transfer in progress interrupt
-  *            @arg SDIO_IT_TXACT:    Data transmit in progress interrupt
-  *            @arg SDIO_IT_RXACT:    Data receive in progress interrupt
-  *            @arg SDIO_IT_TXFIFOHE: Transmit FIFO Half Empty interrupt
-  *            @arg SDIO_IT_RXFIFOHF: Receive FIFO Half Full interrupt
-  *            @arg SDIO_IT_TXFIFOF:  Transmit FIFO full interrupt
-  *            @arg SDIO_IT_RXFIFOF:  Receive FIFO full interrupt
-  *            @arg SDIO_IT_TXFIFOE:  Transmit FIFO empty interrupt
-  *            @arg SDIO_IT_RXFIFOE:  Receive FIFO empty interrupt
-  *            @arg SDIO_IT_TXDAVL:   Data available in transmit FIFO interrupt
-  *            @arg SDIO_IT_RXDAVL:   Data available in receive FIFO interrupt
-  *            @arg SDIO_IT_SDIOIT:   SD I/O interrupt received interrupt
-  *            @arg SDIO_IT_CEATAEND: CE-ATA command completion signal received for CMD61 interrupt
+  *           @arg SDIO_IT_CCRCFAIL:命令响应收到(CRC检查失败)中断
+  *           @arg SDIO_IT_DCRCFAIL:数据块发送/接收(CRC检查失败)中断
+  *           @arg SDIO_IT_CTIMEOUT:命令响应超时中断
+  *           @arg SDIO_IT_DTIMEOUT:数据超时中断
+  *           @arg SDIO_IT_TXUNDERR:发送FIFO欠运行错误中断
+  *           @arg SDIO_IT_RXOVERR: 收到FIFO溢出错误中断
+  *           @arg SDIO_IT_CMDREND:收到命令响应(CRC检查通过)中断
+  *           @arg SDIO_IT_CMDSENT:命令发送(不需要响应)中断
+  *           @arg sdidi_it_dataend:数据结束(数据计数器，SDIDCOUNT，是零)中断
+  *           @arg SDIO_IT_STBITERR:在宽总线模式中断中，所有数据信号都未检测到开始位
+  *           @arg SDIO_IT_DBCKEND:数据块发送/接收(CRC检查通过)中断
+  *           @arg SDIO_IT_CMDACT:命令传输中中断
+  *           @arg SDIO_IT_TXACT:数据传输中中断
+  *           @arg SDIO_IT_RXACT:数据接收中中断
+  *           @arg SDIO_IT_TXFIFOHE:发送FIFO半空中断
+  *           @arg SDIO_IT_RXFIFOHF:接收FIFO半满中断
+  *           @arg SDIO_IT_TXFIFOF:发送FIFO全中断
+  *           @arg SDIO_IT_RXFIFOF:接收FIFO全中断
+  *           @arg SDIO_IT_TXFIFOE:发送FIFO空中断
+  *			  @arg SDIO_IT_RXFIFOE:接收FIFO空中断
+  *           @arg SDIO_IT_TXDAVL:传输FIFO中断中可用的数据
+  *           @arg SDIO_IT_RXDAVL:接收FIFO中断中可用的数据
+  *           @arg SDIO_IT_SDIOIT: SDI /O中断接收中断
+  *           @arg SDIO_IT_CEATAEND:接收到CMD61中断的CE-ATA命令完成信号
   * 返回值: 新状态-> SDIO_IT (SET or RESET).
   */
 ITStatus SDIO_GetITStatus(uint32_t SDIO_IT) {
@@ -914,19 +905,18 @@ ITStatus SDIO_GetITStatus(uint32_t SDIO_IT) {
   * 简介:  清除 SDIO 的中断挂起位。
   * 参数:  SDIO_IT: 指定要清除的中断等待位。
   *          可以为以下值之一或组合:
-  *            @arg SDIO_IT_CCRCFAIL: Command response received (CRC check failed) interrupt
-  *            @arg SDIO_IT_DCRCFAIL: Data block sent/received (CRC check failed) interrupt
-  *            @arg SDIO_IT_CTIMEOUT: Command response timeout interrupt
-  *            @arg SDIO_IT_DTIMEOUT: Data timeout interrupt
-  *            @arg SDIO_IT_TXUNDERR: Transmit FIFO underrun error interrupt
-  *            @arg SDIO_IT_RXOVERR:  Received FIFO overrun error interrupt
-  *            @arg SDIO_IT_CMDREND:  Command response received (CRC check passed) interrupt
-  *            @arg SDIO_IT_CMDSENT:  Command sent (no response required) interrupt
-  *            @arg SDIO_IT_DATAEND:  Data end (data counter, SDIO_DCOUNT, is zero) interrupt
-  *            @arg SDIO_IT_STBITERR: Start bit not detected on all data signals in wide
-  *                                   bus mode interrupt
-  *            @arg SDIO_IT_SDIOIT:   SD I/O interrupt received interrupt
-  *            @arg SDIO_IT_CEATAEND: CE-ATA command completion signal received for CMD61
+  *           @arg SDIO_IT_CCRCFAIL:命令响应收到(CRC检查失败)中断
+  *           @arg SDIO_IT_DCRCFAIL:数据块发送/接收(CRC检查失败)中断
+  *           @arg SDIO_IT_CTIMEOUT:命令响应超时中断
+  *           @arg SDIO_IT_DTIMEOUT:数据超时中断
+  *           @arg SDIO_IT_TXUNDERR:发送FIFO欠运行错误中断
+  *           @arg SDIO_IT_RXOVERR: 收到FIFO溢出错误中断
+  *           @arg SDIO_IT_CMDREND:收到命令响应(CRC检查通过)中断
+  *           @arg SDIO_IT_CMDSENT:命令发送(不需要响应)中断
+  *           @arg SDIO_IT_DATAEND:数据结束(数据计数器，SDIO_DCOUNT，为零)中断
+  *           @arg SDIO_IT_STBITERR:在宽总线模式中断中，所有数据信号都未检测到开始位
+  *           @arg SDIO_IT_SDIOIT: SDI /O中断接收中断
+  *           @arg SDIO_IT_CEATAEND:收到CMD61的CE-ATA命令完成信号
   * 返回值: 无
   */
 void SDIO_ClearITPendingBit(uint32_t SDIO_IT) {

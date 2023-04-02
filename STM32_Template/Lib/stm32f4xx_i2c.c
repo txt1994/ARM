@@ -582,7 +582,7 @@ void I2C_FastModeDutyCycleConfig(I2C_TypeDef* I2Cx, uint16_t I2C_DutyCycle) {
   * 简介:  在主接收机模式下选择指定的 I2C NACK 位置。
   * 注意:   此功能在I2C主机中很有用接收器模式 当要接收的数据数量等于2时。
   *         在这种情况下，应在数据接收开始之前调用此函数(使用参数I2C_NACKPosition_Next)，
-  *         如参考手册第节：主接收器中推荐的2字节接收程序所述。
+  *         如参考手册第节:主接收器中推荐的2字节接收程序所述。
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
   * 参数:  I2C_NACKPosition: 指定NACK位置。
   *          此参数可以是以下值之一:
@@ -677,7 +677,7 @@ void I2C_ARPCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
 void I2C_SendData(I2C_TypeDef* I2Cx, uint8_t Data) {
     /* 检查参数 */
     assert_param(IS_I2C_ALL_PERIPH(I2Cx));
-    /* Write in the DR register the data to be sent */
+    /* 在DR寄存器中写入要发送的数据 */
     I2Cx->DR = Data;
 }
 
@@ -1170,15 +1170,15 @@ FlagStatus I2C_GetFlagStatus(I2C_TypeDef* I2Cx, uint32_t I2C_FLAG) {
   *             @arg I2C_FLAG_ARLO: 仲裁丢失标志(主模式)
   *             @arg I2C_FLAG_BERR: 总线错误标志
   *
-  * 注意: STOPF(STOP检测)通过软件顺序清除：对I2C_SR1寄存器进行
+  * 注意: STOPF(STOP检测)通过软件顺序清除:对I2C_SR1寄存器进行
   *       读操作(I2C_GetFlagStatus())，然后对I2C_CR1寄存器进行写操作(I2C_Cmd()以重新启用I2C外设)。
-  * 注意: ADD10(发送10位头)通过软件顺序清除：对I2C_SR1进行读操作
+  * 注意: ADD10(发送10位头)通过软件顺序清除:对I2C_SR1进行读操作
   *     (I2C_GetFlagStatus())，然后在DR寄存器中写入地址的第二个字节。
-  * 注意: BTF (Byte Transfer Finished)通过软件顺序清除：对I2C_SR1
+  * 注意: BTF (Byte Transfer Finished)通过软件顺序清除:对I2C_SR1
   *       寄存器进行读操作(I2C_GetFlagStatus())，然后对I2C_DR寄存器进行读/写(I2C_SendData())。
-  * 注意: ADDR(发送的地址)通过软件顺序清除：对I2C_SR1寄存器进行读操作(
+  * 注意: ADDR(发送的地址)通过软件顺序清除:对I2C_SR1寄存器进行读操作(
   *       I2C_GetFlagStatus())，然后对I2C_SR2寄存器进行读操作((void)(I2Cx->SR2))。
-  * 注意: SB(Start Bit)被清除 软件顺序：对I2C_SR1寄存器进行读操作
+  * 注意: SB(Start Bit)被清除 软件顺序:对I2C_SR1寄存器进行读操作
   *     (I2C_GetFlagStatus())，然后对I2C_DR寄存器进行写操作(I2C_SendData())。
   *
   * 返回值: 无
@@ -1214,7 +1214,7 @@ void I2C_ClearFlag(I2C_TypeDef* I2Cx, uint32_t I2C_FLAG) {
   *             @arg I2C_IT_ADDR: 地址发送标志(主模式) "ADSL"
   *             地址匹配标志(从机模式)"ENDAD"
   *             @arg I2C_IT_SB: 启动位标志(主模式)
-  * 返回值：I2C_IT的新状态(SET或RESET)。
+  * 返回值:I2C_IT的新状态(SET或RESET)。
   */
 ITStatus I2C_GetITStatus(I2C_TypeDef* I2Cx, uint32_t I2C_IT) {
     ITStatus bitstatus = RESET;
@@ -1256,17 +1256,17 @@ ITStatus I2C_GetITStatus(I2C_TypeDef* I2Cx, uint32_t I2C_IT) {
   *              @arg I2C_IT_ARLO: 仲裁丢失.中断(主模式)
   *              @arg I2C_IT_BERR: 总线错误中断
   *
-  * 注意: STOPF(STOP检测)通过软件顺序清除：对I2C_SR1寄存器进行读操作
+  * 注意: STOPF(STOP检测)通过软件顺序清除:对I2C_SR1寄存器进行读操作
   *       (I2C_GetITStatus())，然后对I2C_CR1寄存器进行
   *        写操作(I2C_Cmd()以重新启用I2C外设)。
-  * 注意: ADD10(发送10位头)通过软件顺序清除：对I2C_SR1进行读操作
+  * 注意: ADD10(发送10位头)通过软件顺序清除:对I2C_SR1进行读操作
   *     (I2C_GetITStatus())，然后在I2C_DR寄存器中写入地址的第二个字节。
-  * 注意: BTF (Byte Transfer Finished)通过软件顺序清除：
+  * 注意: BTF (Byte Transfer Finished)通过软件顺序清除:
   *       对I2C_SR1寄存器进行读操作(I2C_GetITStatus())，
   *       然后对I2C_DR寄存器进行读/写(I2C_SendData())。
-  * 注意: ADDR(发送的地址)通过软件顺序清除：对I2C_SR1寄存器进行读操作
+  * 注意: ADDR(发送的地址)通过软件顺序清除:对I2C_SR1寄存器进行读操作
   *     (I2C_GetITStatus())，然后对I2C_SR2寄存器进行读操作((void)(I2Cx->SR2))。
-  * 注意: SB (Start Bit)通过软件顺序清除：对I2C_SR1寄存器进行读操作
+  * 注意: SB (Start Bit)通过软件顺序清除:对I2C_SR1寄存器进行读操作
   *     (I2C_GetITStatus())，然后对I2C_DR寄存器进行写操作(I2C_SendData())。
   * 返回值: 无
   */

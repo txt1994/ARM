@@ -1722,24 +1722,20 @@ void TIM_CCxNCmd(TIM_TypeDef* TIMx, uint16_t TIM_Channel, uint16_t TIM_CCxN) {
         (++)TIM输入捕获预定标器:TIM_IC预定标器
         (++)TIM输入捕获过滤器值:TIM_IC过滤器
 
-      (#) Call TIM_ICInit(TIMx, &TIM_ICInitStruct) to configure the desired channel
-          with the corresponding configuration and to measure only frequency
-          or duty cycle of the input signal, or, Call TIM_PWMIConfig(TIMx, &TIM_ICInitStruct)
-          to configure the desired channels with the corresponding configuration
-          and to measure the frequency and the duty cycle of the input signal
+      (#) 调用TIM_ICInit(TIMx， &TIM_ICInitStruct)用相应的配置配置所需的信道，
+		  只测量输入信号的频率或占空比，或者调用TIM_PWMIConfig(TIMx， &TIM_ICInitStruct)
+		  用相应的配置配置所需的信道，测量输入信号的频率和占空比
 
-      (#) Enable the NVIC or the DMA to read the measured frequency.
+      (#) 使能NVIC或DMA读取测量频率。
 
-      (#) Enable the corresponding interrupt (or DMA request) to read the Captured
-          value, using the function TIM_ITConfig(TIMx, TIM_IT_CCx)
-          (or TIM_DMA_Cmd(TIMx, TIM_DMA_CCx))
+      (#) 使用函数TIM_ITConfig(TIMx, TIM_IT_CCx)
+		 (或TIM_DMA_Cmd(TIMx, TIM_DMA_CCx))启用相应的中断(或DMA请求)来读取捕获值
 
-      (#) Call the TIM_Cmd(ENABLE) function to 启用TIM计数器.
+      (#) 调用TIM_Cmd(ENABLE)函数启用TIM计数器.
 
-      (#) Use TIM_GetCapturex(TIMx); to read the captured value.
+      (#) 使用 TIM_GetCapturex(TIMx)读取捕获的值.
 
-      -@- All other functions can be used separately to modify, if needed,
-          a specific feature of the Timer.
+      -@- 如果需要，所有其他函数都可以单独使用来修改定时器的特定特性。
 
 @endverbatim
   * @{
@@ -2160,16 +2156,15 @@ void TIM_CCPreloadControl(TIM_TypeDef* TIMx, FunctionalState NewState) {
   *            @arg TIM_IT_CC2: TIM捕获比较2中断源
   *            @arg TIM_IT_CC3: TIM捕获比较3中断源
   *            @arg TIM_IT_CC4: TIM捕获比较4中断源
-  *            @arg TIM_IT_COM: TIM Commutation Interrupt source
-  *            @arg TIM_IT_Trigger: TIM Trigger Interrupt source
-  *            @arg TIM_IT_Break: TIM Break Interrupt source
+  *            @arg TIM_IT_COM: TIM换向中断源
+  *            @arg TIM_IT_Trigger: TIM触发中断源
+  *            @arg TIM_IT_Break: TIM中断中断源
   *
-  * 注意:   For TIM6 and TIM7 only the parameter TIM_IT_Update can be used
-  * 注意:   For TIM9 and TIM12 only one of the following parameters can be used: TIM_IT_Update,
-  *          TIM_IT_CC1, TIM_IT_CC2 or TIM_IT_Trigger.
-  * 注意:   For TIM10, TIM11, TIM13 and TIM14 only one of the following parameters can
-  *          be used: TIM_IT_Update or TIM_IT_CC1
-  * 注意:   TIM_IT_COM and TIM_IT_Break can be used only with TIM1 and TIM8
+  * 注意:   对于TIM6和TIM7，只能使用参数TIM_IT_Update
+  * 注意:   对于TIM9和TIM12，只能使用以下参数之一:
+		    TIM_IT_Update、TIM_IT_CC1、TIM_IT_CC2或TIM_IT_Trigger。
+  * 注意:   对于TIM10、TIM11、TIM13和TIM14，只能使用以下参数之一:TIM_IT_Update或TIM_IT_CC1
+  * 注意:   TIM_IT_COM和TIM_IT_Break只能与TIM1和TIM8一起使用
   *
   * 参数:  NewState: TIM中断的新状态。
   *          此参数可以是:ENABLE或DISABLE。
@@ -2201,11 +2196,11 @@ void TIM_ITConfig(TIM_TypeDef* TIMx, uint16_t TIM_IT, FunctionalState NewState) 
   *            @arg TIM_EventSource_CC3: 定时器捕获比较3事件源
   *            @arg TIM_EventSource_CC4: 定时器捕获比较4事件源
   *            @arg TIM_EventSource_COM: 定时器COM事件源
-  *            @arg TIM_EventSource_Trigger: Timer Trigger Event source
-  *            @arg TIM_EventSource_Break: Timer Break event source
+  *            @arg TIM_EventSource_Trigger: 计时器触发器事件源
+  *            @arg TIM_EventSource_Break: 计时器中断事件源
   *
-  * 注意:   TIM6 and TIM7 can only generate an update event.
-  * 注意:   TIM_EventSource_COM and TIM_EventSource_Break are used only with TIM1 and TIM8.
+  * 注意:   TIM6和TIM7只能生成一个更新事件。
+  * 注意:   TIM_EventSource_COM和TIM_EventSource _Break仅与TIM1和TIM8一起使用。
   *
   * 返回值: 无
   */
@@ -2236,8 +2231,8 @@ void TIM_GenerateEvent(TIM_TypeDef* TIMx, uint16_t TIM_EventSource) {
   *            @arg TIM_FLAG_CC3OF: TIM捕获比较3超过捕获标志
   *            @arg TIM_FLAG_CC4OF: TIM捕获比较4超过捕获标志
   *
-  * 注意:   TIM6 and TIM7 can have only one update flag.
-  * 注意:   TIM_FLAG_COM and TIM_FLAG_Break are used only with TIM1 and TIM8.
+  * 注意:   TIM6和TIM7只能有一个更新标志。
+  * 注意:   FLAG_ COM和TIM_FLAG_ Break仅与TIM1和TIM8一起使用。
   *
   * 返回值: TIM_FLAG的新状态(SET或RESET)。
   */

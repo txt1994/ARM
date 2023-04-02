@@ -318,7 +318,7 @@ void LTDC_ReloadConfig(uint32_t LTDC_Reload) {
   * 简介:  根据LTDC_LayerStruct中指定的参数初始化 LTDC 层。
   * 注意:   这个功能只有在禁用LTDC的情况下才能使用。
   * 参数:  LTDC_layerx: 选择要配置的层，这个参数可以是以下值之一。LTDC_Layer1, LTDC_Layer2。
-  * 参数： LTDC_LayerStruct: 指向LTDC_LayerTypeDef结构的指针，该结构包含指定LTDC的配置信息。
+  * 参数: LTDC_LayerStruct: 指向LTDC_LayerTypeDef结构的指针，该结构包含指定LTDC的配置信息。
   * 返回值: 无
   */
 
@@ -440,7 +440,7 @@ void LTDC_LayerStructInit(LTDC_Layer_InitTypeDef * LTDC_Layer_InitStruct) {
 /**
   * 简介:  启用或禁用LTDC_Layer控制器。
   * 参数:  LTDC_layerx: 选择要配置的层，
-  *         这个参数可以是以下值之一：LTDC_Layer1, LTDC_Layer2
+  *         这个参数可以是以下值之一:LTDC_Layer1, LTDC_Layer2
   * 参数:  NewState: 新状态-> LTDC_Layer 外设.
   *   此参数可以是:ENABLE或DISABLE。
   * 返回值: 无
@@ -568,7 +568,7 @@ void LTDC_ColorKeyingStructInit(LTDC_ColorKeying_InitTypeDef* LTDC_colorkeying_I
 /**
   * 简介:  启用或禁用 CLUT。
   * 参数:  NewState: 新状态->  CLUT.
-  * 参数:  LTDC_layerx: 选择要配置的层，这个参数可以是以下值之一：LTDC_Layer1, LTDC_Layer2
+  * 参数:  LTDC_layerx: 选择要配置的层，这个参数可以是以下值之一:LTDC_Layer1, LTDC_Layer2
   *   此参数可以是:ENABLE或DISABLE。
   * 返回值: 无
   */
@@ -591,10 +591,10 @@ void LTDC_CLUTCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState) {
 
 /**
   * 简介:  配置 CLUT。
-  * 参数： LTDC_CLUT_InitStruct: 指向包含CLUT配置的
+  * 参数: LTDC_CLUT_InitStruct: 指向包含CLUT配置的
   *                              LTDC_CLUT_InitTypeDef结构的指针。
   * 参数:  LTDC_layerx: 选择要配置的层，这个参数可以是以
-  *                     下值之一：LTDC_Layer1, LTDC_Layer2
+  *                     下值之一:LTDC_Layer1, LTDC_Layer2
   * 返回值: 无
   */
 
@@ -634,9 +634,9 @@ void LTDC_CLUTStructInit(LTDC_CLUT_InitTypeDef* LTDC_CLUT_InitStruct) {
 
 /**
   * 简介:  重新配置图层位置。
-  * 参数： OffsetX：从活动宽度开始的水平偏移。
+  * 参数: OffsetX:从活动宽度开始的水平偏移。
   * 参数:  OffsetY: 从开始活动的高度开始的垂直偏移。
-  * 参数:  LTDC_layerx: 选择要配置的层，这个参数可以是以下值之一：LTDC_Layer1, LTDC_Layer2。
+  * 参数:  LTDC_layerx: 选择要配置的层，这个参数可以是以下值之一:LTDC_Layer1, LTDC_Layer2。
   * 返回值: 在层位置重新配置后，必须重新加载阴影寄存器的值。
   */
 
@@ -698,9 +698,9 @@ void LTDC_LayerAlpha(LTDC_Layer_TypeDef* LTDC_Layerx, uint8_t ConstantAlpha) {
 
 /**
   * 简介:  重新配置图层地址。
-  * 参数:  Address：彩色帧缓冲器的起始地址。
-  * 参数： LTDC_layerx: 选择要配置的层，这个参数可以是以下值之一。LTDC_Layer1, LTDC_Layer2。
-  * 返回值：在层地址重新配置后，必须重新加载影子寄存器的值。
+  * 参数:  Address:彩色帧缓冲器的起始地址。
+  * 参数: LTDC_layerx: 选择要配置的层，这个参数可以是以下值之一。LTDC_Layer1, LTDC_Layer2。
+  * 返回值:在层地址重新配置后，必须重新加载影子寄存器的值。
   */
 
 void LTDC_LayerAddress(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t Address) {
@@ -710,9 +710,9 @@ void LTDC_LayerAddress(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t Address) {
 
 /**
   * 简介:  重新配置图层大小。
-  * 参数： Width: 图层窗口宽度。
-  * 参数： Height: 图层窗口的高度。
-  * 参数:  LTDC_layerx: 选择要配置的图层，这个参数可以是以下值之一：LTDC_Layer1, LTDC_Layer2。
+  * 参数: Width: 图层窗口宽度。
+  * 参数: Height: 图层窗口的高度。
+  * 参数:  LTDC_layerx: 选择要配置的图层，这个参数可以是以下值之一:LTDC_Layer1, LTDC_Layer2。
   * 返回值: 在层大小重新配置后，必须重新加载影子寄存器的值。
   */
 
@@ -762,7 +762,7 @@ void LTDC_LayerSize(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t Width, uint32_t He
 
 /**
   * 简介:  重新配置图层像素格式。
-  * 参数:  PixelFormat：重新配置像素格式，这个参数可以是以下值之一：@ref LTDC_Pixelformat。
+  * 参数:  PixelFormat:重新配置像素格式，这个参数可以是以下值之一:@ref LTDC_Pixelformat。
   * 参数:  LTDC_layerx: 选择要配置的图层，这个参数可以是以下值之一:LTDC_Layer1, LTDC_Layer2。
   * 返回值: 阴影寄存器值的重新加载必须在层像素格式重新配置后应用。
   */
@@ -830,9 +830,9 @@ void LTDC_LayerPixelFormat(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t PixelFormat
     *** 标志 ***
     =============
     [..]
-      (+) LTDC_FLAG_LI：线路中断标志。
+      (+) LTDC_FLAG_LI:线路中断标志。
       (+) LTDC_FLAG_FU: FIFO Underrun 中断标志。
-      (+) LTDC_FLAG_TERR：传输错误中断标志。
+      (+) LTDC_FLAG_TERR:传输错误中断标志。
       (+) LTDC_FLAG_RR: 寄存器重新加载中断标志。
 
     *** 中断 ***
@@ -841,7 +841,7 @@ void LTDC_LayerPixelFormat(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t PixelFormat
       (+) LTDC_IT_LI: 当达到一个编程的线路时，会产生线路中断。线路中断的位置是在LTDC_LIPR寄存器中编程的。
       (+) LTDC_IT_FU: 当从一个空层FIFO请求一个像素时，产生FIFO Underrun中断。
       (+) LTDC_IT_TERR: 传输错误中断是在数据传输过程中发生AHB总线错误时产生的。
-      (+) LTDC_IT_RR：当在垂直消隐期间执行影子寄存器重新加载时，产生寄存器重新加载中断。
+      (+) LTDC_IT_RR:当在垂直消隐期间执行影子寄存器重新加载时，产生寄存器重新加载中断。
 
 @endverbatim
   * @{

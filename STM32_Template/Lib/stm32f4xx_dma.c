@@ -654,13 +654,10 @@ void DMA_DoubleBufferModeCmd(DMA_Stream_TypeDef* DMAy_Streamx, FunctionalState N
   *            @arg DMA_Memory_0: To use the memory address 0
   *            @arg DMA_Memory_1: To use the memory address 1
   *
-  * 注意:    It is not allowed to modify the Base Address of a target Memory when
-  *          this target is involved in the current transfer. ie. If the DMA Stream
-  *          is currently transferring to/from Memory 1, then it not possible to
-  *          modify Base address of Memory 1, but it is possible to modify Base
-  *          address of Memory 0.
-  *          To know which Memory is currently used, you can use the function
-  *          DMA_GetCurrentMemoryTarget().
+  * 注意:    当目标内存参与当前传输时，不允许修改该目标内存的基本地址。
+			 即，如果DMA流当前正在向存储器1传输/从存储器1传输，
+			 则不可能修改存储器1的基本地址，但可以修改存储器0的基本地址。
+  *          要知道当前使用的内存，可以使用函数DMA_GetCurrentMemoryTarget()。
   *
   * 返回值: 无
   */

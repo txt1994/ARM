@@ -403,11 +403,11 @@ FlagStatus DCMI_GetFlagStatus(uint16_t DCMI_FLAG) {
   * 简介:  清除 DCMI 的挂起标志。
   * 参数:  DCMI_FLAG: 指定要清除的标志。
   *          此参数可以是以下值的任意组合:
-  *           @arg DCMI_FLAG_FRAMERI: 帧捕获完成的原始标志面具
-  *           @arg DCMI_FLAG_OVFRI: 溢出 原始标志掩码
-  *           @arg DCMI_FLAG_ERRRI: 同步错误 原始标志掩码
-  *           @arg DCMI_FLAG_VSYNCRI: VSYNC 原始标志掩码
-  *           @arg DCMI_FLAG_LINERI: 线路原始标志掩码
+    *           @arg DCMI_FLAG_FRAMERI: 帧捕获完成的原始标志面具
+    *           @arg DCMI_FLAG_OVFRI: 溢出 原始标志掩码
+    *           @arg DCMI_FLAG_ERRRI: 同步错误 原始标志掩码
+    *           @arg DCMI_FLAG_VSYNCRI: VSYNC 原始标志掩码
+    *           @arg DCMI_FLAG_LINERI: 线路原始标志掩码
   * 返回值: 无
   */
 void DCMI_ClearFlag(uint16_t DCMI_FLAG) {
@@ -453,11 +453,11 @@ ITStatus DCMI_GetITStatus(uint16_t DCMI_IT) {
   * 简介:  清除 DCMI 的中断挂起位。
   * 参数:  DCMI_IT: 指定要清除的DCMI中断等待位。
   *          此参数可以是以下值的任意组合:
-  *           @arg DCMI_IT_FRAME: 帧捕获完成中断掩码
-  *           @arg DCMI_IT_OVF: 溢出中断掩码
-  *           @arg DCMI_IT_ERR: 同步错误中断掩码
-  *           @arg DCMI_IT_VSYNC: VSYNC中断掩码
-  *           @arg DCMI_IT_LINE: 线路中断屏蔽
+    *           @arg DCMI_IT_FRAME: 帧捕获完成中断掩码
+    *           @arg DCMI_IT_OVF: 溢出中断掩码
+    *           @arg DCMI_IT_ERR: 同步错误中断掩码
+    *           @arg DCMI_IT_VSYNC: VSYNC中断掩码
+    *           @arg DCMI_IT_LINE: 线路中断屏蔽
   * 返回值: 无
   */
 void DCMI_ClearITPendingBit(uint16_t DCMI_IT) {

@@ -193,7 +193,7 @@ static __I uint8_t APBAHBPrescTable[16] = {0, 0, 0, 0, 1, 2, 3, 4, 1, 2, 3, 4, 6
 
 /**
   * 简介:  将 RCC 时钟配置重置为默认重置状态。
-  * 注意:   时钟配置的默认复位状态如下：
+  * 注意:   时钟配置的默认复位状态如下:
   *            - HSI开启并作为系统时钟源使用
   *            - HSE、PLL和PLLI2S关闭
   *            - AHB、APB1和APB2预分频器设置为1。
@@ -1067,7 +1067,7 @@ void RCC_SYSCLKConfig(uint32_t RCC_SYSCLKSource) {
 /**
   * 简介:  返回用作系统时钟的时钟源。
   * 参数: 无
-  * 返回值: 用作系统时钟的时钟源。返回的值可以是以下值之一：
+  * 返回值: 用作系统时钟的时钟源。返回的值可以是以下值之一:
   *              - 0x00: HSI used as system clock
   *              - 0x04: HSE used as system clock
   *              - 0x08: PLL used as system clock (PLL P for STM32F446xx devices)
@@ -1175,7 +1175,7 @@ void RCC_PCLK2Config(uint32_t RCC_HCLK) {
   * 简介:  返回不同片上时钟的频率;SYSCLK，HCLK，PCLK1和PCLK2。
   *
   * 注意:   此函数计算的系统频率不是芯片中的实际频率。
-  *         它是根据预定义的常数和选定的时钟源计算的：
+  *         它是根据预定义的常数和选定的时钟源计算的:
   * 注意:     如果SYSCLK源是HSI，则函数返回基于HSI_VALUE(*)的值
   * 注意:     如果SYSCLK源是HSE，则函数返回基于HSE_VALUE(**)的值
   * 注意:     如果SYSCLK源是PLL，则函数返回基于HSE_VALUE(**)或HSI_VALE(*)乘以/除以PLL因子的值。
@@ -1978,7 +1978,7 @@ void RCC_AHB2PeriphClockCmd(uint32_t RCC_AHB2Periph, FunctionalState NewState) {
   * 简介:  启用或禁用AHB3 外设时钟.
   * 注意:   重置后，外围时钟(用于寄存器读/写访问)被禁用，应用软件必须在使用该时钟之前启用该时钟。
   * 参数:  RCC_AHBPeriph: 指定AHB3外围设备选通其时钟。
-  *          此参数必须为：
+  *          此参数必须为:
   *           - RCC_AHB3Periph_FSMC or RCC_AHB3Periph_FMC (STM32F412xG/STM32F413_423xx/STM32F429x/439x devices)
   *           - RCC_AHB3Periph_QSPI (STM32F412xG/STM32F413_423xx/STM32F446xx/STM32F469_479xx devices)
   * 参数:  NewState: 指定外围时钟的新状态。
@@ -2161,7 +2161,7 @@ void RCC_AHB2PeriphResetCmd(uint32_t RCC_AHB2Periph, FunctionalState NewState) {
 /**
   * 简介:  强制或释放AHB3外设复位。
   * 参数:  RCC_AHB3Periph: 指定要重置的AHB3外围设备。
-  *          此参数必须为：
+  *          此参数必须为:
   *           - RCC_AHB3Periph_FSMC or RCC_AHB3Periph_FMC (STM32F412xG, STM32F413_423xx and STM32F429x/439x devices)
   *           - RCC_AHB3Periph_QSPI (STM32F412xG/STM32F446xx/STM32F469_479xx devices)
   * 参数:  NewState: 新状态-> specified peripheral reset.
@@ -2354,7 +2354,7 @@ void RCC_AHB2PeriphClockLPModeCmd(uint32_t RCC_AHB2Periph, FunctionalState NewSt
   * 注意:   从睡眠模式唤醒后，将再次启用外围时钟。
   * 注意:   默认情况下，在睡眠模式期间启用所有外围时钟。
   * 参数:  RCC_AHBPeriph: 指定AHB3外围设备选通其时钟。
-  *          此参数必须为：
+  *          此参数必须为:
   *           - RCC_AHB3Periph_FSMC or RCC_AHB3Periph_FMC (STM32F412xG/STM32F413_423xx/STM32F429x/439x devices)
   *           - RCC_AHB3Periph_QSPI (STM32F412xG/STM32F413_423xx/STM32F446xx/STM32F469_479xx devices)
   * 参数:  NewState: 指定外围时钟的新状态。

@@ -232,7 +232,7 @@
       (+) void FLASH_DataCacheReset(void)
 
     [..]
-      The unlock sequence is not needed for these functions.
+      这些功能不需要解锁顺序。
 
 @endverbatim
   * @{

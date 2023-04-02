@@ -119,7 +119,7 @@
  Note: do not use "Peripheral" or "PPP" word in the function group name >  #####
  ===============================================================================
 
-       [..] < 可选的：
+       [..] < 可选的:
               在这里添加关于这组功能所涵盖的IP功能的最重要信息。
 
               对于系统IP，本节包含如何使用本组API。
@@ -315,9 +315,9 @@ void QSPI_Cmd(FunctionalState NewState) {
   *        此参数可以是以下任意值。
   * 参数 QSPI_PMM_AND: AND 匹配模式--如果从闪存接收到的所有未屏蔽的位与匹配寄存
   *                     器中的相应位相匹配，则SMF被设置。匹配寄存器中的相应位，则SMF被设置。
-  *         @arg QSPI_PMM_OR：OR 匹配模式--如果从闪存中收到的任何一个未被屏蔽的位与
+  *         @arg QSPI_PMM_OR:OR 匹配模式--如果从闪存中收到的任何一个未被屏蔽的位与
   *                     匹配寄存器中的相应位相匹配，则SMF被设置。匹配寄存器中的相应位。
-  * 注意： 这个功能只在自动轮询模式下使用。
+  * 注意: 这个功能只在自动轮询模式下使用。
   * 返回值: 无
   */
 void QSPI_AutoPollingMode_Config(uint32_t QSPI_Match, uint32_t QSPI_Mask, uint32_t QSPI_Match_Mode) {
@@ -465,13 +465,13 @@ void QSPI_SetFIFOThreshold(uint32_t QSPI_FIFOThreshold) {
   *         间接模式中的所有1表示未定义的长度，其中QSPI将持续到内存结束，如FSIZE所定义
   *         此参数可以在0x00000000和0xFFFFFFFFFF之间具有任何值。
   *             0x0000_0000:要传输1个字节
-  *             0x0000_0001：要传输2个字节
+  *             0x0000_0001:要传输2个字节
   *             0x0000_0002:要传输3个字节
   *             0x0000_0003:要传输4个字节
   *             ...
   *             0xFFFF_FFFD:4294967294(4G-2)字节将被传输
   *             0xFFFF_FFFE:4294967295(4G-1)字节将被传输
-  *             0xFFFF_FFFF：未定义的长度——闪存结束前的所有字节(如定义
+  *             0xFFFF_FFFF:未定义的长度——闪存结束前的所有字节(如定义
   *             由FSIZE)转让
   * 注意:   此函数不用于内存映射模式。
   * 返回值: 无
@@ -643,11 +643,11 @@ void QSPI_DMACmd(FunctionalState NewState) {
   * 简介:  启用或禁用指定的 QSPI 中断.
   * 参数:  QSPI_IT: 指定要启用或禁用的QSPI中断源。
   *          此参数可以是以下值之一:
-  *                @arg QSPI_IT_TO：超时中断
-  *                @arg QSPI_IT_SM：状态匹配中断
+  *                @arg QSPI_IT_TO:超时中断
+  *                @arg QSPI_IT_SM:状态匹配中断
   *                @arg QSPI_IT_FT:FIFO阈值
-  *                @arg QSPI_IT_TC：传输完成
-  *                @arg QSPI_IT_TE：传输错误
+  *                @arg QSPI_IT_TC:传输完成
+  *                @arg QSPI_IT_TE:传输错误
   * 参数:  NewState: 新状态-> 指定的QSPI中断。
   *          此参数可以是:ENABLE或DISABLE。
   * 返回值: 无
@@ -688,7 +688,7 @@ uint32_t QSPI_GetFIFOLevel(void) {
 /**
   * 简介:  返回 QSPI 功能模式。
   * 参数: 无
-  * 返回值: QSPI功能模式。返回值可以是以下值之一：
+  * 返回值: QSPI功能模式。返回值可以是以下值之一:
   *              - 0x00000000: QSPI_FMode_Indirect_Write
   *              - 0x04000000: QSPI_FMode_Indirect_Read
   *              - 0x08000000: QSPI_FMode_AutoPolling
@@ -703,12 +703,12 @@ uint32_t QSPI_GetFMode(void) {
   * 简介:  检查是否设置了指定的 QSPI 标志。
   * 参数:  QSPI_FLAG: 指定要检查的QSPI标志。
   *          此参数可以是以下值之一:
-  *          @arg QSPI_FLAG_TO：超时中断标志
-  *          @arg QSPI_FLAG_SM：状态匹配中断标志
+  *          @arg QSPI_FLAG_TO:超时中断标志
+  *          @arg QSPI_FLAG_SM:状态匹配中断标志
   *          @arg QSPI_FLAG_FT:FIFO阈值标志
-  *          @arg QSPI_FLAG_TC：传输完成标志
-  *          @arg QSPI_FLAG_TE：传输错误标志
-  *          @arg QSPI_FLAG_BUSY：忙标志
+  *          @arg QSPI_FLAG_TC:传输完成标志
+  *          @arg QSPI_FLAG_TE:传输错误标志
+  *          @arg QSPI_FLAG_BUSY:忙标志
   * 返回值: 新状态-> QSPI_FLAG (SET or RESET).
   */
 FlagStatus QSPI_GetFlagStatus(uint32_t QSPI_FLAG) {
@@ -733,10 +733,10 @@ FlagStatus QSPI_GetFlagStatus(uint32_t QSPI_FLAG) {
   * 简介:  清除 QSPI 标志。
   * 参数:  QSPI_FLAG: 指定要清除的QSPI标志。
   *          此参数可以是以下值之一:
-  *          @arg QSPI_FLAG_TO：超时中断标志
-  *          @arg QSPI_FLAG_SM：状态匹配中断标志
-  *          @arg QSPI_FLAG_TC：传输完成标志
-  *          @arg QSPI_FLAG_TE：传输错误标志
+  *          @arg QSPI_FLAG_TO:超时中断标志
+  *          @arg QSPI_FLAG_SM:状态匹配中断标志
+  *          @arg QSPI_FLAG_TC:传输完成标志
+  *          @arg QSPI_FLAG_TE:传输错误标志
   * 返回值: 无
   */
 void QSPI_ClearFlag(uint32_t QSPI_FLAG) {
@@ -751,11 +751,11 @@ void QSPI_ClearFlag(uint32_t QSPI_FLAG) {
   * 简介:  检查指定的 QSPI 中断是否发生。
   * 参数:  QSPI_IT: 指定要检查的QSPI中断源。
   *          此参数可以是以下值之一:
-  *          @arg QSPI_IT_TO：超时中断
-  *          @arg QSPI_IT_SM：状态匹配中断
+  *          @arg QSPI_IT_TO:超时中断
+  *          @arg QSPI_IT_SM:状态匹配中断
   *          @arg QSPI_IT_FT:FIFO阈值
-  *          @arg QSPI_IT_TC：传输完成
-  *          @arg QSPI_IT_TE：传输错误
+  *          @arg QSPI_IT_TC:传输完成
+  *          @arg QSPI_IT_TE:传输错误
   * 返回值: 新状态-> QSPI_IT (SET or RESET).
   */
 ITStatus QSPI_GetITStatus(uint32_t QSPI_IT) {
@@ -790,10 +790,10 @@ ITStatus QSPI_GetITStatus(uint32_t QSPI_IT) {
   * 简介:  清除 QSPI 的中断挂起位。
   * 参数:  QSPI_IT: 指定要清除的QSPI挂起位。
   *          此参数可以是以下值之一:
-  *          @arg QSPI_IT_TO：超时中断
-  *          @arg QSPI_IT_SM：状态匹配中断
-  *          @arg QSPI_IT_TC：传输完成
-  *          @arg QSPI_IT_TE：传输错误
+  *          @arg QSPI_IT_TO:超时中断
+  *          @arg QSPI_IT_SM:状态匹配中断
+  *          @arg QSPI_IT_TC:传输完成
+  *          @arg QSPI_IT_TE:传输错误
   * 返回值: 无
   */
 void QSPI_ClearITPendingBit(uint32_t QSPI_IT) {

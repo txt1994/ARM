@@ -98,15 +98,15 @@
   * 简介: 配置优先级分组:抢占优先级和子优先级。
   * 参数: NVIC_PriorityGroup:指定优先级分组位长度。
   * 此参数可以是以下值之一:
-  * @arg NVIC_PriorityGroup_0:0 位用于抢占优先级
+    *           @arg NVIC_PriorityGroup_0:0 位用于抢占优先级
   * 	4 位用于子优先级
-  * @arg NVIC_PriorityGroup_1:1 位用于抢占优先级
+    *           @arg NVIC_PriorityGroup_1:1 位用于抢占优先级
   * 	3 位用于子优先级
-  * @arg NVIC_PriorityGroup_2:2 位用于抢占优先级
+    *           @arg NVIC_PriorityGroup_2:2 位用于抢占优先级
   * 	2 位用于子优先级
-  * @arg NVIC_PriorityGroup_3:3 位用于抢占优先级
+    *           @arg NVIC_PriorityGroup_3:3 位用于抢占优先级
   * 	1 位用于子优先级
-  * @arg NVIC_PriorityGroup_4:4 位用于抢占优先级
+    *           @arg NVIC_PriorityGroup_4:4 位用于抢占优先级
   * 	0 位表示子优先级
   * 注意:选择NVIC_PRIORITYGROUP_0时，IRQ预先抢先是不可能的。
   * 挂起的 IRQ 优先级将仅由子优先级管理。

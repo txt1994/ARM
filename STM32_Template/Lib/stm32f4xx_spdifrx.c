@@ -88,8 +88,7 @@ void SPDIFRX_DeInit(void) {
 /**
   * 简介:  根据 SPDIFRX_InitStruct 中指定的参数初始化 SPDIFRX 外设。
   *
-  * 注意:   SPDIFRX clock is generated from a specific output of the PLLSPDIFRX or a specific
-  *         output of the PLLI2S or from an alternate function bypassing the PLL I2S.
+  * 注意:   SPDIFRX时钟由PLLSPDIFRX的特定输出或PLLI2S的特定输出或绕过PLLI2S的替代函数生成。
   *
   * 参数:  SPDIFRX_InitStruct: 指向SPDIFRX_InitTypeDef结构的指针，该结构包含指定SPDIFRX块外围设备的配置信息。
   * 返回值: 无
@@ -97,7 +96,7 @@ void SPDIFRX_DeInit(void) {
 void SPDIFRX_Init(SPDIFRX_InitTypeDef* SPDIFRX_InitStruct) {
     uint32_t tmpreg = 0;
 
-    /* 检查 the SPDIFRX parameters */
+    /* 检查 the SPDIFRX 参数 */
     assert_param(IS_STEREO_MODE(SPDIFRX_InitStruct->SPDIFRX_StereoMode));
     assert_param(IS_SPDIFRX_INPUT_SELECT(SPDIFRX_InitStruct->SPDIFRX_InputSelection));
     assert_param(IS_SPDIFRX_MAX_RETRIES(SPDIFRX_InitStruct->SPDIFRX_Retries));

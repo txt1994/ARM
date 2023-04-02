@@ -344,12 +344,12 @@ void PWR_WakeUpPinCmd(uint32_t PWR_WakeUpPinx, FunctionalState NewState) {
       (+) 主内部调节器可以被配置为在设备不以最大频率操作时在性能和功耗之间进行权衡。
       (+) 对于STM32F405xx/407xx和STM32F415xx/417xx设备，
           可以通过PWR_MainRegulatorModelConfig()函数动态配置调节器，
-          该函数配置PWR_CR寄存器中的VOS位：
+          该函数配置PWR_CR寄存器中的VOS位:
         (++) 当设置此位时(选择调节器电压输出比例1模式)，系统频率可上升至168 MHz。
         (++) 当重置此位(选择调节器电压输出比例2模式)时，系统频率可达到144 MHz。
 
        (+) 对于STM32F42xxx/43xxx设备，可以通过PWR_MainRegulatorModeConfig()
-           函数配置调节器，该函数配置PWR_CR寄存器中的VOS[1:0]位：
+           函数配置调节器，该函数配置PWR_CR寄存器中的VOS[1:0]位:
            在PWR_CR寄存器中配置VOS[1:0]位:
         (++)当VOS[1:0]=11(选择调节器电压输出比例1模式)时，系统频率可上升至168 MHz。
         (++)当VOS[1:0]=10(选择调节器电压输出比例2模式)时，系统频率可上升至144 MHz。
@@ -368,7 +368,7 @@ void PWR_WakeUpPinCmd(uint32_t PWR_WakeUpPinx, FunctionalState NewState) {
             要进入或退出Overdrive模式，请遵循参考手册中描述的顺序。
 
        (+) For STM32F42xxx/43xxx Devices, in Stop mode: 主调节器或低功率调节器向1.2V
-              域提供低功率电压，从而保留寄存器和内部SRAM的内容。有两种操作模式可供选择：
+              域提供低功率电压，从而保留寄存器和内部SRAM的内容。有两种操作模式可供选择:
          (++) Normal mode: 1.2V域保持在标称泄漏模式下。
                            此模式仅在主调节器或低功率调节器用于比例3或低电压模式时可用。
          (++) Under-drive mode: 在减少泄漏模式下保留1.2V域。该模式仅在主稳压器或低功率稳压器处于低压模式时可用。
@@ -427,7 +427,7 @@ void PWR_MainRegulatorModeConfig(uint32_t PWR_Regulator_Voltage) {
   *
   * 这种模式允许CPU和核心逻辑在给定的电压比例(比例1、比例2或比例3)下以高于正常模式的频率运行。
   *
-  * 注意： 建议在应用程序不运行关键任务，并且系统时钟源为HSI或HSE时，进入或退出超速驱动模式。
+  * 注意: 建议在应用程序不运行关键任务，并且系统时钟源为HSI或HSE时，进入或退出超速驱动模式。
   *       在超速驱动开关激活期间，不应启用任何外围时钟。
   *       一旦超速模式被激活，外围时钟必须被启用。
   *

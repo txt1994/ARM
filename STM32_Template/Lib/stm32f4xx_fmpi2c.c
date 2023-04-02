@@ -1091,7 +1091,7 @@ void FMPI2C_SendData(FMPI2C_TypeDef* FMPI2Cx, uint8_t Data) {
     /* 检查参数 */
     assert_param(IS_FMPI2C_ALL_PERIPH(FMPI2Cx));
 
-    /* Write in the DR register the data to be sent */
+    /* 在DR寄存器中写入要发送的数据 */
     FMPI2Cx->TXDR = (uint8_t)Data;
 }
 
@@ -1168,14 +1168,14 @@ void FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalSt
              ##### 中断和标记管理函数  #####
  ===============================================================================
     [..] 本节提供的功能允许配置FMPI2C中断源，检查或清除标志或挂起位状态。
-         用户应确定其应用程序将使用哪种模式来管理通信：
+         用户应确定其应用程序将使用哪种模式来管理通信:
             轮询模式、中断模式或DMA模式(参见FMPI2C_Group6)。
 
   *** 轮询模式 ***
   ====================
     [..] 在轮询模式下，FMPI2C通信可以由15个标志来管理。
-        (#) FMPI2C_FLAG_TXE：表示发送数据寄存器空的状态标志。
-        (#) FMPI2C_FLAG_TXIS：表示传输中断状态标志的状态。
+        (#) FMPI2C_FLAG_TXE:表示发送数据寄存器空的状态标志。
+        (#) FMPI2C_FLAG_TXIS:表示传输中断状态标志的状态。
         (#) FMPI2C_FLAG_RXNE: 表示接收数据寄存器非空标志的状态。
         (#) FMPI2C_FLAG_ADDR: 表示地址匹配标志的状态(从机模式)。
         (#) FMPI2C_FLAG_NACKF: 指示接收到NACK标志的状态。
@@ -1186,7 +1186,7 @@ void FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalSt
         (#) FMPI2C_FLAG_ARLO: 指示仲裁失败标志的状态。
         (#) FMPI2C_FLAG_OVR: 指示超速/欠速标志的状态。
         (#) FMPI2C_FLAG_PECERR: 指示接收中的PEC错误标志的状态。
-        (#) FMPI2C_FLAG_TIMEOUT：表示超时或低速检测标志的状态。
+        (#) FMPI2C_FLAG_TIMEOUT:表示超时或低速检测标志的状态。
         (#) FMPI2C_FLAG_ALERT: 指示SMBus警报标志的状态。
         (#) FMPI2C_FLAG_BUSY: 指示总线繁忙标志的状态。
 
@@ -1201,7 +1201,7 @@ void FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalSt
   ======================
     [..] 在中断模式下，FMPI2C通信可以由7个中断源和15个待处理位来管理。
     [..] 中断源:
-        (#) FMPI2C_IT_ERRI：指定错误中断的中断源。
+        (#) FMPI2C_IT_ERRI:指定错误中断的中断源。
         (#) FMPI2C_IT_TCI: 指定传输完成中断的中断源。
         (#) FMPI2C_IT_STOPI: 指定停止检测中断的中断源。
         (#) FMPI2C_IT_NACKI: 指定未收到确认中断的中断源。
@@ -1210,18 +1210,18 @@ void FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalSt
         (#) FMPI2C_IT_TXI: 指定TX中断的中断源。
 
     [..] Pending Bits:
-        (#) FMPI2C_IT_TXIS：表示传输中断状态标志的状态。
-        (#) FMPI2C_IT_RXNE：表示接收数据寄存器非空标志的状态。
+        (#) FMPI2C_IT_TXIS:表示传输中断状态标志的状态。
+        (#) FMPI2C_IT_RXNE:表示接收数据寄存器非空标志的状态。
         (#) FMPI2C_IT_ADDR: 指示地址匹配标志的状态(从属模式)。
         (#) FMPI2C_IT_NACKF: 指示接收到NACK标志的状态。
         (#) FMPI2C_IT_STOPF: 指示STOP检测标志的状态。
         (#) FMPI2C_IT_TC: 指示传输完成标志的状态(主模式)。
-        (#) FMPI2C_IT_TCR：表示传输完成重载标志的状态。
+        (#) FMPI2C_IT_TCR:表示传输完成重载标志的状态。
         (#) FMPI2C_IT_BERR: 指示总线错误标志的状态。
         (#) FMPI2C_IT_ARLO: 指示仲裁失败标志的状态。
         (#) FMPI2C_IT_OVR: 指示超速/欠速标志的状态。
         (#) FMPI2C_IT_PECERR: 指示接收中的PEC错误标志的状态。
-        (#) FMPI2C_IT_TIMEOUT：表示超时或低速检测标志的状态。
+        (#) FMPI2C_IT_TIMEOUT:表示超时或低速检测标志的状态。
         (#) FMPI2C_IT_ALERT: 指示SMBus警报标志的状态。
 
     [..] 在这种模式下，建议使用以下函数:
@@ -1284,14 +1284,14 @@ FlagStatus FMPI2C_GetFlagStatus(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_FLAG) {
   * 参数:  FMPI2Cx: 其中x可以是1，选择FMPI2C的外设。
   * 参数:  FMPI2C_FLAG: 指定要清除的标志。
   *   此参数可以是以下值的任意组合:
-  *      @arg FMPI2C_FLAG_ADDR：地址匹配(从属模式)
+  *      @arg FMPI2C_FLAG_ADDR:地址匹配(从属模式)
   *      @arg FMPI2C_FLAG_NACKF:NACK收到标志
-  *      @arg FMPI2C_FLAG_STOPF：停止检测标志
-  *      @arg FMPI2C_FLAG_BERR：总线错误
-  *      @参数FMPI2C_FLAG_ARLO：仲裁丢失.
-  *      @arg FMPI2C_FLAG_OVR：超限/不足
-  *      @arg FMPI2C_FLAG_PECERR：接收时出现PEC错误
-  *      @arg FMPI2C_FLAG_TIMEOUT：超时或Tlow检测标志
+  *      @arg FMPI2C_FLAG_STOPF:停止检测标志
+  *      @arg FMPI2C_FLAG_BERR:总线错误
+  *      @参数FMPI2C_FLAG_ARLO:仲裁丢失.
+  *      @arg FMPI2C_FLAG_OVR:超限/不足
+  *      @arg FMPI2C_FLAG_PECERR:接收时出现PEC错误
+  *      @arg FMPI2C_FLAG_TIMEOUT:超时或Tlow检测标志
   *      @arg FMPI2C_FLAG_ALERT:SMBus警报
   * 返回值: FMPI2C_FLAG的新状态(SET或RESET)。
   */

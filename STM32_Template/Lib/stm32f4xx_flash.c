@@ -1001,7 +1001,6 @@ void FLASH_OB_PCROPSelectionConfig(uint8_t OB_PcROP) {
     optiontmp =  (uint8_t)((*(__IO uint8_t *)OPTCR_BYTE3_ADDRESS) & (uint8_t)0x7F);
     /* Update Option Byte */
     *(__IO uint8_t *)OPTCR_BYTE3_ADDRESS = (uint8_t)(OB_PcROP | optiontmp);
-
 }
 
 /**

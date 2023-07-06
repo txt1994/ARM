@@ -40,8 +40,8 @@
   */
 
 /**
-  * @brief  enable or disable the acc calibration mode.
-  * @param  ACC_trim: specifies the acc calibration type.
+  * @brief  启用或禁用acc校准模式.
+  * @param  ACC_trim: 指定acc校准类型.
   *         该参数可以是以下值之一:
   *         - ACC_CAL_HICKCAL
   *         - ACC_CAL_HICKTRIM
@@ -97,7 +97,7 @@ void ACC_Interrupt_Enable(uint16_t ACC_int, confirm_state new_state) {
 }
 
 /**
-  * @brief  return the current acc hicktrim value.
+  * @brief  返回当前 acc hicktrim value.
   * @param  无
   * @retval 8-bit hicktrim value.
   */
@@ -106,7 +106,7 @@ uint8_t ACC_Hicktrim_Get(void) {
 }
 
 /**
-  * @brief  return the current acc hickcal value.
+  * @brief  返回当前 acc hickcal value.
   * @param  无
   * @retval 8-bit hicktrim value.
   */
@@ -115,7 +115,7 @@ uint8_t ACC_Hickcal_Get(void) {
 }
 
 /**
-  * @brief  wtire the value to  acc c1 register.
+  * @brief  将值传送到wtire the value to  acc c1寄存器.
   * @param  ACC_C1_value
   * @retval 无.
   */
@@ -124,7 +124,7 @@ void ACC_Write_C1(uint16_t ACC_C1_value) {
 }
 
 /**
-  * @brief  wtire the value to  acc c2 register.
+  * @brief  将值传送到acc c2寄存器.
   * @param  ACC_C2_value
   * @retval 无.
   */
@@ -133,7 +133,7 @@ void ACC_Write_C2(uint16_t ACC_C2_value) {
 }
 
 /**
-  * @brief  wtire the value to  acc c3 register.
+  * @brief  将值传送到acc c3寄存器.
   * @param  ACC_C3_value
   * @retval 无.
   */
@@ -142,7 +142,7 @@ void ACC_Write_C3(uint16_t ACC_C3_value) {
 }
 
 /**
-  * @brief  return the current acc c1 value.
+  * @brief  返回当前 acc c1 值.
   * @param  无
   * @retval 16-bit c1 value.
   */
@@ -151,7 +151,7 @@ uint16_t ACC_Read_C1(void) {
 }
 
 /**
-  * @brief  return the current acc c2 value.
+  * @brief  返回当前 acc c2 值.
   * @param  无
   * @retval 16-bit c2 value.
   */
@@ -160,7 +160,7 @@ uint16_t ACC_Read_C2(void) {
 }
 
 /**
-  * @brief  return the current acc c3 value.
+  * @brief  返回当前 acc c3 值.
   * @param  无
   * @retval 16-bit c3 value.
   */

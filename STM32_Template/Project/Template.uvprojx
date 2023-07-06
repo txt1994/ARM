@@ -453,6 +453,11 @@
               <FileType>1</FileType>
               <FilePath>..\Lib\stm32f4xx_rcc.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f4xx_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Lib\stm32f4xx_spi.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

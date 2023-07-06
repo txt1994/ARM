@@ -42,7 +42,7 @@
 
 /**
   * @brief  deinitialize the usart peripheral registers to their default reset values.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7,or UART8.
   * @retval 无
@@ -82,8 +82,8 @@ void USART_Reset(USART_Type* USART_x) {
 }
 
 /**
-  * @brief  initialize the usart peripheral according to the specified parameters.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @brief  根据指定的参数初始化usart外设。
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4 ,UART5, USART6, UART7 or UART8.
   * @param  baud_rate: configure the usart communication baud rate.
@@ -137,7 +137,7 @@ void USART_Init(USART_Type* USART_x, uint32_t baud_rate, USART_Data_Bit_Num_Type
 
 /**
   * @brief  usart parity selection config.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4 ,UART5, USART6, UART7 or UART8.
   * @param  parity: select the none, odd or even parity.
@@ -162,7 +162,7 @@ void USART_parity_Selection_Config(USART_Type* USART_x, USART_parity_Selection_T
 
 /**
   * @brief  enable or disable the specified usart peripheral.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
   * @param  new_state: new state of the usart peripheral.
@@ -175,7 +175,7 @@ void USART_Enable(USART_Type* USART_x, confirm_state new_state) {
 
 /**
   * @brief  usart transmitter enable.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4 ,UART5, USART6, UART7 or UART8.
   * @param  new_state: TRUE or FALSE.
@@ -187,7 +187,7 @@ void USARTTransmitter_Enable(USART_Type* USART_x, confirm_state new_state) {
 
 /**
   * @brief  usart receiver enable.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4 ,UART5, USART6, UART7 or UART8.
   * @param  new_state: TRUE or FALSE.
@@ -200,7 +200,7 @@ void USART_Receiver_Enable(USART_Type* USART_x, confirm_state new_state) {
 /**
   * @brief  usart clock config.
   * @note   clock config are not available for UART4, UART5, UART7 and UART8.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3 or USART6.
   * @param  clk_pol: polarity of the clock output on the ck pin.
@@ -226,7 +226,7 @@ void USART_Clock_Config(USART_Type* USART_x, USART_Clock_Polarity_Type clk_pol, 
 /**
   * @brief  usart enable the ck pin.
   * @note   clock enable are not available for UART4, UART5, UART7 and UART8.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3 or USART6.
   * @param  new_state: TRUE or FALSE
@@ -238,7 +238,7 @@ void USART_Clock_Enable(USART_Type* USART_x, confirm_state new_state) {
 
 /**
   * @brief  enable or disable the specified usart interrupts.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
   * @param  USART_int: specifies the USART interrupt sources to be enabled or disabled.
@@ -263,8 +263,8 @@ void USART_Interrupt_Enable(USART_Type* USART_x, uint32_t USART_int, confirm_sta
 }
 
 /**
-  * @brief  enable or disable the usart's dma transmitter interface.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @brief  启用或禁用usart的dma发射机接口。
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
   * @param  new_state: new state of the dma request sources.
@@ -276,8 +276,8 @@ void USART_DMATransmitter_Enable(USART_Type* USART_x, confirm_state new_state) {
 }
 
 /**
-  * @brief  enable or disable the usart's dma receiver interface.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @brief  启用或禁用usart的dma接收机接口。
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
   * @param  new_state: new state of the dma request sources.
@@ -290,7 +290,7 @@ void USART_DMA_Receiver_Enable(USART_Type* USART_x, confirm_state new_state) {
 
 /**
   * @brief  set the wakeup id of the usart.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
   * @param  USART_id: the matching id(0x0~0xFF).
@@ -308,7 +308,7 @@ void USART_WakeUp_ID_Set(USART_Type* USART_x, uint8_t USART_id) {
 
 /**
   * @brief  select the usart wakeup method in multi-processor communication.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
   * @param  wakeup_Mode: determines the way to wake up usart method.
@@ -323,7 +323,7 @@ void USART_WakeUp_Mode_Set(USART_Type* USART_x, USART_WakeUp_Mode_Type wakeup_Mo
 
 /**
   * @brief  config the usart in mute mode in multi-processor communication.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
   * @param  new_state: new state of the usart mute mode.
@@ -336,7 +336,7 @@ void USART_Receiver_mute_Enable(USART_Type* USART_x, confirm_state new_state) {
 
 /**
   * @brief  set the usart break frame bit num.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
   * @param  break_bit: specifies the break bit num.
@@ -351,7 +351,7 @@ void USART_Break_Bit_Num_Set(USART_Type* USART_x, USART_Break_Bit_Num_Type break
 
 /**
   * @brief  enable or disable the usart lin mode.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
   * @param  new_state: new state of the usart lin mode.
@@ -364,7 +364,7 @@ void USART_lin_Mode_Enable(USART_Type* USART_x, confirm_state new_state) {
 
 /**
   * @brief  transmit single data through the usart peripheral.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
   * @param  data: the data to transmit.
@@ -376,7 +376,7 @@ void USART_Data_Transmit(USART_Type* USART_x, uint16_t data) {
 
 /**
   * @brief  return the most recent received data by the usart peripheral.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
   * @retval the received data.
@@ -387,7 +387,7 @@ uint16_t USART_Data_Receive(USART_Type* USART_x) {
 
 /**
   * @brief  transmit break characters.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
   * @retval 无
@@ -399,7 +399,7 @@ void USART_Break_Send(USART_Type* USART_x) {
 /**
   * @brief  config the specified usart smartcard guard time.
   * @note   The guard time bits are not available for UART4, UART5, UART7 or UART8.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3 or USART6.
   * @param  guard_Time_val: specifies the guard time (0x00~0xFF).
@@ -412,7 +412,7 @@ void USART_SmartCard_Guard_Time_Set(USART_Type* USART_x, uint8_t guard_Time_val)
 /**
   * @brief  config the irda/smartcard division.
   * @note   the division are not available for UART4, UART5, UART7 or UART8.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3 or USART6.
   * @param  div_val: specifies the division.
@@ -425,7 +425,7 @@ void USART_IRDA_SmartCard_Division_Set(USART_Type* USART_x, uint8_t div_val) {
 /**
   * @brief  enable or disable the usart smart card mode.
   * @note   the smart card mode are not available for UART4, UART5, UART7 or UART8.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3 or USART6.
   * @param  new_state: new state of the smart card mode.
@@ -439,7 +439,7 @@ void USART_SmartCard_Mode_Enable(USART_Type* USART_x, confirm_state new_state) {
 /**
   * @brief  enable or disable nack transmission in smartcard mode.
   * @note   the smart card nack are not available for UART4, UART5, UART7 or UART8.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3 or USART6.
   * @param  new_state: new state of the nack transmission.
@@ -452,7 +452,7 @@ void USART_SmartCard_Nack_Set(USART_Type* USART_x, confirm_state new_state) {
 
 /**
   * @brief  enable or disable the usart single line bidirectional half-duplex communication.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
   * @param  new_state: new state of the single line half-duplex select.
@@ -465,7 +465,7 @@ void USART_Single_Line_halfduplex_Select(USART_Type* USART_x, confirm_state new_
 
 /**
   * @brief  enable or disable the usart's irda interface.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
   * @param  new_state: new state of the irda mode.
@@ -478,7 +478,7 @@ void USART_IRDA_Mode_Enable(USART_Type* USART_x, confirm_state new_state) {
 
 /**
   * @brief  configure the usart's irda low power.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
   * @param  new_state: new state of the irda mode.
@@ -491,7 +491,7 @@ void USART_IRDA_Low_Power_Enable(USART_Type* USART_x, confirm_state new_state) {
 
 /**
   * @brief  configure the usart's hardware flow control.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3
   * @param  flow_state: specifies the hardware flow control.
@@ -520,7 +520,7 @@ void USART_Hardware_Flow_Control_Set(USART_Type* USART_x, USART_Hardware_Flow_Co
 
 /**
   * @brief  check whether the specified usart flag is set or not.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
   * @param  flag: specifies the flag to check.
@@ -547,7 +547,7 @@ flag_status USART_Flag_Get(USART_Type* USART_x, uint32_t flag) {
 
 /**
   * @brief  clear the usart's pending flags.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
   * @param  flag: specifies the flag to clear.
@@ -582,7 +582,7 @@ void USART_Flag_Clear(USART_Type* USART_x, uint32_t flag) {
 
 /**
   * @brief  configure the usart's rs485 transmit delay time.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3
   * @param  start_Delay_time: transmit start delay time.
@@ -596,7 +596,7 @@ void USART_RS485_Delay_Time_Config(USART_Type* USART_x, uint8_t start_Delay_time
 
 /**
   * @brief  swap the usart's transmit receive pin.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7,or UART8.
   * @param  new_state: new state of the usart peripheral.
@@ -609,7 +609,7 @@ void USART_Transmit_Receive_Pin_Swap(USART_Type* USART_x, confirm_state new_stat
 
 /**
   * @brief  set the usart's identification bit num.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7,or UART8.
   * @param  id_Bit_Num: the usart wakeup identification bit num.
@@ -622,7 +622,7 @@ void USART_ID_Bit_Num_Set(USART_Type* USART_x, USART_identification_Bit_Num_Type
 
 /**
   * @brief  set the usart's de polarity.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3
   * @param  de_polarity: the usart de polarity selection.
@@ -634,8 +634,8 @@ void USART_DE_Polarity_Set(USART_Type* USART_x, USART_DE_Polarity_Type de_polari
 }
 
 /**
-  * @brief  enable or disable the usart's rs485 mode.
-  * @param  USART_x: select the usart or the uart peripheral.
+  * @brief  启用或禁用usart的rs485模式。
+  * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3
   * @param  new_state: new state of the irda mode.

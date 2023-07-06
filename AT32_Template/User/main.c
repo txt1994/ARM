@@ -19,5 +19,5 @@
 
 #include "at32f435_437_conf.h"
 #include "at32f435_437_clock.h"
-int main(void) {
+int main(void) {	
 }

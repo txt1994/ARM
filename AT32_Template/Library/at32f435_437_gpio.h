@@ -79,7 +79,7 @@ typedef enum {
     GPIO_Mode_INPUT                        = 0x00, /*!< gpio input mode */
     GPIO_Mode_OutPUT                       = 0x01, /*!< gpio output mode */
     GPIO_Mode_MUX                          = 0x02, /*!< gpio mux function mode */
-    GPIO_Mode_ANALOG                       = 0x03  /*!< gpio analog in/out mode */
+    GPIO_Mode_ANALOG                       = 0x03  /*!< gpio模拟输入/输出模式 */
 } GPIO_Mode_Type;
 
 /**

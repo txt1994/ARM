@@ -82,8 +82,8 @@ typedef enum {
   * @brief xmc write operation type
   */
 typedef enum {
-    XMC_Write_Operation_Disable            = 0x00000000, /*!< xmc write operations is disable */
-    XMC_Write_Operation_Enable             = 0x00001000  /*!< xmc write operations is enable */
+    XMC_Write_Operation_Disable            = 0x00000000, /*!< xmc写入操作已禁用 */
+    XMC_Write_Operation_Enable             = 0x00001000  /*!< xmc写入操作已启用 */
 } XMC_Write_Operation_Type;
 
 /**
@@ -215,12 +215,12 @@ typedef enum {
   * @brief xmc interrupt flag type
   */
 typedef enum {
-    XMC_RISINGEDGE_FLAG                    = 0x00000001, /*!< xmc interrupt rising edge detection flag */
-    XMC_LEVEL_FLAG                         = 0x00000002, /*!< xmc interrupt high-level edge detection flag */
-    XMC_FALLINGEDGE_FLAG                   = 0x00000004, /*!< xmc interrupt falling edge detection flag */
-    XMC_FEMPT_FLAG                         = 0x00000040, /*!< xmc fifo empty flag */
-    XMC_ERR_FLAG                           = 0x00000001, /*!< xmc sdram error flag */
-    XMC_Busy_FLAG                          = 0x00000020  /*!< xmc sdram busy flag */
+    XMC_RISINGEDGE_FLAG                    = 0x00000001, /*!< xmc中断上升沿检测标志 */
+    XMC_LEVEL_FLAG                         = 0x00000002, /*!< xmc中断高级边缘检测标志 */
+    XMC_FALLINGEDGE_FLAG                   = 0x00000004, /*!< xmc中断下降沿检测标志 */
+    XMC_FEMPT_FLAG                         = 0x00000040, /*!< xmc fifo空标志 */
+    XMC_ERR_FLAG                           = 0x00000001, /*!< xmc sdram错误标志 */
+    XMC_Busy_FLAG                          = 0x00000020  /*!< xmc sdram忙标志 */
 } XMC_Interrupt_Flag_Type;
 
 /**

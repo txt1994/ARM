@@ -75,8 +75,8 @@ void gpio_Reset(GPIO_Type *gpio_x) {
 }
 
 /**
-  * @brief  initialize the gpio peripheral.
-  * @param  gpio_x: to select the gpio peripheral.
+  * @brief  初始化GOIO外设.
+  * @param  gpio_x: 选择这个GPIO外设.
   *         该参数可以是以下值之一:
   *         GPIOA, GPIOB, GPIOC, GPIOD, GPIOE, GPIOF, GPIOG, GPIOH.
   * @param  gpio_Init_struct: pointer to gpio init structure.

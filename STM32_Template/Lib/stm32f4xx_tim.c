@@ -2255,23 +2255,23 @@ FlagStatus TIM_GetFlagStatus(TIM_TypeDef* TIMx, uint16_t TIM_FLAG) {
 /**
   * 简介:  清除 TIMx 的挂起标志。
   * 参数:  TIMx: 其中x可以是1到14，用于选择TIM外围设备。
-  * 参数:  TIM_FLAG: specifies the flag bit to clear.
+  * 参数:  TIM_FLAG: 指定要清除的标志位。
   *          此参数可以是以下值的任意组合:
-  *            @arg TIM_FLAG_Update: TIM update Flag
+  *            @arg TIM_FLAG_Update: TIM更新标志
   *            @arg TIM_FLAG_CC1: TIM捕获比较1标志
   *            @arg TIM_FLAG_CC2: TIM捕获比较2标志
   *            @arg TIM_FLAG_CC3: TIM捕获比较3标志
   *            @arg TIM_FLAG_CC4: TIM捕获比较4标志
-  *            @arg TIM_FLAG_COM: TIM Commutation Flag
-  *            @arg TIM_FLAG_Trigger: TIM Trigger Flag
-  *            @arg TIM_FLAG_Break: TIM Break Flag
+  *            @arg TIM_FLAG_COM: TIM换向标志
+  *            @arg TIM_FLAG_Trigger: TIM触发标志
+  *            @arg TIM_FLAG_Break: TIM中断标志
   *            @arg TIM_FLAG_CC1OF: TIM捕获比较1超过捕获标志
   *            @arg TIM_FLAG_CC2OF: TIM捕获比较2超过捕获标志
   *            @arg TIM_FLAG_CC3OF: TIM捕获比较3超过捕获标志
   *            @arg TIM_FLAG_CC4OF: TIM捕获比较4超过捕获标志
   *
-  * 注意:   TIM6 and TIM7 can have only one update flag.
-  * 注意:   TIM_FLAG_COM and TIM_FLAG_Break are used only with TIM1 and TIM8.
+  * 注意:   TIM6和TIM7只能具有一个更新标志。
+  * 注意:   FLAG_ COM和TIM_FLAG_ Break仅与TIM1和TIM8一起使用。
   *
   * 返回值: 无
   */
@@ -2286,19 +2286,19 @@ void TIM_ClearFlag(TIM_TypeDef* TIMx, uint16_t TIM_FLAG) {
 /**
   * 简介:  检查是否发生了 TIM 中断。
   * 参数:  TIMx: 其中x可以是1到14，用于选择TIM外围设备。
-  * 参数:  TIM_IT: specifies the TIM interrupt source to check.
+  * 参数:  TIM_IT: 指定要检查的TIM中断源。
   *          此参数可以是以下值之一:
   *            @arg TIM_IT_Update: TIM更新中断源
   *            @arg TIM_IT_CC1: TIM捕获比较1中断源
   *            @arg TIM_IT_CC2: TIM捕获比较2中断源
   *            @arg TIM_IT_CC3: TIM捕获比较3中断源
   *            @arg TIM_IT_CC4: TIM捕获比较4中断源
-  *            @arg TIM_IT_COM: TIM Commutation Interrupt source
-  *            @arg TIM_IT_Trigger: TIM Trigger Interrupt source
-  *            @arg TIM_IT_Break: TIM Break Interrupt source
+  *            @arg TIM_IT_COM: TIM换向中断源
+  *            @arg TIM_IT_Trigger: TIM触发中断源
+  *            @arg TIM_IT_Break: TIM中断中断源
   *
-  * 注意:   TIM6 and TIM7 can generate only an update interrupt.
-  * 注意:   TIM_IT_COM and TIM_IT_Break are used only with TIM1 and TIM8.
+  * 注意:   TIM6和TIM7只能产生一个更新中断。
+  * 注意:   TIM_IT_COM和TIM_IT_ Break仅与TIM1和TIM8一起使用。
   *
   * 返回值: TIM_IT的新状态(SET或RESET)。
   */
@@ -2327,17 +2327,17 @@ ITStatus TIM_GetITStatus(TIM_TypeDef* TIMx, uint16_t TIM_IT) {
   * 参数:  TIMx: 其中x可以是1到14，用于选择TIM外围设备。
   * 参数:  TIM_IT: 指定要清除的挂起位。
   *          此参数可以是以下值的任意组合:
-  *            @arg TIM_IT_Update: TIM1 update Interrupt source
+  *            @arg TIM_IT_Update: TIM更新中断源
   *            @arg TIM_IT_CC1: TIM捕获比较1中断源
   *            @arg TIM_IT_CC2: TIM捕获比较2中断源
   *            @arg TIM_IT_CC3: TIM捕获比较3中断源
   *            @arg TIM_IT_CC4: TIM捕获比较4中断源
-  *            @arg TIM_IT_COM: TIM Commutation Interrupt source
+  *            @arg TIM_IT_COM: TIM换向中断源
   *            @arg TIM_IT_Trigger: TIM Trigger Interrupt source
   *            @arg TIM_IT_Break: TIM Break Interrupt source
   *
-  * 注意:   TIM6 and TIM7 can generate only an update interrupt.
-  * 注意:   TIM_IT_COM and TIM_IT_Break are used only with TIM1 and TIM8.
+  * 注意:   TIM6和TIM7只能产生一个更新中断。
+  * 注意:   TIM_IT_COM和TIM_IT_ Break仅与TIM1和TIM8一起使用。
   *
   * 返回值: 无
   */
@@ -2686,17 +2686,17 @@ void TIM_SelectInputTrigger(TIM_TypeDef* TIMx, uint16_t TIM_InputTriggerSource) 
   *   此参数可以是以下值之一:
   *
   *  - For all TIMx
-  *            @arg TIM_TRGOSource_Reset:  The UG bit in the TIM_EGR register is used as the trigger output(TRGO)
-  *            @arg TIM_TRGOSource_Enable: The Counter Enable CEN is used as the trigger output(TRGO)
-  *            @arg TIM_TRGOSource_Update: The update event is selected as the trigger output(TRGO)
+  *            @arg TIM_TRGOSource_Reset:  TIM_EGR寄存器中的UG位用作触发输出(TRGO)
+  *            @arg TIM_TRGOSource_Enable: 计数器使能CEN用作触发输出(TRGO)
+  *            @arg TIM_TRGOSource_Update: 选择更新事件作为触发输出(TRGO)
   *
   *  - For all TIMx except TIM6 and TIM7
-  *            @arg TIM_TRGOSource_OC1: The trigger output sends a positive pulse when the CC1IF flag
-  *                                     is to be set, as soon as a capture or compare match occurs(TRGO)
-  *            @arg TIM_TRGOSource_OC1Ref: OC1REF signal is used as the trigger output(TRGO)
-  *            @arg TIM_TRGOSource_OC2Ref: OC2REF signal is used as the trigger output(TRGO)
-  *            @arg TIM_TRGOSource_OC3Ref: OC3REF signal is used as the trigger output(TRGO)
-  *            @arg TIM_TRGOSource_OC4Ref: OC4REF signal is used as the trigger output(TRGO)
+  *            @arg TIM_TRGOSource_OC1: 一旦发生捕获或比较匹配(TRGO），当要设置CC1IF标志时，
+										触发输出会发送一个正脉冲
+  *            @arg TIM_TRGOSource_OC1Ref: OC1REF信号用作触发输出(TRGO)
+  *            @arg TIM_TRGOSource_OC2Ref: OC2REF信号用作触发输出(TRGO)
+  *            @arg TIM_TRGOSource_OC3Ref: OC3REF信号用作触发输出(TRGO)
+  *            @arg TIM_TRGOSource_OC4Ref: OC4REF信号用作触发输出(TRGO)
   *
   * 返回值: 无
   */
@@ -2909,19 +2909,18 @@ void TIM_SelectHallSensor(TIM_TypeDef* TIMx, FunctionalState NewState) {
 /**
   * 简介:  配置 TIM2、TIM5 和 TIM11 重新映射输入功能。
   * 参数:  TIMx: where x can be 2, 5 or 11 to select the TIM 外设.
-  * 参数:  TIM_Remap: specifies the TIM input remapping source.
+  * 参数:  TIM_Remap: 指定TIM输入重映射源。
   *          此参数可以是以下值之一:
   *            @arg TIM2_TIM8_TRGO: TIM2 ITR1输入连接至TIM8触发器输出(默认)
-  *            @arg TIM2_ETH_PTP:   TIM2 ITR1 input is connected to ETH PTP trigger output.
-  *            @arg TIM2_USBFS_SOF: TIM2 ITR1 input is connected to USB FS SOF.
-  *            @arg TIM2_USBHS_SOF: TIM2 ITR1 input is connected to USB HS SOF.
-  *            @arg TIM5_GPIO:      TIM5 CH4 input is connected to dedicated Timer pin(default)
-  *            @arg TIM5_LSI:       TIM5 CH4 input is connected to LSI clock.
-  *            @arg TIM5_LSE:       TIM5 CH4 input is connected to LSE clock.
-  *            @arg TIM5_RTC:       TIM5 CH4 input is connected to RTC Output event.
-  *            @arg TIM11_GPIO:     TIM11 CH4 input is connected to dedicated Timer pin(default)
-  *            @arg TIM11_HSE:      TIM11 CH4 input is connected to HSE_RTC clock
-  *                                 (HSE divided by a programmable prescaler)
+  *            @arg TIM2_ETH_PTP:   TIM2 ITR1输入连接到ETH PTP触发输出。
+  *            @arg TIM2_USBFS_SOF: TIM2 ITR1输入连接到USB FS SOF。
+  *            @arg TIM2_USBHS_SOF: TIM2 ITR1输入连接到USB HS SOF。
+  *            @arg TIM5_GPIO:      TIM5 CH4输入连接到专用定时器引脚(默认)
+  *            @arg TIM5_LSI:       TIM5 CH4输入连接到LSI时钟。
+  *            @arg TIM5_LSE:       TIM5 CH4输入连接到LSE时钟。
+  *            @arg TIM5_RTC:       TIM5 CH4输入连接到RTC输出事件。
+  *            @arg TIM11_GPIO:     TIM11 CH4输入连接到专用定时器引脚(默认)
+  *            @arg TIM11_HSE:      TIM11 CH4输入连接到HSE_RTC时钟(HSE由可编程预分频器分频)
   * 返回值: 无
   */
 void TIM_RemapConfig(TIM_TypeDef* TIMx, uint16_t TIM_Remap) {
@@ -2962,7 +2961,7 @@ static void TI1_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
     tmpccmr1 = TIMx->CCMR1;
     tmpccer = TIMx->CCER;
 
-    /* 选择这个Input and set the filter */
+    /* 选择这个输入并设置过滤器 */
     tmpccmr1 &= ((uint16_t)~TIM_CCMR1_CC1S) & ((uint16_t)~TIM_CCMR1_IC1F);
     tmpccmr1 |= (uint16_t)(TIM_ICSelection | (uint16_t)(TIM_ICFilter << (uint16_t)4));
 
@@ -2985,9 +2984,9 @@ static void TI1_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
   *            @arg TIM_ICPolarity_BothEdge
   * 参数:  TIM_ICSelection: 指定要使用的输入。
   *          此参数可以是以下值之一:
-  *            @arg TIM_ICSelection_DirectTI: TIM Input 2 is selected to be connected to IC2.
-  *            @arg TIM_ICSelection_IndirectTI: TIM Input 2 is selected to be connected to IC1.
-  *            @arg TIM_ICSelection_TRC: TIM Input 2 is selected to be connected to TRC.
+  *            @arg TIM_ICSelection_DirectTI: TIM输入2被选择为连接到IC2。
+  *            @arg TIM_ICSelection_IndirectTI: TIM输入2被选择为连接到IC1。
+  *            @arg TIM_ICSelection_TRC: TIM输入2被选择连接到TRC。
   * 参数:  TIM_ICFilter: 指定输入捕获过滤器。
   *          此参数的值必须介于0x00和0x0F之间。
   * 返回值: 无
@@ -3002,7 +3001,7 @@ static void TI2_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
     tmpccer = TIMx->CCER;
     tmp = (uint16_t)(TIM_ICPolarity << 4);
 
-    /* 选择这个Input and set the filter */
+    /* 选择这个输入并设置过滤器 */
     tmpccmr1 &= ((uint16_t)~TIM_CCMR1_CC2S) & ((uint16_t)~TIM_CCMR1_IC2F);
     tmpccmr1 |= (uint16_t)(TIM_ICFilter << 12);
     tmpccmr1 |= (uint16_t)(TIM_ICSelection << 8);
@@ -3026,9 +3025,9 @@ static void TI2_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
   *            @arg TIM_ICPolarity_BothEdge
   * 参数:  TIM_ICSelection: 指定要使用的输入。
   *          此参数可以是以下值之一:
-  *            @arg TIM_ICSelection_DirectTI: TIM Input 3 is selected to be connected to IC3.
-  *            @arg TIM_ICSelection_IndirectTI: TIM Input 3 is selected to be connected to IC4.
-  *            @arg TIM_ICSelection_TRC: TIM Input 3 is selected to be connected to TRC.
+  *            @arg TIM_ICSelection_DirectTI: TIM输入3被选择为连接到IC3。
+  *            @arg TIM_ICSelection_IndirectTI: TIM输入3被选择为连接到IC4。
+  *            @arg TIM_ICSelection_TRC: TIM输入3被选择为连接到TRC。
   * 参数:  TIM_ICFilter: 指定输入捕获过滤器。
   *          此参数的值必须介于0x00和0x0F之间。
   * 返回值: 无
@@ -3043,7 +3042,7 @@ static void TI3_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
     tmpccer = TIMx->CCER;
     tmp = (uint16_t)(TIM_ICPolarity << 8);
 
-    /* 选择这个Input and set the filter */
+    /* 选择这个输入并设置过滤器 */
     tmpccmr2 &= ((uint16_t)~TIM_CCMR1_CC1S) & ((uint16_t)~TIM_CCMR2_IC3F);
     tmpccmr2 |= (uint16_t)(TIM_ICSelection | (uint16_t)(TIM_ICFilter << (uint16_t)4));
 
@@ -3083,7 +3082,7 @@ static void TI4_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
     tmpccer = TIMx->CCER;
     tmp = (uint16_t)(TIM_ICPolarity << 12);
 
-    /* 选择这个Input and set the filter */
+    /* 选择这个输入并设置过滤器 */
     tmpccmr2 &= ((uint16_t)~TIM_CCMR1_CC2S) & ((uint16_t)~TIM_CCMR1_IC2F);
     tmpccmr2 |= (uint16_t)(TIM_ICSelection << 8);
     tmpccmr2 |= (uint16_t)(TIM_ICFilter << 12);

@@ -90,7 +90,7 @@
 
 /**
   * 简介:  将 RNG 外设寄存器取消初始化为其默认复位值。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void RNG_DeInit(void) {
@@ -170,7 +170,7 @@ void RNG_Cmd(FunctionalState NewState) {
 			时钟错误对先前生成的随机数没有影响，
 			并且可以使用RNG_DR寄存器内容。
   *
-  * 参数: 无
+  * 参数:  无
   * 返回值: 32-bit 随机数.
   */
 uint32_t RNG_GetRandomNumber(void) {

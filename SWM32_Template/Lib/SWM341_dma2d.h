@@ -53,5 +53,4 @@ void DMA2D_INTDis(void);
 void DMA2D_INTClr(void);
 uint32_t DMA2D_INTStat(void);
 
-
 #endif // __SWM341_DMA2D_H__

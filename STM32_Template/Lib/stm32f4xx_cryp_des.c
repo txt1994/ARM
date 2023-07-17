@@ -84,8 +84,8 @@
   * 简介:  在 ECB 模式下使用 DES 进行加密和解密。
   * 参数:  Mode: 加密或解密模式。
   *           此参数可以是以下值之一:
-  *            @arg MODE_ENCRYPT:加密
-  *            @arg MODE_DECRYPT:解密
+  *            @arg MODE_ENCRYPT: 加密
+  *            @arg MODE_DECRYPT: 解密
   * 参数:  Key: 用于DES算法的密钥。
   * 参数:  Ilength: 输入缓冲区的长度，必须是8的倍数。
   * 参数:  Input: 指向输入缓冲区的指针。

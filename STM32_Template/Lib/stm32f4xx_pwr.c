@@ -159,7 +159,7 @@
 
 /**
   * 简介:  将压水堆外设寄存器去初始化为其默认复位值。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void PWR_DeInit(void) {
@@ -819,7 +819,7 @@ void PWR_EnterUnderDriveSTOPMode(uint32_t PWR_Regulator, uint8_t PWR_STOPEntry) 
   *          - RTC_AF2引脚(PI8)，如果配置为防拆或时间戳。
   *          - 如果启用，WKUP引脚1(PA0)。
   * 注意:   唤醒标志(WUF)在调用函数能之前，需要在应用层面被清除。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void PWR_EnterSTANDBYMode(void) {

@@ -329,7 +329,7 @@ void FLASH_DataCacheCmd(FunctionalState NewState) {
 /**
   * 简介:  重置指令缓存。
   * 注意:   仅当"指令缓存"被禁用时，才能使用此函数。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void FLASH_InstructionCacheReset(void) {
@@ -339,7 +339,7 @@ void FLASH_InstructionCacheReset(void) {
 /**
   * 简介:  重置数据缓存。
   * 注意:   只有在禁用数据缓存时才能使用此功能。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void FLASH_DataCacheReset(void) {
@@ -383,7 +383,7 @@ void FLASH_DataCacheReset(void) {
 
 /**
   * 简介:  解锁 FLASH 控制寄存器访问。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void FLASH_Unlock(void) {
@@ -396,7 +396,7 @@ void FLASH_Unlock(void) {
 
 /**
   * 简介:  锁定 FLASH 控制寄存器访问。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void FLASH_Lock(void) {
@@ -876,7 +876,7 @@ FLASH_Status FLASH_ProgramByte(uint32_t Address, uint8_t Data) {
 
 /**
   * 简介:  解锁闪存选项控制寄存器访问。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void FLASH_OB_Unlock(void) {
@@ -889,7 +889,7 @@ void FLASH_OB_Unlock(void) {
 
 /**
   * 简介:  上锁 FLASH 选项控制寄存器访问
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void FLASH_OB_Lock(void) {
@@ -1181,7 +1181,7 @@ void FLASH_OB_BORConfig(uint8_t OB_BOR) {
 
 /**
   * 简介:  启动选项字节加载。
-  * 参数: 无
+  * 参数:  无
   * 返回值: FLASH Status: 返回的值可以是:FLASH_BUSY、FLASH_ERROR_PROGRAM、
   *                       FLASH_ARROR_WRP、FLASHE_ERROR_OPERATION或FLASH_COMPLETE。
   */
@@ -1199,7 +1199,7 @@ FLASH_Status FLASH_OB_Launch(void) {
 
 /**
   * 简介:  返回 FLASH 用户选项字节值。
-  * 参数: 无
+  * 参数:  无
   * 返回值: FLASH用户选项字节值:IWDG_SW(位0)、RST_STOP(位1)和RST_STDBY(位2)。
   */
 uint8_t FLASH_OB_GetUser(void) {
@@ -1209,7 +1209,7 @@ uint8_t FLASH_OB_GetUser(void) {
 
 /**
   * 简介:  返回 FLASH 写保护选项字节值。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 闪存写保护选项字节值
   */
 uint16_t FLASH_OB_GetWRP(void) {
@@ -1222,7 +1222,7 @@ uint16_t FLASH_OB_GetWRP(void) {
   *
   * 注意:   此功能只能用于STM32F42xxx/43xxx设备。
   *
-  * 参数: 无
+  * 参数:  无
   * 返回值: 闪存写保护选项字节值
   */
 uint16_t FLASH_OB_GetWRP1(void) {
@@ -1235,7 +1235,7 @@ uint16_t FLASH_OB_GetWRP1(void) {
   *
   * 注意:   此功能只能用于STM32F42xxx/43xxx设备 and STM32F401xx/411xE devices.
   *
-  * 参数: 无
+  * 参数:  无
   * 返回值: FLASH PC读/写保护选项字节值
   */
 uint16_t FLASH_OB_GetPCROP(void) {
@@ -1248,7 +1248,7 @@ uint16_t FLASH_OB_GetPCROP(void) {
   *
   * 注意:   此功能只能用于STM32F42xxx/43xxx设备。
   *
-  * 参数: 无
+  * 参数:  无
   * 返回值: FLASH PC读/写保护选项字节值
   */
 uint16_t FLASH_OB_GetPCROP1(void) {
@@ -1258,7 +1258,7 @@ uint16_t FLASH_OB_GetPCROP1(void) {
 
 /**
   * 简介:  返回 FLASH 读保护级别。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 闪存读取保护状态:
   *           - SET, 当OB_RDP_Level_1或OB_RDP_Level_2被设置时。
   *           - RESET, 当OB_RDP_Level_0被设置时。
@@ -1277,7 +1277,7 @@ FlagStatus FLASH_OB_GetRDP(void) {
 
 /**
   * 简介:  返回 FLASH BOR 级别。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 闪存BOR级别:
   *       - OB_BOR_LEVEL3:电源电压范围为2.7至3.6 V
   *       - OB_BOR_LEVEL2:电源电压范围为2.4至2.7 V
@@ -1378,7 +1378,7 @@ void FLASH_ClearFlag(uint32_t FLASH_FLAG) {
 
 /**
   * 简介:  返回闪存状态。
-  * 参数: 无
+  * 参数:  无
   * 返回值: FLASH_Status: 返回值可以是: FLASH_BUSY, FLASH_ERROR_PROGRAM,
   *                       FLASH_ERROR_WRP, FLASH_ERROR_RD, FLASH_ERROR_OPERATION or FLASH_COMPLETE.
   */
@@ -1413,7 +1413,7 @@ FLASH_Status FLASH_GetStatus(void) {
 
 /**
   * 简介:  等待 FLASH 操作完成。
-  * 参数: 无
+  * 参数:  无
   * 返回值: FLASH Status: 返回值可以是: FLASH_BUSY, FLASH_ERROR_PROGRAM,
   *                       FLASH_ERROR_WRP, FLASH_ERROR_OPERATION or FLASH_COMPLETE.
   */

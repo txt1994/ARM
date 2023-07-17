@@ -122,7 +122,7 @@
 
 /**
   * 简介:  将WWDG外围寄存器取消初始化为其默认重置值。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void WWDG_DeInit(void) {
@@ -177,7 +177,7 @@ void WWDG_SetWindowValue(uint8_t WindowValue) {
 /**
   * 简介:  启用WWDG早期唤醒中断(EWI)。
   * 注意:   一旦启用，除非系统复位，否则不能禁用此中断。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void WWDG_EnableIT(void) {
@@ -241,7 +241,7 @@ void WWDG_Enable(uint8_t Counter) {
 
 /**
   * 简介:  检查是否设置了早期唤醒中断标志。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 早期唤醒中断标志(SET或RESET)的新状态
   */
 FlagStatus WWDG_GetFlagStatus(void) {
@@ -258,7 +258,7 @@ FlagStatus WWDG_GetFlagStatus(void) {
 
 /**
   * 简介:  清除早期唤醒中断标志。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void WWDG_ClearFlag(void) {

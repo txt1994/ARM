@@ -84,18 +84,18 @@
  *** 报警配置 ***
  ===========================
  [..]
-    (+)要配置RTC报警，请使用RTC_SetAlarm()函数。
-    (+)使用RTC_AlarmCmd()函数启用选定的RTC报警
-    (+)要读取RTC警报，请使用RTC_GetAlarm()函数。
-    (+)要读取RTC报警SubSecond，请使用RTC_GetAlarmSubSecnd()函数。
+    (+) 要配置RTC报警，请使用RTC_SetAlarm()函数。
+    (+) 使用RTC_AlarmCmd()函数启用选定的RTC报警
+    (+) 要读取RTC警报，请使用RTC_GetAlarm()函数。
+    (+) 要读取RTC报警SubSecond，请使用RTC_GetAlarmSubSecnd()函数。
 
  *** RTC唤醒配置 ***
  ================================
  [..]
-    (+)使用RTC_WakeUpClockConfig()函数配置RTC唤醒时钟源。
-    (+)使用RTC_SetWakeUpCounter()函数配置RTC唤醒计数器
-    (+)使用RTC_WakeUpCmd()函数启用RTC唤醒
-    (+)要读取RTC唤醒计数器寄存器，请使用RTC_GetWakeUpCounter()函数。
+    (+) 使用RTC_WakeUpClockConfig()函数配置RTC唤醒时钟源。
+    (+) 使用RTC_SetWakeUpCounter()函数配置RTC唤醒计数器
+    (+) 使用RTC_WakeUpCmd()函数启用RTC唤醒
+    (+) 要读取RTC唤醒计数器寄存器，请使用RTC_GetWakeUpCounter()函数。
 
  *** 输出配置 ***
  =============================
@@ -114,8 +114,8 @@
  *** 粗略数字校准配置 ***
  ================================================
  [..]
-    (+)使用RTC_CoarseCalibConfig()函数配置RTC粗略校准值和相应符号。
-    (+)使用RTC_CoarseCalibCmd()函数启用RTC粗校准
+    (+) 使用RTC_CoarseCalibConfig()函数配置RTC粗略校准值和相应符号。
+    (+) 使用RTC_CoarseCalibCmd()函数启用RTC粗校准
 
  *** 时间戳配置 ***
  ===============================
@@ -132,7 +132,7 @@
     (+) 使用RTC_TamperCmd()函数启用RTC篡改。
     (+) 使用RTC_TamperFilterConfig()函数配置篡改过滤器计数。
     (+) 使用RTC_TamperConfig()函数，根据Tamper过滤器(如果等于0 Edge else Level)
-     值配置RTC Tamper触发器Edge或Level。
+		值配置RTC Tamper触发器Edge或Level。
     (+) 使用RTC_TamperSamplingFreqConfig()函数配置篡改采样频率。
     (+) 使用RTC_TamperPinsPrechargeDuration()函数配置篡改预充电或放电持续时间。
     (+) 使用RTC_TamperPullUpDisableCmd()函数启用Tamper Pull-UP。
@@ -317,7 +317,7 @@ static uint8_t RTC_Bcd2ToByte(uint8_t Value);
 /**
   * 简介:  将 RTC 寄存器去初始化为其默认复位值。
   * 注意:   这个功能并不重置RTC时钟源和RTC备份数据寄存器。
-  * 参数: 无
+  * 参数:  无
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: RTC寄存器被取消初始化
   *          - ERROR: RTC寄存器没有被反初始化
@@ -469,7 +469,7 @@ void RTC_WriteProtectionCmd(FunctionalState NewState) {
 /**
   * 简介:  进入 RTC 初始化模式。
   * 注意:   RTC初始化模式是受写保护的，在调用此函数前请使用RTC_WriteProtectionCmd(DISABLE)。
-  * 参数: 无
+  * 参数:  无
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: RTC处于初始模式
   *          - ERROR: RTC不在初始模式下
@@ -506,7 +506,7 @@ ErrorStatus RTC_EnterInitMode(void) {
   * 简介:  退出 RTC 初始化模式。
   * 注意:   当初始化序列完成后，日历在4个RTCCLK周期后重新开始计数。
   * 注意:   RTC初始化模式是受写保护的，在调用此函数前请使用RTC_WriteProtectionCmd(DISABLE)。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void RTC_ExitInitMode(void) {
@@ -520,7 +520,7 @@ void RTC_ExitInitMode(void) {
   * 注意:   在日历初始化、日历更新或从低功耗模式唤醒后，要通过影子寄存器读取日历，软件必须首先清除RSF标志。
   *         然后，软件必须等到它再次被设置后才能读取日历，这意味着日历寄存器已经被正确地
   *         复制到RTC_TR和RTC_DR影子寄存器中。
-  * 参数: 无
+  * 参数:  无
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: RTC寄存器同步
   *          - ERROR: RTC寄存器不同步
@@ -779,7 +779,7 @@ void RTC_GetTime(uint32_t RTC_Format, RTC_TimeTypeDef* RTC_TimeStruct) {
 /**
   * 简介:  获取 RTC 当前日历子秒值。
   * 注意:   此功能在读取SSR寄存器后冻结时间和日期寄存器。
-  * 参数: 无
+  * 参数:  无
   * 返回值: RTC当前日历子秒值。
   */
 uint32_t RTC_GetSubSecond(void) {
@@ -1237,7 +1237,7 @@ void RTC_AlarmSubSecondConfig(uint32_t RTC_Alarm, uint32_t RTC_AlarmSubSecondVal
   *   此参数可以是以下值之一:
   *     @arg RTC_Alarm_A: 选择报警A
   *     @arg RTC_Alarm_B: 选择报警B
-  * 参数: 无
+  * 参数:  无
   * 返回值: RTC报警子秒值。
   */
 uint32_t RTC_GetAlarmSubSecond(uint32_t RTC_Alarm) {
@@ -1327,7 +1327,7 @@ void RTC_SetWakeUpCounter(uint32_t RTC_WakeUpCounter) {
 
 /**
   * 简介:  Returns the RTC WakeUp timer counter value.
-  * 参数: 无
+  * 参数:  无
   * 返回值: The RTC WakeUp Counter value.
   */
 uint32_t RTC_GetWakeUpCounter(void) {
@@ -1431,7 +1431,7 @@ void RTC_DayLightSavingConfig(uint32_t RTC_DayLightSaving, uint32_t RTC_StoreOpe
 
 /**
   * 简介:  返回RTC日间节能存储操作。
-  * 参数: 无
+  * 参数:  无
   * 返回值: RTC日间节能存储操作。
   *          - RTC_StoreOperation_Reset
   *          - RTC_StoreOperation_Set
@@ -1809,7 +1809,7 @@ void RTC_GetTimeStamp(uint32_t RTC_Format, RTC_TimeTypeDef* RTC_StampTimeStruct,
 
 /**
   * 简介:  获取 RTC 时间戳子秒值。
-  * 参数: 无
+  * 参数:  无
   * 返回值: RTC当前时间戳子秒值。
   */
 uint32_t RTC_GetTimeStampSubSecond(void) {

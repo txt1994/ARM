@@ -127,7 +127,7 @@
 
 /**
   * 简介:  用于将 CEC 配置设置为默认复位状态的函数
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void CEC_DeInit(void) {
@@ -275,7 +275,7 @@ void CEC_SendData(uint8_t Data) {
 
 /**
   * 简介:  返回CEC外围设备最近接收的数据。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 接收的数据。
   */
 uint8_t CEC_ReceiveData(void) {
@@ -285,7 +285,7 @@ uint8_t CEC_ReceiveData(void) {
 
 /**
   * 简介:  启动新消息
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void CEC_StartOfMessage(void) {
@@ -295,7 +295,7 @@ void CEC_StartOfMessage(void) {
 
 /**
   * 简介:  用EOM位传输消息。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void CEC_EndOfMessage(void) {

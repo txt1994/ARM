@@ -109,7 +109,7 @@
 
 /**
   * 简介:  将 DCMI 寄存器取消初始化为其默认复位值。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void DCMI_DeInit(void) {
@@ -303,7 +303,7 @@ void DCMI_CaptureCmd(FunctionalState NewState) {
 
 /**
   * 简介:  读取存储在 DR 寄存器中的数据。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 数据寄存器值
   */
 uint32_t DCMI_ReadData(void) {

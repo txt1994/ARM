@@ -182,7 +182,7 @@
   */
 /**
   * 简介:  用于将 CRYP 配置设置为默认复位状态的函数
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void CRYP_DeInit(void) {
@@ -334,7 +334,7 @@ void CRYP_PhaseConfig(uint32_t CRYP_Phase) {
 /**
   * 简介:  刷新 IN 和 OUT FIFO(即 FIFO 的读写指针被复位)
   * 注意:   只有当BUSY标志被重置时，FIFO必须被刷新。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void CRYP_FIFOFlush(void) {
@@ -391,7 +391,7 @@ void CRYP_DataIn(uint32_t Data) {
 
 /**
   * 简介:  返回输入输出FIFO的最后一个数据。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 最后输入输出FIFO的数据。
   */
 uint32_t CRYP_DataOut(void) {
@@ -735,7 +735,7 @@ ITStatus CRYP_GetITStatus(uint8_t CRYP_IT) {
 
 /**
   * 简介:  返回 CRYP 外设是启用还是禁用。
-  * 参数: 无.
+  * 参数:  无.
   * 返回值: CRYP外设的当前状态(ENABLE或DISABLE)。
   */
 FunctionalState CRYP_GetCmdStatus(void) {

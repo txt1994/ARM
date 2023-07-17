@@ -243,7 +243,7 @@
 
 /**
   * 简介:  将SDIO外设寄存器去初始化为其默认复位值。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void SDIO_DeInit(void) {
@@ -333,7 +333,7 @@ void SDIO_SetPowerState(uint32_t SDIO_PowerState) {
 
 /**
   * 简介:  获取控制器的电源状态。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 控制器的电源状态。返回的值可以是以下值之一:
   *            - 0x00: Power OFF
   *            - 0x02: Power UP
@@ -412,7 +412,7 @@ void SDIO_CmdStructInit(SDIO_CmdInitTypeDef* SDIO_CmdInitStruct) {
 
 /**
   * 简介:  返回接收到响应的最后一个命令的命令索引
-  * 参数: 无
+  * 参数:  无
   * 返回值: 返回接收到的最后一个命令响应的命令索引。
   */
 uint8_t SDIO_GetCommandResponse(void) {
@@ -515,7 +515,7 @@ void SDIO_DataStructInit(SDIO_DataInitTypeDef* SDIO_DataInitStruct) {
 
 /**
   * 简介:  返回要传输的剩余数据字节数。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 要传输的剩余数据字节数
   */
 uint32_t SDIO_GetDataCounter(void) {
@@ -524,7 +524,7 @@ uint32_t SDIO_GetDataCounter(void) {
 
 /**
   * 简介:  从Rx FIFO读取一个数据字。
-  * 参数: 无
+  * 参数:  无
   * 返回值: Data received
   */
 uint32_t SDIO_ReadData(void) {
@@ -542,7 +542,7 @@ void SDIO_WriteData(uint32_t Data) {
 
 /**
   * 简介:  返回要写入 FIFO 或从 FIFO 读取的剩余字数。
-  * 参数: 无
+  * 参数:  无
   * 返回值: Remaining number of words.
   */
 uint32_t SDIO_GetFIFOCount(void) {

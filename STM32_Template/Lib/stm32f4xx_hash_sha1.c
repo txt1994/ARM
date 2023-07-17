@@ -5,7 +5,7 @@
   * 版本:    V1.8.0
   * 日期:    04-November-2016
   * @简介   该文件提供了计算输入消息的HASH SHA1和HMAC SHA1摘要的高级函数。
-  *          它使用stm32f4xx_hash.c/。h驱动程序访问STM32F4xx HASH外围设备。
+  *          它使用stm32f4xx_hash.c/h驱动程序访问STM32F4xx HASH外围设备。
   *
 @verbatim
  ===================================================================
@@ -111,7 +111,7 @@ ErrorStatus HASH_SHA1(uint8_t *Input, uint32_t Ilen, uint8_t Output[20]) {
     SHA1_HASH_InitStructure.HASH_DataType = HASH_DataType_8b;
     HASH_Init(&SHA1_HASH_InitStructure);
 
-    /* 配置 number of valid bits in last word of the data */
+    /* 配置数据最后一个字中的有效位数 */
     HASH_SetLastWordValidBitsNbr(nbvalidbitsdata);
 
     /* 将输入块写入IN FIFO */
@@ -173,10 +173,10 @@ ErrorStatus HMAC_SHA1(uint8_t *Key, uint32_t Keylen, uint8_t *Input,
     uint32_t inputaddr  = (uint32_t)Input;
     uint32_t outputaddr = (uint32_t)Output;
 
-    /* Number of valid bits in last word of the Input data */
+    /* 输入数据最后一个字中的有效位数 */
     nbvalidbitsdata = 8 * (Ilen % 4);
 
-    /* Number of valid bits in last word of the Key */
+    /* 密钥最后一个字中的有效位数 */
     nbvalidbitskey = 8 * (Keylen % 4);
 
     /* HASH外设初始化 */
@@ -188,16 +188,16 @@ ErrorStatus HMAC_SHA1(uint8_t *Key, uint32_t Keylen, uint8_t *Input,
     SHA1_HASH_InitStructure.HASH_DataType = HASH_DataType_8b;
 
     if(Keylen > 64) {
-        /* HMAC long Key */
+        /* HMAC长密钥 */
         SHA1_HASH_InitStructure.HASH_HMACKeyType = HASH_HMACKeyType_LongKey;
     } else {
-        /* HMAC short Key */
+        /* HMAC短密钥 */
         SHA1_HASH_InitStructure.HASH_HMACKeyType = HASH_HMACKeyType_ShortKey;
     }
 
     HASH_Init(&SHA1_HASH_InitStructure);
 
-    /* 配置 number of valid bits in last word of the Key */
+    /* 配置 密钥最后一个字中的有效位数 */
     HASH_SetLastWordValidBitsNbr(nbvalidbitskey);
 
     /* 写入密钥 */
@@ -218,7 +218,7 @@ ErrorStatus HMAC_SHA1(uint8_t *Key, uint32_t Keylen, uint8_t *Input,
     if (busystatus != RESET) {
         status = ERROR;
     } else {
-        /* 配置 number of valid bits in last word of the Input data */
+        /* 配置 输入数据最后一个字中的有效位数 */
         HASH_SetLastWordValidBitsNbr(nbvalidbitsdata);
 
         /* 将输入块写入IN FIFO */
@@ -242,7 +242,7 @@ ErrorStatus HMAC_SHA1(uint8_t *Key, uint32_t Keylen, uint8_t *Input,
         if (busystatus != RESET) {
             status = ERROR;
         } else {
-            /* 配置 number of valid bits in last word of the Key */
+            /* 配置 密钥最后一个字中的有效位数 */
             HASH_SetLastWordValidBitsNbr(nbvalidbitskey);
 
             /* 写入密钥 */

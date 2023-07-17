@@ -94,7 +94,7 @@
 
 /**
   * 简介:  将备用函数(重映射和 EXTI 配置)寄存器取消初始化为其默认重置值。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void SYSCFG_DeInit(void) {
@@ -200,7 +200,7 @@ void SYSCFG_CompensationCellCmd(FunctionalState NewState) {
 
 /**
   * 简介:  检查是否设置了 I/O 补偿单元就绪标志。
-  * 参数: 无
+  * 参数:  无
   * 返回值: I/O补偿单元就绪标志的新状态(SET或RESET)
   */
 FlagStatus SYSCFG_GetCompensationCellStatus(void) {

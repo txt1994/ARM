@@ -140,7 +140,7 @@
 
 /**
   * 简介:  将HASH外设寄存器反初始化为其默认重置值
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void HASH_DeInit(void) {
@@ -204,7 +204,7 @@ void HASH_StructInit(HASH_InitTypeDef* HASH_InitStruct) {
 /**
   * 简介:  重置HASH处理器内核，以便HASH可以计算新消息的消息摘要。
   * 注意:   调用此函数将清除与HASH_IT_DCI中断和HASH_FLAG_DCIS标志相对应的HASH_SR_DCIS(摘要计算完成中断状态)位。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void HASH_Reset(void) {
@@ -268,7 +268,7 @@ void HASH_DataIn(uint32_t Data) {
 
 /**
   * 简介:  返回已推入IN FIFO的字数。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 已推入IN FIFO的字的值。
   */
 uint8_t HASH_GetInFIFOWordsNbr(void) {
@@ -298,7 +298,7 @@ void HASH_GetDigest(HASH_MsgDigest* HASH_MessageDigest) {
 
 /**
   * 简介:  开始填充消息并计算最终消息
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void HASH_StartDigest(void) {

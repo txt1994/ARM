@@ -131,7 +131,7 @@
 
 /**
   * 简介:  将 QSPI 外设寄存器取消初始化为其默认复位值。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void QSPI_DeInit(void) {
@@ -535,7 +535,7 @@ void QSPI_AutoPollingModeStopCmd(FunctionalState NewState) {
 
 /**
   * 简介:  中止正在进行的命令序列。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void QSPI_AbortRequest(void) {
@@ -687,7 +687,7 @@ uint32_t QSPI_GetFIFOLevel(void) {
 
 /**
   * 简介:  返回 QSPI 功能模式。
-  * 参数: 无
+  * 参数:  无
   * 返回值: QSPI功能模式。返回值可以是以下值之一:
   *              - 0x00000000: QSPI_FMode_Indirect_Write
   *              - 0x04000000: QSPI_FMode_Indirect_Read

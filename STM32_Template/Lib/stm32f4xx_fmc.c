@@ -629,7 +629,7 @@ uint32_t FMC_GetECC(uint32_t FMC_Bank) {
 
 /**
   * 简介:  将 FMC PCCARD 组寄存器取消初始化为其默认复位值。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void FMC_PCCARDDeInit(void) {

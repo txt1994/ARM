@@ -156,7 +156,7 @@ void IWDG_SetReload(uint16_t Reload) {
 /**
   * 简介:  使用重新加载寄存器中定义的值重新加载 IWDG 计数器
   *       (禁用对IWDG_PR和IWDG_RLR寄存器的写入访问)。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void IWDG_ReloadCounter(void) {
@@ -181,7 +181,7 @@ void IWDG_ReloadCounter(void) {
 
 /**
   * 简介:  启用 IWDG(禁用对IWDG_PR和IWDG_RLR寄存器的写访问)。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void IWDG_Enable(void) {

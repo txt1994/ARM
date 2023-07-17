@@ -613,7 +613,7 @@ uint32_t FSMC_GetECC(uint32_t FSMC_Bank) {
 
 /**
   * 简介:  取消初始化 FSMC PCCARD 银行寄存器到其默认重置值。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void FSMC_PCCARDDeInit(void) {

@@ -186,7 +186,7 @@
 
 /**
   * 简介:  将所有 ADC 外设寄存器取消初始化为其默认复位值。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void ADC_DeInit(void) {
@@ -893,7 +893,7 @@ uint16_t ADC_GetConversionValue(ADC_TypeDef* ADCx) {
 
 /**
   * 简介:  返回所选多模式下最后一次 ADC1、ADC2 和 ADC3 常规转换结果数据。
-  * 参数: 无
+  * 参数:  无
   * 返回值:: 数据转换值。
   * note   In dual mode, the value returned by this function is as following
   *           Data[15:0] : these bits contain the regular data of ADC1.

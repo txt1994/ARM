@@ -202,7 +202,7 @@ static __I uint8_t APBAHBPrescTable[16] = {0, 0, 0, 0, 1, 2, 3, 4, 1, 2, 3, 4, 6
   * 注意:   这个函数并不修改配置
   *           - 外围时钟
   *           - LSI、LSE和RTC时钟
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void RCC_DeInit(void) {
@@ -275,7 +275,7 @@ void RCC_HSEConfig(uint8_t RCC_HSE) {
   * 注意:  该函数等待HSERDY标志被设置，如果该标志被设置，则返回SUCCESS，
   *        否则如果达到超时且该标志未被设置，则返回ERROR。超时值由stm32f4xx.h
   *        文件中的常数HSE_STARTUP_TIMEOUT定义。你可以根据你的应用程序中使用的HSE晶体来定制它。
-  * 参数: 无
+  * 参数:  无
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: HSE振荡器稳定，随时可用
   *          - ERROR: HSE振荡器尚未就绪
@@ -1066,7 +1066,7 @@ void RCC_SYSCLKConfig(uint32_t RCC_SYSCLKSource) {
 
 /**
   * 简介:  返回用作系统时钟的时钟源。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 用作系统时钟的时钟源。返回的值可以是以下值之一:
   *              - 0x00: HSI used as system clock
   *              - 0x04: HSE used as system clock
@@ -2835,7 +2835,7 @@ FlagStatus RCC_GetFlagStatus(uint8_t RCC_FLAG) {
   * 简介:  清除 RCC 重置标志。
   *         The reset flags are: RCC_FLAG_PINRST, RCC_FLAG_PORRST,  RCC_FLAG_SFTRST,
   *         RCC_FLAG_IWDGRST, RCC_FLAG_WWDGRST, RCC_FLAG_LPWRRST
-  * 参数: 无
+  * 参数:  无
   * 返回值: 无
   */
 void RCC_ClearFlag(void) {

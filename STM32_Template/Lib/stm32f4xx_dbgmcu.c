@@ -52,7 +52,7 @@
 
 /**
   * 简介:  返回设备修订标识符。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 设备修订标识符
   */
 uint32_t DBGMCU_GetREVID(void) {
@@ -61,7 +61,7 @@ uint32_t DBGMCU_GetREVID(void) {
 
 /**
   * 简介:  返回设备标识符。
-  * 参数: 无
+  * 参数:  无
   * 返回值: 设备标识符
   */
 uint32_t DBGMCU_GetDEVID(void) {

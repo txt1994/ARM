@@ -52,72 +52,74 @@ extern "C" {
 
 typedef struct {
     uint32_t DMA2D_Mode;                           /*!< 配置 DMA2D 传输模式。
-												 该参数可以是@ref DMA2D_MODE 的一个值 */
+												                           该参数可以是@ref DMA2D_MODE 的一个值 */
 
     uint32_t DMA2D_CMode;                          /*!< 配置输出图像的颜色格式。
-												 该参数可以是@ref DMA2D_CMODE 的一个值 */
+												                           该参数可以是@ref DMA2D_CMODE 的一个值 */
 
     uint32_t DMA2D_OutputBlue;                     /*!< 配置输出图像的蓝色值。
-												 此参数必须范围:
-                                                 - 如果选择 ARGB8888 颜色模式，则从 0x00 到 0xFF
-												 - 如果选择 RGB888 颜色模式，则从 0x00 到 0xFF
-												 - 如果选择 RGB565 颜色模式，则从 0x00 到 0x1F
-												 - 如果选择 ARGB1555 颜色模式，则从 0x00 到 0x1F
-												 - 如果选择 ARGB4444 颜色模式，则从 0x00 到 0x0F  */
+                          												 此参数必须范围:
+                                                   - 如果选择 ARGB8888 颜色模式，则从 0x00 到 0xFF
+                          												 - 如果选择 RGB888 颜色模式，则从 0x00 到 0xFF
+                          												 - 如果选择 RGB565 颜色模式，则从 0x00 到 0x1F
+                          												 - 如果选择 ARGB1555 颜色模式，则从 0x00 到 0x1F
+                          												 - 如果选择 ARGB4444 颜色模式，则从 0x00 到 0x0F  */
 
     uint32_t DMA2D_OutputGreen;                    /*!< 配置输出图像的绿色值。
-												 此参数必须范围:
-												 - 如果选择 ARGB8888 颜色模式，则从 0x00 到 0xFF
-												 - 如果选择了 RGB888 颜色模式，则从 0x00 到 0xFF
-												 - 如果选择了 RGB565 颜色模式，则从 0x00 到 0x2F
-												 - 如果选择 ARGB1555 颜色模式，则从 0x00 到 0x1F
-												 - 如果选择 ARGB4444 颜色模式，则从 0x00 到 0x0F  */
+                          												 此参数必须范围:
+                          												 - 如果选择 ARGB8888 颜色模式，则从 0x00 到 0xFF
+                          												 - 如果选择了 RGB888 颜色模式，则从 0x00 到 0xFF
+                          												 - 如果选择了 RGB565 颜色模式，则从 0x00 到 0x2F
+                          												 - 如果选择 ARGB1555 颜色模式，则从 0x00 到 0x1F
+                          												 - 如果选择 ARGB4444 颜色模式，则从 0x00 到 0x0F  */
 
     uint32_t DMA2D_OutputRed;                      /*!< 配置输出图像的红色值。
-												 此参数必须范围:
-												 - 如果选择 ARGB8888 颜色模式，则从 0x00 到 0xFF
-												 - 如果选择 RGB888 颜色模式，则从 0x00 到 0xFF
-												 - 如果选择 RGB565 颜色模式，则从 0x00 到 0x1F
-												 - 如果选择 ARGB1555 颜色模式，则从 0x00 到 0x1F
-												 - 如果选择 ARGB4444 颜色模式，则从 0x00 到 0x0F  */
+                          												 此参数必须范围:
+                          												 - 如果选择 ARGB8888 颜色模式，则从 0x00 到 0xFF
+                          												 - 如果选择 RGB888 颜色模式，则从 0x00 到 0xFF
+                          												 - 如果选择 RGB565 颜色模式，则从 0x00 到 0x1F
+                          												 - 如果选择 ARGB1555 颜色模式，则从 0x00 到 0x1F
+                          												 - 如果选择 ARGB4444 颜色模式，则从 0x00 到 0x0F  */
 
     uint32_t DMA2D_OutputAlpha;                    /*!< 配置输出颜色的 alpha 通道。
-												 此参数必须范围:
-												 - 如果选择 ARGB8888 颜色模式，则从 0x00 到 0xFF
-												 - 如果选择 ARGB1555 颜色模式，则从 0x00 到 0x01
-												 - 如果选择 ARGB4444 颜色模式，则从 0x00 到 0x0F  */
+                          												 此参数必须范围:
+                          												 - 如果选择 ARGB8888 颜色模式，则从 0x00 到 0xFF
+                          												 - 如果选择 ARGB1555 颜色模式，则从 0x00 到 0x01
+                          												 - 如果选择 ARGB4444 颜色模式，则从 0x00 到 0x0F  */
 
-    uint32_t DMA2D_OutputMemoryAdd;                /*!< 指定内存地址。 此参数的范围必须为 0x00000000 到 0xFFFFFFFF。 */
+    uint32_t DMA2D_OutputMemoryAdd;                /*!< 指定内存地址。 
+                                                   此参数的范围必须为 0x00000000 到 0xFFFFFFFF。 */
 
-    uint32_t DMA2D_OutputOffset;                   /*!< 指定偏移值。 该参数的范围必须是 0x0000 到 0x3FFF。 */
+    uint32_t DMA2D_OutputOffset;                   /*!< 指定偏移值。 
+                                                   该参数的范围必须是 0x0000 到 0x3FFF。 */
 
     uint32_t DMA2D_NumberOfLine;                   /*!< 配置要转移的区域的线路数。
-												 此参数的范围必须为 0x0000 到 0xFFFF */
+												                           此参数的范围必须为 0x0000 到 0xFFFF */
 
     uint32_t DMA2D_PixelPerLine;                   /*!< 配置要传输的区域的每行像素数。
-												 该参数的范围必须是 0x0000 到 0x3FFF */
+												                           该参数的范围必须是 0x0000 到 0x3FFF */
 } DMA2D_InitTypeDef;
 
 
 
 typedef struct {
     uint32_t DMA2D_FGMA;                           /*!< 配置 DMA2D 前台内存地址。
-												 此参数的范围必须为 0x00000000 到 0xFFFFFFFF。*/
+												                            此参数的范围必须为 0x00000000 到 0xFFFFFFFF。*/
 
     uint32_t DMA2D_FGO;                            /*!< 配置 DMA2D 前景偏移。
-												 该参数的范围必须是 0x0000 到 0x3FFF。 */
+												                            该参数的范围必须是 0x0000 到 0x3FFF。 */
 
     uint32_t DMA2D_FGCM;                           /*!< 配置 DMA2D 前景色模式。
-												 该参数可以是@ref DMA2D_FGCM 的一个值 */
+												                            该参数可以是@ref DMA2D_FGCM 的一个值 */
 
     uint32_t DMA2D_FG_CLUT_CM;                     /*!< 配置 DMA2D 前景 CLUT 颜色模式。
-												 该参数可以是@ref DMA2D_FG_CLUT_CM 的一个值 */
+												                            该参数可以是@ref DMA2D_FG_CLUT_CM 的一个值 */
 
     uint32_t DMA2D_FG_CLUT_SIZE;                   /*!< 配置 DMA2D 前台 CLUT 大小。
-												 此参数的范围必须为 0x00 到 0xFF。 */
+												                            此参数的范围必须为 0x00 到 0xFF。 */
 
     uint32_t DMA2D_FGPFC_ALPHA_MODE;               /*!< 配置 DMA2D 前景 alpha 模式。
-												 该参数可以是@ref DMA2D_FGPFC_ALPHA_MODE 的一个值 */
+												                            该参数可以是@ref DMA2D_FGPFC_ALPHA_MODE 的一个值 */
 
     uint32_t DMA2D_FGPFC_ALPHA_VALUE;              /*!< 指定 DMA2D 前景 alpha 值必须在 0x00 到 0xFF 的范围内。 */
 
@@ -128,28 +130,28 @@ typedef struct {
     uint32_t DMA2D_FGC_RED;                        /*!< 指定 DMA2D 前景红色值必须在 0x00 到 0xFF 的范围内。 */
 
     uint32_t DMA2D_FGCMAR;                         /*!< 配置 DMA2D 前台 CLUT 内存地址。
-												 此参数的范围必须为 0x00000000 到 0xFFFFFFFF。 */
+												                            此参数的范围必须为 0x00000000 到 0xFFFFFFFF。 */
 } DMA2D_FG_InitTypeDef;
 
 
 typedef struct {
     uint32_t DMA2D_BGMA;                           /*!< 配置 DMA2D 后台内存地址。
-												 此参数的范围必须为 0x00000000 到 0xFFFFFFFF。 */
+												                            此参数的范围必须为 0x00000000 到 0xFFFFFFFF。 */
 
     uint32_t DMA2D_BGO;                            /*!< 配置 DMA2D 背景偏移。
-												 该参数的范围必须是 0x0000 到 0x3FFF。 */
+												                            该参数的范围必须是 0x0000 到 0x3FFF。 */
 
     uint32_t DMA2D_BGCM;                           /*!< 配置 DMA2D 背景颜色模式。
-												 该参数可以是@ref DMA2D_FGCM 的一个值 */
+												                            该参数可以是@ref DMA2D_FGCM 的一个值 */
 
     uint32_t DMA2D_BG_CLUT_CM;                     /*!< 配置 DMA2D 背景 CLUT 颜色模式。
-												 该参数可以是@ref DMA2D_FG_CLUT_CM 的一个值 */
+												                            该参数可以是@ref DMA2D_FG_CLUT_CM 的一个值 */
 
     uint32_t DMA2D_BG_CLUT_SIZE;                   /*!< 配置 DMA2D 背景 CLUT 大小。
-												 此参数的范围必须为 0x00 到 0xFF。 */
+												                            此参数的范围必须为 0x00 到 0xFF。 */
 
     uint32_t DMA2D_BGPFC_ALPHA_MODE;               /*!< 配置 DMA2D 背景 alpha 模式。
-												 该参数可以是@ref DMA2D_FGPFC_ALPHA_MODE 的一个值 */
+												                            该参数可以是@ref DMA2D_FGPFC_ALPHA_MODE 的一个值 */
 
     uint32_t DMA2D_BGPFC_ALPHA_VALUE;              /*!< 指定 DMA2D 背景 alpha 值必须在 0x00 到 0xFF 的范围内。 */
 
@@ -160,7 +162,7 @@ typedef struct {
     uint32_t DMA2D_BGC_RED;                        /*!< 指定 DMA2D 背景红色值必须在 0x00 到 0xFF 的范围内。 */
 
     uint32_t DMA2D_BGCMAR;                         /*!< 配置 DMA2D 后台 CLUT 内存地址。
-												 此参数的范围必须为 0x00000000 到 0xFFFFFFFF。 */
+												                            此参数的范围必须为 0x00000000 到 0xFFFFFFFF。 */
 } DMA2D_BG_InitTypeDef;
 
 

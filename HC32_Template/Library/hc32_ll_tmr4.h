@@ -62,7 +62,7 @@ extern "C"
  * @note The TMR4 division(u16ClockDiv) is valid when clock source is the internal clock.
  */
 typedef struct {
-    uint16_t u16ClockSrc;       /*!< TMR4 counter clock source.
+    uint16_t u16ClockSrc;       /*!< TMR4 counter 时钟源.
                                      This parameter can be a value of @ref TMR4_Count_Clock_Source */
     uint16_t u16ClockDiv;       /*!< TMR4 counter internal clock division.
                                      This parameter can be a value of @ref TMR4_Count_Clock_Division. */
@@ -275,8 +275,8 @@ typedef struct {
  * @defgroup TMR4_Interrupt TMR4 Interrupt
  * @{
  */
-#define TMR4_INT_CNT_PEAK               ((uint32_t)TMR4_CCSR_IRQPEN)    /*!< Count peak interrupt */
-#define TMR4_INT_CNT_VALLEY             ((uint32_t)TMR4_CCSR_IRQZEN)    /*!< Count valley interrupt */
+#define TMR4_INT_CNT_PEAK               ((uint32_t)TMR4_CCSR_IRQPEN)    /*!< Count peak 中断 */
+#define TMR4_INT_CNT_VALLEY             ((uint32_t)TMR4_CCSR_IRQZEN)    /*!< Count valley 中断 */
 #define TMR4_INT_RELOAD_TMR_U           (1UL << 0U)                     /*!< TMR4 PWM reload-timer interrupt - channel U */
 #define TMR4_INT_RELOAD_TMR_V           (1UL << 1U)                     /*!< TMR4 PWM reload-timer interrupt - channel W */
 #define TMR4_INT_RELOAD_TMR_W           (1UL << 2U)                     /*!< TMR4 PWM reload-timer interrupt - channel V */

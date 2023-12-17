@@ -61,7 +61,7 @@ extern "C"
  * @note The parameter(u32ClockDiv/u32CKOutput/u32Baudrate) is valid when clock source is the internal clock.
  */
 typedef struct {
-    uint32_t u32ClockSrc;               /*!< Clock Source.
+    uint32_t u32ClockSrc;               /*!< 时钟源.
                                              This parameter can be a value of @ref USART_Clock_Source */
     uint32_t u32ClockDiv;               /*!< Clock division.
                                              This parameter can be a value of @ref USART_Clock_Division. */
@@ -78,7 +78,7 @@ typedef struct {
  * @note The parameter(u32ClockDiv/u32CKOutput/u32Baudrate) is valid when clock source is the internal clock.
  */
 typedef struct {
-    uint32_t u32ClockSrc;               /*!< Clock Source.
+    uint32_t u32ClockSrc;               /*!< 时钟源.
                                              This parameter can be a value of @ref USART_Clock_Source */
     uint32_t u32ClockDiv;               /*!< Clock division.
                                              This parameter can be a value of @ref USART_Clock_Division. */
@@ -105,7 +105,7 @@ typedef struct {
  * @note The parameter(u32ClockDiv/u32CKOutput/u32Baudrate) is valid when clock source is the internal clock.
  */
 typedef struct {
-    uint32_t u32ClockSrc;               /*!< Clock Source.
+    uint32_t u32ClockSrc;               /*!< 时钟源.
                                              This parameter can be a value of @ref USART_Clock_Source */
     uint32_t u32ClockDiv;               /*!< Clock division.
                                              This parameter can be a value of @ref USART_Clock_Division. */
@@ -134,7 +134,7 @@ typedef struct {
  * @note The parameter(u32ClockDiv/u32CKOutput/u32Baudrate) is valid when clock source is the internal clock.
  */
 typedef struct {
-    uint32_t u32ClockSrc;               /*!< Clock Source.
+    uint32_t u32ClockSrc;               /*!< 时钟源.
                                              This parameter can be a value of @ref USART_Clock_Source */
     uint32_t u32ClockDiv;               /*!< Clock division.
                                              This parameter can be a value of @ref USART_Clock_Division. */
@@ -224,11 +224,11 @@ typedef struct {
  */
 #define USART_TX                        (USART_CR1_TE)      /*!< USART TX function */
 #define USART_RX                        (USART_CR1_RE)      /*!< USART RX function */
-#define USART_INT_RX                    (USART_CR1_RIE)     /*!< USART receive data register not empty && receive error interrupt */
-#define USART_INT_TX_CPLT               (USART_CR1_TCIE)    /*!< USART transmission complete interrupt */
-#define USART_INT_TX_EMPTY              (USART_CR1_TXEIE)   /*!< USART transmit data register empty interrupt */
+#define USART_INT_RX                    (USART_CR1_RIE)     /*!< USART receive data register not empty && receive error 中断 */
+#define USART_INT_TX_CPLT               (USART_CR1_TCIE)    /*!< USART transmission complete 中断 */
+#define USART_INT_TX_EMPTY              (USART_CR1_TXEIE)   /*!< USART transmit data register empty 中断 */
 #define USART_RX_TIMEOUT                (USART_CR1_RTOE)    /*!< USART RX timerout function */
-#define USART_INT_RX_TIMEOUT            (USART_CR1_RTOIE)   /*!< USART RX timerout interrupt */
+#define USART_INT_RX_TIMEOUT            (USART_CR1_RTOIE)   /*!< USART RX timerout 中断 */
 #define USART_LIN                       (USART_CR2_LINEN  << 16UL)  /*!< USART LIN function */
 #define USART_LIN_WKUP                  (USART_CR2_WKUPE  << 16UL)  /*!< USART LIN wakeup signal detect function */
 #define USART_LIN_ERR                   (USART_CR2_BEE    << 16UL)  /*!< USART LIN bus error detect function */
@@ -303,7 +303,7 @@ typedef struct {
  * @{
  */
 #define USART_CLK_SRC_INTERNCLK         (0UL)               /*!< Select internal clock source and don't output clock */
-#define USART_CLK_SRC_EXTCLK            (USART_CR2_CLKC_1)  /*!< Select external clock source. */
+#define USART_CLK_SRC_EXTCLK            (USART_CR2_CLKC_1)  /*!< Select external 时钟源. */
 /**
  * @}
  */

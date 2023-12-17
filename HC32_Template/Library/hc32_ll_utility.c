@@ -176,7 +176,7 @@ __WEAKDEF int32_t SysTick_Init(uint32_t u32Freq) {
     if ((0UL != u32Freq) && (u32Freq <= 1000UL)) {
         m_u32TickStep = 1000UL / u32Freq;
 
-        /* Configure the SysTick interrupt */
+        /* Configure the SysTick 中断 */
         if (0UL == SysTick_Config(HCLK_VALUE / u32Freq)) {
             i32Ret = LL_OK;
         }
@@ -233,7 +233,7 @@ __WEAKDEF uint32_t SysTick_GetTick(void) {
  * @retval None
  */
 __WEAKDEF void SysTick_Suspend(void) {
-    /* Disable SysTick Interrupt */
+    /* Disable SysTick 中断 */
     SysTick->CTRL &= ~SysTick_CTRL_TICKINT_Msk;
 }
 
@@ -243,7 +243,7 @@ __WEAKDEF void SysTick_Suspend(void) {
  * @retval None
  */
 __WEAKDEF void SysTick_Resume(void) {
-    /* Enable SysTick Interrupt */
+    /* Enable SysTick 中断 */
     SysTick->CTRL  |= SysTick_CTRL_TICKINT_Msk;
 }
 

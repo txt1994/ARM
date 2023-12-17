@@ -70,12 +70,12 @@ OF SUCH DAMAGE.
 #define IPA_CTL_TEN                       BIT(0)           /*!< transfer enable */
 #define IPA_CTL_THU                       BIT(1)           /*!< transfer hang up */
 #define IPA_CTL_TST                       BIT(2)           /*!< transfer stop */
-#define IPA_CTL_TAEIE                     BIT(8)           /*!< enable bit for transfer access error interrupt */
+#define IPA_CTL_TAEIE                     BIT(8)           /*!< enable bit for transfer access error 中断 */
 #define IPA_CTL_FTFIE                     BIT(9)           /*!< enable bit for full transfer finish interrup */
-#define IPA_CTL_TLMIE                     BIT(10)          /*!< enable bit for transfer line mark interrupt */
-#define IPA_CTL_LACIE                     BIT(11)          /*!< enable bit for LUT access conflict interrupt */
-#define IPA_CTL_LLFIE                     BIT(12)          /*!< enable bit for LUT loading finish interrupt */
-#define IPA_CTL_WCFIE                     BIT(13)          /*!< enable bit for wrong configuration interrupt */
+#define IPA_CTL_TLMIE                     BIT(10)          /*!< enable bit for transfer line mark 中断 */
+#define IPA_CTL_LACIE                     BIT(11)          /*!< enable bit for LUT access conflict 中断 */
+#define IPA_CTL_LLFIE                     BIT(12)          /*!< enable bit for LUT loading finish 中断 */
+#define IPA_CTL_WCFIE                     BIT(13)          /*!< enable bit for wrong configuration 中断 */
 #define IPA_CTL_PFCM                      BITS(16,17)      /*!< pixel format convert mode */
 
 /* IPA_INTF */
@@ -299,12 +299,12 @@ typedef enum {
 #define IPA_Flag_WCF                    IPA_INTF_WCFIF                   /*!< wrong configuration interrupt flag */
 
 /* IPA interrupt enable or disable */
-#define IPA_INT_TAE                     IPA_CTL_TAEIE                    /*!< transfer access error interrupt */
-#define IPA_INT_FTF                     IPA_CTL_FTFIE                    /*!< full transfer finish interrupt */
-#define IPA_INT_TLM                     IPA_CTL_TLMIE                    /*!< transfer line mark interrupt */
-#define IPA_INT_LAC                     IPA_CTL_LACIE                    /*!< LUT access conflict interrupt */
-#define IPA_INT_LLF                     IPA_CTL_LLFIE                    /*!< LUT loading finish interrupt */
-#define IPA_INT_WCF                     IPA_CTL_WCFIE                    /*!< wrong configuration interrupt */
+#define IPA_INT_TAE                     IPA_CTL_TAEIE                    /*!< transfer access error 中断 */
+#define IPA_INT_FTF                     IPA_CTL_FTFIE                    /*!< full transfer finish 中断 */
+#define IPA_INT_TLM                     IPA_CTL_TLMIE                    /*!< transfer line mark 中断 */
+#define IPA_INT_LAC                     IPA_CTL_LACIE                    /*!< LUT access conflict 中断 */
+#define IPA_INT_LLF                     IPA_CTL_LLFIE                    /*!< LUT loading finish 中断 */
+#define IPA_INT_WCF                     IPA_CTL_WCFIE                    /*!< wrong configuration 中断 */
 
 /* IPA interrupt flags */
 #define IPA_INT_Flag_TAE                IPA_INTF_TAEIF                   /*!< transfer access error interrupt flag */
@@ -369,9 +369,9 @@ void IPA_interval_Clock_num_Config(uint8_t clk_num);
 FlagStatus IPA_Flag_Get(uint32_t flag);
 /* clear IPA flag in IPA_INTF register */
 void IPA_Flag_Clear(uint32_t flag);
-/* enable IPA interrupt */
+/* enable IPA 中断 */
 void IPA_Interrupt_Enable(uint32_t int_flag);
-/* disable IPA interrupt */
+/* disable IPA 中断 */
 void IPA_Interrupt_Disable(uint32_t int_flag);
 /* get IPA interrupt flag */
 FlagStatus IPA_Interrupt_Flag_Get(uint32_t int_flag);

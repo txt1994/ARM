@@ -206,30 +206,30 @@ OF SUCH DAMAGE.
 #define SDIO_Flag_ATAEND                BIT(23)                /*!< CE-ATA command completion signal received (only for CMD61) flag */
 
 /* SDIO interrupt enable or disable */
-#define SDIO_INT_CCRCERR                BIT(0)                 /*!< SDIO CCRCERR interrupt */
-#define SDIO_INT_DTCRCERR               BIT(1)                 /*!< SDIO DTCRCERR interrupt */
-#define SDIO_INT_CMDTMOUT               BIT(2)                 /*!< SDIO CMDTMOUT interrupt */
-#define SDIO_INT_DTTMOUT                BIT(3)                 /*!< SDIO DTTMOUT interrupt */
-#define SDIO_INT_TXURE                  BIT(4)                 /*!< SDIO TXURE interrupt */
-#define SDIO_INT_RXORE                  BIT(5)                 /*!< SDIO RXORE interrupt */
-#define SDIO_INT_CMDRECV                BIT(6)                 /*!< SDIO CMDRECV interrupt */
-#define SDIO_INT_CMDSEND                BIT(7)                 /*!< SDIO CMDSEND interrupt */
-#define SDIO_INT_DTEND                  BIT(8)                 /*!< SDIO DTEND interrupt */
-#define SDIO_INT_STBITE                 BIT(9)                 /*!< SDIO STBITE interrupt */
-#define SDIO_INT_DTBLKEND               BIT(10)                /*!< SDIO DTBLKEND interrupt */
-#define SDIO_INT_CMDRUN                 BIT(11)                /*!< SDIO CMDRUN interrupt */
-#define SDIO_INT_TXRUN                  BIT(12)                /*!< SDIO TXRUN interrupt */
-#define SDIO_INT_RXRUN                  BIT(13)                /*!< SDIO RXRUN interrupt */
-#define SDIO_INT_TFH                    BIT(14)                /*!< SDIO TFH interrupt */
-#define SDIO_INT_RFH                    BIT(15)                /*!< SDIO RFH interrupt */
-#define SDIO_INT_TFF                    BIT(16)                /*!< SDIO TFF interrupt */
-#define SDIO_INT_RFF                    BIT(17)                /*!< SDIO RFF interrupt */
-#define SDIO_INT_TFE                    BIT(18)                /*!< SDIO TFE interrupt */
-#define SDIO_INT_RFE                    BIT(19)                /*!< SDIO RFE interrupt */
-#define SDIO_INT_TXDTVAL                BIT(20)                /*!< SDIO TXDTVAL interrupt */
-#define SDIO_INT_RXDTVAL                BIT(21)                /*!< SDIO RXDTVAL interrupt */
-#define SDIO_INT_SDIOINT                BIT(22)                /*!< SDIO SDIOINT interrupt */
-#define SDIO_INT_ATAEND                 BIT(23)                /*!< SDIO ATAEND interrupt */
+#define SDIO_INT_CCRCERR                BIT(0)                 /*!< SDIO CCRCERR 中断 */
+#define SDIO_INT_DTCRCERR               BIT(1)                 /*!< SDIO DTCRCERR 中断 */
+#define SDIO_INT_CMDTMOUT               BIT(2)                 /*!< SDIO CMDTMOUT 中断 */
+#define SDIO_INT_DTTMOUT                BIT(3)                 /*!< SDIO DTTMOUT 中断 */
+#define SDIO_INT_TXURE                  BIT(4)                 /*!< SDIO TXURE 中断 */
+#define SDIO_INT_RXORE                  BIT(5)                 /*!< SDIO RXORE 中断 */
+#define SDIO_INT_CMDRECV                BIT(6)                 /*!< SDIO CMDRECV 中断 */
+#define SDIO_INT_CMDSEND                BIT(7)                 /*!< SDIO CMDSEND 中断 */
+#define SDIO_INT_DTEND                  BIT(8)                 /*!< SDIO DTEND 中断 */
+#define SDIO_INT_STBITE                 BIT(9)                 /*!< SDIO STBITE 中断 */
+#define SDIO_INT_DTBLKEND               BIT(10)                /*!< SDIO DTBLKEND 中断 */
+#define SDIO_INT_CMDRUN                 BIT(11)                /*!< SDIO CMDRUN 中断 */
+#define SDIO_INT_TXRUN                  BIT(12)                /*!< SDIO TXRUN 中断 */
+#define SDIO_INT_RXRUN                  BIT(13)                /*!< SDIO RXRUN 中断 */
+#define SDIO_INT_TFH                    BIT(14)                /*!< SDIO TFH 中断 */
+#define SDIO_INT_RFH                    BIT(15)                /*!< SDIO RFH 中断 */
+#define SDIO_INT_TFF                    BIT(16)                /*!< SDIO TFF 中断 */
+#define SDIO_INT_RFF                    BIT(17)                /*!< SDIO RFF 中断 */
+#define SDIO_INT_TFE                    BIT(18)                /*!< SDIO TFE 中断 */
+#define SDIO_INT_RFE                    BIT(19)                /*!< SDIO RFE 中断 */
+#define SDIO_INT_TXDTVAL                BIT(20)                /*!< SDIO TXDTVAL 中断 */
+#define SDIO_INT_RXDTVAL                BIT(21)                /*!< SDIO RXDTVAL 中断 */
+#define SDIO_INT_SDIOINT                BIT(22)                /*!< SDIO SDIOINT 中断 */
+#define SDIO_INT_ATAEND                 BIT(23)                /*!< SDIO ATAEND 中断 */
 
 /* SDIO interrupt flags */
 #define SDIO_INT_Flag_CCRCERR           BIT(0)                 /*!< SDIO CCRCERR interrupt flag */
@@ -287,8 +287,8 @@ OF SUCH DAMAGE.
 #define SDIO_RESPONSETYPE_LONG          CMDCTL_CMDRESP(3)      /*!< long response */
 
 /* command state machine wait type */
-#define SDIO_WaitTYPE_NO                (uint32_t)0x00000000U  /*!< not wait interrupt */
-#define SDIO_WaitTYPE_INTERRUPT         SDIO_CMDCTL_INTWAIT    /*!< wait interrupt */
+#define SDIO_WaitTYPE_NO                (uint32_t)0x00000000U  /*!< not wait 中断 */
+#define SDIO_WaitTYPE_INTERRUPT         SDIO_CMDCTL_INTWAIT    /*!< wait 中断 */
 #define SDIO_WaitTYPE_DATAEND           SDIO_CMDCTL_WaitDEND   /*!< wait the end of data transfer */
 
 #define SDIO_RESPONSE0                  (uint32_t)0x00000000U  /*!< card response[31:0]/card response[127:96] */
@@ -388,9 +388,9 @@ void SDIO_DMA_Disable(void);
 FlagStatus SDIO_Flag_Get(uint32_t flag);
 /* clear the pending flags of SDIO */
 void SDIO_Flag_Clear(uint32_t flag);
-/* enable the SDIO interrupt */
+/* enable the SDIO 中断 */
 void SDIO_Interrupt_Enable(uint32_t int_flag);
-/* disable the SDIO interrupt */
+/* disable the SDIO 中断 */
 void SDIO_Interrupt_Disable(uint32_t int_flag);
 /* get the interrupt flags state of SDIO */
 FlagStatus SDIO_Interrupt_Flag_Get(uint32_t int_flag);

@@ -4,7 +4,7 @@
   * 作者:    MCD Application Team
   * 版本:    V1.8.0
   * 日期:    04-November-2016
-  * 简介:    此文件提供固件功能，用于管理EXTI外围设备的以下功能:
+  * 简介:    此文件提供固件功能，用于管理EXTI外设设备的以下功能:
   *           + 初始化和配置
   *           + 中断和标志管理
   *
@@ -15,15 +15,15 @@
  ===============================================================================
 
  [..] 外部中断/事件行映射如下:
-   (#) 所有可用的GPIO引脚都连接到EXTI0到EXTI15的16条外部中断/事件线。
-   (#) EXTI线路16连接到PVD输出
-   (#) EXTI线路17连接至RTC报警事件
-   (#) EXTI线路18连接到USB OTG FS唤醒暂停事件
-   (#) EXTI线路19连接到以太网唤醒事件
-   (#) EXTI线路20连接到USB OTG HS(在FS中配置)唤醒事件
-   (#) EXTI线路21连接到RTC篡改和时间戳事件
-   (#) EXTI线路22连接至RTC唤醒事件
-   (#) EXTI线路23连接到LPTIM唤醒事件
+   (#) 所有可用的 GPIO 引脚都连接到 EXTI0 到 EXTI15 的 16 条外部中断/事件线。
+   (#) EXTI线路 1 6连接到 PVD 输出
+   (#) EXTI线路 17 连接至 RTC 报警事件
+   (#) EXTI线路 18 连接到 USB OTG FS 唤醒暂停事件
+   (#) EXTI线路 19 连接到以太网唤醒事件
+   (#) EXTI线路 20 连接到 USB OTG HS(在FS中配置)唤醒事件
+   (#) EXTI线路 21 连接到 RTC篡改和时间戳事件
+   (#) EXTI线路 22 连接至 RTC唤醒事件
+   (#) EXTI线路 23 连接到LPTIM 唤醒事件
 
                        ##### 如何使用这个驱动程序 #####
  ===============================================================================
@@ -113,7 +113,7 @@ void EXTI_DeInit(void) {
 
 /**
   * 简介:  根据 EXTI_InitStruct 中指定的参数初始化 EXTI 外设。
-  * 参数:  EXTI_InitStruct: 指向包含EXTI外围设备配置信息的EXTI_InitTypeDef结构的指针。
+  * 参数:  EXTI_InitStruct: 指向包含EXTI外设设备配置信息的EXTI_InitTypeDef结构的指针。
   * 返回值: 无
   */
 void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct) {
@@ -154,7 +154,7 @@ void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct) {
     } else {
         tmp += EXTI_InitStruct->EXTI_Mode;
 
-        /* 禁用 selected external lines */
+        /* 禁用被选中的 external lines */
         *(__IO uint32_t *) tmp &= ~EXTI_InitStruct->EXTI_Line;
     }
 }

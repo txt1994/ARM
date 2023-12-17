@@ -303,8 +303,8 @@ typedef enum {
 #define CTL_PSZ_WORD               CTL_PSZ(2)                     /*!< FMC program by word access */
 
 /* FMC interrupt enable */
-#define FMC_INT_END                ((uint32_t)0x01000000U)        /*!< enable FMC end of program interrupt */
-#define FMC_INT_ERR                ((uint32_t)0x02000000U)        /*!< enable FMC error interrupt */
+#define FMC_INT_END                ((uint32_t)0x01000000U)        /*!< enable FMC end of program 中断 */
+#define FMC_INT_ERR                ((uint32_t)0x02000000U)        /*!< enable FMC error 中断 */
 
 /* FMC flags */
 #define FMC_Flag_END               FMC_STAT_END                   /*!< FMC end of operation flag bit */
@@ -399,9 +399,9 @@ uint8_t OB_User_Bor_Threshold_Get(void);
 FlagStatus FMC_Flag_Get(uint32_t FMC_flag);
 /* clear the FMC pending flag */
 void FMC_Flag_Clear(uint32_t FMC_flag);
-/* enable FMC interrupt */
+/* enable FMC 中断 */
 void FMC_Interrupt_Enable(uint32_t FMC_int);
-/* disable FMC interrupt */
+/* disable FMC 中断 */
 void FMC_Interrupt_Disable(uint32_t FMC_int);
 /* get FMC interrupt flag set or reset */
 FlagStatus FMC_Interrupt_Flag_Get(uint32_t FMC_int_flag);

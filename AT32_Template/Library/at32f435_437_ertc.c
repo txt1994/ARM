@@ -641,7 +641,7 @@ uint32_t ERTC_Alarm_Sub_Second_Get(ERTC_Alarm_Type alarm_x) {
 
 /**
   * @brief  set wakeup timer clock.
-  * @param  clock: wakeup timer clock source.
+  * @param  clock: wakeup timer 时钟源.
   *         该参数可以是以下值之一:
   *         - ERTC_WAT_CLK_ERTCCLK_DIV16: ERTC_CLK / 16.
   *         - ERTC_WAT_CLK_ERTCCLK_DIV8: ERTC_CLK / 8.
@@ -1313,7 +1313,7 @@ flag_status ERTC_Interrupt_Get(uint32_t source) {
 
 /**
   * @brief  get flag status.
-  * @param  flag: specifies the flag to check.
+  * @param  flag: 指定flag to check.
   *         该参数可以是以下值之一:
   *         - ERTC_ALAWF_FLAG: alarm a register allows write flag.
   *         - ERTC_ALBWF_FLAG: alarm b register allows write flag.
@@ -1342,7 +1342,7 @@ flag_status ERTC_Flag_Get(uint32_t flag) {
 
 /**
   * @brief  clear flag status
-  * @param  flag: specifies the flag to clear.
+  * @param  flag: 指定flag to clear.
   *         该参数可以是以下值的任意组合:
   *         - ERTC_ALAWF_FLAG: alarm a register allows write flag.
   *         - ERTC_ALBWF_FLAG: alarm b register allows write flag.

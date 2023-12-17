@@ -122,7 +122,7 @@ static void system_clock_240m_25m_hxtal(void);
 static void system_clock_config(void);
 
 /*!
-    \brief      setup the microcontroller system, initialize the system
+    \brief      设置微控制器系统, initialize the system
     \param[in]  none
     \param[out] none
     \retval     none
@@ -157,7 +157,7 @@ void SystemInit (void) {
     /* Reset PLLCFGR register */
     RCU_PLL = 0x24003010U;
 
-    /* Disable all interrupts */
+    /* 禁用所有中断 */
     RCU_INT = 0x00000000U;
 
     /* Configure the System clock source, PLL Multiplier and Divider factors,

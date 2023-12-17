@@ -343,7 +343,7 @@ void EXMC_SMC_PinMuxCmd(en_functional_state_t enNewState) {
  *         This parameter can be one of the macros group @ref EXMC_SMC_Command
  *           @arg EXMC_SMC_SAMPLE_CLK_INTERNCLK:      Internal EXCLK
  *           @arg EXMC_SMC_SAMPLE_CLK_INTERNCLK_INVT: Invert internal EXCLK
- *           @arg EXMC_SMC_SAMPLE_CLK_EXTCLK:         External clock from EXMC_CLK port
+ *           @arg EXMC_SMC_SAMPLE_CLK_EXTCLK:         External 时钟来自于 EXMC_CLK port
  * @retval None
  */
 void EXMC_SMC_SetSampleClock(uint32_t u32SampleClock) {

@@ -330,7 +330,7 @@ int32_t EXMC_DMC_Init(const stc_exmc_dmc_init_t *pstcDmcInit) {
         /* set auto refresh period*/
         WRITE_REG32(CM_DMC->RFTR, pstcDmcInit->u32RefreshPeriod);
 
-        /* Set timing parameters for DMC.*/
+        /* Set 定时参数 for DMC.*/
         WRITE_REG32(CM_DMC->TMCR_T_CASL, pstcDmcInit->stcTimingConfig.u8CASL);
         WRITE_REG32(CM_DMC->TMCR_T_DQSS, pstcDmcInit->stcTimingConfig.u8DQSS);
         WRITE_REG32(CM_DMC->TMCR_T_MRD, pstcDmcInit->stcTimingConfig.u8MRD);

@@ -4,7 +4,7 @@
   * 作者:    MCD Application Team
   * 版本:    V1.8.0
   * 日期:    04-November-2016
-  * 简介:    此文件提供固件功能，以管理电源控制器(PWR)外围设备的以下功能:
+  * 简介:    此文件提供固件功能，以管理电源控制器(PWR)外设设备的以下功能:
   *           + 备份域访问
   *           + PVD配置
   *           + 唤醒引脚配置
@@ -171,7 +171,7 @@ void PWR_DeInit(void) {
   * 简介:  启用或禁用对备份域(RTC 寄存器、RTC 备份数据寄存器和备份 SRAM)的访问。
   * 注意:   如果HSE除以2、3、...31被用作RTC时钟，那么 备份域访问应保持启用。
   * 参数:  NewState: 访问备份域的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void PWR_BackupAccessCmd(FunctionalState NewState) {
@@ -413,7 +413,7 @@ void PWR_MainRegulatorModeConfig(uint32_t PWR_Regulator_Voltage) {
     /* 清除 VOS[15:14] 位 */
     tmpreg &= CR_VOS_MASK;
 
-    /* Set VOS[15:14] bits according to PWR_Regulator_Voltage 值 */
+    /* 设置 VOS[15:14] bits 根据 PWR_Regulator_Voltage 值 */
     tmpreg |= PWR_Regulator_Voltage;
 
     /* 存储新值 */
@@ -617,7 +617,7 @@ void PWR_FlashPowerDownCmd(FunctionalState NewState) {
  ===============================================================================
     [..]
       这些设备具有3种低功耗模式:
-      (+)睡眠模式:Cortex-M4核心停止，外围设备继续运行。
+      (+)睡眠模式:Cortex-M4核心停止，外设设备继续运行。
       (+)停止模式:所有时钟停止，调节器运行，调节器处于低功率模式
       (+)待机模式:1.2V域断电。
 
@@ -690,12 +690,12 @@ void PWR_FlashPowerDownCmd(FunctionalState NewState) {
           (+++) 使用RTC_SetAlarm()和RTC_AlarmCmd()函数配置RTC以产生RTC报警。
         (++) 要从待机模式中唤醒RTC篡改或时间戳事件，就必须:
           (+++) 使用RTC_ITConfig()函数启用RTC篡改或时间戳中断
-          (+++)使用RTC_TimeStampConfig(), RTC_TamperTriggerConfig()
-              和RTC_TamperCmd()函数配置RTC以检测篡改或时间戳事件。
+          (+++) 使用RTC_TimeStampConfig(), RTC_TamperTriggerConfig()
+                和RTC_TamperCmd()函数配置RTC以检测篡改或时间戳事件。
         (++) 要想用RTC唤醒事件从待机模式中唤醒，就必须:
           (+++) 使用RTC_ITConfig()函数启用RTC WakeUp中断。
-          (+++)使用RTC_WakeUpClockConfig(), RTC_SetWakeUpCounter()
-            和RTC_WakeUpCmd()函数配置RTC以产生RTC WakeUp事件。
+          (+++) 使用RTC_WakeUpClockConfig(), RTC_SetWakeUpCounter()
+             和RTC_WakeUpCmd()函数配置RTC以产生RTC WakeUp事件。
 
 @endverbatim
   * @{

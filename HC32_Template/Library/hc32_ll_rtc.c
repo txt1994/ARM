@@ -428,8 +428,8 @@ void RTC_SetIntPeriod(uint8_t u8Period) {
 }
 
 /**
- * @brief  Set the RTC clock source.
- * @param  [in] u8Src                   Specifies the clock source.
+ * @brief  Set the RTC 时钟源.
+ * @param  [in] u8Src                   Specifies the 时钟源.
  *         This parameter can be one of the following values:
  *           @arg @ref RTC_Clock_Source
  * @retval None
@@ -1048,7 +1048,7 @@ void RTC_IntCmd(uint32_t u32IntType, en_functional_state_t enNewState) {
         }
     }
 
-    /* Intrusion interrupt */
+    /* Intrusion 中断 */
     if (0UL != (u32IntType & 0x00FF00UL)) {
         WRITE_REG32(bCM_RTC->TPCR0_b.TPIE0, enNewState);
     }

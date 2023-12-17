@@ -93,7 +93,7 @@ void TLI_Struct_Para_Init(TLI_Parameter_Struct *TLI_Struct) {
 }
 
 /*!
-    简介:    initialize TLI display timing parameters
+    简介:    initialize TLI display 定时参数
     参数[输入]:  TLI_Struct: the data needed to initialize TLI
                   synpsz_vpsz: size of the vertical synchronous pulse
                   synpsz_hpsz: size of the horizontal synchronous pulse

@@ -8,7 +8,7 @@
   *           - 初始化和配置函数
   *           - 消息摘要生成函数
   *           - 上下文交换函数
-  *           - DMA接口函数
+  *           - DMA 接口函数
   *           - 中断和标志管理
   *
 @verbatim
@@ -387,7 +387,7 @@ void HASH_RestoreContext(HASH_Context* HASH_ContextRestore) {
 
  [..] 本节提供了允许为HASH/HMAC数据输入传输配置DMA接口的函数。
 
- [..] 启用DMA模式时(使用HASH_DMACmd()函数)，可以使用DMA外围设备将数据发送到IN FIFO。
+ [..] 启用DMA模式时(使用HASH_DMACmd()函数)，可以使用DMA外设设备将数据发送到IN FIFO。
 
 @endverbatim
   * @{

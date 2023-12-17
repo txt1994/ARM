@@ -73,7 +73,7 @@
   * @{
   */
 
-/** @defgroup FLASH_RAMFUNC_Group1 外围设备具有从内部RAM执行的功能
+/** @defgroup FLASH_RAMFUNC_Group1 外设设备具有从内部RAM执行的功能
   *  简介 外围扩展功能功能
   *
 @verbatim

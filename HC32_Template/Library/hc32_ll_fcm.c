@@ -64,7 +64,7 @@
  * @{
  */
 
-/* Parameter validity check for FCM target and reference clock source. */
+/* Parameter validity check for FCM target and reference 时钟源. */
 #define IS_FCM_TARGET_SRC(x)                                                 \
     (   ((x) == FCM_TARGET_CLK_XTAL)          ||                                 \
         ((x) == FCM_TARGET_CLK_XTAL32)        ||                                 \

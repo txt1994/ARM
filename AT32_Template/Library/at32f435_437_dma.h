@@ -47,9 +47,9 @@ extern "C" {
   * @{
   */
 
-#define DMA_FDT_INT                      ((uint32_t)0x00000002) /*!< dma full data transfer interrupt */
-#define DMA_HDT_INT                      ((uint32_t)0x00000004) /*!< dma half data transfer interrupt */
-#define DMA_DTERR_INT                    ((uint32_t)0x00000008) /*!< dma errorr interrupt */
+#define DMA_FDT_INT                      ((uint32_t)0x00000002) /*!< dma full data transfer 中断 */
+#define DMA_HDT_INT                      ((uint32_t)0x00000004) /*!< dma half data transfer 中断 */
+#define DMA_DTERR_INT                    ((uint32_t)0x00000008) /*!< dma errorr 中断 */
 
 /**
   * @}

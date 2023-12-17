@@ -139,9 +139,9 @@ typedef struct {
 #define DCU_FLAG_DATA0_LT_DATA1             (DCU_FLAG_FLAG_LS1) /*!< DCU DATA0 < DATA1 flag */
 #define DCU_FLAG_DATA0_EQ_DATA1             (DCU_FLAG_FLAG_EQ1) /*!< DCU DATA0 = DATA1 flag */
 #define DCU_FLAG_DATA0_GT_DATA1             (DCU_FLAG_FLAG_GT1) /*!< DCU DATA0 > DATA1 flag */
-#define DCU_FLAG_SAWTOOTH_WAVE_RELOAD       (DCU_FLAG_FLAG_RLD) /*!< DCU sawtooth wave mode reload interrupt */
-#define DCU_FLAG_TRIANGLE_WAVE_BOTTOM       (DCU_FLAG_FLAG_BTM) /*!< DCU triangle wave mode bottom interrupt */
-#define DCU_FLAG_TRIANGLE_WAVE_TOP          (DCU_FLAG_FLAG_TOP) /*!< DCU triangle wave mode top interrupt */
+#define DCU_FLAG_SAWTOOTH_WAVE_RELOAD       (DCU_FLAG_FLAG_RLD) /*!< DCU sawtooth wave mode reload 中断 */
+#define DCU_FLAG_TRIANGLE_WAVE_BOTTOM       (DCU_FLAG_FLAG_BTM) /*!< DCU triangle wave mode bottom 中断 */
+#define DCU_FLAG_TRIANGLE_WAVE_TOP          (DCU_FLAG_FLAG_TOP) /*!< DCU triangle wave mode top 中断 */
 
 #define DCU_FLAG_ALL                        (0x00000E7FUL)
 /**
@@ -169,12 +169,12 @@ typedef struct {
  * @note Interrupt type DCU_Compare_Interrupt is valid when only select DCU_CATEGORY_CMP_NON_WIN
  * @{
  */
-#define DCU_INT_CMP_DATA0_LT_DATA2          (DCU_INTEVTSEL_SEL_LS2)   /*!< DCU DATA0 < DATA2 interrupt */
-#define DCU_INT_CMP_DATA0_EQ_DATA2          (DCU_INTEVTSEL_SEL_EQ2)   /*!< DCU DATA0 = DATA2 interrupt */
-#define DCU_INT_CMP_DATA0_GT_DATA2          (DCU_INTEVTSEL_SEL_GT2)   /*!< DCU DATA0 > DATA2 interrupt */
-#define DCU_INT_CMP_DATA0_LT_DATA1          (DCU_INTEVTSEL_SEL_LS1)   /*!< DCU DATA0 < DATA1 interrupt */
-#define DCU_INT_CMP_DATA0_EQ_DATA1          (DCU_INTEVTSEL_SEL_EQ1)   /*!< DCU DATA0 = DATA1 interrupt */
-#define DCU_INT_CMP_DATA0_GT_DATA1          (DCU_INTEVTSEL_SEL_GT1)   /*!< DCU DATA0 > DATA1 interrupt */
+#define DCU_INT_CMP_DATA0_LT_DATA2          (DCU_INTEVTSEL_SEL_LS2)   /*!< DCU DATA0 < DATA2 中断 */
+#define DCU_INT_CMP_DATA0_EQ_DATA2          (DCU_INTEVTSEL_SEL_EQ2)   /*!< DCU DATA0 = DATA2 中断 */
+#define DCU_INT_CMP_DATA0_GT_DATA2          (DCU_INTEVTSEL_SEL_GT2)   /*!< DCU DATA0 > DATA2 中断 */
+#define DCU_INT_CMP_DATA0_LT_DATA1          (DCU_INTEVTSEL_SEL_LS1)   /*!< DCU DATA0 < DATA1 中断 */
+#define DCU_INT_CMP_DATA0_EQ_DATA1          (DCU_INTEVTSEL_SEL_EQ1)   /*!< DCU DATA0 = DATA1 中断 */
+#define DCU_INT_CMP_DATA0_GT_DATA1          (DCU_INTEVTSEL_SEL_GT1)   /*!< DCU DATA0 > DATA1 中断 */
 #define DCU_INT_CMP_NON_WIN_ALL             (DCU_INT_CMP_DATA0_LT_DATA2 |  \
         DCU_INT_CMP_DATA0_EQ_DATA2 |  \
         DCU_INT_CMP_DATA0_GT_DATA2 |  \
@@ -190,8 +190,8 @@ typedef struct {
  * @note Interrupt type DCU_Window_Compare_Interrupt is valid when only select DCU_CATEGORY_CMP_WIN
  * @{
  */
-#define DCU_INT_CMP_WIN_INSIDE              (DCU_INTEVTSEL_SEL_WIN_0)  /*!< DCU comparison(DATA2 <= DATA0 <= DATA1) interrupt */
-#define DCU_INT_CMP_WIN_OUTSIDE             (DCU_INTEVTSEL_SEL_WIN_1)  /*!< DCU comparison(DATA0 < DATA2 & DATA0 > DATA1 ) interrupt */
+#define DCU_INT_CMP_WIN_INSIDE              (DCU_INTEVTSEL_SEL_WIN_0)  /*!< DCU comparison(DATA2 <= DATA0 <= DATA1) 中断 */
+#define DCU_INT_CMP_WIN_OUTSIDE             (DCU_INTEVTSEL_SEL_WIN_1)  /*!< DCU comparison(DATA0 < DATA2 & DATA0 > DATA1 ) 中断 */
 #define DCU_INT_CMP_WIN_ALL                 (DCU_INT_CMP_WIN_INSIDE | DCU_INT_CMP_WIN_OUTSIDE)
 /**
  * @}
@@ -202,7 +202,7 @@ typedef struct {
  * @note DCU_Window_Compare_Interrupt selection is valid when only select DCU_CATEGORY_OP
  * @{
  */
-#define DCU_INT_OP_CARRY                    (DCU_INTEVTSEL_SEL_OP) /*!< DCU addition overflow or subtraction underflow interrupt */
+#define DCU_INT_OP_CARRY                    (DCU_INTEVTSEL_SEL_OP) /*!< DCU addition overflow or subtraction underflow 中断 */
 /**
  * @}
  */
@@ -212,9 +212,9 @@ typedef struct {
  * @note Interrupt type DCU_Wave_Mode_Interrupt is valid when only select DCU_CATEGORY_WAVE
  * @{
  */
-#define DCU_INT_SAWTOOTH_WAVE_RELOAD        (DCU_INTEVTSEL_SEL_RLD) /*!< DCU sawtooth wave mode reload interrupt */
-#define DCU_INT_TRIANGLE_WAVE_BOTTOM        (DCU_INTEVTSEL_SEL_BTM) /*!< DCU triangle wave mode bottom interrupt */
-#define DCU_INT_TRIANGLE_WAVE_TOP           (DCU_INTEVTSEL_SEL_TOP) /*!< DCU triangle wave mode top interrupt */
+#define DCU_INT_SAWTOOTH_WAVE_RELOAD        (DCU_INTEVTSEL_SEL_RLD) /*!< DCU sawtooth wave mode reload 中断 */
+#define DCU_INT_TRIANGLE_WAVE_BOTTOM        (DCU_INTEVTSEL_SEL_BTM) /*!< DCU triangle wave mode bottom 中断 */
+#define DCU_INT_TRIANGLE_WAVE_TOP           (DCU_INTEVTSEL_SEL_TOP) /*!< DCU triangle wave mode top 中断 */
 #define DCU_INT_WAVE_MD_ALL                 (DCU_INT_TRIANGLE_WAVE_TOP    | \
         DCU_INT_TRIANGLE_WAVE_BOTTOM | \
         DCU_INT_SAWTOOTH_WAVE_RELOAD)

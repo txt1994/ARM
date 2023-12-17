@@ -1462,8 +1462,8 @@ __STATIC_INLINE uint32_t NVIC_GetPriorityGrouping(void) {
     \param [in]      IRQn  External interrupt number. Value cannot be negative.
  */
 __STATIC_INLINE void NVIC_EnableIRQ(IRQn_Type IRQn) {
-    /*  NVIC->ISER[((uint32_t)(IRQn) >> 5)] = (1 << ((uint32_t)(IRQn) & 0x1F));  enable interrupt */
-    NVIC->ISER[(uint32_t)((int32_t)IRQn) >> 5] = (uint32_t)(1 << ((uint32_t)((int32_t)IRQn) & (uint32_t)0x1F)); /* enable interrupt */
+    /*  NVIC->ISER[((uint32_t)(IRQn) >> 5)] = (1 << ((uint32_t)(IRQn) & 0x1F));  enable 中断 */
+    NVIC->ISER[(uint32_t)((int32_t)IRQn) >> 5] = (uint32_t)(1 << ((uint32_t)((int32_t)IRQn) & (uint32_t)0x1F)); /* enable 中断 */
 }
 
 
@@ -1474,7 +1474,7 @@ __STATIC_INLINE void NVIC_EnableIRQ(IRQn_Type IRQn) {
     \param [in]      IRQn  External interrupt number. Value cannot be negative.
  */
 __STATIC_INLINE void NVIC_DisableIRQ(IRQn_Type IRQn) {
-    NVIC->ICER[((uint32_t)(IRQn) >> 5)] = (1 << ((uint32_t)(IRQn) & 0x1F)); /* disable interrupt */
+    NVIC->ICER[((uint32_t)(IRQn) >> 5)] = (1 << ((uint32_t)(IRQn) & 0x1F)); /* disable 中断 */
 }
 
 
@@ -1511,7 +1511,7 @@ __STATIC_INLINE void NVIC_SetPendingIRQ(IRQn_Type IRQn) {
     \param [in]      IRQn  External interrupt number. Value cannot be negative.
  */
 __STATIC_INLINE void NVIC_ClearPendingIRQ(IRQn_Type IRQn) {
-    NVIC->ICPR[((uint32_t)(IRQn) >> 5)] = (1 << ((uint32_t)(IRQn) & 0x1F)); /* Clear pending interrupt */
+    NVIC->ICPR[((uint32_t)(IRQn) >> 5)] = (1 << ((uint32_t)(IRQn) & 0x1F)); /* Clear pending 中断 */
 }
 
 
@@ -1541,7 +1541,7 @@ __STATIC_INLINE uint32_t NVIC_GetActive(IRQn_Type IRQn) {
 __STATIC_INLINE void NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority) {
     if(IRQn < 0) {
         SCB->SHP[((uint32_t)(IRQn) & 0xF)-4] = ((priority << (8 - __NVIC_PRIO_BITS)) & 0xff);
-    } /* set Priority for Cortex-M  System Interrupts */
+    } /* set Priority for Cortex-M  System 中断 */
     else {
         NVIC->IP[(uint32_t)(IRQn)] = ((priority << (8 - __NVIC_PRIO_BITS)) & 0xff);
     }        /* set Priority for device specific Interrupts  */
@@ -1563,7 +1563,7 @@ __STATIC_INLINE uint32_t NVIC_GetPriority(IRQn_Type IRQn) {
 
     if(IRQn < 0) {
         return((uint32_t)(SCB->SHP[((uint32_t)(IRQn) & 0xF)-4] >> (8 - __NVIC_PRIO_BITS)));
-    } /* get priority for Cortex-M  system interrupts */
+    } /* get priority for Cortex-M  system 中断 */
     else {
         return((uint32_t)(NVIC->IP[(uint32_t)(IRQn)]           >> (8 - __NVIC_PRIO_BITS)));
     } /* get priority for device specific interrupts  */
@@ -1668,7 +1668,7 @@ __STATIC_INLINE uint32_t SysTick_Config(uint32_t ticks) {
     if ((ticks - 1) > SysTick_LOAD_RELOAD_Msk)  return (1);      /* Reload value impossible */
 
     SysTick->LOAD  = ticks - 1;                                  /* set reload register */
-    NVIC_SetPriority (SysTick_IRQn, (1<<__NVIC_PRIO_BITS) - 1);  /* set Priority for Systick Interrupt */
+    NVIC_SetPriority (SysTick_IRQn, (1<<__NVIC_PRIO_BITS) - 1);  /* set Priority for Systick 中断 */
     SysTick->VAL   = 0;                                          /* Load the SysTick Counter Value */
     SysTick->CTRL  = SysTick_CTRL_CLKSOURCE_Msk |
                      SysTick_CTRL_TICKINT_Msk   |

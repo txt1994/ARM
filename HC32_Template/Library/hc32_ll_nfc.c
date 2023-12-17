@@ -820,14 +820,14 @@ void EXMC_NFC_WriteProtectCmd(en_functional_state_t enNewState) {
  * @brief  Enable or disable the specified NFC interrupt
  * @param  [in] u16IntType                The specified interrupt
  *         This parameter can be any composed value of the macros group @ref EXMC_NFC_Interrupt
- *           @arg EXMC_NFC_INT_RB_BANK0:  NFC bank 0 device ready interrupt
- *           @arg EXMC_NFC_INT_RB_BANK1:  NFC bank 1 device ready interrupt
- *           @arg EXMC_NFC_INT_RB_BANK2:  NFC bank 2 device ready interrupt
- *           @arg EXMC_NFC_INT_RB_BANK3:  NFC bank 3 device ready interrupt
+ *           @arg EXMC_NFC_INT_RB_BANK0:  NFC bank 0 device 就绪中断
+ *           @arg EXMC_NFC_INT_RB_BANK1:  NFC bank 1 device 就绪中断
+ *           @arg EXMC_NFC_INT_RB_BANK2:  NFC bank 2 device 就绪中断
+ *           @arg EXMC_NFC_INT_RB_BANK3:  NFC bank 3 device 就绪中断
  *           @arg EXMC_NFC_INT_RB_BANK4:  NFC bank 4 device ready flag
- *           @arg EXMC_NFC_INT_RB_BANK5:  NFC bank 5 device ready interrupt
- *           @arg EXMC_NFC_INT_RB_BANK6:  NFC bank 6 device ready interrupt
- *           @arg EXMC_NFC_INT_RB_BANK7:  NFC bank 7 device ready interrupt
+ *           @arg EXMC_NFC_INT_RB_BANK5:  NFC bank 5 device 就绪中断
+ *           @arg EXMC_NFC_INT_RB_BANK6:  NFC bank 6 device 就绪中断
+ *           @arg EXMC_NFC_INT_RB_BANK7:  NFC bank 7 device 就绪中断
  *           @arg EXMC_NFC_INT_ECC_ERROR: ECC error interrupt
  *           @arg EXMC_NFC_INT_ECC_CALC_COMPLETION: Calculating ECC completely interrupt
  *           @arg EXMC_NFC_INT_ECC_CORRECTABLE_ERR: ECC correctable error interrupt

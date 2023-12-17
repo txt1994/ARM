@@ -457,8 +457,8 @@ ErrorStatus CRYP_AES_CBC(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
   * 简介:  在 CTR 模式下使用 AES 进行加密和解密。
   * 参数:  Mode: 加密或解密模式。
   *           此参数可以是以下值之一:
-  *            @arg MODE_ENCRYPT:加密
-  *            @arg MODE_DECRYPT:解密
+  *            @arg MODE_ENCRYPT: 加密
+  *            @arg MODE_DECRYPT: 解密
   * 参数:  InitVectors: 用于AES算法的初始化矢量。
   * 参数:  Key: 用于AES算法的密钥。
   * 参数:  Keysize: 密钥的长度必须为128、192或256。
@@ -620,7 +620,7 @@ ErrorStatus CRYP_AES_CTR(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
 }
 
 /**
-  * 简介:  在GCM模式下使用AES进行加密和解密。GCM和CCM模式仅在STM32F437x设备上可用。
+  * 简介:  在 GCM 模式下使用 AES 进行加密和解密。GCM 和 CCM 模式仅在 STM32F437x 设备上可用。
   * 参数:  Mode: 加密或解密模式。
   *          此参数可以是以下值之一:
   *            @arg MODE_ENCRYPT:加密
@@ -629,9 +629,9 @@ ErrorStatus CRYP_AES_CTR(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
   * 参数:  Key: 用于AES算法的密钥。
   * 参数:  Keysize: 密钥的长度必须为128、192或256。
   * 参数:  Input: 指向输入缓冲区的指针。
-  * 参数:  Ilength: 输入缓冲区的长度(以字节为单位)必须是16的倍数。
+  * 参数:  Ilength: 输入缓冲区的长度(以字节为单位)必须是 16 的倍数。
   * 参数:  Header: 指向头缓冲区的指针。
-  * 参数:  Hlength: 头部缓冲区的长度，单位是字节，必须是16的倍数。
+  * 参数:  Hlength: 头部缓冲区的长度，单位是字节，必须是 16 的倍数。
   * 参数:  Output: 指向返回缓冲区的指针。
   * 参数:  AuthTAG: 指向认证TAG缓冲区的指针。
   * 返回值: ErrorStatus枚举值:
@@ -1048,22 +1048,22 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
 
 /**
   * 简介:  在 CCM 模式下使用 AES 进行加密和解密。
-  *        GCM和CCM模式仅在STM32F437x器件上可用。
+  *        GCM 和 CCM 模式仅在 STM32F437x 器件上可用。
   * 参数:  Mode: 加密或解密模式。
   *          此参数可以是以下值之一:
   *            @arg MODE_ENCRYPT:加密
   *            @arg MODE_DECRYPT:解密
-  * 参数:  Nonce: 用于AES算法的nonce。它对每一次处理都应是唯一的。
-  * 参数:  Key: 用于AES算法的密钥。
-  * 参数:  Keysize: 密钥的长度必须为128、192或256。
+  * 参数:  Nonce: 用于 AES 算法的 nonce。它对每一次处理都应是唯一的。
+  * 参数:  Key: 用于 AES 算法的密钥。
+  * 参数:  Keysize: 密钥的长度必须为 128、192或256。
   * 参数:  Input: 指向输入缓冲区的指针。
-  * 参数:  Ilength: 输入缓冲区的长度(以字节为单位)必须是16的倍数。
+  * 参数:  Ilength: 输入缓冲区的长度(以字节为单位)必须是 16 的倍数。
   * 参数:  Header: 指向头缓冲区的指针。
   * 参数:  Hlength: 头部缓冲区的长度，以字节为单位。
-  * 参数:  HBuffer: 指向用于附加头的临时缓冲区的指针 HBuffer的大小必须等于Hlength + 21
+  * 参数:  HBuffer: 指向用于附加头的临时缓冲区的指针 HBuffer 的大小必须等于 Hlength + 21
   * 参数:  Output: 指向返回缓冲区的指针。
-  * 参数:  AuthTAG: 指向认证TAG缓冲区的指针。
-  * 参数:  TAGSize: TAG的大小(也叫MAC)。
+  * 参数:  AuthTAG: 指向认证 TAG 缓冲区的指针。
+  * 参数:  TAGSize: TAG 的大小(也叫MAC)。
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: 操作已完成
   *          - ERROR: 操作失败
@@ -1118,18 +1118,18 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
             HBuffer[bufferidx++] = Header[loopcounter];
         }
 
-        /* 如果头的大小是模数16，则检查 */
+        /* 如果头的大小是模数 16，则检查 */
         if ((headersize % 16) != 0) {
-            /* 用0填充头缓冲区，直到HBuffer长度为16的模数。 */
+            /* 用0填充头缓冲区，直到 HBuffer 长度为16的模数。 */
             for(loopcounter = headersize; loopcounter <= ((headersize / 16) + 1) * 16; loopcounter++) {
                 HBuffer[loopcounter] = 0;
             }
 
-            /* 设置headersize为16的模数 */
+            /* 设置 headersize 为16的模数 */
             headersize = ((headersize / 16) + 1) * 16;
         }
 
-        /* 设置指向HBuffer的指针headeraddr */
+        /* 设置指向HBuffer的指针 headeraddr */
         headeraddr = (uint32_t)HBuffer;
     }
 
@@ -1154,13 +1154,13 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
 
     /************************* 格式化初始计数器 *******************/
     /* Byte 0:
-       第7和第6位是保留位，应设置为0
-       第3、4和5位也应设置为0，以确保所有的计数器块都与B0不同。
-       第0、1和2位包含与B0中相同的q的编码
+       第 7 和第 6 位是保留位，应设置为0
+       第 3、4 和 5 位也应设置为 0，以确保所有的计数器块都与 B0 不同。
+       第 0、1 和 2 位包含与 B0 中相同的q的编码
     */
     ctr[0] = blockb0[0] & 0x07;
 
-    /* 字节1到NonceSize是IV(Nonce)。 */
+    /* 字节 1 到 NonceSize 是IV(Nonce)。 */
     for(loopcounter = 1; loopcounter < NonceSize + 1; loopcounter++) {
         ctr[loopcounter] = blockb0[loopcounter];
     }
@@ -1407,7 +1407,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
         /* 密钥初始化 */
         CRYP_KeyInit(&AES_CRYP_KeyInitStructure);
 
-        /* CRYP 初始化Vectors */
+        /* CRYP 初始化 Vectors */
         CRYP_IVInit(&AES_CRYP_IVInitStructure);
 
         /* 用于解密过程密钥准备的加密初始化 */

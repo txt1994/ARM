@@ -357,15 +357,15 @@ OF SUCH DAMAGE.
 #define ADC_Channel_18                  ((uint8_t)0x12U)                  /*!< ADC channel 18 */
 
 /* ADC interrupt flag */
-#define ADC_INT_WDE                     ADC_CTL0_WDEIE                    /*!< analog watchdog event interrupt */
-#define ADC_INT_EOC                     ADC_CTL0_EOCIE                    /*!< end of group conversion interrupt */
-#define ADC_INT_EOIC                    ADC_CTL0_EOICIE                   /*!< end of inserted group conversion interrupt */
+#define ADC_INT_WDE                     ADC_CTL0_WDEIE                    /*!< analog watchdog event 中断 */
+#define ADC_INT_EOC                     ADC_CTL0_EOCIE                    /*!< end of group conversion 中断 */
+#define ADC_INT_EOIC                    ADC_CTL0_EOICIE                   /*!< end of inserted group conversion 中断 */
 #define ADC_INT_ROVF                    ADC_CTL0_ROVFIE                   /*!< regular data register overflow */
 
 /* ADC interrupt flag */
-#define ADC_INT_Flag_WDE                ADC_STAT_WDE                      /*!< analog watchdog event interrupt */
-#define ADC_INT_Flag_EOC                ADC_STAT_EOC                      /*!< end of group conversion interrupt */
-#define ADC_INT_Flag_EOIC               ADC_STAT_EOIC                     /*!< end of inserted group conversion interrupt */
+#define ADC_INT_Flag_WDE                ADC_STAT_WDE                      /*!< analog watchdog event 中断 */
+#define ADC_INT_Flag_EOC                ADC_STAT_EOC                      /*!< end of group conversion 中断 */
+#define ADC_INT_Flag_EOIC               ADC_STAT_EOIC                     /*!< end of inserted group conversion 中断 */
 #define ADC_INT_Flag_ROVF               ADC_STAT_ROVF                     /*!< regular data register overflow */
 
 /* configure the ADC clock for all the ADCs */
@@ -494,9 +494,9 @@ FlagStatus ADC_Inserted_Software_Startconv_Flag_Get(uint32_t ADC_periph);
 FlagStatus ADC_Interrupt_Flag_Get(uint32_t ADC_periph, uint32_t ADC_interrupt);
 /* clear the ADC flag */
 void ADC_Interrupt_Flag_Clear(uint32_t ADC_periph, uint32_t ADC_interrupt);
-/* enable ADC interrupt */
+/* enable ADC 中断 */
 void ADC_Interrupt_Enable(uint32_t ADC_periph, uint32_t ADC_interrupt);
-/* disable ADC interrupt */
+/* disable ADC 中断 */
 void ADC_Interrupt_Disable(uint32_t ADC_periph, uint32_t ADC_interrupt);
 
 /* ADC synchronization */

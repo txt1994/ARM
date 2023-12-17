@@ -60,7 +60,7 @@ extern "C"
  * @brief RTC Init structure definition
  */
 typedef struct {
-    uint8_t  u8ClockSrc;                /*!< Specifies the RTC clock source.
+    uint8_t  u8ClockSrc;                /*!< Specifies the RTC 时钟源.
                                              This parameter can be a value of @ref RTC_Clock_Source */
     uint8_t  u8HourFormat;              /*!< Specifies the RTC hour format.
                                              This parameter can be a value of @ref RTC_Hour_Format */
@@ -369,8 +369,8 @@ typedef struct {
  */
 #define RTC_INT_PERIOD                          (RTC_CR2_PRDIE)                     /*!< Period interrupt          */
 #define RTC_INT_ALARM                           (RTC_CR2_ALMIE)                     /*!< Alarm interrupt           */
-#define RTC_INT_INTRU_CH0                       ((uint32_t)RTC_TPCR0_TPIE0 << 8U)   /*!< RTCIC0 intrusion interrupt */
-#define RTC_INT_INTRU_CH1                       ((uint32_t)RTC_TPCR1_TPIE1 << 16U)  /*!< RTCIC1 intrusion interrupt */
+#define RTC_INT_INTRU_CH0                       ((uint32_t)RTC_TPCR0_TPIE0 << 8U)   /*!< RTCIC0 intrusion 中断 */
+#define RTC_INT_INTRU_CH1                       ((uint32_t)RTC_TPCR1_TPIE1 << 16U)  /*!< RTCIC1 intrusion 中断 */
 #define RTC_INT_ALL                             (RTC_INT_PERIOD | RTC_INT_ALARM | RTC_INT_INTRU_CH0 | RTC_INT_INTRU_CH1)
 /**
  * @}

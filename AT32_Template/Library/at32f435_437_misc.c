@@ -100,7 +100,7 @@ void NVIC_Priority_Group_Config(NVIC_Priority_Group_Type priority_group) {
   *         该参数可以是以下值之一:
   *         - NVIC_VECTTAB_RAM
   *         - NVIC_VECTTAB_FLASH
-  * @param  offset (vector table base offset field. this value must be a multiple of 0x200)
+  * @param  offset (矢量表基偏移字段。 this value must be a multiple of 0x200)
   * @retval 无
   */
 void NVIC_Vector_Table_Set(uint32_t base, uint32_t offset) {

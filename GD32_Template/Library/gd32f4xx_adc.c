@@ -1084,17 +1084,17 @@ void ADC_Interrupt_Flag_Clear(uint32_t ADC_periph, uint32_t ADC_interrupt) {
 void ADC_Interrupt_Enable(uint32_t ADC_periph, uint32_t ADC_interrupt) {
     switch(ADC_interrupt) {
     case ADC_INT_WDE:
-        /* enable analog watchdog interrupt */
+        /* enable analog watchdog 中断 */
         ADC_CTL0(ADC_periph) |= (uint32_t) ADC_CTL0_WDEIE;
         break;
 
     case ADC_INT_EOC:
-        /* enable end of group conversion interrupt */
+        /* enable end of group conversion 中断 */
         ADC_CTL0(ADC_periph) |= (uint32_t) ADC_CTL0_EOCIE;
         break;
 
     case ADC_INT_EOIC:
-        /* enable end of inserted group conversion interrupt */
+        /* enable end of inserted group conversion 中断 */
         ADC_CTL0(ADC_periph) |= (uint32_t) ADC_CTL0_EOICIE;
         break;
 

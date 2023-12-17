@@ -78,12 +78,12 @@ extern "C" {
   * @{
   */
 
-#define CRM_LICK_Stable_INT              ((uint32_t)0x00000100) /*!< low speed internal clock stable interrupt */
-#define CRM_Lext_Stable_INT              ((uint32_t)0x00000200) /*!< low speed external crystal stable interrupt */
-#define CRM_HICK_Stable_INT              ((uint32_t)0x00000400) /*!< high speed internal clock stable interrupt */
-#define CRM_Hext_Stable_INT              ((uint32_t)0x00000800) /*!< high speed external crystal stable interrupt */
-#define CRM_PLL_Stable_INT               ((uint32_t)0x00001000) /*!< phase locking loop stable interrupt */
-#define CRM_Clock_Failure_INT            ((uint32_t)0x00800000) /*!< clock failure interrupt */
+#define CRM_LICK_Stable_INT              ((uint32_t)0x00000100) /*!< low speed internal clock stable 中断 */
+#define CRM_Lext_Stable_INT              ((uint32_t)0x00000200) /*!< low speed external crystal stable 中断 */
+#define CRM_HICK_Stable_INT              ((uint32_t)0x00000400) /*!< high speed internal clock stable 中断 */
+#define CRM_Hext_Stable_INT              ((uint32_t)0x00000800) /*!< high speed external crystal stable 中断 */
+#define CRM_PLL_Stable_INT               ((uint32_t)0x00001000) /*!< phase locking loop stable 中断 */
+#define CRM_Clock_Failure_INT            ((uint32_t)0x00800000) /*!< clock failure 中断 */
 
 /**
   * @}

@@ -47,29 +47,29 @@ extern "C" {
   * @{
   */
 
-#define USB_OTG_ModeMIS_INT              ((uint32_t)0x00000002) /*!< usb otg mode mismatch interrupt */
-#define USB_OTG_OTGINT_INT               ((uint32_t)0x00000004) /*!< usb otg interrupt */
-#define USB_OTG_SOF_INT                  ((uint32_t)0x00000008) /*!< usb otg sof interrupt */
-#define USB_OTG_RXFLVL_INT               ((uint32_t)0x00000010) /*!< usb otg receive fifo non-empty interrupt */
-#define USB_OTG_NPTXFEMP_INT             ((uint32_t)0x00000020) /*!< usb otg non-periodic tx fifo empty interrupt */
-#define USB_OTG_GINNAKEFF_INT            ((uint32_t)0x00000040) /*!< usb otg global non-periodic in nak effective interrupt */
-#define USB_OTG_GOUTNAKEFF_INT           ((uint32_t)0x00000080) /*!< usb otg global out nak effective interrupt */
-#define USB_OTG_ERLYSUSP_INT             ((uint32_t)0x00000400) /*!< usb otg early suspend interrupt */
-#define USB_OTG_USBSUSP_INT              ((uint32_t)0x00000800) /*!< usb otg suspend interrupt */
-#define USB_OTG_USBRST_INT               ((uint32_t)0x00001000) /*!< usb otg reset interrupt */
-#define USB_OTG_ENUMDONE_INT             ((uint32_t)0x00002000) /*!< usb otg enumeration done interrupt */
+#define USB_OTG_ModeMIS_INT              ((uint32_t)0x00000002) /*!< usb otg mode mismatch 中断 */
+#define USB_OTG_OTGINT_INT               ((uint32_t)0x00000004) /*!< usb otg 中断 */
+#define USB_OTG_SOF_INT                  ((uint32_t)0x00000008) /*!< usb otg sof 中断 */
+#define USB_OTG_RXFLVL_INT               ((uint32_t)0x00000010) /*!< usb otg receive fifo non-empty 中断 */
+#define USB_OTG_NPTXFEMP_INT             ((uint32_t)0x00000020) /*!< usb otg non-periodic tx fifo empty 中断 */
+#define USB_OTG_GINNAKEFF_INT            ((uint32_t)0x00000040) /*!< usb otg global non-periodic in nak effective 中断 */
+#define USB_OTG_GOUTNAKEFF_INT           ((uint32_t)0x00000080) /*!< usb otg global out nak effective 中断 */
+#define USB_OTG_ERLYSUSP_INT             ((uint32_t)0x00000400) /*!< usb otg early suspend 中断 */
+#define USB_OTG_USBSUSP_INT              ((uint32_t)0x00000800) /*!< usb otg suspend 中断 */
+#define USB_OTG_USBRST_INT               ((uint32_t)0x00001000) /*!< usb otg reset 中断 */
+#define USB_OTG_ENUMDONE_INT             ((uint32_t)0x00002000) /*!< usb otg enumeration done 中断 */
 #define USB_OTG_ISOOUTDROP_INT           ((uint32_t)0x00004000) /*!< usb otg isochronous out packet dropped interrut */
-#define USB_OTG_EOPF_INT                 ((uint32_t)0x00008000) /*!< usb otg eop interrupt */
-#define USB_OTG_IEPT_INT                 ((uint32_t)0x00040000) /*!< usb otg in endpoint interrupt */
-#define USB_OTG_OEPT_INT                 ((uint32_t)0x00080000) /*!< usb otg out endpoint interrupt */
-#define USB_OTG_INCOMISOIN_INT           ((uint32_t)0x00100000) /*!< usb otg incomplete isochronous in transfer interrupt */
-#define USB_OTG_INCOMPIP_INCOMPISOOUT_INT ((uint32_t)0x00200000) /*!< usb otg incomplete periodic transfer/isochronous out interrupt */
-#define USB_OTG_PRT_INT                  ((uint32_t)0x01000000) /*!< usb otg host port interrupt */
-#define USB_OTG_HCH_INT                  ((uint32_t)0x02000000) /*!< usb otg host channel interrupt */
-#define USB_OTG_PTXFEMP_INT              ((uint32_t)0x04000000) /*!< usb otg periodic txfifo empty interrupt */
-#define USB_OTG_CONIDSCHG_INT            ((uint32_t)0x10000000) /*!< usb otg connector id status change interrupt */
-#define USB_OTG_DISCON_INT               ((uint32_t)0x20000000) /*!< usb otg disconnect detected interrupt */
-#define USB_OTG_WKUP_INT                 ((uint32_t)0x80000000) /*!< usb otg wakeup interrupt */
+#define USB_OTG_EOPF_INT                 ((uint32_t)0x00008000) /*!< usb otg eop 中断 */
+#define USB_OTG_IEPT_INT                 ((uint32_t)0x00040000) /*!< usb otg in endpoint 中断 */
+#define USB_OTG_OEPT_INT                 ((uint32_t)0x00080000) /*!< usb otg out endpoint 中断 */
+#define USB_OTG_INCOMISOIN_INT           ((uint32_t)0x00100000) /*!< usb otg incomplete isochronous in transfer 中断 */
+#define USB_OTG_INCOMPIP_INCOMPISOOUT_INT ((uint32_t)0x00200000) /*!< usb otg incomplete periodic transfer/isochronous out 中断 */
+#define USB_OTG_PRT_INT                  ((uint32_t)0x01000000) /*!< usb otg host port 中断 */
+#define USB_OTG_HCH_INT                  ((uint32_t)0x02000000) /*!< usb otg host channel 中断 */
+#define USB_OTG_PTXFEMP_INT              ((uint32_t)0x04000000) /*!< usb otg periodic txfifo empty 中断 */
+#define USB_OTG_CONIDSCHG_INT            ((uint32_t)0x10000000) /*!< usb otg connector id status change 中断 */
+#define USB_OTG_DISCON_INT               ((uint32_t)0x20000000) /*!< usb otg disconnect detected 中断 */
+#define USB_OTG_WKUP_INT                 ((uint32_t)0x80000000) /*!< usb otg wakeup 中断 */
 
 /**
   * @}
@@ -209,16 +209,16 @@ extern "C" {
 /**
   * @brief usb host channel interrupt mask
   */
-#define USB_OTG_HC_XFERCM_INT            ((uint32_t)0x00000001) /*!< channel transfer complete interrupt */
-#define USB_OTG_HC_CHHLTDM_INT           ((uint32_t)0x00000002) /*!< channel halted interrupt */
-#define USB_OTG_HC_StallM_INT            ((uint32_t)0x00000008) /*!< channel stall interrupt */
-#define USB_OTG_HC_NAKM_INT              ((uint32_t)0x00000010) /*!< channel nak interrupt */
-#define USB_OTG_HC_ACKM_INT              ((uint32_t)0x00000020) /*!< channel ack interrupt */
-#define USB_OTG_HC_NYETM_INT             ((uint32_t)0x00000040) /*!< channel nyet interrupt */
-#define USB_OTG_HC_XACTERRM_INT          ((uint32_t)0x00000080) /*!< channel transaction error interrupt */
-#define USB_OTG_HC_BBLERRM_INT           ((uint32_t)0x00000100) /*!< channel babble error interrupt */
-#define USB_OTG_HC_FRMOVRRUN_INT         ((uint32_t)0x00000200) /*!< channel frame overrun interrupt */
-#define USB_OTG_HC_DTGLERRM_INT          ((uint32_t)0x00000400) /*!< channel data toggle interrupt */
+#define USB_OTG_HC_XFERCM_INT            ((uint32_t)0x00000001) /*!< channel transfer complete 中断 */
+#define USB_OTG_HC_CHHLTDM_INT           ((uint32_t)0x00000002) /*!< channel halted 中断 */
+#define USB_OTG_HC_StallM_INT            ((uint32_t)0x00000008) /*!< channel stall 中断 */
+#define USB_OTG_HC_NAKM_INT              ((uint32_t)0x00000010) /*!< channel nak 中断 */
+#define USB_OTG_HC_ACKM_INT              ((uint32_t)0x00000020) /*!< channel ack 中断 */
+#define USB_OTG_HC_NYETM_INT             ((uint32_t)0x00000040) /*!< channel nyet 中断 */
+#define USB_OTG_HC_XACTERRM_INT          ((uint32_t)0x00000080) /*!< channel transaction error 中断 */
+#define USB_OTG_HC_BBLERRM_INT           ((uint32_t)0x00000100) /*!< channel babble error 中断 */
+#define USB_OTG_HC_FRMOVRRUN_INT         ((uint32_t)0x00000200) /*!< channel frame overrun 中断 */
+#define USB_OTG_HC_DTGLERRM_INT          ((uint32_t)0x00000400) /*!< channel data toggle 中断 */
 
 /**
   * @brief usb host channel interrupt flag
@@ -341,7 +341,7 @@ typedef enum {
     EPT_Control_Type                       = 0x00, /*!< usb endpoint type control */
     EPT_ISO_Type                           = 0x01, /*!< usb endpoint type iso */
     EPT_BULK_Type                          = 0x02, /*!< usb endpoint type bulk */
-    EPT_INT_Type                           = 0x03  /*!< usb endpoint type interrupt */
+    EPT_INT_Type                           = 0x03  /*!< usb endpoint type 中断 */
 } endpoint_trans_Type;
 
 /**

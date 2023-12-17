@@ -264,7 +264,7 @@ typedef struct {
  */
 #define EXMC_SMC_SAMPLE_CLK_INTERNCLK           (0UL)               /*!< Internal EXCLK */
 #define EXMC_SMC_SAMPLE_CLK_INTERNCLK_INVT      (SMC_BACR_CKSEL_0)  /*!< Invert internal EXCLK */
-#define EXMC_SMC_SAMPLE_CLK_EXTCLK              (SMC_BACR_CKSEL_1)  /*!< External clock from EXMC_CLK port */
+#define EXMC_SMC_SAMPLE_CLK_EXTCLK              (SMC_BACR_CKSEL_1)  /*!< External 时钟来自于 EXMC_CLK port */
 /**
  * @}
  */

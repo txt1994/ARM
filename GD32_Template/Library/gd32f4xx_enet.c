@@ -390,7 +390,7 @@ ErrStatus ENET_Init(ENET_mediamode_enum mediamode, ENET_chksumconf_enum checksum
         phy_state = ENET_PHY_Write_Read(ENET_PHY_WRITE, PHY_ADDRESS, PHY_REG_BCR, &phy_value);
 
         if(!phy_state) {
-            /* return ERROR due to write timeout */
+            /* return ERROR due to 写入超时 */
             return ENET_state;
         }
 
@@ -431,7 +431,7 @@ ErrStatus ENET_Init(ENET_mediamode_enum mediamode, ENET_chksumconf_enum checksum
         phy_state = ENET_PHY_Write_Read(ENET_PHY_WRITE, PHY_ADDRESS, PHY_REG_BCR, &phy_value);
 
         if(!phy_state) {
-            /* return ERROR due to write timeout */
+            /* return ERROR due to 写入超时 */
             return ENET_state;
         }
 
@@ -1227,10 +1227,10 @@ void ENET_Flag_Clear(ENET_Flag_Clear_enum ENET_flag) {
 */
 void ENET_Interrupt_Enable(ENET_int_enum ENET_int) {
     if(DMA_INTEN_REG_OFFSET == ((uint32_t)ENET_int >> 6)) {
-        /* ENET_DMA_INTEN register interrupt */
+        /* ENET_DMA_INTEN register 中断 */
         ENET_REG_VAL(ENET_int) |= BIT(ENET_Bit_POS(ENET_int));
     } else {
-        /* other INTMSK register interrupt */
+        /* other INTMSK register 中断 */
         ENET_REG_VAL(ENET_int) &= ~BIT(ENET_Bit_POS(ENET_int));
     }
 }
@@ -1267,10 +1267,10 @@ void ENET_Interrupt_Enable(ENET_int_enum ENET_int) {
 */
 void ENET_Interrupt_Disable(ENET_int_enum ENET_int) {
     if(DMA_INTEN_REG_OFFSET == ((uint32_t)ENET_int >> 6)) {
-        /* ENET_DMA_INTEN register interrupt */
+        /* ENET_DMA_INTEN register 中断 */
         ENET_REG_VAL(ENET_int) &= ~BIT(ENET_Bit_POS(ENET_int));
     } else {
-        /* other INTMSK register interrupt */
+        /* other INTMSK register 中断 */
         ENET_REG_VAL(ENET_int) |= BIT(ENET_Bit_POS(ENET_int));
     }
 }
@@ -3500,7 +3500,7 @@ static void ENET_default_Init(void) {
 #ifndef USE_DELAY
 /*!
     简介:    insert a delay time
-    参数[输入]:  ncount: specifies the delay time length
+    参数[输入]:  ncount: 指定delay time length
     参数[输出]:  无
     参数[输出]:  无
 */

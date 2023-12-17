@@ -220,7 +220,7 @@ typedef enum IRQn {
     USART3_IRQn                 = 39,     /*!< usart3 global interrupt                              */
     EXINT15_10_IRQn             = 40,     /*!< external line[15:10] interrupts                      */
     ERTCAlarm_IRQn              = 41,     /*!< ertc alarm through exint line interrupt              */
-    OTGFS1_WKUP_IRQn            = 42,     /*!< otgfs1 wakeup from suspend through exint line interrupt */
+    OTGFS1_WKUP_IRQn            = 42,     /*!< otgfs1 wakeup from suspend through exint line 中断 */
     TMR8_BRK_TMR12_IRQn         = 43,     /*!< tmr8 brake interrupt                                 */
     TMR8_OVF_TMR13_IRQn         = 44,     /*!< tmr8 overflow interrupt                              */
     TMR8_TRG_Hall_TMR14_IRQn    = 45,     /*!< tmr8 trigger and hall interrupt                      */
@@ -249,7 +249,7 @@ typedef enum IRQn {
     USART6_IRQn                 = 71,     /*!< usart6 interrupt                                     */
     I2C3_EVT_IRQn               = 72,     /*!< i2c3 event interrupt                                 */
     I2C3_ERR_IRQn               = 73,     /*!< i2c3 error interrupt                                 */
-    OTGFS2_WKUP_IRQn            = 76,     /*!< otgfs2 wakeup from suspend through exint line interrupt */
+    OTGFS2_WKUP_IRQn            = 76,     /*!< otgfs2 wakeup from suspend through exint line 中断 */
     OTGFS2_IRQn                 = 77,     /*!< otgfs2 interrupt                                     */
     DVP_IRQn                    = 78,     /*!< dvp interrupt                                        */
     FPU_IRQn                    = 81,     /*!< fpu interrupt                                        */
@@ -299,7 +299,7 @@ typedef enum IRQn {
     USART3_IRQn                 = 39,     /*!< usart3 global interrupt                              */
     EXINT15_10_IRQn             = 40,     /*!< external line[15:10] interrupts                      */
     ERTCAlarm_IRQn              = 41,     /*!< ertc alarm through exint line interrupt              */
-    OTGFS1_WKUP_IRQn            = 42,     /*!< otgfs1 wakeup from suspend through exint line interrupt */
+    OTGFS1_WKUP_IRQn            = 42,     /*!< otgfs1 wakeup from suspend through exint line 中断 */
     TMR8_BRK_TMR12_IRQn         = 43,     /*!< tmr8 brake interrupt                                 */
     TMR8_OVF_TMR13_IRQn         = 44,     /*!< tmr8 overflow interrupt                              */
     TMR8_TRG_Hall_TMR14_IRQn    = 45,     /*!< tmr8 trigger and hall interrupt                      */
@@ -330,7 +330,7 @@ typedef enum IRQn {
     USART6_IRQn                 = 71,     /*!< usart6 interrupt                                     */
     I2C3_EVT_IRQn               = 72,     /*!< i2c3 event interrupt                                 */
     I2C3_ERR_IRQn               = 73,     /*!< i2c3 error interrupt                                 */
-    OTGFS2_WKUP_IRQn            = 76,     /*!< otgfs2 wakeup from suspend through exint line interrupt */
+    OTGFS2_WKUP_IRQn            = 76,     /*!< otgfs2 wakeup from suspend through exint line 中断 */
     OTGFS2_IRQn                 = 77,     /*!< otgfs2 interrupt                                     */
     DVP_IRQn                    = 78,     /*!< dvp interrupt                                        */
     FPU_IRQn                    = 81,     /*!< fpu interrupt                                        */

@@ -73,9 +73,9 @@ OF SUCH DAMAGE.
 
 #define PHY_ADDRESS                      ((uint16_t)1U)                         /*!< phy address determined by the hardware */
 
-/* PHY read write timeouts */
-#define PHY_READ_TO                      ((uint32_t)0x0004FFFFU)                /*!< PHY read timeout */
-#define PHY_Write_TO                     ((uint32_t)0x0004FFFFU)                /*!< PHY write timeout */
+/* PHY 读写超时 */
+#define PHY_READ_TO                      ((uint32_t)0x0004FFFFU)                /*!< PHY 读超时 */
+#define PHY_Write_TO                     ((uint32_t)0x0004FFFFU)                /*!< PHY 写入超时 */
 
 /* PHY delay */
 #define PHY_RESETDELAY                   ((uint32_t)0x008FFFFFU)                /*!< PHY reset delay */
@@ -1477,9 +1477,9 @@ void ENET_mac_Address_Get(ENET_macaddress_enum mac_addr, uint8_t paddr[]);
 FlagStatus ENET_Flag_Get(ENET_Flag_enum ENET_flag);
 /* clear the ENET DMA status flag */
 void ENET_Flag_Clear(ENET_Flag_Clear_enum ENET_flag);
-/* enable ENET MAC/MSC/DMA interrupt */
+/* enable ENET MAC/MSC/DMA 中断 */
 void ENET_Interrupt_Enable(ENET_int_enum ENET_int);
-/* disable ENET MAC/MSC/DMA interrupt */
+/* disable ENET MAC/MSC/DMA 中断 */
 void ENET_Interrupt_Disable(ENET_int_enum ENET_int);
 /* get ENET MAC/MSC/DMA interrupt flag */
 FlagStatus ENET_Interrupt_Flag_Get(ENET_int_Flag_enum int_flag);

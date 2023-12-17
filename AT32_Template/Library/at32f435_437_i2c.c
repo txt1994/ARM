@@ -127,7 +127,7 @@ void I2C_Own_Address2_Set(I2C_Type *I2C_x, uint8_t address, I2C_Addr2_Mask_Type 
 }
 
 /**
-  * @brief  enable or disable own address 2.
+  * @brief  enable or 禁用自己的地址2.
   * @param  I2C_x: to select the i2c peripheral.
   *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
@@ -243,8 +243,8 @@ uint16_t I2C_Transfer_Addr_Get(I2C_Type *I2C_x) {
   *         I2C1, I2C2, I2C3.
   * @param  I2C_direction: transfer request direction.
   *         该参数可以是以下值之一:
-  *         - I2C_Dir_Transmit: master request a write transfer.
-  *         - I2C_Dir_Receive: master request a read transfer.
+  *         - I2C_Dir_Transmit: master 请求写入传输.
+  *         - I2C_Dir_Receive: master 请求读取传输.
   * @retval 无
   */
 void I2C_Transfer_Dir_Set(I2C_Type *I2C_x, I2C_Transfer_Dir_Type I2C_direction) {
@@ -257,8 +257,8 @@ void I2C_Transfer_Dir_Set(I2C_Type *I2C_x, I2C_Transfer_Dir_Type I2C_direction) 
   *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
   * @retval the value of the slave direction
-  *         - I2C_Dir_Transmit: master request a write transfer, slave enters receiver mode.
-  *         - I2C_Dir_Receive: master request a read transfer, slave enters transmitter mode.
+  *         - I2C_Dir_Transmit: master 请求写入传输, slave enters receiver mode.
+  *         - I2C_Dir_Receive: master 请求读取传输, slave enters transmitter mode.
   */
 I2C_Transfer_Dir_Type I2C_Transfer_Dir_Get(I2C_Type *I2C_x) {
     if (I2C_x->sts_bit.sdir == 0) {
@@ -329,7 +329,7 @@ void I2C_Addr10_header_Enable(I2C_Type *I2C_x, confirm_state new_state) {
 }
 
 /**
-  * @brief  enable or disable general call mode.
+  * @brief  enable or 禁用常规呼叫模式.
   * @param  I2C_x: to select the i2c peripheral.
   *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
@@ -622,7 +622,7 @@ uint8_t I2C_Data_Receive(I2C_Type *I2C_x) {
   * @param  I2C_x: to select the i2c peripheral.
   *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
-  * @param  flag: specifies the flag to check.
+  * @param  flag: 指定flag to check.
   *         该参数可以是以下值之一:
   *         - I2C_TDBE_FLAG: transmit data buffer empty flag.
   *         - I2C_TDIS_FLAG: send interrupt status.
@@ -655,7 +655,7 @@ flag_status I2C_Flag_Get(I2C_Type *I2C_x, uint32_t flag) {
   * @param  I2C_x: to select the i2c peripheral.
   *         该参数可以是以下值之一:
   *         I2C1, I2C2, I2C3.
-  * @param  flag: specifies the flag to clear.
+  * @param  flag: 指定flag to clear.
   *         该参数可以是以下值的任意组合:
   *         - I2C_AddrF_FLAG: 0~7 bit address match flag.
   *         - I2C_ACKFAIL_FLAG: acknowledge failure flag.

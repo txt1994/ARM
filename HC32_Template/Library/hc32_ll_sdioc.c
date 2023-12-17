@@ -1307,8 +1307,8 @@ void SDIOC_BlockGapIntCmd(CM_SDIOC_TypeDef *SDIOCx, en_functional_state_t enNewS
  *           @arg SDIOC_INT_CINTSEN:    Card interrupt
  *           @arg SDIOC_INT_CRMSEN:     Card Removal interrupt
  *           @arg SDIOC_INT_CISTSEN:    Card Insertion interrupt
- *           @arg SDIOC_INT_BRRSEN:     Buffer Read Ready interrupt
- *           @arg SDIOC_INT_BWRSEN:     Buffer Write Ready interrupt
+ *           @arg SDIOC_INT_BRRSEN:     Buffer Read 就绪中断
+ *           @arg SDIOC_INT_BWRSEN:     Buffer Write 就绪中断
  *           @arg SDIOC_INT_BGESEN:     Block Gap Event interrupt
  *           @arg SDIOC_INT_TCSEN:      Transfer Complete interrupt
  *           @arg SDIOC_INT_CCSEN:      Command Complete interrupt
@@ -1368,8 +1368,8 @@ void SDIOC_IntCmd(CM_SDIOC_TypeDef *SDIOCx, uint32_t u32IntType, en_functional_s
  *           @arg SDIOC_INT_CINTSEN:    Card interrupt
  *           @arg SDIOC_INT_CRMSEN:     Card Removal interrupt
  *           @arg SDIOC_INT_CISTSEN:    Card Insertion interrupt
- *           @arg SDIOC_INT_BRRSEN:     Buffer Read Ready interrupt
- *           @arg SDIOC_INT_BWRSEN:     Buffer Write Ready interrupt
+ *           @arg SDIOC_INT_BRRSEN:     Buffer Read 就绪中断
+ *           @arg SDIOC_INT_BWRSEN:     Buffer Write 就绪中断
  *           @arg SDIOC_INT_BGESEN:     Block Gap Event interrupt
  *           @arg SDIOC_INT_TCSEN:      Transfer Complete interrupt
  *           @arg SDIOC_INT_CCSEN:      Command Complete interrupt
@@ -1529,8 +1529,8 @@ void SDIOC_ClearIntStatus(CM_SDIOC_TypeDef *SDIOCx, uint32_t u32Flag) {
  *           @arg SDIOC_INT_CINTSEN:    Card interrupt
  *           @arg SDIOC_INT_CRMSEN:     Card Removal interrupt
  *           @arg SDIOC_INT_CISTSEN:    Card Insertion interrupt
- *           @arg SDIOC_INT_BRRSEN:     Buffer Read Ready interrupt
- *           @arg SDIOC_INT_BWRSEN:     Buffer Write Ready interrupt
+ *           @arg SDIOC_INT_BRRSEN:     Buffer Read 就绪中断
+ *           @arg SDIOC_INT_BWRSEN:     Buffer Write 就绪中断
  *           @arg SDIOC_INT_BGESEN:     Block Gap Event interrupt
  *           @arg SDIOC_INT_TCSEN:      Transfer Complete interrupt
  *           @arg SDIOC_INT_CCSEN:      Command Complete interrupt

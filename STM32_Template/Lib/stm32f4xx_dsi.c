@@ -115,10 +115,10 @@ void DSI_DeInit(DSI_TypeDef *DSIx) {
     /* 禁用 DSI host */
     DSIx->CR &= ~DSI_CR_EN;
 
-    /* D-PHY clock and digital disable */
+    /* D-PHY时钟和数字禁用 */
     DSIx->PCTLR &= ~(DSI_PCTLR_CKE | DSI_PCTLR_DEN);
 
-    /* Turn off the DSI PLL */
+    /* 关闭DSI PLL */
     DSIx->WRPCR &= ~DSI_WRPCR_PLLEN;
 
     /* 禁用 regulator */
@@ -155,56 +155,56 @@ void DSI_Init(DSI_TypeDef *DSIx, DSI_InitTypeDef* DSI_InitStruct, DSI_PLLInitTyp
     assert_param(IS_DSI_AUTO_CLKLANE_CONTROL(DSI_InitStruct->AutomaticClockLaneControl));
     assert_param(IS_DSI_NUMBER_OF_LANES(DSI_InitStruct->NumberOfLanes));
 
-    /**************** Turn on the regulator and enable the DSI PLL ****************/
+    /**************** 打开调节器并启用DSI PLL ****************/
 
-    /* 启用 regulator */
+    /* 启用监管者 */
     DSIx->WRPCR |= DSI_WRPCR_REGEN;
 
-    /* Wait until the regulator is ready */
+    /* 等待调节器准备就绪 */
     while(DSI_GetFlagStatus(DSIx, DSI_FLAG_RRS) == RESET )
     {}
 
-    /* 设置 PLL division factors */
+    /* 设置PPLL分频因子 */
     DSIx->WRPCR &= ~(DSI_WRPCR_PLL_NDIV | DSI_WRPCR_PLL_IDF | DSI_WRPCR_PLL_ODF);
     DSIx->WRPCR |= (((PLLInit->PLLNDIV) << 2) | ((PLLInit->PLLIDF) << 11) | ((PLLInit->PLLODF) << 16));
 
     /* 启用 DSI PLL */
     DSIx->WRPCR |= DSI_WRPCR_PLLEN;
 
-    /* Wait for the lock of the PLL */
+    /* 等待PLL锁定 */
     while(DSI_GetFlagStatus(DSIx, DSI_FLAG_PLLLS) == RESET)
     {}
 
-    /*************************** Set the PHY parameters ***************************/
+    /*************************** 设置PHY参数 ***************************/
 
-    /* D-PHY clock and digital enable*/
+    /* D-PHY时钟和数字启用*/
     DSIx->PCTLR |= (DSI_PCTLR_CKE | DSI_PCTLR_DEN);
 
     /* Clock lane 配置*/
     DSIx->CLCR &= ~(DSI_CLCR_DPCC | DSI_CLCR_ACR);
     DSIx->CLCR |= (DSI_CLCR_DPCC | DSI_InitStruct->AutomaticClockLaneControl);
 
-    /* 配置 number of active data lanes */
+    /* 配置活动数据通道的数量 */
     DSIx->PCONFR &= ~DSI_PCONFR_NL;
     DSIx->PCONFR |= DSI_InitStruct->NumberOfLanes;
 
-    /************************ Set the DSI clock parameters ************************/
-    /* 设置 TX escape clock division factor */
+    /************************ 设置DSI时钟参数 ************************/
+    /* 设置TTX转义时钟分频因子 */
     DSIx->CCR &= ~DSI_CCR_TXECKDIV;
     DSIx->CCR = DSI_InitStruct->TXEscapeCkdiv;
 
-    /* Calculate the bit period in high-speed mode in unit of 0.25 ns (UIX4) */
-    /* The equation is : UIX4 = IntegerPart( (1000/F_PHY_Mhz) * 4 )          */
+    /* 以0.25 ns为单位计算高速模式下的位周期（UIX4） */
+    /* 方程式为 : UIX4 = IntegerPart( (1000/F_PHY_Mhz) * 4 )          */
     /* Where : F_PHY_Mhz = (NDIV * HSE_Mhz) / (IDF * ODF)                    */
     tempIDF = (PLLInit->PLLIDF > 0) ? PLLInit->PLLIDF : 1;
     unitIntervalx4 = (4000000 * tempIDF * (1 << PLLInit->PLLODF)) / ((HSE_VALUE / 1000) * PLLInit->PLLNDIV);
 
-    /* 设置 bit period in high-speed mode */
+    /* 设置高速模式下的位周期 */
     DSIx->WPCR[0] &= ~DSI_WPCR0_UIX4;
     DSIx->WPCR[0] |= unitIntervalx4;
 
-    /****************************** Error management *****************************/
-    /* Disable all error interrupts */
+    /****************************** 错误管理 *****************************/
+    /* 禁用所有错误中断 */
     DSIx->IER[0] = 0;
     DSIx->IER[1] = 0;
 }
@@ -215,15 +215,15 @@ void DSI_Init(DSI_TypeDef *DSIx, DSI_InitTypeDef* DSI_InitStruct, DSI_PLLInitTyp
   * 返回值: 无
   */
 void DSI_StructInit(DSI_InitTypeDef* DSI_InitStruct, DSI_HOST_TimeoutTypeDef* DSI_HOST_TimeoutInitStruct) {
-    /*--------------- Reset DSI init structure parameters values ---------------*/
+    /*--------------- 重置DSI初始化结构参数值 ---------------*/
     /* 初始化 AutomaticClockLaneControl 成员 */
     DSI_InitStruct->AutomaticClockLaneControl = DSI_AUTO_CLK_LANE_CTRL_DISABLE;
     /* 初始化 NumberOfLanes 成员 */
     DSI_InitStruct->NumberOfLanes = DSI_ONE_DATA_LANE;
-    /* Initialize  the TX Escape clock division */
+    /* 初始化TX Escape时钟分区 */
     DSI_InitStruct->TXEscapeCkdiv = 0;
 
-    /*--------------- Reset DSI timings init structure parameters values -------*/
+    /*--------------- 重置DSI定时初始化结构参数值 -------*/
     /* 初始化 TimeoutCkdiv 成员 */
     DSI_HOST_TimeoutInitStruct->TimeoutCkdiv = 0;
     /* 初始化 HighSpeedTransmissionTimeout 成员 */
@@ -251,7 +251,7 @@ void DSI_StructInit(DSI_InitTypeDef* DSI_InitStruct, DSI_HOST_TimeoutTypeDef* DS
   * 返回值: 无
   */
 void DSI_SetGenericVCID(DSI_TypeDef *DSIx, uint32_t VirtualChannelID) {
-    /* Update the GVCID 寄存器 */
+    /* 更新 GVCID 寄存器 */
     DSIx->GVCIDR &= ~DSI_GVCIDR_VCID;
     DSIx->GVCIDR |= VirtualChannelID;
 }
@@ -278,118 +278,118 @@ void DSI_ConfigVideoMode(DSI_TypeDef *DSIx, DSI_VidCfgTypeDef *VidCfg) {
     assert_param(IS_DSI_VSYNC_POLARITY(VidCfg->VSPolarity));
     assert_param(IS_DSI_HSYNC_POLARITY(VidCfg->HSPolarity));
 
-    /* 检查 the LooselyPacked variant only in 18-bit mode */
+    /* 检查仅在18位模式下的LooselyPacked变体 */
     if(VidCfg->ColorCoding == DSI_RGB666) {
         assert_param(IS_DSI_LOOSELY_PACKED(VidCfg->LooselyPacked));
     }
 
-    /* Select video mode by resetting CMDM and DSIM 位 */
+    /* 通过重置CMDM和DSIM来选择视频模式位 */
     DSIx->MCR &= ~DSI_MCR_CMDM;
     DSIx->WCFGR &= ~DSI_WCFGR_DSIM;
 
-    /* 配置 video mode transmission type */
+    /* 配置视频模式传输类型 */
     DSIx->VMCR &= ~DSI_VMCR_VMT;
     DSIx->VMCR |= VidCfg->Mode;
 
-    /* 配置 video packet size */
+    /* 配置视频数据包大小 */
     DSIx->VPCR &= ~DSI_VPCR_VPSIZE;
     DSIx->VPCR |= VidCfg->PacketSize;
 
-    /* 设置 chunks number to be transmitted through the DSI link */
+    /* 设置要通过DSI链接传输的块数 */
     DSIx->VCCR &= ~DSI_VCCR_NUMC;
     DSIx->VCCR |= VidCfg->NumberOfChunks;
 
-    /* 设置 size of the null packet */
+    /* 设置空数据包的大小 */
     DSIx->VNPCR &= ~DSI_VNPCR_NPSIZE;
     DSIx->VNPCR |= VidCfg->NullPacketSize;
 
-    /* 选择这个virtual channel for the LTDC interface traffic */
+    /* 选择这个LTCC接口流量的虚拟通道 */
     DSIx->LVCIDR &= ~DSI_LVCIDR_VCID;
     DSIx->LVCIDR |= VidCfg->VirtualChannelID;
 
-    /* 配置 polarity of control signals */
+    /* 配置控制信号的极性 */
     DSIx->LPCR &= ~(DSI_LPCR_DEP | DSI_LPCR_VSP | DSI_LPCR_HSP);
     DSIx->LPCR |= (VidCfg->DEPolarity | VidCfg->VSPolarity | VidCfg->HSPolarity);
 
-    /* 选择这个color coding for the host */
+    /* 选择这个主机的颜色编码 */
     DSIx->LCOLCR &= ~DSI_LCOLCR_COLC;
     DSIx->LCOLCR |= VidCfg->ColorCoding;
 
-    /* 选择这个color coding for the wrapper */
+    /* 选择这个包装的颜色编码 */
     DSIx->WCFGR &= ~DSI_WCFGR_COLMUX;
     DSIx->WCFGR |= ((VidCfg->ColorCoding) << 1);
 
-    /* Enable/disable the loosely packed variant to 18-bit 配置*/
+    /* 启用/禁用松散封装变体到18位配置*/
     if(VidCfg->ColorCoding == DSI_RGB666) {
         DSIx->LCOLCR &= ~DSI_LCOLCR_LPE;
         DSIx->LCOLCR |= VidCfg->LooselyPacked;
     }
 
-    /* 设置 Horizontal Synchronization Active (HSA) in lane byte clock cycles */
+    /* 设置通道字节时钟周期内水平同步激活（HSA） */
     DSIx->VHSACR &= ~DSI_VHSACR_HSA;
     DSIx->VHSACR |= VidCfg->HorizontalSyncActive;
 
-    /* 设置 Horizontal Back Porch (HBP) in lane byte clock cycles */
+    /* 设置通道字节时钟周期中的水平反向通道（HBP） */
     DSIx->VHBPCR &= ~DSI_VHBPCR_HBP;
     DSIx->VHBPCR |= VidCfg->HorizontalBackPorch;
 
-    /* 设置 total line time (HLINE=HSA+HBP+HACT+HFP) in lane byte clock cycles */
+    /* 设置通道字节时钟周期中的总线路时间（HLINE=HSA+HBP+HACT+HFP） */
     DSIx->VLCR &= ~DSI_VLCR_HLINE;
     DSIx->VLCR |= VidCfg->HorizontalLine;
 
-    /* 设置 Vertical Synchronization Active (VSA) */
+    /* 设置垂直同步激活（VSA） */
     DSIx->VVSACR &= ~DSI_VVSACR_VSA;
     DSIx->VVSACR |= VidCfg->VerticalSyncActive;
 
-    /* 设置 Vertical Back Porch (VBP)*/
+    /* 设置垂直后门（VBP）*/
     DSIx->VVBPCR &= ~DSI_VVBPCR_VBP;
     DSIx->VVBPCR |= VidCfg->VerticalBackPorch;
 
-    /* 设置 Vertical Front Porch (VFP)*/
+    /* 设置垂直前廊（VFP）*/
     DSIx->VVFPCR &= ~DSI_VVFPCR_VFP;
     DSIx->VVFPCR |= VidCfg->VerticalFrontPorch;
 
-    /* 设置 Vertical Active period*/
+    /* 设置垂直活动期 */
     DSIx->VVACR &= ~DSI_VVACR_VA;
     DSIx->VVACR |= VidCfg->VerticalActive;
 
-    /* 配置 command transmission mode */
+    /* 配置命令传输模式 */
     DSIx->VMCR &= ~DSI_VMCR_LPCE;
     DSIx->VMCR |= VidCfg->LPCommandEnable;
 
-    /* Low power largest packet size */
+    /* 低功耗最大数据包大小 */
     DSIx->LPMCR &= ~DSI_LPMCR_LPSIZE;
     DSIx->LPMCR |= ((VidCfg->LPLargestPacketSize) << 16);
 
-    /* Low power VACT largest packet size */
+    /* 低功率VACT最大数据包大小 */
     DSIx->LPMCR &= ~DSI_LPMCR_VLPSIZE;
     DSIx->LPMCR |= VidCfg->LPVACTLargestPacketSize;
 
-    /* 使能LP transition in HFP period */
+    /* 使能HFP期LP转换 */
     DSIx->VMCR &= ~DSI_VMCR_LPHFPE;
     DSIx->VMCR |= VidCfg->LPHorizontalFrontPorchEnable;
 
-    /* 使能LP transition in HBP period */
+    /* 使能HBP期间的LP转换 */
     DSIx->VMCR &= ~DSI_VMCR_LPHBPE;
     DSIx->VMCR |= VidCfg->LPHorizontalBackPorchEnable;
 
-    /* 使能LP transition in VACT period */
+    /* 使能VACT期间的LP转换 */
     DSIx->VMCR &= ~DSI_VMCR_LPVAE;
     DSIx->VMCR |= VidCfg->LPVerticalActiveEnable;
 
-    /* 使能LP transition in VFP period */
+    /* 使能VFP期间的LP转换 */
     DSIx->VMCR &= ~DSI_VMCR_LPVFPE;
     DSIx->VMCR |= VidCfg->LPVerticalFrontPorchEnable;
 
-    /* 使能LP transition in VBP period */
+    /* 使能VBP时期的LP转换 */
     DSIx->VMCR &= ~DSI_VMCR_LPVBPE;
     DSIx->VMCR |= VidCfg->LPVerticalBackPorchEnable;
 
-    /* 使能LP transition in vertical sync period */
+    /* 使能垂直同步周期中的LP转换 */
     DSIx->VMCR &= ~DSI_VMCR_LPVSAE;
     DSIx->VMCR |= VidCfg->LPVerticalSyncActiveEnable;
 
-    /* 启用 request for an acknowledge response at the end of a frame */
+    /* 启用在帧结束时请求确认响应 */
     DSIx->VMCR &= ~DSI_VMCR_FBTAAE;
     DSIx->VMCR |= VidCfg->FrameBTAAcknowledgeEnable;
 }
@@ -412,42 +412,42 @@ void DSI_ConfigAdaptedCommandMode(DSI_TypeDef *DSIx, DSI_CmdCfgTypeDef *CmdCfg) 
     assert_param(IS_DSI_VSYNC_POLARITY(CmdCfg->VSPolarity));
     assert_param(IS_DSI_HSYNC_POLARITY(CmdCfg->HSPolarity));
 
-    /* Select command mode by setting CMDM and DSIM 位 */
+    /* 通过设置CMDM和DSIM选择命令模式位 */
     DSIx->MCR |= DSI_MCR_CMDM;
     DSIx->WCFGR &= ~DSI_WCFGR_DSIM;
     DSIx->WCFGR |= DSI_WCFGR_DSIM;
 
-    /* 选择这个virtual channel for the LTDC interface traffic */
+    /* 选择这个LTCC接口流量的虚拟通道 */
     DSIx->LVCIDR &= ~DSI_LVCIDR_VCID;
     DSIx->LVCIDR |= CmdCfg->VirtualChannelID;
 
-    /* 配置 polarity of control signals */
+    /* 配置控制信号的极性 */
     DSIx->LPCR &= ~(DSI_LPCR_DEP | DSI_LPCR_VSP | DSI_LPCR_HSP);
     DSIx->LPCR |= (CmdCfg->DEPolarity | CmdCfg->VSPolarity | CmdCfg->HSPolarity);
 
-    /* 选择这个color coding for the host */
+    /* 选择这个主机的颜色编码 */
     DSIx->LCOLCR &= ~DSI_LCOLCR_COLC;
     DSIx->LCOLCR |= CmdCfg->ColorCoding;
 
-    /* 选择这个color coding for the wrapper */
+    /* 选择这个包装的颜色编码 */
     DSIx->WCFGR &= ~DSI_WCFGR_COLMUX;
     DSIx->WCFGR |= ((CmdCfg->ColorCoding) << 1);
 
-    /* 配置 maximum allowed size for write memory command */
+    /* 配置写入内存命令允许的最大大小 */
     DSIx->LCCR &= ~DSI_LCCR_CMDSIZE;
     DSIx->LCCR |= CmdCfg->CommandSize;
 
-    /* 配置 tearing effect source and polarity and select the refresh mode */
+    /* 配置撕裂效果来源和极性，并选择刷新模式 */
     DSIx->WCFGR &= ~(DSI_WCFGR_TESRC | DSI_WCFGR_TEPOL | DSI_WCFGR_AR | DSI_WCFGR_VSPOL);
     DSIx->WCFGR |= (CmdCfg->TearingEffectSource | CmdCfg->TearingEffectPolarity | CmdCfg->AutomaticRefresh | CmdCfg->VSyncPol);
 
-    /* 配置 tearing effect acknowledge request */
+    /* 配置撕裂效应确认请求 */
     DSIx->CMCR &= ~DSI_CMCR_TEARE;
     DSIx->CMCR |= CmdCfg->TEAcknowledgeRequest;
 
-    /* 启用 Tearing Effect interrupt */
+    /* 启用撕裂效果中断 */
     DSI_ITConfig(DSIx, DSI_IT_TE, ENABLE);
-    /* 启用 End of Refresh interrupt */
+    /* 启用刷新中断结束 */
     DSI_ITConfig(DSIx, DSI_IT_ER, ENABLE);
 }
 
@@ -472,7 +472,7 @@ void DSI_ConfigCommand(DSI_TypeDef *DSIx, DSI_LPCmdTypeDef *LPCmd) {
     assert_param(IS_DSI_LP_MRDP(LPCmd->LPMaxReadPacket));
     assert_param(IS_DSI_ACK_REQUEST(LPCmd->AcknowledgeRequest));
 
-    /* Select High-speed or Low-power for command transmission */
+    /* 选择高速或低功率进行命令传输 */
     DSIx->CMCR &= ~(DSI_CMCR_GSW0TX | \
                     DSI_CMCR_GSW1TX | \
                     DSI_CMCR_GSW2TX | \
@@ -498,7 +498,7 @@ void DSI_ConfigCommand(DSI_TypeDef *DSIx, DSI_LPCmdTypeDef *LPCmd) {
                    LPCmd->LPDcsLongWrite      | \
                    LPCmd->LPMaxReadPacket);
 
-    /* 配置 acknowledge request after each packet transmission */
+    /* 配置每次数据包传输后的确认请求 */
     DSIx->CMCR &= ~DSI_CMCR_ARE;
     DSIx->CMCR |= LPCmd->AcknowledgeRequest;
 }
@@ -530,24 +530,22 @@ void DSI_ConfigPhyTimer(DSI_TypeDef *DSIx, DSI_PHY_TimerTypeDef *PhyTimers) {
 
     maxTime = (PhyTimers->ClockLaneLP2HSTime > PhyTimers->ClockLaneHS2LPTime) ? PhyTimers->ClockLaneLP2HSTime : PhyTimers->ClockLaneHS2LPTime;
 
-    /* Clock lane timer 配置*/
-    /* In Automatic Clock Lane control mode, the DSI Host can turn off the clock lane between two
-       High-Speed transmission.
-       To do so, the DSI Host calculates the time required for the clock lane to change from HighSpeed
-       to Low-Power and from Low-Power to High-Speed.
-       This timings are configured by the HS2LP_TIME and LP2HS_TIME in the DSI Host Clock Lane Timer Configuration Register (DSI_CLTCR).
-       But the DSI Host is not calculating LP2HS_TIME + HS2LP_TIME but 2 x HS2LP_TIME.
+    /* 时钟通道计时器配置*/
+    /* 在自动时钟通道控制模式下，DSI主机可以关闭两个高速传输之间的时钟通道。
+       为此，DSI主机计算时钟通道从高速变为低功率和从低功率变为高速所需的时间。
+       此定时由DSI主机时钟通道定时器配置寄存器（DSI_CLTCR）中的HS2LP_TIME和LP2HS_TIME配置。
+       但是DSI主机不是在计算LP2HS_TIME+HS2LP_TIME，而是在计算2 x HS2LP_ TIME。
 
-       Workaround : Configure HS2LP_TIME and LP2HS_TIME with the same value being the max of HS2LP_TIME or LP2HS_TIME.
+       解决方法：配置HS2LP_TIME和LP2HS_TIME，使其具有相同的值，即HS2LP_ TIME或LP2HS_ TIME的最大值。
     */
     DSIx->CLTCR &= ~(DSI_CLTCR_LP2HS_TIME | DSI_CLTCR_HS2LP_TIME);
     DSIx->CLTCR |= (maxTime | ((maxTime) << 16));
 
-    /* Data lane timer 配置*/
+    /* 数据通道计时器配置*/
     DSIx->DLTCR &= ~(DSI_DLTCR_MRD_TIME | DSI_DLTCR_LP2HS_TIME | DSI_DLTCR_HS2LP_TIME);
     DSIx->DLTCR |= (PhyTimers->DataLaneMaxReadTime | ((PhyTimers->DataLaneLP2HSTime) << 16) | ((PhyTimers->DataLaneHS2LPTime) << 24));
 
-    /* 配置 wait period to request HS transmission after a stop state */
+    /* 配置停止状态后请求HS传输的等待时间 */
     DSIx->PCONFR &= ~DSI_PCONFR_SW_TIME;
     DSIx->PCONFR |= ((PhyTimers->StopWaitTime) << 8);
 }
@@ -559,39 +557,39 @@ void DSI_ConfigPhyTimer(DSI_TypeDef *DSIx, DSI_PHY_TimerTypeDef *PhyTimers) {
   * 返回值: 无
   */
 void DSI_ConfigHostTimeouts(DSI_TypeDef *DSIx, DSI_HOST_TimeoutTypeDef *HostTimeouts) {
-    /* 设置 timeout clock division factor */
+    /* 设置超时时钟分频因子 */
     DSIx->CCR &= ~DSI_CCR_TOCKDIV;
     DSIx->CCR = ((HostTimeouts->TimeoutCkdiv) << 8);
 
-    /* High-speed transmission timeout */
+    /* High-speed 传输超时 */
     DSIx->TCCR[0] &= ~DSI_TCCR0_HSTX_TOCNT;
     DSIx->TCCR[0] |= ((HostTimeouts->HighSpeedTransmissionTimeout) << 16);
 
-    /* Low-power reception timeout */
+    /* Low-power 接收超时 */
     DSIx->TCCR[0] &= ~DSI_TCCR0_LPRX_TOCNT;
     DSIx->TCCR[0] |= HostTimeouts->LowPowerReceptionTimeout;
 
-    /* High-speed read timeout */
+    /* High-speed 读超时 */
     DSIx->TCCR[1] &= ~DSI_TCCR1_HSRD_TOCNT;
     DSIx->TCCR[1] |= HostTimeouts->HighSpeedReadTimeout;
 
-    /* Low-power read timeout */
+    /* Low-power 读超时 */
     DSIx->TCCR[2] &= ~DSI_TCCR2_LPRD_TOCNT;
     DSIx->TCCR[2] |= HostTimeouts->LowPowerReadTimeout;
 
-    /* High-speed write timeout */
+    /* High-speed 写入超时 */
     DSIx->TCCR[3] &= ~DSI_TCCR3_HSWR_TOCNT;
     DSIx->TCCR[3] |= HostTimeouts->HighSpeedWriteTimeout;
 
-    /* High-speed write presp mode */
+    /* High-speed 写预处理模式 */
     DSIx->TCCR[3] &= ~DSI_TCCR3_PM;
     DSIx->TCCR[3] |= HostTimeouts->HighSpeedWritePrespMode;
 
-    /* Low-speed write timeout */
+    /* Low-speed 写入超时 */
     DSIx->TCCR[4] &= ~DSI_TCCR4_LPWR_TOCNT;
     DSIx->TCCR[4] |= HostTimeouts->LowPowerWriteTimeout;
 
-    /* BTA timeout */
+    /* BTA 超时 */
     DSIx->TCCR[5] &= ~DSI_TCCR5_BTA_TOCNT;
     DSIx->TCCR[5] |= HostTimeouts->BTATimeout;
 }
@@ -603,9 +601,9 @@ void DSI_ConfigHostTimeouts(DSI_TypeDef *DSIx, DSI_HOST_TimeoutTypeDef *HostTime
   * 返回值: 无
   */
 void DSI_Start(DSI_TypeDef *DSIx) {
-    /* 启用 DSI host */
+    /* 启用 DSI 主机 */
     DSIx->CR |= DSI_CR_EN;
-    /* 启用 DSI wrapper */
+    /* 启用 DSI 包装 */
     DSIx->WCR |= DSI_WCR_DSIEN;
 }
 
@@ -615,10 +613,10 @@ void DSI_Start(DSI_TypeDef *DSIx) {
   * 返回值: 无
   */
 void DSI_Stop(DSI_TypeDef *DSIx) {
-    /* 禁用 DSI host */
+    /* 禁用 DSI 主机 */
     DSIx->CR &= ~DSI_CR_EN;
 
-    /* 禁用 DSI wrapper */
+    /* 禁用 DSI 包装 */
     DSIx->WCR &= ~DSI_WCR_DSIEN;
 }
 
@@ -644,7 +642,7 @@ void DSI_ColorMode(DSI_TypeDef *DSIx, uint32_t ColorMode) {
     /* 检查参数 */
     assert_param(IS_DSI_COLOR_MODE(ColorMode));
 
-    /* Update the display color mode */
+    /* 更新显示颜色模式 */
     DSIx->WCR &= ~DSI_WCR_COLM;
     DSIx->WCR |= ColorMode;
 }
@@ -660,7 +658,7 @@ void DSI_Shutdown(DSI_TypeDef *DSIx, uint32_t Shutdown) {
     /* 检查参数 */
     assert_param(IS_DSI_SHUT_DOWN(Shutdown));
 
-    /* Update the display Shutdown */
+    /* 更新显示Shutdown */
     DSIx->WCR &= ~DSI_WCR_SHTDN;
     DSIx->WCR |= Shutdown;
 }
@@ -699,11 +697,11 @@ void DSI_ShortWrite(DSI_TypeDef *DSIx,
     /* 检查参数 */
     assert_param(IS_DSI_SHORT_WRITE_PACKET_TYPE(Mode));
 
-    /* Wait for Command FIFO Empty */
+    /* 等待命令FIFO为空 */
     while((DSIx->GPSR & DSI_GPSR_CMDFE) == 0)
     {}
 
-    /* 配置 packet to send a short DCS command with 0 or 1 parameter */
+    /* 配置用于发送具有 0 或 1 参数的短 DCS 命令的数据包 */
     DSI_ConfigPacketHeader(DSIx,
                            ChannelID,
                            Mode,
@@ -734,11 +732,11 @@ void DSI_LongWrite(DSI_TypeDef *DSIx,
     /* 检查参数 */
     assert_param(IS_DSI_LONG_WRITE_PACKET_TYPE(Mode));
 
-    /* Wait for Command FIFO Empty */
+    /* 等待命令FIFO为空 */
     while((DSIx->GPSR & DSI_GPSR_CMDFE) == 0)
     {}
 
-    /* 设置 DCS code hexadecimal on payload byte 1, and the other parameters on the write FIFO command*/
+    /* 设置有效载荷字节 1 上的 DCS 代码十六进制，以及写入 FIFO 命令上的其他参数*/
     while(uicounter < NbParams) {
         if(uicounter == 0x00) {
             DSIx->GPDR = (Param1 | \
@@ -755,7 +753,7 @@ void DSI_LongWrite(DSI_TypeDef *DSIx,
         }
     }
 
-    /* 配置 packet to send a long DCS command */
+    /* 配置发送长DCS命令的数据包 */
     DSI_ConfigPacketHeader(DSIx,
                            ChannelID,
                            Mode,
@@ -787,11 +785,11 @@ void DSI_Read(DSI_TypeDef *DSIx,
     assert_param(IS_DSI_READ_PACKET_TYPE(Mode));
 
     if(Size > 2) {
-        /* set max return packet size */
+        /* 设置最大返回数据包大小 */
         DSI_ShortWrite(DSIx, ChannelNbr, DSI_MAX_RETURN_PKT_SIZE, ((Size) & 0xFF), (((Size) >> 8) & 0xFF));
     }
 
-    /* 配置 packet to read command */
+    /* 配置数据包读取命令 */
     if (Mode == DSI_DCS_SHORT_PKT_READ) {
         DSI_ConfigPacketHeader(DSIx, ChannelNbr, Mode, DCSCmd, 0);
     } else if (Mode == DSI_GEN_SHORT_PKT_READ_P0) {
@@ -802,11 +800,11 @@ void DSI_Read(DSI_TypeDef *DSIx,
         DSI_ConfigPacketHeader(DSIx, ChannelNbr, Mode, ParametersTable[0], ParametersTable[1]);
     }
 
-    /* 检查 that the payload read FIFO is not empty */
+    /* 检查有效负载读取FIFO不是空的 */
     while((DSIx->GPSR & DSI_GPSR_PRDFE) == DSI_GPSR_PRDFE)
     {}
 
-    /* 获取first byte */
+    /* 获取第一个字节 */
     *((uint32_t *)Array) = (DSIx->GPDR);
 
     if (Size > 4) {
@@ -814,7 +812,7 @@ void DSI_Read(DSI_TypeDef *DSIx,
         Array += 4;
     }
 
-    /* 获取remaining bytes if any */
+    /* 获取剩余字节（如果有） */
     while(((int)(Size)) > 0) {
         if((DSIx->GPSR & DSI_GPSR_PRDFE) == 0) {
             *((uint32_t *)Array) = (DSIx->GPDR);
@@ -869,11 +867,11 @@ static void DSI_ConfigPacketHeader(DSI_TypeDef *DSIx,
   * 返回值: 无
   */
 void DSI_EnterULPMData(DSI_TypeDef *DSIx) {
-    /* ULPS Request on Data Lanes */
+    /* 数据通道上的ULPS请求 */
     DSIx->PUCR |= DSI_PUCR_URDL;
 
 
-    /* Wait until the D-PHY active lanes enter into ULPM */
+    /* 等待，直到D-PHY活动通道进入ULPM */
     if((DSIx->PCONFR & DSI_PCONFR_NL) == DSI_ONE_DATA_LANE) {
         while((DSIx->PSR & DSI_PSR_UAN0) != 0)
         {}
@@ -892,7 +890,7 @@ void DSI_ExitULPMData(DSI_TypeDef *DSIx) {
     /* Exit ULPS on Data Lanes */
     DSIx->PUCR |= DSI_PUCR_UEDL;
 
-    /* Wait until all active lanes exit ULPM */
+    /* 等到所有活动车道都离开ULPM */
     if((DSIx->PCONFR & DSI_PCONFR_NL) == DSI_ONE_DATA_LANE) {
         while((DSIx->PSR & DSI_PSR_UAN0) != DSI_PSR_UAN0)
         {}
@@ -901,7 +899,7 @@ void DSI_ExitULPMData(DSI_TypeDef *DSIx) {
         {}
     }
 
-    /* De-assert the ULPM requests and the ULPM exit 位 */
+    /* 取消断言ULPM请求和ULPM退出位 */
     DSIx->PUCR = 0;
 }
 
@@ -911,16 +909,16 @@ void DSI_ExitULPMData(DSI_TypeDef *DSIx) {
   * 返回值: 无
   */
 void DSI_EnterULPM(DSI_TypeDef *DSIx) {
-    /* Clock lane configuration: no more HS request */
+    /* 时钟通道配置：不再有HS请求 */
     DSIx->CLCR &= ~DSI_CLCR_DPCC;
 
-    /* Use system PLL as byte lane clock source before stopping DSIPHY clock source */
+    /* 在停止DSIPHY时钟源之前，使用系统PLL作为字节通道时钟源 */
     RCC_DSIClockSourceConfig(RCC_DSICLKSource_PLLR);
 
-    /* ULPS Request on Clock and Data Lanes */
+    /* 时钟和数据通道上的ULPS请求 */
     DSIx->PUCR |= (DSI_PUCR_URCL | DSI_PUCR_URDL);
 
-    /* Wait until all active lanes exit ULPM */
+    /* 等到所有活动车道都离开ULPM */
     if((DSIx->PCONFR & DSI_PCONFR_NL) == DSI_ONE_DATA_LANE) {
         while((DSIx->PSR & (DSI_PSR_UAN0 | DSI_PSR_UANC)) != 0)
         {}
@@ -929,7 +927,7 @@ void DSI_EnterULPM(DSI_TypeDef *DSIx) {
         {}
     }
 
-    /* Turn off the DSI PLL */
+    /* 关闭DSI PLL */
     DSIx->WRPCR &= ~DSI_WRPCR_PLLEN;
 }
 
@@ -942,14 +940,14 @@ void DSI_ExitULPM(DSI_TypeDef *DSIx) {
     /* Turn on the DSI PLL */
     DSIx->WRPCR |= DSI_WRPCR_PLLEN;
 
-    /* Wait for the lock of the PLL */
+    /* 等待PLL锁定 */
     while(DSI_GetFlagStatus(DSIx, DSI_FLAG_PLLLS) == RESET)
     {}
 
-    /* Exit ULPS on Clock and Data Lanes */
+    /* 在时钟和数据通道上退出ULPS */
     DSIx->PUCR |= (DSI_PUCR_UECL | DSI_PUCR_UEDL);
 
-    /* Wait until all active lanes exit ULPM */
+    /* 等到所有活动车道都离开ULPM */
     if((DSIx->PCONFR & DSI_PCONFR_NL) == DSI_ONE_DATA_LANE) {
         while((DSIx->PSR & (DSI_PSR_UAN0 | DSI_PSR_UANC)) != (DSI_PSR_UAN0 | DSI_PSR_UANC))
         {}
@@ -958,13 +956,13 @@ void DSI_ExitULPM(DSI_TypeDef *DSIx) {
         {}
     }
 
-    /* De-assert the ULPM requests and the ULPM exit 位 */
+    /* 取消断言ULPM请求和ULPM退出位 */
     DSIx->PUCR = 0;
 
-    /* Switch the lanbyteclock source in the RCC from system PLL to D-PHY */
+    /* 将RCC中的字节时钟源从系统PLL切换到D-PHY */
     RCC_DSIClockSourceConfig(RCC_DSICLKSource_PHY);
 
-    /* Restore clock lane configuration to HS */
+    /* 将时钟通道配置恢复到HS */
     DSIx->CLCR |= DSI_CLCR_DPCC;
 }
 
@@ -983,11 +981,11 @@ void DSI_ExitULPM(DSI_TypeDef *DSIx) {
   */
 void DSI_PatternGeneratorStart(DSI_TypeDef *DSIx, uint32_t Mode, uint32_t Orientation) {
 
-    /* Configure 图形生成器模式 and orientation */
+    /* 配置图形生成器模式和方向 */
     DSIx->VMCR &= ~(DSI_VMCR_PGM | DSI_VMCR_PGO);
     DSIx->VMCR |= ((Mode << 20) | (Orientation << 24));
 
-    /* 使能pattern generator by setting PGE 位 */
+    /* 使能通过设置PGE的模式生成器位 */
     DSIx->VMCR |= DSI_VMCR_PGE;
 
 }
@@ -998,7 +996,7 @@ void DSI_PatternGeneratorStart(DSI_TypeDef *DSIx, uint32_t Mode, uint32_t Orient
   * 返回值: 无
   */
 void DSI_PatternGeneratorStop(DSI_TypeDef *DSIx) {
-    /* Disable pattern generator by clearing PGE 位 */
+    /* 通过清除PGE禁用模式生成器位 */
     DSIx->VMCR &= ~DSI_VMCR_PGE;
 }
 
@@ -1020,11 +1018,11 @@ void DSI_SetSlewRateAndDelayTuning(DSI_TypeDef *DSIx, uint32_t CommDelay, uint32
     switch(CommDelay) {
         case DSI_SLEW_RATE_HSTX:
             if(Lane == DSI_CLOCK_LANE) {
-                /* High-Speed Transmission Slew Rate Control on Clock Lane */
+                /* 时钟通道上的高速传输回转速率控制 */
                 DSIx->WPCR[1] &= ~DSI_WPCR1_HSTXSRCCL;
                 DSIx->WPCR[1] |= Value << 16;
             } else { /* DSI_DATA_LANES */
-                /* High-Speed Transmission Slew Rate Control on Data Lanes */
+                /* 数据通道上的高速传输回转速率控制 */
                 DSIx->WPCR[1] &= ~DSI_WPCR1_HSTXSRCDL;
                 DSIx->WPCR[1] |= Value << 18;
             }
@@ -1033,11 +1031,11 @@ void DSI_SetSlewRateAndDelayTuning(DSI_TypeDef *DSIx, uint32_t CommDelay, uint32
 
         case DSI_SLEW_RATE_LPTX:
             if(Lane == DSI_CLOCK_LANE) {
-                /* Low-Power transmission Slew Rate Compensation on Clock Lane */
+                /* 时钟通道上的低功率传输回转速率补偿 */
                 DSIx->WPCR[1] &= ~DSI_WPCR1_LPSRCCL;
                 DSIx->WPCR[1] |= Value << 6;
             } else { /*  DSI_DATA_LANES */
-                /* Low-Power transmission Slew Rate Compensation on Data Lanes */
+                /* 数据通道上的低功率传输回转速率补偿 */
                 DSIx->WPCR[1] &= ~DSI_WPCR1_LPSRCDL;
                 DSIx->WPCR[1] |= Value << 8;
             }
@@ -1046,11 +1044,11 @@ void DSI_SetSlewRateAndDelayTuning(DSI_TypeDef *DSIx, uint32_t CommDelay, uint32
 
         case DSI_HS_DELAY:
             if(Lane == DSI_CLOCK_LANE) {
-                /* High-Speed Transmission Delay on Clock Lane */
+                /* 时钟通道上的高速传输延迟 */
                 DSIx->WPCR[1] &= ~DSI_WPCR1_HSTXDCL;
                 DSIx->WPCR[1] |= Value;
             } else { /* DSI_DATA_LANES */
-                /* High-Speed Transmission Delay on Data Lanes */
+                /* 数据通道上的高速传输延迟 */
                 DSIx->WPCR[1] &= ~DSI_WPCR1_HSTXDDL;
                 DSIx->WPCR[1] |= Value << 2;
             }
@@ -1069,7 +1067,7 @@ void DSI_SetSlewRateAndDelayTuning(DSI_TypeDef *DSIx, uint32_t CommDelay, uint32
   * 返回值: 无
   */
 void DSI_SetLowPowerRXFilter(DSI_TypeDef *DSIx, uint32_t Frequency) {
-    /* Low-Power RX low-pass Filtering Tuning */
+    /* 低功率RX低通滤波调谐 */
     DSIx->WPCR[1] &= ~DSI_WPCR1_LPRXFT;
     DSIx->WPCR[1] |= Frequency << 25;
 }
@@ -1085,7 +1083,7 @@ void DSI_SetSDD(DSI_TypeDef *DSIx, FunctionalState State) {
     /* 检查函数参数 */
     assert_param(IS_FUNCTIONAL_STATE(State));
 
-    /* Activate/Disactivate additional current path on all lanes */
+    /* 激活/禁用所有车道上的附加当前路径 */
     DSIx->WPCR[1] &= ~DSI_WPCR1_SDDC;
     DSIx->WPCR[1] |= ((uint32_t)State << 12);
 }
@@ -1109,15 +1107,15 @@ void DSI_SetLanePinsConfiguration(DSI_TypeDef *DSIx, uint32_t CustomLane, uint32
     switch(CustomLane) {
         case DSI_SWAP_LANE_PINS:
             if(Lane == DSI_CLOCK_LANE) {
-                /* Swap pins on clock lane */
+                /* 交换时钟通道上的引脚 */
                 DSIx->WPCR[0] &= ~DSI_WPCR0_SWCL;
                 DSIx->WPCR[0] |= ((uint32_t)State << 6);
             } else if(Lane == DSI_DATA_LANE0) {
-                /* Swap pins on data lane 0 */
+                /* 交换数据通道0上的引脚 */
                 DSIx->WPCR[0] &= ~DSI_WPCR0_SWDL0;
                 DSIx->WPCR[0] |= ((uint32_t)State << 7);
             } else { /* DSI_DATA_LANE1 */
-                /* Swap pins on data lane 1 */
+                /* 交换数据通道1上的引脚 */
                 DSIx->WPCR[0] &= ~DSI_WPCR0_SWDL1;
                 DSIx->WPCR[0] |= ((uint32_t)State << 8);
             }
@@ -1126,15 +1124,15 @@ void DSI_SetLanePinsConfiguration(DSI_TypeDef *DSIx, uint32_t CustomLane, uint32
 
         case DSI_INVERT_HS_SIGNAL:
             if(Lane == DSI_CLOCK_LANE) {
-                /* Invert HS signal on clock lane */
+                /* 反转时钟通道上的HS信号 */
                 DSIx->WPCR[0] &= ~DSI_WPCR0_HSICL;
                 DSIx->WPCR[0] |= ((uint32_t)State << 9);
             } else if(Lane == DSI_DATA_LANE0) {
-                /* Invert HS signal on data lane 0 */
+                /* 反转数据通道0上的HS信号 */
                 DSIx->WPCR[0] &= ~DSI_WPCR0_HSIDL0;
                 DSIx->WPCR[0] |= ((uint32_t)State << 10);
             } else { /* DSI_DATA_LANE1 */
-                /* Invert HS signal on data lane 1 */
+                /* 反转数据通道1上的HS信号 */
                 DSIx->WPCR[0] &= ~DSI_WPCR0_HSIDL1;
                 DSIx->WPCR[0] |= ((uint32_t)State << 11);
             }
@@ -1162,12 +1160,12 @@ void DSI_SetPHYTimings(DSI_TypeDef *DSIx, uint32_t Timing, FunctionalState State
 
     switch(Timing) {
         case DSI_TCLK_POST:
-            /* Enable/Disable custom timing setting */
+            /* 启用/禁用自定义计时设置 */
             DSIx->WPCR[0] &= ~DSI_WPCR0_TCLKPOSTEN;
             DSIx->WPCR[0] |= ((uint32_t)State << 27);
 
             if(State) {
-                /* Set custom 值 */
+                /* 设置自定义值 */
                 DSIx->WPCR[4] &= ~DSI_WPCR4_TCLKPOST;
                 DSIx->WPCR[4] |= Value;
             }
@@ -1175,12 +1173,12 @@ void DSI_SetPHYTimings(DSI_TypeDef *DSIx, uint32_t Timing, FunctionalState State
             break;
 
         case DSI_TLPX_CLK:
-            /* Enable/Disable custom timing setting */
+            /* 启用/禁用自定义计时设置 */
             DSIx->WPCR[0] &= ~DSI_WPCR0_TLPXCEN;
             DSIx->WPCR[0] |= ((uint32_t)State << 26);
 
             if(State) {
-                /* Set custom 值 */
+                /* 设置自定义值 */
                 DSIx->WPCR[3] &= ~DSI_WPCR3_TLPXC;
                 DSIx->WPCR[3] |= Value;
             }
@@ -1188,12 +1186,12 @@ void DSI_SetPHYTimings(DSI_TypeDef *DSIx, uint32_t Timing, FunctionalState State
             break;
 
         case DSI_THS_EXIT:
-            /* Enable/Disable custom timing setting */
+            /* 启用/禁用自定义计时设置 */
             DSIx->WPCR[0] &= ~DSI_WPCR0_THSEXITEN;
             DSIx->WPCR[0] |= ((uint32_t)State << 25);
 
             if(State) {
-                /* Set custom 值 */
+                /* 设置自定义值 */
                 DSIx->WPCR[3] &= ~DSI_WPCR3_THSEXIT;
                 DSIx->WPCR[3] |= Value;
             }
@@ -1201,12 +1199,12 @@ void DSI_SetPHYTimings(DSI_TypeDef *DSIx, uint32_t Timing, FunctionalState State
             break;
 
         case DSI_TLPX_DATA:
-            /* Enable/Disable custom timing setting */
+            /* 启用/禁用自定义计时设置 */
             DSIx->WPCR[0] &= ~DSI_WPCR0_TLPXDEN;
             DSIx->WPCR[0] |= ((uint32_t)State << 24);
 
             if(State) {
-                /* Set custom 值 */
+                /* 设置自定义值 */
                 DSIx->WPCR[3] &= ~DSI_WPCR3_TLPXD;
                 DSIx->WPCR[3] |= Value;
             }
@@ -1214,12 +1212,12 @@ void DSI_SetPHYTimings(DSI_TypeDef *DSIx, uint32_t Timing, FunctionalState State
             break;
 
         case DSI_THS_ZERO:
-            /* Enable/Disable custom timing setting */
+            /* 启用/禁用自定义计时设置 */
             DSIx->WPCR[0] &= ~DSI_WPCR0_THSZEROEN;
             DSIx->WPCR[0] |= ((uint32_t)State << 23);
 
             if(State) {
-                /* Set custom 值 */
+                /* 设置自定义值 */
                 DSIx->WPCR[3] &= ~DSI_WPCR3_THSZERO;
                 DSIx->WPCR[3] |= Value;
             }
@@ -1227,12 +1225,12 @@ void DSI_SetPHYTimings(DSI_TypeDef *DSIx, uint32_t Timing, FunctionalState State
             break;
 
         case DSI_THS_TRAIL:
-            /* Enable/Disable custom timing setting */
+            /* 启用/禁用自定义计时设置 */
             DSIx->WPCR[0] &= ~DSI_WPCR0_THSTRAILEN;
             DSIx->WPCR[0] |= ((uint32_t)State << 22);
 
             if(State) {
-                /* Set custom 值 */
+                /* 设置自定义值 */
                 DSIx->WPCR[2] &= ~DSI_WPCR2_THSTRAIL;
                 DSIx->WPCR[2] |= Value;
             }
@@ -1240,12 +1238,12 @@ void DSI_SetPHYTimings(DSI_TypeDef *DSIx, uint32_t Timing, FunctionalState State
             break;
 
         case DSI_THS_PREPARE:
-            /* Enable/Disable custom timing setting */
+            /* 启用/禁用自定义计时设置 */
             DSIx->WPCR[0] &= ~DSI_WPCR0_THSPREPEN;
             DSIx->WPCR[0] |= ((uint32_t)State << 21);
 
             if(State) {
-                /* Set custom 值 */
+                /* 设置自定义值 */
                 DSIx->WPCR[2] &= ~DSI_WPCR2_THSPREP;
                 DSIx->WPCR[2] |= Value;
             }
@@ -1253,12 +1251,12 @@ void DSI_SetPHYTimings(DSI_TypeDef *DSIx, uint32_t Timing, FunctionalState State
             break;
 
         case DSI_TCLK_ZERO:
-            /* Enable/Disable custom timing setting */
+            /* 启用/禁用自定义计时设置 */
             DSIx->WPCR[0] &= ~DSI_WPCR0_TCLKZEROEN;
             DSIx->WPCR[0] |= ((uint32_t)State << 20);
 
             if(State) {
-                /* Set custom 值 */
+                /* 设置自定义值 */
                 DSIx->WPCR[2] &= ~DSI_WPCR2_TCLKZERO;
                 DSIx->WPCR[2] |= Value;
             }
@@ -1266,12 +1264,12 @@ void DSI_SetPHYTimings(DSI_TypeDef *DSIx, uint32_t Timing, FunctionalState State
             break;
 
         case DSI_TCLK_PREPARE:
-            /* Enable/Disable custom timing setting */
+            /* 启用/禁用自定义计时设置 */
             DSIx->WPCR[0] &= ~DSI_WPCR0_TCLKPREPEN;
             DSIx->WPCR[0] |= ((uint32_t)State << 19);
 
             if(State) {
-                /* Set custom 值 */
+                /* 设置自定义值 */
                 DSIx->WPCR[2] &= ~DSI_WPCR2_TCLKPREP;
                 DSIx->WPCR[2] |= Value;
             }
@@ -1297,11 +1295,11 @@ void DSI_ForceTXStopMode(DSI_TypeDef *DSIx, uint32_t Lane, FunctionalState State
     assert_param(IS_FUNCTIONAL_STATE(State));
 
     if(Lane == DSI_CLOCK_LANE) {
-        /* Force/Unforce the Clock Lane in TX Stop Mode */
+        /* 在TX停止模式下强制/展开时钟通道 */
         DSIx->WPCR[0] &= ~DSI_WPCR0_FTXSMCL;
         DSIx->WPCR[0] |= ((uint32_t)State << 12);
     } else { /* DSI_DATA_LANES */
-        /* Force/Unforce the Data Lanes in TX Stop Mode */
+        /* 在TX停止模式下强制/展开数据通道 */
         DSIx->WPCR[0] &= ~DSI_WPCR0_FTXSMDL;
         DSIx->WPCR[0] |= ((uint32_t)State << 13);
     }
@@ -1318,7 +1316,7 @@ void DSI_ForceRXLowPower(DSI_TypeDef *DSIx, FunctionalState State) {
     /* 检查函数参数 */
     assert_param(IS_FUNCTIONAL_STATE(State));
 
-    /* Force/Unforce LP Receiver in Low-Power Mode */
+    /* 低功率模式下的强制/不强制LP接收器 */
     DSIx->WPCR[1] &= ~DSI_WPCR1_FLPRXLPM;
     DSIx->WPCR[1] |= ((uint32_t)State << 22);
 }
@@ -1334,7 +1332,7 @@ void DSI_ForceDataLanesInRX(DSI_TypeDef *DSIx, FunctionalState State) {
     /* 检查函数参数 */
     assert_param(IS_FUNCTIONAL_STATE(State));
 
-    /* Force Data Lanes in RX Mode */
+    /* RX模式下的强制数据通道 */
     DSIx->WPCR[0] &= ~DSI_WPCR0_TDDL;
     DSIx->WPCR[0] |= ((uint32_t)State << 16);
 }
@@ -1350,7 +1348,7 @@ void DSI_SetPullDown(DSI_TypeDef *DSIx, FunctionalState State) {
     /* 检查函数参数 */
     assert_param(IS_FUNCTIONAL_STATE(State));
 
-    /* Enable/Disable pull-down on lanes */
+    /* 启用/禁用通道下拉 */
     DSIx->WPCR[0] &= ~DSI_WPCR0_PDEN;
     DSIx->WPCR[0] |= ((uint32_t)State << 18);
 }
@@ -1366,7 +1364,7 @@ void DSI_SetContentionDetectionOff(DSI_TypeDef *DSIx, FunctionalState State) {
     /* 检查函数参数 */
     assert_param(IS_FUNCTIONAL_STATE(State));
 
-    /* Contention Detection on Data Lanes OFF */
+    /* 关闭数据通道时的争用检测 */
     DSIx->WPCR[0] &= ~DSI_WPCR0_CDOFFDL;
     DSIx->WPCR[0] |= ((uint32_t)State << 14);
 }
@@ -1389,14 +1387,14 @@ void DSI_SetContentionDetectionOff(DSI_TypeDef *DSIx, FunctionalState State) {
  *** 轮询模式 ***
  ====================
 [..] 在轮询模式下，DSI通信可以由8个标志管理:
-  (#)DSI_FLAG_TE:撕裂效果中断标志
-  (#)DSI_FLAG_ER:刷新中断结束标志
-  (#)DSI_FLAG_BUSY:忙标志
-  (#)DSI_FLAG_PLLLS:PLL锁定状态
-  (#)DSI_FLAG_PLLL:PLL锁定中断标志
-  (#)DSI_FLAG_PLLU:PLL解锁中断标志
-  (#)DSI_FLAG_RRS:调节器就绪状态。
-  (#)DSI_FLAG_RR:调节器就绪中断标志。
+  (#)DSI_FLAG_TE: 撕裂效果中断标志
+  (#)DSI_FLAG_ER: 刷新中断结束标志
+  (#)DSI_FLAG_BUSY: 忙标志
+  (#)DSI_FLAG_PLLLS: PLL锁定状态
+  (#)DSI_FLAG_PLLL: PLL锁定中断标志
+  (#)DSI_FLAG_PLLU: PLL解锁中断标志
+  (#)DSI_FLAG_RRS: 调节器就绪状态。
+  (#)DSI_FLAG_RR: 调节器就绪中断标志。
 
 
  [..] 在此模式下，建议使用以下函数:
@@ -1407,17 +1405,17 @@ void DSI_SetContentionDetectionOff(DSI_TypeDef *DSIx, FunctionalState State) {
  ======================
  [..] 在中断模式下，SPI通信可由3个中断源管理和7个挂起位:
   (+)挂起位:
-  (##)DSI_IT_TE:撕裂效果中断标志
-  (##)DSI_IT_ER:刷新中断结束标志
-  (##)DSI_IT_PLLL:PLL锁定中断标志
-  (##)DSI_IT_PLLU:PLL解锁中断标志
-  (##)DSI_IT_RR:调节器就绪中断标志。
+  (##)DSI_IT_TE: 撕裂效果中断标志
+  (##)DSI_IT_ER: 刷新中断结束标志
+  (##)DSI_IT_PLLL: PLL锁定中断标志
+  (##)DSI_IT_PLLU: PLL解锁中断标志
+  (##)DSI_IT_RR: 调节器就绪中断标志。
   (+) 中断源:
-  (##)DSI_IT_TE:撕裂效果中断启用
+  (##)DSI_IT_TE: 撕裂效果中断启用
   (##)DSI_IT_ER:刷新中断结束启用
   (##)DSI_IT_PLLL:PLL锁定中断启用
-  (##)DSI_IT_PLLU:PLL解锁中断启用
-  (##)DSI_IT_RR:调节器就绪中断启用
+  (##)DSI_IT_PLLU: PLL解锁中断启用
+  (##)DSI_IT_RR: 调节器就绪中断启用
   [..]在此模式下，建议使用以下功能:
    (+) void DSI_ITConfig(DSI_TypeDef* DSIx, uint32_t DSI_IT, FunctionalState NewState);
    (+) ITStatus DSI_GetITStatus(DSI_TypeDef* DSIx, uint32_t DSI_IT);
@@ -1432,13 +1430,13 @@ void DSI_SetContentionDetectionOff(DSI_TypeDef *DSIx, FunctionalState State) {
   * 参数: DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
   * 参数: DSI_IT: 指定要启用或禁用的DSI中断源。
   *          此参数可以是以下值的任意组合:
-  *            @arg DSI_IT_TE:撕裂效果中断
-  *            @arg DSI_IT_ER:刷新中断结束
-  *            @arg DSI_IT_PLLL:PLL锁定中断
-  *            @arg DSI_IT_PLLU:PLL解锁中断
-  *            @arg DSI_IT_RR:调节器就绪中断
+  *            @arg DSI_IT_TE: 撕裂效果中断
+  *            @arg DSI_IT_ER: 刷新中断结束
+  *            @arg DSI_IT_PLLL: PLL锁定中断
+  *            @arg DSI_IT_PLLU: PLL解锁中断
+  *            @arg DSI_IT_RR: 调节器就绪中断
   * 参数:  NewState: 指定DSI中断的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void DSI_ITConfig(DSI_TypeDef* DSIx, uint32_t DSI_IT, FunctionalState NewState) {
@@ -1448,10 +1446,10 @@ void DSI_ITConfig(DSI_TypeDef* DSIx, uint32_t DSI_IT, FunctionalState NewState) 
     assert_param(IS_DSI_IT(DSI_IT));
 
     if(NewState != DISABLE) {
-        /* 启用 selected DSI interrupt */
+        /* 启用所选DSI中断 */
         DSIx->WIER |= DSI_IT;
     } else {
-        /* 禁用 selected DSI interrupt */
+        /* 禁用所选DSI中断 */
         DSIx->WIER &= ~DSI_IT;
     }
 }
@@ -1461,14 +1459,14 @@ void DSI_ITConfig(DSI_TypeDef* DSIx, uint32_t DSI_IT, FunctionalState NewState) 
   * 参数: DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
   * 参数: DSI_FLAG: 指定要检查的SPI标志。
   *          此参数可以是以下值之一:
-  *          @arg DSI_FLAG_TE:撕裂效果中断标志
-  *          @arg DSI_FLAG_ER:刷新中断结束标志
-  *          @arg DSI_FLAG_BUSY:忙标志
-  *          @arg DSI_FLAG_PLLLS:PLL锁定状态
-  *          @arg DSI_FLAG_PLLL:PLL锁定中断标志
-  *          @arg DSI_FLAG_PLLU:PLL解锁中断标志
-  *          @arg DSI_FLAG_RRS:调节器就绪标志
-  *          @arg DSI_FLAG_RR:调节器就绪中断标志
+  *          @arg DSI_FLAG_TE: 撕裂效果中断标志
+  *          @arg DSI_FLAG_ER: 刷新中断结束标志
+  *          @arg DSI_FLAG_BUSY: 忙标志
+  *          @arg DSI_FLAG_PLLLS: PLL锁定状态
+  *          @arg DSI_FLAG_PLLL: PLL锁定中断标志
+  *          @arg DSI_FLAG_PLLU: PLL解锁中断标志
+  *          @arg DSI_FLAG_RRS: 调节器就绪标志
+  *          @arg DSI_FLAG_RR: 调节器就绪中断标志
   * 返回值: DSI_FLAG的新状态(SET或RESET)。
   */
 FlagStatus DSI_GetFlagStatus(DSI_TypeDef* DSIx, uint16_t DSI_FLAG) {
@@ -1477,7 +1475,7 @@ FlagStatus DSI_GetFlagStatus(DSI_TypeDef* DSIx, uint16_t DSI_FLAG) {
     assert_param(IS_DSI_ALL_PERIPH(DSIx));
     assert_param(IS_DSI_GET_FLAG(DSI_FLAG));
 
-    /* 检查 the status of the specified DSI flag */
+    /* 检查指定DSI标志的状态 */
     if((DSIx->WISR & DSI_FLAG) != (uint32_t)RESET) {
         /* DSI_FLAG 被设置 */
         bitstatus = SET;
@@ -1497,9 +1495,9 @@ FlagStatus DSI_GetFlagStatus(DSI_TypeDef* DSIx, uint16_t DSI_FLAG) {
   *          此参数可以是以下值之一:
   *            @arg DSI_FLAG_TE   : 撕裂效果中断标志
   *            @arg DSI_FLAG_ER   : 刷新中断结束标志
-  *            @arg DSI_FLAG_PLLL:PLL锁定中断标志
-  *            @arg DSI_FLAG_PLLU:PLL解锁中断标志
-  *            @arg DSI_FLAG_RR:调节器就绪中断标志
+  *            @arg DSI_FLAG_PLLL: PLL锁定中断标志
+  *            @arg DSI_FLAG_PLLU: PLL解锁中断标志
+  *            @arg DSI_FLAG_RR: 调节器就绪中断标志
   * 返回值: 无
   */
 void DSI_ClearFlag(DSI_TypeDef* DSIx, uint16_t DSI_FLAG) {
@@ -1507,7 +1505,7 @@ void DSI_ClearFlag(DSI_TypeDef* DSIx, uint16_t DSI_FLAG) {
     assert_param(IS_DSI_ALL_PERIPH(DSIx));
     assert_param(IS_DSI_CLEAR_FLAG(DSI_FLAG));
 
-    /* 清除 selected DSI flag */
+    /* 清除选定DSI标志 */
     DSIx->WIFCR = (uint32_t)DSI_FLAG;
 }
 
@@ -1516,11 +1514,11 @@ void DSI_ClearFlag(DSI_TypeDef* DSIx, uint16_t DSI_FLAG) {
   * 参数: DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
   * 参数: DSI_IT: 指定要检查的DSI中断源。
   *          此参数可以是以下值之一:
-  *          @arg DSI_IT_TE   :撕裂效果中断
-  *          @arg DSI_IT_ER    :刷新中断结束
-  *          @arg DSI_IT_PLLL  :PLL锁定中断
-  *          @arg DSI_IT_PLLU  :PLL解锁中断
-  *          @arg DSI_IT_RR:调节器就绪中断
+  *          @arg DSI_IT_TE    : 撕裂效果中断
+  *          @arg DSI_IT_ER    : 刷新中断结束
+  *          @arg DSI_IT_PLLL  : PLL锁定中断
+  *          @arg DSI_IT_PLLU  : PLL解锁中断
+  *          @arg DSI_IT_RR: 调节器就绪中断
   * 返回值: 新状态-> SPI_I2S_IT (SET or RESET).
   */
 ITStatus DSI_GetITStatus(DSI_TypeDef* DSIx, uint32_t DSI_IT) {
@@ -1531,10 +1529,10 @@ ITStatus DSI_GetITStatus(DSI_TypeDef* DSIx, uint32_t DSI_IT) {
     assert_param(IS_DSI_ALL_PERIPH(DSIx));
     assert_param(IS_DSI_IT(DSI_IT));
 
-    /* 获取DSI_IT enable bit 状态 */
+    /* 获取 DSI_IT enable bit 状态 */
     enablestatus = (DSIx->WIER & DSI_IT);
 
-    /* 检查 the status of the specified SPI interrupt */
+    /* 检查指定SPI中断的状态 */
     if (((DSIx->WISR & DSI_IT) != (uint32_t)RESET) && enablestatus) {
         /* DSI_IT 被设置 */
         bitstatus = SET;
@@ -1546,18 +1544,6 @@ ITStatus DSI_GetITStatus(DSI_TypeDef* DSIx, uint32_t DSI_IT) {
     /* 返回DSI_IT 状态 */
     return bitstatus;
 }
-
-*            @arg DSI_IT_TE  :
-Tearing Effect Interrupt
-*            @arg DSI_IT_ER  :
-End of Refresh Interrupt
-*            @arg DSI_IT_PLLL:
-PLL Lock Interrupt
-*            @arg DSI_IT_PLLU:
-PLL Unlock Interrupt
-*            @arg DSI_IT_RR  :
-Regulator Ready Interrupt
-
 
 /**
   * 简介: 清除DSIx中断挂起位。

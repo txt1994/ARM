@@ -353,9 +353,9 @@ void ADC_CommonStructInit(ADC_CommonInitTypeDef* ADC_CommonInitStruct) {
 }
 
 /**
-  * 简介:  启用或禁用指定的ADC外围设备。
-  * 参数:  ADCx:其中x可以是1、2或3，以选择ADC外围设备。
-  * 参数:  NewState:ADCx外围设备的新状态。
+  * 简介:  启用或禁用指定的ADC外设设备。
+  * 参数:  ADCx:其中x可以是1、2或3，以选择ADC外设设备。
+  * 参数:  NewState:ADCx外设设备的新状态。
   *          此参数可以是:ENABLE或DISABLE。
   * 返回值: 无
   */
@@ -395,7 +395,7 @@ void ADC_Cmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用单个/所有常规或注入通道上的模拟看门狗
-  * 参数:  ADCx:其中x可以是1、2或3，以选择ADC外围设备。
+  * 参数:  ADCx:其中x可以是1、2或3，以选择ADC外设设备。
   * 参数:  ADC_AnalogWatchdog:ADC模拟看门狗配置。
   *        此参数可以是以下值之一:
   * 		arg ADC_AnalogWatchdog_SingleRegEnable			:单个常规通道上的模拟看门狗
@@ -428,7 +428,7 @@ void ADC_AnalogWatchdogCmd(ADC_TypeDef* ADCx, uint32_t ADC_AnalogWatchdog) {
 
 /**
   * 简介:  配置模拟看门狗的高阈值和低阈值。
-  * 参数:  ADCx:其中x可以是1、2或3，以选择ADC外围设备。
+  * 参数:  ADCx:其中x可以是1、2或3，以选择ADC外设设备。
   * 参数:  高阈值:ADC模拟看门狗高阈值。
   *          此参数必须是12位值。
   * 参数:  低阈值:ADC模拟看门狗低阈值。
@@ -508,7 +508,8 @@ void ADC_AnalogWatchdogSingleChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channe
 
     [..] 获取温度传感器和Vrefint通道电压的典型配置如下步骤:
       (#) 使用ADC_TempSensorVrefintCmd()函数启用温度传感器和Vrefint源与ADC通道的内部连接。
-      (#) 使用ADC_RegularChannelConfig()或ADC_InjectedChannelConfiguration()函数选择ADC_Channel_TempSensor和/或ADC_Cannel_Refint
+      (#) 使用ADC_RegularChannelConfig()或ADC_InjectedChannelConfiguration()函数
+          选择ADC_Channel_TempSensor和/或ADC_Cannel_Refint
       (#) 使用ADC_GetConversionValue()或ADC_GetInjectedConversionValue()获取电压值。
 
     [..] 按照以下步骤完成获取VBAT信道电压的典型配置:
@@ -593,7 +594,7 @@ void ADC_VBATCmd(FunctionalState NewState) {
 
          -@@- (*)和(**)正在执行相同的配置
 
-      (#) 获取转换数据:本小节在ADC外围设备中提供了一个重要的函数，
+      (#) 获取转换数据:本小节在ADC外设设备中提供了一个重要的函数，
           因为它返回当前常规通道的转换数据。读取转换值时，EOC标志自动清除。
 
           -@- 对于多ADC模式，可以使用ADC_GetMultiModeConversionValue()
@@ -604,7 +605,7 @@ void ADC_VBATCmd(FunctionalState NewState) {
   */
 /**
   * 简介:  为所选ADC常规通道配置其在序列器中的相应秩及其采样时间。
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外围设备。
+  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设设备。
   * 参数:  ADC_Channel: 要配置的ADC通道。
   *          此参数可以是以下值之一:
   *            @arg ADC_Channel_0: 已选择ADC通道0
@@ -894,12 +895,12 @@ uint16_t ADC_GetConversionValue(ADC_TypeDef* ADCx) {
 /**
   * 简介:  返回所选多模式下最后一次 ADC1、ADC2 和 ADC3 常规转换结果数据。
   * 参数:  无
-  * 返回值:: 数据转换值。
-  * note   In dual mode, the value returned by this function is as following
-  *           Data[15:0] : these bits contain the regular data of ADC1.
-  *           Data[31:16]: these bits contain the regular data of ADC2.
-  * note   In triple mode, the value returned by this function is as following
-  *           Data[15:0] : these bits contain alternatively the regular data of ADC1, ADC3 and ADC2.
+  * 返回值: 数据转换值。
+  * note   在双模式下，此函数返回的值如下
+  *           Data[15:0] : 这些比特位包含 ADC1 的常规数据。
+  *           Data[31:16]: 这些比特位包含 ADC2 的常规数据。
+  * note   在三重模式下，此函数返回的值如下
+  *           Data[15:0] : 这些比特交替地包含ADC1、ADC3和ADC2的常规数据。
   *           Data[31:16]: 这些位交替包含ADC2、ADC1和ADC3的常规数据。
   */
 uint32_t ADC_GetMultiModeConversionValue(void) {
@@ -947,10 +948,10 @@ void ADC_DMACmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用 selected ADC DMA request */
+        /* 启用被选定的 ADC DMA request */
         ADCx->CR2 |= (uint32_t)ADC_CR2_DMA;
     } else {
-        /* 禁用 selected ADC DMA request */
+        /* 禁用被选中的 ADC DMA request */
         ADCx->CR2 &= (uint32_t)(~ADC_CR2_DMA);
     }
 }
@@ -1180,21 +1181,21 @@ void ADC_SetInjectedOffset(ADC_TypeDef* ADCx, uint8_t ADC_InjectedChannel, uint1
  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
  * 参数:  ADC_ExternalTrigInjecConv: 指定启动注入转换的ADC触发器。
  *          此参数可以是以下值之一:
- *            @arg ADC_ExternalTrigInjecConv_T1_CC4: 已选择计时器1捕获比较4
- *            @arg ADC_ExternalTrigInjecConv_T1_TRGO: 已选择定时器1 TRGO事件
- *            @arg ADC_ExternalTrigInjecConv_T2_CC1: 已选择计时器2捕获比较1
- *            @arg ADC_ExternalTrigInjecConv_T2_TRGO: 已选择计时器2 TRGO事件
- *            @arg ADC_ExternalTrigInjecConv_T3_CC2: 已选择定时器3捕获比较2
- *            @arg ADC_ExternalTrigInjecConv_T3_CC4: 已选择计时器3捕获比较4
- *            @arg ADC_ExternalTrigInjecConv_T4_CC1: 已选择计时器4捕获比较1
- *            @arg ADC_ExternalTrigInjecConv_T4_CC2: 已选择计时器4捕获比较2
- *            @arg ADC_ExternalTrigInjecConv_T4_CC3: 已选择计时器4捕获比较3
- *            @arg ADC_ExternalTrigInjecConv_T4_TRGO: 已选择定时器4 TRGO事件
- *            @arg ADC_ExternalTrigInjecConv_T5_CC4: 已选择计时器5捕获比较4
- *            @arg ADC_ExternalTrigInjecConv_T5_TRGO: 已选择定时器5 TRGO事件
- *            @arg ADC_ExternalTrigInjecConv_T8_CC2: 已选择定时器8捕获比较2
- *            @arg ADC_ExternalTrigInjecConv_T8_CC3: 已选择计时器8捕获比较3
- *            @arg ADC_ExternalTrigInjecConv_T8_CC4: 已选择计时器8捕获比较4
+ *            @arg ADC_ExternalTrigInjecConv_T1_CC4:   已选择计时器 1 捕获比较4
+ *            @arg ADC_ExternalTrigInjecConv_T1_TRGO:  已选择定时器 1 TRGO事件
+ *            @arg ADC_ExternalTrigInjecConv_T2_CC1:   已选择计时器 2 捕获比较1
+ *            @arg ADC_ExternalTrigInjecConv_T2_TRGO:  已选择计时器 2 TRGO事件
+ *            @arg ADC_ExternalTrigInjecConv_T3_CC2:   已选择定时器 3 捕获比较2
+ *            @arg ADC_ExternalTrigInjecConv_T3_CC4:   已选择计时器 3 捕获比较4
+ *            @arg ADC_ExternalTrigInjecConv_T4_CC1:   已选择计时器 4 捕获比较1
+ *            @arg ADC_ExternalTrigInjecConv_T4_CC2:   已选择计时器 4 捕获比较2
+ *            @arg ADC_ExternalTrigInjecConv_T4_CC3:   已选择计时器 4 捕获比较3
+ *            @arg ADC_ExternalTrigInjecConv_T4_TRGO:  已选择定时器 4 TRGO事件
+ *            @arg ADC_ExternalTrigInjecConv_T5_CC4:   已选择计时器 5 捕获比较4
+ *            @arg ADC_ExternalTrigInjecConv_T5_TRGO:  已选择定时器 5 TRGO事件
+ *            @arg ADC_ExternalTrigInjecConv_T8_CC2:   已选择定时器 8 捕获比较2
+ *            @arg ADC_ExternalTrigInjecConv_T8_CC3:   已选择计时器 8 捕获比较3
+ *            @arg ADC_ExternalTrigInjecConv_T8_CC4:   已选择计时器 8 捕获比较4
  *            @arg ADC_ExternalTrigInjecConv_Ext_IT15: 已选择外部中断行15事件
  * 返回值: 无
  */
@@ -1450,12 +1451,12 @@ void ADC_ITConfig(ADC_TypeDef* ADCx, uint16_t ADC_IT, FunctionalState NewState) 
   * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
   * 参数:  ADC_FLAG: 指定要检查的标志。
   *          此参数可以是以下值之一:
-  *            @arg ADC_FLAG_AWD: 模拟看门狗标志
-  *            @arg ADC_FLAG_EOC: 转换结束标志
-  *            @arg ADC_FLAG_JEOC: 注入组转换标志结束
+  *            @arg ADC_FLAG_AWD:   模拟看门狗标志
+  *            @arg ADC_FLAG_EOC:   转换结束标志
+  *            @arg ADC_FLAG_JEOC:  注入组转换标志结束
   *            @arg ADC_FLAG_JSTRT: 注入组转换标志的开始
-  *            @arg ADC_FLAG_STRT: 常规组转换标志的开始
-  *            @arg ADC_FLAG_OVR: 溢出标志
+  *            @arg ADC_FLAG_STRT:  常规组转换标志的开始
+  *            @arg ADC_FLAG_OVR:   溢出标志
   * 返回值:: ADC_FLAG的新状态(SET或RESET)。
   */
 FlagStatus ADC_GetFlagStatus(ADC_TypeDef* ADCx, uint8_t ADC_FLAG) {
@@ -1482,12 +1483,12 @@ FlagStatus ADC_GetFlagStatus(ADC_TypeDef* ADCx, uint8_t ADC_FLAG) {
   * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
   * 参数:  ADC_FLAG: 指定要清除的标志。
   *          此参数可以是以下值的任意组合:
-  *            @arg ADC_FLAG_AWD: 模拟看门狗标志
-  *            @arg ADC_FLAG_EOC: 转换结束标志
-  *            @arg ADC_FLAG_JEOC: 注入组转换标志结束
+  *            @arg ADC_FLAG_AWD:   模拟看门狗标志
+  *            @arg ADC_FLAG_EOC:   转换结束标志
+  *            @arg ADC_FLAG_JEOC:  注入组转换标志结束
   *            @arg ADC_FLAG_JSTRT: 注入组转换标志的开始
-  *            @arg ADC_FLAG_STRT: 常规组转换标志的开始
-  *            @arg ADC_FLAG_OVR: 溢出标志
+  *            @arg ADC_FLAG_STRT:  常规组转换标志的开始
+  *            @arg ADC_FLAG_OVR:   溢出标志
   * 返回值: 无
   */
 void ADC_ClearFlag(ADC_TypeDef* ADCx, uint8_t ADC_FLAG) {
@@ -1501,13 +1502,13 @@ void ADC_ClearFlag(ADC_TypeDef* ADCx, uint8_t ADC_FLAG) {
 
 /**
   * 简介:  检查指定的ADC中断是否发生。
-  * 参数:  ADCx:   其中x可以是1、2或3，以选择ADC外围设备。
+  * 参数:  ADCx:   其中x可以是1、2或3，以选择ADC外设设备。
   * 参数:  ADC_IT: 指定要检查的ADC中断源。
   *          此参数可以是以下值之一:
-  *            @arg ADC_IT_EOC: 转换中断屏蔽结束
-  *            @arg ADC_IT_AWD: 模拟看门狗中断屏蔽
+  *            @arg ADC_IT_EOC:  转换中断屏蔽结束
+  *            @arg ADC_IT_AWD:  模拟看门狗中断屏蔽
   *            @arg ADC_IT_JEOC: 注入转换中断掩码结束
-  *            @arg ADC_IT_OVR: 溢出中断掩码
+  *            @arg ADC_IT_OVR:  溢出中断掩码
   * 返回值:: ADC_IT的新状态(SET或RESET)。
   */
 ITStatus ADC_GetITStatus(ADC_TypeDef* ADCx, uint16_t ADC_IT) {
@@ -1539,13 +1540,13 @@ ITStatus ADC_GetITStatus(ADC_TypeDef* ADCx, uint16_t ADC_IT) {
 
 /**
   * 简介:  清除ADCx的中断挂起位。
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外围设备。
+  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设设备。
   * 参数:  ADC_IT: 指定要清除的ADC中断挂起位。
   *          此参数可以是以下值之一:
-  *            @arg ADC_IT_EOC: 转换中断屏蔽结束
-  *            @arg ADC_IT_AWD: 模拟看门狗中断屏蔽
+  *            @arg ADC_IT_EOC:  转换中断屏蔽结束
+  *            @arg ADC_IT_AWD:  模拟看门狗中断屏蔽
   *            @arg ADC_IT_JEOC: 注入转换中断掩码结束
-  *            @arg ADC_IT_OVR: 溢出中断掩码
+  *            @arg ADC_IT_OVR:  溢出中断掩码
   * 返回值: 无
   */
 void ADC_ClearITPendingBit(ADC_TypeDef* ADCx, uint16_t ADC_IT) {

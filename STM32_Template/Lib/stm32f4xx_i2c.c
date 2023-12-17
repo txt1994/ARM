@@ -21,8 +21,8 @@
       (#) 使用以下方法启用SDA、SCL和SMBA(当使用时)的GPIO时钟
           RCC_AHBPeriphClockCmd()函数。
 
-      (#) 外围设备替代函数。
-        (++) 使用GPIO_PinAFConfig()函数将引脚连接到所需的外围设备的替代功能(AF)。
+      (#) 外设设备替代函数。
+        (++) 使用GPIO_PinAFConfig()函数将引脚连接到所需的外设设备的替代功能(AF)。
         (++)通过配置所需引脚的备用功能。
              GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF
         (++) 通过GPIO_PuPd、GPIO_OType和GPIO_Speed成员选择类型、上拉/下拉和输出速度
@@ -174,12 +174,12 @@ void I2C_Init(I2C_TypeDef* I2Cx, I2C_InitTypeDef* I2C_InitStruct) {
     /*---------------------------- I2Cx CR2 配置 ------------------------*/
     /* 获取I2Cx CR2 值 */
     tmpreg = I2Cx->CR2;
-    /* 清除 frequency FREQ[5:0] 位 */
+    /* 清除频率 FREQ[5:0] 位 */
     tmpreg &= (uint16_t)~((uint16_t)I2C_CR2_FREQ);
-    /* Get pclk1 frequency 值 */
+    /* 获得 pclk1 频率值 */
     RCC_GetClocksFreq(&rcc_clocks);
     pclk1 = rcc_clocks.PCLK1_Frequency;
-    /* Set frequency bits depending on pclk1 值 */
+    /* 根据pclk1设置频率位值 */
     freqrange = (uint16_t)(pclk1 / 1000000);
     tmpreg |= freqrange;
     /* 写入I2Cx CR2 */
@@ -199,44 +199,43 @@ void I2C_Init(I2C_TypeDef* I2Cx, I2C_InitTypeDef* I2C_InitStruct) {
 
         /* 测试CCR值是否低于0x4*/
         if (result < 0x04) {
-            /* Set minimum allowed 值 */
+            /* 设置允许的最小值 */
             result = 0x04;
         }
 
-        /* Set speed value for standard mode */
+        /* 设置标准模式的速度值 */
         tmpreg |= result;
-        /* Set Maximum Rise Time for standard mode */
+        /* 设置标准模式的最大上升时间 */
         I2Cx->TRISE = freqrange + 1;
     }
-    /* Configure speed in fast mode */
-    /* To use the I2C at 400 KHz (in fast mode), the PCLK1 frequency (I2C peripheral
-       input clock) must be a multiple of 10 MHz */
+    /* 在快速模式下配置速度 */
+    /* 要使用400 KHz的I2C（在快速模式下），PCLK1频率（I2C外围设备输入时钟）必须是10 MHz的倍数 */
     else { /*(I2C_InitStruct->I2C_ClockSpeed <= 400000)*/
         if (I2C_InitStruct->I2C_DutyCycle == I2C_DutyCycle_2) {
-            /* Fast mode speed calculate: Tlow/Thigh = 2 */
+            /* 快速模式速度计算: Tlow/Thigh = 2 */
             result = (uint16_t)(pclk1 / (I2C_InitStruct->I2C_ClockSpeed * 3));
         } else { /*I2C_InitStruct->I2C_DutyCycle == I2C_DutyCycle_16_9*/
-            /* Fast mode speed calculate: Tlow/Thigh = 16/9 */
+            /* 快速模式速度计算: Tlow/Thigh = 16/9 */
             result = (uint16_t)(pclk1 / (I2C_InitStruct->I2C_ClockSpeed * 25));
             /* Set DUTY 位 */
             result |= I2C_DutyCycle_16_9;
         }
 
-        /* Test if CCR value is under 0x1*/
+        /* 测试CCR值是否低于0x1*/
         if ((result & I2C_CCR_CCR) == 0) {
-            /* Set minimum allowed 值 */
+            /* 设置允许的最小值 */
             result |= (uint16_t)0x0001;
         }
 
-        /* Set speed value and set F/S bit for fast mode */
+        /* 为快速模式设置速度值和F/S位 */
         tmpreg |= (uint16_t)(result | I2C_CCR_FS);
-        /* Set Maximum Rise Time for fast mode */
+        /* 设置快速模式的最大上升时间 */
         I2Cx->TRISE = (uint16_t)(((freqrange * (uint16_t)300) / (uint16_t)1000) + (uint16_t)1);
     }
 
     /* 写入I2Cx CCR */
     I2Cx->CCR = tmpreg;
-    /* 启用 selected I2C 外设 */
+    /* 启用被选定的 I2C 外设 */
     I2Cx->CR1 |= I2C_CR1_PE;
 
     /*---------------------------- I2Cx CR1 配置 ------------------------*/
@@ -244,15 +243,15 @@ void I2C_Init(I2C_TypeDef* I2Cx, I2C_InitTypeDef* I2C_InitStruct) {
     tmpreg = I2Cx->CR1;
     /* 清除 ACK, SMBTYPE and  SMBUS 位 */
     tmpreg &= CR1_CLEAR_MASK;
-    /* Configure I2Cx: mode and acknowledgement */
-    /* Set SMBTYPE and SMBUS bits according to I2C_Mode 值 */
-    /* Set ACK bit according to I2C_Ack 值 */
+    /* 配置I2Cx：模式和确认 */
+    /* 根据I2C_Mode设置SMBTYPE和SMBUS位值 */
+    /* 根据I2C_ACK设置ACK位值 */
     tmpreg |= (uint16_t)((uint32_t)I2C_InitStruct->I2C_Mode | I2C_InitStruct->I2C_Ack);
     /* 写入I2Cx CR1 */
     I2Cx->CR1 = tmpreg;
 
     /*---------------------------- I2Cx OAR1 配置 -----------------------*/
-    /* Set I2Cx Own Address1 and acknowledged address */
+    /* Set I2Cx 自有地址1和确认地址 */
     I2Cx->OAR1 = (I2C_InitStruct->I2C_AcknowledgedAddress | I2C_InitStruct->I2C_OwnAddress1);
 }
 
@@ -290,10 +289,10 @@ void I2C_Cmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用 selected I2C 外设 */
+        /* 启用被选定的 I2C 外设 */
         I2Cx->CR1 |= I2C_CR1_PE;
     } else {
-        /* 禁用 selected I2C 外设 */
+        /* 禁用被选中的 I2C 外设 */
         I2Cx->CR1 &= (uint16_t)~((uint16_t)I2C_CR1_PE);
     }
 }
@@ -315,10 +314,10 @@ void I2C_AnalogFilterCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用 analog filter */
+        /* 启用 模拟滤波器 */
         I2Cx->FLTR &= (uint16_t)~((uint16_t)I2C_FLTR_ANOFF);
     } else {
-        /* 禁用 analog filter */
+        /* 禁用 模拟滤波器 */
         I2Cx->FLTR |= I2C_FLTR_ANOFF;
     }
 }
@@ -344,13 +343,13 @@ void I2C_DigitalFilterConfig(I2C_TypeDef* I2Cx, uint16_t I2C_DigitalFilter) {
     /* 获取old寄存器值 */
     tmpreg = I2Cx->FLTR;
 
-    /* Reset I2Cx DNF bit [3:0] */
+    /* 重置 I2Cx DNF bit [3:0] */
     tmpreg &= (uint16_t)~((uint16_t)I2C_FLTR_DNF);
 
-    /* Set I2Cx DNF coefficient */
+    /* 设置 I2Cx DNF coefficient */
     tmpreg |= (uint16_t)((uint16_t)I2C_DigitalFilter & I2C_FLTR_DNF);
 
-    /* Store the new寄存器值 */
+    /* 存储新的寄存器值 */
     I2Cx->FLTR = tmpreg;
 }
 
@@ -367,10 +366,10 @@ void I2C_GenerateSTART(I2C_TypeDef* I2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Generate a START condition */
+        /* 生成START条件 */
         I2Cx->CR1 |= I2C_CR1_START;
     } else {
-        /* 禁用 START condition generation */
+        /* 禁用START条件生成 */
         I2Cx->CR1 &= (uint16_t)~((uint16_t)I2C_CR1_START);
     }
 }
@@ -388,10 +387,10 @@ void I2C_GenerateSTOP(I2C_TypeDef* I2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Generate a STOP condition */
+        /* 生成STOP条件 */
         I2Cx->CR1 |= I2C_CR1_STOP;
     } else {
-        /* 禁用 STOP condition generation */
+        /* 禁用STOP条件生成 */
         I2Cx->CR1 &= (uint16_t)~((uint16_t)I2C_CR1_STOP);
     }
 }
@@ -411,16 +410,16 @@ void I2C_Send7bitAddress(I2C_TypeDef* I2Cx, uint8_t Address, uint8_t I2C_Directi
     assert_param(IS_I2C_ALL_PERIPH(I2Cx));
     assert_param(IS_I2C_DIRECTION(I2C_Direction));
 
-    /* Test on the direction to set/reset the read/write 位 */
+    /* 测试设置/重置读/写的方向位 */
     if (I2C_Direction != I2C_Direction_Transmitter) {
-        /* 设置 address bit0 for read */
+        /* 设置用于读取的地址位0 */
         Address |= I2C_OAR1_ADD0;
     } else {
-        /* 重设 address bit0 for write */
+        /* 重设写入地址位0 */
         Address &= (uint8_t)~((uint8_t)I2C_OAR1_ADD0);
     }
 
-    /* Send the address */
+    /* 发送地址 */
     I2Cx->DR = Address;
 }
 
@@ -437,10 +436,10 @@ void I2C_AcknowledgeConfig(I2C_TypeDef* I2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用 acknowledgement */
+        /* 启用确认 */
         I2Cx->CR1 |= I2C_CR1_ACK;
     } else {
-        /* 禁用 acknowledgement */
+        /* 禁用确认 */
         I2Cx->CR1 &= (uint16_t)~((uint16_t)I2C_CR1_ACK);
     }
 }
@@ -466,7 +465,7 @@ void I2C_OwnAddress2Config(I2C_TypeDef* I2Cx, uint8_t Address) {
     /* Set I2Cx Own address2 */
     tmpreg |= (uint16_t)((uint16_t)Address & (uint16_t)0x00FE);
 
-    /* Store the new寄存器值 */
+    /* 存储新的寄存器值 */
     I2Cx->OAR2 = tmpreg;
 }
 
@@ -483,10 +482,10 @@ void I2C_DualAddressCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能dual addressing mode */
+        /* 使能双寻址模式 */
         I2Cx->OAR2 |= I2C_OAR2_ENDUAL;
     } else {
-        /* Disable dual addressing mode */
+        /*禁用双寻址模式*/
         I2Cx->OAR2 &= (uint16_t)~((uint16_t)I2C_OAR2_ENDUAL);
     }
 }
@@ -507,7 +506,7 @@ void I2C_GeneralCallCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
         /* 使能general call */
         I2Cx->CR1 |= I2C_CR1_ENGC;
     } else {
-        /* Disable general call */
+        /*禁用常规呼叫*/
         I2Cx->CR1 &= (uint16_t)~((uint16_t)I2C_CR1_ENGC);
     }
 }
@@ -526,10 +525,10 @@ void I2C_SoftwareResetCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Peripheral under reset */
+        /* 外设处于重置状态 */
         I2Cx->CR1 |= I2C_CR1_SWRST;
     } else {
-        /* Peripheral not under reset */
+        /* 外设设备未重置 */
         I2Cx->CR1 &= (uint16_t)~((uint16_t)I2C_CR1_SWRST);
     }
 }
@@ -547,10 +546,10 @@ void I2C_StretchClockCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState == DISABLE) {
-        /* 启用 selected I2C Clock stretching */
+        /* 启用被选定的 I2C Clock stretching */
         I2Cx->CR1 |= I2C_CR1_NOSTRETCH;
     } else {
-        /* 禁用 selected I2C Clock stretching */
+        /* 禁用被选中的 I2C Clock stretching */
         I2Cx->CR1 &= (uint16_t)~((uint16_t)I2C_CR1_NOSTRETCH);
     }
 }
@@ -570,10 +569,10 @@ void I2C_FastModeDutyCycleConfig(I2C_TypeDef* I2Cx, uint16_t I2C_DutyCycle) {
     assert_param(IS_I2C_DUTY_CYCLE(I2C_DutyCycle));
 
     if (I2C_DutyCycle != I2C_DutyCycle_16_9) {
-        /* I2C fast mode Tlow/Thigh=2 */
+        /* I2C 快速模式 Tlow/Thigh=2 */
         I2Cx->CCR &= I2C_DutyCycle_2;
     } else {
-        /* I2C fast mode Tlow/Thigh=16/9 */
+        /* I2C 快速模式 Tlow/Thigh=16/9 */
         I2Cx->CCR |= I2C_DutyCycle_16_9;
     }
 }
@@ -599,12 +598,12 @@ void I2C_NACKPositionConfig(I2C_TypeDef* I2Cx, uint16_t I2C_NACKPosition) {
     assert_param(IS_I2C_ALL_PERIPH(I2Cx));
     assert_param(IS_I2C_NACK_POSITION(I2C_NACKPosition));
 
-    /* 检查 the input parameter */
+    /* 检查输入参数 */
     if (I2C_NACKPosition == I2C_NACKPosition_Next) {
-        /* Next byte in shift register is the last received byte */
+        /* 移位寄存器中的下一个字节是最后接收的字节 */
         I2Cx->CR1 |= I2C_NACKPosition_Next;
     } else {
-        /* Current byte in shift register is the last received byte */
+        /* 移位寄存器中的当前字节是最后接收到的字节 */
         I2Cx->CR1 &= I2C_NACKPosition_Current;
     }
 }
@@ -624,10 +623,10 @@ void I2C_SMBusAlertConfig(I2C_TypeDef* I2Cx, uint16_t I2C_SMBusAlert) {
     assert_param(IS_I2C_SMBUS_ALERT(I2C_SMBusAlert));
 
     if (I2C_SMBusAlert == I2C_SMBusAlert_Low) {
-        /* Drive the SMBusAlert pin Low */
+        /* 将SMBusAlert引脚驱动为低 */
         I2Cx->CR1 |= I2C_SMBusAlert_Low;
     } else {
-        /* Drive the SMBusAlert pin High  */
+        /* 将SMBusAlert引脚驱动为高  */
         I2Cx->CR1 &= I2C_SMBusAlert_High;
     }
 }
@@ -645,10 +644,10 @@ void I2C_ARPCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用 selected I2C ARP */
+        /* 启用被选定的 I2C ARP */
         I2Cx->CR1 |= I2C_CR1_ENARP;
     } else {
-        /* 禁用 selected I2C ARP */
+        /* 禁用被选中的 I2C ARP */
         I2Cx->CR1 &= (uint16_t)~((uint16_t)I2C_CR1_ENARP);
     }
 }
@@ -722,10 +721,10 @@ void I2C_TransmitPEC(I2C_TypeDef* I2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用 selected I2C PEC transmission */
+        /* 启用被选定的I2C PEC 传输 */
         I2Cx->CR1 |= I2C_CR1_PEC;
     } else {
-        /* 禁用 selected I2C PEC transmission */
+        /* 禁用被选中的 I2C PEC 传输 */
         I2Cx->CR1 &= (uint16_t)~((uint16_t)I2C_CR1_PEC);
     }
 }
@@ -749,10 +748,10 @@ void I2C_PECPositionConfig(I2C_TypeDef* I2Cx, uint16_t I2C_PECPosition) {
     assert_param(IS_I2C_PEC_POSITION(I2C_PECPosition));
 
     if (I2C_PECPosition == I2C_PECPosition_Next) {
-        /* Next byte in shift register is PEC */
+        /* 移位寄存器中的下一个字节是PEC */
         I2Cx->CR1 |= I2C_PECPosition_Next;
     } else {
-        /* Current byte in shift register is PEC */
+        /* 移位寄存器中的当前字节为PEC */
         I2Cx->CR1 &= I2C_PECPosition_Current;
     }
 }
@@ -770,10 +769,10 @@ void I2C_CalculatePEC(I2C_TypeDef* I2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用 selected I2C PEC calculation */
+        /* 启用被选定的 I2C PEC 计算 */
         I2Cx->CR1 |= I2C_CR1_ENPEC;
     } else {
-        /* 禁用 selected I2C PEC calculation */
+        /* 禁用被选中的 I2C PEC 计算 */
         I2Cx->CR1 &= (uint16_t)~((uint16_t)I2C_CR1_ENPEC);
     }
 }
@@ -786,7 +785,7 @@ void I2C_CalculatePEC(I2C_TypeDef* I2Cx, FunctionalState NewState) {
 uint8_t I2C_GetPEC(I2C_TypeDef* I2Cx) {
     /* 检查参数 */
     assert_param(IS_I2C_ALL_PERIPH(I2Cx));
-    /* 返回selected I2C PEC 值 */
+    /* 返回被选择的 I2C PEC 值 */
     return ((I2Cx->SR2) >> 8);
 }
 
@@ -820,10 +819,10 @@ void I2C_DMACmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用 selected I2C DMA requests */
+        /* 启用被选定的 I2C DMA 请求 */
         I2Cx->CR2 |= I2C_CR2_DMAEN;
     } else {
-        /* 禁用 selected I2C DMA requests */
+        /* 禁用被选中的 I2C DMA 请求 */
         I2Cx->CR2 &= (uint16_t)~((uint16_t)I2C_CR2_DMAEN);
     }
 }
@@ -841,10 +840,10 @@ void I2C_DMALastTransferCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Next DMA transfer is the last transfer */
+        /* 下一次DMA传输是最后一次传输 */
         I2Cx->CR2 |= I2C_CR2_LAST;
     } else {
-        /* Next DMA transfer is not the last transfer */
+        /* 下一次DMA传输不是最后一次传输 */
         I2Cx->CR2 &= (uint16_t)~((uint16_t)I2C_CR2_LAST);
     }
 }
@@ -930,15 +929,15 @@ void I2C_DMALastTransferCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
   * 简介:  读取指定的 I2C 寄存器并返回其值。
   * 参数:  I2C_Register: 指定要读取的寄存器。
   *          此参数可以是以下值之一:
-  *            @arg I2C_Register_CR1:   CR1 register.
-  *            @arg I2C_Register_CR2:   CR2 register.
-  *            @arg I2C_Register_OAR1:  OAR1 register.
-  *            @arg I2C_Register_OAR2:  OAR2 register.
-  *            @arg I2C_Register_DR:    DR register.
-  *            @arg I2C_Register_SR1:   SR1 register.
-  *            @arg I2C_Register_SR2:   SR2 register.
-  *            @arg I2C_Register_CCR:   CCR register.
-  *            @arg I2C_Register_TRISE: TRISE register.
+  *            @arg I2C_Register_CR1:   CR1 寄存器.
+  *            @arg I2C_Register_CR2:   CR2 寄存器.
+  *            @arg I2C_Register_OAR1:  OAR1 寄存器.
+  *            @arg I2C_Register_OAR2:  OAR2 寄存器.
+  *            @arg I2C_Register_DR:    DR 寄存器.
+  *            @arg I2C_Register_SR1:   SR1 寄存器.
+  *            @arg I2C_Register_SR2:   SR2 寄存器.
+  *            @arg I2C_Register_CCR:   CCR 寄存器.
+  *            @arg I2C_Register_TRISE: TRISE 寄存器.
   * 返回值: 读取寄存器的值。
   */
 uint16_t I2C_ReadRegister(I2C_TypeDef* I2Cx, uint8_t I2C_Register) {
@@ -951,7 +950,7 @@ uint16_t I2C_ReadRegister(I2C_TypeDef* I2Cx, uint8_t I2C_Register) {
     tmp = (uint32_t) I2Cx;
     tmp += I2C_Register;
 
-    /* 返回selected寄存器值 */
+    /* 返回被选择的寄存器值 */
     return (*(__IO uint16_t *) tmp);
 }
 
@@ -974,10 +973,10 @@ void I2C_ITConfig(I2C_TypeDef* I2Cx, uint16_t I2C_IT, FunctionalState NewState) 
     assert_param(IS_I2C_CONFIG_IT(I2C_IT));
 
     if (NewState != DISABLE) {
-        /* 启用 selected I2C interrupts */
+        /* 启用被选定的 I2C 中断 */
         I2Cx->CR2 |= I2C_IT;
     } else {
-        /* 禁用 selected I2C interrupts */
+        /* 禁用被选中的 I2C 中断 */
         I2Cx->CR2 &= (uint16_t)~I2C_IT;
     }
 }
@@ -1029,20 +1028,20 @@ ErrorStatus I2C_CheckEvent(I2C_TypeDef* I2Cx, uint32_t I2C_EVENT) {
     assert_param(IS_I2C_ALL_PERIPH(I2Cx));
     assert_param(IS_I2C_EVENT(I2C_EVENT));
 
-    /* 读 I2Cx status 寄存器 */
+    /* 读 I2Cx 状态寄存器 */
     flag1 = I2Cx->SR1;
     flag2 = I2Cx->SR2;
     flag2 = flag2 << 16;
 
-    /* 获取last event value from I2C status 寄存器 */
+    /* 获取I2C状态的最后一个事件值寄存器 */
     lastevent = (flag1 | flag2) & FLAG_MASK;
 
-    /* 检查 whether 最后一个事件 contains the I2C_EVENT */
+    /* 检查是否最后一个事件包含I2C_EVENT */
     if ((lastevent & I2C_EVENT) == I2C_EVENT) {
-        /* SUCCESS: last event is equal to I2C_EVENT */
+        /* SUCCESS: 最后一个事件等于I2C_EVENT */
         status = SUCCESS;
     } else {
-        /* ERROR: last event is different from I2C_EVENT */
+        /* ERROR: 最后一个事件与I2C_EVENT不同 */
         status = ERROR;
     }
 
@@ -1071,12 +1070,12 @@ uint32_t I2C_GetLastEvent(I2C_TypeDef* I2Cx) {
     /* 检查参数 */
     assert_param(IS_I2C_ALL_PERIPH(I2Cx));
 
-    /* 读 I2Cx status 寄存器 */
+    /* 读 I2Cx 状态寄存器 */
     flag1 = I2Cx->SR1;
     flag2 = I2Cx->SR2;
     flag2 = flag2 << 16;
 
-    /* 获取last event value from I2C status 寄存器 */
+    /* 获取I2C状态的最后一个事件值寄存器 */
     lastevent = (flag1 | flag2) & FLAG_MASK;
 
     /* Return 状态 */
@@ -1126,22 +1125,22 @@ FlagStatus I2C_GetFlagStatus(I2C_TypeDef* I2Cx, uint32_t I2C_FLAG) {
     assert_param(IS_I2C_ALL_PERIPH(I2Cx));
     assert_param(IS_I2C_GET_FLAG(I2C_FLAG));
 
-    /* 获取I2Cx peripheral base address */
+    /* 获取I2Cx 外设基地址 */
     i2cxbase = (uint32_t)I2Cx;
 
-    /* Read flag register index */
+    /* 读取标志寄存器索引 */
     i2creg = I2C_FLAG >> 28;
 
     /* Get bit[23:0] of the flag */
     I2C_FLAG &= FLAG_MASK;
 
     if(i2creg != 0) {
-        /* 获取I2Cx SR1 register address */
+        /* 获取I2Cx SR1寄存器地址 */
         i2cxbase += 0x14;
     } else {
         /* Flag in I2Cx SR2 寄存器 */
         I2C_FLAG = (uint32_t)(I2C_FLAG >> 16);
-        /* 获取I2Cx SR2 register address */
+        /* 获取I2Cx SR2寄存器地址 */
         i2cxbase += 0x18;
     }
 
@@ -1188,9 +1187,9 @@ void I2C_ClearFlag(I2C_TypeDef* I2Cx, uint32_t I2C_FLAG) {
     /* 检查参数 */
     assert_param(IS_I2C_ALL_PERIPH(I2Cx));
     assert_param(IS_I2C_CLEAR_FLAG(I2C_FLAG));
-    /* 获取I2C flag position */
+    /* 获取I2C标志位置 */
     flagpos = I2C_FLAG & FLAG_MASK;
-    /* 清除 selected I2C flag */
+    /* 清除被选择的 I2C 标志 */
     I2Cx->SR1 = (uint16_t)~flagpos;
 }
 
@@ -1224,13 +1223,13 @@ ITStatus I2C_GetITStatus(I2C_TypeDef* I2Cx, uint32_t I2C_IT) {
     assert_param(IS_I2C_ALL_PERIPH(I2Cx));
     assert_param(IS_I2C_GET_IT(I2C_IT));
 
-    /* 检查 if the interrupt source is enabled or not */
+    /* 检查中断源是否启用 */
     enablestatus = (uint32_t)(((I2C_IT & ITEN_MASK) >> 16) & (I2Cx->CR2)) ;
 
     /* Get bit[23:0] of the flag */
     I2C_IT &= FLAG_MASK;
 
-    /* 检查 the status of the specified I2C flag */
+    /* 检查指定的I2C标志的状态 */
     if (((I2Cx->SR1 & I2C_IT) != (uint32_t)RESET) && enablestatus) {
         /* I2C_IT 被设置 */
         bitstatus = SET;
@@ -1276,10 +1275,10 @@ void I2C_ClearITPendingBit(I2C_TypeDef* I2Cx, uint32_t I2C_IT) {
     assert_param(IS_I2C_ALL_PERIPH(I2Cx));
     assert_param(IS_I2C_CLEAR_IT(I2C_IT));
 
-    /* 获取I2C flag position */
+    /* 获取I2C标志位置 */
     flagpos = I2C_IT & FLAG_MASK;
 
-    /* 清除 selected I2C flag */
+    /* 清除被选择的 I2C 标志 */
     I2Cx->SR1 = (uint16_t)~flagpos;
 }
 

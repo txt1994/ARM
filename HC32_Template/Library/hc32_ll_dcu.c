@@ -236,7 +236,7 @@ int32_t DCU_Init(CM_DCU_TypeDef *DCUx, const stc_dcu_init_t *pstcDcuInit) {
         /* Set register: CTL */
         WRITE_REG32(DCUx->CTL, (pstcDcuInit->u32Mode | pstcDcuInit->u32DataWidth));
 
-        /* Disable interrupt */
+        /* Disable 中断 */
         WRITE_REG32(DCUx->INTEVTSEL, 0x00000000UL);
 
         /* Clear Flag */

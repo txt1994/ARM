@@ -262,10 +262,10 @@ typedef enum {
 #define TLI_Flag_LCR                   BIT(3) | BIT(31)            /*!< layer configuration reloaded interrupt flag */
 
 /* TLI interrupt enable or disable */
-#define TLI_INT_LM                     BIT(0)                      /*!< line mark interrupt */
-#define TLI_INT_FE                     BIT(1)                      /*!< FIFO error interrupt */
-#define TLI_INT_TE                     BIT(2)                      /*!< transaction error interrupt */
-#define TLI_INT_LCR                    BIT(3)                      /*!< layer configuration reloaded interrupt */
+#define TLI_INT_LM                     BIT(0)                      /*!< line mark 中断 */
+#define TLI_INT_FE                     BIT(1)                      /*!< FIFO error 中断 */
+#define TLI_INT_TE                     BIT(2)                      /*!< transaction error 中断 */
+#define TLI_INT_LCR                    BIT(3)                      /*!< layer configuration reloaded 中断 */
 
 /* TLI interrupt flag */
 #define TLI_INT_Flag_LM                BIT(0)                      /*!< line mark interrupt flag */
@@ -359,9 +359,9 @@ void TLI_Line_Mark_Set(uint16_t line_num);
 uint32_t TLI_Current_Pos_Get(void);
 
 /* flag and interrupt functions */
-/* enable TLI interrupt */
+/* enable TLI 中断 */
 void TLI_Interrupt_Enable(uint32_t int_flag);
-/* disable TLI interrupt */
+/* disable TLI 中断 */
 void TLI_Interrupt_Disable(uint32_t int_flag);
 /* get TLI interrupt flag */
 FlagStatus TLI_Interrupt_Flag_Get(uint32_t int_flag);

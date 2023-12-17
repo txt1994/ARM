@@ -608,7 +608,7 @@ static void SetSysClockSrc(uint8_t u8Src) {
     DDL_ASSERT(IS_CLK_UNLOCKED());
 
     /* Only current system clock source or target system clock source is PLLH
-    need to close fcg0~fcg3 and open fcg0~fcg3 during switch system clock source.
+    need to close fcg0~fcg3 and open fcg0~fcg3 during switch system 时钟源.
     We need to backup fcg0~fcg3 before close them. */
     if (CLK_SYSCLK_SRC_PLL == READ_REG8_BIT(CM_CMU->CKSWR, CMU_CKSWR_CKSW) || (CLK_SYSCLK_SRC_PLL == u8Src)) {
         u8TmpFlag = 1U;
@@ -729,7 +729,7 @@ static void SetSysClockDiv(uint32_t u32Clock, uint32_t u32Div) {
     DDL_ASSERT(IS_CLK_UNLOCKED());
 
     /* Only current system clock source or target system clock source is PLLH
-    need to close fcg0~fcg3 and open fcg0~fcg3 during switch system clock source.
+    need to close fcg0~fcg3 and open fcg0~fcg3 during switch system 时钟源.
     We need to backup fcg0~fcg3 before close them. */
     if (CLK_SYSCLK_SRC_PLL == READ_REG8_BIT(CM_CMU->CKSWR, CMU_CKSWR_CKSW)) {
         u8TmpFlag = 1U;
@@ -1469,7 +1469,7 @@ en_flag_status_t CLK_GetStableStatus(uint8_t u8Flag) {
 }
 
 /**
- * @brief  Set the system clock source.
+ * @brief  Set the system 时钟源.
  * @param  [in] u8Src specifies the source of system clock. @ref CLK_System_Clock_Source
  * @retval None
  */
@@ -1622,8 +1622,8 @@ void CLK_SetClockDiv(uint32_t u32Clock, uint32_t u32Div) {
 }
 
 /**
- * @brief  Set peripheral clock source.
- * @param  [in] u16Src specifies the peripheral clock source. @ref CLK_PERIPH_Sel
+ * @brief  Set peripheral 时钟源.
+ * @param  [in] u16Src specifies the peripheral 时钟源. @ref CLK_PERIPH_Sel
  * @retval None
  * @note   peripheral for ADC/DAC/TRNG
  */
@@ -1637,7 +1637,7 @@ void CLK_SetPeriClockSrc(uint16_t u16Src) {
 
 /**
  * @brief  USB clock source config.
- * @param  [in] u8Src specifies the USB clock source. @ref CLK_USBCLK_Sel
+ * @param  [in] u8Src specifies the USB 时钟源. @ref CLK_USBCLK_Sel
  * @retval None
  */
 void CLK_SetUSBClockSrc(uint8_t u8Src) {
@@ -1649,12 +1649,12 @@ void CLK_SetUSBClockSrc(uint8_t u8Src) {
 
 /**
  * @brief  I2S clock source config.
- * @param  [in] u8Unit specifies the I2S channel for clock source. @ref CLK_I2S_Sel
+ * @param  [in] u8Unit specifies the I2S channel for 时钟源. @ref CLK_I2S_Sel
  *   @arg  CLK_I2S1:  I2S Channel 1
  *   @arg  CLK_I2S2:  I2S Channel 2
  *   @arg  CLK_I2S3:  I2S Channel 3
  *   @arg  CLK_I2S4:  I2S Channel 4
- * @param  [in] u8Src specifies the I2S clock source. @ref CLK_PERIPH_Sel
+ * @param  [in] u8Src 指定 I2S 时钟源。 @ref CLK_PERIPH_Sel
  * @retval None
  */
 void CLK_SetI2SClockSrc(uint8_t u8Unit, uint8_t u8Src) {
@@ -1669,8 +1669,8 @@ void CLK_SetI2SClockSrc(uint8_t u8Unit, uint8_t u8Src) {
 
 /**
  * @brief  CAN clock source config.
- * @param  [in] u8Unit specifies the CAN channel for clock source. @ref CLK_CAN_Sel
- * @param  [in] u8Src specifies the CAN clock source. @ref CLK_CANCLK_Sel
+ * @param  [in] u8Unit specifies the CAN channel for 时钟源. @ref CLK_CAN_Sel
+ * @param  [in] u8Src specifies the CAN 时钟源. @ref CLK_CANCLK_Sel
  * @retval None
  */
 void CLK_SetCANClockSrc(uint8_t u8Unit, uint8_t u8Src) {

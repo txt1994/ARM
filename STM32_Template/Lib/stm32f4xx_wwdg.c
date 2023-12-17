@@ -4,7 +4,7 @@
   * 作者:    MCD Application Team
   * 版本:    V1.8.0
   * 日期:    04-November-2016
-  * 简介:    此文件提供固件功能，用于管理Window watchdog(WWDG)外围设备的以下函数:
+  * 简介:    此文件提供固件功能，用于管理Window watchdog(WWDG)外设设备的以下函数:
   *           + 预分频器、刷新窗口和计数器配置
   *           + WWDG激活
   *           + 中断和标志管理

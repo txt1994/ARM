@@ -22,8 +22,8 @@
    (#) 使用RCC_APB1PeriphClockCmd(RCC_APB1Periph_I2Cx, ENABLE)函数为FMPI2C外设启用外围时钟。
    (#) 使用RCC_AHBPeriph函数启用SDA、SCL和SMBA(如果使用)GPIO时钟。
        RCC_AHBPeriphClockCmd()函数。
-   (#) 外围设备替代函数。
-       (++)将引脚连接到所需的外围设备的替代函数。使用GPIO_PinAFConfig()
+   (#) 外设设备替代函数。
+       (++)将引脚连接到所需的外设设备的替代函数。使用GPIO_PinAFConfig()
            函数将引脚连接到所需外设的备用功能(AF)。
        (++)通过配置所需引脚的备用功能。
             GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF
@@ -174,17 +174,17 @@ void FMPI2C_Init(FMPI2C_TypeDef* FMPI2Cx, FMPI2C_InitTypeDef* FMPI2C_InitStruct)
     tmpreg = FMPI2Cx->CR1;
     /* 清除 FMPI2Cx CR1 寄存器 */
     tmpreg &= CR1_CLEAR_MASK;
-    /* Configure FMPI2Cx: analog and digital filter */
-    /* Set ANFOFF bit according to FMPI2C_AnalogFilter 值 */
-    /* Set DFN bits according to FMPI2C_DigitalFilter 值 */
+    /* 配置 FMPI2Cx: 模拟和数字滤波器 */
+    /* 设置 ANFOFF bit 根据 FMPI2C_AnalogFilter 值 */
+    /* 设置 DFN bits 根据 FMPI2C_DigitalFilter 值 */
     tmpreg |= (uint32_t)FMPI2C_InitStruct->FMPI2C_AnalogFilter | (FMPI2C_InitStruct->FMPI2C_DigitalFilter << 8);
 
     /* 写入FMPI2Cx CR1 */
     FMPI2Cx->CR1 = tmpreg;
 
     /*---------------------------- FMPI2Cx TIMING 配置 -------------------*/
-    /* Configure FMPI2Cx: Timing */
-    /* Set TIMINGR bits according to FMPI2C_Timing */
+    /* 配置 FMPI2Cx: Timing */
+    /* 设置 TIMINGR bits 根据 FMPI2C_Timing */
     /* 写入FMPI2Cx TIMING */
     FMPI2Cx->TIMINGR = FMPI2C_InitStruct->FMPI2C_Timing & TIMING_CLEAR_MASK;
 
@@ -198,19 +198,19 @@ void FMPI2C_Init(FMPI2C_TypeDef* FMPI2Cx, FMPI2C_InitTypeDef* FMPI2C_InitStruct)
     FMPI2Cx->OAR1 = (uint32_t)tmpreg;
     /* 清除 OAR2 寄存器 */
     FMPI2Cx->OAR2 = (uint32_t)tmpreg;
-    /* Configure FMPI2Cx: Own Address1 and acknowledged address */
-    /* Set OA1MODE bit according to FMPI2C_AcknowledgedAddress 值 */
-    /* Set OA1 bits according to FMPI2C_OwnAddress1 值 */
+    /* 配置 FMPI2Cx: 自有地址1和确认地址 */
+    /* 设置 OA1MODE bit 根据 FMPI2C_AcknowledgedAddress 值 */
+    /* 设置 OA1 bits 根据 FMPI2C_OwnAddress1 值 */
     tmpreg = (uint32_t)((uint32_t)FMPI2C_InitStruct->FMPI2C_AcknowledgedAddress | \
                         (uint32_t)FMPI2C_InitStruct->FMPI2C_OwnAddress1);
     /* 写入FMPI2Cx OAR1 */
     FMPI2Cx->OAR1 = tmpreg;
-    /* 使能Own Address1 acknowledgement */
+    /* 使能Own 地址1确认 */
     FMPI2Cx->OAR1 |= FMPI2C_OAR1_OA1EN;
 
     /*---------------------------- FMPI2Cx MODE 配置 ---------------------*/
-    /* Configure FMPI2Cx: mode */
-    /* Set SMBDEN and SMBHEN bits according to FMPI2C_Mode 值 */
+    /* 配置 FMPI2Cx: mode */
+    /* 设置 SMBDEN and SMBHEN bits 根据 FMPI2C_Mode 值 */
     tmpreg = FMPI2C_InitStruct->FMPI2C_Mode;
     /* 写入FMPI2Cx CR1 */
     FMPI2Cx->CR1 |= tmpreg;
@@ -220,8 +220,8 @@ void FMPI2C_Init(FMPI2C_TypeDef* FMPI2Cx, FMPI2C_InitTypeDef* FMPI2C_InitStruct)
     tmpreg = FMPI2Cx->CR2;
     /* 清除 FMPI2Cx CR2 寄存器 */
     tmpreg &= CR2_CLEAR_MASK;
-    /* Configure FMPI2Cx: acknowledgement */
-    /* Set NACK bit according to FMPI2C_Ack 值 */
+    /* 配置 FMPI2Cx: 确认 */
+    /* 设置 NACK bit 根据 FMPI2C_Ack 值 */
     tmpreg |= FMPI2C_InitStruct->FMPI2C_Ack;
     /* 写入FMPI2Cx CR2 */
     FMPI2Cx->CR2 = tmpreg;
@@ -233,7 +233,7 @@ void FMPI2C_Init(FMPI2C_TypeDef* FMPI2Cx, FMPI2C_InitTypeDef* FMPI2C_InitStruct)
   * 返回值: 无
   */
 void FMPI2C_StructInit(FMPI2C_InitTypeDef* FMPI2C_InitStruct) {
-    /*---------------- Reset FMPI2C init structure parameters values --------------*/
+    /*---------------- 重置FMPI2C初始化结构参数值 --------------*/
     /* 初始化 FMPI2C_Timing 成员 */
     FMPI2C_InitStruct->FMPI2C_Timing = 0;
     /* 初始化 FMPI2C_AnalogFilter 成员 */
@@ -263,10 +263,10 @@ void FMPI2C_Cmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用 selected FMPI2C 外设 */
+        /* 启用被选定的 FMPI2C 外设 */
         FMPI2Cx->CR1 |= FMPI2C_CR1_PE;
     } else {
-        /* 禁用 selected FMPI2C 外设 */
+        /* 禁用被选中的 FMPI2C 外设 */
         FMPI2Cx->CR1 &= (uint32_t)~((uint32_t)FMPI2C_CR1_PE);
     }
 }
@@ -284,8 +284,7 @@ void FMPI2C_SoftwareResetCmd(FMPI2C_TypeDef* FMPI2Cx) {
     /* Disable 外设 */
     FMPI2Cx->CR1 &= (uint32_t)~((uint32_t)FMPI2C_CR1_PE);
 
-    /* Perform a dummy read to delay the disable of peripheral for minimum
-       3 APB clock cycles to perform the software reset functionality */
+    /* 执行伪读取以将外围设备的禁用延迟至少3个APB时钟周期，以执行软件重置功能 */
     *(__IO uint32_t *)(uint32_t)FMPI2Cx;
 
     /* 使能外设 */
@@ -315,10 +314,10 @@ void FMPI2C_ITConfig(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_IT, FunctionalStat
     assert_param(IS_FMPI2C_CONFIG_IT(FMPI2C_IT));
 
     if (NewState != DISABLE) {
-        /* 启用 selected FMPI2C interrupts */
+        /* 启用被选定的 FMPI2C 中断 */
         FMPI2Cx->CR1 |= FMPI2C_IT;
     } else {
-        /* 禁用 selected FMPI2C interrupts */
+        /* 禁用被选中的 FMPI2C 中断 */
         FMPI2Cx->CR1 &= (uint32_t)~((uint32_t)FMPI2C_IT);
     }
 }
@@ -336,10 +335,10 @@ void FMPI2C_StretchClockCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能clock stretching */
+        /* 使能时钟伸展 */
         FMPI2Cx->CR1 &= (uint32_t)~((uint32_t)FMPI2C_CR1_NOSTRETCH);
     } else {
-        /* Disable clock stretching  */
+        /* 禁用时钟拉伸  */
         FMPI2Cx->CR1 |= FMPI2C_CR1_NOSTRETCH;
     }
 }
@@ -357,10 +356,10 @@ void FMPI2C_DualAddressCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能own address 2 */
+        /* 使能自己的地址2 */
         FMPI2Cx->OAR2 |= FMPI2C_OAR2_OA2EN;
     } else {
-        /* Disable own address 2 */
+        /* 禁用自己的地址2 */
         FMPI2Cx->OAR2 &= (uint32_t)~((uint32_t)FMPI2C_OAR2_OA2EN);
     }
 }
@@ -392,14 +391,14 @@ void FMPI2C_OwnAddress2Config(FMPI2C_TypeDef* FMPI2Cx, uint16_t Address, uint8_t
     /* 获取old寄存器值 */
     tmpreg = FMPI2Cx->OAR2;
 
-    /* Reset FMPI2Cx OA2 bit [7:1] and OA2MSK bit [1:0]  */
+    /* 重置 FMPI2Cx OA2 bit [7:1] and OA2MSK bit [1:0]  */
     tmpreg &= (uint32_t)~((uint32_t)(FMPI2C_OAR2_OA2 | FMPI2C_OAR2_OA2MSK));
 
-    /* Set FMPI2Cx SADD */
+    /* 设置 FMPI2Cx SADD */
     tmpreg |= (uint32_t)(((uint32_t)Address & FMPI2C_OAR2_OA2) | \
                          (((uint32_t)Mask << 8) & FMPI2C_OAR2_OA2MSK)) ;
 
-    /* Store the new寄存器值 */
+    /* 存储新的寄存器值 */
     FMPI2Cx->OAR2 = tmpreg;
 }
 
@@ -416,10 +415,10 @@ void FMPI2C_GeneralCallCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能general call mode */
+        /* 使能通用呼叫模式 */
         FMPI2Cx->CR1 |= FMPI2C_CR1_GCEN;
     } else {
-        /* Disable general call mode */
+        /* 禁用常规呼叫模式 */
         FMPI2Cx->CR1 &= (uint32_t)~((uint32_t)FMPI2C_CR1_GCEN);
     }
 }
@@ -437,10 +436,10 @@ void FMPI2C_SlaveByteControlCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewStat
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能slave byte control */
+        /* 使能从字节控制 */
         FMPI2Cx->CR1 |= FMPI2C_CR1_SBC;
     } else {
-        /* Disable slave byte control */
+        /* 禁用从属字节控制 */
         FMPI2Cx->CR1 &= (uint32_t)~((uint32_t)FMPI2C_CR1_SBC);
     }
 }
@@ -462,13 +461,13 @@ void FMPI2C_SlaveAddressConfig(FMPI2C_TypeDef* FMPI2Cx, uint16_t Address) {
     /* 获取old寄存器值 */
     tmpreg = FMPI2Cx->CR2;
 
-    /* Reset FMPI2Cx SADD bit [9:0] */
+    /* 重置 FMPI2Cx SADD bit [9:0] */
     tmpreg &= (uint32_t)~((uint32_t)FMPI2C_CR2_SADD);
 
-    /* Set FMPI2Cx SADD */
+    /* 设置 FMPI2Cx SADD */
     tmpreg |= (uint32_t)((uint32_t)Address & FMPI2C_CR2_SADD);
 
-    /* Store the new寄存器值 */
+    /* 存储新的寄存器值 */
     FMPI2Cx->CR2 = tmpreg;
 }
 
@@ -486,10 +485,10 @@ void FMPI2C_10BitAddressingModeCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewS
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能10-bit addressing mode */
+        /* 使能10位寻址模式 */
         FMPI2Cx->CR2 |= FMPI2C_CR2_ADD10;
     } else {
-        /* Disable 10-bit addressing mode */
+        /* 禁用10位寻址模式 */
         FMPI2Cx->CR2 &= (uint32_t)~((uint32_t)FMPI2C_CR2_ADD10);
     }
 }
@@ -542,10 +541,10 @@ void FMPI2C_AutoEndCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能Auto end mode */
+        /* 使能自动结束模式 */
         FMPI2Cx->CR2 |= FMPI2C_CR2_AUTOEND;
     } else {
-        /* Disable Auto end mode */
+        /* 禁用自动结束模式 */
         FMPI2Cx->CR2 &= (uint32_t)~((uint32_t)FMPI2C_CR2_AUTOEND);
     }
 }
@@ -563,10 +562,10 @@ void FMPI2C_ReloadCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能Auto Reload mode */
+        /* 使能自动重新加载模式 */
         FMPI2Cx->CR2 |= FMPI2C_CR2_RELOAD;
     } else {
-        /* Disable Auto Reload mode */
+        /* 禁用自动重新加载模式 */
         FMPI2Cx->CR2 &= (uint32_t)~((uint32_t)FMPI2C_CR2_RELOAD);
     }
 }
@@ -586,13 +585,13 @@ void FMPI2C_NumberOfBytesConfig(FMPI2C_TypeDef* FMPI2Cx, uint8_t Number_Bytes) {
     /* 获取old寄存器值 */
     tmpreg = FMPI2Cx->CR2;
 
-    /* Reset FMPI2Cx Nbytes bit [7:0] */
+    /* 重置 FMPI2Cx Nbytes bit [7:0] */
     tmpreg &= (uint32_t)~((uint32_t)FMPI2C_CR2_NBYTES);
 
-    /* Set FMPI2Cx Nbytes */
+    /* 设置 FMPI2Cx Nbytes */
     tmpreg |= (uint32_t)(((uint32_t)Number_Bytes << 16 ) & FMPI2C_CR2_NBYTES);
 
-    /* Store the new寄存器值 */
+    /* 存储新的寄存器值 */
     FMPI2Cx->CR2 = tmpreg;
 }
 
@@ -610,12 +609,12 @@ void FMPI2C_MasterRequestConfig(FMPI2C_TypeDef* FMPI2Cx, uint16_t FMPI2C_Directi
     assert_param(IS_FMPI2C_ALL_PERIPH(FMPI2Cx));
     assert_param(IS_FMPI2C_DIRECTION(FMPI2C_Direction));
 
-    /* Test on the direction to set/reset the read/write 位 */
+    /* 测试设置/重置读/写的方向位 */
     if (FMPI2C_Direction == FMPI2C_Direction_Transmitter) {
-        /* Request a write Transfer */
+        /* 请求写入传输 */
         FMPI2Cx->CR2 &= (uint32_t)~((uint32_t)FMPI2C_CR2_RD_WRN);
     } else {
-        /* Request a read Transfer */
+        /* 请求读取传输 */
         FMPI2Cx->CR2 |= FMPI2C_CR2_RD_WRN;
     }
 }
@@ -633,10 +632,10 @@ void FMPI2C_GenerateSTART(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Generate a START condition */
+        /* 生成START条件 */
         FMPI2Cx->CR2 |= FMPI2C_CR2_START;
     } else {
-        /* 禁用 START condition generation */
+        /* 禁用START条件生成 */
         FMPI2Cx->CR2 &= (uint32_t)~((uint32_t)FMPI2C_CR2_START);
     }
 }
@@ -654,10 +653,10 @@ void FMPI2C_GenerateSTOP(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* Generate a STOP condition */
+        /* 生成STOP条件 */
         FMPI2Cx->CR2 |= FMPI2C_CR2_STOP;
     } else {
-        /* 禁用 STOP condition generation */
+        /* 禁用STOP条件生成 */
         FMPI2Cx->CR2 &= (uint32_t)~((uint32_t)FMPI2C_CR2_STOP);
     }
 }
@@ -676,10 +675,10 @@ void FMPI2C_10BitAddressHeaderCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewSt
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能10-bit header only mode */
+        /* 使能仅10位标头模式 */
         FMPI2Cx->CR2 |= FMPI2C_CR2_HEAD10R;
     } else {
-        /* Disable 10-bit header only mode */
+        /* 禁用仅10位标头模式 */
         FMPI2Cx->CR2 &= (uint32_t)~((uint32_t)FMPI2C_CR2_HEAD10R);
     }
 }
@@ -697,10 +696,10 @@ void FMPI2C_AcknowledgeConfig(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState)
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能ACK generation */
+        /* 使能 ACK 生成 */
         FMPI2Cx->CR2 &= (uint32_t)~((uint32_t)FMPI2C_CR2_NACK);
     } else {
-        /* 使能NACK generation */
+        /* 使能 NACK 生成 */
         FMPI2Cx->CR2 |= FMPI2C_CR2_NACK;
     }
 }
@@ -714,7 +713,7 @@ uint8_t FMPI2C_GetAddressMatched(FMPI2C_TypeDef* FMPI2Cx) {
     /* 检查参数 */
     assert_param(IS_FMPI2C_ALL_PERIPH(FMPI2Cx));
 
-    /* 返回slave matched address in the SR1 寄存器 */
+    /* 返回SR1中的从属匹配地址寄存器 */
     return (uint8_t)(((uint32_t)FMPI2Cx->ISR & FMPI2C_ISR_ADDCODE) >> 16) ;
 }
 
@@ -730,15 +729,15 @@ uint16_t FMPI2C_GetTransferDirection(FMPI2C_TypeDef* FMPI2Cx) {
     /* 检查参数 */
     assert_param(IS_FMPI2C_ALL_PERIPH(FMPI2Cx));
 
-    /* 返回slave matched address in the SR1 寄存器 */
+    /* 返回SR1中的从属匹配地址寄存器 */
     tmpreg = (uint32_t)(FMPI2Cx->ISR & FMPI2C_ISR_DIR);
 
-    /* If write transfer is requested */
+    /* 如果请求写入传输 */
     if (tmpreg == 0) {
-        /* write transfer is requested */
+        /* 请求写入传输 */
         direction = FMPI2C_Direction_Transmitter;
     } else {
-        /* Read transfer is requested */
+        /* 请求读取传输 */
         direction = FMPI2C_Direction_Receiver;
     }
 
@@ -834,10 +833,10 @@ void FMPI2C_SMBusAlertCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能SMBus alert */
+        /* 使能SMBus警报 */
         FMPI2Cx->CR1 |= FMPI2C_CR1_ALERTEN;
     } else {
-        /* Disable SMBus alert */
+        /* 禁用SMBus警报 */
         FMPI2Cx->CR1 &= (uint32_t)~((uint32_t)FMPI2C_CR1_ALERTEN);
     }
 }
@@ -855,10 +854,10 @@ void FMPI2C_ClockTimeoutCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能Clock Timeout */
+        /* 使能时钟超时 */
         FMPI2Cx->TIMEOUTR |= FMPI2C_TIMEOUTR_TIMOUTEN;
     } else {
-        /* Disable Clock Timeout */
+        /* 禁用时钟超时 */
         FMPI2Cx->TIMEOUTR &= (uint32_t)~((uint32_t)FMPI2C_TIMEOUTR_TIMOUTEN);
     }
 }
@@ -876,10 +875,10 @@ void FMPI2C_ExtendedClockTimeoutCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState New
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能Clock Timeout */
+        /* 使能时钟超时 */
         FMPI2Cx->TIMEOUTR |= FMPI2C_TIMEOUTR_TEXTEN;
     } else {
-        /* Disable Clock Timeout */
+        /* 禁用时钟超时 */
         FMPI2Cx->TIMEOUTR &= (uint32_t)~((uint32_t)FMPI2C_TIMEOUTR_TEXTEN);
     }
 }
@@ -897,10 +896,10 @@ void FMPI2C_IdleClockTimeoutCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewStat
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能Clock Timeout */
+        /* 使能时钟超时 */
         FMPI2Cx->TIMEOUTR |= FMPI2C_TIMEOUTR_TIDLE;
     } else {
-        /* Disable Clock Timeout */
+        /* 禁用时钟超时 */
         FMPI2Cx->TIMEOUTR &= (uint32_t)~((uint32_t)FMPI2C_TIMEOUTR_TIDLE);
     }
 }
@@ -921,13 +920,13 @@ void FMPI2C_TimeoutAConfig(FMPI2C_TypeDef* FMPI2Cx, uint16_t Timeout) {
     /* 获取old寄存器值 */
     tmpreg = FMPI2Cx->TIMEOUTR;
 
-    /* Reset FMPI2Cx TIMEOUTA bit [11:0] */
+    /* 重置 FMPI2Cx TIMEOUTA bit [11:0] */
     tmpreg &= (uint32_t)~((uint32_t)FMPI2C_TIMEOUTR_TIMEOUTA);
 
-    /* Set FMPI2Cx TIMEOUTA */
+    /* 设置 FMPI2Cx TIMEOUTA */
     tmpreg |= (uint32_t)((uint32_t)Timeout & FMPI2C_TIMEOUTR_TIMEOUTA) ;
 
-    /* Store the new寄存器值 */
+    /* 存储新的寄存器值 */
     FMPI2Cx->TIMEOUTR = tmpreg;
 }
 
@@ -947,13 +946,13 @@ void FMPI2C_TimeoutBConfig(FMPI2C_TypeDef* FMPI2Cx, uint16_t Timeout) {
     /* 获取old寄存器值 */
     tmpreg = FMPI2Cx->TIMEOUTR;
 
-    /* Reset FMPI2Cx TIMEOUTB bit [11:0] */
+    /* 重置 FMPI2Cx TIMEOUTB bit [11:0] */
     tmpreg &= (uint32_t)~((uint32_t)FMPI2C_TIMEOUTR_TIMEOUTB);
 
-    /* Set FMPI2Cx TIMEOUTB */
+    /* 设置 FMPI2Cx TIMEOUTB */
     tmpreg |= (uint32_t)(((uint32_t)Timeout << 16) & FMPI2C_TIMEOUTR_TIMEOUTB) ;
 
-    /* Store the new寄存器值 */
+    /* 存储新的寄存器值 */
     FMPI2Cx->TIMEOUTR = tmpreg;
 }
 
@@ -970,10 +969,10 @@ void FMPI2C_CalculatePEC(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能PEC calculation */
+        /* 使能PEC计算 */
         FMPI2Cx->CR1 |= FMPI2C_CR1_PECEN;
     } else {
-        /* Disable PEC calculation */
+        /* 禁用PEC计算 */
         FMPI2Cx->CR1 &= (uint32_t)~((uint32_t)FMPI2C_CR1_PECEN);
     }
 }
@@ -991,10 +990,10 @@ void FMPI2C_PECRequestCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能PEC transmission/reception request */
+        /* 使能PEC发送/接收请求 */
         FMPI2Cx->CR1 |= FMPI2C_CR2_PECBYTE;
     } else {
-        /* Disable PEC transmission/reception request */
+        /* 禁用PEC发送/接收请求 */
         FMPI2Cx->CR1 &= (uint32_t)~((uint32_t)FMPI2C_CR2_PECBYTE);
     }
 }
@@ -1008,7 +1007,7 @@ uint8_t FMPI2C_GetPEC(FMPI2C_TypeDef* FMPI2Cx) {
     /* 检查参数 */
     assert_param(IS_FMPI2C_ALL_PERIPH(FMPI2Cx));
 
-    /* 返回slave matched address in the SR1 寄存器 */
+    /* 返回SR1中的从属匹配地址寄存器 */
     return (uint8_t)((uint32_t)FMPI2Cx->PECR & FMPI2C_PECR_PEC);
 }
 
@@ -1035,17 +1034,17 @@ uint8_t FMPI2C_GetPEC(FMPI2C_TypeDef* FMPI2Cx) {
 * 参数:  FMPI2Cx: 其中x可以是1，选择FMPI2C的外设。
 * 参数:  FMPI2C_Register: 指定要读取的寄存器。
 *   此参数可以是以下值之一:
-*     @arg FMPI2C_Register_CR1: CR1 register.
-*     @arg FMPI2C_Register_CR2: CR2 register.
-*     @arg FMPI2C_Register_OAR1: OAR1 register.
-*     @arg FMPI2C_Register_OAR2: OAR2 register.
-*     @arg FMPI2C_Register_TIMINGR: TIMING register.
-*     @arg FMPI2C_Register_TIMEOUTR: TIMEOUTR register.
-*     @arg FMPI2C_Register_ISR: ISR register.
-*     @arg FMPI2C_Register_ICR: ICR register.
-*     @arg FMPI2C_Register_PECR: PECR register.
-*     @arg FMPI2C_Register_RXDR: RXDR register.
-*     @arg FMPI2C_Register_TXDR: TXDR register.
+*     @arg FMPI2C_Register_CR1: CR1 寄存器.
+*     @arg FMPI2C_Register_CR2: CR2 寄存器.
+*     @arg FMPI2C_Register_OAR1: OAR1 寄存器.
+*     @arg FMPI2C_Register_OAR2: OAR2 寄存器.
+*     @arg FMPI2C_Register_TIMINGR: TIMING 寄存器.
+*     @arg FMPI2C_Register_TIMEOUTR: TIMEOUTR 寄存器.
+*     @arg FMPI2C_Register_ISR: ISR 寄存器.
+*     @arg FMPI2C_Register_ICR: ICR 寄存器.
+*     @arg FMPI2C_Register_PECR: PECR 寄存器.
+*     @arg FMPI2C_Register_RXDR: RXDR 寄存器.
+*     @arg FMPI2C_Register_TXDR: TXDR 寄存器.
 * 返回值: 读取寄存器的值。
 */
 uint32_t FMPI2C_ReadRegister(FMPI2C_TypeDef* FMPI2Cx, uint8_t FMPI2C_Register) {
@@ -1148,10 +1147,10 @@ void FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalSt
     assert_param(IS_FMPI2C_DMA_REQ(FMPI2C_DMAReq));
 
     if (NewState != DISABLE) {
-        /* 启用 selected FMPI2C DMA requests */
+        /* 启用被选定的 FMPI2C DMA 请求 */
         FMPI2Cx->CR1 |= FMPI2C_DMAReq;
     } else {
-        /* 禁用 selected FMPI2C DMA requests */
+        /* 禁用被选中的 FMPI2C DMA 请求 */
         FMPI2Cx->CR1 &= (uint32_t)~FMPI2C_DMAReq;
     }
 }
@@ -1265,7 +1264,7 @@ FlagStatus FMPI2C_GetFlagStatus(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_FLAG) {
     /* 获取ISR寄存器值 */
     tmpreg = FMPI2Cx->ISR;
 
-    /* Get flag 状态 */
+    /* 获取 flag 状态 */
     tmpreg &= FMPI2C_FLAG;
 
     if(tmpreg != 0) {
@@ -1332,12 +1331,12 @@ ITStatus FMPI2C_GetITStatus(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_IT) {
     assert_param(IS_FMPI2C_ALL_PERIPH(FMPI2Cx));
     assert_param(IS_FMPI2C_GET_IT(FMPI2C_IT));
 
-    /* 检查 if the interrupt source is enabled or not */
-    /* If Error interrupt */
+    /* 检查中断源是否启用 */
+    /* If Error 中断 */
     if((uint32_t)(FMPI2C_IT & ERROR_IT_MASK)) {
         enablestatus = (uint32_t)((FMPI2C_CR1_ERRIE) & (FMPI2Cx->CR1));
     }
-    /* If TC interrupt */
+    /* If TC 中断 */
     else if((uint32_t)(FMPI2C_IT & TC_IT_MASK)) {
         enablestatus = (uint32_t)((FMPI2C_CR1_TCIE) & (FMPI2Cx->CR1));
     } else {
@@ -1350,7 +1349,7 @@ ITStatus FMPI2C_GetITStatus(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_IT) {
     /* Get flag 状态 */
     tmpreg &= FMPI2C_IT;
 
-    /* 检查 the status of the specified FMPI2C flag */
+    /* 检查指定的FMPI2C标志的状态 */
     if((tmpreg != RESET) && enablestatus) {
         /* FMPI2C_IT 被设置 */
         bitstatus = SET;

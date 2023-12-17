@@ -339,7 +339,7 @@ void LPTIM_Init(LPTIM_TypeDef* LPTIMx, LPTIM_InitTypeDef* LPTIM_InitStruct); // 
 void LPTIM_StructInit(LPTIM_InitTypeDef* LPTIM_InitStruct); // 用默认值填充每个 LPTIM_InitStruct 成员。
 
 /* 配置功能 ****************************************************/
-void LPTIM_Cmd(LPTIM_TypeDef* LPTIMx, FunctionalState NewState); // 启用或禁用指定的 LPTIM 外围设备。
+void LPTIM_Cmd(LPTIM_TypeDef* LPTIMx, FunctionalState NewState); // 启用或禁用指定的 LPTIM 外设设备。
 void LPTIM_SelectClockSource(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_ClockSource); // 选择 LPTIM 计数器的时钟源。
 void LPTIM_SelectULPTIMClockPolarity(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_ClockPolarity); // 如果选择了 ULPTIM 输入，则配置用于计数的边沿极性。
 void LPTIM_ConfigPrescaler(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_Prescaler); // 配置时钟预分频器。

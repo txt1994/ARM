@@ -1243,7 +1243,7 @@ uint8_t usb_inithch(LL_USB_TypeDef *USBx, uint8_t hc_num, USB_HOST_CH *pCh, uint
     WRITE_REG32(USBx->HC_REGS[hc_num]->HCINTMSK, u32hcintmsk);
     SET_REG32_BIT(USBx->HREGS->HAINTMSK, 1UL << hc_num);
 
-    /* enable the host channel interrupts */
+    /* enable the host channel 中断 */
     SET_REG32_BIT(USBx->GREGS->GINTMSK, USBFS_GINTMSK_HCIM);
 
     /* modify HCCHAR */

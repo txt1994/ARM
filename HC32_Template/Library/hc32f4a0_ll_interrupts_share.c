@@ -2947,7 +2947,7 @@ void IRQ140_Handler(void) {
         }
     }
 
-    /* USB FS global interrupt */
+    /* USB FS global 中断 */
     if (1UL == bCM_USBFS->GAHBCFG_b.GINTMSK) {
         u32Tmp1 = CM_USBFS->GINTMSK & 0xF77CFCFBUL;
         u32Tmp2 = CM_USBFS->GINTSTS & 0xF77CFCFBUL;

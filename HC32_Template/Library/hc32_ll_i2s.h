@@ -255,7 +255,7 @@ typedef struct {
  */
 #define I2S_INT_TX                              (I2S_CTRL_TXIE)   /*!< Transfer interrupt            */
 #define I2S_INT_RX                              (I2S_CTRL_RXIE)   /*!< Receive interrupt             */
-#define I2S_INT_ERR                             (I2S_CTRL_EIE)    /*!< Communication error interrupt */
+#define I2S_INT_ERR                             (I2S_CTRL_EIE)    /*!< Communication error 中断 */
 #define I2S_INT_ALL                             (I2S_INT_TX | I2S_INT_RX | I2S_INT_ERR)
 /**
  * @}

@@ -11,7 +11,7 @@
   *      - SystemInit(): 根据时钟xls工具中的配置，设置系统时钟（系统时钟源、PLL乘法器和
   *                      分频器系数、AHB/APBx预分频器和闪存设置）。此函数在复位后和分支到主程序
   *                      之前的启动时调用。
-  *                      此调用在“startup_stm32f4xx.s”文件中进行。
+  *                      此调用在 "startup_stm32f4xx.s" 文件中进行。
   *
   *      - SystemCoreClock variable: 包含核心时钟（HCLK），
   *                                  用户应用程序可以使用它来设置SysTick计时器或配置其他参数。
@@ -324,8 +324,7 @@
   */
 
 /************************* Miscellaneous Configuration ************************/
-/*!< Uncomment the following line if you need to use external SRAM or SDRAM mounted
-     on STM324xG_EVAL/STM324x7I_EVAL/STM324x9I_EVAL boards as data memory  */
+/*!< 如果需要使用安装在 STM324xG_EVAL/STM324x7I_EVAL/STM324x9I_EVAL 板上的外部SRAM或SDRAM作为数据存储器，请取消注释以下行  */
 #if defined(STM32F40_41xxx) || defined(STM32F427_437xx) || defined(STM32F429_439xx) || defined(STM32F469_479xx) || defined(STM32F413_423xx)
 /* #define DATA_IN_ExtSRAM */
 #endif /* STM32F40_41xxx || STM32F427_437x || STM32F429_439xx || STM32F469_479xx || STM32F413_423xx */
@@ -335,10 +334,8 @@
 #endif /* STM32F427_437x || STM32F429_439xx || STM32F446xx || STM32F469_479xx */
 
 #if defined(STM32F410xx) || defined(STM32F411xE)
-/*!< Uncomment the following line if you need to clock the STM32F410xx/STM32F411xE by HSE Bypass
-     through STLINK MCO pin of STM32F103 microcontroller. The frequency cannot be changed
-     and is fixed at 8 MHz.
-     Hardware configuration needed for Nucleo Board:
+/*!< 如果您需要通过STM32F103微控制器的STLINK MCO引脚通过HSE旁路对STM32F410xx/STM32F411xE进行时钟，请取消注释以下行。频率不能更改，并且固定在8MHz。
+     Nucleo板所需的硬件配置:
      – SB54, SB55 OFF
      – R35 removed
      – SB16, SB50 ON */
@@ -349,10 +346,9 @@
 #endif /* USE_HSE_BYPASS */
 #endif /* STM32F410xx || STM32F411xE */
 
-/*!< Uncomment the following line if you need to relocate your vector Table in
-     Internal SRAM. */
+/*!< 如果需要在内部SRAM中重新定位矢量表，请取消注释以下行。 */
 /* #define VECT_TAB_SRAM */
-#define VECT_TAB_OFFSET  0x00 /*!< Vector Table base offset field. 
+#define VECT_TAB_OFFSET  0x00 /*!< 矢量表基偏移字段。 
                                    This value must be a multiple of 0x200. */
 /******************************************************************************/
 
@@ -465,9 +461,8 @@ static void SystemInit_ExtMemCtl(void);
   */
 
 /**
-  * 简介:  Setup the microcontroller system
-  *         Initialize the Embedded Flash Interface, the PLL and update the
-  *         SystemFrequency variable.
+  * 简介:  设置微控制器系统
+  *         初始化嵌入式闪存接口、PLL并更新SystemFrequency变量。
   * 参数:  无
   * 返回值: 无
   */
@@ -476,7 +471,7 @@ void SystemInit(void) {
 #if (__FPU_PRESENT == 1) && (__FPU_USED == 1)
     SCB->CPACR |= ((3UL << 10*2)|(3UL << 11*2));  /* set CP10 and CP11 Full Access */
 #endif
-    /* Reset the RCC clock configuration to the default reset state ------------*/
+    /* 将RCC时钟配置重置为默认重置状态 ------------*/
     /* Set HSION bit */
     RCC->CR |= (uint32_t)0x00000001;
 
@@ -492,7 +487,7 @@ void SystemInit(void) {
     /* Reset HSEBYP bit */
     RCC->CR &= (uint32_t)0xFFFBFFFF;
 
-    /* Disable all interrupts */
+    /* 禁用所有中断 */
     RCC->CIR = 0x00000000;
 
 #if defined(DATA_IN_ExtSRAM) || defined(DATA_IN_ExtSDRAM)
@@ -512,10 +507,8 @@ void SystemInit(void) {
 }
 
 /**
-   * 简介:  Update SystemCoreClock variable according to Clock Register Values.
-  *         The SystemCoreClock variable contains the core clock (HCLK), it can
-  *         be used by the user application to setup the SysTick timer or configure
-  *         other parameters.
+   * 简介:  根据时钟寄存器值更新SystemCoreClock变量。
+  *         SystemCoreClock变量包含核心时钟（HCLK），用户应用程序可以使用它来设置SysTick计时器或配置其他参数。
   *
   * @note   Each time the core clock (HCLK) changes, this function must be called
   *         to update SystemCoreClock variable value. Otherwise, any configuration
@@ -525,7 +518,7 @@ void SystemInit(void) {
   *           frequency in the chip. It is calculated based on the predefined
   *           constant and the selected clock source:
   *
-  *           - If SYSCLK source is HSI, SystemCoreClock will contain the HSI_VALUE(*)
+  *           - 如果 SYSCLK 源是 HSI，SystemCoreClock 将包含 HSI_VALUE(*)
   *
   *           - If SYSCLK source is HSE, SystemCoreClock will contain the HSE_VALUE(**)
   *
@@ -556,13 +549,13 @@ void SystemCoreClockUpdate(void) {
     tmp = RCC->CFGR & RCC_CFGR_SWS;
 
     switch (tmp) {
-    case 0x00:  /* HSI used as 系统时钟源           */
+    case 0x00:  /* HSI 用作系统时钟源           */
         SystemCoreClock = HSI_VALUE;
         break;
-    case 0x04:  /* HSE used as 系统时钟源           */
+    case 0x04:  /* HSE 用作系统时钟源           */
         SystemCoreClock = HSE_VALUE;
         break;
-    case 0x08:  /* PLL P used as 系统时钟源           */
+    case 0x08:  /* PLL P 用作系统时钟源           */
         /* PLL_VCO = (HSE_VALUE or HSI_VALUE / PLL_M) * PLL_N
           SYSCLK = PLL_VCO / PLL_P
           */
@@ -571,21 +564,21 @@ void SystemCoreClockUpdate(void) {
 
 #if defined(STM32F40_41xxx) || defined(STM32F427_437xx) || defined(STM32F429_439xx) || defined(STM32F401xx) || defined(STM32F412xG) || defined(STM32F413_423xx) || defined(STM32F446xx) || defined(STM32F469_479xx)
         if (pllsource != 0) {
-            /* HSE used as PLL clock source */
+            /* HSE 用作PLL时钟源 */
             pllvco = (HSE_VALUE / pllm) * ((RCC->PLLCFGR & RCC_PLLCFGR_PLLN) >> 6);
         } else {
-            /* HSI used as PLL clock source */
+            /* HSI 用作PLL时钟源 */
             pllvco = (HSI_VALUE / pllm) * ((RCC->PLLCFGR & RCC_PLLCFGR_PLLN) >> 6);
         }
 #elif defined(STM32F410xx) || defined(STM32F411xE)
 #if defined(USE_HSE_BYPASS)
         if (pllsource != 0) {
-            /* HSE used as PLL clock source */
+            /* HSE 用作PLL时钟源 */
             pllvco = (HSE_BYPASS_INPUT_FREQUENCY / pllm) * ((RCC->PLLCFGR & RCC_PLLCFGR_PLLN) >> 6);
         }
 #else
         if (pllsource == 0) {
-            /* HSI used as PLL clock source */
+            /* HSI 用作PLL时钟源 */
             pllvco = (HSI_VALUE / pllm) * ((RCC->PLLCFGR & RCC_PLLCFGR_PLLN) >> 6);
         }
 #endif /* USE_HSE_BYPASS */
@@ -594,17 +587,17 @@ void SystemCoreClockUpdate(void) {
         SystemCoreClock = pllvco/pllp;
         break;
 #if defined(STM32F412xG) || defined(STM32F413_423xx) || defined(STM32F446xx)
-    case 0x0C:  /* PLL R used as 系统时钟源           */
+    case 0x0C:  /* PLL R 用作系统时钟源           */
         /* PLL_VCO = (HSE_VALUE or HSI_VALUE / PLL_M) * PLL_N
           SYSCLK = PLL_VCO / PLL_R
           */
         pllsource = (RCC->PLLCFGR & RCC_PLLCFGR_PLLSRC) >> 22;
         pllm = RCC->PLLCFGR & RCC_PLLCFGR_PLLM;
         if (pllsource != 0) {
-            /* HSE used as PLL clock source */
+            /* HSE 用作PLL时钟源 */
             pllvco = (HSE_VALUE / pllm) * ((RCC->PLLCFGR & RCC_PLLCFGR_PLLN) >> 6);
         } else {
-            /* HSI used as PLL clock source */
+            /* HSI 用作PLL时钟源 */
             pllvco = (HSI_VALUE / pllm) * ((RCC->PLLCFGR & RCC_PLLCFGR_PLLN) >> 6);
         }
 
@@ -624,7 +617,7 @@ void SystemCoreClockUpdate(void) {
 }
 
 /**
-  * 简介:  Configures the 系统时钟源          , PLL Multiplier and Divider factors,
+  * 简介:  配置系统时钟源, PLL Multiplier and Divider factors,
   *         AHB/APBx prescalers and Flash settings
   * @Note   This function should be called only once the RCC clock configuration
   *         is reset to the default reset state (done in SystemInit() function).
@@ -634,7 +627,7 @@ void SystemCoreClockUpdate(void) {
 static void SetSysClock(void) {
 #if defined(STM32F40_41xxx) || defined(STM32F427_437xx) || defined(STM32F429_439xx) || defined(STM32F401xx) || defined(STM32F412xG) || defined(STM32F413_423xx) || defined(STM32F446xx)|| defined(STM32F469_479xx)
     /******************************************************************************/
-    /*            PLL (clocked by HSE) used as 系统时钟源                          */
+    /*            PLL (clocked by HSE) 用作系统时钟源                          */
     /******************************************************************************/
     __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
 
@@ -727,7 +720,7 @@ static void SetSysClock(void) {
         RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFGR_SW));
         RCC->CFGR |= RCC_CFGR_SW_PLL;
 
-        /* Wait till the main PLL is used as 系统时钟源           */
+        /* Wait till the main PLL is 用作系统时钟源           */
         while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS ) != RCC_CFGR_SWS_PLL);
         {
         }
@@ -738,7 +731,7 @@ static void SetSysClock(void) {
 #elif defined(STM32F410xx) || defined(STM32F411xE)
 #if defined(USE_HSE_BYPASS)
     /******************************************************************************/
-    /*            PLL (clocked by HSE) used as 系统时钟源                          */
+    /*            PLL (clocked by HSE) 用作系统时钟源                          */
     /******************************************************************************/
     __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
 
@@ -789,7 +782,7 @@ static void SetSysClock(void) {
         RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFGR_SW));
         RCC->CFGR |= RCC_CFGR_SW_PLL;
 
-        /* Wait till the main PLL is used as 系统时钟源           */
+        /* Wait till the main PLL is 用作系统时钟源           */
         while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS ) != RCC_CFGR_SWS_PLL);
         {
         }
@@ -797,7 +790,7 @@ static void SetSysClock(void) {
         /* If HSE fails to start-up, the application will have wrong clock
              configuration. User can add here some code to deal with this error */
     }
-#else /* HSI will be used as PLL clock source */
+#else /* HSI will be 用作PLL时钟源 */
     /* Select regulator voltage output Scale 1 mode */
     RCC->APB1ENR |= RCC_APB1ENR_PWREN;
     PWR->CR |= PWR_CR_VOS;
@@ -828,7 +821,7 @@ static void SetSysClock(void) {
     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFGR_SW));
     RCC->CFGR |= RCC_CFGR_SW_PLL;
 
-    /* Wait till the main PLL is used as 系统时钟源           */
+    /* Wait till the main PLL is 用作系统时钟源           */
     while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS ) != RCC_CFGR_SWS_PLL);
     {
     }

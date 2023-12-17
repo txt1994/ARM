@@ -249,9 +249,9 @@ void DAC_Concurrent_OutPut_Buffer_Enable(void);
 void DAC_Concurrent_OutPut_Buffer_Disable(void);
 /* set DAC concurrent mode data holding register value */
 void DAC_Concurrent_Data_Set(uint32_t DAC_align, uint16_t data0, uint16_t data1);
-/* enable DAC concurrent interrupt */
+/* enable DAC concurrent 中断 */
 void DAC_Concurrent_Interrupt_Enable(void);
-/* disable DAC concurrent interrupt */
+/* disable DAC concurrent 中断 */
 void DAC_Concurrent_Interrupt_Disable(void);
 
 /* DAC interrupt configuration */

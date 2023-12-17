@@ -4,7 +4,7 @@
   * 作者:    MCD Application Team
   * 版本:    V1.8.0
   * 日期:    04-November-2016
-  * 简介:    此文件提供固件功能，以管理FLASH外围设备的以下功能:
+  * 简介:    此文件提供固件功能，以管理FLASH外设设备的以下功能:
   *            + FLASH接口配置
   *            + FLASH编程
   *            + 选项字节编程
@@ -18,29 +18,29 @@
       此驱动程序提供配置和编程所有STM32F4xx设备的闪存的功能。这些功能分为4组:
 
       (#) FLASH接口配置功能: 该组包括以下功能的管理:
-          (++)设置延迟
-          (++)启用/禁用预取缓冲区
-          (++)启用/禁用指令缓存和数据缓存
-          (++)重置指令缓存和数据缓存
+          (++) 设置延迟
+          (++) 启用/禁用预取缓冲区
+          (++) 启用/禁用指令缓存和数据缓存
+          (++) 重置指令缓存和数据缓存
 
       (#) 闪存编程功能:该组包括擦除和编程主存储器所需的所有功能:
-          (++)锁定和解锁闪存界面
-          (++)擦除功能:擦除扇区，擦除所有扇区
-          (++)程序功能:字节、半字、字和双字
+          (++) 锁定和解锁闪存界面
+          (++) 擦除功能: 擦除扇区，擦除所有扇区
+          (++) 程序功能: 字节、半字、字和双字
 
       (#) 选项字节编程功能: 该组包括管理选项字节所需的所有功能:
-          (++)设置/重置写保护
-          (++)设置读取保护级别
-          (++)设置BOR级别
-          (++)对用户选项字节进行编程
-          (++)启动选项字节加载程序
+          (++) 设置/重置写保护
+          (++) 设置读取保护级别
+          (++) 设置BOR级别
+          (++) 对用户选项字节进行编程
+          (++) 启动选项字节加载程序
 
       (#) 中断和标记管理函数: 该组包括所有必要的功能:
-          (++)启用/禁用闪存中断源
-          (++)获取标志状态
-          (++)清除标志
-          (++)获取FLASH操作状态
-          (++)等待最后一次闪存操作
+          (++) 启用/禁用闪存中断源
+          (++) 获取标志状态
+          (++) 清除标志
+          (++) 获取FLASH操作状态
+          (++) 等待最后一次闪存操作
  @endverbatim
   ******************************************************************************
   * @attention
@@ -105,7 +105,7 @@
  +---------------------------------------------------------------------------------------+
  | Latency       |                HCLK时钟频率 (MHz)                                     |
  |               |-----------------------------------------------------------------------|
- |               |    电压范围     |    电压范围     | voltage range   | voltage range   |
+ |               |    电压范围      |    电压范围     | voltage range   | voltage range   |
  |               | 2.7 V - 3.6 V   |  2.4 V - 2.7 V  | 2.1 V - 2.4 V   | 1.8 V - 2.1 V   |
  |---------------|-----------------|-----------------|-----------------|-----------------|
  |0WS(1CPU cycle)|0 < HCLK <= 30   | 0 < HCLK <= 24  |0 < HCLK <= 22   |0 < HCLK <= 20   |
@@ -372,9 +372,9 @@ void FLASH_DataCacheReset(void) {
       (+) FLASH_Status FLASH_EraseAllBank2Sectors(uint8_t VoltageRange)
     [..]
       擦除或程序的任何操作都应遵循以下步骤:
-          (#)调用FLASH_Unlock()函数以启用FLASH控制寄存器访问
+          (#)调用 FLASH_Unlock() 函数以启用 FLASH 控制寄存器访问
           (#)调用所需函数擦除扇区或程序数据
-          (#)调用FLASH_Lock()函数以禁用FLASH控制寄存器
+          (#)调用 FLASH_Lock() 函数以禁用 FLASH 控制寄存器
                访问(建议用于保护FLASH内存免受可能的不必要操作)
 
 @endverbatim
@@ -487,10 +487,10 @@ FLASH_Status FLASH_EraseSector(uint32_t FLASH_Sector, uint8_t VoltageRange) {
   *
   * 参数:  VoltageRange: 定义擦除并行度的设备电压范围。
   *          此参数可以是以下值之一:
-  *            @arg VoltageRange_1: 当设备电压范围为1.8V至2.1V时，操作将通过字节(8位)完成
-  *            @arg VoltageRange_2: 当设备电压范围为2.1V至2.7V时，操作将通过半字(16位)完成
-  *            @arg VoltageRange_3: 当设备电压范围为2.7V至3.6V时，操作将通过字(32位)完成
-  *            @arg VoltageRange_4: 当设备电压范围为2.7V至3.6V+外部Vpp时，操作将通过双字(64位)完成
+  *            @arg VoltageRange_1: 当设备电压范围为 1.8V 至 2.1V 时，操作将通过字节(8位)完成
+  *            @arg VoltageRange_2: 当设备电压范围为 2.1V 至 2.7V 时，操作将通过半字(16位)完成
+  *            @arg VoltageRange_3: 当设备电压范围为 2.7V 至 3.6V 时，操作将通过字(32位)完成
+  *            @arg VoltageRange_4: 当设备电压范围为 2.7V 至 3.6V+ 外部 Vpp 时，操作将通过双字(64位)完成
   *
   * 返回值: FLASH Status: 返回值可以是: FLASH_BUSY, FLASH_ERROR_PROGRAM,
   *                       FLASH_ERROR_WRP, FLASH_ERROR_OPERATION or FLASH_COMPLETE.
@@ -550,16 +550,16 @@ FLASH_Status FLASH_EraseAllSectors(uint8_t VoltageRange) {
 /**
   * 简介:  擦除 Bank 1 中的所有 FLASH 扇区。
   *
-  * 注意:   此功能只能用于STM32F42xxx/43xxx设备。
+  * 注意:   此函数只能用于STM32F42xxx/43xxx设备。
   *
   * 注意:   如果同时请求擦除和程序操作，则擦除操作将在程序操作之前执行。
   *
   * 参数:  VoltageRange: 定义擦除并行度的设备电压范围。
   *          此参数可以是以下值之一:
-  *            @arg VoltageRange_1: 当设备电压范围为1.8V至2.1V时，操作将通过字节(8位)完成
-  *            @arg VoltageRange_2: 当设备电压范围为2.1V至2.7V时，操作将通过半字(16位)完成
-  *            @arg VoltageRange_3: 当设备电压范围为2.7V至3.6V时，操作将通过字(32位)完成
-  *            @arg VoltageRange_4: 当设备电压范围为2.7V至3.6V+外部Vpp时，操作将通过双字(64位)完成
+  *            @arg VoltageRange_1: 当设备电压范围为 1.8V 至 2.1V 时，操作将通过字节(8位)完成
+  *            @arg VoltageRange_2: 当设备电压范围为 2.1V 至 2.7V 时，操作将通过半字(16位)完成
+  *            @arg VoltageRange_3: 当设备电压范围为 2.7V 至 3.6V 时，操作将通过字(32位)完成
+  *            @arg VoltageRange_4: 当设备电压范围为 2.7V 至 3.6V+ 外部 Vpp 时，操作将通过双字(64位)完成
   *
   * 返回值: FLASH Status: 返回值可以是: FLASH_BUSY, FLASH_ERROR_PROGRAM,
   *                       FLASH_ERROR_WRP, FLASH_ERROR_OPERATION or FLASH_COMPLETE.
@@ -605,16 +605,16 @@ FLASH_Status FLASH_EraseAllBank1Sectors(uint8_t VoltageRange) {
 /**
   * 简介:  擦除 Bank 2 中的所有 FLASH 扇区。
   *
-  * 注意:   此功能只能用于STM32F42xxx/43xxx设备。
+  * 注意:   此函数只能用于STM32F42xxx/43xxx设备。
   *
   * 注意:   如果同时请求擦除和程序操作，则擦除操作将在程序操作之前执行。
   *
   * 参数:  VoltageRange: 定义擦除并行度的设备电压范围。
   *          此参数可以是以下值之一:
-  *            @arg VoltageRange_1: 当设备电压范围为1.8V至2.1V时，操作将通过字节(8位)完成
-  *            @arg VoltageRange_2: 当设备电压范围为2.1V至2.7V时，操作将通过半字(16位)完成
-  *            @arg VoltageRange_3: 当设备电压范围为2.7V至3.6V时，操作将通过字(32位)完成
-  *            @arg VoltageRange_4: 当设备电压范围为2.7V至3.6V+外部Vpp时，操作将通过双字(64位)完成
+  *            @arg VoltageRange_1: 当设备电压范围为 1.8V 至 2.1V 时，操作将通过字节(8位)完成
+  *            @arg VoltageRange_2: 当设备电压范围为 2.1V 至 2.7V 时，操作将通过半字(16位)完成
+  *            @arg VoltageRange_3: 当设备电压范围为 2.7V 至 3.6V 时，操作将通过字(32位)完成
+  *            @arg VoltageRange_4: 当设备电压范围为 2.7V 至 3.6V+ 外部 Vpp 时，操作将通过双字(64位)完成
   *
   * 返回值: FLASH Status: 返回值可以是: FLASH_BUSY, FLASH_ERROR_PROGRAM,
   *                       FLASH_ERROR_WRP, FLASH_ERROR_OPERATION or FLASH_COMPLETE.
@@ -658,7 +658,7 @@ FLASH_Status FLASH_EraseAllBank2Sectors(uint8_t VoltageRange) {
 
 /**
   * 简介:  在指定地址编程双字(64 位)。
-  * 注意:   当设备电压范围为2.7V至3.6V且存在外部Vpp时，必须使用此函数。
+  * 注意:   当设备电压范围为 2.7V 至 3.6V 且存在外部Vpp时，必须使用此函数。
   *
   * 注意:   如果同时请求擦除和程序操作，则擦除操作将在程序操作之前执行。
   *
@@ -698,7 +698,7 @@ FLASH_Status FLASH_ProgramDoubleWord(uint32_t Address, uint64_t Data) {
 /**
   * 简介:  在指定地址编程一个字(32 位)。
   *
-  * 注意:   当设备电压范围为2.7V至3.6V时，必须使用此函数。
+  * 注意:   当设备电压范围为 2.7V 至 3.6V 时，必须使用此函数。
   *
   * 注意:   如果同时请求擦除和程序操作，则擦除操作将在程序操作之前执行。
   *
@@ -906,7 +906,7 @@ void FLASH_OB_Lock(void) {
   *
   * 参数:  OB_WRP: 指定要写保护或不保护的扇区。
   *          此参数可以是以下值之一:
-  *            @arg OB_WRP: OB_WRP_Sector0和OB_WRP _Sector11之间的值
+  *            @arg OB_WRP: OB_WRP_Sector0 和 OB_WRP _Sector11 之间的值
   *            @arg OB_WRP_Sector_All
   * 参数:  Newstate: 写保护的新状态。
   *          此参数可以是:ENABLE或DISABLE。
@@ -933,7 +933,7 @@ void FLASH_OB_WRPConfig(uint32_t OB_WRP, FunctionalState NewState) {
 /**
   * 简介:  为闪存的第二个 1 Mb 启用或禁用所需扇区的写保护。
   *
-  * 注意:   此功能只能用于STM32F42xxx/43xxx设备。
+  * 注意:   此函数只能用于STM32F42xxx/43xxx设备。
   *
   * 注意:   选择内存读取保护时(RDP级别=1)，如果连接了CortexM4调试功能或
   *         在RAM中执行引导代码，则无法编程或擦除闪存扇区i，即使nWRPi=1
@@ -1006,7 +1006,7 @@ void FLASH_OB_PCROPSelectionConfig(uint8_t OB_PcROP) {
 /**
   * 简介:  为 Flash 的前 1 MB 启用或禁用所需扇区的读/写保护 (PCROP)。
   *
-  * 注意:   此功能只能用于STM32F42xxx/43xxx、STM32F2F401xx/411xE STM32F112xG和STM32P413_423xx设备。
+  * 注意:   此函数只能用于STM32F42xxx/43xxx、STM32F2F401xx/411xE STM32F112xG和STM32P413_423xx设备。
   *
   * 参数:  OB_PCROP: 指定要读/写保护或不保护的扇区。
   *          此参数可以是以下值之一:
@@ -1039,7 +1039,7 @@ void FLASH_OB_PCROPConfig(uint32_t OB_PCROP, FunctionalState NewState) {
 /**
    * 简介: 启用或禁用所需扇区的读/写保护 (PCROP)。
   *
-  * 注意:   此功能只能用于STM32F42xxx/43xxx设备。
+  * 注意:   此函数只能用于STM32F42xxx/43xxx设备。
   *
   * 参数:  OB_PCROP: 指定要读/写保护或不保护的扇区。
   *          此参数可以是以下值之一:
@@ -1141,7 +1141,7 @@ void FLASH_OB_UserConfig(uint8_t OB_IWDG, uint8_t OB_STOP, uint8_t OB_STDBY) {
 /**
   * 简介:  配置双组引导。
   *
-  * 注意:   此功能只能用于STM32F42xxx/43xxx设备。
+  * 注意:   此函数只能用于STM32F42xxx/43xxx设备。
   *
   * 参数:  OB_BOOT: 指定Dual Bank Boot Option字节。
   *          此参数可以是以下值之一:
@@ -1220,7 +1220,7 @@ uint16_t FLASH_OB_GetWRP(void) {
 /**
   * 简介:  返回 FLASH 写保护选项字节值。
   *
-  * 注意:   此功能只能用于STM32F42xxx/43xxx设备。
+  * 注意:   此函数只能用于STM32F42xxx/43xxx设备。
   *
   * 参数:  无
   * 返回值: 闪存写保护选项字节值
@@ -1233,7 +1233,7 @@ uint16_t FLASH_OB_GetWRP1(void) {
 /**
   * 简介:  返回 FLASH PC 读/写保护选项字节值。
   *
-  * 注意:   此功能只能用于STM32F42xxx/43xxx设备 and STM32F401xx/411xE devices.
+  * 注意:   此函数只能用于STM32F42xxx/43xxx设备 and STM32F401xx/411xE devices.
   *
   * 参数:  无
   * 返回值: FLASH PC读/写保护选项字节值
@@ -1246,7 +1246,7 @@ uint16_t FLASH_OB_GetPCROP(void) {
 /**
   * 简介:  Returns FLASH PC读/写保护选项字节值.
   *
-  * 注意:   此功能只能用于STM32F42xxx/43xxx设备。
+  * 注意:   此函数只能用于STM32F42xxx/43xxx设备。
   *
   * 参数:  无
   * 返回值: FLASH PC读/写保护选项字节值
@@ -1420,17 +1420,16 @@ FLASH_Status FLASH_GetStatus(void) {
 FLASH_Status FLASH_WaitForLastOperation(void) {
     __IO FLASH_Status status = FLASH_COMPLETE;
 
-    /* 检查 for the FLASH 状态 */
+    /* 检查 FLASH 状态 */
     status = FLASH_GetStatus();
 
-    /* Wait for the FLASH operation to complete by polling on BUSY flag to be reset.
-       Even if the FLASH operation fails, the BUSY flag will be reset and an error
-       flag will be set */
+    /* 通过对要重置的BUSY标志进行轮询，等待FLASH操作完成。
+       即使FLASH操作失败，BUSY标志也将重置，并设置错误标志 */
     while(status == FLASH_BUSY) {
         status = FLASH_GetStatus();
     }
 
-    /* 返回operation 状态 */
+    /* 返回操作状态 */
     return status;
 }
 

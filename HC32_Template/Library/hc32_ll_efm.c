@@ -54,7 +54,7 @@
  * @{
  */
 #define REG_LEN                         (32U)
-#define EFM_TIMEOUT                     (HCLK_VALUE / 20000UL)   /* EFM wait read timeout */
+#define EFM_TIMEOUT                     (HCLK_VALUE / 20000UL)   /* EFM wait 读超时 */
 #define EFM_PGM_TIMEOUT                 (HCLK_VALUE / 20000UL)   /* EFM Program timeout max 53us */
 #define EFM_ERASE_TIMEOUT               (HCLK_VALUE / 50UL)      /* EFM Erase timeout max 20ms */
 #define EFM_SEQ_PGM_TIMEOUT             (HCLK_VALUE / 62500UL)   /* EFM Sequence Program timeout max 16us */

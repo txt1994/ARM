@@ -709,7 +709,7 @@ typedef struct {
 #define RTC_IT_WUT                        ((uint32_t)0x00004000)
 #define RTC_IT_ALRB                       ((uint32_t)0x00002000)
 #define RTC_IT_ALRA                       ((uint32_t)0x00001000)
-#define RTC_IT_TAMP                       ((uint32_t)0x00000004) /* Used only to Enable the Tamper Interrupt */
+#define RTC_IT_TAMP                       ((uint32_t)0x00000004) /* Used only to Enable the Tamper 中断 */
 #define RTC_IT_TAMP1                      ((uint32_t)0x00020000)
 #define RTC_IT_TAMP2                      ((uint32_t)0x00040000)
 

@@ -158,11 +158,11 @@ typedef struct {
 #define DCI_Interface_FORMAT_14BITS   CTL_DCIF(3)                    /*!< 14-bit data on every pixel clock */
 
 /* DCI interrupt constants definitions */
-#define DCI_INT_EF                    BIT(0)                         /*!< end of frame interrupt */
-#define DCI_INT_OVR                   BIT(1)                         /*!< FIFO overrun interrupt */
-#define DCI_INT_ESE                   BIT(2)                         /*!< embedded synchronous error interrupt */
-#define DCI_INT_VSYNC                 BIT(3)                         /*!< vsync interrupt */
-#define DCI_INT_EL                    BIT(4)                         /*!< end of line interrupt */
+#define DCI_INT_EF                    BIT(0)                         /*!< end of frame 中断 */
+#define DCI_INT_OVR                   BIT(1)                         /*!< FIFO overrun 中断 */
+#define DCI_INT_ESE                   BIT(2)                         /*!< embedded synchronous error 中断 */
+#define DCI_INT_VSYNC                 BIT(3)                         /*!< vsync 中断 */
+#define DCI_INT_EL                    BIT(4)                         /*!< end of line 中断 */
 
 /* DCI interrupt flag definitions */
 #define DCI_INT_Flag_EF               BIT(0)                         /*!< end of frame interrupt flag */
@@ -224,9 +224,9 @@ uint32_t DCI_Data_Read(void);
 /* interrupt & flag functions */
 /* get specified flag */
 FlagStatus DCI_Flag_Get(uint32_t flag);
-/* enable specified DCI interrupt */
+/* enable specified DCI 中断 */
 void DCI_Interrupt_Enable(uint32_t interrupt);
-/* disable specified DCI interrupt */
+/* disable specified DCI 中断 */
 void DCI_Interrupt_Disable(uint32_t interrupt);
 
 

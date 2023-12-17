@@ -98,17 +98,17 @@
   * 简介: 配置优先级分组:抢占优先级和子优先级。
   * 参数: NVIC_PriorityGroup:指定优先级分组位长度。
   * 此参数可以是以下值之一:
-    *           @arg NVIC_PriorityGroup_0:0 位用于抢占优先级
-  * 	4 位用于子优先级
-    *           @arg NVIC_PriorityGroup_1:1 位用于抢占优先级
-  * 	3 位用于子优先级
-    *           @arg NVIC_PriorityGroup_2:2 位用于抢占优先级
-  * 	2 位用于子优先级
-    *           @arg NVIC_PriorityGroup_3:3 位用于抢占优先级
-  * 	1 位用于子优先级
-    *           @arg NVIC_PriorityGroup_4:4 位用于抢占优先级
-  * 	0 位表示子优先级
-  * 注意:选择NVIC_PRIORITYGROUP_0时，IRQ预先抢先是不可能的。
+                @arg NVIC_PriorityGroup_0: 0 位用于抢占优先级
+   	                                       4 位用于子优先级
+                @arg NVIC_PriorityGroup_1: 1 位用于抢占优先级
+   	                                       3 位用于子优先级
+                @arg NVIC_PriorityGroup_2: 2 位用于抢占优先级
+   	                                       2 位用于子优先级
+                @arg NVIC_PriorityGroup_3: 3 位用于抢占优先级
+   	                                       1 位用于子优先级
+                @arg NVIC_PriorityGroup_4: 4 位用于抢占优先级
+   	                                       0 位表示子优先级
+  * 注意: 选择 NVIC_PRIORITYGROUP_0 时，IRQ预先抢先是不可能的。
   * 挂起的 IRQ 优先级将仅由子优先级管理。
   * 返回值: 无
   */
@@ -116,17 +116,16 @@ void NVIC_PriorityGroupConfig(uint32_t NVIC_PriorityGroup) {
     /* 检查参数 */
     assert_param(IS_NVIC_PRIORITY_GROUP(NVIC_PriorityGroup));
 
-    /* 设置 根据NVIC_PriorityGroup的PRIGROUP[10:8]位值*/
+    /* 设置 根据 NVIC_PriorityGroup 的 PRIGROUP[10:8] 位值*/
     SCB->AIRCR = AIRCR_VECTKEY_MASK | NVIC_PriorityGroup;
 }
 
 /**
-   * 简介: 根据指定初始化 NVIC 外设
-   * NVIC_InitStruct 中的参数。
+   * 简介: 根据指定初始化 NVIC 外设 NVIC_InitStruct 中的参数。
    * 注意: 要正确配置中断优先级，NVIC_PriorityGroupConfig()
-   * 函数应该在之前调用。
-   * 参数: NVIC_InitStruct:指向 NVIC_InitTypeDef 结构的指针，该结构包含
-   * 指定 NVIC 外设的配置信息。
+   *       函数应该在之前调用。
+   * 参数: NVIC_InitStruct: 指向 NVIC_InitTypeDef 结构的指针，
+   *       该结构包含指定 NVIC 外设的配置信息。
    * 返回值: 无
    */
 void NVIC_Init(NVIC_InitTypeDef* NVIC_InitStruct) {
@@ -162,11 +161,12 @@ void NVIC_Init(NVIC_InitTypeDef* NVIC_InitStruct) {
 
 /**
    * 简介: 设置向量表位置和偏移量。
-   * 参数: NVIC_VectTab:指定向量表是在 RAM 还是 FLASH 存储器中。
+   * 参数: NVIC_VectTab: 指定向量表是在 RAM 还是 FLASH 存储器中。
    * 此参数可以是以下值之一:
    * 	@arg NVIC_VectTab_RAM:内部 SRAM 中的向量表。
    * 	@arg NVIC_VectTab_FLASH:内部 FLASH 中的向量表。
-   * 参数: Offset:向量表基本偏移字段。 该值必须是 0x200 的倍数。
+   * 参数: Offset:向量表基本偏移字段。 
+   *       该值必须是 0x200 的倍数。
    * 返回值: 无
    */
 void NVIC_SetVectorTable(uint32_t NVIC_VectTab, uint32_t Offset) {
@@ -179,12 +179,13 @@ void NVIC_SetVectorTable(uint32_t NVIC_VectTab, uint32_t Offset) {
 
 /**
    * 简介: 选择系统进入低功耗模式的条件。
-   * 参数: LowPowerMode:指定系统进入低功耗模式的新模式。
+   * 参数: LowPowerMode: 指定系统进入低功耗模式的新模式。
    * 此参数可以是以下值之一:
-   * 	@arg NVIC_LP_SEVONPEND:低功耗 SEV 挂起。
-   * 	@arg NVIC_LP_SLEEPDEEP:低功耗 DEEPSLEEP 请求。
-   * 	@arg NVIC_LP_SLEEPONEXIT:退出时低功耗睡眠。
-   * 参数: NewState:LP 条件的新状态。 该参数可以是:ENABLE 或 DISABLE。
+   * 	@arg NVIC_LP_SEVONPEND: 低功耗 SEV 挂起。
+   * 	@arg NVIC_LP_SLEEPDEEP: 低功耗 DEEPSLEEP 请求。
+   * 	@arg NVIC_LP_SLEEPONEXIT: 退出时低功耗睡眠。
+   * 参数: NewState:LP 条件的新状态。 
+   *      该参数可以是: ENABLE 或 DISABLE。
    * 返回值: 无
    */
 void NVIC_SystemLPConfig(uint8_t LowPowerMode, FunctionalState NewState) {
@@ -201,10 +202,10 @@ void NVIC_SystemLPConfig(uint8_t LowPowerMode, FunctionalState NewState) {
 
 /**
   * 简介: 配置 SysTick 时钟源。
-  * 参数: SysTick_CLKSource:指定 SysTick 时钟源。
+  * 参数:  sysTick_CLKSource:指定 SysTick 时钟源。
   *  此参数可以是以下值之一:
-  * 	@arg SysTick_CLKSource_HCLK_Div8:AHB 时钟除以 8 被选为 SysTick 时钟源。
-  * 	@arg SysTick_CLKSource_HCLK:选择 AHB 时钟作为 SysTick 时钟源。
+  * 	@arg SysTick_CLKSource_HCLK_Div8: AHB 时钟除以 8 被选为 SysTick 时钟源。
+  * 	@arg SysTick_CLKSource_HCLK: 选择 AHB 时钟作为 SysTick 时钟源。
   * 返回值: 无
 */
 void SysTick_CLKSourceConfig(uint32_t SysTick_CLKSource) {

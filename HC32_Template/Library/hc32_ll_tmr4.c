@@ -737,7 +737,7 @@ en_flag_status_t TMR4_GetStatus(const CM_TMR4_TypeDef *TMR4x, uint32_t u32Flag) 
         u8FlagSetCount++;
     }
 
-    /* Output-compare interrupt */
+    /* Output-compare 中断 */
     u32ReadFlag = (u32Flag & TMR4_FLAG_OC_MASK);
 
     if (u32ReadFlag > 0UL) {
@@ -794,14 +794,14 @@ void TMR4_IntCmd(CM_TMR4_TypeDef *TMR4x, uint32_t u32IntType, en_functional_stat
     DDL_ASSERT(IS_TMR4_INT(u32IntType));
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
 
-    /* Counter interrupt */
+    /* Counter 中断 */
     u32Type = (u32IntType & TMR4_INT_CNT_MASK);
 
     if (u32Type > 0UL) {
         (ENABLE == enNewState) ? SET_REG16_BIT(TMR4x->CCSR, u32Type) : CLR_REG16_BIT(TMR4x->CCSR, u32Type);
     }
 
-    /* Output-compare interrupt */
+    /* Output-compare 中断 */
     u32Type = (u32IntType & TMR4_INT_OC_MASK);
 
     if (u32Type > 0UL) {
@@ -830,7 +830,7 @@ void TMR4_IntCmd(CM_TMR4_TypeDef *TMR4x, uint32_t u32IntType, en_functional_stat
         }
     }
 
-    /* PWM reload timer interrupt */
+    /* PWM reload timer 中断 */
     u32Type = (u32IntType & TMR4_INT_RELOAD_TMR_MASK);
 
     if (u32Type > 0UL) {
@@ -1113,7 +1113,7 @@ void TMR4_OC_DeInit(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch) {
     OCER = TMR4_OCER(TMR4x, u32Ch);
     OCCR = TMR4_OCCR(TMR4x, u32Ch);
 
-    /* Clear bits: port output valid && OP level && interrupt */
+    /* Clear bits: port output valid && OP level && 中断 */
     CLR_REG16_BIT(*OCSR, TMR4_OCSR_MASK(u32Ch));
 
     /* Clear bits: OCMR&&OCCR buffer */

@@ -1627,7 +1627,7 @@ uint32_t USART_GetClockDiv(const CM_USART_TypeDef *USARTx) {
 }
 
 /**
- * @brief  Set USART clock source.
+ * @brief  Set USART 时钟源.
  * @param  [in] USARTx                  Pointer to USART instance register base
  *         This parameter can be one of the following values:
  *           @arg CM_USARTx:            USART unit instance register base
@@ -1645,7 +1645,7 @@ void USART_SetClockSrc(CM_USART_TypeDef *USARTx, uint32_t u32ClockSrc) {
 }
 
 /**
- * @brief  Get USART clock source.
+ * @brief  Get USART 时钟源.
  * @param  [in] USARTx                  Pointer to USART instance register base
  *         This parameter can be one of the following values:
  *           @arg CM_USARTx:            USART unit instance register base

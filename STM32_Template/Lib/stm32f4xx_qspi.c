@@ -23,33 +23,33 @@
         (#) 启用CLK、BK1_IO0、BK1_IO1、BK1_IO2、BK1_IO3、BK1_NCS、BK2_IO0。BK2_IO1,
             BK2_IO2, BK2_IO3 和 BK2_NCS 的 GPIO 时钟，使用 RCC_AHB1PeriphClockCmd()函数。
 
-        (#) 外围设备替代函数。
-           (++)将引脚连接到所需的外围设备的替代函数(AF)。使用GPIO_PinAFConfig()
+        (#) 外设设备替代函数。
+           (++)将引脚连接到所需的外设设备的替代函数(AF)。使用GPIO_PinAFConfig()
                函数将引脚连接到所需外设的备用功能(AF)。
            (++)通过配置所需引脚的备用功能。
                 GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF。
-           (++) 通过以下方法选择类型、上拉/下拉和输出速度 GPIO_PuPd、GPIO_OType和GPIO_Speed
+           (++) 通过以下方法选择类型、上拉/下拉和输出速度 GPIO_PuPd、GPIO_OType 和 GPIO_Speed
                 成员选择类型、上拉/下拉和输出速度。
-           (++)调用GPIO_Init()函数。
+           (++)调用 GPIO_Init() 函数。
 
-        (#) 使用QSPI_Init()函数对Flash大小、CS High Time、Sample Shift、Prescaler、Clock Mode进行编程。
-            值，使用QSPI_Init()函数。
+        (#) 使用 QSPI_Init() 函数对Flash大小、CS High Time、Sample Shift、Prescaler、Clock Mode进行编程。
+            值，使用 QSPI_Init() 函数。
 
-        (#) 使用QSPI_Cmd()函数启用QSPI。
+        (#) 使用 QSPI_Cmd() 函数启用QSPI。
 
-        (#) 使用QSPI_SetDataLength()函数设置QSPI数据长度。
+        (#) 使用 QSPI_SetDataLength() 函数设置QSPI数据长度。
 
-        (#) 使用QSPI_SetFIFOThreshold()函数配置FIFO阈值，选择在哪个阈值上产生FTF事件。
+        (#) 使用 QSPI_SetFIFOThreshold() 函数配置 FIFO 阈值，选择在哪个阈值上产生FTF事件。
 
-        (#) 如果需要使用中断模式，使用函数QSPI_ITConfig()启用NVIC和相应的中断。
+        (#) 如果需要使用中断模式，使用函数 QSPI_ITConfig() 启用 NVIC 和相应的中断。
 
         (#) 当使用DMA模式时
-           (++) 使用DMA_Init()函数配置DMA。
-           (++) 使用SPI_I2S_DMACmd()函数激活需要的通道请求。
+           (++) 使用 DMA_Init() 函数配置 DMA。
+           (++) 使用 SPI_I2S_DMACmd() 函数激活需要的通道请求。
 
-        (#) 使用QSPI_DMACmd()函数启用SPI。
+        (#) 使用 QSPI_DMACmd() 函数启用 SPI。
 
-        (#) 当使用DMA模式时，使用DMA_Cmd()函数启用DMA。
+        (#) 当使用 DMA 模式时，使用 DMA_Cmd() 函数启用 DMA。
 
     @endverbatim
    *
@@ -147,7 +147,7 @@ void QSPI_DeInit(void) {
   * 返回值: 无
   */
 void QSPI_StructInit(QSPI_InitTypeDef* QSPI_InitStruct) {
-    /*--------- Reset QSPI init structure parameters default values ------------*/
+    /*--------- 重置QSPI初始化结构参数默认值 ------------*/
     /* 初始化 QSPI_SShift 成员 */
     QSPI_InitStruct->QSPI_SShift = QSPI_SShift_NoShift ;
     /* 初始化 QSPI_Prescaler 成员 */
@@ -207,7 +207,7 @@ void QSPI_ComConfig_StructInit(QSPI_ComConfig_InitTypeDef* QSPI_ComConfig_InitSt
 void QSPI_Init(QSPI_InitTypeDef* QSPI_InitStruct) {
     uint32_t tmpreg = 0;
 
-    /* 检查 the QSPI parameters */
+    /* 检查 QSPI 参数 */
     assert_param(IS_QSPI_SSHIFT(QSPI_InitStruct->QSPI_SShift));
     assert_param(IS_QSPI_PRESCALER(QSPI_InitStruct->QSPI_Prescaler));
     assert_param(IS_QSPI_CKMODE(QSPI_InitStruct->QSPI_CKMode));
@@ -244,13 +244,13 @@ void QSPI_Init(QSPI_InitTypeDef* QSPI_InitStruct) {
 
 /**
   * 简介:  根据 QSPI_ComConfig_InitStruct 中指定的参数初始化 QSPI CCR。
-  * 参数:  QSPI_ComConfig_InitStruct: 指向QSPI_ComConfig_InitTypeDef结构的指针，该结构包含有关QSPI外围设备的通信配置信息。
+  * 参数:  QSPI_ComConfig_InitStruct: 指向QSPI_ComConfig_InitTypeDef结构的指针，该结构包含有关QSPI外设设备的通信配置信息。
   * 返回值: 无
   */
 void QSPI_ComConfig_Init(QSPI_ComConfig_InitTypeDef* QSPI_ComConfig_InitStruct) {
     uint32_t tmpreg = 0;
 
-    /* 检查 the QSPI Communication Control parameters */
+    /* 检查 QSPI 通信控制参数 */
     assert_param(IS_QSPI_FMODE       (QSPI_ComConfig_InitStruct->QSPI_ComConfig_FMode));
     assert_param(IS_QSPI_SIOOMODE    (QSPI_ComConfig_InitStruct->QSPI_ComConfig_SIOOMode));
     assert_param(IS_QSPI_DMODE       (QSPI_ComConfig_InitStruct->QSPI_ComConfig_DMode));
@@ -265,11 +265,11 @@ void QSPI_ComConfig_Init(QSPI_ComConfig_InitTypeDef* QSPI_ComConfig_InitStruct) 
     assert_param(IS_QSPI_DHHC        (QSPI_ComConfig_InitStruct->QSPI_ComConfig_DHHC));
 
     /*------------------------ QUADSPI CCR 配置 ------------------------*/
-    /* 获取QUADSPI CCR 值 */
+    /* 获取 QUADSPI CCR 值 */
     tmpreg = QUADSPI->CCR;
     /* 清除 FMODE Mode 位 */
     tmpreg &= QSPI_CCR_CLEAR_MASK;
-    /* Configure QUADSPI: CCR 配置*/
+    /* 配置 QUADSPI: CCR 配置*/
     tmpreg |=  (uint32_t)( (QSPI_ComConfig_InitStruct->QSPI_ComConfig_FMode)
                            | (QSPI_ComConfig_InitStruct->QSPI_ComConfig_DDRMode)
                            | (QSPI_ComConfig_InitStruct->QSPI_ComConfig_DHHC)
@@ -300,7 +300,7 @@ void QSPI_Cmd(FunctionalState NewState) {
         /* 使能QSPI 外设 */
         QUADSPI->CR |= QUADSPI_CR_EN;
     } else {
-        /* Disable QSPI 外设 */
+        /* 禁用 QSPI 外设 */
         QUADSPI->CR &= ~ QUADSPI_CR_EN;
     }
 }
@@ -313,7 +313,7 @@ void QSPI_Cmd(FunctionalState NewState) {
   *                    这个参数可以是0x00000000到0xFFFFFFFF之间的任何值。
   * 参数:  QSPI_Match_Mode: 表示在自动轮询模式下应该使用哪种方法来确定 "匹配"。
   *        此参数可以是以下任意值。
-  * 参数 QSPI_PMM_AND: AND 匹配模式--如果从闪存接收到的所有未屏蔽的位与匹配寄存
+  * 参数   QSPI_PMM_AND: AND 匹配模式--如果从闪存接收到的所有未屏蔽的位与匹配寄存
   *                     器中的相应位相匹配，则SMF被设置。匹配寄存器中的相应位，则SMF被设置。
   *         @arg QSPI_PMM_OR:OR 匹配模式--如果从闪存中收到的任何一个未被屏蔽的位与
   *                     匹配寄存器中的相应位相匹配，则SMF被设置。匹配寄存器中的相应位。
@@ -450,9 +450,9 @@ void QSPI_SetFIFOThreshold(uint32_t QSPI_FIFOThreshold) {
 
     /* 读 CR 寄存器 */
     tmpreg = QUADSPI->CR ;
-    /* 清除 FIFO Threshold 位 */
+    /* 清除 FIFO 阀位 */
     tmpreg &= QSPI_CR_CLEAR_FIFOTHRESHOLD_MASK ;
-    /* Set FIFO Threshold 位 */
+    /* 设置 FIFO 阀位 */
     tmpreg |= (QSPI_FIFOThreshold << 8);
     /* 写 CR 寄存器 */
     QUADSPI->CR = tmpreg;
@@ -500,10 +500,10 @@ void QSPI_TimeoutCounterCmd(FunctionalState NewState) {
         /* 设备不忙 */
     {
         if (NewState != DISABLE) {
-            /* 使能Timeout Counter */
+            /* 使能超时计数器 */
             QUADSPI->CR |= QUADSPI_CR_TCEN;
         } else {
-            /* Disable Timeout Counter */
+            /* 禁用超时计数器 */
             QUADSPI->CR &= ~ QUADSPI_CR_TCEN;
         }
     }
@@ -524,10 +524,10 @@ void QSPI_AutoPollingModeStopCmd(FunctionalState NewState) {
         /* 设备不忙 */
     {
         if (NewState != DISABLE) {
-            /* 使能Automatic Polling Mode Stop */
+            /* 使能自动轮询模式停止 */
             QUADSPI->CR |= QUADSPI_CR_APMS;
         } else {
-            /* Disable Automatic Polling Mode Stop */
+            /* 禁用自动轮询模式停止 */
             QUADSPI->CR &= ~ QUADSPI_CR_APMS;
         }
     }
@@ -663,10 +663,10 @@ void QSPI_ITConfig(uint32_t QSPI_IT, FunctionalState NewState) {
     tmpreg = QUADSPI->CR ;
 
     if(NewState != DISABLE) {
-        /* 启用被选择的QSPI中断 */
+        /* 启用被选择的 QSPI 中断 */
         tmpreg |= (uint32_t)(QSPI_IT & QSPI_CR_INTERRUPT_MASK);
     } else {
-        /* 禁用被选择的QSPI中断 */
+        /* 禁用被选择的 QSPI 中断 */
         tmpreg &= ~(uint32_t)(QSPI_IT & QSPI_CR_INTERRUPT_MASK);
     }
 
@@ -701,14 +701,14 @@ uint32_t QSPI_GetFMode(void) {
 
 /**
   * 简介:  检查是否设置了指定的 QSPI 标志。
-  * 参数:  QSPI_FLAG: 指定要检查的QSPI标志。
+  * 参数:  QSPI_FLAG: 指定要检查的 QSPI 标志。
   *          此参数可以是以下值之一:
-  *          @arg QSPI_FLAG_TO:超时中断标志
-  *          @arg QSPI_FLAG_SM:状态匹配中断标志
-  *          @arg QSPI_FLAG_FT:FIFO阈值标志
-  *          @arg QSPI_FLAG_TC:传输完成标志
-  *          @arg QSPI_FLAG_TE:传输错误标志
-  *          @arg QSPI_FLAG_BUSY:忙标志
+  *          @arg QSPI_FLAG_TO: 超时中断标志
+  *          @arg QSPI_FLAG_SM: 状态匹配中断标志
+  *          @arg QSPI_FLAG_FT: FIFO阈值标志
+  *          @arg QSPI_FLAG_TC: 传输完成标志
+  *          @arg QSPI_FLAG_TE: 传输错误标志
+  *          @arg QSPI_FLAG_BUSY: 忙标志
   * 返回值: 新状态-> QSPI_FLAG (SET or RESET).
   */
 FlagStatus QSPI_GetFlagStatus(uint32_t QSPI_FLAG) {
@@ -716,7 +716,7 @@ FlagStatus QSPI_GetFlagStatus(uint32_t QSPI_FLAG) {
     /* 检查参数 */
     assert_param(IS_QSPI_GET_FLAG(QSPI_FLAG));
 
-    /* 检查 the status of the specified QSPI flag */
+    /* 检查指定的 QSPI 标志的状态 */
     if((QUADSPI->SR & QSPI_FLAG) != RESET) {
         /* QSPI_FLAG 被设置 */
         bitstatus = SET;
@@ -743,7 +743,7 @@ void QSPI_ClearFlag(uint32_t QSPI_FLAG) {
     /* 检查参数 */
     assert_param(IS_QSPI_CLEAR_FLAG(QSPI_FLAG));
 
-    /* 清除 selected QSPI flags */
+    /* 清除选定的 QSPI 标志 */
     QUADSPI->FCR = QSPI_FLAG;
 }
 
@@ -751,11 +751,11 @@ void QSPI_ClearFlag(uint32_t QSPI_FLAG) {
   * 简介:  检查指定的 QSPI 中断是否发生。
   * 参数:  QSPI_IT: 指定要检查的QSPI中断源。
   *          此参数可以是以下值之一:
-  *          @arg QSPI_IT_TO:超时中断
-  *          @arg QSPI_IT_SM:状态匹配中断
-  *          @arg QSPI_IT_FT:FIFO阈值
-  *          @arg QSPI_IT_TC:传输完成
-  *          @arg QSPI_IT_TE:传输错误
+  *          @arg QSPI_IT_TO: 超时中断
+  *          @arg QSPI_IT_SM: 状态匹配中断
+  *          @arg QSPI_IT_FT: FIFO阈值
+  *          @arg QSPI_IT_TC: 传输完成
+  *          @arg QSPI_IT_TE: 传输错误
   * 返回值: 新状态-> QSPI_IT (SET or RESET).
   */
 ITStatus QSPI_GetITStatus(uint32_t QSPI_IT) {
@@ -773,7 +773,7 @@ ITStatus QSPI_GetITStatus(uint32_t QSPI_IT) {
     tmpsreg = QUADSPI->SR;
     tmpsreg &= (uint32_t)(QSPI_IT & QSPI_SR_INTERRUPT_MASK);
 
-    /* 检查 the status of the specified QSPI interrupt */
+    /* 检查指定的 QSPI 的状态中断 */
     if((tmpcreg != RESET) && (tmpsreg != RESET)) {
         /* QSPI_IT 被设置 */
         bitstatus = SET;

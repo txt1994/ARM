@@ -218,16 +218,16 @@ typedef enum {
 /* USART interrupt flags */
 typedef enum {
     /* interrupt in CTL0 register */
-    USART_INT_PERR = USART_REGIDX_BIT(USART_CTL0_REG_OFFSET, 8U),      /*!< parity error interrupt */
-    USART_INT_TBE = USART_REGIDX_BIT(USART_CTL0_REG_OFFSET, 7U),       /*!< transmitter buffer empty interrupt */
-    USART_INT_TC = USART_REGIDX_BIT(USART_CTL0_REG_OFFSET, 6U),        /*!< transmission complete interrupt */
-    USART_INT_RBNE = USART_REGIDX_BIT(USART_CTL0_REG_OFFSET, 5U),      /*!< read data buffer not empty interrupt and overrun error interrupt */
-    USART_INT_IDLE = USART_REGIDX_BIT(USART_CTL0_REG_OFFSET, 4U),      /*!< IDLE line detected interrupt */
+    USART_INT_PERR = USART_REGIDX_BIT(USART_CTL0_REG_OFFSET, 8U),      /*!< parity error 中断 */
+    USART_INT_TBE = USART_REGIDX_BIT(USART_CTL0_REG_OFFSET, 7U),       /*!< transmitter buffer empty 中断 */
+    USART_INT_TC = USART_REGIDX_BIT(USART_CTL0_REG_OFFSET, 6U),        /*!< transmission complete 中断 */
+    USART_INT_RBNE = USART_REGIDX_BIT(USART_CTL0_REG_OFFSET, 5U),      /*!< read data buffer not empty interrupt and overrun error 中断 */
+    USART_INT_IDLE = USART_REGIDX_BIT(USART_CTL0_REG_OFFSET, 4U),      /*!< IDLE line detected 中断 */
     /* interrupt in CTL1 register */
-    USART_INT_LBD = USART_REGIDX_BIT(USART_CTL1_REG_OFFSET, 6U),       /*!< LIN break detected interrupt */
+    USART_INT_LBD = USART_REGIDX_BIT(USART_CTL1_REG_OFFSET, 6U),       /*!< LIN break detected 中断 */
     /* interrupt in CTL2 register */
-    USART_INT_CTS = USART_REGIDX_BIT(USART_CTL2_REG_OFFSET, 10U),      /*!< CTS interrupt */
-    USART_INT_ERR = USART_REGIDX_BIT(USART_CTL2_REG_OFFSET, 0U),       /*!< error interrupt */
+    USART_INT_CTS = USART_REGIDX_BIT(USART_CTL2_REG_OFFSET, 10U),      /*!< CTS 中断 */
+    USART_INT_ERR = USART_REGIDX_BIT(USART_CTL2_REG_OFFSET, 0U),       /*!< error 中断 */
     /* interrupt in CTL3 register */
     USART_INT_EB = USART_REGIDX_BIT(USART_CTL3_REG_OFFSET, 5U),        /*!< interrupt enable bit of end of block event */
     USART_INT_RT = USART_REGIDX_BIT(USART_CTL3_REG_OFFSET, 4U),        /*!< interrupt enable bit of receive timeout event */
@@ -480,9 +480,9 @@ void USART_DMA_Transmit_Config(uint32_t USART_periph, uint32_t dmacmd);
 FlagStatus USART_Flag_Get(uint32_t USART_periph, USART_Flag_enum flag);
 /* clear flag in STAT0/STAT1 register */
 void USART_Flag_Clear(uint32_t USART_periph, USART_Flag_enum flag);
-/* enable USART interrupt */
+/* enable USART 中断 */
 void USART_Interrupt_Enable(uint32_t USART_periph, USART_Interrupt_enum interrupt);
-/* disable USART interrupt */
+/* disable USART 中断 */
 void USART_Interrupt_Disable(uint32_t USART_periph, USART_Interrupt_enum interrupt);
 /* get USART interrupt and flag status */
 FlagStatus USART_Interrupt_Flag_Get(uint32_t USART_periph, USART_Interrupt_Flag_enum int_flag);

@@ -302,7 +302,7 @@ void TMR2_SetFunc(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Func) {
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Ch                  TMR2 channel.
  *                                      This parameter can be a value of @ref TMR2_Channel
- * @param  [in]  u32Src                 Clock source.
+ * @param  [in]  u32Src                 时钟源.
  *                                      This parameter can be a value of @ref TMR2_Clock_Source
  * @retval None
  */

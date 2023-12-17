@@ -421,7 +421,7 @@ void I2S_Enable(SPI_Type* SPI_x, confirm_state new_state) {
   * @param  SPI_x: select the spi/i2s peripheral.
   *         该参数可以是以下值之一:
   *         SPI1, SPI2, SPI3 ,SPI4 , I2S2EXT, I2S3EXT
-  * @param  SPI_I2S_int: specifies the spi/i2s interrupt sources to be enabled or disabled.
+  * @param  SPI_I2S_int: 指定spi/i2s interrupt sources to be enabled or disabled.
   *         该参数可以是以下值之一:
   *         - SPI_I2S_Error_INT
   *         - SPI_I2S_RDBF_INT

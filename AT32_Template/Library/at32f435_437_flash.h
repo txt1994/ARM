@@ -91,12 +91,12 @@ defined (AT32F437VMT7) || defined (AT32F437ZMT7)
 /**
   * @brief flash interrupts
   */
-#define FLASH_ERR_INT                    FLASH_Bank1_ERR_INT    /*!< flash error interrupt */
-#define FLASH_ODF_INT                    FLASH_Bank1_ODF_INT    /*!< flash operate done interrupt */
-#define FLASH_Bank1_ERR_INT              ((uint32_t)0x00000001) /*!< flash bank1 error interrupt */
-#define FLASH_Bank1_ODF_INT              ((uint32_t)0x00000002) /*!< flash bank1 operate done interrupt */
-#define FLASH_Bank2_ERR_INT              ((uint32_t)0x00000004) /*!< flash bank2 error interrupt */
-#define FLASH_Bank2_ODF_INT              ((uint32_t)0x00000008) /*!< flash bank2 operate done interrupt */
+#define FLASH_ERR_INT                    FLASH_Bank1_ERR_INT    /*!< flash error 中断 */
+#define FLASH_ODF_INT                    FLASH_Bank1_ODF_INT    /*!< flash operate done 中断 */
+#define FLASH_Bank1_ERR_INT              ((uint32_t)0x00000001) /*!< flash bank1 error 中断 */
+#define FLASH_Bank1_ODF_INT              ((uint32_t)0x00000002) /*!< flash bank1 operate done 中断 */
+#define FLASH_Bank2_ERR_INT              ((uint32_t)0x00000004) /*!< flash bank2 error 中断 */
+#define FLASH_Bank2_ODF_INT              ((uint32_t)0x00000008) /*!< flash bank2 operate done 中断 */
 
 /**
   * @brief flash slib mask

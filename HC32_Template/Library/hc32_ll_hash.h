@@ -83,8 +83,8 @@ extern "C"
  * @defgroup HASH_Interrupt HASH Interrupt
  * @{
  */
-#define HASH_INT_GRP                (HASH_CR_HEIE)              /*!< A set of data operations complete interrupt */
-#define HASH_INT_ALL_CPLT           (HASH_CR_HCIE)              /*!< All data operations complete interrupt */
+#define HASH_INT_GRP                (HASH_CR_HEIE)              /*!< A set of data operations complete 中断 */
+#define HASH_INT_ALL_CPLT           (HASH_CR_HCIE)              /*!< All data operations complete 中断 */
 #define HASH_INT_ALL                (HASH_INT_GRP | HASH_INT_ALL_CPLT)
 /**
  * @}

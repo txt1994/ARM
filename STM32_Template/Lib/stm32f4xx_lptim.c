@@ -145,7 +145,7 @@ void LPTIM_DeInit(LPTIM_TypeDef* LPTIMx) {
   * 参数:  LPTIM_InitStruct: 指向LPTIM_InitTypeDef结构的指针，该结构包含指定LPTIM外设的配置信息。
   * 返回值: 无
   *
-  * 注意:   必须禁用外围设备才能使用此功能。
+  * 注意:   必须禁用外设设备才能使用此功能。
   */
 void LPTIM_Init(LPTIM_TypeDef* LPTIMx, LPTIM_InitTypeDef* LPTIM_InitStruct) {
     uint32_t tmpreg1 = 0;
@@ -163,10 +163,10 @@ void LPTIM_Init(LPTIM_TypeDef* LPTIMx, LPTIM_InitTypeDef* LPTIM_InitStruct) {
     /* 清除 CKSEL, PRESC, WAVE and WAVEPOL 位 */
     tmpreg1 &= CFGR_INIT_CLEAR_MASK;
 
-    /* Set or Reset CKSEL bit according to LPTIM_ClockSource 值 */
-    /* Set or Reset PRESC bits according to LPTIM_Prescaler 值 */
-    /* Set or Reset WAVE bit according to LPTIM_Waveform 值 */
-    /* Set or Reset WAVEPOL bit according to LPTIM_OutputPolarity 值 */
+    /* 设置或重置 CKSEL bit 根据 LPTIM_ClockSource 值 */
+    /* 设置或重置 PRESC bits 根据 LPTIM_Prescaler 值 */
+    /* 设置或重置 WAVE bit 根据 LPTIM_Waveform 值 */
+    /* 设置或重置 WAVEPOL bit 根据 LPTIM_OutputPolarity 值 */
     tmpreg1 |= (LPTIM_InitStruct->LPTIM_ClockSource | LPTIM_InitStruct->LPTIM_Prescaler
                 | LPTIM_InitStruct->LPTIM_Waveform | LPTIM_InitStruct->LPTIM_OutputPolarity);
 
@@ -180,16 +180,16 @@ void LPTIM_Init(LPTIM_TypeDef* LPTIMx, LPTIM_InitTypeDef* LPTIM_InitStruct) {
   * 返回值: 无
   */
 void LPTIM_StructInit(LPTIM_InitTypeDef* LPTIM_InitStruct) {
-    /* APB Clock/Low Power oscillators is selected as default Clock source*/
+    /* APB时钟/低功率振荡器被选为默认时钟源*/
     LPTIM_InitStruct->LPTIM_ClockSource = LPTIM_ClockSource_APBClock_LPosc;
 
-    /* High Polarity is selected as default polarity */
+    /* High Polarity被选为默认极性 */
     LPTIM_InitStruct->LPTIM_OutputPolarity = LPTIM_OutputPolarity_High;
 
-    /* DIV=1 is selected as default prescaler */
+    /* DIV=1被选为默认的预分频器 */
     LPTIM_InitStruct->LPTIM_Prescaler = LPTIM_Prescaler_DIV1;
 
-    /* PWM/One pulse mode is selected as default Waveform shape */
+    /* PWM/单脉冲模式被选为默认波形形状 */
     LPTIM_InitStruct->LPTIM_Waveform = LPTIM_Waveform_PWM_OnePulse;
 }
 
@@ -250,7 +250,7 @@ void LPTIM_Cmd(LPTIM_TypeDef* LPTIMx, FunctionalState NewState) {
   *         @arg LPTIM_ClockSource_ULPTIM: 选择ULPTIM(外部输入)。
   * 返回值: 无
   *
-  * 注意:   必须禁用外围设备才能使用此功能。
+  * 注意:   必须禁用外设设备才能使用此功能。
   */
 void LPTIM_SelectClockSource(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_ClockSource) {
     /* 检查参数 */
@@ -274,7 +274,7 @@ void LPTIM_SelectClockSource(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_ClockSource) 
   *     @arg LPTIM_ClockPolarity_BothEdges : Counter Clock = LPTIM Clock / 4
   * 返回值: 无
   *
-  * 注意:   必须禁用外围设备才能使用此功能。
+  * 注意:   必须禁用外设设备才能使用此功能。
   */
 void LPTIM_SelectULPTIMClockPolarity(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_ClockPolarity) {
     uint32_t tmpreg1 = 0;
@@ -311,7 +311,7 @@ void LPTIM_SelectULPTIMClockPolarity(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_Clock
   *     @arg LPTIM_Prescaler_DIV128 : Counter Clock = LPTIM Clock / 128
   * 返回值: 无
   *
-  * 注意:   必须禁用外围设备才能使用此功能。
+  * 注意:   必须禁用外设设备才能使用此功能。
   */
 void LPTIM_ConfigPrescaler(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_Prescaler) {
     uint32_t tmpreg1 = 0;
@@ -353,7 +353,7 @@ void LPTIM_ConfigPrescaler(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_Prescaler) {
   *     @arg LPTIM_ExtTRGPolarity_BothEdges : 选择了两个边的极性
   * 返回值: 无
   *
-  * 注意:   必须禁用外围设备才能使用此功能。
+  * 注意:   必须禁用外设设备才能使用此功能。
   */
 void LPTIM_ConfigExternalTrigger(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_ExtTRGSource, uint32_t LPTIM_ExtTRGPolarity) {
     uint32_t tmpreg1 = 0;
@@ -381,7 +381,7 @@ void LPTIM_ConfigExternalTrigger(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_ExtTRGSou
   * 参数:  LPTIMx: 其中x可以是1。
   * 返回值: 无
   *
-  * 注意:   必须禁用外围设备才能使用此功能。
+  * 注意:   必须禁用外设设备才能使用此功能。
   */
 void LPTIM_SelectSoftwareStart(LPTIM_TypeDef* LPTIMx) {
     /* 检查参数 */
@@ -404,7 +404,7 @@ void LPTIM_SelectSoftwareStart(LPTIM_TypeDef* LPTIMx) {
   *                                               在活动水平上连续8次采样后检测到事件。
   * 返回值: 无
   *
-  * 注意:   必须禁用外围设备才能使用此功能。
+  * 注意:   必须禁用外设设备才能使用此功能。
   * 注意:   必须有一个辅助时钟才能使用这一功能。
   */
 void LPTIM_ConfigTriggerGlitchFilter(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_TrigSampleTime) {
@@ -439,7 +439,7 @@ void LPTIM_ConfigTriggerGlitchFilter(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_TrigS
   *                                                在活动水平上连续8次采样后检测到事件。
   * 返回值: 无
   *
-  * 注意:   必须禁用外围设备才能使用此功能。
+  * 注意:   必须禁用外设设备才能使用此功能。
   * 注意:   必须有一个辅助时钟才能使用这一功能。
   */
 void LPTIM_ConfigClockGlitchFilter(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_ClockSampleTime) {
@@ -493,7 +493,7 @@ void LPTIM_SelectOperatingMode(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_Mode) {
   *         此参数可以是:ENABLE或DISABLE。
   * 返回值: 无
   *
-  * 注意:   必须禁用外围设备才能使用此功能。
+  * 注意:   必须禁用外设设备才能使用此功能。
   */
 void LPTIM_TimoutCmd(LPTIM_TypeDef* LPTIMx, FunctionalState NewState) {
     /* 检查参数 */
@@ -518,7 +518,7 @@ void LPTIM_TimoutCmd(LPTIM_TypeDef* LPTIMx, FunctionalState NewState) {
   *     @arg LPTIM_Waveform_SetOnce : 选择设置一次。
   * 返回值: 无
   *
-  * 注意:   必须禁用外围设备才能使用此功能。
+  * 注意:   必须禁用外设设备才能使用此功能。
   */
 void LPTIM_ConfigWaveform(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_Waveform) {
     /* 检查参数 */
@@ -541,7 +541,7 @@ void LPTIM_ConfigWaveform(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_Waveform) {
   *     @arg LPTIM_Update_EndOfPeriod : 当前计时器预加载结束时更新的寄存器
   * 返回值: 无
   *
-  * 注意:   必须禁用外围设备才能使用此功能。
+  * 注意:   必须禁用外设设备才能使用此功能。
   */
 void LPTIM_ConfigUpdate(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_Update) {
     /* 检查参数 */
@@ -595,7 +595,7 @@ void LPTIM_SetCompareValue(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_Compare) {
   *         此参数可以是:ENABLE或DISABLE。
   * 返回值: 无
   *
-  * 注意:   必须禁用外围设备才能使用此功能。
+  * 注意:   必须禁用外设设备才能使用此功能。
   */
 void LPTIM_SelectCounterMode(LPTIM_TypeDef* LPTIMx, FunctionalState NewState) {
     /* 检查参数 */
@@ -618,7 +618,7 @@ void LPTIM_SelectCounterMode(LPTIM_TypeDef* LPTIMx, FunctionalState NewState) {
   *         此参数可以是:ENABLE或DISABLE。
   * 返回值: 无
   *
-  * 注意:   必须禁用外围设备才能使用此功能。
+  * 注意:   必须禁用外设设备才能使用此功能。
   */
 void LPTIM_SelectEncoderMode(LPTIM_TypeDef* LPTIMx, FunctionalState NewState) {
     /* 检查参数 */
@@ -705,7 +705,7 @@ void LPTIM_RemapConfig(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_OPTR) {
  ===============================================================================
   本节提供了允许配置LPTIM中断、获取状态和清除标志位的函数。
 
-  LPTIM提供7个标志和中断源(只有配备编码器模式接口的LPTIM外围设备上才有2个标志和干扰源)
+  LPTIM提供7个标志和中断源(只有配备编码器模式接口的LPTIM外设设备上才有2个标志和干扰源)
 
   标志和中断源:
   =============================
@@ -714,8 +714,8 @@ void LPTIM_RemapConfig(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_OPTR) {
   3. 外部触发事件。
   4. 自动重新加载寄存器写入完成。
   5. 比较寄存器写入完成。
-  6. 方向改变:从上到下[仅适用于带编码器模式模块的LPTIM外围设备]
-  7. 方向改变:从下到上[仅适用于带编码器模式模块的LPTIM外围设备]
+  6. 方向改变:从上到下[仅适用于带编码器模式模块的LPTIM外设设备]
+  7. 方向改变:从下到上[仅适用于带编码器模式模块的LPTIM外设设备]
 
   - 要启用特定的中断源，请使用"LPTIM_ITConfig"功能。
   - 要检查是否发生了中断，请调用"LPTIM_GetITStatus"函数并读取返回值。
@@ -744,7 +744,7 @@ void LPTIM_RemapConfig(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_OPTR) {
   *         此参数可以是:ENABLE或DISABLE。
   * 返回值: 无
   *
-  * 注意:   必须禁用外围设备才能使用此功能。
+  * 注意:   必须禁用外设设备才能使用此功能。
   */
 void LPTIM_ITConfig(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_IT, FunctionalState NewState) {
     /* 检查参数 */

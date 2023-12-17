@@ -195,7 +195,7 @@ void CRYP_DeInit(void) {
 
 /**
   * 简介:  根据 CRYP_InitStruct 中指定的参数初始化 CRYP 外设。
-  * 参数:  CRYP_InitStruct: 指向包含CRYP外围设备配置信息的CRYP_InitTypeDef结构的指针。
+  * 参数:  CRYP_InitStruct: 指向包含CRYP外设设备配置信息的CRYP_InitTypeDef结构的指针。
   * 返回值: 无
   */
 void CRYP_Init(CRYP_InitTypeDef* CRYP_InitStruct) {
@@ -343,7 +343,7 @@ void CRYP_FIFOFlush(void) {
 }
 
 /**
-  * 简介:  启用或禁用CRYP外围设备。
+  * 简介:  启用或禁用CRYP外设设备。
   * 参数:  NewState: CRYP外围的新状态。
   *          此参数可以是:ENABLE或DISABLE。
   * 返回值: 无
@@ -512,7 +512,7 @@ ErrorStatus CRYP_SaveContext(CRYP_Context* CRYP_ContextSave,
 }
 
 /**
-  * 简介:  恢复 CRYP 外围设备上下文。
+  * 简介:  恢复 CRYP 外设设备上下文。
   * 注意:   由于DMA传输在CRYP_SaveContext()函数中被停止，
   *         在恢复上下文后，你必须再次启用DMA(如果以前使用过DMA)。
   * 参数:  CRYP_ContextRestore: 指向包含已保存上下文的存储库的CRYP_Context结构的指针。

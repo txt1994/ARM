@@ -169,9 +169,9 @@ uint16_t CTC_Counter_Reload_Value_Read(void);
 uint8_t CTC_IRC48M_Trim_Value_Read(void);
 
 /* interrupt & flag functions */
-/* enable the CTC interrupt */
+/* enable the CTC 中断 */
 void CTC_Interrupt_Enable(uint32_t interrupt);
-/* disable the CTC interrupt */
+/* disable the CTC 中断 */
 void CTC_Interrupt_Disable(uint32_t interrupt);
 /* get CTC interrupt flag */
 FlagStatus CTC_Interrupt_Flag_Get(uint32_t int_flag);

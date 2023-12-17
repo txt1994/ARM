@@ -81,7 +81,7 @@ void ACC_SOF_Select(uint16_t sof_sel) {
 
 /**
   * @brief  enable or disable the specified acc interrupts.
-  * @param  ACC_int: specifies the acc interrupt sources to be enabled or disabled.
+  * @param  ACC_int: 指定acc interrupt sources to be enabled or disabled.
   *         该参数可以是以下值之一:
   *         - ACC_CALRDYIEN_INT
   *         - ACC_EIEN_INT
@@ -170,7 +170,7 @@ uint16_t ACC_Read_C3(void) {
 
 /**
   * @brief  check whether the specified acc flag is set or not.
-  * @param  ACC_flag: specifies the flag to check.
+  * @param  ACC_flag: 指定flag to check.
   *         该参数可以是以下值之一:
   *         - ACC_RSLOST_FLAG
   *         - ACC_CALRDY_FLAG
@@ -185,7 +185,7 @@ flag_status ACC_Flag_Get(uint16_t ACC_flag) {
 
 /**
   * @brief  clear the specified acc flag is set or not.
-  * @param  ACC_flag: specifies the flag to check.
+  * @param  ACC_flag: 指定flag to check.
   *         该参数可以是以下值的任意组合:
   *         - ACC_RSLOST_FLAG
   *         - ACC_CALRDY_FLAG

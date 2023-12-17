@@ -250,9 +250,9 @@ typedef struct {
 #define SPI_CRC_RX                      ((uint8_t)0x01U)                        /*!< SPI receive CRC value */
 
 /* SPI/I2S interrupt enable/disable constants definitions */
-#define SPI_I2S_INT_TBE                 ((uint8_t)0x00U)                        /*!< transmit buffer empty interrupt */
-#define SPI_I2S_INT_RBNE                ((uint8_t)0x01U)                        /*!< receive buffer not empty interrupt */
-#define SPI_I2S_INT_ERR                 ((uint8_t)0x02U)                        /*!< error interrupt */
+#define SPI_I2S_INT_TBE                 ((uint8_t)0x00U)                        /*!< transmit buffer empty 中断 */
+#define SPI_I2S_INT_RBNE                ((uint8_t)0x01U)                        /*!< receive buffer not empty 中断 */
+#define SPI_I2S_INT_ERR                 ((uint8_t)0x02U)                        /*!< error 中断 */
 
 /* SPI/I2S interrupt flag constants definitions */
 #define SPI_I2S_INT_Flag_TBE            ((uint8_t)0x00U)                        /*!< transmit buffer empty interrupt flag */
@@ -365,9 +365,9 @@ void SPI_quad_io23_OutPut_Enable(uint32_t SPI_periph);
 void SPI_quad_io23_OutPut_Disable(uint32_t SPI_periph);
 
 /* flag & interrupt functions */
-/* enable SPI and I2S interrupt */
+/* enable SPI and I2S 中断 */
 void SPI_I2S_Interrupt_Enable(uint32_t SPI_periph, uint8_t SPI_I2S_int);
-/* disable SPI and I2S interrupt */
+/* disable SPI and I2S 中断 */
 void SPI_I2S_Interrupt_Disable(uint32_t SPI_periph, uint8_t SPI_I2S_int);
 /* get SPI and I2S interrupt status*/
 FlagStatus SPI_I2S_Interrupt_Flag_Get(uint32_t SPI_periph, uint8_t SPI_I2S_int);

@@ -844,7 +844,7 @@ uint8_t CAN_Transmit_Error_Counter_Get(CAN_Type* CAN_x) {
   * @param  CAN_x: select the can peripheral.
   *         该参数可以是以下值之一:
   *         CAN1,CAN2.
-  * @param  CAN_int: specifies the can interrupt sources to be enabled or disabled.
+  * @param  CAN_int: 指定can interrupt sources to be enabled or disabled.
   *         该参数可以是以下值之一:
   *         - CAN_TCIEN_INT
   *         - CAN_RF0MIEN_INT

@@ -239,7 +239,7 @@
     (   ((x) != 0x00U)                                  &&                          \
         (((x) | PWC_LDO_MASK) == PWC_LDO_MASK))
 
-/* Parameter validity check for WKT Clock Source. */
+/* Parameter validity check for WKT 时钟源. */
 #define IS_PWC_WKT_CLK_SRC(x)                                                   \
     (   ((x)== PWC_WKT_CLK_SRC_64HZ)                    ||                          \
         ((x)== PWC_WKT_CLK_SRC_XTAL32)                  ||                          \
@@ -1143,7 +1143,7 @@ uint8_t PWC_BKR_Read(uint8_t u8RegNum) {
 
 /**
  * @brief  WKT Timer Initialize.
- * @param  [in] u16ClkSrc                Clock source.
+ * @param  [in] u16ClkSrc                时钟源.
  *         This parameter can be one of the following values:
  *  @arg    PWC_WKT_CLK_SRC_64HZ:     64Hz Clock
  *  @arg    PWC_WKT_CLK_SRC_XTAL32:   XTAL32 Clock

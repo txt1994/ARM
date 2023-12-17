@@ -12,15 +12,15 @@
   *          is using in the C source code, usually in main.c. This file contains:
   *           - Configuration section that allows to select:
   *              - The device used in the target application
-  *              - To use or not the peripheral�s drivers in application code(i.e.
-  *                code will be based on direct access to peripheral�s registers
+  *              - To use or not the peripheral’s drivers in application code(i.e.
+  *                code will be based on direct access to peripheral’s registers
   *                rather than drivers API), this option is controlled by
   *                "#define USE_STDPERIPH_DRIVER"
   *              - To change few application-specific parameters such as the HSE
   *                crystal frequency
   *           - Data structures and the address mapping for all peripherals
   *           - Peripherals registers declarations and bits definition
-  *           - Macros to access peripheral�s registers hardware
+  *           - Macros to access peripheral’s registers hardware
   *
   ******************************************************************************
   * @attention
@@ -232,7 +232,7 @@ typedef enum IRQn {
     EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
     TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 global interrupt                    */
     TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 global interrupt                  */
-    TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global interrupt */
+    TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
     TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
     TIM2_IRQn                   = 28,     /*!< TIM2 global Interrupt                                             */
     TIM3_IRQn                   = 29,     /*!< TIM3 global Interrupt                                             */
@@ -251,7 +251,7 @@ typedef enum IRQn {
     OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
     TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 global interrupt                   */
     TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 global interrupt                  */
-    TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global interrupt */
+    TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
     TIM8_CC_IRQn                = 46,     /*!< TIM8 Capture Compare Interrupt                                    */
     DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
     FSMC_IRQn                   = 48,     /*!< FSMC global Interrupt                                             */
@@ -298,7 +298,7 @@ typedef enum IRQn {
                                   EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
                                   TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 global interrupt                    */
                                   TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 global interrupt                  */
-                                  TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global interrupt */
+                                  TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
                                   TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
                                   TIM2_IRQn                   = 28,     /*!< TIM2 global Interrupt                                             */
                                   TIM3_IRQn                   = 29,     /*!< TIM3 global Interrupt                                             */
@@ -317,7 +317,7 @@ typedef enum IRQn {
                                   OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
                                   TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 global interrupt                   */
                                   TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 global interrupt                  */
-                                  TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global interrupt */
+                                  TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
                                   TIM8_CC_IRQn                = 46,     /*!< TIM8 Capture Compare Interrupt                                    */
                                   DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
                                   FMC_IRQn                    = 48,     /*!< FMC global Interrupt                                              */
@@ -371,7 +371,7 @@ typedef enum IRQn {
                                           EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
                                           TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 global interrupt                    */
                                           TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 global interrupt                  */
-                                          TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global interrupt */
+                                          TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
                                           TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
                                           TIM2_IRQn                   = 28,     /*!< TIM2 global Interrupt                                             */
                                           TIM3_IRQn                   = 29,     /*!< TIM3 global Interrupt                                             */
@@ -390,7 +390,7 @@ typedef enum IRQn {
                                           OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
                                           TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 global interrupt                   */
                                           TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 global interrupt                  */
-                                          TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global interrupt */
+                                          TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
                                           TIM8_CC_IRQn                = 46,     /*!< TIM8 Capture Compare Interrupt                                    */
                                           DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
                                           FMC_IRQn                    = 48,     /*!< FMC global Interrupt                                              */
@@ -442,7 +442,7 @@ typedef enum IRQn {
                                                   EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
                                                   TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 global interrupt                    */
                                                   TIM1_UP_IRQn                = 25,     /*!< TIM1 Update Interrupt                                             */
-                                                  TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global interrupt */
+                                                  TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
                                                   TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
                                                   I2C1_EV_IRQn                = 31,     /*!< I2C1 Event Interrupt                                              */
                                                   I2C1_ER_IRQn                = 32,     /*!< I2C1 Error Interrupt                                              */
@@ -478,7 +478,7 @@ typedef enum IRQn {
                                                           EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
                                                           TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 global interrupt                    */
                                                           TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 global interrupt                  */
-                                                          TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global interrupt */
+                                                          TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
                                                           TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
                                                           TIM2_IRQn                   = 28,     /*!< TIM2 global Interrupt                                             */
                                                           TIM3_IRQn                   = 29,     /*!< TIM3 global Interrupt                                             */
@@ -528,7 +528,7 @@ typedef enum IRQn {
                                                                           EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
                                                                           TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 global interrupt                    */
                                                                           TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 global interrupt                  */
-                                                                          TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global interrupt */
+                                                                          TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
                                                                           TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
                                                                           TIM2_IRQn                   = 28,     /*!< TIM2 global Interrupt                                             */
                                                                           TIM3_IRQn                   = 29,     /*!< TIM3 global Interrupt                                             */
@@ -547,7 +547,7 @@ typedef enum IRQn {
                                                                           OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
                                                                           TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 global interrupt                   */
                                                                           TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 global interrupt                  */
-                                                                          TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global interrupt */
+                                                                          TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
                                                                           TIM8_CC_IRQn                = 46,     /*!< TIM8 Capture Compare Interrupt                                    */
                                                                           DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
                                                                           FMC_IRQn                    = 48,     /*!< FMC global Interrupt                                              */
@@ -605,7 +605,7 @@ typedef enum IRQn {
                                                                                   EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
                                                                                   TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 global interrupt                    */
                                                                                   TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 global interrupt                  */
-                                                                                  TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global interrupt */
+                                                                                  TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
                                                                                   TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
                                                                                   TIM2_IRQn                   = 28,     /*!< TIM2 global Interrupt                                             */
                                                                                   TIM3_IRQn                   = 29,     /*!< TIM3 global Interrupt                                             */
@@ -625,7 +625,7 @@ typedef enum IRQn {
                                                                                   TIM8_BRK_IRQn               = 43,     /*!< TIM8 Break Interrupt                                              */
                                                                                   TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 global interrupt                   */
                                                                                   TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 global interrupt                  */
-                                                                                  TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global interrupt */
+                                                                                  TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
                                                                                   DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
                                                                                   FMC_IRQn                    = 48,     /*!< FMC global Interrupt                                              */
                                                                                   SDIO_IRQn                   = 49,     /*!< SDIO global Interrupt                                             */
@@ -675,7 +675,7 @@ typedef enum IRQn {
                                                                                           EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
                                                                                           TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 global interrupt                    */
                                                                                           TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 global interrupt                  */
-                                                                                          TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global interrupt */
+                                                                                          TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
                                                                                           TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
                                                                                           TIM2_IRQn                   = 28,     /*!< TIM2 global Interrupt                                             */
                                                                                           TIM3_IRQn                   = 29,     /*!< TIM3 global Interrupt                                             */
@@ -694,7 +694,7 @@ typedef enum IRQn {
                                                                                           OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
                                                                                           TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 global interrupt                   */
                                                                                           TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 global interrupt                  */
-                                                                                          TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global interrupt */
+                                                                                          TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
                                                                                           TIM8_CC_IRQn                = 46,     /*!< TIM8 Capture Compare Interrupt                                    */
                                                                                           DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
                                                                                           FSMC_IRQn                   = 48,     /*!< FSMC global Interrupt                                              */
@@ -738,7 +738,7 @@ typedef enum IRQn {
                                                                                                   EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
                                                                                                   TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 global interrupt                    */
                                                                                                   TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 global interrupt                  */
-                                                                                                  TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global interrupt */
+                                                                                                  TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
                                                                                                   TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
                                                                                                   TIM2_IRQn                   = 28,     /*!< TIM2 global Interrupt                                             */
                                                                                                   TIM3_IRQn                   = 29,     /*!< TIM3 global Interrupt                                             */
@@ -757,7 +757,7 @@ typedef enum IRQn {
                                                                                                   OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
                                                                                                   TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 global interrupt                   */
                                                                                                   TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 global interrupt                  */
-                                                                                                  TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global interrupt */
+                                                                                                  TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
                                                                                                   TIM8_CC_IRQn                = 46,     /*!< TIM8 Capture Compare Interrupt                                    */
                                                                                                   DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
                                                                                                   SDIO_IRQn                   = 49,     /*!< SDIO global Interrupt                                             */
@@ -2786,9 +2786,9 @@ typedef struct {
 /*******************  Bit definition for CAN_MSR register  ********************/
 #define  CAN_MSR_INAK                        ((uint16_t)0x0001)            /*!<Initialization Acknowledge */
 #define  CAN_MSR_SLAK                        ((uint16_t)0x0002)            /*!<Sleep Acknowledge */
-#define  CAN_MSR_ERRI                        ((uint16_t)0x0004)            /*!<Error Interrupt */
-#define  CAN_MSR_WKUI                        ((uint16_t)0x0008)            /*!<Wakeup Interrupt */
-#define  CAN_MSR_SLAKI                       ((uint16_t)0x0010)            /*!<Sleep Acknowledge Interrupt */
+#define  CAN_MSR_ERRI                        ((uint16_t)0x0004)            /*!<Error 中断 */
+#define  CAN_MSR_WKUI                        ((uint16_t)0x0008)            /*!<Wakeup 中断 */
+#define  CAN_MSR_SLAKI                       ((uint16_t)0x0010)            /*!<Sleep Acknowledge 中断 */
 #define  CAN_MSR_TXM                         ((uint16_t)0x0100)            /*!<Transmit Mode */
 #define  CAN_MSR_RXM                         ((uint16_t)0x0200)            /*!<Receive Mode */
 #define  CAN_MSR_SAMP                        ((uint16_t)0x0400)            /*!<Last Sample Point */
@@ -8581,7 +8581,7 @@ typedef struct {
 #define DSI_WIER_ERIE                    ((uint32_t)0x00000002)              /*!< End of Refresh Interrupt Enable */
 #define DSI_WIER_PLLLIE                  ((uint32_t)0x00000200)              /*!< PLL Lock Interrupt Enable */
 #define DSI_WIER_PLLUIE                  ((uint32_t)0x00000400)              /*!< PLL Unlock Interrupt Enable */
-#define DSI_WIER_RRIE                    ((uint32_t)0x00002000)              /*!< Regulator Ready Interrupt Enable */
+#define DSI_WIER_RRIE                    ((uint32_t)0x00002000)              /*!< Regulator 就绪中断 Enable */
 
 /*******************  Bit definition for DSI_WISR register  ****************/
 #define DSI_WISR_TEIF                    ((uint32_t)0x00000001)              /*!< Tearing Effect Interrupt Flag */
@@ -8591,14 +8591,14 @@ typedef struct {
 #define DSI_WISR_PLLLIF                  ((uint32_t)0x00000200)              /*!< PLL Lock Interrupt Flag */
 #define DSI_WISR_PLLUIF                  ((uint32_t)0x00000400)              /*!< PLL Unlock Interrupt Flag */
 #define DSI_WISR_RRS                     ((uint32_t)0x00001000)              /*!< Regulator Ready Flag */
-#define DSI_WISR_RRIF                    ((uint32_t)0x00002000)              /*!< Regulator Ready Interrupt Flag */
+#define DSI_WISR_RRIF                    ((uint32_t)0x00002000)              /*!< Regulator 就绪中断 Flag */
 
 /*******************  Bit definition for DSI_WIFCR register  ***************/
 #define DSI_WIFCR_CTEIF                  ((uint32_t)0x00000001)              /*!< Clear Tearing Effect Interrupt Flag */
 #define DSI_WIFCR_CERIF                  ((uint32_t)0x00000002)              /*!< Clear End of Refresh Interrupt Flag */
 #define DSI_WIFCR_CPLLLIF                ((uint32_t)0x00000200)              /*!< Clear PLL Lock Interrupt Flag */
 #define DSI_WIFCR_CPLLUIF                ((uint32_t)0x00000400)              /*!< Clear PLL Unlock Interrupt Flag */
-#define DSI_WIFCR_CRRIF                  ((uint32_t)0x00002000)              /*!< Clear Regulator Ready Interrupt Flag */
+#define DSI_WIFCR_CRRIF                  ((uint32_t)0x00002000)              /*!< Clear Regulator 就绪中断 Flag */
 
 /*******************  Bit definition for DSI_WPCR0 register  ***************/
 #define DSI_WPCR0_UIX4                   ((uint32_t)0x0000003F)              /*!< Unit Interval multiplied by 4 */
@@ -8609,8 +8609,8 @@ typedef struct {
 #define DSI_WPCR0_UIX4_4                 ((uint32_t)0x00000010)
 #define DSI_WPCR0_UIX4_5                 ((uint32_t)0x00000020)
 
-#define DSI_WPCR0_SWCL                   ((uint32_t)0x00000040)              /*!< Swap pins on clock lane */
-#define DSI_WPCR0_SWDL0                  ((uint32_t)0x00000080)              /*!< Swap pins on data lane 1 */
+#define DSI_WPCR0_SWCL                   ((uint32_t)0x00000040)              /*!< 交换时钟通道上的引脚 */
+#define DSI_WPCR0_SWDL0                  ((uint32_t)0x00000080)              /*!< 交换数据通道1上的引脚 */
 #define DSI_WPCR0_SWDL1                  ((uint32_t)0x00000100)              /*!< Swap pins on data lane 2 */
 #define DSI_WPCR0_HSICL                  ((uint32_t)0x00000200)              /*!< Invert the high-speed data signal on clock lane */
 #define DSI_WPCR0_HSIDL0                 ((uint32_t)0x00000400)              /*!< Invert the high-speed data signal on lane 1 */
@@ -8631,7 +8631,7 @@ typedef struct {
 #define DSI_WPCR0_TCLKPOSTEN             ((uint32_t)0x08000000)              /*!< Timer for t-CLKPOST Enable */
 
 /*******************  Bit definition for DSI_WPCR1 register  ***************/
-#define DSI_WPCR1_HSTXDCL                ((uint32_t)0x00000003)              /*!< High-Speed Transmission Delay on Clock Lane */
+#define DSI_WPCR1_HSTXDCL                ((uint32_t)0x00000003)              /*!< 时钟通道上的高速传输延迟 */
 #define DSI_WPCR1_HSTXDCL0               ((uint32_t)0x00000001)
 #define DSI_WPCR1_HSTXDCL1               ((uint32_t)0x00000002)
 
@@ -8639,7 +8639,7 @@ typedef struct {
 #define DSI_WPCR1_HSTXDDL0               ((uint32_t)0x00000004)
 #define DSI_WPCR1_HSTXDDL1               ((uint32_t)0x00000008)
 
-#define DSI_WPCR1_LPSRCCL                ((uint32_t)0x000000C0)              /*!< Low-Power transmission Slew Rate Compensation on Clock Lane */
+#define DSI_WPCR1_LPSRCCL                ((uint32_t)0x000000C0)              /*!< 时钟通道上的低功率传输回转速率补偿 */
 #define DSI_WPCR1_LPSRCCL0               ((uint32_t)0x00000040)
 #define DSI_WPCR1_LPSRCCL1               ((uint32_t)0x00000080)
 
@@ -8653,7 +8653,7 @@ typedef struct {
 #define DSI_WPCR1_LPRXVCDL0              ((uint32_t)0x00004000)
 #define DSI_WPCR1_LPRXVCDL1              ((uint32_t)0x00008000)
 
-#define DSI_WPCR1_HSTXSRCCL              ((uint32_t)0x00030000)              /*!< High-Speed Transmission Delay on Clock Lane */
+#define DSI_WPCR1_HSTXSRCCL              ((uint32_t)0x00030000)              /*!< 时钟通道上的高速传输延迟 */
 #define DSI_WPCR1_HSTXSRCCL0             ((uint32_t)0x00010000)
 #define DSI_WPCR1_HSTXSRCCL1             ((uint32_t)0x00020000)
 
@@ -8663,7 +8663,7 @@ typedef struct {
 
 #define DSI_WPCR1_FLPRXLPM               ((uint32_t)0x00400000)              /*!< Forces LP Receiver in Low-Power Mode */
 
-#define DSI_WPCR1_LPRXFT                 ((uint32_t)0x06000000)              /*!< Low-Power RX low-pass Filtering Tuning */
+#define DSI_WPCR1_LPRXFT                 ((uint32_t)0x06000000)              /*!< 低功率RX低通滤波调谐 */
 #define DSI_WPCR1_LPRXFT0                ((uint32_t)0x02000000)
 #define DSI_WPCR1_LPRXFT1                ((uint32_t)0x04000000)
 
@@ -10280,7 +10280,7 @@ typedef struct {
 #define  SAI_xIMR_MUTEDETIE               ((uint32_t)0x00000002)        /*!<Mute detection interrupt enable                                */
 #define  SAI_xIMR_WCKCFGIE                ((uint32_t)0x00000004)        /*!<Wrong Clock Configuration interrupt enable                     */
 #define  SAI_xIMR_FREQIE                  ((uint32_t)0x00000008)        /*!<FIFO request interrupt enable                                  */
-#define  SAI_xIMR_CNRDYIE                 ((uint32_t)0x00000010)        /*!<Codec not ready interrupt enable                               */
+#define  SAI_xIMR_CNRDYIE                 ((uint32_t)0x00000010)        /*!<Codec not 就绪中断 enable                               */
 #define  SAI_xIMR_AFSDETIE                ((uint32_t)0x00000020)        /*!<Anticipated frame synchronization detection interrupt enable   */
 #define  SAI_xIMR_LFSDETIE                ((uint32_t)0x00000040)        /*!<Late frame synchronization detection interrupt enable          */
 
@@ -10333,7 +10333,7 @@ typedef struct {
 
 /*******************  Bit definition for SPDIFRX_IMR register  *******************/
 #define  SPDIFRX_IMR_RXNEIE                   ((uint32_t)0x00000001)        /*!<RXNE interrupt enable                              */
-#define  SPDIFRX_IMR_CSRNEIE                  ((uint32_t)0x00000002)        /*!<Control Buffer Ready Interrupt Enable              */
+#define  SPDIFRX_IMR_CSRNEIE                  ((uint32_t)0x00000002)        /*!<Control Buffer 就绪中断 Enable              */
 #define  SPDIFRX_IMR_PERRIE                   ((uint32_t)0x00000004)        /*!<Parity error interrupt enable                      */
 #define  SPDIFRX_IMR_OVRIE                    ((uint32_t)0x00000008)        /*!<Overrun error Interrupt Enable                     */
 #define  SPDIFRX_IMR_SBLKIE                   ((uint32_t)0x00000010)        /*!<Synchronization Block Detected Interrupt Enable    */
@@ -11472,7 +11472,7 @@ typedef struct {
 #define  WWDG_CFR_WDGTB0                     WWDG_CFR_WDGTB_0
 #define  WWDG_CFR_WDGTB1                     WWDG_CFR_WDGTB_1
 
-#define  WWDG_CFR_EWI                        ((uint16_t)0x0200)            /*!<Early Wakeup Interrupt */
+#define  WWDG_CFR_EWI                        ((uint16_t)0x0200)            /*!<Early Wakeup 中断 */
 
 /*******************  Bit definition for WWDG_SR register  ********************/
 #define  WWDG_SR_EWIF                        ((uint8_t)0x01)               /*!<Early Wakeup Interrupt Flag */

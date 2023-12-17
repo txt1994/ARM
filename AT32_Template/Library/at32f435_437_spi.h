@@ -68,9 +68,9 @@ extern "C" {
   * @{
   */
 
-#define SPI_I2S_Error_INT                0x0020 /*!< error interrupt */
-#define SPI_I2S_RDBF_INT                 0x0040 /*!< receive data buffer full interrupt */
-#define SPI_I2S_TDBE_INT                 0x0080 /*!< transmit data buffer empty interrupt */
+#define SPI_I2S_Error_INT                0x0020 /*!< error 中断 */
+#define SPI_I2S_RDBF_INT                 0x0040 /*!< receive data buffer full 中断 */
+#define SPI_I2S_TDBE_INT                 0x0080 /*!< transmit data buffer empty 中断 */
 
 /**
   * @}

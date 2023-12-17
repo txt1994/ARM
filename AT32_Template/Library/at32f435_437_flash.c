@@ -41,7 +41,7 @@
 
 /**
   * @brief  check whether the specified flash flag is set or not.
-  * @param  FLASH_flag: specifies the flash flag to check.
+  * @param  FLASH_flag: 指定flash flag to check.
   *         该参数可以是 one of flash flag status:
   *         - FLASH_OBF_FLAG
   *         - FLASH_ODF_FLAG
@@ -93,7 +93,7 @@ flag_status FLASH_Flag_Get(uint32_t FLASH_flag) {
 
 /**
   * @brief  clear the flash flag.
-  * @param  FLASH_flag: specifies the flash flags to clear.
+  * @param  FLASH_flag: 指定flash flags to clear.
   *         该参数可以是以下值的任意组合:
   *         - FLASH_ODF_FLAG
   *         - FLASH_PRGMERR_FLAG
@@ -568,8 +568,8 @@ FLASH_Status_Type FLASH_Eopb0_Config(FLASH_Usd_Eopb0_Type data) {
 
 /**
   * @brief  program a word at a specified address.
-  * @param  address: specifies the address to be programmed, word alignment is recommended.
-  * @param  data: specifies the data to be programmed.
+  * @param  address: 指定address to be programmed, word alignment is recommended.
+  * @param  data: 指定data to be programmed.
   * @retval status: the returned value can be: FLASH_PROGRAM_ERROR,
   *         FLASH_EPP_ERROR, FLASH_OPERATE_DONE or FLASH_OPERATE_TIMEOUT.
   */
@@ -600,8 +600,8 @@ FLASH_Status_Type FLASH_Word_program(uint32_t address, uint32_t data) {
 
 /**
   * @brief  program a halfword at a specified address.
-  * @param  address: specifies the address to be programmed, halfword alignment is recommended.
-  * @param  data: specifies the data to be programmed.
+  * @param  address: 指定address to be programmed, halfword alignment is recommended.
+  * @param  data: 指定data to be programmed.
   * @retval status: the returned value can be: FLASH_PROGRAM_ERROR,
   *         FLASH_EPP_ERROR, FLASH_OPERATE_DONE or FLASH_OPERATE_TIMEOUT.
   */
@@ -633,8 +633,8 @@ FLASH_Status_Type FLASH_halfword_program(uint32_t address, uint16_t data) {
 /**
   * @brief  program a byte at a specified address.
   * @note   this function cannot be used to program spim.
-  * @param  address: specifies the address to be programmed.
-  * @param  data: specifies the data to be programmed.
+  * @param  address: 指定address to be programmed.
+  * @param  data: 指定data to be programmed.
   * @retval status: the returned value can be: FLASH_PROGRAM_ERROR,
   *         FLASH_EPP_ERROR, FLASH_OPERATE_DONE or FLASH_OPERATE_TIMEOUT.
   */
@@ -665,8 +665,8 @@ FLASH_Status_Type FLASH_Byte_program(uint32_t address, uint8_t data) {
 
 /**
   * @brief  program a halfword at a specified user system data address.
-  * @param  address: specifies the address to be programmed.
-  * @param  data: specifies the data to be programmed.
+  * @param  address: 指定address to be programmed.
+  * @param  data: 指定data to be programmed.
   * @retval status: the returned value can be: FLASH_PROGRAM_ERROR,
   *         FLASH_EPP_ERROR, FLASH_OPERATE_DONE or FLASH_OPERATE_TIMEOUT.
   */
@@ -919,7 +919,7 @@ uint8_t FLASH_SSB_Status_Get(void) {
 
 /**
   * @brief  enable or disable the specified flash interrupts.
-  * @param  FLASH_int: specifies the flash interrupt sources to be enabled or disabled.
+  * @param  FLASH_int: 指定flash interrupt sources to be enabled or disabled.
   *         该参数可以是以下值的任意组合:
   *         - FLASH_ERR_INT
   *         - FLASH_ODF_INT

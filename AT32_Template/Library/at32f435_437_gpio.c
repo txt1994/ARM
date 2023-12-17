@@ -301,7 +301,7 @@ void GPIO_Bits_Reset(GPIO_Type *gpio_x, uint16_t pins) {
   *         - GPIO_Pins_14
   *         - GPIO_Pins_15
   *         - GPIO_Pins_ALL
-  * @param  bit_state: specifies the value to be written to the selected bit (TRUE or FALSE).
+  * @param  bit_state: 指定value to be written to the selected bit (TRUE or FALSE).
   * @retval 无
   */
 void GPIO_Bits_Write(GPIO_Type *gpio_x, uint16_t pins, confirm_state bit_state) {
@@ -317,7 +317,7 @@ void GPIO_Bits_Write(GPIO_Type *gpio_x, uint16_t pins, confirm_state bit_state) 
   * @param  gpio_x: to select the gpio peripheral.
   *         该参数可以是以下值之一:
   *         GPIOA, GPIOB, GPIOC, GPIOD, GPIOE, GPIOF, GPIOG, GPIOH.
-  * @param  port_value: specifies the value to be written to the port output data register.
+  * @param  port_value: 指定value to be written to the port output data register.
   * @retval 无
   */
 void GPIO_Port_Write(GPIO_Type *gpio_x, uint16_t port_value) {
@@ -407,7 +407,7 @@ void GPIO_Pins_Huge_Driven_Config(GPIO_Type *gpio_x, uint16_t pins, confirm_stat
   * @param  gpio_x: to select the gpio peripheral.
   *         该参数可以是以下值之一:
   *         GPIOA, GPIOB, GPIOC, GPIOD, GPIOE, GPIOF, GPIOG, GPIOH.
-  * @param  gpio_Pin_source: specifies the pin for the muxing function.
+  * @param  gpio_Pin_source: 指定pin for the muxing function.
   *         该参数可以是以下值之一:
   *         - GPIO_Pins_SOURCE0
   *         - GPIO_Pins_SOURCE1

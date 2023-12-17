@@ -39,7 +39,7 @@ void delay_Init(void) {
 
 /**
   * @brief  inserts a delay time.
-  * @param  nus: specifies the delay time length, in microsecond.
+  * @param  nus: 指定delay time length, in microsecond.
   * @retval none
   */
 void delay_us(uint32_t nus) {
@@ -58,7 +58,7 @@ void delay_us(uint32_t nus) {
 
 /**
   * @brief  inserts a delay time.
-  * @param  nms: specifies the delay time length, in milliseconds.
+  * @param  nms: 指定delay time length, in milliseconds.
   * @retval none
   */
 void delay_ms(uint16_t nms) {
@@ -88,7 +88,7 @@ void delay_ms(uint16_t nms) {
 
 /**
   * @brief  inserts a delay time.
-  * @param  sec: specifies the delay time, in seconds.
+  * @param  sec: 指定delay time, in seconds.
   * @retval none
   */
 void delay_sec(uint16_t sec) {

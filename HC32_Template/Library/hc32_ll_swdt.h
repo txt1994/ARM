@@ -150,7 +150,7 @@ typedef struct {
  * @brief    Specifies the exception response when a refresh error or count overflow occurs.
  * @{
  */
-#define SWDT_EXP_TYPE_INT                       (0UL)           /*!< SWDT trigger interrupt */
+#define SWDT_EXP_TYPE_INT                       (0UL)           /*!< SWDT trigger 中断 */
 #define SWDT_EXP_TYPE_RST                       (SWDT_CR_ITS)   /*!< SWDT trigger reset     */
 /**
  * @}

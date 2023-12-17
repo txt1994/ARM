@@ -136,7 +136,7 @@ void CEC_DeInit(void) {
 }
 
 /**
-  * 简介:  根据CEC_InitStruct中指定的参数，初始化CEC外围设备。
+  * 简介:  根据CEC_InitStruct中指定的参数，初始化CEC外设设备。
   * 注意:   在启用CEC外设之前，必须先配置CEC参数。
   * 参数:  CEC_InitStruct: 指向一个CEC_InitTypeDef结构的指针，
   *                        该结构包含了 该结构包含指定CEC外设的配置信息。
@@ -186,7 +186,7 @@ void CEC_StructInit(CEC_InitTypeDef* CEC_InitStruct) {
 }
 
 /**
-  * 简介:  启用或禁用CEC外围设备。
+  * 简介:  启用或禁用CEC外设设备。
   * 参数:  NewState: CEC外设的新状态。
   *          此参数可以是:ENABLE或DISABLE。
   * 返回值: 无
@@ -274,7 +274,7 @@ void CEC_SendData(uint8_t Data) {
 }
 
 /**
-  * 简介:  返回CEC外围设备最近接收的数据。
+  * 简介:  返回CEC外设设备最近接收的数据。
   * 参数:  无
   * 返回值: 接收的数据。
   */
@@ -497,7 +497,7 @@ ITStatus CEC_GetITStatus(uint16_t CEC_IT) {
     /* 获取CEC IT enable bit 状态 */
     enablestatus = (CEC->IER & CEC_IT);
 
-    /* 检查 the status of the specified CEC interrupt */
+    /* 检查 the status of the specified CEC 中断 */
     if (((CEC->ISR & CEC_IT) != (uint32_t)RESET) && enablestatus) {
         /* CEC interrupt 被设置 */
         bitstatus = SET;

@@ -741,7 +741,7 @@ void EMAC_WakeUp_Frame_Filter_Reset(confirm_state new_state) {
 
 /**
   * @brief  read interrupt status
-  * @param  flag: specifies the flag to check.
+  * @param  flag: 指定flag to check.
   *         该参数可以是以下值之一:
   *         - EMAC_PMT_FLAG
   *         - EMAC_MMC_FLAG
@@ -898,10 +898,10 @@ void EMAC_DMA_Descriptor_List_Address_Set(EMAC_DMA_TX_RX_Type transfer_Type, EMA
   */
 void EMAC_DMA_RX_Desc_Interrupt_Config(EMAC_DMA_Desc_Type *DMA_RX_desc, confirm_state new_state) {
     if (new_state != FALSE) {
-        /* enable the dma rx desc receive interrupt */
+        /* enable the dma rx desc receive 中断 */
         DMA_RX_desc->controlsize &= (~(uint32_t)EMAC_DMARXDESC_DIC);
     } else {
-        /* disable the dma rx desc receive interrupt */
+        /* disable the dma rx desc receive 中断 */
         DMA_RX_desc->controlsize |= EMAC_DMARXDESC_DIC;
     }
 }
@@ -1536,7 +1536,7 @@ void EMAC_MMC_Counter_Freeze(confirm_state new_state) {
 
 /**
   * @brief  interupt status of received frames
-  * @param  flag: specifies the flag to check.
+  * @param  flag: 指定flag to check.
   *         该参数可以是以下值之一:
   *         - MMC_RX_CRC_ERROR
   *         - MMC_RX_ALIGN_ERROR
@@ -1570,7 +1570,7 @@ flag_status EMAC_MMC_Transmit_Status_Get(uint32_t flag) {
 
 /**
   * @brief  mask received mmc interrupt
-  * @param  flag: specifies the flag to check.
+  * @param  flag: 指定flag to check.
   *         该参数可以是以下值之一:
   *         - MMC_RX_CRC_ERROR
   *         - MMC_RX_ALIGN_ERROR
@@ -1628,7 +1628,7 @@ void EMAC_MMC_Transmit_Interrupt_Mask_Set(uint32_t flag, confirm_state new_state
 
 /**
   * @brief  get good frame numbers as single collision occurs.
-  * @param  flag: specifies the flag to check.
+  * @param  flag: 指定flag to check.
   *         该参数可以是以下值之一:
   *         - MMC_TX_Single_COL
   *         - MMC_TX_MULTIPLE_COL
@@ -1660,7 +1660,7 @@ uint32_t EMAC_MMC_Transmit_Good_Frames_Get(uint32_t flag) {
 
 /**
   * @brief  get good frame numbers as single collision occurs.
-  * @param  flag: specifies the flag to check.
+  * @param  flag: 指定flag to check.
   *         该参数可以是以下值之一:
   *         - MMC_RX_CRC_ERROR
   *         - MMC_RX_ALIGN_ERROR
@@ -2010,7 +2010,7 @@ static void EMAC_delay(uint32_t delay) {
 
 /**
   * @brief  check whether the specified emac dma flag is set or not.
-  * @param  DMA_flag: specifies the emac dma flag to check.
+  * @param  DMA_flag: 指定emac dma flag to check.
   *         该参数可以是 one of emac dma flag status:
   *         - EMAC_DMA_Ti_FLAG
   *         - EMAC_DMA_TPS_FLAG
@@ -2041,7 +2041,7 @@ flag_status EMAC_DMA_Flag_Get(uint32_t DMA_flag) {
 
 /**
   * @brief  clear the emac dma flag.
-  * @param  DMA_flag: specifies the emac dma flags to clear.
+  * @param  DMA_flag: 指定emac dma flags to clear.
   *         该参数可以是以下值的任意组合:
   *         - EMAC_DMA_Ti_FLAG
   *         - EMAC_DMA_TPS_FLAG

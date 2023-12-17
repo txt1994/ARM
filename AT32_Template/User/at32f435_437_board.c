@@ -159,7 +159,7 @@ void at32_board_Init() {
 
 /**
   * @brief  configure button gpio
-  * @param  button: specifies the button to be configured.
+  * @param  button: 指定button to be configured.
   * @retval none
   */
 void at32_button_Init(void) {
@@ -214,7 +214,7 @@ button_Type at32_button_press() {
 
 /**
   * @brief  configure led gpio
-  * @param  led: specifies the led to be configured.
+  * @param  led: 指定led to be configured.
   * @retval none
   */
 void at32_led_Init(led_Type led) {
@@ -237,7 +237,7 @@ void at32_led_Init(led_Type led) {
 
 /**
   * @brief  turns selected led on.
-  * @param  led: specifies the led to be set on.
+  * @param  led: 指定led to be set on.
   *   this parameter can be one of following parameters:
   *     @arg LED2
   *     @arg LED3
@@ -254,7 +254,7 @@ void at32_led_ON(led_Type led) {
 
 /**
   * @brief  turns selected led off.
-  * @param  led: specifies the led to be set off.
+  * @param  led: 指定led to be set off.
   *   this parameter can be one of following parameters:
   *     @arg LED2
   *     @arg LED3
@@ -271,7 +271,7 @@ void at32_led_off(led_Type led) {
 
 /**
   * @brief  turns selected led toggle.
-  * @param  led: specifies the led to be set off.
+  * @param  led: 指定led to be set off.
   *   this parameter can be one of following parameters:
   *     @arg LED2
   *     @arg LED3
@@ -300,7 +300,7 @@ void delay_Init() {
 
 /**
   * @brief  inserts a delay time.
-  * @param  nus: specifies the delay time length, in microsecond.
+  * @param  nus: 指定delay time length, in microsecond.
   * @retval none
   */
 void delay_us(uint32_t nus) {
@@ -319,7 +319,7 @@ void delay_us(uint32_t nus) {
 
 /**
   * @brief  inserts a delay time.
-  * @param  nms: specifies the delay time length, in milliseconds.
+  * @param  nms: 指定delay time length, in milliseconds.
   * @retval none
   */
 void delay_ms(uint16_t nms) {
@@ -348,7 +348,7 @@ void delay_ms(uint16_t nms) {
 
 /**
   * @brief  inserts a delay time.
-  * @param  sec: specifies the delay time, in seconds.
+  * @param  sec: 指定delay time, in seconds.
   * @retval none
   */
 void delay_sec(uint16_t sec) {

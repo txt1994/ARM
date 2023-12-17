@@ -86,20 +86,20 @@ extern "C" {
   * @{
   */
 
-#define CAN_TCIEN_INT                    ((uint32_t)0x00000001) /*!< transmission complete interrupt */
-#define CAN_RF0MIEN_INT                  ((uint32_t)0x00000002) /*!< receive fifo 0 message interrupt */
-#define CAN_RF0FIEN_INT                  ((uint32_t)0x00000004) /*!< receive fifo 0 full interrupt */
-#define CAN_RF0OIEN_INT                  ((uint32_t)0x00000008) /*!< receive fifo 0 overflow interrupt */
-#define CAN_RF1MIEN_INT                  ((uint32_t)0x00000010) /*!< receive fifo 1 message interrupt */
-#define CAN_RF1FIEN_INT                  ((uint32_t)0x00000020) /*!< receive fifo 1 full interrupt */
-#define CAN_RF1OIEN_INT                  ((uint32_t)0x00000040) /*!< receive fifo 1 overflow interrupt */
-#define CAN_EAIEN_INT                    ((uint32_t)0x00000100) /*!< error active interrupt */
-#define CAN_EPIEN_INT                    ((uint32_t)0x00000200) /*!< error passive interrupt */
-#define CAN_BOIEN_INT                    ((uint32_t)0x00000400) /*!< bus-off interrupt */
-#define CAN_ETRIEN_INT                   ((uint32_t)0x00000800) /*!< error type record interrupt */
-#define CAN_EOIEN_INT                    ((uint32_t)0x00008000) /*!< error occur interrupt */
-#define CAN_QDZIEN_INT                   ((uint32_t)0x00010000) /*!< quit doze mode interrupt */
-#define CAN_EDZIEN_INT                   ((uint32_t)0x00020000) /*!< enter doze mode confirm interrupt */
+#define CAN_TCIEN_INT                    ((uint32_t)0x00000001) /*!< transmission complete 中断 */
+#define CAN_RF0MIEN_INT                  ((uint32_t)0x00000002) /*!< receive fifo 0 message 中断 */
+#define CAN_RF0FIEN_INT                  ((uint32_t)0x00000004) /*!< receive fifo 0 full 中断 */
+#define CAN_RF0OIEN_INT                  ((uint32_t)0x00000008) /*!< receive fifo 0 overflow 中断 */
+#define CAN_RF1MIEN_INT                  ((uint32_t)0x00000010) /*!< receive fifo 1 message 中断 */
+#define CAN_RF1FIEN_INT                  ((uint32_t)0x00000020) /*!< receive fifo 1 full 中断 */
+#define CAN_RF1OIEN_INT                  ((uint32_t)0x00000040) /*!< receive fifo 1 overflow 中断 */
+#define CAN_EAIEN_INT                    ((uint32_t)0x00000100) /*!< error active 中断 */
+#define CAN_EPIEN_INT                    ((uint32_t)0x00000200) /*!< error passive 中断 */
+#define CAN_BOIEN_INT                    ((uint32_t)0x00000400) /*!< bus-off 中断 */
+#define CAN_ETRIEN_INT                   ((uint32_t)0x00000800) /*!< error type record 中断 */
+#define CAN_EOIEN_INT                    ((uint32_t)0x00008000) /*!< error occur 中断 */
+#define CAN_QDZIEN_INT                   ((uint32_t)0x00010000) /*!< quit doze mode 中断 */
+#define CAN_EDZIEN_INT                   ((uint32_t)0x00020000) /*!< enter doze mode confirm 中断 */
 
 /**
   * @}

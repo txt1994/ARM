@@ -103,7 +103,7 @@ __NO_INIT uint32_t HRC_VALUE;
  */
 
 /**
- * @brief  Setup the microcontroller system. Initialize the System and update
+ * @brief  设置微控制器系统. Initialize the System and update
  *         the SystemCoreClock variable.
  * @param  None
  * @retval None
@@ -119,7 +119,7 @@ void SystemInit(void) {
 }
 
 /**
- * @brief  Update SystemCoreClock variable according to Clock Register Values.
+ * @brief  根据时钟寄存器值更新SystemCoreClock变量。
  * @param  None
  * @retval None
  */

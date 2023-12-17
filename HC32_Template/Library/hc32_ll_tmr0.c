@@ -349,7 +349,7 @@ uint16_t TMR0_GetCompareValue(const CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch) {
 }
 
 /**
- * @brief  Set clock source.
+ * @brief  Set 时钟源.
  * @param  [in] TMR0x                   Pointer to TMR0 unit instance
  *         This parameter can be one of the following values:
  *           @arg CM_TMR0 or CM_TMR0_x: TMR0 unit instance

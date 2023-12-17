@@ -5,7 +5,7 @@
   * 版本:    V1.8.0
   * 日期:    04-November-2016
    * 简介:    该文件提供固件功能来管理数模转换器 (DAC) 外设的以下功能:
-  *           + DAC通道配置:触发、输出缓冲器、数据格式
+  *           + DAC通道配置: 触发、输出缓冲器、数据格式
   *           + DMA管理
   *           + 中断和标志管理
   *
@@ -512,10 +512,10 @@ void DAC_ITConfig(uint32_t DAC_Channel, uint32_t DAC_IT, FunctionalState NewStat
     assert_param(IS_DAC_IT(DAC_IT));
 
     if (NewState != DISABLE) {
-        /* 启用 selected DAC interrupts */
+        /* 启用被选定的 DAC 中断 */
         DAC->CR |=  (DAC_IT << DAC_Channel);
     } else {
-        /* 禁用 selected DAC interrupts */
+        /* 禁用被选中的 DAC 中断 */
         DAC->CR &= (~(uint32_t)(DAC_IT << DAC_Channel));
     }
 }
@@ -595,7 +595,7 @@ ITStatus DAC_GetITStatus(uint32_t DAC_Channel, uint32_t DAC_IT) {
     /* 获取DAC_IT enable bit 状态 */
     enablestatus = (DAC->CR & (DAC_IT << DAC_Channel)) ;
 
-    /* 检查 the status of the specified DAC interrupt */
+    /* 检查 the status of the specified DAC 中断 */
     if (((DAC->SR & (DAC_IT << DAC_Channel)) != (uint32_t)RESET) && enablestatus) {
         /* DAC_IT 被设置 */
         bitstatus = SET;

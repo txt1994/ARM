@@ -1685,19 +1685,19 @@ typedef struct {
  */
 #define ETH_DMA_INT_NIE                             (ETH_DMA_INTENAR_NIE)   /*!< Normal interrupt summary */
 #define ETH_DMA_INT_AIE                             (ETH_DMA_INTENAR_AIE)   /*!< Abnormal interrupt summary */
-#define ETH_DMA_INT_ERE                             (ETH_DMA_INTENAR_ERE)   /*!< Early receive interrupt */
-#define ETH_DMA_INT_FBE                             (ETH_DMA_INTENAR_FBE)   /*!< Fatal bus error interrupt */
-#define ETH_DMA_INT_ETE                             (ETH_DMA_INTENAR_ETE)   /*!< Early transmit interrupt */
-#define ETH_DMA_INT_RWE                             (ETH_DMA_INTENAR_RWE)   /*!< Receive watchdog timeout interrupt */
-#define ETH_DMA_INT_RSE                             (ETH_DMA_INTENAR_RSE)   /*!< Receive process stopped interrupt */
-#define ETH_DMA_INT_RUE                             (ETH_DMA_INTENAR_RUE)   /*!< Receive buffer unavailable interrupt */
-#define ETH_DMA_INT_RIE                             (ETH_DMA_INTENAR_RIE)   /*!< Receive interrupt */
-#define ETH_DMA_INT_UNE                             (ETH_DMA_INTENAR_UNE)   /*!< Transmit Underflow interrupt */
-#define ETH_DMA_INT_OVE                             (ETH_DMA_INTENAR_OVE)   /*!< Receive Overflow interrupt */
-#define ETH_DMA_INT_TJE                             (ETH_DMA_INTENAR_TJE)   /*!< Transmit jabber timeout interrupt */
-#define ETH_DMA_INT_TUE                             (ETH_DMA_INTENAR_TUE)   /*!< Transmit buffer unavailable interrupt */
-#define ETH_DMA_INT_TSE                             (ETH_DMA_INTENAR_TSE)   /*!< Transmit process stopped interrupt */
-#define ETH_DMA_INT_TIE                             (ETH_DMA_INTENAR_TIE)   /*!< Transmit interrupt */
+#define ETH_DMA_INT_ERE                             (ETH_DMA_INTENAR_ERE)   /*!< Early receive 中断 */
+#define ETH_DMA_INT_FBE                             (ETH_DMA_INTENAR_FBE)   /*!< Fatal bus error 中断 */
+#define ETH_DMA_INT_ETE                             (ETH_DMA_INTENAR_ETE)   /*!< Early transmit 中断 */
+#define ETH_DMA_INT_RWE                             (ETH_DMA_INTENAR_RWE)   /*!< Receive watchdog timeout 中断 */
+#define ETH_DMA_INT_RSE                             (ETH_DMA_INTENAR_RSE)   /*!< Receive process stopped 中断 */
+#define ETH_DMA_INT_RUE                             (ETH_DMA_INTENAR_RUE)   /*!< Receive buffer unavailable 中断 */
+#define ETH_DMA_INT_RIE                             (ETH_DMA_INTENAR_RIE)   /*!< Receive 中断 */
+#define ETH_DMA_INT_UNE                             (ETH_DMA_INTENAR_UNE)   /*!< Transmit Underflow 中断 */
+#define ETH_DMA_INT_OVE                             (ETH_DMA_INTENAR_OVE)   /*!< Receive Overflow 中断 */
+#define ETH_DMA_INT_TJE                             (ETH_DMA_INTENAR_TJE)   /*!< Transmit jabber timeout 中断 */
+#define ETH_DMA_INT_TUE                             (ETH_DMA_INTENAR_TUE)   /*!< Transmit buffer unavailable 中断 */
+#define ETH_DMA_INT_TSE                             (ETH_DMA_INTENAR_TSE)   /*!< Transmit process stopped 中断 */
+#define ETH_DMA_INT_TIE                             (ETH_DMA_INTENAR_TIE)   /*!< Transmit 中断 */
 #define ETH_DMA_INT_ALL                             (ETH_DMA_INT_NIE | ETH_DMA_INT_AIE | ETH_DMA_INT_ERE | \
         ETH_DMA_INT_FBE | ETH_DMA_INT_ETE | ETH_DMA_INT_RWE | \
         ETH_DMA_INT_RSE | ETH_DMA_INT_RUE | ETH_DMA_INT_RIE | \
@@ -1874,14 +1874,14 @@ typedef struct {
  * @defgroup ETH_MMC_Tx_Interrupt ETH MMC Tx Interrupt
  * @{
  */
-#define ETH_MMC_INT_TXEDEIM                         (ETH_MMC_TITCTLR_TXEDEIM)   /*!< Tx excessive deferral error frame interrupt */
-#define ETH_MMC_INT_TXUGIM                          (ETH_MMC_TITCTLR_TXUGIM)    /*!< Tx unicast good frame interrupt */
-#define ETH_MMC_INT_TXCAEIM                         (ETH_MMC_TITCTLR_TXCAEIM)   /*!< Tx carrier error frame interrupt */
-#define ETH_MMC_INT_TXECEIM                         (ETH_MMC_TITCTLR_TXECEIM)   /*!< Tx excessive collision error frame interrupt */
-#define ETH_MMC_INT_TXLCEIM                         (ETH_MMC_TITCTLR_TXLCEIM)   /*!< Tx deferral collision error frame interrupt */
-#define ETH_MMC_INT_TXDEEIM                         (ETH_MMC_TITCTLR_TXDEEIM)   /*!< Tx deferral error frame interrupt */
-#define ETH_MMC_INT_TXMGIM                          (ETH_MMC_TITCTLR_TXMGIM)    /*!< Tx multicast good frame interrupt */
-#define ETH_MMC_INT_TXBGIM                          (ETH_MMC_TITCTLR_TXBGIM)    /*!< Tx broadcast good frame interrupt */
+#define ETH_MMC_INT_TXEDEIM                         (ETH_MMC_TITCTLR_TXEDEIM)   /*!< Tx excessive deferral error frame 中断 */
+#define ETH_MMC_INT_TXUGIM                          (ETH_MMC_TITCTLR_TXUGIM)    /*!< Tx unicast good frame 中断 */
+#define ETH_MMC_INT_TXCAEIM                         (ETH_MMC_TITCTLR_TXCAEIM)   /*!< Tx carrier error frame 中断 */
+#define ETH_MMC_INT_TXECEIM                         (ETH_MMC_TITCTLR_TXECEIM)   /*!< Tx excessive collision error frame 中断 */
+#define ETH_MMC_INT_TXLCEIM                         (ETH_MMC_TITCTLR_TXLCEIM)   /*!< Tx deferral collision error frame 中断 */
+#define ETH_MMC_INT_TXDEEIM                         (ETH_MMC_TITCTLR_TXDEEIM)   /*!< Tx deferral error frame 中断 */
+#define ETH_MMC_INT_TXMGIM                          (ETH_MMC_TITCTLR_TXMGIM)    /*!< Tx multicast good frame 中断 */
+#define ETH_MMC_INT_TXBGIM                          (ETH_MMC_TITCTLR_TXBGIM)    /*!< Tx broadcast good frame 中断 */
 #define ETH_MMC_INT_TX_ALL                          (ETH_MMC_INT_TXEDEIM | ETH_MMC_INT_TXUGIM  | ETH_MMC_INT_TXCAEIM | \
         ETH_MMC_INT_TXECEIM | ETH_MMC_INT_TXLCEIM | ETH_MMC_INT_TXDEEIM | \
         ETH_MMC_INT_TXMGIM  | ETH_MMC_INT_TXBGIM)
@@ -1893,14 +1893,14 @@ typedef struct {
  * @defgroup ETH_MMC_Rx_Interrupt ETH MMC Rx Interrupt
  * @{
  */
-#define ETH_MMC_INT_RXOEIM                          (ETH_MMC_RITCTLR_RXOEIM)   /*!< Rx out of scope error frame interrupt */
-#define ETH_MMC_INT_RXLEIM                          (ETH_MMC_RITCTLR_RXLEIM)   /*!< Rx length error frame interrupt */
-#define ETH_MMC_INT_RXUGIM                          (ETH_MMC_RITCTLR_RXUGIM)   /*!< Rx unicast good frame interrupt */
-#define ETH_MMC_INT_RXREIM                          (ETH_MMC_RITCTLR_RXREIM)   /*!< Rx short error frame interrupt */
-#define ETH_MMC_INT_RXAEIM                          (ETH_MMC_RITCTLR_RXAEIM)   /*!< Rx alignment error frame interrupt */
-#define ETH_MMC_INT_RXCEIM                          (ETH_MMC_RITCTLR_RXCEIM)   /*!< Rx crc error frame interrupt */
-#define ETH_MMC_INT_RXMGIM                          (ETH_MMC_RITCTLR_RXMGIM)   /*!< Rx multicast good frame interrupt */
-#define ETH_MMC_INT_RXBGIM                          (ETH_MMC_RITCTLR_RXBGIM)   /*!< Rx broadcast good frame interrupt */
+#define ETH_MMC_INT_RXOEIM                          (ETH_MMC_RITCTLR_RXOEIM)   /*!< Rx out of scope error frame 中断 */
+#define ETH_MMC_INT_RXLEIM                          (ETH_MMC_RITCTLR_RXLEIM)   /*!< Rx length error frame 中断 */
+#define ETH_MMC_INT_RXUGIM                          (ETH_MMC_RITCTLR_RXUGIM)   /*!< Rx unicast good frame 中断 */
+#define ETH_MMC_INT_RXREIM                          (ETH_MMC_RITCTLR_RXREIM)   /*!< Rx short error frame 中断 */
+#define ETH_MMC_INT_RXAEIM                          (ETH_MMC_RITCTLR_RXAEIM)   /*!< Rx alignment error frame 中断 */
+#define ETH_MMC_INT_RXCEIM                          (ETH_MMC_RITCTLR_RXCEIM)   /*!< Rx crc error frame 中断 */
+#define ETH_MMC_INT_RXMGIM                          (ETH_MMC_RITCTLR_RXMGIM)   /*!< Rx multicast good frame 中断 */
+#define ETH_MMC_INT_RXBGIM                          (ETH_MMC_RITCTLR_RXBGIM)   /*!< Rx broadcast good frame 中断 */
 #define ETH_MMC_INT_RX_ALL                          (ETH_MMC_INT_RXOEIM | ETH_MMC_INT_RXLEIM | ETH_MMC_INT_RXUGIM | \
         ETH_MMC_INT_RXREIM | ETH_MMC_INT_RXAEIM | ETH_MMC_INT_RXCEIM | \
         ETH_MMC_INT_RXMGIM | ETH_MMC_INT_RXBGIM)

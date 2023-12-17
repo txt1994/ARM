@@ -72,7 +72,7 @@ typedef struct {
 typedef struct {
     uint32_t u32ClockSrc;               /*!< Specifies the clock source for TMR2 channel.
                                              This parameter can be a value of @ref TMR2_Clock_Source */
-    uint32_t u32ClockDiv;               /*!< Specifies the division of the clock source.
+    uint32_t u32ClockDiv;               /*!< Specifies the division of the 时钟源.
                                              This parameter can be a value of @ref TMR2_Clock_Divider */
     uint32_t u32Func;                   /*!< Specifies the function mode for TMR2 channel.
                                              This parameter can be a value of @ref TMR2_Function */
@@ -142,7 +142,7 @@ typedef struct {
  * @defgroup TMR2_Clock_Divider TMR2 Clock Divider
  * @{
  */
-#define TMR2_CLK_DIV1                   (0x0U)                              /*!< Clock source. */
+#define TMR2_CLK_DIV1                   (0x0U)                              /*!< 时钟源. */
 #define TMR2_CLK_DIV2                   (0x1UL << TMR2_BCONR_CKDIVA_POS)    /*!< Clock source / 2. */
 #define TMR2_CLK_DIV4                   (0x2UL << TMR2_BCONR_CKDIVA_POS)    /*!< Clock source / 4. */
 #define TMR2_CLK_DIV8                   (0x3UL << TMR2_BCONR_CKDIVA_POS)    /*!< Clock source / 8. */

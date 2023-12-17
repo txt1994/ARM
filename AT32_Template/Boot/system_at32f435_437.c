@@ -35,7 +35,7 @@
 /** @addtogroup AT32F435_437_System_private_defines
   * @{
   */
-#define VECT_TAB_OFFSET                  0x0 /*!< vector table base offset field. this value must be a multiple of 0x400. */
+#define VECT_TAB_OFFSET                  0x0 /*!< 矢量表基偏移字段。 this value must be a multiple of 0x400. */
 /**
   * @}
   */
@@ -53,7 +53,7 @@ unsigned int system_Core_clock           = HICK_VALUE; /*!< system clock frequen
   */
 
 /**
-  * @brief  setup the microcontroller system
+  * @brief  设置微控制器系统
   *         initialize the flash interface.
   * @note   this function should be used only after reset.
   * @param  none
@@ -90,7 +90,7 @@ void SystemInit (void) {
     /* reset clkout[3], usbbufs, hickdiv, clkoutdiv */
     CRM->misc1 = 0;
 
-    /* disable all interrupts enable and clear pending bits  */
+    /* 禁用所有中断 enable and clear pending bits  */
     CRM->clkint = 0x009F0000U;
 
     #ifdef VECT_TAB_SRAM

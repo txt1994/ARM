@@ -844,11 +844,11 @@ int32_t ETH_Init(stc_eth_handle_t *pstcEthHandle, stc_eth_init_t *pstcEthInit) {
             /* Config MAC,DMA,MMC and PTP */
             (void)ETH_MAC_Init(pstcEthHandle, &pstcEthInit->stcMacInit);
             (void)ETH_DMA_Init(&pstcEthInit->stcDmaInit);
-            /* Mask all MMC interrupts */
+            /* Mask all MMC 中断 */
             ETH_MMC_TxIntCmd(ETH_MMC_INT_TX_ALL, DISABLE);
             ETH_MMC_RxIntCmd(ETH_MMC_INT_RX_ALL, DISABLE);
 
-            /* Enable the ETH Rx Interrupt */
+            /* Enable the ETH Rx 中断 */
             if (ETH_RX_MD_INT == pstcEthHandle->stcCommInit.u32ReceiveMode) {
                 ETH_DMA_IntCmd(ETH_DMA_INT_NIE | ETH_DMA_INT_RIE, ENABLE);
             }
@@ -2292,7 +2292,7 @@ int32_t ETH_DMA_RxDescListInit(stc_eth_handle_t *pstcEthHandle, stc_eth_dma_desc
             /* Set Buffer1 address pointer */
             pstcRxDesc->u32Buf1Addr       = (uint32_t)(&au8RxBuf[i * ETH_RX_BUF_SIZE]);
 
-            /* Set the DMA Rx Descriptor interrupt */
+            /* Set the DMA Rx Descriptor 中断 */
             if (ETH_RX_MD_INT == pstcEthHandle->stcCommInit.u32ReceiveMode) {
                 CLR_REG32_BIT(pstcRxDesc->u32ControlBufSize, ETH_DMA_RXDESC_DIC);
             }

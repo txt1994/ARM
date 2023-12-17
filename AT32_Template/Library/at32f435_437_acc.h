@@ -52,7 +52,7 @@ extern "C" {
 #define ACC_RSLOST_FLAG                  ((uint16_t)0x0002) /*!< acc reference signal lost error flag */
 #define ACC_CALRDY_FLAG                  ((uint16_t)0x0001) /*!< acc internal high-speed clock calibration ready error flag */
 
-#define ACC_CALRDYIEN_INT                ((uint16_t)0x0020) /*!< acc internal high-speed clock calibration ready interrupt enable */
+#define ACC_CALRDYIEN_INT                ((uint16_t)0x0020) /*!< acc internal high-speed clock calibration 就绪中断 enable */
 #define ACC_EIEN_INT                     ((uint16_t)0x0010) /*!< acc reference signal lost interrupt enable */
 
 #define ACC_SOF_OTG1                     ((uint16_t)0x0000) /*!< acc sof signal select: otg1 */

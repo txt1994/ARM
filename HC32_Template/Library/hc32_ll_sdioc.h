@@ -373,8 +373,8 @@ typedef struct {
 #define SDIOC_INT_CINTSEN                       (SDIOC_NORINTSGEN_CINTSEN)   /*!< Card Interrupt                */
 #define SDIOC_INT_CRMSEN                        (SDIOC_NORINTSGEN_CRMSEN)    /*!< Card Removal Interrupt        */
 #define SDIOC_INT_CISTSEN                       (SDIOC_NORINTSGEN_CISTSEN)   /*!< Card Insertion Interrupt      */
-#define SDIOC_INT_BRRSEN                        (SDIOC_NORINTSGEN_BRRSEN)    /*!< Buffer Read Ready Interrupt   */
-#define SDIOC_INT_BWRSEN                        (SDIOC_NORINTSGEN_BWRSEN)    /*!< Buffer Write Ready Interrupt  */
+#define SDIOC_INT_BRRSEN                        (SDIOC_NORINTSGEN_BRRSEN)    /*!< Buffer Read 就绪中断   */
+#define SDIOC_INT_BWRSEN                        (SDIOC_NORINTSGEN_BWRSEN)    /*!< Buffer Write 就绪中断  */
 #define SDIOC_INT_BGESEN                        (SDIOC_NORINTSGEN_BGESEN)    /*!< Block Gap Event Interrupt     */
 #define SDIOC_INT_TCSEN                         (SDIOC_NORINTSGEN_TCSEN)     /*!< Transfer Complete Interrupt   */
 #define SDIOC_INT_CCSEN                         (SDIOC_NORINTSGEN_CCSEN)     /*!< Command Complete Interrupt    */
@@ -383,9 +383,9 @@ typedef struct {
 #define SDIOC_INT_DCESEN                        ((uint32_t)SDIOC_ERRINTSGEN_DCESEN  << 16U)   /*!< Data CRC Error Interrupt        */
 #define SDIOC_INT_DTOESEN                       ((uint32_t)SDIOC_ERRINTSGEN_DTOESEN << 16U)   /*!< Data Timeout Error Interrupt    */
 #define SDIOC_INT_CIESEN                        ((uint32_t)SDIOC_ERRINTSGEN_CIESEN  << 16U)   /*!< Command Index Error Interrupt   */
-#define SDIOC_INT_CEBESEN                       ((uint32_t)SDIOC_ERRINTSGEN_CEBESEN << 16U)   /*!< Command End Bit Error Interrupt */
+#define SDIOC_INT_CEBESEN                       ((uint32_t)SDIOC_ERRINTSGEN_CEBESEN << 16U)   /*!< Command End Bit Error 中断 */
 #define SDIOC_INT_CCESEN                        ((uint32_t)SDIOC_ERRINTSGEN_CCESEN  << 16U)   /*!< Command CRC Error Interrupt     */
-#define SDIOC_INT_CTOESEN                       ((uint32_t)SDIOC_ERRINTSGEN_CTOESEN << 16U)   /*!< Command Timeout Error Interrupt */
+#define SDIOC_INT_CTOESEN                       ((uint32_t)SDIOC_ERRINTSGEN_CTOESEN << 16U)   /*!< Command Timeout Error 中断 */
 #define SDIOC_NORMAL_INT_ALL                    (SDIOC_INT_CINTSEN | SDIOC_INT_CRMSEN | SDIOC_INT_CISTSEN | \
         SDIOC_INT_BRRSEN  | SDIOC_INT_BWRSEN | SDIOC_INT_BGESEN  | \
         SDIOC_INT_TCSEN   | SDIOC_INT_CCSEN)

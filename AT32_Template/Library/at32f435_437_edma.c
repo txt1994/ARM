@@ -334,7 +334,7 @@ uint16_t eDMA_Data_Number_Get(eDMA_Stream_Type *eDMA_streamx) {
   *         - EDMA_STREAM7
   *         - EDMA_STREAM8
   * @param  memory1_Addr: the address of the second buffer.
-  * @param  current_memory: specifies the target area of the first transfer.
+  * @param  current_memory: 指定target area of the first transfer.
   *         该参数可以是以下值之一:
   *         - EDMA_Memory_0
   *         - EDMA_Memory_1

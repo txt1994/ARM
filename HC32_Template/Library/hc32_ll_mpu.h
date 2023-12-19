@@ -328,8 +328,8 @@ typedef struct {
 
 /**
  * @brief  MPU write protect unlock.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void MPU_REG_Unlock(void) {
     WRITE_REG32(CM_MPU->WP, MPU_REG_UNLOCK_KEY);
@@ -337,8 +337,8 @@ __STATIC_INLINE void MPU_REG_Unlock(void) {
 
 /**
  * @brief  MPU write protect lock.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void MPU_REG_Lock(void) {
     WRITE_REG32(CM_MPU->WP, MPU_REG_LOCK_KEY);

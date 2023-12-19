@@ -4,7 +4,7 @@
   * 作者:    MCD Application Team
   * 版本:    V1.8.0
   * 日期:    04-November-2016
-  * 简介:    此文件提供管理SYSCFG外围设备的固件功能。
+  * 简介:    此文件提供管理SYSCFG外设设备的固件功能。
   *
  @verbatim
 
@@ -13,10 +13,10 @@
  ===============================================================================
     [..] 该驱动程序提供以下功能:
 
-       (#)使用SYSCFG_MemoryRemapConfig()重新映射代码区中可访问的内存
-       (#)交换内部闪存Bank1和Bank2此功能仅对STM32F42xxx/43xxx设备设备可见。
-       (#)使用SYSCFG_EXTILineConfig()管理到GPIO的EXTI线路连接
-       (#)使用SYSCFG_ETH_MediaInterfaceConfig()选择以太网媒体接口(RMII/RII)
+       (#) 使用 SYSCFG_MemoryRemapConfig() 重新映射代码区中可访问的内存
+       (#) 交换内部闪存 Bank1 和 Bank2 此功能仅对 STM32F42xxx/43xxx 设备设备可见。
+       (#) 使用 SYSCFG_EXTILineConfig() 管理到GPIO的EXTI线路连接
+       (#) 使用 SYSCFG_ETH_MediaInterfaceConfig() 选择以太网媒体接口(RMII/RII)
 
        -@- 必须启用SYSCFG APB时钟，才能使用RCC_APB2PeriphClockCmd(RCC_APP2PeripH_SYSCFG，ENABLE)
 		  获得对SYSCFG寄存器的写入访问权限；
@@ -104,7 +104,7 @@ void SYSCFG_DeInit(void) {
 
 /**
   * 简介:  更改指定引脚的映射。
-  * 参数:  SYSCFG_Memory: selects the memory remapping.
+  * 参数:  SYSCFG_Memory: 选择内存重新映射。
   *         此参数可以是以下值之一:
   *            @arg SYSCFG_MemoryRemap_Flash:       主闪存映射为0x00000000
   *            @arg SYSCFG_MemoryRemap_SystemFlash: 系统闪存映射为0x00000000
@@ -125,7 +125,7 @@ void SYSCFG_MemoryRemapConfig(uint8_t SYSCFG_MemoryRemap) {
 /**
   * 简介:  启用或禁用内部闪存组交换。
   *
-  * 注意:   此功能只能用于STM32F42xxx/43xxx设备。
+  * 注意:   此函数只能用于STM32F42xxx/43xxx设备。
   *
   * 参数:  NewState: 内部闪存库交换的新状态。
   *          此参数可以是以下值之一:
@@ -236,7 +236,7 @@ void SYSCFG_BreakConfig(uint32_t SYSCFG_Break) {
 #if defined(STM32F413_423xx)
 /**
   * 简介:  选择 DFSDM2 或 TIM2_OC1 作为比特流时钟的时钟源。
-  * 参数: source: BITSTREAM_CLOCK_DFSDM2.
+  * 参数:  source: BITSTREAM_CLOCK_DFSDM2.
   *                BITSTREAM_CLOCK_TIM2OC1.
   * 返回值: 无
   */
@@ -251,7 +251,7 @@ void DFSDM_BitstreamClock_SourceSelection(uint32_t source) {
 
 /**
   * 简介:  禁用 DFSDM1/2 的延迟时钟。
-  * 参数: MCHDLY: MCHDLY_CLOCK_DFSDM2.
+  * 参数:  MCHDLY: MCHDLY_CLOCK_DFSDM2.
   *                MCHDLY_CLOCK_DFSDM1.
   * 返回值: 无
   */
@@ -271,7 +271,7 @@ void DFSDM_DisableDelayClock(uint32_t MCHDLY) {
 
 /**
   * 简介:  启用 DFSDM1/2 的延迟时钟。
-  * 参数: MCHDLY: MCHDLY_CLOCK_DFSDM2.
+  * 参数:  MCHDLY: MCHDLY_CLOCK_DFSDM2.
   *                MCHDLY_CLOCK_DFSDM1.
   * 返回值: 无
   */
@@ -286,7 +286,7 @@ void DFSDM_EnableDelayClock(uint32_t MCHDLY) {
 
 /**
   * 简介:  选择 DFSDM1/2 的 CKin 信号源。
-  * 参数: source: DFSDM2_CKIN_PAD.
+  * 参数:  source: DFSDM2_CKIN_PAD.
   *                DFSDM2_CKIN_DM.
   *                DFSDM1_CKIN_PAD.
   *                DFSDM1_CKIN_DM.
@@ -308,7 +308,7 @@ void DFSDM_ClockIn_SourceSelection(uint32_t source) {
 
 /**
   * 简介:  为 DFSDM1/2 选择 CKOut 信号源。
-  * 参数: source: DFSDM2_CKOUT_DFSDM2.
+  * 参数:  source: DFSDM2_CKOUT_DFSDM2.
   *                DFSDM2_CKOUT_M27.
   *                DFSDM1_CKOUT_DFSDM1.
   *                DFSDM1_CKOUT_M27.
@@ -330,7 +330,7 @@ void DFSDM_ClockOut_SourceSelection(uint32_t source) {
 
 /**
   * 简介:  选择 DFSDM1/2 的 DataIn0 信号源。
-  * 参数: source: DATAIN0_DFSDM2_PAD.
+  * 参数:  source: DATAIN0_DFSDM2_PAD.
   *                DATAIN0_DFSDM2_DATAIN1.
   *                DATAIN0_DFSDM1_PAD.
   *                DATAIN0_DFSDM1_DATAIN1.
@@ -352,7 +352,7 @@ void DFSDM_DataIn0_SourceSelection(uint32_t source) {
 
 /**
   * 简介:  为 DFSDM1/2 选择 DataIn2 信号源。
-  * 参数: source: DATAIN2_DFSDM2_PAD.
+  * 参数:  source: DATAIN2_DFSDM2_PAD.
   *                DATAIN2_DFSDM2_DATAIN3.
   *                DATAIN2_DFSDM1_PAD.
   *                DATAIN2_DFSDM1_DATAIN3.
@@ -374,7 +374,7 @@ void DFSDM_DataIn2_SourceSelection(uint32_t source) {
 
 /**
   * 简介:  为 DFSDM2 选择 DataIn4 信号源。
-  * 参数: source: DATAIN4_DFSDM2_PAD.
+  * 参数:  source: DATAIN4_DFSDM2_PAD.
   *                DATAIN4_DFSDM2_DATAIN5
   * 返回值: 无
   */
@@ -389,7 +389,7 @@ void DFSDM_DataIn4_SourceSelection(uint32_t source) {
 
 /**
   * 简介:  为 DFSDM2 选择 DataIn6 信号源。
-  * 参数: source: DATAIN6_DFSDM2_PAD.
+  * 参数:  source: DATAIN6_DFSDM2_PAD.
   *                DATAIN6_DFSDM2_DATAIN7.
   * 返回值: 无
   */
@@ -405,7 +405,7 @@ void DFSDM_DataIn6_SourceSelection(uint32_t source) {
 
 /**
   * 简介:  配置从 TIM4 门控的比特流时钟的分布。
-  * 参数: source: DFSDM1_CLKIN0_TIM4OC2
+  * 参数:  source: DFSDM1_CLKIN0_TIM4OC2
   *                DFSDM1_CLKIN2_TIM4OC2
   *                DFSDM1_CLKIN1_TIM4OC1
   *                DFSDM1_CLKIN3_TIM4OC1
@@ -427,7 +427,7 @@ void DFSDM1_BitStreamClk_Config(uint32_t source) {
 
 /**
   * 简介:  配置从 TIM3 门控的比特流时钟的分布。
-  * 参数: source: DFSDM2_CLKIN0_TIM3OC4
+  * 参数:  source: DFSDM2_CLKIN0_TIM3OC4
   *                DFSDM2_CLKIN4_TIM3OC4
   *                DFSDM2_CLKIN1_TIM3OC3
   *                DFSDM2_CLKIN5_TIM3OC3

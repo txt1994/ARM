@@ -50,13 +50,13 @@ extern "C" {
   */
 typedef struct {
     uint32_t AutomaticClockLaneControl; /*!< 自动时钟通道控制
-										   该参数可以是@ref DSI_Automatic_Clk_Lane_Control 的任意值 */
+										                    该参数可以是@ref DSI_Automatic_Clk_Lane_Control 的任意值 */
 
     uint32_t TXEscapeCkdiv;             /*!< TX Escape 时钟分频
-										   值 0 和 1 停止 TX_ESC 时钟生成                    */
+										                    值 0 和 1 停止 TX_ESC 时钟生成                    */
 
     uint32_t NumberOfLanes;             /*!< 车道数
-										   此参数可以是@ref DSI_Number_Of_Lanes 的任何值            */
+										                    此参数可以是@ref DSI_Number_Of_Lanes 的任何值            */
 
 } DSI_InitTypeDef;
 
@@ -79,73 +79,73 @@ typedef struct {
   * 简介:  DSI 视频模式配置
   */
 typedef struct {
-    uint32_t VirtualChannelID;             /*!< 虚拟频道 ID                                                 */
+    uint32_t VirtualChannelID;             /*!< 虚拟频道 ID */
 
     uint32_t ColorCoding;                  /*!< LTDC接口的颜色编码
-											  该参数可以是@ref DSI_Color_Coding 的任意值           */
+											                     该参数可以是@ref DSI_Color_Coding 的任意值 */
 
     uint32_t LooselyPacked;                /*!< LTDC接口的颜色编码
-											  该参数可以是@ref DSI_Color_Coding 的任意值         */
+											                     该参数可以是@ref DSI_Color_Coding 的任意值 */
 
     uint32_t Mode;                         /*!< 视频模式类型
-											  该参数可以是@ref DSI_Video_Mode_Type 的任意值        */
+											                     该参数可以是@ref DSI_Video_Mode_Type 的任意值 */
 
-    uint32_t PacketSize;                   /*!< 视频包大小                                                  */
+    uint32_t PacketSize;                   /*!< 视频包大小 */
 
-    uint32_t NumberOfChunks;               /*!< 块数                                                 */
+    uint32_t NumberOfChunks;               /*!< 块数 */
 
-    uint32_t NullPacketSize;               /*!< 空包大小                                                  */
+    uint32_t NullPacketSize;               /*!< 空包大小 */
 
     uint32_t HSPolarity;                   /*!< HSYNC 引脚极性
-											  此参数可以是@ref DSI_HSYNC_Polarity 的任何值         */
+											                     此参数可以是@ref DSI_HSYNC_Polarity 的任何值 */
 
     uint32_t VSPolarity;                   /*!< VSYNC 引脚极性
-											  该参数可以是@ref DSI_VSYNC_Polarity 的任何值         */
+											                     该参数可以是@ref DSI_VSYNC_Polarity 的任何值 */
 
     uint32_t DEPolarity;                   /*!< 数据使能引脚极性
-											  此参数可以是@ref DSI_DATA_ENABLE_Polarity 的任何值   */
+											                     此参数可以是@ref DSI_DATA_ENABLE_Polarity 的任何值 */
 
     uint32_t HorizontalSyncActive;         /*!< 水平同步有效持续时间(以通道字节时钟周期为单位) */
 
-    uint32_t HorizontalBackPorch;          /*!< 水平后沿持续时间(以通道字节时钟周期为单位)         */
+    uint32_t HorizontalBackPorch;          /*!< 水平后沿持续时间(以通道字节时钟周期为单位) */
 
-    uint32_t HorizontalLine;               /*!< 水平线持续时间(以通道字节时钟周期为单位)               */
+    uint32_t HorizontalLine;               /*!< 水平线持续时间(以通道字节时钟周期为单位) */
 
-    uint32_t VerticalSyncActive;           /*!< 垂直同步有效持续时间                               */
+    uint32_t VerticalSyncActive;           /*!< 垂直同步有效持续时间 */
 
-    uint32_t VerticalBackPorch;            /*!< 垂直后廊持续时间                                      */
+    uint32_t VerticalBackPorch;            /*!< 垂直后廊持续时间 */
 
-    uint32_t VerticalFrontPorch;           /*!< 垂直前沿持续时间                                     */
+    uint32_t VerticalFrontPorch;           /*!< 垂直前沿持续时间 */
 
-    uint32_t VerticalActive;               /*!< 垂直活动持续时间                                           */
+    uint32_t VerticalActive;               /*!< 垂直活动持续时间 */
 
     uint32_t LPCommandEnable;              /*!< 低功耗命令使能
-											  此参数可以是@ref DSI_LP_Command 的任何值             */
+											                     此参数可以是@ref DSI_LP_Command 的任何值 */
 
-    uint32_t LPLargestPacketSize;          /*!< 在 VSA、VBP 和 VFP 区域期间可放入一行的低功耗最大数据包的大小(以字节为单位)                  */
+    uint32_t LPLargestPacketSize;          /*!< 在 VSA、VBP 和 VFP 区域期间可放入一行的低功耗最大数据包的大小(以字节为单位) */
 
-    uint32_t LPVACTLargestPacketSize;      /*!< 在 VACT 区域期间可以放入一行的低功耗最大数据包的大小(以字节为单位)                               */
+    uint32_t LPVACTLargestPacketSize;      /*!< 在 VACT 区域期间可以放入一行的低功耗最大数据包的大小(以字节为单位) */
 
     uint32_t LPHorizontalFrontPorchEnable; /*!< 低功耗水平前沿使能
-											  此参数可以是@ref DSI_LP_HFP 的任何值                 */
+											                     此参数可以是@ref DSI_LP_HFP 的任何值 */
 
     uint32_t LPHorizontalBackPorchEnable;  /*!< 低功耗水平后沿使能
-										      此参数可以是@ref DSI_LP_HBP 的任何值                 */
+										                       此参数可以是@ref DSI_LP_HBP 的任何值 */
 
     uint32_t LPVerticalActiveEnable;       /*!< 低功耗垂直有源使能
-											  此参数可以是@ref DSI_LP_VACT 的任何值                */
+											                     此参数可以是@ref DSI_LP_VACT 的任何值 */
 
     uint32_t LPVerticalFrontPorchEnable;   /*!< 低功耗垂直前沿使能
-											  此参数可以是@ref DSI_LP_VFP 的任何值                 */
+											                     此参数可以是@ref DSI_LP_VFP 的任何值 */
 
     uint32_t LPVerticalBackPorchEnable;    /*!< 低功耗垂直后沿使能
-											  该参数可以是@ref DSI_LP_VBP 的任何值                 */
+											                     该参数可以是@ref DSI_LP_VBP 的任何值 */
 
     uint32_t LPVerticalSyncActiveEnable;   /*!< 低功耗垂直同步主动使能
-											  此参数可以是@ref DSI_LP_VSYNC 的任何值               */
+											                     此参数可以是@ref DSI_LP_VSYNC 的任何值 */
 
     uint32_t FrameBTAAcknowledgeEnable;    /*!< 帧总线周转确认启用
-											  此参数可以是@ref DSI_FBTA_acknowledge 的任何值       */
+											                     此参数可以是@ref DSI_FBTA_acknowledge 的任何值 */
 
 } DSI_VidCfgTypeDef;
 
@@ -191,43 +191,43 @@ typedef struct {
   */
 typedef struct {
     uint32_t LPGenShortWriteNoP;  /*!< 通用短写零参数传输
-									 此参数可以是@ref DSI_LP_LPGenShortWriteNoP 的任何值  */
+									                此参数可以是@ref DSI_LP_LPGenShortWriteNoP 的任何值  */
 
     uint32_t LPGenShortWriteOneP; /*!< 通用短写一参数传输
-									 此参数可以是@ref DSI_LP_LPGenShortWriteOneP 的任何值 */
+                                  此参数可以是@ref DSI_LP_LPGenShortWriteOneP 的任何值 */
 
     uint32_t LPGenShortWriteTwoP; /*!< 通用短写两个参数传输
-									 该参数可以是@ref DSI_LP_LPGenShortWriteTwoP 的任何值 */
+                                  该参数可以是@ref DSI_LP_LPGenShortWriteTwoP 的任何值 */
 
     uint32_t LPGenShortReadNoP;   /*!< 通用短读零参数传输
-									 此参数可以是@ref DSI_LP_LPGenShortReadNoP 的任何值   */
+                                  此参数可以是@ref DSI_LP_LPGenShortReadNoP 的任何值   */
 
     uint32_t LPGenShortReadOneP;  /*!< 通用短读一参数传输
-									 此参数可以是@ref DSI_LP_LPGenShortReadOneP 的任何值  */
+                                  此参数可以是@ref DSI_LP_LPGenShortReadOneP 的任何值  */
 
     uint32_t LPGenShortReadTwoP;  /*!< 通用短读两个参数传输
-									 此参数可以是@ref DSI_LP_LPGenShortReadTwoP 的任何值  */
+                                  此参数可以是@ref DSI_LP_LPGenShortReadTwoP 的任何值  */
 
     uint32_t LPGenLongWrite;      /*!< 通用长写传输
-									 此参数可以是@ref DSI_LP_LPGenLongWrite 的任何值     */
+                                  此参数可以是@ref DSI_LP_LPGenLongWrite 的任何值     */
 
     uint32_t LPDcsShortWriteNoP;  /*!< DCS 短写零参数传输
-									 此参数可以是@ref DSI_LP_LPDcsShortWriteNoP 的任何值  */
+                                  此参数可以是@ref DSI_LP_LPDcsShortWriteNoP 的任何值  */
 
     uint32_t LPDcsShortWriteOneP; /*!< DCS 短写一参数传输
-									 此参数可以是@ref DSI_LP_LPDcsShortWriteOneP 的任何值 */
+                                  此参数可以是@ref DSI_LP_LPDcsShortWriteOneP 的任何值 */
 
     uint32_t LPDcsShortReadNoP;   /*!< DCS 短读零参数传输
-									 此参数可以是@ref DSI_LP_LPDcsShortReadNoP 的任何值   */
+                                  此参数可以是@ref DSI_LP_LPDcsShortReadNoP 的任何值   */
 
     uint32_t LPDcsLongWrite;      /*!< DCS 长写传输
-									 此参数可以是@ref DSI_LP_LPDcsLongWrite 的任何值      */
+                                  此参数可以是@ref DSI_LP_LPDcsLongWrite 的任何值      */
 
     uint32_t LPMaxReadPacket;     /*!< 最大读取数据包大小传输
-									 此参数可以是@ref DSI_LP_LPMaxReadPacket 的任何值     */
+                                  此参数可以是@ref DSI_LP_LPMaxReadPacket 的任何值     */
 
     uint32_t AcknowledgeRequest;  /*!< 确认请求启用
-									 此参数可以是@ref DSI_AcknowledgeRequest 的任何值     */
+                                  此参数可以是@ref DSI_AcknowledgeRequest 的任何值     */
 
 } DSI_LPCmdTypeDef;
 
@@ -235,17 +235,17 @@ typedef struct {
   * 简介:  DSI PHY 时序定义
   */
 typedef struct {
-    uint32_t ClockLaneHS2LPTime;        /*!< D-PHY 时钟通道从高速传输到低功耗传输所需的最长时间                                              */
+    uint32_t ClockLaneHS2LPTime;        /*!< D-PHY 时钟通道从高速传输到低功耗传输所需的最长时间      */
 
-    uint32_t ClockLaneLP2HSTime;        /*!< D-PHY 时钟通道从低功耗到高速传输所需的最长时间                                             */
+    uint32_t ClockLaneLP2HSTime;        /*!< D-PHY 时钟通道从低功耗到高速传输所需的最长时间 */
 
-    uint32_t DataLaneHS2LPTime;         /*!< D-PHY 数据通道从高速传输到低功率传输所需的最长时间                                              */
+    uint32_t DataLaneHS2LPTime;         /*!< D-PHY 数据通道从高速传输到低功率传输所需的最长时间 */
 
-    uint32_t DataLaneLP2HSTime;         /*!< D-PHY 数据通道从低功耗传输到高速传输所需的最长时间                                             */
+    uint32_t DataLaneLP2HSTime;         /*!< D-PHY 数据通道从低功耗传输到高速传输所需的最长时间 */
 
     uint32_t DataLaneMaxReadTime;       /*!< 执行读取命令所需的最长时间 */
 
-    uint32_t StopWaitTime;              /*!< 停止状态后请求高速传输的最短等待时间                                                             */
+    uint32_t StopWaitTime;              /*!< 停止状态后请求高速传输的最短等待时间 */
 
 } DSI_PHY_TimerTypeDef;
 
@@ -253,24 +253,24 @@ typedef struct {
   * 简介:  DSI 主机超时定义
   */
 typedef struct {
-    uint32_t TimeoutCkdiv;                 /*!< Time-out clock division                                  */
+    uint32_t TimeoutCkdiv;                 /*!< 超时时钟划分 */
 
-    uint32_t HighSpeedTransmissionTimeout; /*!< High-speed transmission time-out                         */
+    uint32_t HighSpeedTransmissionTimeout; /*!< 高速传输超时 */
 
-    uint32_t LowPowerReceptionTimeout;     /*!< Low-power reception time-out                             */
+    uint32_t LowPowerReceptionTimeout;     /*!< 低功率接收超时 */
 
-    uint32_t HighSpeedReadTimeout;         /*!< High-speed read time-out                                 */
+    uint32_t HighSpeedReadTimeout;         /*!< 高速读取超时 */
 
-    uint32_t LowPowerReadTimeout;          /*!< Low-power read time-out                                  */
+    uint32_t LowPowerReadTimeout;          /*!< 低功耗读取超时 */
 
-    uint32_t HighSpeedWriteTimeout;        /*!< High-speed write time-out                                */
+    uint32_t HighSpeedWriteTimeout;        /*!< 高速写入超时 */
 
-    uint32_t HighSpeedWritePrespMode;      /*!< High-speed write presp mode
+    uint32_t HighSpeedWritePrespMode;      /*!< 高速写预处理模式
                                               此参数可以是@ref DSI_HS_PrespMode */
 
-    uint32_t LowPowerWriteTimeout;         /*!< Low-speed write time-out                                 */
+    uint32_t LowPowerWriteTimeout;         /*!< 低速写入超时 */
 
-    uint32_t BTATimeout;                   /*!< BTA time-out                                             */
+    uint32_t BTATimeout;                   /*!< BTA 超时 */
 
 } DSI_HOST_TimeoutTypeDef;
 

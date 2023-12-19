@@ -111,7 +111,7 @@
  *         This parameter can be a value of @ref DAC_DATA_SRC
  *         - DAC_DATA_SRC_DATAREG:   convert source is from data register
  *         - DAC_DATA_SRC_DCU:       convert source is from DCU
- * @retval None
+ * @retval 无
  */
 void DAC_SetDataSrc(CM_DAC_TypeDef *DACx, uint16_t u16Ch, uint16_t u16Src) {
     DDL_ASSERT(IS_VALID_UNIT(DACx));
@@ -130,7 +130,7 @@ void DAC_SetDataSrc(CM_DAC_TypeDef *DACx, uint16_t u16Ch, uint16_t u16Src) {
  *         This parameter can be a value of @ref DAC_DATAREG_ALIGN_PATTERN
  *         - DAC_DATA_ALIGN_LEFT:  left alignment
  *         - DAC_DATA_ALIGN_RIGHT:  right alignment
- * @retval None
+ * @retval 无
  */
 void DAC_DataRegAlignConfig(CM_DAC_TypeDef *DACx, uint16_t u16Align) {
     DDL_ASSERT(IS_VALID_UNIT(DACx));
@@ -149,7 +149,7 @@ void DAC_DataRegAlignConfig(CM_DAC_TypeDef *DACx, uint16_t u16Align) {
  *         @arg DAC_CH1
  *         @arg DAC_CH2
  * @param  [in] enNewState           An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void DAC_OutputCmd(CM_DAC_TypeDef *DACx, uint16_t u16Ch, en_functional_state_t enNewState) {
     uint16_t u16Cmd;
@@ -177,7 +177,7 @@ void DAC_OutputCmd(CM_DAC_TypeDef *DACx, uint16_t u16Ch, en_functional_state_t e
  *         @arg DAC_CH1
  *         @arg DAC_CH2
  * @param  [in] enNewState           An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void DAC_AMPCmd(CM_DAC_TypeDef *DACx, uint16_t u16Ch, en_functional_state_t enNewState) {
     uint16_t u16Cmd;
@@ -201,7 +201,7 @@ void DAC_AMPCmd(CM_DAC_TypeDef *DACx, uint16_t u16Ch, en_functional_state_t enNe
  *         This parameter can be a value of the following:
  *         @arg CM_DAC or CM_DACx
  * @param  [in] enNewState           An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  * @note   please make sure ADC is in stoped status before calling DAC_ADCPrioCmd
  */
 void DAC_ADCPrioCmd(CM_DAC_TypeDef *DACx, en_functional_state_t enNewState) {
@@ -227,7 +227,7 @@ void DAC_ADCPrioCmd(CM_DAC_TypeDef *DACx, en_functional_state_t enNewState) {
  *         @arg DAC_ADP_SEL_ADC2
  *         @arg DAC_ADP_SEL_ADC3
  * @param  [in] enNewState    An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  * @note   please make sure ADC is in stoped status before calling DAC_ADCPrioConfig
  */
 void DAC_ADCPrioConfig(CM_DAC_TypeDef *DACx, uint16_t u16ADCxPrio, en_functional_state_t enNewState) {
@@ -311,7 +311,7 @@ int32_t DAC_Stop(CM_DAC_TypeDef *DACx, uint16_t u16Ch) {
  * @param  [in] DACx   Pointer to the DAC peripheral register.
  *         This parameter can be a value of the following:
  *         @arg CM_DAC or CM_DACx
- * @retval None
+ * @retval 无
  */
 void DAC_StartDualCh(CM_DAC_TypeDef *DACx) {
     DDL_ASSERT(IS_VALID_UNIT(DACx));
@@ -324,7 +324,7 @@ void DAC_StartDualCh(CM_DAC_TypeDef *DACx) {
  * @param  [in] DACx   Pointer to the DAC peripheral register.
  *         This parameter can be a value of the following:
  *         @arg CM_DAC or CM_DACx
- * @retval None
+ * @retval 无
  */
 void DAC_StopDualCh(CM_DAC_TypeDef *DACx) {
     DDL_ASSERT(IS_VALID_UNIT(DACx));
@@ -342,7 +342,7 @@ void DAC_StopDualCh(CM_DAC_TypeDef *DACx) {
  *         @arg DAC_CH1
  *         @arg DAC_CH2
  * @param  [in] u16Data   Data to be loaded into data holding register of specified channel
- * @retval None
+ * @retval 无
  */
 void DAC_SetChData(CM_DAC_TypeDef *DACx, uint16_t u16Ch, uint16_t u16Data) {
     __IO uint16_t *u16DADRx;
@@ -367,7 +367,7 @@ void DAC_SetChData(CM_DAC_TypeDef *DACx, uint16_t u16Ch, uint16_t u16Data) {
  *         @arg CM_DAC or CM_DACx
  * @param  u16Data1:    Data to be loaded into data holding register of channel 1
  * @param  u16Data2:    Data to be loaded into data holding register of channel 2
- * @retval None
+ * @retval 无
  */
 void DAC_SetDualChData(CM_DAC_TypeDef *DACx, uint16_t u16Data1, uint16_t u16Data2) {
     uint32_t u32Data;
@@ -476,7 +476,7 @@ int32_t DAC_Init(CM_DAC_TypeDef *DACx, uint16_t u16Ch, const stc_dac_init_t *pst
  * @param  [in] DACx       Pointer to the DAC peripheral register.
  *         This parameter can be a value of the following:
  *         @arg CM_DAC or CM_DACx
- * @retval None
+ * @retval 无
  */
 void DAC_DeInit(CM_DAC_TypeDef *DACx) {
     __IO uint32_t *u32DADRx;

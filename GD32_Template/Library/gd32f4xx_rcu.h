@@ -476,7 +476,7 @@ OF SUCH DAMAGE.
 #define BDCTL_REG_OFFSET                0x70U                     /*!< backup domain control register offset */
 #define ADDCTL_REG_OFFSET               0xC0U                     /*!< additional clock control register offset */
 
-/* clock stabilization and stuck interrupt */
+/* clock stabilization and stuck 中断 */
 #define INT_REG_OFFSET                  0x0CU                     /*!< clock interrupt register offset */
 #define ADDINT_REG_OFFSET               0xCCU                     /*!< additional clock interrupt register offset */
 
@@ -770,14 +770,14 @@ typedef enum {
 
 /* clock stabilization interrupt enable or disable */
 typedef enum {
-    RCU_INT_IRC32KSTB       = RCU_REGIDX_BIT(INT_REG_OFFSET, 8U),           /*!< IRC32K stabilization interrupt */
-    RCU_INT_LXTALSTB        = RCU_REGIDX_BIT(INT_REG_OFFSET, 9U),           /*!< LXTAL stabilization interrupt */
-    RCU_INT_IRC16MSTB       = RCU_REGIDX_BIT(INT_REG_OFFSET, 10U),          /*!< IRC16M stabilization interrupt */
-    RCU_INT_HXTALSTB        = RCU_REGIDX_BIT(INT_REG_OFFSET, 11U),          /*!< HXTAL stabilization interrupt */
-    RCU_INT_PLLSTB          = RCU_REGIDX_BIT(INT_REG_OFFSET, 12U),          /*!< PLL stabilization interrupt */
-    RCU_INT_PLLI2SSTB       = RCU_REGIDX_BIT(INT_REG_OFFSET, 13U),          /*!< PLLI2S stabilization interrupt */
-    RCU_INT_PLLSAISTB       = RCU_REGIDX_BIT(INT_REG_OFFSET, 14U),          /*!< PLLSAI stabilization interrupt */
-    RCU_INT_IRC48MSTB       = RCU_REGIDX_BIT(ADDINT_REG_OFFSET, 14U),       /*!< internal 48 MHz RC oscillator stabilization interrupt */
+    RCU_INT_IRC32KSTB       = RCU_REGIDX_BIT(INT_REG_OFFSET, 8U),           /*!< IRC32K stabilization 中断 */
+    RCU_INT_LXTALSTB        = RCU_REGIDX_BIT(INT_REG_OFFSET, 9U),           /*!< LXTAL stabilization 中断 */
+    RCU_INT_IRC16MSTB       = RCU_REGIDX_BIT(INT_REG_OFFSET, 10U),          /*!< IRC16M stabilization 中断 */
+    RCU_INT_HXTALSTB        = RCU_REGIDX_BIT(INT_REG_OFFSET, 11U),          /*!< HXTAL stabilization 中断 */
+    RCU_INT_PLLSTB          = RCU_REGIDX_BIT(INT_REG_OFFSET, 12U),          /*!< PLL stabilization 中断 */
+    RCU_INT_PLLI2SSTB       = RCU_REGIDX_BIT(INT_REG_OFFSET, 13U),          /*!< PLLI2S stabilization 中断 */
+    RCU_INT_PLLSAISTB       = RCU_REGIDX_BIT(INT_REG_OFFSET, 14U),          /*!< PLLSAI stabilization 中断 */
+    RCU_INT_IRC48MSTB       = RCU_REGIDX_BIT(ADDINT_REG_OFFSET, 14U),       /*!< internal 48 MHz RC oscillator stabilization 中断 */
 } RCU_int_enum;
 
 /* oscillator types */
@@ -1166,9 +1166,9 @@ void RCU_all_reset_Flag_Clear(void);
 FlagStatus RCU_Interrupt_Flag_Get(RCU_int_Flag_enum int_flag);
 /* clear the interrupt flags */
 void RCU_Interrupt_Flag_Clear(RCU_int_Flag_Clear_enum int_flag);
-/* enable the stabilization interrupt */
+/* enable the stabilization 中断 */
 void RCU_Interrupt_Enable(RCU_int_enum interrupt);
-/* disable the stabilization interrupt */
+/* disable the stabilization 中断 */
 void RCU_Interrupt_Disable(RCU_int_enum interrupt);
 
 #endif /* GD32F4XX_RCU_H */

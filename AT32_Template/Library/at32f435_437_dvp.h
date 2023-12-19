@@ -77,11 +77,11 @@ extern "C" {
   * @{
   */
 
-#define DVP_CFD_INT                      ((uint32_t)0x00000001) /*!< capture frame done interrupt */
-#define DVP_OVR_INT                      ((uint32_t)0x00000002) /*!< data fifo overrun interrupt */
-#define DVP_ESE_INT                      ((uint32_t)0x00000004) /*!< embedded synchronization error interrupt */
-#define DVP_VS_INT                       ((uint32_t)0x00000008) /*!< vertical synchonization interrupt */
-#define DVP_HS_INT                       ((uint32_t)0x00000010) /*!< horizontal synchonization interrupt */
+#define DVP_CFD_INT                      ((uint32_t)0x00000001) /*!< capture frame done 中断 */
+#define DVP_OVR_INT                      ((uint32_t)0x00000002) /*!< data fifo overrun 中断 */
+#define DVP_ESE_INT                      ((uint32_t)0x00000004) /*!< embedded synchronization error 中断 */
+#define DVP_VS_INT                       ((uint32_t)0x00000008) /*!< vertical synchonization 中断 */
+#define DVP_HS_INT                       ((uint32_t)0x00000010) /*!< horizontal synchonization 中断 */
 
 /**
   * @}

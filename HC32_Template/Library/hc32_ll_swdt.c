@@ -171,8 +171,8 @@ int32_t SWDT_Init(const stc_swdt_init_t *pstcSwdtInit) {
 /**
  * @brief  SWDT feed dog.
  * @note   In software startup mode, Start counter when refreshing for the first time.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void SWDT_FeedDog(void) {
     WRITE_REG32(CM_SWDT->RR, SWDT_REFRESH_KEY_START);

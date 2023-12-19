@@ -218,11 +218,11 @@ void SDIO_DMA_Enable(SDIO_Type *SDIO_x, confirm_state new_state) {
   * @retval 无
   */
 void SDIO_Interrupt_Enable(SDIO_Type *SDIO_x, uint32_t int_opt,  confirm_state new_state) {
-    /* enable interrupt */
+    /* enable 中断 */
     if(TRUE == new_state) {
         SDIO_x->inten |= int_opt;
     }
-    /* disable interrupt */
+    /* disable 中断 */
     else {
         SDIO_x->inten &= ~(int_opt);
     }

@@ -264,7 +264,7 @@ typedef struct {
  */
 #define EXMC_SMC_SAMPLE_CLK_INTERNCLK           (0UL)               /*!< Internal EXCLK */
 #define EXMC_SMC_SAMPLE_CLK_INTERNCLK_INVT      (SMC_BACR_CKSEL_0)  /*!< Invert internal EXCLK */
-#define EXMC_SMC_SAMPLE_CLK_EXTCLK              (SMC_BACR_CKSEL_1)  /*!< External clock from EXMC_CLK port */
+#define EXMC_SMC_SAMPLE_CLK_EXTCLK              (SMC_BACR_CKSEL_1)  /*!< External 时钟来自于 EXMC_CLK port */
 /**
  * @}
  */
@@ -322,8 +322,8 @@ typedef struct {
 
 /**
  * @brief  SMC entry low power state
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void EXMC_SMC_EntryLowPower(void) {
     WRITE_REG32(CM_SMC->STCR0, SMC_STCR0_LPWIR);
@@ -331,8 +331,8 @@ __STATIC_INLINE void EXMC_SMC_EntryLowPower(void) {
 
 /**
  * @brief  SMC exit low power state
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void EXMC_SMC_ExitLowPower(void) {
     WRITE_REG32(CM_SMC->STCR1, SMC_STCR1_LPWOR);
@@ -340,7 +340,7 @@ __STATIC_INLINE void EXMC_SMC_ExitLowPower(void) {
 
 /**
  * @brief  Get SMC status
- * @param  None
+ * @param  无
  * @retval Returned value can be one of the macros group @ref EXMC_SMC_Status
  *           - EXMC_SMC_READY: SMC is ready
  *           - EXMC_SMC_LOWPOWER: SMC is low power

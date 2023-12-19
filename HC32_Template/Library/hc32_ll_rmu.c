@@ -102,8 +102,8 @@ en_flag_status_t RMU_GetStatus(uint32_t u32RmuResetCause) {
 
 /**
  * @brief  Clear reset Status.
- * @param  None
- * @retval NOne
+ * @param  无
+ * @retval 无
  * @note   Clear reset flag should be done after read RMU_RSTF0 register.
  *         Call PWC_Unlock(PWC_UNLOCK_CODE_1) unlock RMU_RSTF0 register first.
  */
@@ -121,7 +121,7 @@ void RMU_ClearStatus(void) {
 /**
  * @brief  Enable or disable LOCKUP reset.
  * @param  [in] enNewState    An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  * @note   Call LL_PERIPH_WE(LL_PERIPH_PWC_CLK_RMU) unlock RMU_PRSTCR0 register first.
  */
 void RMU_CPULockUpCmd(en_functional_state_t enNewState) {

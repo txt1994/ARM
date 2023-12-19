@@ -375,8 +375,8 @@ int32_t CRC_Init(const stc_crc_init_t *pstcCrcInit) {
 
 /**
  * @brief  De-initialize the CRC.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void CRC_DeInit(void) {
     WRITE_REG32(CM_CRC->CR, CRC_CR_RST_VALUE);
@@ -384,7 +384,7 @@ void CRC_DeInit(void) {
 
 /**
  * @brief  Get status of the CRC operation result.
- * @param  None
+ * @param  无
  * @retval An @ref en_flag_status_t enumeration type value.
  */
 en_flag_status_t CRC_GetResultStatus(void) {

@@ -179,8 +179,8 @@ extern "C"
 
 /**
  * @brief  Lock SRAM registers, write protect.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void SRAM_REG_Lock(void) {
     WRITE_REG32(CM_SRAMC->WTPR, SRAM_REG_LOCK_KEY);
@@ -189,8 +189,8 @@ __STATIC_INLINE void SRAM_REG_Lock(void) {
 
 /**
  * @brief  Unlock SRAM registers, write enable.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void SRAM_REG_Unlock(void) {
     WRITE_REG32(CM_SRAMC->WTPR, SRAM_REG_UNLOCK_KEY);

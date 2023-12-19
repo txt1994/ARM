@@ -293,8 +293,8 @@ int32_t EXMC_SMC_Init(uint32_t u32Chip, const stc_exmc_smc_init_t *pstcSmcInit) 
 
 /**
  * @brief  De-Initialize EXMC_SMC function.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void EXMC_SMC_DeInit(void) {
     /* Disable SMC */
@@ -310,7 +310,7 @@ void EXMC_SMC_DeInit(void) {
 /**
  * @brief  Enable/Disable SMC.
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void EXMC_SMC_Cmd(en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -325,7 +325,7 @@ void EXMC_SMC_Cmd(en_functional_state_t enNewState) {
 /**
  * @brief  Enable or disable SMC pin mux.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void EXMC_SMC_PinMuxCmd(en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -343,8 +343,8 @@ void EXMC_SMC_PinMuxCmd(en_functional_state_t enNewState) {
  *         This parameter can be one of the macros group @ref EXMC_SMC_Command
  *           @arg EXMC_SMC_SAMPLE_CLK_INTERNCLK:      Internal EXCLK
  *           @arg EXMC_SMC_SAMPLE_CLK_INTERNCLK_INVT: Invert internal EXCLK
- *           @arg EXMC_SMC_SAMPLE_CLK_EXTCLK:         External clock from EXMC_CLK port
- * @retval None
+ *           @arg EXMC_SMC_SAMPLE_CLK_EXTCLK:         External 时钟来自于 EXMC_CLK port
+ * @retval 无
  */
 void EXMC_SMC_SetSampleClock(uint32_t u32SampleClock) {
     DDL_ASSERT(IS_EXMC_SMC_SAMPLE_CLK(u32SampleClock));
@@ -356,7 +356,7 @@ void EXMC_SMC_SetSampleClock(uint32_t u32SampleClock) {
  * @brief  Set SMC refresh period value
  * @param  [in] u8PeriodVal             The SMC refresh period value
  *           @arg This parameter can be a value between Min_Data = 0 and Max_Data = 0x0F
- * @retval None
+ * @retval 无
  */
 void EXMC_SMC_SetRefreshPeriod(uint8_t u8PeriodVal) {
     DDL_ASSERT(IS_EXMC_SMC_REFRESH_PERIOD(u8PeriodVal));
@@ -379,7 +379,7 @@ void EXMC_SMC_SetRefreshPeriod(uint8_t u8PeriodVal) {
  *           @arg EXMC_SMC_CRE_POLARITY_HIGH: CRE is HIGH when ModeReg write occurs
  * @param  [in] u32Addr                 The address parameter is valid when CMD type is MdRegConfig or MdRegConfig
  *                                      and UpdateRegs only.
- * @retval None
+ * @retval 无
  */
 void EXMC_SMC_SetCommand(uint32_t u32Chip, uint32_t u32Cmd, uint32_t u32CrePolarity, uint32_t u32Addr) {
     uint32_t u32SmcCmdr;

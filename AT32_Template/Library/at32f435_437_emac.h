@@ -253,19 +253,19 @@ extern "C" {
 /**
   * @brief  emac dma flag
   */
-#define EMAC_DMA_Ti_FLAG                 ((uint32_t)0x00000001) /*!< emac dma transmit interrupt */
+#define EMAC_DMA_Ti_FLAG                 ((uint32_t)0x00000001) /*!< emac dma transmit 中断 */
 #define EMAC_DMA_TPS_FLAG                ((uint32_t)0x00000002) /*!< emac dma transmit process stopped */
 #define EMAC_DMA_TBU_FLAG                ((uint32_t)0x00000004) /*!< emac dma transmit buffer unavailable */
 #define EMAC_DMA_TJT_FLAG                ((uint32_t)0x00000008) /*!< emac dma transmit jabber timeout */
 #define EMAC_DMA_OVF_FLAG                ((uint32_t)0x00000010) /*!< emac dma receive overflow */
 #define EMAC_DMA_UNF_FLAG                ((uint32_t)0x00000020) /*!< emac dma transmit underflow */
-#define EMAC_DMA_RI_FLAG                 ((uint32_t)0x00000040) /*!< emac dma receive interrupt */
+#define EMAC_DMA_RI_FLAG                 ((uint32_t)0x00000040) /*!< emac dma receive 中断 */
 #define EMAC_DMA_RBU_FLAG                ((uint32_t)0x00000080) /*!< emac dma receive buffer unavailable */
 #define EMAC_DMA_RPS_FLAG                ((uint32_t)0x00000100) /*!< emac dma receive process stopped */
 #define EMAC_DMA_RWT_FLAG                ((uint32_t)0x00000200) /*!< emac dma receive watchdog timeout */
-#define EMAC_DMA_ETI_FLAG                ((uint32_t)0x00000400) /*!< emac dma early transmit interrupt */
-#define EMAC_DMA_FBEI_FLAG               ((uint32_t)0x00002000) /*!< emac dma fatal bus error interrupt */
-#define EMAC_DMA_ERI_FLAG                ((uint32_t)0x00004000) /*!< emac dma early receive interrupt */
+#define EMAC_DMA_ETI_FLAG                ((uint32_t)0x00000400) /*!< emac dma early transmit 中断 */
+#define EMAC_DMA_FBEI_FLAG               ((uint32_t)0x00002000) /*!< emac dma fatal bus error 中断 */
+#define EMAC_DMA_ERI_FLAG                ((uint32_t)0x00004000) /*!< emac dma early receive 中断 */
 #define EMAC_DMA_AIS_FLAG                ((uint32_t)0x00008000) /*!< emac dma abnormal interrupt summary */
 #define EMAC_DMA_NIS_FLAG                ((uint32_t)0x00010000) /*!< emac dma normal interrupt summary */
 
@@ -356,8 +356,8 @@ typedef enum {
   * @brief  interrupt mask type
   */
 typedef enum {
-    EMAC_Interrupt_PMT_MASK                = 0x00, /*!< mask pmt interrupt */
-    EMAC_Interrupt_TST_MASK                = 0x01  /*!< mask tst interrupt */
+    EMAC_Interrupt_PMT_MASK                = 0x00, /*!< mask pmt 中断 */
+    EMAC_Interrupt_TST_MASK                = 0x01  /*!< mask tst 中断 */
 } EMAC_Interrupt_Mask_Type;
 
 /**
@@ -487,19 +487,19 @@ typedef enum {
   * @brief  dma interrupt type
   */
 typedef enum {
-    EMAC_DMA_Interrupt_TX                  = 0x00, /*!< transmit interrupt */
-    EMAC_DMA_Interrupt_TX_STOP             = 0x01, /*!< transmit process stopped interrupt */
-    EMAC_DMA_Interrupt_TX_UNAVAILABLE      = 0x02, /*!< transmit buffer unavailable interrupt */
-    EMAC_DMA_Interrupt_TX_JABBER           = 0x03, /*!< transmit jabber timeout interrupt */
-    EMAC_DMA_Interrupt_RX_OVERFLOW         = 0x04, /*!< receive overflow interrupt */
-    EMAC_DMA_Interrupt_TX_UNDERFLOW        = 0x05, /*!< transmit underflow interrupt */
-    EMAC_DMA_Interrupt_RX                  = 0x06, /*!< receive interrupt */
-    EMAC_DMA_Interrupt_RX_UNAVAILABLE      = 0x07, /*!< receive buffer unavailable interrupt */
-    EMAC_DMA_Interrupt_RX_STOP             = 0x08, /*!< receive process stopped interrupt */
-    EMAC_DMA_Interrupt_RX_TIMEOUT          = 0x09, /*!< receive watchdog timeout interrupt */
-    EMAC_DMA_Interrupt_TX_EARLY            = 0x0A, /*!< early transmit interrupt */
-    EMAC_DMA_Interrupt_FATAL_Bus_ERROR     = 0x0B, /*!< fatal bus error interrupt */
-    EMAC_DMA_Interrupt_RX_EARLY            = 0x0C, /*!< early receive interrupt */
+    EMAC_DMA_Interrupt_TX                  = 0x00, /*!< transmit 中断 */
+    EMAC_DMA_Interrupt_TX_STOP             = 0x01, /*!< transmit process stopped 中断 */
+    EMAC_DMA_Interrupt_TX_UNAVAILABLE      = 0x02, /*!< transmit buffer unavailable 中断 */
+    EMAC_DMA_Interrupt_TX_JABBER           = 0x03, /*!< transmit jabber timeout 中断 */
+    EMAC_DMA_Interrupt_RX_OVERFLOW         = 0x04, /*!< receive overflow 中断 */
+    EMAC_DMA_Interrupt_TX_UNDERFLOW        = 0x05, /*!< transmit underflow 中断 */
+    EMAC_DMA_Interrupt_RX                  = 0x06, /*!< receive 中断 */
+    EMAC_DMA_Interrupt_RX_UNAVAILABLE      = 0x07, /*!< receive buffer unavailable 中断 */
+    EMAC_DMA_Interrupt_RX_STOP             = 0x08, /*!< receive process stopped 中断 */
+    EMAC_DMA_Interrupt_RX_TIMEOUT          = 0x09, /*!< receive watchdog timeout 中断 */
+    EMAC_DMA_Interrupt_TX_EARLY            = 0x0A, /*!< early transmit 中断 */
+    EMAC_DMA_Interrupt_FATAL_Bus_ERROR     = 0x0B, /*!< fatal bus error 中断 */
+    EMAC_DMA_Interrupt_RX_EARLY            = 0x0C, /*!< early receive 中断 */
     EMAC_DMA_Interrupt_ABNORMAL_SUMMARY    = 0x0D, /*!< abnormal interrupt summary */
     EMAC_DMA_Interrupt_NORMAL_SUMMARY      = 0x0E  /*!< normal interrupt summary */
 } EMAC_DMA_Interrupt_Type;

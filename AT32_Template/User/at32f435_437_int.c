@@ -35,16 +35,16 @@
 
 /**
   * @brief  this function handles nmi exception.
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void NMI_Handler(void) {
 }
 
 /**
   * @brief  this function handles hard fault exception.
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void HardFault_Handler(void) {
     /* go to infinite loop when hard fault exception occurs */
@@ -54,8 +54,8 @@ void HardFault_Handler(void) {
 
 /**
   * @brief  this function handles memory manage exception.
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void MemManage_Handler(void) {
     /* go to infinite loop when memory manage exception occurs */
@@ -65,8 +65,8 @@ void MemManage_Handler(void) {
 
 /**
   * @brief  this function handles bus fault exception.
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void BusFault_Handler(void) {
     /* go to infinite loop when bus fault exception occurs */
@@ -76,8 +76,8 @@ void BusFault_Handler(void) {
 
 /**
   * @brief  this function handles usage fault exception.
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void UsageFault_Handler(void) {
     /* go to infinite loop when usage fault exception occurs */
@@ -87,32 +87,32 @@ void UsageFault_Handler(void) {
 
 /**
   * @brief  this function handles svcall exception.
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void SVC_Handler(void) {
 }
 
 /**
   * @brief  this function handles debug monitor exception.
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void DebugMon_Handler(void) {
 }
 
 /**
   * @brief  this function handles pendsv_handler exception.
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void PendSV_Handler(void) {
 }
 
 /**
   * @brief  this function handles systick handler.
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void Systick_Handler(void) {
 }

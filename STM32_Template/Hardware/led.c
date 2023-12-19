@@ -20,7 +20,6 @@
 #include "stm32f4xx_conf.h"
 
 void Led_Init(void) {
-
     RCC_AHB1PeriphClockCmd(RCC_Periph, ENABLE);
     GPIO_InitTypeDef GPIO_Stururce;
     GPIO_Stururce.GPIO_Mode = GPIO_Mode_OUT;

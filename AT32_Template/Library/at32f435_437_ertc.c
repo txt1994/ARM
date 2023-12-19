@@ -74,7 +74,7 @@ void ERTC_Write_Protect_Enable(void) {
 }
 
 /**
-  * @brief  disable write protection.
+  * @brief  禁用写保护.
   * @param  无.
   * @retval 无
   */
@@ -179,7 +179,7 @@ void ERTC_Init_Mode_Exit(void) {
   * @retval error_status (ERROR or SUCCESS).
   */
 error_status ERTC_Reset(void) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     ERTC->ctrl = (uint32_t)0x00000000;
@@ -221,7 +221,7 @@ error_status ERTC_Reset(void) {
   * @retval error_status (ERROR or SUCCESS).
   */
 error_status ERTC_Divider_Set(uint16_t div_a, uint16_t div_b) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     /* enter init mode */
@@ -251,7 +251,7 @@ error_status ERTC_Divider_Set(uint16_t div_a, uint16_t div_b) {
   * @retval error_status (ERROR or SUCCESS).
   */
 error_status ERTC_hour_Mode_Set(ERTC_hour_Mode_Set_Type mode) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     /* enter init mode */
@@ -289,7 +289,7 @@ error_status ERTC_Date_Set(uint8_t year, uint8_t month, uint8_t date, uint8_t we
     reg.date_bit.d  = ERTC_Num_To_BCD(date);
     reg.date_bit.wk = week;
 
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     /* enter init mode */
@@ -335,7 +335,7 @@ error_status ERTC_Time_Set(uint8_t hour, uint8_t min, uint8_t sec, ERTC_am_pm_Ty
     reg.time_bit.s = ERTC_Num_To_BCD(sec);
     reg.time_bit.ampm = ampm;
 
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     /* enter init mode */
@@ -416,7 +416,7 @@ uint32_t ERTC_Sub_Second_Get(void) {
 void ERTC_Alarm_Mask_Set(ERTC_Alarm_Type alarm_x, uint32_t mask) {
     uint32_t reg;
 
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     if(alarm_x == ERTC_ALA) {
@@ -452,7 +452,7 @@ void ERTC_Alarm_Mask_Set(ERTC_Alarm_Type alarm_x, uint32_t mask) {
   * @retval 无.
   */
 void ERTC_Alarm_week_Date_Select(ERTC_Alarm_Type alarm_x, ERTC_week_Date_Select_Type wk) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     if(alarm_x == ERTC_ALA) {
@@ -500,7 +500,7 @@ void ERTC_Alarm_Set(ERTC_Alarm_Type alarm_x, uint8_t week_date, uint8_t hour, ui
     reg.ala_bit.s = ERTC_Num_To_BCD(sec);
     reg.ala_bit.ampm = ampm;
 
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     if(alarm_x == ERTC_ALA) {
@@ -541,7 +541,7 @@ void ERTC_Alarm_Set(ERTC_Alarm_Type alarm_x, uint8_t week_date, uint8_t hour, ui
   * @retval 无.
   */
 void ERTC_Alarm_Sub_Second_Set(ERTC_Alarm_Type alarm_x, uint32_t value, ERTC_Alarm_sbs_Mask_Type mask) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     if(alarm_x == ERTC_ALA) {
@@ -566,7 +566,7 @@ void ERTC_Alarm_Sub_Second_Set(ERTC_Alarm_Type alarm_x, uint32_t value, ERTC_Ala
   * @retval error_status (ERROR or SUCCESS).
   */
 error_status ERTC_Alarm_Enable(ERTC_Alarm_Type alarm_x, confirm_state new_state) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     if(alarm_x == ERTC_ALA) {
@@ -641,7 +641,7 @@ uint32_t ERTC_Alarm_Sub_Second_Get(ERTC_Alarm_Type alarm_x) {
 
 /**
   * @brief  set wakeup timer clock.
-  * @param  clock: wakeup timer clock source.
+  * @param  clock: wakeup timer 时钟源.
   *         该参数可以是以下值之一:
   *         - ERTC_WAT_CLK_ERTCCLK_DIV16: ERTC_CLK / 16.
   *         - ERTC_WAT_CLK_ERTCCLK_DIV8: ERTC_CLK / 8.
@@ -652,7 +652,7 @@ uint32_t ERTC_Alarm_Sub_Second_Get(ERTC_Alarm_Type alarm_x) {
   * @retval 无.
   */
 void ERTC_WakeUp_Clock_Set(ERTC_WakeUp_Clock_Type clock) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     ERTC->ctrl_bit.watclk = clock;
@@ -667,7 +667,7 @@ void ERTC_WakeUp_Clock_Set(ERTC_WakeUp_Clock_Type clock) {
   * @retval 无.
   */
 void ERTC_WakeUp_Counter_Set(uint32_t counter) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     ERTC->wat_bit.val = counter;
@@ -691,7 +691,7 @@ uint16_t ERTC_WakeUp_Counter_Get(void) {
   * @retval error_status (ERROR or SUCCESS).
   */
 error_status ERTC_WakeUp_Enable(confirm_state new_state) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     ERTC->ctrl_bit.waten = new_state;
@@ -725,7 +725,7 @@ error_status ERTC_WakeUp_Enable(confirm_state new_state) {
 error_status ERTC_Smooth_Calibration_Config(ERTC_Smooth_CAL_Period_Type period, ERTC_Smooth_CAL_CLK_add_Type clk_add, uint32_t clk_dec) {
     ERTC_reg_scal_Type reg;
 
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     if(ERTC_Wait_flag(ERTC_CALUPDF_FLAG, SET) != SUCCESS) {
@@ -771,7 +771,7 @@ error_status ERTC_Smooth_Calibration_Config(ERTC_Smooth_CAL_Period_Type period, 
   * @retval error_status (ERROR or SUCCESS).
   */
 error_status ERTC_Coarse_Calibration_Set(ERTC_CAL_Direction_Type dir, uint32_t value) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     /* enter init mode */
@@ -798,7 +798,7 @@ error_status ERTC_Coarse_Calibration_Set(ERTC_CAL_Direction_Type dir, uint32_t v
   * @retval error_status (ERROR or SUCCESS).
   */
 error_status ERTC_Coarse_Calibration_Enable(confirm_state new_state) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     /* enter init mode */
@@ -826,7 +826,7 @@ error_status ERTC_Coarse_Calibration_Enable(confirm_state new_state) {
   * @retval 无.
   */
 void ERTC_CAL_OutPut_Select(ERTC_CAL_OutPut_Select_Type output) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     ERTC->ctrl_bit.calosel = output;
@@ -841,7 +841,7 @@ void ERTC_CAL_OutPut_Select(ERTC_CAL_OutPut_Select_Type output) {
   * @retval 无.
   */
 void ERTC_CAL_OutPut_Enable(confirm_state new_state) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     ERTC->ctrl_bit.caloen = new_state;
@@ -864,7 +864,7 @@ error_status ERTC_Time_Adjust(ERTC_Time_Adjust_Type add1s, uint32_t decsbs) {
 
     reg.tadj = 0;
 
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     if(ERTC_Wait_flag(ERTC_TADJF_FLAG, SET) != SUCCESS) {
@@ -904,7 +904,7 @@ error_status ERTC_Time_Adjust(ERTC_Time_Adjust_Type add1s, uint32_t decsbs) {
   * @retval 无.
   */
 void ERTC_DayLight_Set(ERTC_dst_Operation_Type operation, ERTC_dst_save_Type save) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     if(operation == ERTC_DST_ADD_1H) {
@@ -934,7 +934,7 @@ uint8_t ERTC_DayLight_BPR_Get(void) {
   * @retval error_status (ERROR or SUCCESS).
   */
 error_status ERTC_refer_Clock_Detect_Enable(confirm_state new_state) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     /* enter init mode */
@@ -960,7 +960,7 @@ error_status ERTC_refer_Clock_Detect_Enable(confirm_state new_state) {
   * @retval 无.
   */
 void ERTC_Direct_Read_Enable(confirm_state new_state) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     ERTC->ctrl_bit.dren = new_state;
@@ -988,7 +988,7 @@ void ERTC_Direct_Read_Enable(confirm_state new_state) {
   * @retval 无.
   */
 void ERTC_OutPut_Set(ERTC_OutPut_Source_Type source, ERTC_OutPut_Polarity_Type polarity, ERTC_OutPut_Type type) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     ERTC->ctrl_bit.outp = polarity;
@@ -1010,7 +1010,7 @@ void ERTC_OutPut_Set(ERTC_OutPut_Source_Type source, ERTC_OutPut_Polarity_Type p
   * @retval data value.
   */
 void ERTC_TimeStamp_Pin_Select(ERTC_Pin_Select_Type pin) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     ERTC->tamp_bit.tspin = pin;
@@ -1028,7 +1028,7 @@ void ERTC_TimeStamp_Pin_Select(ERTC_Pin_Select_Type pin) {
   * @retval 无.
   */
 void ERTC_TimeStamp_Valid_Edge_Set(ERTC_TimeStamp_Valid_Edge_Type edge) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     ERTC->ctrl_bit.tsedg = edge;
@@ -1043,7 +1043,7 @@ void ERTC_TimeStamp_Valid_Edge_Set(ERTC_TimeStamp_Valid_Edge_Type edge) {
   * @retval 无.
   */
 void ERTC_TimeStamp_Enable(confirm_state new_state) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     ERTC->ctrl_bit.tsen = new_state;
@@ -1093,7 +1093,7 @@ uint32_t ERTC_TimeStamp_Sub_Second_Get(void) {
   * @retval data value.
   */
 void ERTC_Tamper_1_Pin_Select(ERTC_Pin_Select_Type pin) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     ERTC->tamp_bit.tp1pin = pin;
@@ -1108,7 +1108,7 @@ void ERTC_Tamper_1_Pin_Select(ERTC_Pin_Select_Type pin) {
   * @retval 无.
   */
 void ERTC_Tamper_Pull_Up_Enable(confirm_state new_state) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     ERTC->tamp_bit.tppu = !new_state;
@@ -1128,7 +1128,7 @@ void ERTC_Tamper_Pull_Up_Enable(confirm_state new_state) {
   * @retval 无.
   */
 void ERTC_Tamper_Precharge_Set(ERTC_Tamper_Precharge_Type precharge) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     ERTC->tamp_bit.tppr = precharge;
@@ -1148,7 +1148,7 @@ void ERTC_Tamper_Precharge_Set(ERTC_Tamper_Precharge_Type precharge) {
   * @retval 无.
   */
 void ERTC_Tamper_Filter_Set(ERTC_Tamper_Filter_Type filter) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     ERTC->tamp_bit.tpflt = filter;
@@ -1172,7 +1172,7 @@ void ERTC_Tamper_Filter_Set(ERTC_Tamper_Filter_Type filter) {
   * @retval 无.
   */
 void ERTC_Tamper_Detect_Freq_Set(ERTC_Tamper_Detect_Freq_Type freq) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     ERTC->tamp_bit.tpfreq = freq;
@@ -1197,7 +1197,7 @@ void ERTC_Tamper_Detect_Freq_Set(ERTC_Tamper_Detect_Freq_Type freq) {
   * @retval 无.
   */
 void ERTC_Tamper_Valid_Edge_Set(ERTC_Tamper_Select_Type tamper_x, ERTC_Tamper_Valid_Edge_Type trigger) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     if(tamper_x == ERTC_Tamper_1) {
@@ -1216,7 +1216,7 @@ void ERTC_Tamper_Valid_Edge_Set(ERTC_Tamper_Select_Type tamper_x, ERTC_Tamper_Va
   * @retval 无.
   */
 void ERTC_Tamper_TimeStamp_Enable(confirm_state new_state) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     ERTC->tamp_bit.tptsen = new_state;
@@ -1235,7 +1235,7 @@ void ERTC_Tamper_TimeStamp_Enable(confirm_state new_state) {
   * @retval 无.
   */
 void ERTC_Tamper_Enable(ERTC_Tamper_Select_Type tamper_x, confirm_state new_state) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     if(tamper_x == ERTC_Tamper_1) {
@@ -1261,7 +1261,7 @@ void ERTC_Tamper_Enable(ERTC_Tamper_Select_Type tamper_x, confirm_state new_stat
   * @retval 无.
   */
 void ERTC_Interrupt_Enable(uint32_t source, confirm_state new_state) {
-    /* disable write protection */
+    /* 禁用写保护 */
     ERTC_Write_Protect_Disable();
 
     if(source & ERTC_TP_INT) {
@@ -1313,7 +1313,7 @@ flag_status ERTC_Interrupt_Get(uint32_t source) {
 
 /**
   * @brief  get flag status.
-  * @param  flag: specifies the flag to check.
+  * @param  flag: 指定flag to check.
   *         该参数可以是以下值之一:
   *         - ERTC_ALAWF_FLAG: alarm a register allows write flag.
   *         - ERTC_ALBWF_FLAG: alarm b register allows write flag.
@@ -1342,7 +1342,7 @@ flag_status ERTC_Flag_Get(uint32_t flag) {
 
 /**
   * @brief  clear flag status
-  * @param  flag: specifies the flag to clear.
+  * @param  flag: 指定flag to clear.
   *         该参数可以是以下值的任意组合:
   *         - ERTC_ALAWF_FLAG: alarm a register allows write flag.
   *         - ERTC_ALBWF_FLAG: alarm b register allows write flag.

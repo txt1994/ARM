@@ -4,7 +4,7 @@
   * 作者:    MCD Application Team
   * 版本:    V1.8.0
   * 日期:    04-November-2016
-  * 简介:    此文件提供固件功能，以管理安全数字输入/输出接口(SDIO)外围设备的以下功能:
+  * 简介:    此文件提供固件功能，以管理安全数字输入/输出接口(SDIO)外设设备的以下功能:
   *           + 初始化和配置
   *           + 命令路径状态机（CPSM）管理
   *           + 数据路径状态机（DPSM）管理
@@ -20,8 +20,8 @@
  ===================================================================
  [..]
    (#) SDIO时钟(SDIOCLK=48 MHz)来自PLL(PLL48CLK)的特定输出。
-            在开始使用SDIO外围设备之前，请确保PLL配置良好。
-       SDIO外围设备使用两个时钟信号:
+            在开始使用SDIO外设设备之前，请确保PLL配置良好。
+       SDIO外设设备使用两个时钟信号:
        (++) SDIO适配器时钟(SDIOCLK=48 MHz)
        (++) APB2总线时钟(PCLK2)
 
@@ -37,7 +37,7 @@
        (++) 8位数据长度:SDIO_CMD、SDIO_CK和D[7:0]。
 
    (#) 外围备用功能:
-       (++) 使用GPIO_PinAFConfig()函数将管脚连接到所需外围设备的备用功能(AF)
+       (++) 使用GPIO_PinAFConfig()函数将管脚连接到所需外设设备的备用功能(AF)
        (++) 通过以下方式在备用功能中配置所需引脚:
            GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF
        (++) 通过GPIO_PuPd、GPIO_OType和GPIO_speed成员选择类型、上拉/下拉和输出速度
@@ -306,7 +306,7 @@ void SDIO_StructInit(SDIO_InitTypeDef* SDIO_InitStruct) {
 /**
   * 简介:  启用或禁用 SDIO 时钟。
   * 参数:  NewState: 新状态-> SDIO Clock.
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SDIO_ClockCmd(FunctionalState NewState) {
@@ -570,7 +570,7 @@ uint32_t SDIO_GetFIFOCount(void) {
 /**
   * 简介:  启动 SD I/O 读取等待操作。
   * 参数:  NewState: 新状态-> Start SDIO Read Wait operation.
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SDIO_StartSDIOReadWait(FunctionalState NewState) {
@@ -583,7 +583,7 @@ void SDIO_StartSDIOReadWait(FunctionalState NewState) {
 /**
   * 简介:  停止 SD I/O 读取等待操作。
   * 参数:  NewState: 新状态-> Stop SDIO Read Wait operation.
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SDIO_StopSDIOReadWait(FunctionalState NewState) {
@@ -611,7 +611,7 @@ void SDIO_SetSDIOReadWaitMode(uint32_t SDIO_ReadWaitMode) {
 /**
   * 简介:  启用或禁用 SD I/O 模式操作。
   * 参数:  NewState: 新状态->  SDIO specific operation.
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SDIO_SetSDIOOperation(FunctionalState NewState) {
@@ -624,7 +624,7 @@ void SDIO_SetSDIOOperation(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用 SD I/O 模式挂起命令发送。
   * 参数:  NewState: 新状态-> SD I/O Mode suspend command.
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SDIO_SendSDIOSuspendCmd(FunctionalState NewState) {
@@ -655,7 +655,7 @@ void SDIO_SendSDIOSuspendCmd(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用命令完成信号。
   * 参数:  NewState: 新状态->  command completion signal.
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SDIO_CommandCompletionCmd(FunctionalState NewState) {
@@ -668,7 +668,7 @@ void SDIO_CommandCompletionCmd(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用 CE-ATA 中断。
   * 参数:  NewState: 新状态->  CE-ATA interrupt.
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SDIO_CEATAITCmd(FunctionalState NewState) {
@@ -681,7 +681,7 @@ void SDIO_CEATAITCmd(FunctionalState NewState) {
 /**
   * 简介:  发送 CE-ATA 命令 (CMD61)。
   * 参数:  NewState: 新状态->  CE-ATA command.
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SDIO_SendCEATACmd(FunctionalState NewState) {
@@ -712,7 +712,7 @@ void SDIO_SendCEATACmd(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用SDIO DMA request.
   * 参数:  NewState: 新状态-> selected SDIO DMA request.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SDIO_DMACmd(FunctionalState NewState) {
@@ -768,7 +768,7 @@ void SDIO_DMACmd(FunctionalState NewState) {
   *             @arg SDIO_IT_SDIOIT: SDI /O中断接收中断
   *             @arg SDIO_IT_CEATAEND:接收到CMD61中断的CE-ATA命令完成信号
   * 参数:  NewState: 新状态-> specified SDIO interrupts.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SDIO_ITConfig(uint32_t SDIO_IT, FunctionalState NewState) {

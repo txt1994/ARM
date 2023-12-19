@@ -147,7 +147,7 @@ int32_t HRPWM_CalibrateProcess(uint32_t u32Unit, uint8_t *pu8Code) {
  * @brief  HRPWM Calibrate function enable or disable for specified unit
  * @param  [in] u32Unit             Calibrate unit, the parameter should be HRPWM_CAL_UNIT0 or HRPWM_CAL_UNIT1
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void HRPWM_CalibrateCmd(uint32_t u32Unit, en_functional_state_t enNewState) {
     __IO uint32_t *CALCRx;
@@ -205,7 +205,7 @@ uint8_t HRPWM_GetCalibrateCode(uint32_t u32Unit) {
  * @brief  HRPWM function enable or disable for specified channel
  * @param  [in] u32Ch               Channel, the parameter should range from HRPWM_CH_MIN to HRPWM_CH_MAX
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void HRPWM_ChCmd(uint32_t u32Ch, en_functional_state_t enNewState) {
     __IO uint32_t *CRx;
@@ -226,7 +226,7 @@ void HRPWM_ChCmd(uint32_t u32Ch, en_functional_state_t enNewState) {
  * @brief  HRPWM positive edge adjust enable or disable for specified channel
  * @param  [in] u32Ch               Channel, the parameter should range from HRPWM_CH_MIN to HRPWM_CH_MAX
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void HRPWM_ChPositiveAdjustCmd(uint32_t u32Ch, en_functional_state_t enNewState) {
     __IO uint32_t *CRx;
@@ -247,7 +247,7 @@ void HRPWM_ChPositiveAdjustCmd(uint32_t u32Ch, en_functional_state_t enNewState)
  * @brief  HRPWM negative edge adjust enable or disable for specified channel
  * @param  [in] u32Ch               Channel, the parameter should range from HRPWM_CH_MIN to HRPWM_CH_MAX
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void HRPWM_ChNegativeAdjustCmd(uint32_t u32Ch, en_functional_state_t enNewState) {
     __IO uint32_t *CRx;
@@ -268,7 +268,7 @@ void HRPWM_ChNegativeAdjustCmd(uint32_t u32Ch, en_functional_state_t enNewState)
  * @brief  HRPWM positive edge adjust delay counts configration for specified channel
  * @param  [in] u32Ch               Channel, the parameter should range from HRPWM_CH_MIN to HRPWM_CH_MAX
  * @param  [in] u8DelayNum          Delay counts of minimum delay time.
- * @retval None
+ * @retval 无
  */
 void HRPWM_ChPositiveAdjustConfig(uint32_t u32Ch, uint8_t u8DelayNum) {
     __IO uint32_t *CRx;
@@ -283,7 +283,7 @@ void HRPWM_ChPositiveAdjustConfig(uint32_t u32Ch, uint8_t u8DelayNum) {
  * @brief  HRPWM negative edge adjust delay counts configration for specified channel
  * @param  [in] u32Ch               Channel, the parameter should range from HRPWM_CH_MIN to HRPWM_CH_MAX
  * @param  [in] u8DelayNum          Delay counts of minimum delay time.
- * @retval None
+ * @retval 无
  */
 void HRPWM_ChNegativeAdjustConfig(uint32_t u32Ch, uint8_t u8DelayNum) {
     __IO uint32_t *CRx;
@@ -296,7 +296,7 @@ void HRPWM_ChNegativeAdjustConfig(uint32_t u32Ch, uint8_t u8DelayNum) {
 
 /**
  * @brief  HRPWM Judge the condition of calibration function.
- * @param  None
+ * @param  无
  * @retval An @ref en_functional_state_t enumeration value.
  */
 en_functional_state_t HRPWM_CondConfirm(void) {

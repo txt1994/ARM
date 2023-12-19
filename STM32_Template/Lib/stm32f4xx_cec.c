@@ -16,16 +16,23 @@
   ==============================================================================
       [..] 该设备提供了一些功能:
            (#) 支持 HDMI-CEC 规范 1.4。
+
            (#) 支持两个源时钟(HSI/244 或 LSE)。
            (#) 在停止模式下工作(没有 APB 时钟，但有 CEC 时钟 32KHz)。
                它可以在 CPU 从低功耗模式唤醒的 CEC 时钟域中产生中断。
+
            (#) 传输开始前可配置的信号空闲时间。
 			   传输前等待的标称数据位周期数可以由硬件或软件决定。
+
            (#) 可配置外设地址(多地址配置)。
+
            (#) 支持监听模式。启用监听模式选项后，
 		       可以在不干扰 CEC 总线的情况下接收发往不同目的地的 CEC 消息。
+
            (#) 可配置的 Rx-Tolerance(标准和扩展容差余量)。
+
            (#) 带有可配置错误位生成的错误检测。
+
            (#) 两个CEC设备同时启动的情况下仲裁丢失错误。
 
                             ##### 如何使用此驱动程序 #####
@@ -34,23 +41,34 @@
            (#) 可以使用以下方式配置源时钟:
                (++) RCC_CECCLKConfig(RCC_CECCLK_HSI_Div244) for HSI(Default)
                (++) RCC_CECCLKConfig(RCC_CECCLK_LSE) for LSE.
+
            (#) 使用 RCC_APBPeriphClockCmd(RCC_APBPeriph_CEC, ENABLE) 启用 CEC 外设时钟。
+
            (#) 外设交替函数。
                (++) 使用 GPIO_PinAFConfig() 函数将引脚连接到所需外设的备用函数 (AF)。
                (++) 通过在备用函数中配置所需的引脚:
 					GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF.
                (++) 通过 GPIO_OType 和 GPIO_Speed 成员选择开漏类型和输出速度。
                (++) 调用 GPIO_Init() 函数。
+
            (#) 使用 CEC_Init() 函数配置信号空闲时间、Rx 容限、停止接收生成和误码生成。
                 当 CEC 外设被禁用时，必须调用函数 CEC_Init()。
+
            (#) 通过调用函数 CEC_OwnAddressConfig() 配置 CEC 自己的地址。
+
            (#) 或者，您可以使用函数 CEC_ListenModeCmd() 配置监听模式。
+
            (#) 如果需要使用中断模式，请使用函数 CEC_ITConfig() 启用 NVIC 和相应的中断。
                在启用 CEC 外设之前必须调用 CEC_ITConfig()。
+
            (#) 使用 CEC_Cmd() 函数启用 CEC。
+
            (#) 使用 CEC_SendDataByte() 对 TXDR 寄存器中的第一个数据字节进行充电。
+
            (#) 使用 CEC_StartOfMessage() 启用 CEC 消息字节的传输
+
            (#) 使用 CEC_SendDataByte() 通过 CEC 外设传输单个数据，并使用 CEC_ReceiveDataByte() 接收最后传输的字节。
+
            (#) 启用 CEC_EndOfMessage() 以指示消息的最后一个字节。
       [..]
            (@) 如果启用监听模式，停止接收生成和误码生成必须处于复位状态。
@@ -119,6 +137,7 @@
             (+) CEC 停止接收
             (+) CEC 比特上升误差
             (+) CEC 长比特周期误差
+
       [..] 本节还提供了在侦听模式下配置 CEC 外设的功能。
             启用侦听模式后，可以接收发往不同目的地的消息，而不会干扰 CEC 总线。
 @endverbatim
@@ -136,10 +155,13 @@ void CEC_DeInit(void) {
 }
 
 /**
-  * 简介:  根据CEC_InitStruct中指定的参数，初始化CEC外围设备。
+  * 简介:  根据CEC_InitStruct中指定的参数，初始化CEC外设设备。
+  * 
   * 注意:   在启用CEC外设之前，必须先配置CEC参数。
+  * 
   * 参数:  CEC_InitStruct: 指向一个CEC_InitTypeDef结构的指针，
   *                        该结构包含了 该结构包含指定CEC外设的配置信息。
+  * 
   * 返回值: 无
   */
 void CEC_Init(CEC_InitTypeDef* CEC_InitStruct) {
@@ -172,7 +194,9 @@ void CEC_Init(CEC_InitTypeDef* CEC_InitStruct) {
 
 /**
   * 简介:  用默认值填充每个CEC_InitStruct成员。
+  * 
   * 参数:  CEC_InitStruct: 指向CEC_InitTypeDef结构的指针，将被初始化。
+  * 
   * 返回值: 无
   */
 void CEC_StructInit(CEC_InitTypeDef* CEC_InitStruct) {
@@ -186,9 +210,11 @@ void CEC_StructInit(CEC_InitTypeDef* CEC_InitStruct) {
 }
 
 /**
-  * 简介:  启用或禁用CEC外围设备。
+  * 简介:  启用或禁用CEC外设设备。
+  * 
   * 参数:  NewState: CEC外设的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void CEC_Cmd(FunctionalState NewState) {
@@ -205,8 +231,10 @@ void CEC_Cmd(FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用CEC侦听模式。
+  * 
   * 参数:  NewState: 侦听模式的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void CEC_ListenModeCmd(FunctionalState NewState) {
@@ -223,7 +251,9 @@ void CEC_ListenModeCmd(FunctionalState NewState) {
 
 /**
   * 简介:  定义CEC设备的自有地址。
-  * 参数:  CEC_OwnAddress:CEC自己的地址。
+  * 
+  * 参数:  CEC_OwnAddress: CEC自己的地址。
+  * 
   * 返回值: 无
   */
 void CEC_OwnAddressConfig(uint8_t CEC_OwnAddress) {
@@ -237,7 +267,9 @@ void CEC_OwnAddressConfig(uint8_t CEC_OwnAddress) {
 
 /**
   * 简介:  清除CEC设备的自有地址。
+  * 
   * 参数:  CEC_OwnAddress:CEC自己的地址。
+  * 
   * 返回值: 无
   */
 void CEC_OwnAddressClear(void) {
@@ -265,7 +297,8 @@ void CEC_OwnAddressClear(void) {
 
 /**
   * 简介:  Transmits single data through the CEC 外设.
-  * 参数:  Data:要传输的数据。
+  * 
+  * 参数:  Data: 要传输的数据。
   * 返回值: 无
   */
 void CEC_SendData(uint8_t Data) {
@@ -274,8 +307,10 @@ void CEC_SendData(uint8_t Data) {
 }
 
 /**
-  * 简介:  返回CEC外围设备最近接收的数据。
+  * 简介:  返回CEC外设设备最近接收的数据。
+  * 
   * 参数:  无
+  * 
   * 返回值: 接收的数据。
   */
 uint8_t CEC_ReceiveData(void) {
@@ -285,7 +320,9 @@ uint8_t CEC_ReceiveData(void) {
 
 /**
   * 简介:  启动新消息
+  * 
   * 参数:  无
+  * 
   * 返回值: 无
   */
 void CEC_StartOfMessage(void) {
@@ -295,7 +332,9 @@ void CEC_StartOfMessage(void) {
 
 /**
   * 简介:  用EOM位传输消息。
+  * 
   * 参数:  无
+  * 
   * 返回值: 无
   */
 void CEC_EndOfMessage(void) {
@@ -372,6 +411,7 @@ void CEC_EndOfMessage(void) {
 
 /**
   * 简介:  启用或禁用选定的CEC中断。
+  * 
   * 参数:  CEC_IT: 指定要启用的CEC中断源。
   *          此参数可以是以下值的任意组合:
   *            @arg CEC_IT_TXACKE: Tx缺失确认错误。
@@ -387,8 +427,10 @@ void CEC_EndOfMessage(void) {
   *            @arg CEC_IT_RXOVR: Rx超限。
   *            @arg CEC_IT_RXEND: 接收结束
   *            @arg CEC_IT_RXBR: 接收的Rx字节
+  * 
   * 参数:  NewState:选定的CEC中断的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void CEC_ITConfig(uint16_t CEC_IT, FunctionalState NewState) {
@@ -407,21 +449,23 @@ void CEC_ITConfig(uint16_t CEC_IT, FunctionalState NewState) {
 
 /**
   * 简介:  获取CEC标志状态。
+  * 
   * 参数:  CEC_FLAG: 指定要检查的CEC标志。
   *     此参数可以是以下值之一:
   *            @arg CEC_FLAG_TXACKE: Tx缺失确认错误。
-  *            @arg CEC_FLAG_TXERR: Tx错误。
-  *            @arg CEC_FLAG_TXUDR: Tx缓冲区不足。
-  *            @arg CEC_FLAG_TXEND: 传输结束(成功传输最后一个字节)。
-  *            @arg CEC_FLAG_TXBR: Tx字节请求。
+  *            @arg CEC_FLAG_TXERR:  Tx错误。
+  *            @arg CEC_FLAG_TXUDR:  Tx缓冲区不足。
+  *            @arg CEC_FLAG_TXEND:  传输结束(成功传输最后一个字节)。
+  *            @arg CEC_FLAG_TXBR:   Tx字节请求。
   *            @arg CEC_FLAG_ARBLST: 仲裁丢失.
   *            @arg CEC_FLAG_RXACKE: Rx缺少确认.
-  *            @arg CEC_FLAG_LBPE: Rx长周期错误.
-  *            @arg CEC_FLAG_SBPE: Rx短周期错误
-  *            @arg CEC_FLAG_BRE:Rx位上升错误
-  *            @arg CEC_FLAG_RXOVR: Rx超限。
-  *            @arg CEC_FLAG_RXEND: 接收结束.
-  *            @arg CEC_FLAG_RXBR: 接收的Rx字节.
+  *            @arg CEC_FLAG_LBPE:   Rx长周期错误.
+  *            @arg CEC_FLAG_SBPE:   Rx短周期错误
+  *            @arg CEC_FLAG_BRE:    Rx位上升错误
+  *            @arg CEC_FLAG_RXOVR:  Rx超限。
+  *            @arg CEC_FLAG_RXEND:  接收结束.
+  *            @arg CEC_FLAG_RXBR:   接收的Rx字节.
+  * 
   * 返回值: CEC_FLAG的新状态(SET或RESET)
   */
 FlagStatus CEC_GetFlagStatus(uint16_t CEC_FLAG) {
@@ -447,18 +491,18 @@ FlagStatus CEC_GetFlagStatus(uint16_t CEC_FLAG) {
   * 参数:  CEC_FLAG: 指定要清除的标志。
   *          此参数可以是以下值的任意组合:
   *            @arg CEC_FLAG_TXACKE: Tx缺失确认错误。
-  *            @arg CEC_FLAG_TXERR: Tx 错误
-  *            @arg CEC_FLAG_TXUDR: Tx缓冲区不足。
-  *            @arg CEC_FLAG_TXEND: 传输结束(成功传输最后一个字节)。
-  *            @arg CEC_FLAG_TXBR: Tx字节请求
+  *            @arg CEC_FLAG_TXERR:  Tx 错误
+  *            @arg CEC_FLAG_TXUDR:  Tx缓冲区不足。
+  *            @arg CEC_FLAG_TXEND:  传输结束(成功传输最后一个字节)。
+  *            @arg CEC_FLAG_TXBR:   Tx字节请求
   *            @arg CEC_FLAG_ARBLST: 仲裁丢失.
   *            @arg CEC_FLAG_RXACKE: Rx缺少确认
-  *            @arg CEC_FLAG_LBPE: Rx长周期错误.
-  *            @arg CEC_FLAG_SBPE: Rx短周期错误
-  *            @arg CEC_FLAG_BRE: Rx位上升错误
-  *            @arg CEC_FLAG_RXOVR: Rx超限
-  *            @arg CEC_FLAG_RXEND: 接收结束
-  *            @arg CEC_FLAG_RXBR: 接收的Rx字节
+  *            @arg CEC_FLAG_LBPE:   Rx长周期错误.
+  *            @arg CEC_FLAG_SBPE:   Rx短周期错误
+  *            @arg CEC_FLAG_BRE:    Rx位上升错误
+  *            @arg CEC_FLAG_RXOVR:  Rx超限
+  *            @arg CEC_FLAG_RXEND:  接收结束
+  *            @arg CEC_FLAG_RXBR:   接收的Rx字节
   * 返回值: 无
   */
 void CEC_ClearFlag(uint32_t CEC_FLAG) {
@@ -497,7 +541,7 @@ ITStatus CEC_GetITStatus(uint16_t CEC_IT) {
     /* 获取CEC IT enable bit 状态 */
     enablestatus = (CEC->IER & CEC_IT);
 
-    /* 检查 the status of the specified CEC interrupt */
+    /* 检查 the status of the specified CEC 中断 */
     if (((CEC->ISR & CEC_IT) != (uint32_t)RESET) && enablestatus) {
         /* CEC interrupt 被设置 */
         bitstatus = SET;

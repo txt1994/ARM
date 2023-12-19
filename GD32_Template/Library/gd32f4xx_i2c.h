@@ -221,17 +221,17 @@ typedef enum {
     I2C_INT_Flag_RFR = I2C_REGIDX_BIT2(I2C_SAMCS_REG_OFFSET, 7U, I2C_SAMCS_REG_OFFSET, 15U)          /*!< rxframe rise interrupt flag */
 } I2C_Interrupt_Flag_enum;
 
-/* I2C interrupt */
+/* I2C 中断 */
 typedef enum {
     /* interrupt in CTL1 register */
-    I2C_INT_ERR = I2C_REGIDX_BIT(I2C_CTL1_REG_OFFSET, 8U),              /*!< error interrupt */
-    I2C_INT_EV = I2C_REGIDX_BIT(I2C_CTL1_REG_OFFSET, 9U),               /*!< event interrupt */
-    I2C_INT_BUF = I2C_REGIDX_BIT(I2C_CTL1_REG_OFFSET, 10U),             /*!< buffer interrupt */
+    I2C_INT_ERR = I2C_REGIDX_BIT(I2C_CTL1_REG_OFFSET, 8U),              /*!< error 中断 */
+    I2C_INT_EV = I2C_REGIDX_BIT(I2C_CTL1_REG_OFFSET, 9U),               /*!< event 中断 */
+    I2C_INT_BUF = I2C_REGIDX_BIT(I2C_CTL1_REG_OFFSET, 10U),             /*!< buffer 中断 */
     /* interrupt in SAMCS register */
-    I2C_INT_TFF = I2C_REGIDX_BIT(I2C_SAMCS_REG_OFFSET, 4U),             /*!< txframe fall interrupt */
-    I2C_INT_TFR = I2C_REGIDX_BIT(I2C_SAMCS_REG_OFFSET, 5U),             /*!< txframe rise interrupt */
-    I2C_INT_RFF = I2C_REGIDX_BIT(I2C_SAMCS_REG_OFFSET, 6U),             /*!< rxframe fall interrupt */
-    I2C_INT_RFR = I2C_REGIDX_BIT(I2C_SAMCS_REG_OFFSET, 7U)              /*!< rxframe rise interrupt */
+    I2C_INT_TFF = I2C_REGIDX_BIT(I2C_SAMCS_REG_OFFSET, 4U),             /*!< txframe fall 中断 */
+    I2C_INT_TFR = I2C_REGIDX_BIT(I2C_SAMCS_REG_OFFSET, 5U),             /*!< txframe rise 中断 */
+    I2C_INT_RFF = I2C_REGIDX_BIT(I2C_SAMCS_REG_OFFSET, 6U),             /*!< rxframe fall 中断 */
+    I2C_INT_RFR = I2C_REGIDX_BIT(I2C_SAMCS_REG_OFFSET, 7U)              /*!< rxframe rise 中断 */
 } I2C_Interrupt_enum;
 
 /* the digital noise filter can filter spikes's length */
@@ -353,9 +353,9 @@ void I2C_dualaddr_Disable(uint32_t I2C_periph);
 void I2C_Enable(uint32_t I2C_periph);
 /* disable I2C */
 void I2C_Disable(uint32_t I2C_periph);
-/* generate a START condition on I2C bus */
+/* 生成START条件 on I2C bus */
 void I2C_start_on_bus(uint32_t I2C_periph);
-/* generate a STOP condition on I2C bus */
+/* 生成STOP条件 on I2C bus */
 void I2C_Stop_on_bus(uint32_t I2C_periph);
 /* I2C transmit data function */
 void I2C_Data_Transmit(uint32_t I2C_periph, uint8_t data);
@@ -401,9 +401,9 @@ void I2C_sam_Timeout_Disable(uint32_t I2C_periph);
 FlagStatus I2C_Flag_Get(uint32_t I2C_periph, I2C_Flag_enum flag);
 /* clear I2C flag status */
 void I2C_Flag_Clear(uint32_t I2C_periph, I2C_Flag_enum flag);
-/* enable I2C interrupt */
+/* enable I2C 中断 */
 void I2C_Interrupt_Enable(uint32_t I2C_periph, I2C_Interrupt_enum interrupt);
-/* disable I2C interrupt */
+/* disable I2C 中断 */
 void I2C_Interrupt_Disable(uint32_t I2C_periph, I2C_Interrupt_enum interrupt);
 /* get I2C interrupt flag status */
 FlagStatus I2C_Interrupt_Flag_Get(uint32_t I2C_periph, I2C_Interrupt_Flag_enum int_flag);

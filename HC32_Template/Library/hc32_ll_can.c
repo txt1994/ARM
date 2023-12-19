@@ -219,7 +219,7 @@ const static uint8_t m_au8DLC2Size[16U] = {
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  pstcCanInit            Pointer to a stc_can_init_t structure value that
  *                                      contains the configuration information for the CAN.
- * @retval None
+ * @retval 无
  */
 static void CAN_InitParameterCheck(CM_CAN_TypeDef *CANx, const stc_can_init_t *pstcCanInit) {
     stc_canfd_config_t *pstcCanFd = pstcCanInit->pstcCanFd;
@@ -274,7 +274,7 @@ static void CAN_InitParameterCheck(CM_CAN_TypeDef *CANx, const stc_can_init_t *p
  *   @arg  CAN_WORK_MD_ELB_SILENT:      External lopp back silent mode, just for self-test while developing.
  *                                      It is forbidden to respond to received frames and error frames,
  *                                      but data can be transmitted.
- * @retval None
+ * @retval 无
  * @note Call this function when CFG_STAT.RESET is 0.
  */
 static void CAN_SetWorkMode(CM_CAN_TypeDef *CANx, uint8_t u8WorkMode) {
@@ -399,7 +399,7 @@ static int32_t CAN_FD_Config(CM_CAN_TypeDef *CANx, const stc_canfd_config_t *pst
  *                                      This parameter can be a value of the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  pstcTx                 Pointer to a @ref stc_can_tx_frame_t structure.
- * @retval None
+ * @retval 无
  */
 static void CAN_WriteTxBuf(CM_CAN_TypeDef *CANx, const stc_can_tx_frame_t *pstcTx) {
     uint8_t i;
@@ -426,7 +426,7 @@ static void CAN_WriteTxBuf(CM_CAN_TypeDef *CANx, const stc_can_tx_frame_t *pstcT
  *                                      This parameter can be a value of the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  pstcRx                 Pointer to a @ref stc_can_rx_frame_t structure.
- * @retval None
+ * @retval 无
  */
 static void CAN_ReadRxBuf(const CM_CAN_TypeDef *CANx, stc_can_rx_frame_t *pstcRx) {
     __I uint32_t *reg32RBUF;
@@ -581,7 +581,7 @@ int32_t CAN_StructInit(stc_can_init_t *pstcCanInit) {
  * @param  [in]  CANx                   Pointer to CAN instance register base.
  *                                      This parameter can be a value of the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
- * @retval None
+ * @retval 无
  */
 void CAN_DeInit(CM_CAN_TypeDef *CANx) {
     uint8_t i;
@@ -634,7 +634,7 @@ void CAN_DeInit(CM_CAN_TypeDef *CANx) {
  *   @arg  CAN_INT_ARBITR_LOST:         Register bit ERRINT.ALIE. Arbitration lost.
  *   @arg  CAN_INT_ERR_PASSIVE:         Register bit ERRINT.EPIE. A change from error-passive to error-active or error-active to error-passive has occurred.
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void CAN_IntCmd(CM_CAN_TypeDef *CANx, uint32_t u32IntType, en_functional_state_t enNewState) {
     uint8_t u8RTIE;
@@ -740,7 +740,7 @@ int32_t CAN_FillTxFrame(CM_CAN_TypeDef *CANx, uint8_t u8TxBufType, const stc_can
  *   @arg  CAN_TX_REQ_STB_ONE:          Transmit one STB frame.
  *   @arg  CAN_TX_REQ_STB_ALL:          Transmit all STB frames.
  *   @arg  CAN_TX_REQ_PTB:              Transmit PTB frame.
- * @retval None
+ * @retval 无
  * @note Call this function when CFG_STAT.RESET is 0.
  */
 void CAN_StartTx(CM_CAN_TypeDef *CANx, uint8_t u8TxRequest) {
@@ -758,7 +758,7 @@ void CAN_StartTx(CM_CAN_TypeDef *CANx, uint8_t u8TxRequest) {
  *                                      This parameter can be a value of @ref CAN_Tx_Buf_Type
  *   @arg  CAN_TX_BUF_PTB:              Abort PTB transmission.
  *   @arg  CAN_TX_BUF_STB:              Abort STB transmission.
- * @retval None
+ * @retval 无
  * @note Call this function when CFG_STAT.RESET is 0.
  */
 void CAN_AbortTx(CM_CAN_TypeDef *CANx, uint8_t u8TxBufType) {
@@ -886,7 +886,7 @@ en_flag_status_t CAN_GetStatus(const CM_CAN_TypeDef *CANx, uint32_t u32Flag) {
  *   @arg  CAN_FLAG_ERR_PASSIVE:        Register bit ERRINT.EPIF. A change from error-passive to error-active or error-active to error-passive has occurred.
  *   @arg  CAN_FLAG_ERR_PASSIVE_NODE:   Register bit ERRINT.EPASS. The node is an error-passive node.
  *   @arg  CAN_FLAG_TEC_REC_WARN:       Register bit ERRINT.EWARN. REC or TEC is greater than or equal to the LIMIT.EWL setting value.
- * @retval None
+ * @retval 无
  */
 void CAN_ClearStatus(CM_CAN_TypeDef *CANx, uint32_t u32Flag) {
     uint8_t u8RTIF;
@@ -1032,7 +1032,7 @@ uint8_t CAN_GetRxBufStatus(const CM_CAN_TypeDef *CANx) {
  * @param  [in]  u16FilterSelect        Acceptance filters selection.
  *                                      This parameter can be values of @ref CAN_Acceptance_Filter
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void CAN_FilterCmd(CM_CAN_TypeDef *CANx, uint16_t u16FilterSelect, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_CAN_UNIT(CANx));
@@ -1055,7 +1055,7 @@ void CAN_FilterCmd(CM_CAN_TypeDef *CANx, uint16_t u16FilterSelect, en_functional
  *                                      When the number of received frames reaches the value specified by
  *                                      parameter 'u8RxWarnLimit', register bit RTIF.RAFIF set and the
  *                                      interrupt occurred if it was enabled.
- * @retval None
+ * @retval 无
  */
 void CAN_SetRxWarnLimit(CM_CAN_TypeDef *CANx, uint8_t u8RxWarnLimit) {
     DDL_ASSERT(IS_CAN_UNIT(CANx));
@@ -1070,7 +1070,7 @@ void CAN_SetRxWarnLimit(CM_CAN_TypeDef *CANx, uint8_t u8RxWarnLimit) {
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  u8ErrorWarnLimit       Programmable error warning limit. Range is [0, 15].
  *                                      Error warning limit = (u8ErrorWarnLimit + 1) * 8.
- * @retval None
+ * @retval 无
  */
 void CAN_SetErrorWarnLimit(CM_CAN_TypeDef *CANx, uint8_t u8ErrorWarnLimit) {
     DDL_ASSERT(IS_CAN_UNIT(CANx));
@@ -1204,7 +1204,7 @@ int32_t CAN_TTC_Config(CM_CAN_TypeDef *CANx, const stc_can_ttc_config_t *pstcCan
  *   @arg  CAN_TTC_INT_TIME_TRIG:       Time trigger interrupt.
  *   @arg  CAN_TTC_INT_WATCH_TRIG:      Watch trigger interrupt.
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void CAN_TTC_IntCmd(CM_CAN_TypeDef *CANx, uint8_t u8IntType, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_CAN_UNIT(CANx));
@@ -1224,7 +1224,7 @@ void CAN_TTC_IntCmd(CM_CAN_TypeDef *CANx, uint8_t u8IntType, en_functional_state
  *                                      This parameter can be a value of the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  * @note Call this function when CFG_STAT.RESET is 0.
  */
 void CAN_TTC_Cmd(CM_CAN_TypeDef *CANx, en_functional_state_t enNewState) {
@@ -1271,7 +1271,7 @@ en_flag_status_t CAN_TTC_GetStatus(const CM_CAN_TypeDef *CANx, uint8_t u8Flag) {
  *                                      This parameter can be a value of @ref TTCAN_Status_Flag except CAN_TTC_FLAG_TRIG_ERR.
  *   @arg  CAN_TTC_FLAG_TIME_TRIG:      Time trigger interrupt flag.
  *   @arg  CAN_TTC_FLAG_WATCH_TRIG:     Watch trigger interrupt flag.
- * @retval None
+ * @retval 无
  */
 void CAN_TTC_ClearStatus(CM_CAN_TypeDef *CANx, uint8_t u8Flag) {
     uint8_t u8Reg;
@@ -1312,7 +1312,7 @@ uint8_t CAN_TTC_GetStatusValue(const CM_CAN_TypeDef *CANx) {
  *   @arg  CAN_TTC_TRIG_SINGLESHOT_TX_TRIG: Single shot transmit trigger for exclusive time windows.
  *   @arg  CAN_TTC_TRIG_TX_START_TRIG:  Transmit start trigger for merged arbitrating time windows.
  *   @arg  CAN_TTC_TRIG_TX_STOP_TRIG:   Transmit stop trigger for merged arbitrating time windows.
- * @retval None
+ * @retval 无
  */
 void CAN_TTC_SetTriggerType(CM_CAN_TypeDef *CANx, uint16_t u16TriggerType) {
     DDL_ASSERT(IS_CAN_UNIT(CANx));
@@ -1326,7 +1326,7 @@ void CAN_TTC_SetTriggerType(CM_CAN_TypeDef *CANx, uint16_t u16TriggerType) {
  *                                      This parameter can be a value of the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  u16TxEnableWindow      Number of NTU. Time period within which the transmit of a message may be started.
- * @retval None
+ * @retval 无
  */
 void CAN_TTC_SetTxEnableWindow(CM_CAN_TypeDef *CANx, uint16_t u16TxEnableWindow) {
     DDL_ASSERT(IS_CAN_UNIT(CANx));
@@ -1340,7 +1340,7 @@ void CAN_TTC_SetTxEnableWindow(CM_CAN_TypeDef *CANx, uint16_t u16TxEnableWindow)
  *                                      This parameter can be a value of the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  u16TxTriggerTime       Transmit trigger time(number of NTU).
- * @retval None
+ * @retval 无
  */
 void CAN_TTC_SetTxTriggerTime(CM_CAN_TypeDef *CANx, uint16_t u16TxTriggerTime) {
     DDL_ASSERT(IS_CAN_UNIT(CANx));
@@ -1353,7 +1353,7 @@ void CAN_TTC_SetTxTriggerTime(CM_CAN_TypeDef *CANx, uint16_t u16TxTriggerTime) {
  *                                      This parameter can be a value of the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  u16WatchTriggerTime    Watch trigger time(number of NTU).
- * @retval None
+ * @retval 无
  */
 void CAN_TTC_SetWatchTriggerTime(CM_CAN_TypeDef *CANx, uint16_t u16WatchTriggerTime) {
     DDL_ASSERT(IS_CAN_UNIT(CANx));

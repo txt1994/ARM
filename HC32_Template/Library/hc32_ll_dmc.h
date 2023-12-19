@@ -363,7 +363,7 @@ typedef struct {
 
 /**
  * @brief  Get DMC status.
- * @param  None
+ * @param  无
  * @retval Returned value can be one of the macros group @ref EXMC_DMC_Current_Status
  *           - EXMC_DMC_CURR_STATUS_CONFIG:   Configure status
  *           - EXMC_DMC_CURR_STATUS_RDY:      Ready status

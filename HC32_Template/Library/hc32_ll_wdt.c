@@ -171,8 +171,8 @@ int32_t WDT_Init(const stc_wdt_init_t *pstcWdtInit) {
 /**
  * @brief  WDT feed dog.
  * @note   In software startup mode, Start counter when refreshing for the first time.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void WDT_FeedDog(void) {
     WRITE_REG32(CM_WDT->RR, WDT_REFRESH_KEY_START);

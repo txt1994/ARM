@@ -629,7 +629,7 @@ int32_t SDIOC_SWReset(CM_SDIOC_TypeDef *SDIOCx, uint8_t u8Type) {
  *           @arg CM_SDIOC1:            SDIOC unit 1 instance
  *           @arg CM_SDIOC2:            SDIOC unit 2 instance
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void SDIOC_PowerCmd(CM_SDIOC_TypeDef *SDIOCx, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -701,7 +701,7 @@ uint32_t SDIOC_GetMode(const CM_SDIOC_TypeDef *SDIOCx) {
  *           @arg CM_SDIOC1:            SDIOC unit 1 instance
  *           @arg CM_SDIOC2:            SDIOC unit 2 instance
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void SDIOC_ClockCmd(CM_SDIOC_TypeDef *SDIOCx, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -732,7 +732,7 @@ void SDIOC_ClockCmd(CM_SDIOC_TypeDef *SDIOCx, en_functional_state_t enNewState) 
  *           @arg SDIOC_CLK_DIV64:      CLK1/64
  *           @arg SDIOC_CLK_DIV128:     CLK1/128
  *           @arg SDIOC_CLK_DIV256:     CLK1/256
- * @retval None
+ * @retval 无
  */
 void SDIOC_SetClockDiv(CM_SDIOC_TypeDef *SDIOCx, uint16_t u16Div) {
     /* Check parameters */
@@ -898,7 +898,7 @@ en_flag_status_t SDIOC_GetInsertStatus(const CM_SDIOC_TypeDef *SDIOCx) {
  *         This parameter can be one of the following values:
  *           @arg SDIOC_SPEED_MD_NORMAL:    Normal speed mode
  *           @arg SDIOC_SPEED_MD_HIGH:      High speed mode
- * @retval None
+ * @retval 无
  */
 void SDIOC_SetSpeedMode(CM_SDIOC_TypeDef *SDIOCx, uint8_t u8SpeedMode) {
     /* Check parameters */
@@ -923,7 +923,7 @@ void SDIOC_SetSpeedMode(CM_SDIOC_TypeDef *SDIOCx, uint8_t u8SpeedMode) {
  *           @arg SDIOC_BUS_WIDTH_1BIT: The Bus width is 1 bit
  *           @arg SDIOC_BUS_WIDTH_4BIT: The Bus width is 4 bit
  *           @arg SDIOC_BUS_WIDTH_8BIT: The Bus width is 8 bit
- * @retval None
+ * @retval 无
  */
 void SDIOC_SetBusWidth(CM_SDIOC_TypeDef *SDIOCx, uint8_t u8BusWidth) {
     /* Check parameters */
@@ -943,7 +943,7 @@ void SDIOC_SetBusWidth(CM_SDIOC_TypeDef *SDIOCx, uint8_t u8BusWidth) {
  *         This parameter can be one of the following values:
  *           @arg SDIOC_CARD_DETECT_CD_PIN_LVL:     SDIOCx_CD(x=1~2) line is selected (for normal use)
  *           @arg SDIOC_CARD_DETECT_TEST_SIGNAL:    The Card Detect Test Level is selected(for test purpose)
- * @retval None
+ * @retval 无
  */
 void SDIOC_SetCardDetectSrc(CM_SDIOC_TypeDef *SDIOCx, uint8_t u8Src) {
     /* Check parameters */
@@ -967,7 +967,7 @@ void SDIOC_SetCardDetectSrc(CM_SDIOC_TypeDef *SDIOCx, uint8_t u8Src) {
  *         This parameter can be one of the following values:
  *           @arg SDIOC_CARD_DETECT_TEST_LVL_LOW:   Card identification test signal is low level (with device insertion)
  *           @arg SDIOC_CARD_DETECT_TEST_LVL_HIGH:  Card identification test signal is high level (no device insertion)
- * @retval None
+ * @retval 无
  */
 void SDIOC_SetCardDetectTestLevel(CM_SDIOC_TypeDef *SDIOCx, uint8_t u8Level) {
     /* Check parameters */
@@ -1225,7 +1225,7 @@ int32_t SDIOC_WriteBuffer(CM_SDIOC_TypeDef *SDIOCx, const uint8_t au8Data[], uin
  *           @arg CM_SDIOC1:            SDIOC unit 1 instance
  *           @arg CM_SDIOC2:            SDIOC unit 2 instance
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void SDIOC_BlockGapStopCmd(CM_SDIOC_TypeDef *SDIOCx, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -1245,7 +1245,7 @@ void SDIOC_BlockGapStopCmd(CM_SDIOC_TypeDef *SDIOCx, en_functional_state_t enNew
  *         This parameter can be one of the following values:
  *           @arg CM_SDIOC1:            SDIOC unit 1 instance
  *           @arg CM_SDIOC2:            SDIOC unit 2 instance
- * @retval None
+ * @retval 无
  */
 void SDIOC_RestartTrans(CM_SDIOC_TypeDef *SDIOCx) {
     /* Check parameters */
@@ -1261,7 +1261,7 @@ void SDIOC_RestartTrans(CM_SDIOC_TypeDef *SDIOCx) {
  *           @arg CM_SDIOC1:            SDIOC unit 1 instance
  *           @arg CM_SDIOC2:            SDIOC unit 2 instance
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void SDIOC_ReadWaitCmd(CM_SDIOC_TypeDef *SDIOCx, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -1282,7 +1282,7 @@ void SDIOC_ReadWaitCmd(CM_SDIOC_TypeDef *SDIOCx, en_functional_state_t enNewStat
  *           @arg CM_SDIOC1:            SDIOC unit 1 instance
  *           @arg CM_SDIOC2:            SDIOC unit 2 instance
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void SDIOC_BlockGapIntCmd(CM_SDIOC_TypeDef *SDIOCx, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -1307,8 +1307,8 @@ void SDIOC_BlockGapIntCmd(CM_SDIOC_TypeDef *SDIOCx, en_functional_state_t enNewS
  *           @arg SDIOC_INT_CINTSEN:    Card interrupt
  *           @arg SDIOC_INT_CRMSEN:     Card Removal interrupt
  *           @arg SDIOC_INT_CISTSEN:    Card Insertion interrupt
- *           @arg SDIOC_INT_BRRSEN:     Buffer Read Ready interrupt
- *           @arg SDIOC_INT_BWRSEN:     Buffer Write Ready interrupt
+ *           @arg SDIOC_INT_BRRSEN:     Buffer Read 就绪中断
+ *           @arg SDIOC_INT_BWRSEN:     Buffer Write 就绪中断
  *           @arg SDIOC_INT_BGESEN:     Block Gap Event interrupt
  *           @arg SDIOC_INT_TCSEN:      Transfer Complete interrupt
  *           @arg SDIOC_INT_CCSEN:      Command Complete interrupt
@@ -1324,7 +1324,7 @@ void SDIOC_BlockGapIntCmd(CM_SDIOC_TypeDef *SDIOCx, en_functional_state_t enNewS
  *           @arg SDIOC_NORMAL_INT_ALL: All of the normal interrupt
  *           @arg SDIOC_ERR_INT_ALL:    All of the error interrupt
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void SDIOC_IntCmd(CM_SDIOC_TypeDef *SDIOCx, uint32_t u32IntType, en_functional_state_t enNewState) {
     uint16_t u16NormalInt;
@@ -1368,8 +1368,8 @@ void SDIOC_IntCmd(CM_SDIOC_TypeDef *SDIOCx, uint32_t u32IntType, en_functional_s
  *           @arg SDIOC_INT_CINTSEN:    Card interrupt
  *           @arg SDIOC_INT_CRMSEN:     Card Removal interrupt
  *           @arg SDIOC_INT_CISTSEN:    Card Insertion interrupt
- *           @arg SDIOC_INT_BRRSEN:     Buffer Read Ready interrupt
- *           @arg SDIOC_INT_BWRSEN:     Buffer Write Ready interrupt
+ *           @arg SDIOC_INT_BRRSEN:     Buffer Read 就绪中断
+ *           @arg SDIOC_INT_BWRSEN:     Buffer Write 就绪中断
  *           @arg SDIOC_INT_BGESEN:     Block Gap Event interrupt
  *           @arg SDIOC_INT_TCSEN:      Transfer Complete interrupt
  *           @arg SDIOC_INT_CCSEN:      Command Complete interrupt
@@ -1496,7 +1496,7 @@ en_flag_status_t SDIOC_GetIntStatus(const CM_SDIOC_TypeDef *SDIOCx, uint32_t u32
  *           @arg SDIOC_INT_FLAG_CCE:   Command CRC error flag
  *           @arg SDIOC_INT_FLAG_CTOE:  Command Timeout error flag
  *           @arg SDIOC_INT_FLAG_CLR_ALL:   All of the above
- * @retval None
+ * @retval 无
  */
 void SDIOC_ClearIntStatus(CM_SDIOC_TypeDef *SDIOCx, uint32_t u32Flag) {
     uint16_t u16NormalFlag;
@@ -1529,8 +1529,8 @@ void SDIOC_ClearIntStatus(CM_SDIOC_TypeDef *SDIOCx, uint32_t u32Flag) {
  *           @arg SDIOC_INT_CINTSEN:    Card interrupt
  *           @arg SDIOC_INT_CRMSEN:     Card Removal interrupt
  *           @arg SDIOC_INT_CISTSEN:    Card Insertion interrupt
- *           @arg SDIOC_INT_BRRSEN:     Buffer Read Ready interrupt
- *           @arg SDIOC_INT_BWRSEN:     Buffer Write Ready interrupt
+ *           @arg SDIOC_INT_BRRSEN:     Buffer Read 就绪中断
+ *           @arg SDIOC_INT_BWRSEN:     Buffer Write 就绪中断
  *           @arg SDIOC_INT_BGESEN:     Block Gap Event interrupt
  *           @arg SDIOC_INT_TCSEN:      Transfer Complete interrupt
  *           @arg SDIOC_INT_CCSEN:      Command Complete interrupt
@@ -1546,7 +1546,7 @@ void SDIOC_ClearIntStatus(CM_SDIOC_TypeDef *SDIOCx, uint32_t u32Flag) {
  *           @arg SDIOC_NORMAL_INT_ALL: All of the normal interrupt
  *           @arg SDIOC_ERR_INT_ALL:    All of the error interrupt
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void SDIOC_IntStatusCmd(CM_SDIOC_TypeDef *SDIOCx, uint32_t u32IntType, en_functional_state_t enNewState) {
     uint16_t u16NormalInt;
@@ -1667,7 +1667,7 @@ en_flag_status_t SDIOC_GetAutoCmdErrorStatus(const CM_SDIOC_TypeDef *SDIOCx, uin
  *           @arg SDIOC_FORCE_AUTO_CMD_ERR_FTOE:    Force Event for Auto CMD12 Timeout error
  *           @arg SDIOC_FORCE_AUTO_CMD_ERR_FNE:     Force Event for Auto CMD12 Not Executed
  *           @arg SDIOC_FORCE_AUTO_CMD_ERR_ALL:     All of the above
- * @retval None
+ * @retval 无
  */
 void SDIOC_ForceAutoCmdErrorEvent(CM_SDIOC_TypeDef *SDIOCx, uint16_t u16Event) {
     /* Check parameters */
@@ -1694,7 +1694,7 @@ void SDIOC_ForceAutoCmdErrorEvent(CM_SDIOC_TypeDef *SDIOCx, uint16_t u16Event) {
  *           @arg SDIOC_FORCE_ERR_INT_FCCE:     Force Event for Command CRC error
  *           @arg SDIOC_FORCE_ERR_INT_FCTOE:    Force Event for Command Timeout error
  *           @arg SDIOC_FORCE_ERR_INT_ALL:      All of the above
- * @retval None
+ * @retval 无
  */
 void SDIOC_ForceErrorIntEvent(CM_SDIOC_TypeDef *SDIOCx, uint16_t u16Event) {
     /* Check parameters */

@@ -90,7 +90,7 @@ extern "C" {
 void RNG_DeInit(void); // 将 RNG 外设寄存器取消初始化为其默认复位值。
 
 /* 配置功能 *****************************************************/
-void RNG_Cmd(FunctionalState NewState); // 启用或禁用 RNG 外围设备。
+void RNG_Cmd(FunctionalState NewState); // 启用或禁用 RNG 外设设备。
 
 /* 获取 32 位随机数功能 ******************************************/
 uint32_t RNG_GetRandomNumber(void); // 返回一个 32 位随机数。

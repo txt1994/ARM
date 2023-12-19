@@ -262,16 +262,16 @@ typedef struct {
 void CEC_DeInit(void);
 
 /* CEC_Initialization 和配置功能 *****************************/
-void CEC_Init(CEC_InitTypeDef* CEC_InitStruct); // 根据CEC_InitStruct中指定的参数，初始化CEC外围设备。
+void CEC_Init(CEC_InitTypeDef* CEC_InitStruct); // 根据CEC_InitStruct中指定的参数，初始化CEC外设设备。
 void CEC_StructInit(CEC_InitTypeDef* CEC_InitStruct); // 用默认值填充每个CEC_InitStruct成员。
-void CEC_Cmd(FunctionalState NewState); // 启用或禁用CEC外围设备。
+void CEC_Cmd(FunctionalState NewState); // 启用或禁用CEC外设设备。
 void CEC_ListenModeCmd(FunctionalState NewState); // 启用或禁用CEC侦听模式。
 void CEC_OwnAddressConfig(uint8_t CEC_OwnAddress); // 定义CEC设备的自有地址。
 void CEC_OwnAddressClear(void); // 清除CEC设备的自有地址。
 
 /* CEC_Data 传输功能 ***********************************************/
-void CEC_SendData(uint8_t Data); // 通过CEC外围设备传输单个数据。
-uint8_t CEC_ReceiveData(void); // 返回CEC外围设备最近接收的数据。
+void CEC_SendData(uint8_t Data); // 通过CEC外设设备传输单个数据。
+uint8_t CEC_ReceiveData(void); // 返回CEC外设设备最近接收的数据。
 void CEC_StartOfMessage(void); // 启动新消息
 void CEC_EndOfMessage(void); // 用EOM位传输消息。
 

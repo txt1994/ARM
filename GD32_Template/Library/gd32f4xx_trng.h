@@ -89,7 +89,7 @@ void TRNG_Disable(void);
 uint32_t TRNG_Get_true_random_data(void);
 
 /* interrupt & flag functions */
-/* enable TRNG interrupt */
+/* enable TRNG 中断 */
 void TRNG_Interrupt_Enable(void);
 /* disable TRNG interrupt  */
 void TRNG_Interrupt_Disable(void);

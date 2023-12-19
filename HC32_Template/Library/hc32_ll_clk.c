@@ -608,7 +608,7 @@ static void SetSysClockSrc(uint8_t u8Src) {
     DDL_ASSERT(IS_CLK_UNLOCKED());
 
     /* Only current system clock source or target system clock source is PLLH
-    need to close fcg0~fcg3 and open fcg0~fcg3 during switch system clock source.
+    need to close fcg0~fcg3 and open fcg0~fcg3 during switch system 时钟源.
     We need to backup fcg0~fcg3 before close them. */
     if (CLK_SYSCLK_SRC_PLL == READ_REG8_BIT(CM_CMU->CKSWR, CMU_CKSWR_CKSW) || (CLK_SYSCLK_SRC_PLL == u8Src)) {
         u8TmpFlag = 1U;
@@ -729,7 +729,7 @@ static void SetSysClockDiv(uint32_t u32Clock, uint32_t u32Div) {
     DDL_ASSERT(IS_CLK_UNLOCKED());
 
     /* Only current system clock source or target system clock source is PLLH
-    need to close fcg0~fcg3 and open fcg0~fcg3 during switch system clock source.
+    need to close fcg0~fcg3 and open fcg0~fcg3 during switch system 时钟源.
     We need to backup fcg0~fcg3 before close them. */
     if (CLK_SYSCLK_SRC_PLL == READ_REG8_BIT(CM_CMU->CKSWR, CMU_CKSWR_CKSW)) {
         u8TmpFlag = 1U;
@@ -861,7 +861,7 @@ int32_t CLK_HrcCmd(en_functional_state_t enNewState) {
 /**
  * @brief  Set HRC trimming value.
  * @param  [in] i8TrimVal specifies the trimming value for HRC.
- * @retval None
+ * @retval 无
  */
 void CLK_HrcTrim(int8_t i8TrimVal) {
     DDL_ASSERT(IS_CLK_UNLOCKED());
@@ -872,7 +872,7 @@ void CLK_HrcTrim(int8_t i8TrimVal) {
 /**
  * @brief  Set MRC trimming value.
  * @param  [in] i8TrimVal specifies the trimming value for MRC.
- * @retval None
+ * @retval 无
  */
 void CLK_MrcTrim(int8_t i8TrimVal) {
     DDL_ASSERT(IS_CLK_UNLOCKED());
@@ -883,7 +883,7 @@ void CLK_MrcTrim(int8_t i8TrimVal) {
 /**
  * @brief  Set LRC trimming value.
  * @param  [in] i8TrimVal specifies the trimming value for LRC.
- * @retval None
+ * @retval 无
  */
 void CLK_LrcTrim(int8_t i8TrimVal) {
     DDL_ASSERT(IS_CLK_UNLOCKED());
@@ -894,7 +894,7 @@ void CLK_LrcTrim(int8_t i8TrimVal) {
 /**
  * @brief  Set RTC LRC trimming value.
  * @param  [in] i8TrimVal specifies the trimming value for RTC LRC.
- * @retval None
+ * @retval 无
  */
 void CLK_RtcLrcTrim(int8_t i8TrimVal) {
     DDL_ASSERT(IS_CLK_UNLOCKED());
@@ -1060,8 +1060,8 @@ int32_t CLK_XtalStdInit(const stc_clock_xtalstd_init_t *pstcXtalStdInit) {
 
 /**
  * @brief  Clear the XTAL error flag.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  * @note   The system clock should not be XTAL before call this function.
  */
 void CLK_ClearXtalStdStatus(void) {
@@ -1075,7 +1075,7 @@ void CLK_ClearXtalStdStatus(void) {
 
 /**
  * @brief  Get the XTAL error flag.
- * @param  None
+ * @param  无
  * @retval An @ref en_flag_status_t enumeration type value.
  */
 en_flag_status_t CLK_GetXtalStdStatus(void) {
@@ -1174,7 +1174,7 @@ int32_t CLK_Xtal32Cmd(en_functional_state_t enNewState) {
 /**
  * @brief  XTAL32 clock input function enable/disable.
  * @param  [in] enNewState An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void CLK_Xtal32InputCmd(en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -1188,7 +1188,7 @@ void CLK_Xtal32InputCmd(en_functional_state_t enNewState) {
  * @param  [in] u32PllSrc PLL source clock.
  *   @arg  CLK_PLL_SRC_XTAL
  *   @arg  CLK_PLL_SRC_HRC
- * @retval None
+ * @retval 无
  */
 void CLK_SetPLLSrc(uint32_t u32PllSrc) {
     DDL_ASSERT(IS_CLK_PLL_SRC(u32PllSrc));
@@ -1421,7 +1421,7 @@ int32_t CLK_PLLxCmd(en_functional_state_t enNewState) {
  * @param  [in] u8Ch        Specifies the MCO channel. @ref CLK_MCO_Channel_Sel
  * @param  [in] u8Src       Specifies the clock source to output. @ref CLK_MCO_Clock_Source
  * @param  [in] u8Div       Specifies the MCOx prescaler. @ref CLK_MCO_Clock_Prescaler
- * @retval None
+ * @retval 无
  * @note   MCO pin should be configured in alternate function 1 mode.
  */
 void CLK_MCOConfig(uint8_t u8Ch, uint8_t u8Src, uint8_t u8Div) {
@@ -1443,7 +1443,7 @@ void CLK_MCOConfig(uint8_t u8Ch, uint8_t u8Src, uint8_t u8Div) {
  * @brief  Enable or disable the MCO1 output.
  * @param  [in] u8Ch        Specifies the MCO channel. @ref CLK_MCO_Channel_Sel
  * @param  [in] enNewState  An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void CLK_MCOCmd(uint8_t u8Ch, en_functional_state_t enNewState) {
     __IO uint8_t *MCOCFGRx;
@@ -1469,9 +1469,9 @@ en_flag_status_t CLK_GetStableStatus(uint8_t u8Flag) {
 }
 
 /**
- * @brief  Set the system clock source.
+ * @brief  Set the system 时钟源.
  * @param  [in] u8Src specifies the source of system clock. @ref CLK_System_Clock_Source
- * @retval None
+ * @retval 无
  */
 void CLK_SetSysClockSrc(uint8_t u8Src) {
     /* Set system clock source */
@@ -1610,7 +1610,7 @@ int32_t CLK_GetPLLClockFreq(stc_pll_clock_freq_t *pstcPllClkFreq) {
  * @brief  HCLK/PCLK divide setting.
  * @param  [in] u32Clock specifies the clock to be divided.  @ref CLK_Bus_Clock_Sel
  * @param  [in] u32Div specifies the clock divide factor. @ref CLK_Clock_Divider
- * @retval None
+ * @retval 无
  * @note   u32Div could choose CLK_HCLK_Divider, CLK_PCLK0_Divider, CLK_PCLK1_Divider,
  * CLK_PCLK2_Divider, CLK_PCLK3_Divider, CLK_PCLK4_Divider, CLK_EXCLK_Divider, according to the MCU
  */
@@ -1622,9 +1622,9 @@ void CLK_SetClockDiv(uint32_t u32Clock, uint32_t u32Div) {
 }
 
 /**
- * @brief  Set peripheral clock source.
- * @param  [in] u16Src specifies the peripheral clock source. @ref CLK_PERIPH_Sel
- * @retval None
+ * @brief  Set peripheral 时钟源.
+ * @param  [in] u16Src specifies the peripheral 时钟源. @ref CLK_PERIPH_Sel
+ * @retval 无
  * @note   peripheral for ADC/DAC/TRNG
  */
 void CLK_SetPeriClockSrc(uint16_t u16Src) {
@@ -1637,8 +1637,8 @@ void CLK_SetPeriClockSrc(uint16_t u16Src) {
 
 /**
  * @brief  USB clock source config.
- * @param  [in] u8Src specifies the USB clock source. @ref CLK_USBCLK_Sel
- * @retval None
+ * @param  [in] u8Src specifies the USB 时钟源. @ref CLK_USBCLK_Sel
+ * @retval 无
  */
 void CLK_SetUSBClockSrc(uint8_t u8Src) {
     DDL_ASSERT(IS_CLK_USBCLK_SRC(u8Src));
@@ -1649,13 +1649,13 @@ void CLK_SetUSBClockSrc(uint8_t u8Src) {
 
 /**
  * @brief  I2S clock source config.
- * @param  [in] u8Unit specifies the I2S channel for clock source. @ref CLK_I2S_Sel
+ * @param  [in] u8Unit specifies the I2S channel for 时钟源. @ref CLK_I2S_Sel
  *   @arg  CLK_I2S1:  I2S Channel 1
  *   @arg  CLK_I2S2:  I2S Channel 2
  *   @arg  CLK_I2S3:  I2S Channel 3
  *   @arg  CLK_I2S4:  I2S Channel 4
- * @param  [in] u8Src specifies the I2S clock source. @ref CLK_PERIPH_Sel
- * @retval None
+ * @param  [in] u8Src 指定 I2S 时钟源。 @ref CLK_PERIPH_Sel
+ * @retval 无
  */
 void CLK_SetI2SClockSrc(uint8_t u8Unit, uint8_t u8Src) {
     DDL_ASSERT(IS_CLK_I2S_UNIT(u8Unit));
@@ -1669,9 +1669,9 @@ void CLK_SetI2SClockSrc(uint8_t u8Unit, uint8_t u8Src) {
 
 /**
  * @brief  CAN clock source config.
- * @param  [in] u8Unit specifies the CAN channel for clock source. @ref CLK_CAN_Sel
- * @param  [in] u8Src specifies the CAN clock source. @ref CLK_CANCLK_Sel
- * @retval None
+ * @param  [in] u8Unit specifies the CAN channel for 时钟源. @ref CLK_CAN_Sel
+ * @param  [in] u8Src specifies the CAN 时钟源. @ref CLK_CANCLK_Sel
+ * @retval 无
  */
 void CLK_SetCANClockSrc(uint8_t u8Unit, uint8_t u8Src) {
     uint32_t u32UnitPos = 0UL;
@@ -1693,7 +1693,7 @@ void CLK_SetCANClockSrc(uint8_t u8Unit, uint8_t u8Src) {
 /**
  * @brief  Enable or disable the TPIU clock.
  * @param  [in] enNewState An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void CLK_TpiuClockCmd(en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -1708,7 +1708,7 @@ void CLK_TpiuClockCmd(en_functional_state_t enNewState) {
  *   @arg  CLK_TPIUCLK_DIV1: TPIU clock no divide
  *   @arg  CLK_TPIUCLK_DIV2: TPIU clock divide by 2
  *   @arg  CLK_TPIUCLK_DIV4: TPIU clock divide by 4
- * @retval None
+ * @retval 无
  */
 void CLK_SetTpiuClockDiv(uint8_t u8Div) {
     DDL_ASSERT(IS_CLK_TPIUCLK_DIV(u8Div));

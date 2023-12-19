@@ -77,33 +77,33 @@ extern "C" {
 
 
 #if   defined ( __CC_ARM )
-#define __ASM            __asm                                      /*!< asm keyword for ARM Compiler          */
-#define __INLINE         __inline                                   /*!< inline keyword for ARM Compiler       */
+#define __ASM            __asm                                      /*!< ARM 编译器的 asm 关键字          */
+#define __INLINE         __inline                                   /*!< ARM 编译器的 inline 关键字       */
 #define __STATIC_INLINE  static __inline
 
 #elif defined ( __GNUC__ )
-#define __ASM            __asm                                      /*!< asm keyword for GNU Compiler          */
-#define __INLINE         inline                                     /*!< inline keyword for GNU Compiler       */
+#define __ASM            __asm                                      /*!< GNU 编译器的 asm 关键字          */
+#define __INLINE         inline                                     /*!< GNU 编译器的 inline 关键字       */
 #define __STATIC_INLINE  static inline
 
 #elif defined ( __ICCARM__ )
-#define __ASM            __asm                                      /*!< asm keyword for IAR Compiler          */
+#define __ASM            __asm                                      /*!< IAR 编译器的 asm 关键字          */
 #define __INLINE         inline                                     /*!< inline keyword for IAR Compiler. Only available in High optimization mode! */
 #define __STATIC_INLINE  static inline
 
 #elif defined ( __TMS470__ )
-#define __ASM            __asm                                      /*!< asm keyword for TI CCS Compiler       */
+#define __ASM            __asm                                      /*!< TI CCS 编译器的 asm 关键字       */
 #define __STATIC_INLINE  static inline
 
 #elif defined ( __TASKING__ )
-#define __ASM            __asm                                      /*!< asm keyword for TASKING Compiler      */
-#define __INLINE         inline                                     /*!< inline keyword for TASKING Compiler   */
+#define __ASM            __asm                                      /*!< TASKING 编译器的 asm 关键字      */
+#define __INLINE         inline                                     /*!< TASKING 编译器的 inline 关键字   */
 #define __STATIC_INLINE  static inline
 
 #elif defined ( __CSMC__ )
 #define __packed
-#define __ASM            _asm                                      /*!< asm keyword for COSMIC Compiler      */
-#define __INLINE         inline                                    /*use -pc99 on compile line !< inline keyword for COSMIC Compiler   */
+#define __ASM            _asm                                      /*!< COSMIC 编译器的 asm 关键字      */
+#define __INLINE         inline                                    /*use -pc99 on compile line !< COSMIC 编译器的 inline 关键字   */
 #define __STATIC_INLINE  static inline
 
 #endif
@@ -699,7 +699,7 @@ __STATIC_INLINE uint32_t SysTick_Config(uint32_t ticks) {
     }
 
     SysTick->LOAD  = (uint32_t)(ticks - 1UL);                         /* set reload register */
-    NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL); /* set Priority for Systick Interrupt */
+    NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL); /* set Priority for Systick 中断 */
     SysTick->VAL   = 0UL;                                             /* Load the SysTick Counter Value */
     SysTick->CTRL  = SysTick_CTRL_CLKSOURCE_Msk |
                      SysTick_CTRL_TICKINT_Msk   |

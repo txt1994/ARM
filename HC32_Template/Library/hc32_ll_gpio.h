@@ -385,8 +385,8 @@ typedef struct {
  */
 /**
  * @brief  GPIO lock. PSPCR, PCCR, PINAER, PCRxy, PFSRxy write disable
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void GPIO_REG_Lock(void) {
     WRITE_REG16(CM_GPIO->PWPR, GPIO_REG_LOCK_KEY);
@@ -394,8 +394,8 @@ __STATIC_INLINE void GPIO_REG_Lock(void) {
 
 /**
  * @brief  GPIO unlock. PSPCR, PCCR, PINAER, PCRxy, PFSRxy write enable
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void GPIO_REG_Unlock(void) {
     WRITE_REG16(CM_GPIO->PWPR, GPIO_REG_UNLOCK_KEY);

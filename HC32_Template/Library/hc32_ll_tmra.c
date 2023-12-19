@@ -331,7 +331,7 @@ int32_t TMRA_StructInit(stc_tmra_init_t *pstcTmraInit) {
  *                                      This parameter can be a value of @ref TMRA_Count_Mode
  *   @arg  TMRA_MD_SAWTOOTH:            Count mode is sawtooth wave.
  *   @arg  TMRA_MD_TRIANGLE:            Count mode is triangle wave.
- * @retval None
+ * @retval 无
  */
 void TMRA_SetCountMode(CM_TMRA_TypeDef *TMRAx, uint16_t u16Mode) {
     DDL_ASSERT(IS_TMRA_UNIT(TMRAx));
@@ -348,7 +348,7 @@ void TMRA_SetCountMode(CM_TMRA_TypeDef *TMRAx, uint16_t u16Mode) {
  *                                      This parameter can be a value of @ref TMRA_Count_Dir
  *   @arg  TMRA_DIR_DOWN:               TMRA count down.
  *   @arg  TMRA_DIR_UP:                 TMRA count up.
- * @retval None
+ * @retval 无
  */
 void TMRA_SetCountDir(CM_TMRA_TypeDef *TMRAx, uint16_t u16Dir) {
     DDL_ASSERT(IS_TMRA_UNIT(TMRAx));
@@ -363,7 +363,7 @@ void TMRA_SetCountDir(CM_TMRA_TypeDef *TMRAx, uint16_t u16Dir) {
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u16Div                 Clcok divider.
  *                                      This parameter can be a value of @ref TMRA_Clock_Divider
- * @retval None
+ * @retval 无
  */
 void TMRA_SetClockDiv(CM_TMRA_TypeDef *TMRAx, uint16_t u16Div) {
     DDL_ASSERT(IS_TMRA_UNIT(TMRAx));
@@ -379,7 +379,7 @@ void TMRA_SetClockDiv(CM_TMRA_TypeDef *TMRAx, uint16_t u16Div) {
  * @param  [in]  u16Cond                Hardware count up condition.
  *                                      This parameter can be values of @ref TMRA_Hard_Count_Up_Condition
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMRA_HWCountUpCondCmd(CM_TMRA_TypeDef *TMRAx, uint16_t u16Cond, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_TMRA_UNIT(TMRAx));
@@ -401,7 +401,7 @@ void TMRA_HWCountUpCondCmd(CM_TMRA_TypeDef *TMRAx, uint16_t u16Cond, en_function
  * @param  [in]  u16Cond                Hardware count down condition.
  *                                      This parameter can be values of @ref TMRA_Hard_Count_Down_Condition
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMRA_HWCountDownCondCmd(CM_TMRA_TypeDef *TMRAx, uint16_t u16Cond, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_TMRA_UNIT(TMRAx));
@@ -424,7 +424,7 @@ void TMRA_HWCountDownCondCmd(CM_TMRA_TypeDef *TMRAx, uint16_t u16Cond, en_functi
  *                                      This parameter can be a value of @ref TMRA_Function_Mode
  * @param  [in]  u32Ch                  TMRA channel.
  *                                      This parameter can be a value of @ref TMRA_Channel
- * @retval None
+ * @retval 无
  */
 void TMRA_SetFunc(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, uint16_t u16Func) {
     uint32_t u32CCONRAddr;
@@ -509,7 +509,7 @@ int32_t TMRA_PWM_StructInit(stc_tmra_pwm_init_t *pstcPwmInit) {
  * @param  [in]  u32Ch                  TMRA channel.
  *                                      This parameter can be a value of @ref TMRA_Channel
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMRA_PWM_OutputCmd(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, en_functional_state_t enNewState) {
     uint32_t u32PCONRAddr;
@@ -532,7 +532,7 @@ void TMRA_PWM_OutputCmd(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, en_functional_st
  *                                      This parameter can be a value @ref TMRA_Counter_State
  * @param  [in]  u16Polarity            The polarity of PWM.
  *                                      This parameter can be a value @ref TMRA_PWM_Polarity
- * @retval None
+ * @retval 无
  * @note   The polarity(high or low) of couting start is only valid when the clock is not divided(BCSTR.CKDIV == 0).
  */
 void TMRA_PWM_SetPolarity(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, uint8_t u8CountState, uint16_t u16Polarity) {
@@ -556,7 +556,7 @@ void TMRA_PWM_SetPolarity(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, uint8_t u8Coun
  *                                      This parameter can be a value @ref TMRA_Channel
  * @param  [in]  u16Polarity            The force polarity of PWM.
  *                                      This parameter can be a value @ref TMRA_PWM_Force_Polarity
- * @retval None
+ * @retval 无
  */
 void TMRA_PWM_SetForcePolarity(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, uint16_t u16Polarity) {
     uint32_t u32PCONRAddr;
@@ -578,7 +578,7 @@ void TMRA_PWM_SetForcePolarity(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, uint16_t 
  * @param  [in]  u16Cond                The capture condition.
  *                                      This parameter can be a value @ref TMRA_Capture_Cond
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMRA_HWCaptureCondCmd(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, uint16_t u16Cond, en_functional_state_t enNewState) {
     uint32_t u32CCONRAddr;
@@ -611,7 +611,7 @@ void TMRA_HWCaptureCondCmd(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, uint16_t u16C
  * @param  [in]  u16Cond                Hardware start condition.
  *                                      This parameter can be a value @ref TMRA_Hardware_Start_Condition
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMRA_HWStartCondCmd(CM_TMRA_TypeDef *TMRAx, uint16_t u16Cond, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_TMRA_UNIT(TMRAx));
@@ -633,7 +633,7 @@ void TMRA_HWStartCondCmd(CM_TMRA_TypeDef *TMRAx, uint16_t u16Cond, en_functional
  * @param  [in]  u16Cond                Hardware stop condition.
  *                                      This parameter can be a value @ref TMRA_Hardware_Stop_Condition
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMRA_HWStopCondCmd(CM_TMRA_TypeDef *TMRAx, uint16_t u16Cond, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_TMRA_UNIT(TMRAx));
@@ -655,7 +655,7 @@ void TMRA_HWStopCondCmd(CM_TMRA_TypeDef *TMRAx, uint16_t u16Cond, en_functional_
  * @param  [in]  u16Cond                Hardware clear condition.
  *                                      This parameter can be a value @ref TMRA_Hardware_Clear_Condition
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMRA_HWClearCondCmd(CM_TMRA_TypeDef *TMRAx, uint16_t u16Cond, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_TMRA_UNIT(TMRAx));
@@ -682,7 +682,7 @@ void TMRA_HWClearCondCmd(CM_TMRA_TypeDef *TMRAx, uint16_t u16Cond, en_functional
  *   @arg  TMRA_FILTER_CLK_DIV4:        The filter clock is the clock of timerA / 4.
  *   @arg  TMRA_FILTER_CLK_DIV16:       The filter clock is the clock of timerA / 16.
  *   @arg  TMRA_FILTER_CLK_DIV64:       The filter clock is the clock of timerA / 64.
- * @retval None
+ * @retval 无
  */
 void TMRA_SetFilterClockDiv(CM_TMRA_TypeDef *TMRAx, uint32_t u32Pin, uint16_t u16Div) {
     uint32_t u32Ch;
@@ -715,7 +715,7 @@ void TMRA_SetFilterClockDiv(CM_TMRA_TypeDef *TMRAx, uint32_t u32Pin, uint16_t u1
  * @param  [in]  u32Pin                 The pin with filter of TMRA.
  *                                      This parameter can be values of @ref TMRA_Filter_Pin
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMRA_FilterCmd(CM_TMRA_TypeDef *TMRAx, uint32_t u32Pin, en_functional_state_t enNewState) {
     uint8_t u8EnPos;
@@ -745,7 +745,7 @@ void TMRA_FilterCmd(CM_TMRA_TypeDef *TMRAx, uint32_t u32Pin, en_functional_state
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
  *                                      This parameter can be a value of the following:
  *   @arg  CM_TMRA_x or CM_TMRA
- * @retval None
+ * @retval 无
  */
 void TMRA_DeInit(CM_TMRA_TypeDef *TMRAx) {
     uint32_t i;
@@ -809,7 +809,7 @@ uint16_t TMRA_GetCountDir(const CM_TMRA_TypeDef *TMRAx) {
  *                                      This parameter can be a number between:
  *                                      0UL and 0xFFFFFFFFUL for 32-bit TimerA units.
  *                                      0UL and 0xFFFFUL for 16-bit TimerA units.
- * @retval None
+ * @retval 无
  */
 void TMRA_SetPeriodValue(CM_TMRA_TypeDef *TMRAx, uint32_t u32Value) {
     uint32_t u32PERARAddr;
@@ -842,7 +842,7 @@ uint32_t TMRA_GetPeriodValue(const CM_TMRA_TypeDef *TMRAx) {
  *                                      This parameter can be a number between:
  *                                      0UL and 0xFFFFFFFFUL for 32-bit TimerA units.
  *                                      0UL and 0xFFFFUL for 16-bit TimerA units.
- * @retval None
+ * @retval 无
  */
 void TMRA_SetCountValue(CM_TMRA_TypeDef *TMRAx, uint32_t u32Value) {
     uint32_t u32CNTERAddr;
@@ -877,7 +877,7 @@ uint32_t TMRA_GetCountValue(const CM_TMRA_TypeDef *TMRAx) {
  *                                      This parameter can be a number between:
  *                                      0UL and 0xFFFFFFFFUL for 32-bit TimerA units.
  *                                      0UL and 0xFFFFUL for 16-bit TimerA units.
- * @retval None
+ * @retval 无
  */
 void TMRA_SetCompareValue(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, uint32_t u32Value) {
     uint32_t u32CMPARAddr;
@@ -915,7 +915,7 @@ uint32_t TMRA_GetCompareValue(const CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch) {
  *                                      This parameter can be a value of the following:
  *   @arg  CM_TMRA_x(x is an even number)
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMRA_SyncStartCmd(CM_TMRA_TypeDef *TMRAx, en_functional_state_t enNewState) {
     uint32_t u32Addr;
@@ -933,7 +933,7 @@ void TMRA_SyncStartCmd(CM_TMRA_TypeDef *TMRAx, en_functional_state_t enNewState)
  *                                      This parameter can be a value of the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMRA_CountReloadCmd(CM_TMRA_TypeDef *TMRAx, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_TMRA_UNIT(TMRAx));
@@ -962,7 +962,7 @@ void TMRA_CountReloadCmd(CM_TMRA_TypeDef *TMRAx, en_functional_state_t enNewStat
  *                                      transfer CMMARm(m=2,4,6,8,...) to CMMARn(n=1,3,5,7,...).
  *   @arg  TMRA_BUF_TRANS_COND_VALLEY:  In triangle wave count mode, when count reached valley,
  *                                      transfer CMMARm(m=2,4,6,8,...) to CMMARn(n=1,3,5,7,...).
- * @retval None
+ * @retval 无
  */
 void TMRA_SetCompareBufCond(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, uint16_t u16Cond) {
     uint32_t u32BCONRAddr;
@@ -983,7 +983,7 @@ void TMRA_SetCompareBufCond(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, uint16_t u16
  * @param  [in]  u32Ch                  TMRA channel.
  *                                      This parameter can be one of the odd channels of @ref TMRA_Channel
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMRA_CompareBufCmd(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, en_functional_state_t enNewState) {
     uint32_t u32BCONRAddr;
@@ -1031,7 +1031,7 @@ en_flag_status_t TMRA_GetStatus(const CM_TMRA_TypeDef *TMRAx, uint32_t u32Flag) 
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u32Flag                The status flags of TMRA.
  *                                      This parameter can be values of @ref TMRA_Status_Flag
- * @retval None
+ * @retval 无
  */
 void TMRA_ClearStatus(CM_TMRA_TypeDef *TMRAx, uint32_t u32Flag) {
     DDL_ASSERT(IS_TMRA_UNIT_FLAG(TMRAx, u32Flag));
@@ -1048,7 +1048,7 @@ void TMRA_ClearStatus(CM_TMRA_TypeDef *TMRAx, uint32_t u32Flag) {
  * @param  [in]  u32IntType             The interrupt type of TMRA.
  *                                      This parameter can be values of @ref TMRA_Interrupt_Type
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMRA_IntCmd(CM_TMRA_TypeDef *TMRAx, uint32_t u32IntType, en_functional_state_t enNewState) {
     uint32_t u32BCSTR;
@@ -1077,7 +1077,7 @@ void TMRA_IntCmd(CM_TMRA_TypeDef *TMRAx, uint32_t u32IntType, en_functional_stat
  * @param  [in]  u32EventType           The event type of TMRA.
  *                                      This parameter can be values of @ref TMRA_Event_Type
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMRA_EventCmd(CM_TMRA_TypeDef *TMRAx, uint32_t u32EventType, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_TMRA_CH_EVT(TMRAx, u32EventType));
@@ -1095,7 +1095,7 @@ void TMRA_EventCmd(CM_TMRA_TypeDef *TMRAx, uint32_t u32EventType, en_functional_
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
  *                                      This parameter can be a value of the following:
  *   @arg  CM_TMRA_x or CM_TMRA
- * @retval None
+ * @retval 无
  */
 void TMRA_Start(CM_TMRA_TypeDef *TMRAx) {
     DDL_ASSERT(IS_TMRA_UNIT(TMRAx));
@@ -1107,7 +1107,7 @@ void TMRA_Start(CM_TMRA_TypeDef *TMRAx) {
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
  *                                      This parameter can be a value of the following:
  *   @arg  CM_TMRA_x or CM_TMRA
- * @retval None
+ * @retval 无
  */
 void TMRA_Stop(CM_TMRA_TypeDef *TMRAx) {
     DDL_ASSERT(IS_TMRA_UNIT(TMRAx));

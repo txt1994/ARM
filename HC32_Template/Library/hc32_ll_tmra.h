@@ -63,7 +63,7 @@ typedef struct {
                                                  This parameter can be a value of @ref TMRA_Count_Src */
     union {
         struct {
-            uint16_t u16ClockDiv;           /*!< Specifies the divider of software clock source.
+            uint16_t u16ClockDiv;           /*!< Specifies the divider of software 时钟源.
                                                  This parameter can be a value of @ref TMRA_Clock_Divider */
             uint16_t u16CountMode;          /*!< Specifies count mode.
                                                  This parameter can be a value of @ref TMRA_Count_Mode */

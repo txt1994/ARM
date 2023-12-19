@@ -45,7 +45,7 @@
   * @retval 无
   */
 void CRM_Reset(void) {
-    /* reset the crm clock configuration to the default reset state(for debug purpose) */
+    /* 将CRM时钟配置重置为默认重置状态(用于调试目的) */
     /* set hicken bit */
     CRM->ctrl_bit.hicken = TRUE;
 
@@ -70,7 +70,7 @@ void CRM_Reset(void) {
     /* reset clkout[3], usbbufs, hickdiv, clkoutdiv */
     CRM->misc1 = 0;
 
-    /* disable all interrupts enable and clear pending bits  */
+    /* 禁用所有中断 enable and clear pending bits  */
     CRM->clkint = 0x009F0000U;
 }
 

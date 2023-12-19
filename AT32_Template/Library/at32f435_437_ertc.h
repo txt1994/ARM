@@ -47,11 +47,11 @@ extern "C" {
   * @{
   */
 
-#define ERTC_TP_INT                      ((uint32_t)0x00000004) /*!< ertc tamper interrupt */
-#define ERTC_ALA_INT                     ((uint32_t)0x00001000) /*!< ertc alarm a interrupt */
-#define ERTC_ALB_INT                     ((uint32_t)0x00002000) /*!< ertc alarm b interrupt */
-#define ERTC_WAT_INT                     ((uint32_t)0x00004000) /*!< ertc wakeup timer interrupt */
-#define ERTC_TS_INT                      ((uint32_t)0x00008000) /*!< ertc timestamp interrupt */
+#define ERTC_TP_INT                      ((uint32_t)0x00000004) /*!< ertc tamper 中断 */
+#define ERTC_ALA_INT                     ((uint32_t)0x00001000) /*!< ertc alarm a 中断 */
+#define ERTC_ALB_INT                     ((uint32_t)0x00002000) /*!< ertc alarm b 中断 */
+#define ERTC_WAT_INT                     ((uint32_t)0x00004000) /*!< ertc wakeup timer 中断 */
+#define ERTC_TS_INT                      ((uint32_t)0x00008000) /*!< ertc timestamp 中断 */
 
 /**
   * @}

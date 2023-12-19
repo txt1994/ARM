@@ -105,7 +105,7 @@
  *                                      This parameter can be a value of @ref TRNG_Reload_Init_Value
  *   @arg  TRNG_RELOAD_INIT_VAL_ENABLE:  Enable load new initial value.
  *   @arg  TRNG_RELOAD_INIT_VAL_DISABLE: Disable load new initial value.
- * @retval None
+ * @retval 无
  */
 void TRNG_Init(uint32_t u32ShiftCount, uint32_t u32ReloadInitValueEn) {
     uint8_t i;
@@ -169,8 +169,8 @@ int32_t TRNG_GenerateRandom(uint32_t *pu32Random, uint8_t u8RandomLen) {
 
 /**
  * @brief  Start TRNG
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void TRNG_Start(void) {
     /* Enable TRNG circuit. */

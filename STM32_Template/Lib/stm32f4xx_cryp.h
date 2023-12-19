@@ -50,12 +50,15 @@ extern "C" {
   * 简介:    CRYP 初始化结构定义
   */
 typedef struct {
-    uint32_t CRYP_AlgoDir;   /*!< 加密或解密。 该参数可以是@ref CRYP_Algorithm_Direction 的值 */
-    uint32_t CRYP_AlgoMode;  /*!< TDES-ECB、TDES-CBC、DES-ECB、DES-CBC、AES-ECB、AES-CBC、AES-CTR、AES-Key、AES-GCM 和 AES-CCM。
-								该参数可以是@ref CRYP_Algorithm_Mode 的值 */
+    uint32_t CRYP_AlgoDir;   /*!< 加密或解密。 
+                             该参数可以是@ref CRYP_Algorithm_Direction 的值 */
+    uint32_t CRYP_AlgoMode;  /*!< TDES-ECB、TDES-CBC、DES-ECB、DES-CBC、AES-ECB、
+                                AES-CBC、AES-CTR、AES-Key、AES-GCM 和 AES-CCM。
+								             该参数可以是@ref CRYP_Algorithm_Mode 的值 */
     uint32_t CRYP_DataType;  /*!< 32 位数据、16 位数据、位数据或位串。
-								该参数可以是@ref CRYP_Data_Type 的值 */
-    uint32_t CRYP_KeySize;   /*!< 仅在 AES 模式下使用:128、192 或 256 位密钥长度。 此参数可以是 @ref CRYP_Key_Size_for_AES_only 的值 */
+								             该参数可以是@ref CRYP_Data_Type 的值 */
+    uint32_t CRYP_KeySize;   /*!< 仅在 AES 模式下使用:128、192 或 256 位密钥长度。 
+                             此参数可以是 @ref CRYP_Key_Size_for_AES_only 的值 */
 } CRYP_InitTypeDef;
 
 /**
@@ -285,8 +288,8 @@ uint32_t CRYP_DataOut(void); // 返回最后输入到输出 FIFO 的数据。
 
 /* CRYP 上下文交换功能 ********************************************/
 ErrorStatus CRYP_SaveContext(CRYP_Context* CRYP_ContextSave,
-                             CRYP_KeyInitTypeDef* CRYP_KeyInitStruct); // 保存 CRYP 外围设备上下文。
-void CRYP_RestoreContext(CRYP_Context* CRYP_ContextRestore); // 恢复 CRYP 外围设备上下文。
+                             CRYP_KeyInitTypeDef* CRYP_KeyInitStruct); // 保存 CRYP 外设设备上下文。
+void CRYP_RestoreContext(CRYP_Context* CRYP_ContextRestore); // 恢复 CRYP 外设设备上下文。
 
 /* CRYP DMA接口功能 ************************************************/
 void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState); // 启用或禁用 CRYP DMA 接口。

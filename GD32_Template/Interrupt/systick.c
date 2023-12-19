@@ -47,7 +47,7 @@ volatile static uint32_t delay;
     \返回值:      无
 */
 void systick_config(void) {
-    /* setup systick timer for 1000Hz interrupts */
+    /* setup systick timer for 1000Hz 中断 */
     if(SysTick_Config(SystemCoreClock / 1000U)) {
         /* capture error */
         while(1) {

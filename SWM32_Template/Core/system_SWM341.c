@@ -65,7 +65,7 @@
 
 
 
-uint32_t SystemCoreClock  = __HSI;   				//System Clock Frequency (Core Clock)
+uint32_t SystemCoreClock  = __HSI;   				//系统时钟频率(核心时钟)
 uint32_t CyclesPerUs      = (__HSI / 1000000); 		//Cycles per micro second
 
 

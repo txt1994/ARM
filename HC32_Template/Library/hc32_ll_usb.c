@@ -78,7 +78,7 @@
 /**
  * @brief  core software reset
  * @param  [in] USBx        usb instance
- * @retval None
+ * @retval 无
  */
 void usb_coresoftrst(LL_USB_TypeDef *USBx) {
     __IO uint8_t u8Status = USB_OK;;
@@ -126,7 +126,7 @@ void usb_coresoftrst(LL_USB_TypeDef *USBx) {
  * @param  [in] ch_ep_num   end point index
  * @param  [in] len         length in bytes
  * @param  [in] u8DmaEn     USB DMA status
- * @retval None
+ * @retval 无
  */
 void usb_wrpkt(LL_USB_TypeDef *USBx, uint8_t *src, uint8_t ch_ep_num, uint16_t len, uint8_t u8DmaEn) {
     __IO uint32_t u32pAddr;
@@ -154,7 +154,7 @@ void usb_wrpkt(LL_USB_TypeDef *USBx, uint8_t *src, uint8_t ch_ep_num, uint16_t l
  * @param  [in] USBx        usb instance
  * @param  [in] dest        destination pointer that point to the received data
  * @param  [in] len         number of bytes
- * @retval None
+ * @retval 无
  */
 void usb_rdpkt(LL_USB_TypeDef *USBx, uint8_t *dest, uint16_t len) {
     uint32_t u32Tmp;
@@ -180,7 +180,7 @@ void usb_rdpkt(LL_USB_TypeDef *USBx, uint8_t *dest, uint16_t len) {
  * @param  [in] USBx                usb instance
  * @param  [in] pstcPortIdentify    usb core and phy select
  * @param  [in] basic_cfgs          usb core basic cfgs
- * @retval None
+ * @retval 无
  */
 void usb_setregaddr(LL_USB_TypeDef *USBx, stc_usb_port_identify *pstcPortIdentify, USB_CORE_BASIC_CFGS *basic_cfgs) {
     uint32_t u32Tmp = 0UL;
@@ -243,7 +243,7 @@ void usb_setregaddr(LL_USB_TypeDef *USBx, stc_usb_port_identify *pstcPortIdentif
  *         device mode or host mode operation.
  * @param  [in] USBx        usb instance
  * @param  [in] basic_cfgs  usb core basic cfgs
- * @retval None
+ * @retval 无
  */
 void usb_initusbcore(LL_USB_TypeDef *USBx, USB_CORE_BASIC_CFGS *basic_cfgs) {
     /* reset the core through core soft reset */
@@ -272,7 +272,7 @@ void usb_initusbcore(LL_USB_TypeDef *USBx, USB_CORE_BASIC_CFGS *basic_cfgs) {
  * @brief  Flush a Tx FIFO whose index is num
  * @param  [in] USBx        usb instance
  * @param  [in] num         txFIFO index
- * @retval None
+ * @retval 无
  */
 void usb_txfifoflush(LL_USB_TypeDef *USBx, uint32_t num) {
     __IO uint32_t u32grstctl;
@@ -302,7 +302,7 @@ void usb_txfifoflush(LL_USB_TypeDef *USBx, uint32_t num) {
 /**
  * @brief  Flush the whole rxFIFO
  * @param  [in] USBx        usb instance
- * @retval None
+ * @retval 无
  */
 void usb_rxfifoflush(LL_USB_TypeDef *USBx) {
     __IO uint32_t u32grstctl;
@@ -333,7 +333,7 @@ void usb_rxfifoflush(LL_USB_TypeDef *USBx) {
  *         input parameter.
  * @param  [in] USBx        usb instance
  * @param  [in] mode        mode of HOST_MODE or DEVICE_MODE that the core would be
- * @retval None
+ * @retval 无
  */
 void usb_modeset(LL_USB_TypeDef *USBx, uint8_t mode) {
     if (mode == HOST_MODE) {
@@ -353,7 +353,7 @@ void usb_modeset(LL_USB_TypeDef *USBx, uint8_t mode) {
  *         disable.
  * @param  [in] USBx        usb instance
  * @param  [in] u8EpNum     EP number
- * @retval None
+ * @retval 无
  */
 void usb_devepdis(LL_USB_TypeDef *USBx, uint8_t u8EpNum) {
     uint8_t u8Tmp = 0U;
@@ -535,7 +535,7 @@ static void usb_DevHSFifoConfig(LL_USB_TypeDef *USBx) {
  *         follows.
  * @param  [in] USBx        usb instance
  * @param  [in] basic_cfgs  usb core basic cfgs
- * @retval None
+ * @retval 无
  */
 void usb_devmodeinit(LL_USB_TypeDef *USBx, USB_CORE_BASIC_CFGS *basic_cfgs) {
     usb_FrameIntervalConfig(USBx, USB_FRAME_INTERVAL_80);
@@ -561,7 +561,7 @@ void usb_devmodeinit(LL_USB_TypeDef *USBx, USB_CORE_BASIC_CFGS *basic_cfgs) {
  * @brief  Enable the interrupt setting when in device mode.
  * @param  [in] USBx        usb instance
  * @param  [in] u8DmaEn     USB DMA status
- * @retval None
+ * @retval 无
  */
 void usb_devinten(LL_USB_TypeDef *USBx, uint8_t u8DmaEn) {
     uint32_t  u32gintmskTmp = 0UL;
@@ -625,7 +625,7 @@ uint32_t usb_epstatusget(LL_USB_TypeDef *USBx, USB_DEV_EP *ep) {
  * @param  [in] USBx        usb instance
  * @param  [in] ep          endpoint instance
  * @param  [in] Status      new Status that the endpoint would be
- * @retval None
+ * @retval 无
  */
 void usb_epstatusset(LL_USB_TypeDef *USBx, USB_DEV_EP *ep, uint32_t Status) {
     uint32_t u32dxepctl;
@@ -706,7 +706,7 @@ void usb_epstatusset(LL_USB_TypeDef *USBx, USB_DEV_EP *ep, uint32_t Status) {
 /**
  * @brief  enable the EP0 to be actiove
  * @param  [in] USBx        usb instance
- * @retval None
+ * @retval 无
  */
 void  usb_ep0activate(LL_USB_TypeDef *USBx) {
     uint32_t u32EnumSpeed;
@@ -735,7 +735,7 @@ void  usb_ep0activate(LL_USB_TypeDef *USBx) {
  * @brief  enable an EP to be active
  * @param  [in] USBx        usb instance
  * @param  [in] ep          endpoint instance
- * @retval None
+ * @retval 无
  */
 void usb_epactive(LL_USB_TypeDef *USBx, USB_DEV_EP *ep) {
     uint32_t u32Addr;
@@ -769,7 +769,7 @@ void usb_epactive(LL_USB_TypeDef *USBx, USB_DEV_EP *ep) {
  * @brief  enable an EP to be deactive state if it is active
  * @param  [in] USBx        usb instance
  * @param  [in] ep          endpoint instance
- * @retval None
+ * @retval 无
  */
 void usb_epdeactive(LL_USB_TypeDef *USBx, USB_DEV_EP *ep) {
     uint32_t u32Daintmsk;
@@ -790,7 +790,7 @@ void usb_epdeactive(LL_USB_TypeDef *USBx, USB_DEV_EP *ep) {
  * @param  [in] USBx        usb instance
  * @param  [in] ep          endpoint instance
  * @param  [in] u8DmaEn     USB DMA status
- * @retval None
+ * @retval 无
  */
 void usb_epntransbegin(LL_USB_TypeDef *USBx, USB_DEV_EP *ep, uint8_t u8DmaEn) {
     uint32_t u32depctl;
@@ -890,7 +890,7 @@ void usb_epntransbegin(LL_USB_TypeDef *USBx, USB_DEV_EP *ep, uint8_t u8DmaEn) {
  * @param  [in] USBx        usb instance
  * @param  [in] ep          endpoint instance
  * @param  [in] u8DmaEn     USB DMA status
- * @retval None
+ * @retval 无
  */
 void usb_ep0transbegin(LL_USB_TypeDef *USBx, USB_DEV_EP *ep, uint8_t u8DmaEn) {
     uint32_t u32depctl;
@@ -964,7 +964,7 @@ void usb_ep0transbegin(LL_USB_TypeDef *USBx, USB_DEV_EP *ep, uint8_t u8DmaEn) {
  * @brief  Set the EP to be stall status
  * @param  [in] USBx        usb instance
  * @param  [in] ep          endpoint instance
- * @retval None
+ * @retval 无
  */
 void usb_setepstall(LL_USB_TypeDef *USBx, USB_DEV_EP *ep) {
     uint32_t u32depctl;
@@ -989,7 +989,7 @@ void usb_setepstall(LL_USB_TypeDef *USBx, USB_DEV_EP *ep) {
  * @brief  clear the stall status of a EP
  * @param  [in] USBx        usb instance
  * @param  [in] ep          endpoint instance
- * @retval None
+ * @retval 无
  */
 void usb_clearepstall(LL_USB_TypeDef *USBx, USB_DEV_EP *ep) {
     uint32_t tmp_depctl_addr;
@@ -1016,7 +1016,7 @@ void usb_clearepstall(LL_USB_TypeDef *USBx, USB_DEV_EP *ep) {
  * @brief  configure the EPO to receive data packets
  * @param  [in] USBx        usb instance
  * @param  [in] u8DmaEn     USB DMA status
- * @retval None
+ * @retval 无
  */
 void usb_ep0revcfg(LL_USB_TypeDef *USBx, uint8_t u8DmaEn, uint8_t *u8RevBuf) {
     uint32_t u32deptsize;
@@ -1039,7 +1039,7 @@ void usb_ep0revcfg(LL_USB_TypeDef *USBx, uint8_t u8DmaEn, uint8_t *u8RevBuf) {
 /**
  * @brief  enable remote wakeup active
  * @param  [in] USBx        usb instance
- * @retval None
+ * @retval 无
  */
 void usb_remotewakeupen(LL_USB_TypeDef *USBx) {
     uint32_t u32dsts;
@@ -1060,7 +1060,7 @@ void usb_remotewakeupen(LL_USB_TypeDef *USBx) {
  * @brief  control the device to connect or disconnect
  * @param  [in] USBx        usb instance
  * @param  [in] link        0(conn) or 1(disconn)
- * @retval None
+ * @retval 无
  */
 void usb_ctrldevconnect(LL_USB_TypeDef *USBx, uint8_t link) {
     if (0U == link) {
@@ -1078,7 +1078,7 @@ void usb_ctrldevconnect(LL_USB_TypeDef *USBx, uint8_t link) {
  * @brief  Initializes the USB controller when it is host mode
  * @param  [in] USBx        usb instance
  * @param  [in] basic_cfgs  usb core basic cfgs
- * @retval None
+ * @retval 无
  */
 void usb_hostmodeinit(LL_USB_TypeDef *USBx, USB_CORE_BASIC_CFGS *basic_cfgs) {
     __IO uint8_t u8Tmp = 0U;
@@ -1111,7 +1111,7 @@ void usb_hostmodeinit(LL_USB_TypeDef *USBx, USB_CORE_BASIC_CFGS *basic_cfgs) {
  * @brief  set the vbus if state is 1 or reset the vbus if state is 0.
  * @param  [in] USBx        usb instance
  * @param  [in] u8State       the vbus state it would be.
- * @retval None
+ * @retval 无
  */
 void usb_vbusctrl(LL_USB_TypeDef *USBx, uint8_t u8State) {
     uint32_t u32hprt;
@@ -1133,7 +1133,7 @@ void usb_vbusctrl(LL_USB_TypeDef *USBx, uint8_t u8State) {
  * @brief  Enables the related interrupts when the core is host mode
  * @param  [in] USBx        usb instance
  * @param  [in] u8DmaEn     USB DMA status
- * @retval None
+ * @retval 无
  */
 void usb_hostinten(LL_USB_TypeDef *USBx, uint8_t u8DmaEn) {
     uint32_t u32gIntmsk = 0UL;
@@ -1159,7 +1159,7 @@ void usb_hostinten(LL_USB_TypeDef *USBx, uint8_t u8DmaEn) {
 /**
  * @brief  Reset the port, the 1'b0 state must last at lease 10ms.
  * @param  [in] USBx        usb instance
- * @retval None
+ * @retval 无
  */
 void usb_hprtrst(LL_USB_TypeDef *USBx) {
     uint32_t u32hprt;
@@ -1243,7 +1243,7 @@ uint8_t usb_inithch(LL_USB_TypeDef *USBx, uint8_t hc_num, USB_HOST_CH *pCh, uint
     WRITE_REG32(USBx->HC_REGS[hc_num]->HCINTMSK, u32hcintmsk);
     SET_REG32_BIT(USBx->HREGS->HAINTMSK, 1UL << hc_num);
 
-    /* enable the host channel interrupts */
+    /* enable the host channel 中断 */
     SET_REG32_BIT(USBx->GREGS->GINTMSK, USBFS_GINTMSK_HCIM);
 
     /* modify HCCHAR */
@@ -1365,7 +1365,7 @@ uint8_t usb_hchtransbegin(LL_USB_TypeDef *USBx, uint8_t hc_num, USB_HOST_CH *pCh
  * @brief  Stop the host and flush all the txFIFOs and the whole rxFIFO.
  * @param  [in] USBx        usb instance
  * @param  [in] u8ChNum     Host channel number
- * @retval None
+ * @retval 无
  */
 void usb_hoststop(LL_USB_TypeDef *USBx, uint8_t u8ChNum) {
     __IO uint32_t u32Tmp = 0UL;
@@ -1387,7 +1387,7 @@ void usb_hoststop(LL_USB_TypeDef *USBx, uint8_t u8ChNum) {
  * @brief  make the channel to halt
  * @param  [in] USBx        usb instance
  * @param  [in] hc_num      channel index
- * @retval None
+ * @retval 无
  */
 void usb_hchstop(LL_USB_TypeDef *USBx, uint8_t hc_num) {
     uint32_t u32hcchar;

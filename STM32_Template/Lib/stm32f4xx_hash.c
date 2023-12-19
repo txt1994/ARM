@@ -8,7 +8,7 @@
   *           - 初始化和配置函数
   *           - 消息摘要生成函数
   *           - 上下文交换函数
-  *           - DMA接口函数
+  *           - DMA 接口函数
   *           - 中断和标志管理
   *
 @verbatim
@@ -387,7 +387,7 @@ void HASH_RestoreContext(HASH_Context* HASH_ContextRestore) {
 
  [..] 本节提供了允许为HASH/HMAC数据输入传输配置DMA接口的函数。
 
- [..] 启用DMA模式时(使用HASH_DMACmd()函数)，可以使用DMA外围设备将数据发送到IN FIFO。
+ [..] 启用DMA模式时(使用HASH_DMACmd()函数)，可以使用DMA外设设备将数据发送到IN FIFO。
 
 @endverbatim
   * @{
@@ -396,7 +396,7 @@ void HASH_RestoreContext(HASH_Context* HASH_ContextRestore) {
 /**
   * 简介:  启用或禁用DMA传输结束时自动启动消息填充和最终消息摘要的计算。
   * 参数:  NewState: 所选HASH DMA传输请求的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void HASH_AutoStartDigest(FunctionalState NewState) {
@@ -416,7 +416,7 @@ void HASH_AutoStartDigest(FunctionalState NewState) {
   * 简介:  启用或禁用HASH DMA接口。
   * 注意:   DMA在传输结束后被硬件禁用。
   * 参数:  NewState: 所选HASH DMA传输请求的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void HASH_DMACmd(FunctionalState NewState) {
@@ -495,7 +495,7 @@ void HASH_DMACmd(FunctionalState NewState) {
   *            @arg HASH_IT_DINI: 数据输入中断
   *            @arg HASH_IT_DCI: 摘要计算完成中断
   * 参数:  NewState: 指定HASH中断的新状态。
-  *           此参数可以是:ENABLE或DISABLE。
+  *           此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void HASH_ITConfig(uint32_t HASH_IT, FunctionalState NewState) {

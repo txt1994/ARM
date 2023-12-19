@@ -22,7 +22,7 @@
        (#) For each SAI Block A/B enable SCK, SD, FS and MCLK GPIO clocks
            using RCC_AHB1PeriphClockCmd() function.
 
-       (#) 外围设备替代函数:
+       (#) 外设设备替代函数:
            (++) 使用GPIO_PinAFConfig()函数将引脚连接到所需外设的备用函数(AF)。
            (++) 通过GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF配置备用功能中所需的引脚
            (++) 通过GPIO_PuPd、GPIO_OType和GPIO_Speed成员选择类型、上拉/下拉和输出速度
@@ -408,9 +408,9 @@ void SAI_SlotStructInit(SAI_SlotInitTypeDef* SAI_SlotInitStruct) {
 
 /**
   * 简介:  启用或禁用指定的 SAI Block 外设。
-  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外围设备。
-  * 参数:  NewState: SAI_Block_x外围设备的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设设备。
+  * 参数:  NewState: SAI_Block_x外设设备的新状态。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SAI_Cmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
@@ -419,10 +419,10 @@ void SAI_Cmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用所选SAI外围设备 */
+        /* 启用所选SAI外设设备 */
         SAI_Block_x->CR1 |= SAI_xCR1_SAIEN;
     } else {
-        /* 禁用所选SAI外围设备 */
+        /* 禁用所选SAI外设设备 */
         SAI_Block_x->CR1 &= ~(SAI_xCR1_SAIEN);
     }
 }
@@ -433,7 +433,7 @@ void SAI_Cmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
   * 注意:  只有当插槽数量等于2时，此函数才有意义。
   *
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
-  * 参数:  SAI_MonoMode: specifies the SAI block mono mode.
+  * 参数:  SAI_MonoMode: 指定SAI block mono mode.
   *          此参数可以是以下值之一:
   *            @arg SAI_MonoMode : Set mono audio mode
   *            @arg SAI_StreoMode : Set streo audio mode
@@ -455,7 +455,7 @@ void SAI_MonoModeConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_Mono_StreoM
   * 注意:  只有在变送器中配置SAI块时，此功能才有意义
   *
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
-  * 参数:  SAI_TRIState: specifies the SAI block TRIState management.
+  * 参数:  SAI_TRIState: 指定SAI block TRIState management.
   *          此参数可以是以下值之一:
   *            @arg SAI_Output_NotReleased : SD output line is still driven by the SAI.
   *            @arg SAI_Output_Released : SD output line is released (HI-Z)
@@ -479,7 +479,7 @@ void SAI_TRIStateConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_TRIState) {
   *        SAI block selected (transmitter or receiver).
 
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
-  * 参数:  SAI_CompandingMode: specifies the SAI block companding mode.
+  * 参数:  SAI_CompandingMode: 指定SAI block companding mode.
   *          此参数可以是以下值之一:
   *            @arg SAI_NoCompanding : no companding algorithm set
   *            @arg SAI_ULaw_1CPL_Companding : Set U law (algorithm 1's complement representation)
@@ -508,7 +508,7 @@ void SAI_CompandingModeConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_Compa
   *
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
   * 参数:  NewState: 新状态-> SAIx block.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SAI_MuteModeCmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
@@ -517,7 +517,7 @@ void SAI_MuteModeCmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用 selected SAI block 静音模式 */
+        /* 启用被选定的 SAI block 静音模式 */
         SAI_Block_x->CR2 |= SAI_xCR2_MUTE;
     } else {
         /* 选择的SAI SS输出 */
@@ -555,7 +555,7 @@ void SAI_MuteValueConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_MuteValue)
   *
   * 注意:   This function has a meaning only when the audio block is Receiver
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
-  * 参数:  SAI_MuteCounter: specifies the SAI block mute value.
+  * 参数:  SAI_MuteCounter: 指定SAI block mute value.
   *         This parameter can be a number between 0 and 63.
 
   * 返回值: 无
@@ -647,7 +647,7 @@ void SAI_BlockSynchroConfig(SAI_InitTypeDef* SAI_InitStruct, SAI_TypeDef* SAIx) 
   *
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
   * 参数:  NewState: 新状态-> selected SAI TI communication mode.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SAI_FlushFIFO(SAI_Block_TypeDef* SAI_Block_x) {
@@ -732,7 +732,7 @@ void SAI_SendData(SAI_Block_TypeDef* SAI_Block_x, uint32_t Data) {
   * 简介:  启用或禁用 SAI Block x DMA 接口。
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
   * 参数:  NewState: 新状态-> 选择SAI块DMA传输请求。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
@@ -851,7 +851,7 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
   *            @arg SAI_IT_CNRDY: 编解码器未就绪中断掩码
   *            @arg SAI_IT_WCKCFG: 错误的时钟配置中断掩码
   * 参数:  NewState: 新状态-> specified SAI 中断.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SAI_ITConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT, FunctionalState NewState) {
@@ -861,10 +861,10 @@ void SAI_ITConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT, FunctionalSta
     assert_param(IS_SAI_BLOCK_CONFIG_IT(SAI_IT));
 
     if (NewState != DISABLE) {
-        /* 启用 selected SAI Block 中断 */
+        /* 启用被选定的 SAI Block 中断 */
         SAI_Block_x->IMR |= SAI_IT;
     } else {
-        /* 禁用 selected SAI Block 中断 */
+        /* 禁用被选中的 SAI Block 中断 */
         SAI_Block_x->IMR &= ~(SAI_IT);
     }
 }
@@ -942,7 +942,7 @@ void SAI_ClearFlag(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_FLAG) {
   *            @arg SAI_IT_OVRUDR: overrun/underrun interrupt
   *            @arg SAI_IT_AFSDET: anticipated frame synchronization detection interrupt
   *            @arg SAI_IT_LFSDET: late frame synchronization detection interrupt
-  *            @arg SAI_IT_CNRDY: codec not ready interrupt
+  *            @arg SAI_IT_CNRDY: codec not 就绪中断
   *            @arg SAI_IT_WCKCFG: wrong clock configuration interrupt
   *
   * 返回值: 新状态-> SAI_IT (SET or RESET).
@@ -958,7 +958,7 @@ ITStatus SAI_GetITStatus(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT) {
     /* 获取SAI_IT enable bit 状态 */
     enablestatus = (SAI_Block_x->IMR & SAI_IT) ;
 
-    /* 检查 the status of the specified SAI interrupt */
+    /* 检查 the status of the specified SAI 中断 */
     if (((SAI_Block_x->SR & SAI_IT) != (uint32_t)RESET) && (enablestatus != (uint32_t)RESET)) {
         /* SAI_IT 被设置 */
         bitstatus = SET;
@@ -979,7 +979,7 @@ ITStatus SAI_GetITStatus(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT) {
   *            @arg SAI_IT_MUTEDET: MUTE detection interrupt.
   *            @arg SAI_IT_OVRUDR: overrun/underrun interrupt.
   *            @arg SAI_IT_WCKCFG: wrong clock configuration interrupt.
-  *            @arg SAI_IT_CNRDY: codec not ready interrupt.
+  *            @arg SAI_IT_CNRDY: codec not 就绪中断.
   *            @arg SAI_IT_AFSDET: anticipated frame synchronization detection interrupt.
   *            @arg SAI_IT_LFSDET: late frame synchronization detection interrupt.
   *

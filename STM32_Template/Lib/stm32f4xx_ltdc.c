@@ -96,13 +96,13 @@
             ##### 初始化和配置函数 #####
  ===============================================================================
     [..]  本节提供的功能允许:
-        (+)初始化和配置LTDC
-        (+)启用或禁用抖动
-        (+)定义线路中断的位置
-        (+)用新参数重新加载层寄存器
-        (+)初始化并配置第1层和第2层
-        (+)设置和配置颜色键控功能
-        (+)配置并启用或禁用CLUT
+        (+) 初始化和配置LTDC
+        (+) 启用或禁用抖动
+        (+) 定义线路中断的位置
+        (+) 用新参数重新加载层寄存器
+        (+) 初始化并配置第1层和第2层
+        (+) 设置和配置颜色键控功能
+        (+) 配置并启用或禁用CLUT
 
 @endverbatim
   * @{
@@ -154,22 +154,22 @@ void LTDC_Init(LTDC_InitTypeDef* LTDC_InitStruct) {
     assert_param(IS_LTDC_BackGreenValue(LTDC_InitStruct->LTDC_BackgroundGreenValue));
     assert_param(IS_LTDC_BackRedValue(LTDC_InitStruct->LTDC_BackgroundRedValue));
 
-    /* Sets Synchronization size */
+    /* 设置同步大小 */
     LTDC->SSCR &= ~(LTDC_SSCR_VSH | LTDC_SSCR_HSW);
     horizontalsync = (LTDC_InitStruct->LTDC_HorizontalSync << 16);
     LTDC->SSCR |= (horizontalsync | LTDC_InitStruct->LTDC_VerticalSync);
 
-    /* Sets Accumulated Back porch */
+    /*设置累积后廊 */
     LTDC->BPCR &= ~(LTDC_BPCR_AVBP | LTDC_BPCR_AHBP);
     accumulatedHBP = (LTDC_InitStruct->LTDC_AccumulatedHBP << 16);
     LTDC->BPCR |= (accumulatedHBP | LTDC_InitStruct->LTDC_AccumulatedVBP);
 
-    /* Sets Accumulated Active Width */
+    /* 设置累计活动宽度 */
     LTDC->AWCR &= ~(LTDC_AWCR_AAH | LTDC_AWCR_AAW);
     accumulatedactiveW = (LTDC_InitStruct->LTDC_AccumulatedActiveW << 16);
     LTDC->AWCR |= (accumulatedactiveW | LTDC_InitStruct->LTDC_AccumulatedActiveH);
 
-    /* Sets Total Width */
+    /* 设置总宽度 */
     LTDC->TWCR &= ~(LTDC_TWCR_TOTALH | LTDC_TWCR_TOTALW);
     totalwidth = (LTDC_InitStruct->LTDC_TotalWidth << 16);
     LTDC->TWCR |= (totalwidth | LTDC_InitStruct->LTDC_TotalHeigh);
@@ -178,7 +178,7 @@ void LTDC_Init(LTDC_InitTypeDef* LTDC_InitStruct) {
     LTDC->GCR |=  (uint32_t)(LTDC_InitStruct->LTDC_HSPolarity | LTDC_InitStruct->LTDC_VSPolarity | \
                              LTDC_InitStruct->LTDC_DEPolarity | LTDC_InitStruct->LTDC_PCPolarity);
 
-    /* sets the background color 值 */
+    /* 设置背景颜色值 */
     backgreen = (LTDC_InitStruct->LTDC_BackgroundGreenValue << 8);
     backred = (LTDC_InitStruct->LTDC_BackgroundRedValue << 16);
 
@@ -191,30 +191,29 @@ void LTDC_Init(LTDC_InitTypeDef* LTDC_InitStruct) {
   * 参数:  LTDC_InitStruct: 指向LTDC_InitTypeDef结构的指针，该结构将被初始化。
   * 返回值: 无
   */
-
 void LTDC_StructInit(LTDC_InitTypeDef* LTDC_InitStruct) {
-    /*--------------- Reset LTDC init structure parameters values ----------------*/
-    LTDC_InitStruct->LTDC_HSPolarity = LTDC_HSPolarity_AL;      /*!< Initialize the LTDC_HSPolarity 成员 */
-    LTDC_InitStruct->LTDC_VSPolarity = LTDC_VSPolarity_AL;      /*!< Initialize the LTDC_VSPolarity 成员 */
-    LTDC_InitStruct->LTDC_DEPolarity = LTDC_DEPolarity_AL;      /*!< Initialize the LTDC_DEPolarity 成员 */
-    LTDC_InitStruct->LTDC_PCPolarity = LTDC_PCPolarity_IPC;     /*!< Initialize the LTDC_PCPolarity 成员 */
-    LTDC_InitStruct->LTDC_HorizontalSync = 0x00;                /*!< Initialize the LTDC_HorizontalSync 成员 */
-    LTDC_InitStruct->LTDC_VerticalSync = 0x00;                  /*!< Initialize the LTDC_VerticalSync 成员 */
-    LTDC_InitStruct->LTDC_AccumulatedHBP = 0x00;                /*!< Initialize the LTDC_AccumulatedHBP 成员 */
-    LTDC_InitStruct->LTDC_AccumulatedVBP = 0x00;                /*!< Initialize the LTDC_AccumulatedVBP 成员 */
-    LTDC_InitStruct->LTDC_AccumulatedActiveW = 0x00;            /*!< Initialize the LTDC_AccumulatedActiveW 成员 */
-    LTDC_InitStruct->LTDC_AccumulatedActiveH = 0x00;            /*!< Initialize the LTDC_AccumulatedActiveH 成员 */
-    LTDC_InitStruct->LTDC_TotalWidth = 0x00;                    /*!< Initialize the LTDC_TotalWidth 成员 */
-    LTDC_InitStruct->LTDC_TotalHeigh = 0x00;                    /*!< Initialize the LTDC_TotalHeigh 成员 */
-    LTDC_InitStruct->LTDC_BackgroundRedValue = 0x00;            /*!< Initialize the LTDC_BackgroundRedValue 成员 */
-    LTDC_InitStruct->LTDC_BackgroundGreenValue = 0x00;          /*!< Initialize the LTDC_BackgroundGreenValue 成员 */
-    LTDC_InitStruct->LTDC_BackgroundBlueValue = 0x00;           /*!< Initialize the LTDC_BackgroundBlueValue 成员 */
+    /*--------------- 重置LTCC初始化结构参数值 ----------------*/
+    LTDC_InitStruct->LTDC_HSPolarity = LTDC_HSPolarity_AL;      /*!< 初始化这个 LTDC_HSPolarity 成员 */
+    LTDC_InitStruct->LTDC_VSPolarity = LTDC_VSPolarity_AL;      /*!< 初始化这个 LTDC_VSPolarity 成员 */
+    LTDC_InitStruct->LTDC_DEPolarity = LTDC_DEPolarity_AL;      /*!< 初始化这个 LTDC_DEPolarity 成员 */
+    LTDC_InitStruct->LTDC_PCPolarity = LTDC_PCPolarity_IPC;     /*!< 初始化这个 LTDC_PCPolarity 成员 */
+    LTDC_InitStruct->LTDC_HorizontalSync = 0x00;                /*!< 初始化这个 LTDC_HorizontalSync 成员 */
+    LTDC_InitStruct->LTDC_VerticalSync = 0x00;                  /*!< 初始化这个 LTDC_VerticalSync 成员 */
+    LTDC_InitStruct->LTDC_AccumulatedHBP = 0x00;                /*!< 初始化这个 LTDC_AccumulatedHBP 成员 */
+    LTDC_InitStruct->LTDC_AccumulatedVBP = 0x00;                /*!< 初始化这个 LTDC_AccumulatedVBP 成员 */
+    LTDC_InitStruct->LTDC_AccumulatedActiveW = 0x00;            /*!< 初始化这个 LTDC_AccumulatedActiveW 成员 */
+    LTDC_InitStruct->LTDC_AccumulatedActiveH = 0x00;            /*!< 初始化这个 LTDC_AccumulatedActiveH 成员 */
+    LTDC_InitStruct->LTDC_TotalWidth = 0x00;                    /*!< 初始化这个 LTDC_TotalWidth 成员 */
+    LTDC_InitStruct->LTDC_TotalHeigh = 0x00;                    /*!< 初始化这个 LTDC_TotalHeigh 成员 */
+    LTDC_InitStruct->LTDC_BackgroundRedValue = 0x00;            /*!< 初始化这个 LTDC_BackgroundRedValue 成员 */
+    LTDC_InitStruct->LTDC_BackgroundGreenValue = 0x00;          /*!< 初始化这个 LTDC_BackgroundGreenValue 成员 */
+    LTDC_InitStruct->LTDC_BackgroundBlueValue = 0x00;           /*!< 初始化这个 LTDC_BackgroundBlueValue 成员 */
 }
 
 /**
   * 简介:  启用或禁用 LTDC 控制器。
   * 参数:  NewState: 新状态-> LTDC 外设.
-  *   此参数可以是:ENABLE或DISABLE。
+  *   此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 
@@ -226,7 +225,7 @@ void LTDC_Cmd(FunctionalState NewState) {
         /* 使能LTDC by setting LTDCEN 位 */
         LTDC->GCR |= (uint32_t)LTDC_GCR_LTDCEN;
     } else {
-        /* Disable LTDC by clearing LTDCEN 位 */
+        /* 通过清除LTDCEN禁用LTCC位 */
         LTDC->GCR &= ~(uint32_t)LTDC_GCR_LTDCEN;
     }
 }
@@ -234,7 +233,7 @@ void LTDC_Cmd(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用抖动。
   * 参数:  NewState: 新状态-> Dither.
-  *   此参数可以是:ENABLE或DISABLE。
+  *   此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 
@@ -243,10 +242,10 @@ void LTDC_DitherCmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能Dither by setting DTEN 位 */
+        /* 使能通过设置DTEN抖动位 */
         LTDC->GCR |= (uint32_t)LTDC_GCR_DTEN;
     } else {
-        /* Disable Dither by clearing DTEN 位 */
+        /* 通过清除DTEN禁用抖动位 */
         LTDC->GCR &= ~(uint32_t)LTDC_GCR_DTEN;
     }
 }
@@ -309,7 +308,7 @@ void LTDC_ReloadConfig(uint32_t LTDC_Reload) {
     /* 检查参数 */
     assert_param(IS_LTDC_RELOAD(LTDC_Reload));
 
-    /* Sets the Reload type */
+    /* 设置重新加载类型 */
     LTDC->SRCR = (uint32_t)LTDC_Reload;
 }
 
@@ -347,21 +346,21 @@ void LTDC_LayerInit(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_Layer_InitTypeDef* LTD
     assert_param(IS_LTDC_CFBLL(LTDC_Layer_InitStruct->LTDC_CFBLineLength));
     assert_param(IS_LTDC_CFBLNBR(LTDC_Layer_InitStruct->LTDC_CFBLineNumber));
 
-    /* Configures the horizontal start and stop position */
+    /* 配置水平启动和停止位置 */
     whsppos = LTDC_Layer_InitStruct->LTDC_HorizontalStop << 16;
     LTDC_Layerx->WHPCR &= ~(LTDC_LxWHPCR_WHSTPOS | LTDC_LxWHPCR_WHSPPOS);
     LTDC_Layerx->WHPCR = (LTDC_Layer_InitStruct->LTDC_HorizontalStart | whsppos);
 
-    /* Configures the vertical start and stop position */
+    /* 配置垂直启动和停止位置 */
     wvsppos = LTDC_Layer_InitStruct->LTDC_VerticalStop << 16;
     LTDC_Layerx->WVPCR &= ~(LTDC_LxWVPCR_WVSTPOS | LTDC_LxWVPCR_WVSPPOS);
     LTDC_Layerx->WVPCR  = (LTDC_Layer_InitStruct->LTDC_VerticalStart | wvsppos);
 
-    /* Specifies the pixel format */
+    /* 指定像素格式 */
     LTDC_Layerx->PFCR &= ~(LTDC_LxPFCR_PF);
     LTDC_Layerx->PFCR = (LTDC_Layer_InitStruct->LTDC_PixelFormat);
 
-    /* Configures the default color values */
+    /* 配置默认颜色值 */
     dcgreen = (LTDC_Layer_InitStruct->LTDC_DefaultColorGreen << 8);
     dcred = (LTDC_Layer_InitStruct->LTDC_DefaultColorRed << 16);
     dcalpha = (LTDC_Layer_InitStruct->LTDC_DefaultColorAlpha << 24);
@@ -369,27 +368,26 @@ void LTDC_LayerInit(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_Layer_InitTypeDef* LTD
     LTDC_Layerx->DCCR = (LTDC_Layer_InitStruct->LTDC_DefaultColorBlue | dcgreen | \
                          dcred | dcalpha);
 
-    /* Specifies the constant alpha 值 */
+    /* 指定常量alpha值 */
     LTDC_Layerx->CACR &= ~(LTDC_LxCACR_CONSTA);
     LTDC_Layerx->CACR = (LTDC_Layer_InitStruct->LTDC_ConstantAlpha);
 
-    /* Specifies the blending factors */
+    /* 指定混合因子 */
     LTDC_Layerx->BFCR &= ~(LTDC_LxBFCR_BF2 | LTDC_LxBFCR_BF1);
     LTDC_Layerx->BFCR = (LTDC_Layer_InitStruct->LTDC_BlendingFactor_1 | LTDC_Layer_InitStruct->LTDC_BlendingFactor_2);
 
-    /* Configures the color frame buffer start address */
+    /* 配置彩色帧缓冲区起始地址 */
     LTDC_Layerx->CFBAR &= ~(LTDC_LxCFBAR_CFBADD);
     LTDC_Layerx->CFBAR = (LTDC_Layer_InitStruct->LTDC_CFBStartAdress);
 
-    /* Configures the color frame buffer pitch in byte */
+    /* 以字节为单位配置彩色帧缓冲区间距 */
     cfbp = (LTDC_Layer_InitStruct->LTDC_CFBPitch << 16);
     LTDC_Layerx->CFBLR  &= ~(LTDC_LxCFBLR_CFBLL | LTDC_LxCFBLR_CFBP);
     LTDC_Layerx->CFBLR  = (LTDC_Layer_InitStruct->LTDC_CFBLineLength | cfbp);
 
-    /* Configures the frame buffer line number */
+    /* 配置帧缓冲区行号 */
     LTDC_Layerx->CFBLNR  &= ~(LTDC_LxCFBLNR_CFBLNBR);
     LTDC_Layerx->CFBLNR  = (LTDC_Layer_InitStruct->LTDC_CFBLineNumber);
-
 }
 
 /**
@@ -399,40 +397,40 @@ void LTDC_LayerInit(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_Layer_InitTypeDef* LTD
   */
 
 void LTDC_LayerStructInit(LTDC_Layer_InitTypeDef * LTDC_Layer_InitStruct) {
-    /*--------------- Reset Layer structure parameters values -------------------*/
+    /*--------------- 重置层结构参数值 -------------------*/
 
-    /*!< Initialize the horizontal limit 成员 */
+    /*!< 初始化水平限制成员 */
     LTDC_Layer_InitStruct->LTDC_HorizontalStart = 0x00;
     LTDC_Layer_InitStruct->LTDC_HorizontalStop = 0x00;
 
-    /*!< Initialize the vertical limit 成员 */
+    /*!< 初始化垂直限制成员 */
     LTDC_Layer_InitStruct->LTDC_VerticalStart = 0x00;
     LTDC_Layer_InitStruct->LTDC_VerticalStop = 0x00;
 
-    /*!< Initialize the pixel format 成员 */
+    /*!< 初始化像素格式成员 */
     LTDC_Layer_InitStruct->LTDC_PixelFormat = LTDC_Pixelformat_ARGB8888;
 
-    /*!< Initialize the constant alpha 值 */
+    /*!< 初始化常量alpha值 */
     LTDC_Layer_InitStruct->LTDC_ConstantAlpha = 0xFF;
 
-    /*!< Initialize the default color values */
+    /*!< 初始化默认颜色值 */
     LTDC_Layer_InitStruct->LTDC_DefaultColorBlue = 0x00;
     LTDC_Layer_InitStruct->LTDC_DefaultColorGreen = 0x00;
     LTDC_Layer_InitStruct->LTDC_DefaultColorRed = 0x00;
     LTDC_Layer_InitStruct->LTDC_DefaultColorAlpha = 0x00;
 
-    /*!< Initialize the blending factors */
+    /*!< 初始化混合因子 */
     LTDC_Layer_InitStruct->LTDC_BlendingFactor_1 = LTDC_BlendingFactor1_PAxCA;
     LTDC_Layer_InitStruct->LTDC_BlendingFactor_2 = LTDC_BlendingFactor2_PAxCA;
 
-    /*!< Initialize the frame buffer start address */
+    /*!< 初始化帧缓冲区起始地址 */
     LTDC_Layer_InitStruct->LTDC_CFBStartAdress = 0x00;
 
-    /*!< Initialize the frame buffer pitch and line length */
+    /*!< 初始化帧缓冲区间距和行长度 */
     LTDC_Layer_InitStruct->LTDC_CFBLineLength = 0x00;
     LTDC_Layer_InitStruct->LTDC_CFBPitch = 0x00;
 
-    /*!< Initialize the frame buffer line number */
+    /*!< 初始化帧缓冲行号 */
     LTDC_Layer_InitStruct->LTDC_CFBLineNumber = 0x00;
 }
 
@@ -442,7 +440,7 @@ void LTDC_LayerStructInit(LTDC_Layer_InitTypeDef * LTDC_Layer_InitStruct) {
   * 参数:  LTDC_layerx: 选择要配置的层，
   *         这个参数可以是以下值之一:LTDC_Layer1, LTDC_Layer2
   * 参数:  NewState: 新状态-> LTDC_Layer 外设.
-  *   此参数可以是:ENABLE或DISABLE。
+  *   此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 
@@ -451,10 +449,10 @@ void LTDC_LayerCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能LTDC_Layer by setting LEN 位 */
+        /* 使能通过设置LEN的LTCC_Layer位 */
         LTDC_Layerx->CR |= (uint32_t)LTDC_LxCR_LEN;
     } else {
-        /* Disable LTDC_Layer by clearing LEN 位 */
+        /* 通过清除LEN禁用LTCC_Layer位 */
         LTDC_Layerx->CR &= ~(uint32_t)LTDC_LxCR_LEN;
     }
 }
@@ -533,20 +531,20 @@ void LTDC_ColorKeyingConfig(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_ColorKeying_In
     assert_param(IS_LTDC_CKEYING(LTDC_colorkeying_InitStruct->LTDC_ColorKeyRed));
 
     if (NewState != DISABLE) {
-        /* 使能LTDC color keying by setting COLKEN 位 */
+        /* 使能通过设置COLKEN设置LTDC颜色键控位 */
         LTDC_Layerx->CR |= (uint32_t)LTDC_LxCR_COLKEN;
 
-        /* Sets the color keying values */
+        /* 设置颜色关键帧值 */
         ckgreen = (LTDC_colorkeying_InitStruct->LTDC_ColorKeyGreen << 8);
         ckred = (LTDC_colorkeying_InitStruct->LTDC_ColorKeyRed << 16);
         LTDC_Layerx->CKCR  &= ~(LTDC_LxCKCR_CKBLUE | LTDC_LxCKCR_CKGREEN | LTDC_LxCKCR_CKRED);
         LTDC_Layerx->CKCR |= (LTDC_colorkeying_InitStruct->LTDC_ColorKeyBlue | ckgreen | ckred);
     } else {
-        /* Disable LTDC color keying by clearing COLKEN 位 */
+        /* 通过清除COLKEN禁用LTCC颜色键控位 */
         LTDC_Layerx->CR &= ~(uint32_t)LTDC_LxCR_COLKEN;
     }
 
-    /* Reload shadow 寄存器 */
+    /* 重新加载阴影寄存器 */
     LTDC->SRCR = LTDC_IMReload;
 }
 
@@ -558,7 +556,7 @@ void LTDC_ColorKeyingConfig(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_ColorKeying_In
   */
 
 void LTDC_ColorKeyingStructInit(LTDC_ColorKeying_InitTypeDef* LTDC_colorkeying_InitStruct) {
-    /*!< Initialize the color keying values */
+    /*!< 初始化颜色键控值 */
     LTDC_colorkeying_InitStruct->LTDC_ColorKeyBlue = 0x00;
     LTDC_colorkeying_InitStruct->LTDC_ColorKeyGreen = 0x00;
     LTDC_colorkeying_InitStruct->LTDC_ColorKeyRed = 0x00;
@@ -569,7 +567,7 @@ void LTDC_ColorKeyingStructInit(LTDC_ColorKeying_InitTypeDef* LTDC_colorkeying_I
   * 简介:  启用或禁用 CLUT。
   * 参数:  NewState: 新状态->  CLUT.
   * 参数:  LTDC_layerx: 选择要配置的层，这个参数可以是以下值之一:LTDC_Layer1, LTDC_Layer2
-  *   此参数可以是:ENABLE或DISABLE。
+  *   此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 
@@ -581,11 +579,11 @@ void LTDC_CLUTCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState) {
         /* 使能CLUT by setting CLUTEN 位 */
         LTDC_Layerx->CR |= (uint32_t)LTDC_LxCR_CLUTEN;
     } else {
-        /* Disable CLUT by clearing CLUTEN 位 */
+        /* 通过清除CLUTEN禁用CLUT位 */
         LTDC_Layerx->CR &= ~(uint32_t)LTDC_LxCR_CLUTEN;
     }
 
-    /* Reload shadow 寄存器 */
+    /* 重新加载阴影寄存器 */
     LTDC->SRCR = LTDC_IMReload;
 }
 
@@ -609,7 +607,7 @@ void LTDC_CLUTInit(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_CLUT_InitTypeDef* LTDC_
     assert_param(IS_LTDC_CLUTWR(LTDC_CLUT_InitStruct->LTDC_GreenValue));
     assert_param(IS_LTDC_CLUTWR(LTDC_CLUT_InitStruct->LTDC_BlueValue));
 
-    /* Specifies the CLUT address and RGB 值 */
+    /* 指定CLUT地址和RGB值 */
     green = (LTDC_CLUT_InitStruct->LTDC_GreenValue << 8);
     red = (LTDC_CLUT_InitStruct->LTDC_RedValue << 16);
     clutadd = (LTDC_CLUT_InitStruct->LTDC_CLUTAdress << 24);
@@ -651,13 +649,13 @@ void LTDC_LayerPosition(LTDC_Layer_TypeDef* LTDC_Layerx, uint16_t OffsetX, uint1
     LTDC_Layerx->WHPCR &= ~(LTDC_LxWHPCR_WHSTPOS | LTDC_LxWHPCR_WHSPPOS);
     LTDC_Layerx->WVPCR &= ~(LTDC_LxWVPCR_WVSTPOS | LTDC_LxWVPCR_WVSPPOS);
 
-    /* Reconfigures the horizontal and vertical start position */
+    /* 重新配置水平和垂直起始位置 */
     tempreg = LTDC->BPCR;
     horizontal_start = (tempreg >> 16) + 1 + OffsetX;
     vertical_start = (tempreg & 0xFFFF) + 1 + OffsetY;
 
-    /* Reconfigures the horizontal and vertical stop position */
-    /* 获取number of byte per pixel */
+    /* 重新配置水平和垂直停止位置 */
+    /* 获取每像素的字节数 */
 
     tempreg = LTDC_Layerx->PFCR;
 
@@ -692,19 +690,21 @@ void LTDC_LayerPosition(LTDC_Layer_TypeDef* LTDC_Layerx, uint16_t OffsetX, uint1
   */
 
 void LTDC_LayerAlpha(LTDC_Layer_TypeDef* LTDC_Layerx, uint8_t ConstantAlpha) {
-    /* reconfigure the constant alpha 值 */
+    /* 重新配置常数alpha值 */
     LTDC_Layerx->CACR = ConstantAlpha;
 }
 
 /**
   * 简介:  重新配置图层地址。
   * 参数:  Address:彩色帧缓冲器的起始地址。
-  * 参数: LTDC_layerx: 选择要配置的层，这个参数可以是以下值之一。LTDC_Layer1, LTDC_Layer2。
+  * 参数:  LTDC_layerx: 选择要配置的层，
+  *        这个参数可以是以下值之一: LTDC_Layer1, 
+  *                                LTDC_Layer2。
   * 返回值:在层地址重新配置后，必须重新加载影子寄存器的值。
   */
 
 void LTDC_LayerAddress(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t Address) {
-    /* Reconfigures the color frame buffer start address */
+    /* Re配置彩色帧缓冲区起始地址 */
     LTDC_Layerx->CFBAR = Address;
 }
 
@@ -740,7 +740,7 @@ void LTDC_LayerSize(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t Width, uint32_t He
         temp = 1;
     }
 
-    /* update horizontal and vertical stop */
+    /* 更新水平和垂直停止 */
     tempreg = LTDC_Layerx->WHPCR;
     horizontal_start = (tempreg & 0x1FFF);
     horizontal_stop = Width + horizontal_start - 1;
@@ -752,18 +752,23 @@ void LTDC_LayerSize(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t Width, uint32_t He
     LTDC_Layerx->WHPCR = horizontal_start | (horizontal_stop << 16);
     LTDC_Layerx->WVPCR = vertical_start | (vertical_stop << 16);
 
-    /* Reconfigures the color frame buffer pitch in byte */
+    /* Re以字节为单位配置彩色帧缓冲区间距 */
     LTDC_Layerx->CFBLR  = ((Width * temp) << 16) | ((Width * temp) + 3);
 
-    /* Reconfigures the frame buffer line number */
+    /* Re配置帧缓冲区行号 */
     LTDC_Layerx->CFBLNR  = Height;
 
 }
 
 /**
   * 简介:  重新配置图层像素格式。
-  * 参数:  PixelFormat:重新配置像素格式，这个参数可以是以下值之一:@ref LTDC_Pixelformat。
-  * 参数:  LTDC_layerx: 选择要配置的图层，这个参数可以是以下值之一:LTDC_Layer1, LTDC_Layer2。
+  * 参数:  PixelFormat:重新配置像素格式，
+  *         这个参数可以是以下值之一: 
+  *                               @ref LTDC_Pixelformat。
+  * 参数:  LTDC_layerx: 选择要配置的图层，
+  *         这个参数可以是以下值之一: 
+  *                               LTDC_Layer1, 
+  *                               LTDC_Layer2。
   * 返回值: 阴影寄存器值的重新加载必须在层像素格式重新配置后应用。
   */
 
@@ -803,10 +808,10 @@ void LTDC_LayerPixelFormat(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t PixelFormat
         temp = 1;
     }
 
-    /* Reconfigures the color frame buffer pitch in byte */
+    /* Re以字节为单位配置彩色帧缓冲区间距 */
     LTDC_Layerx->CFBLR  = ((tempreg * temp) << 16) | ((tempreg * temp) + 3);
 
-    /* Reconfigures the color frame buffer start address */
+    /* Re配置彩色帧缓冲区起始地址 */
     LTDC_Layerx->PFCR = PixelFormat;
 
 }
@@ -856,7 +861,7 @@ void LTDC_LayerPixelFormat(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t PixelFormat
   *         @arg LTDC_IT_TERR: 传输错误中断启用。
   *         @arg LTDC_IT_RR: 寄存器重新加载中断使能。
   * 参数: NewState 新状态->指定的 LTDC 中断。
-  *   此参数可以是:ENABLE或DISABLE。
+  *   此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void LTDC_ITConfig(uint32_t LTDC_IT, FunctionalState NewState) {
@@ -910,7 +915,7 @@ void LTDC_ClearFlag(uint32_t LTDC_FLAG) {
     /* 检查参数 */
     assert_param(IS_LTDC_FLAG(LTDC_FLAG));
 
-    /* 清除 corresponding LTDC flag */
+    /* 清除相应的LTDC标志 */
     LTDC->ICR = (uint32_t)LTDC_FLAG;
 }
 
@@ -950,17 +955,17 @@ ITStatus LTDC_GetITStatus(uint32_t LTDC_IT) {
   * 简介:  清除 LTDC 的中断挂起位。
   * 参数:  LTDC_IT: 指定要清除的中断等待位。
   *   此参数可以是以下值的任意组合:
-  *     @arg LTDC_IT_LIE:    Line Interrupt.
-  *     @arg LTDC_IT_FUIE:   FIFO Underrun Interrupt.
-  *     @arg LTDC_IT_TERRIE: Transfer Error Interrupt.
-  *     @arg LTDC_IT_RRIE:   Register Reload interrupt.
+  *     @arg LTDC_IT_LIE:    Line 中断.
+  *     @arg LTDC_IT_FUIE:   FIFO 欠载 中断.
+  *     @arg LTDC_IT_TERRIE: Transfer 错误中断.
+  *     @arg LTDC_IT_RRIE:   Register 重载中断.
   * 返回值: 无
   */
 void LTDC_ClearITPendingBit(uint32_t LTDC_IT) {
     /* 检查参数 */
     assert_param(IS_LTDC_IT(LTDC_IT));
 
-    /* 清除 corresponding LTDC Interrupt */
+    /* 清除相应的 LTDC 中断 */
     LTDC->ICR = (uint32_t)LTDC_IT;
 }
 /**

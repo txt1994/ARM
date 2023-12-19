@@ -239,7 +239,7 @@ typedef struct {
 /**
  * @brief  Set FCM upper limit value.
  * @param  u16Limit
- * @retval None.
+ * @retval 无.
  */
 __STATIC_INLINE void FCM_SetUpperLimit(uint16_t u16Limit) {
     WRITE_REG32(CM_FCM->UVR, u16Limit);
@@ -248,7 +248,7 @@ __STATIC_INLINE void FCM_SetUpperLimit(uint16_t u16Limit) {
 /**
  * @brief  Set FCM lower limit value.
  * @param  u16Limit
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void FCM_SetLowerLimit(uint16_t u16Limit) {
     WRITE_REG32(CM_FCM->LVR, u16Limit);

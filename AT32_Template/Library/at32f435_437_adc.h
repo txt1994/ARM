@@ -48,10 +48,10 @@ extern "C" {
   * @{
   */
 
-#define ADC_Occe_INT                     ((uint32_t)0x00000020) /*!< ordinary channels conversion end interrupt */
-#define ADC_VMOR_INT                     ((uint32_t)0x00000040) /*!< voltage monitoring out of range interrupt */
-#define ADC_PCCE_INT                     ((uint32_t)0x00000080) /*!< preempt channels conversion end interrupt */
-#define ADC_OCCO_INT                     ((uint32_t)0x04000000) /*!< ordinary channel conversion overflow interrupt */
+#define ADC_Occe_INT                     ((uint32_t)0x00000020) /*!< ordinary channels conversion end 中断 */
+#define ADC_VMOR_INT                     ((uint32_t)0x00000040) /*!< voltage monitoring out of range 中断 */
+#define ADC_PCCE_INT                     ((uint32_t)0x00000080) /*!< preempt channels conversion end 中断 */
+#define ADC_OCCO_INT                     ((uint32_t)0x04000000) /*!< ordinary channel conversion overflow 中断 */
 
 /**
   * @}

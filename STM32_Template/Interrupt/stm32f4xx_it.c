@@ -5,7 +5,7 @@
   * @version V1.8.0
   * 日期:    04-November-2016
   * 简介:   主中断服务例程。
-  *          此文件为所有异常处理程序和外围设备中断服务例程提供模板。
+  *          此文件为所有异常处理程序和外设设备中断服务例程提供模板。
   ******************************************************************************
   * @attention
   *
@@ -46,16 +46,16 @@
 
 /**
   * 简介:  This function handles NMI exception.
-  * @param  None
-  * @retval None
+  * @param  无
+  * @retval 无
   */
 void NMI_Handler(void) {
 }
 
 /**
   * 简介:  This function handles Hard Fault exception.
-  * @param  None
-  * @retval None
+  * @param  无
+  * @retval 无
   */
 void HardFault_Handler(void) {
     /* Go to infinite loop when Hard Fault exception occurs */
@@ -65,8 +65,8 @@ void HardFault_Handler(void) {
 
 /**
   * 简介:  This function handles Memory Manage exception.
-  * @param  None
-  * @retval None
+  * @param  无
+  * @retval 无
   */
 void MemManage_Handler(void) {
     /* Go to infinite loop when Memory Manage exception occurs */
@@ -76,8 +76,8 @@ void MemManage_Handler(void) {
 
 /**
   * 简介:  This function handles Bus Fault exception.
-  * @param  None
-  * @retval None
+  * @param  无
+  * @retval 无
   */
 void BusFault_Handler(void) {
     /* Go to infinite loop when Bus Fault exception occurs */
@@ -87,8 +87,8 @@ void BusFault_Handler(void) {
 
 /**
   * 简介:  This function handles Usage Fault exception.
-  * @param  None
-  * @retval None
+  * @param  无
+  * @retval 无
   */
 void UsageFault_Handler(void) {
     /* Go to infinite loop when Usage Fault exception occurs */
@@ -98,32 +98,32 @@ void UsageFault_Handler(void) {
 
 /**
   * 简介:  This function handles SVCall exception.
-  * @param  None
-  * @retval None
+  * @param  无
+  * @retval 无
   */
 void SVC_Handler(void) {
 }
 
 /**
   * 简介:  This function handles Debug Monitor exception.
-  * @param  None
-  * @retval None
+  * @param  无
+  * @retval 无
   */
 void DebugMon_Handler(void) {
 }
 
 /**
   * 简介:  This function handles PendSVC exception.
-  * @param  None
-  * @retval None
+  * @param  无
+  * @retval 无
   */
 void PendSV_Handler(void) {
 }
 
 /**
   * 简介:  This function handles SysTick Handler.
-  * @param  None
-  * @retval None
+  * @param  无
+  * @retval 无
   */
 void SysTick_Handler(void) {
     // TimingDelay_Decrement();
@@ -138,8 +138,8 @@ void SysTick_Handler(void) {
 
 /**
   * 简介:  This function handles PPP interrupt request.
-  * @param  None
-  * @retval None
+  * @param  无
+  * @retval 无
   */
 /*void PPP_IRQHandler(void)
 {

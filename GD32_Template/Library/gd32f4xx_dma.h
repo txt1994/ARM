@@ -122,10 +122,10 @@ OF SUCH DAMAGE.
 
 /* DMA_CHxCTL,x=0..7 */
 #define DMA_CHXCTL_CHEN                   BIT(0)                        /*!< channel x enable */
-#define DMA_CHXCTL_SDEIE                  BIT(1)                        /*!< enable bit for channel x single data mode exception interrupt */
-#define DMA_CHXCTL_TAEIE                  BIT(2)                        /*!< enable bit for channel x tranfer access error interrupt */
-#define DMA_CHXCTL_HTFIE                  BIT(3)                        /*!< enable bit for channel x half transfer finish interrupt */
-#define DMA_CHXCTL_FTFIE                  BIT(4)                        /*!< enable bit for channel x full transfer finish interrupt */
+#define DMA_CHXCTL_SDEIE                  BIT(1)                        /*!< enable bit for channel x single data mode exception 中断 */
+#define DMA_CHXCTL_TAEIE                  BIT(2)                        /*!< enable bit for channel x tranfer access error 中断 */
+#define DMA_CHXCTL_HTFIE                  BIT(3)                        /*!< enable bit for channel x half transfer finish 中断 */
+#define DMA_CHXCTL_FTFIE                  BIT(4)                        /*!< enable bit for channel x full transfer finish 中断 */
 #define DMA_CHXCTL_TFCS                   BIT(5)                        /*!< transfer flow controller select */
 #define DMA_CHXCTL_TM                     BITS(6,7)                     /*!< transfer mode */
 #define DMA_CHXCTL_CMEN                   BIT(8)                        /*!< circulation mode */
@@ -412,9 +412,9 @@ uint32_t DMA_FIFO_Status_Get(uint32_t DMA_periph, DMA_Channel_enum channelx);
 FlagStatus DMA_Flag_Get(uint32_t DMA_periph, DMA_Channel_enum channelx, uint32_t flag);
 /* clear DMA a channel flag */
 void DMA_Flag_Clear(uint32_t DMA_periph, DMA_Channel_enum channelx, uint32_t flag);
-/* enable DMA interrupt */
+/* enable DMA 中断 */
 void DMA_Interrupt_Enable(uint32_t DMA_periph, DMA_Channel_enum channelx, uint32_t source);
-/* disable DMA interrupt */
+/* disable DMA 中断 */
 void DMA_Interrupt_Disable(uint32_t DMA_periph, DMA_Channel_enum channelx, uint32_t source);
 /* check DMA flag is set or not */
 FlagStatus DMA_Interrupt_Flag_Get(uint32_t DMA_periph, DMA_Channel_enum channelx, uint32_t interrupt);

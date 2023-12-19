@@ -75,7 +75,7 @@ extern "C"
  * @defgroup ICG_SWDT_Exception_Type ICG SWDT Exception Type
  * @{
  */
-#define ICG_SWDT_EXP_TYPE_INT                   (0UL)               /*!< SWDT trigger interrupt */
+#define ICG_SWDT_EXP_TYPE_INT                   (0UL)               /*!< SWDT trigger 中断 */
 #define ICG_SWDT_EXP_TYPE_RST                   (ICG_ICG0_SWDTITS)  /*!< SWDT trigger reset     */
 /**
  * @}
@@ -156,7 +156,7 @@ extern "C"
  * @defgroup ICG_WDT_Exception_Type ICG WDT Exception Type
  * @{
  */
-#define ICG_WDT_EXP_TYPE_INT                    (0UL)               /*!< WDT trigger interrupt */
+#define ICG_WDT_EXP_TYPE_INT                    (0UL)               /*!< WDT trigger 中断 */
 #define ICG_WDT_EXP_TYPE_RST                    (ICG_ICG0_WDTITS)   /*!< WDT trigger reset     */
 /**
  * @}

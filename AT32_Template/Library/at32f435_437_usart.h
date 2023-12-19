@@ -67,14 +67,14 @@ extern "C" {
   * @{
   */
 
-#define USART_IDLE_INT                   MAKE_VALUE(0x0C,0x04) /*!< usart idle interrupt */
-#define USART_RDBF_INT                   MAKE_VALUE(0x0C,0x05) /*!< usart receive data buffer full interrupt */
-#define USART_TDC_INT                    MAKE_VALUE(0x0C,0x06) /*!< usart transmit data complete interrupt */
-#define USART_TDBE_INT                   MAKE_VALUE(0x0C,0x07) /*!< usart transmit data buffer empty interrupt */
-#define USART_PERR_INT                   MAKE_VALUE(0x0C,0x08) /*!< usart parity error interrupt */
-#define USART_BF_INT                     MAKE_VALUE(0x10,0x06) /*!< usart break frame interrupt */
-#define USART_ERR_INT                    MAKE_VALUE(0x14,0x00) /*!< usart error interrupt */
-#define USART_CTSCF_INT                  MAKE_VALUE(0x14,0x0A) /*!< usart cts change interrupt */
+#define USART_IDLE_INT                   MAKE_VALUE(0x0C,0x04) /*!< usart idle 中断 */
+#define USART_RDBF_INT                   MAKE_VALUE(0x0C,0x05) /*!< usart receive data buffer full 中断 */
+#define USART_TDC_INT                    MAKE_VALUE(0x0C,0x06) /*!< usart transmit data complete 中断 */
+#define USART_TDBE_INT                   MAKE_VALUE(0x0C,0x07) /*!< usart transmit data buffer empty 中断 */
+#define USART_PERR_INT                   MAKE_VALUE(0x0C,0x08) /*!< usart parity error 中断 */
+#define USART_BF_INT                     MAKE_VALUE(0x10,0x06) /*!< usart break frame 中断 */
+#define USART_ERR_INT                    MAKE_VALUE(0x14,0x00) /*!< usart error 中断 */
+#define USART_CTSCF_INT                  MAKE_VALUE(0x14,0x0A) /*!< usart cts change 中断 */
 
 /**
   * @}

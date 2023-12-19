@@ -693,12 +693,12 @@ void SPI_quad_io23_OutPut_Disable(uint32_t SPI_periph) {
 */
 void SPI_I2S_Interrupt_Enable(uint32_t SPI_periph, uint8_t SPI_I2S_int) {
     switch(SPI_I2S_int) {
-    /* SPI/I2S transmit buffer empty interrupt */
+    /* SPI/I2S transmit buffer empty 中断 */
     case SPI_I2S_INT_TBE:
         SPI_CTL1(SPI_periph) |= (uint32_t)SPI_CTL1_TBEIE;
         break;
 
-    /* SPI/I2S receive buffer not empty interrupt */
+    /* SPI/I2S receive buffer not empty 中断 */
     case SPI_I2S_INT_RBNE:
         SPI_CTL1(SPI_periph) |= (uint32_t)SPI_CTL1_RBNEIE;
         break;
@@ -727,12 +727,12 @@ void SPI_I2S_Interrupt_Enable(uint32_t SPI_periph, uint8_t SPI_I2S_int) {
 */
 void SPI_I2S_Interrupt_Disable(uint32_t SPI_periph, uint8_t SPI_I2S_int) {
     switch(SPI_I2S_int) {
-    /* SPI/I2S transmit buffer empty interrupt */
+    /* SPI/I2S transmit buffer empty 中断 */
     case SPI_I2S_INT_TBE :
         SPI_CTL1(SPI_periph) &= (uint32_t)(~SPI_CTL1_TBEIE);
         break;
 
-    /* SPI/I2S receive buffer not empty interrupt */
+    /* SPI/I2S receive buffer not empty 中断 */
     case SPI_I2S_INT_RBNE :
         SPI_CTL1(SPI_periph) &= (uint32_t)(~SPI_CTL1_RBNEIE);
         break;
@@ -767,43 +767,43 @@ FlagStatus SPI_I2S_Interrupt_Flag_Get(uint32_t SPI_periph, uint8_t SPI_I2S_int) 
     uint32_t reg2 = SPI_CTL1(SPI_periph);
 
     switch(SPI_I2S_int) {
-    /* SPI/I2S transmit buffer empty interrupt */
+    /* SPI/I2S transmit buffer empty 中断 */
     case SPI_I2S_INT_Flag_TBE :
         reg1 = reg1 & SPI_STAT_TBE;
         reg2 = reg2 & SPI_CTL1_TBEIE;
         break;
 
-    /* SPI/I2S receive buffer not empty interrupt */
+    /* SPI/I2S receive buffer not empty 中断 */
     case SPI_I2S_INT_Flag_RBNE :
         reg1 = reg1 & SPI_STAT_RBNE;
         reg2 = reg2 & SPI_CTL1_RBNEIE;
         break;
 
-    /* SPI/I2S overrun interrupt */
+    /* SPI/I2S overrun 中断 */
     case SPI_I2S_INT_Flag_RXORERR :
         reg1 = reg1 & SPI_STAT_RXORERR;
         reg2 = reg2 & SPI_CTL1_ERRIE;
         break;
 
-    /* SPI config error interrupt */
+    /* SPI config error 中断 */
     case SPI_INT_Flag_CONFERR :
         reg1 = reg1 & SPI_STAT_CONFERR;
         reg2 = reg2 & SPI_CTL1_ERRIE;
         break;
 
-    /* SPI CRC error interrupt */
+    /* SPI CRC error 中断 */
     case SPI_INT_Flag_CRCERR :
         reg1 = reg1 & SPI_STAT_CRCERR;
         reg2 = reg2 & SPI_CTL1_ERRIE;
         break;
 
-    /* I2S underrun error interrupt */
+    /* I2S underrun error 中断 */
     case I2S_INT_Flag_TXURERR :
         reg1 = reg1 & SPI_STAT_TXURERR;
         reg2 = reg2 & SPI_CTL1_ERRIE;
         break;
 
-    /* SPI/I2S format error interrupt */
+    /* SPI/I2S format error 中断 */
     case SPI_I2S_INT_Flag_FERR :
         reg1 = reg1 & SPI_STAT_FERR;
         reg2 = reg2 & SPI_CTL1_ERRIE;

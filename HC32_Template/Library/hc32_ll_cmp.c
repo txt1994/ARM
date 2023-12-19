@@ -159,7 +159,7 @@
 /**
  * @brief Delay function, delay us approximately
  * @param [in] u32Count                   us
- * @retval None
+ * @retval 无
  */
 static void CMP_DelayUS(uint32_t u32Count) {
     __IO uint32_t i;
@@ -194,7 +194,7 @@ static uint16_t GetCmpFuncStatusAndDisFunc(CM_CMP_TypeDef *CMPx) {
  * @param  [in] CMPx                Pointer to CMP instance register base
  *   @arg  CM_CMPx
  * @param  [in] u16CmpFuncStatus    CMP function status backup value
- * @retval None
+ * @retval 无
  */
 static void RecoverCmpFuncStatus(CM_CMP_TypeDef *CMPx, uint16_t u16CmpFuncStatus) {
     if (u16CmpFuncStatus != 0U) {
@@ -281,7 +281,7 @@ int32_t CMP_BlankWindowStructInit(stc_cmp_blankwindow_t *pstcBlankWindowConfig) 
  * @brief  De-initialize CMP unit
  * @param  [in] CMPx                Pointer to CMP instance register base
  *   @arg  CM_CMPx
- * @retval None
+ * @retval 无
  */
 void CMP_DeInit(CM_CMP_TypeDef *CMPx) {
     DDL_ASSERT(IS_CMP_UNIT(CMPx));
@@ -361,7 +361,7 @@ int32_t CMP_NormalModeInit(CM_CMP_TypeDef *CMPx, const stc_cmp_init_t *pstcCmpIn
  * @param  [in] CMPx                Pointer to CMP instance register base
  *   @arg  CM_CMPx
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void CMP_FuncCmd(CM_CMP_TypeDef *CMPx, en_functional_state_t enNewState) {
     /* Check CMPx instance */
@@ -383,7 +383,7 @@ void CMP_FuncCmd(CM_CMP_TypeDef *CMPx, en_functional_state_t enNewState) {
  * @param  [in] CMPx                Pointer to CMP instance register base
  *   @arg  CM_CMPx
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void CMP_IntCmd(CM_CMP_TypeDef *CMPx, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -402,7 +402,7 @@ void CMP_IntCmd(CM_CMP_TypeDef *CMPx, en_functional_state_t enNewState) {
  * @param  [in] CMPx                Pointer to CMP instance register base
  *   @arg  CM_CMPx
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void CMP_CompareOutCmd(CM_CMP_TypeDef *CMPx, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -421,7 +421,7 @@ void CMP_CompareOutCmd(CM_CMP_TypeDef *CMPx, en_functional_state_t enNewState) {
  * @param  [in] CMPx                Pointer to CMP instance register base
  *   @arg  CM_CMPx
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void CMP_PinVcoutCmd(CM_CMP_TypeDef *CMPx, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -461,7 +461,7 @@ en_flag_status_t CMP_GetStatus(const CM_CMP_TypeDef *CMPx) {
  * @param  [in] CMPx                Pointer to CMP instance register base
  *   @arg  CM_CMPx
  * @param  [in] u8CmpEdges          CMP output detect edge selection. @ref CMP_Out_Detect_Edge_Select
- * @retval None
+ * @retval 无
  */
 void CMP_SetOutDetectEdge(CM_CMP_TypeDef *CMPx, uint8_t u8CmpEdges) {
     uint16_t u16temp;
@@ -482,7 +482,7 @@ void CMP_SetOutDetectEdge(CM_CMP_TypeDef *CMPx, uint8_t u8CmpEdges) {
  * @param  [in] CMPx                Pointer to CMP instance register base
  *   @arg  CM_CMPx
  * @param  [in] u8CmpFilter         CMP output filter selection. @ref CMP_Out_Filter
- * @retval None
+ * @retval 无
  */
 void CMP_SetOutFilter(CM_CMP_TypeDef *CMPx, uint8_t u8CmpFilter) {
     uint16_t u16temp;
@@ -502,7 +502,7 @@ void CMP_SetOutFilter(CM_CMP_TypeDef *CMPx, uint8_t u8CmpFilter) {
  * @param  [in] CMPx                Pointer to CMP instance register base
  *   @arg  CM_CMPx
  * @param  [in] u16CmpPolarity      CMP output polarity selection. @ref CMP_Out_Polarity_Select
- * @retval None
+ * @retval 无
  */
 void CMP_SetOutPolarity(CM_CMP_TypeDef *CMPx, uint16_t u16CmpPolarity) {
     uint16_t u16temp;
@@ -523,7 +523,7 @@ void CMP_SetOutPolarity(CM_CMP_TypeDef *CMPx, uint16_t u16CmpPolarity) {
  * @param  [in] CMPx                Pointer to CMP instance register base
  *   @arg  CM_CMPx
  * @param  [in] u16PositiveInput    @ref CMP_Positive_Input_Select
- * @retval None
+ * @retval 无
  */
 void CMP_SetPositiveInput(CM_CMP_TypeDef *CMPx, uint16_t u16PositiveInput) {
     uint16_t u16temp;
@@ -557,7 +557,7 @@ void CMP_SetPositiveInput(CM_CMP_TypeDef *CMPx, uint16_t u16PositiveInput) {
  * @param  [in] CMPx                Pointer to CMP instance register base
  *   @arg  CM_CMPx
  * @param  [in] u16NegativeInput    @ref CMP_Negative_Input_Select
- * @retval None
+ * @retval 无
  */
 void CMP_SetNegativeInput(CM_CMP_TypeDef *CMPx, uint16_t u16NegativeInput) {
     uint16_t u16temp;
@@ -637,7 +637,7 @@ int32_t CMP_WindowModeInit(uint8_t u8WinCMPx, const stc_cmp_window_init_t *pstcC
  * @param  [in] CMPx                    Pointer to CMP instance register base
  *   @arg  CM_CMPx
  * @param  [in] u16BlankWindowSrc       Blank window source. can be any combination of @ref CMP_BlankWindow_Src
- * @retval None
+ * @retval 无
  */
 void CMP_BlankWindowSrcDisable(CM_CMP_TypeDef *CMPx, uint16_t u16BlankWindowSrc) {
     /* Check parameters */
@@ -691,7 +691,7 @@ int32_t CMP_BlankWindowConfig(CM_CMP_TypeDef *CMPx, const stc_cmp_blankwindow_t 
  * @param  [in] CMPx                Pointer to CMP instance register base
  *   @arg  CM_CMPx
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void CMP_BlankWindowCmd(CM_CMP_TypeDef *CMPx, en_functional_state_t enNewState) {
     /* Check parameters */

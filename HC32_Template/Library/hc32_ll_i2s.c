@@ -347,7 +347,7 @@ static int32_t I2S_WaitStatus(const CM_I2S_TypeDef *I2Sx, uint32_t u32Flag,
  * @param  [in] I2Sx                    Pointer to I2S unit instance
  *         This parameter can be one of the following values:
  *           @arg CM_I2Sx:              I2S unit instance
- * @retval None
+ * @retval 无
  */
 void I2S_DeInit(CM_I2S_TypeDef *I2Sx) {
     /* Check parameters */
@@ -493,7 +493,7 @@ int32_t I2S_StructInit(stc_i2s_init_t *pstcI2sInit) {
  * @param  [in] u32Type                 Software reset type
  *         This parameter can be one or any combination of the following values:
  *           @arg @ref I2S_Reset_Type
- * @retval None
+ * @retval 无
  */
 void I2S_SWReset(CM_I2S_TypeDef *I2Sx, uint32_t u32Type) {
     /* Check parameters */
@@ -514,7 +514,7 @@ void I2S_SWReset(CM_I2S_TypeDef *I2Sx, uint32_t u32Type) {
  *           @arg I2S_TRANS_MD_HALF_DUPLEX_RX:  Receive only and half duplex mode
  *           @arg I2S_TRANS_MD_HALF_DUPLEX_TX:  Send only and half duplex mode
  *           @arg I2S_TRANS_MD_FULL_DUPLEX:     Full duplex mode
- * @retval None
+ * @retval 无
  */
 void I2S_SetTransMode(CM_I2S_TypeDef *I2Sx, uint32_t u32Mode) {
     /* Check parameters */
@@ -532,7 +532,7 @@ void I2S_SetTransMode(CM_I2S_TypeDef *I2Sx, uint32_t u32Mode) {
  * @param  [in] u32Level                Transfer FIFO level
  *         This parameter can be one of the following values:
  *           @arg @ref I2S_Trans_Level
- * @retval None
+ * @retval 无
  */
 void I2S_SetTransFIFOLevel(CM_I2S_TypeDef *I2Sx, uint32_t u32Level) {
     /* Check parameters */
@@ -550,7 +550,7 @@ void I2S_SetTransFIFOLevel(CM_I2S_TypeDef *I2Sx, uint32_t u32Level) {
  * @param  [in] u32Level                Receive FIFO level
  *         This parameter can be one of the following values:
  *           @arg @ref I2S_Receive_Level
- * @retval None
+ * @retval 无
  */
 void I2S_SetReceiveFIFOLevel(CM_I2S_TypeDef *I2Sx, uint32_t u32Level) {
     /* Check parameters */
@@ -572,7 +572,7 @@ void I2S_SetReceiveFIFOLevel(CM_I2S_TypeDef *I2Sx, uint32_t u32Level) {
  *           @arg I2S_PROTOCOL_LSB:         LSB justified protocol
  *           @arg I2S_PROTOCOL_PCM_SHORT:   PCM short-frame protocol
  *           @arg I2S_PROTOCOL_PCM_LONG:    PCM long-frame protocol
- * @retval None
+ * @retval 无
  */
 void I2S_SetProtocol(CM_I2S_TypeDef *I2Sx, uint32_t u32Protocol) {
     /* Check parameters */
@@ -658,7 +658,7 @@ int32_t I2S_SetAudioFreq(CM_I2S_TypeDef *I2Sx, uint32_t u32Freq) {
  *         This parameter can be one of the following values:
  *           @arg CM_I2Sx:              I2S unit instance
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void I2S_MCKOutputCmd(CM_I2S_TypeDef *I2Sx, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -683,7 +683,7 @@ void I2S_MCKOutputCmd(CM_I2S_TypeDef *I2Sx, en_functional_state_t enNewState) {
  *           @arg I2S_FUNC_RX:          Receive function
  *           @arg I2S_FUNC_ALL:         All of the above
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void I2S_FuncCmd(CM_I2S_TypeDef *I2Sx, uint32_t u32Func, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -704,7 +704,7 @@ void I2S_FuncCmd(CM_I2S_TypeDef *I2Sx, uint32_t u32Func, en_functional_state_t e
  *         This parameter can be one of the following values:
  *           @arg CM_I2Sx:              I2S unit instance
  * @param  [in] u32Data                 Send data
- * @retval None
+ * @retval 无
  */
 void I2S_WriteData(CM_I2S_TypeDef *I2Sx, uint32_t u32Data) {
     /* Check parameters */
@@ -940,7 +940,7 @@ int32_t I2S_TransReceive(CM_I2S_TypeDef *I2Sx, const void *pvTxBuf,
  *           @arg I2S_INT_ERR:          Communication error interrupt
  *           @arg I2S_INT_ALL:          All of the above
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void I2S_IntCmd(CM_I2S_TypeDef *I2Sx, uint32_t u32IntType, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -1010,7 +1010,7 @@ en_flag_status_t I2S_GetStatus(const CM_I2S_TypeDef *I2Sx, uint32_t u32Flag) {
  *           @arg I2S_FLAG_TX_ERR:      Transfer overflow or underflow flag
  *           @arg I2S_FLAG_RX_ERR:      Receive overflow flag
  *           @arg I2S_FLAG_CLR_ALL:     All of the above
- * @retval None
+ * @retval 无
  */
 void I2S_ClearStatus(CM_I2S_TypeDef *I2Sx, uint32_t u32Flag) {
     /* Check parameters */

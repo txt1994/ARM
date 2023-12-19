@@ -49,7 +49,7 @@
 
 /* Vector Table base offset field */
 #ifndef VECT_TAB_OFFSET
-    #define VECT_TAB_OFFSET                 (0x0UL)     /*!< This value must be a multiple of 0x400. */
+    #define VECT_TAB_OFFSET                 (0x0UL)     /*!< 该值必须是0x400的倍数。 */
 #endif
 /* Compiler Macros */
 #if defined (__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
@@ -81,7 +81,7 @@
  * @{
  */
 
-/*!< System clock frequency (Core clock) */
+/*!< 系统时钟频率(核心时钟) */
 __NO_INIT uint32_t SystemCoreClock;
 /*!< High speed RC frequency (HCR clock) */
 __NO_INIT uint32_t HRC_VALUE;
@@ -103,15 +103,15 @@ __NO_INIT uint32_t HRC_VALUE;
  */
 
 /**
- * @brief  Setup the microcontroller system. Initialize the System and update
+ * @brief  设置微控制器系统. Initialize the System and update
  *         the SystemCoreClock variable.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void SystemInit(void) {
     /* FPU settings */
     #if (__FPU_PRESENT == 1) && (__FPU_USED == 1)
-    SCB->CPACR |= ((3UL << 20) | (3UL << 22)); /* set CP10 and CP11 Full Access */
+    SCB->CPACR |= ((3UL << 20) | (3UL << 22)); /* 设置CP10和CP11完全访问 */
     #endif
     SystemCoreClockUpdate();
     /* Configure the Vector Table relocation */
@@ -119,9 +119,9 @@ void SystemInit(void) {
 }
 
 /**
- * @brief  Update SystemCoreClock variable according to Clock Register Values.
- * @param  None
- * @retval None
+ * @brief  根据时钟寄存器值更新SystemCoreClock变量。
+ * @param  无
+ * @retval 无
  */
 void SystemCoreClockUpdate(void) {
     uint8_t u8SysClkSrc;

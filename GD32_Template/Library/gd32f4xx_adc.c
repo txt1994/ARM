@@ -73,7 +73,7 @@ void ADC_DeInit(void) {
 }
 
 /*!
-    简介:        configure the ADC clock for all the ADCs
+    简介:        为所有 ADCs 配置 ADC 时钟
     参数[输入]:    prescaler: configure ADCs prescaler ratio
                   only one parameter can be selected which is shown as below:
       参数:        ADC_ADCCK_PCLK2_DIV2: PCLK2 div2
@@ -84,8 +84,8 @@ void ADC_DeInit(void) {
       参数:        ADC_ADCCK_HCLK_DIV6: HCLK div6
       参数:        ADC_ADCCK_HCLK_DIV10: HCLK div10
       参数:        ADC_ADCCK_HCLK_DIV20: HCLK div20
-    参数[输出]:   none
-    返回值:       none
+    参数[输出]:   无
+    返回值:       无
 */
 void ADC_Clock_Config(uint32_t prescaler) {
     ADC_SYNCCTL &= ~((uint32_t)ADC_SYNCCTL_ADCCK);
@@ -93,7 +93,7 @@ void ADC_Clock_Config(uint32_t prescaler) {
 }
 
 /*!
-    简介:        enable or disable ADC special function
+    简介:        启用或禁用 ADC 特殊函数
     参数[输入]:    ADC_periph: ADCx,x=0,1,2
     参数[输入]:    function: the function to config
                   only one parameter can be selected which is shown as below:
@@ -101,8 +101,8 @@ void ADC_Clock_Config(uint32_t prescaler) {
     参数:          ADC_Inserted_Channel_AUTO: inserted channel group convert automatically
     参数:          ADC_CONTINUOUS_MODE: continuous mode select
     参数[输入]:    newvalue: ENABLE or DISABLE
-    参数[输出]:   none
-    返回值:       none
+    参数[输出]:   无
+    返回值:       无
 */
 void ADC_Special_Function_Config(uint32_t ADC_periph, uint32_t function, ControlStatus newvalue) {
     if(newvalue) {
@@ -145,8 +145,8 @@ void ADC_Special_Function_Config(uint32_t ADC_periph, uint32_t function, Control
                   only one parameter can be selected which is shown as below:
     参数:          ADC_DATAALIGN_RIGHT: LSB alignment
     参数:          ADC_DATAALIGN_LEFT: MSB alignment
-    参数[输出]:   none
-    返回值:       none
+    参数[输出]:   无
+    返回值:       无
 */
 void ADC_Data_Alignment_Config(uint32_t ADC_periph, uint32_t data_alignment) {
     if(ADC_DATAALIGN_RIGHT != data_alignment) {
@@ -161,8 +161,8 @@ void ADC_Data_Alignment_Config(uint32_t ADC_periph, uint32_t data_alignment) {
 /*!
     简介:        enable ADC interface
     参数[输入]:    ADC_periph: ADCx,x=0,1,2
-    参数[输出]:   none
-    返回值:       none
+    参数[输出]:   无
+    返回值:       无
 */
 void ADC_Enable(uint32_t ADC_periph) {
     if(RESET == (ADC_CTL1(ADC_periph) & ADC_CTL1_ADCON)) {
@@ -174,8 +174,8 @@ void ADC_Enable(uint32_t ADC_periph) {
 /*!
     简介:        disable ADC interface
     参数[输入]:    ADC_periph: ADCx,x=0,1,2
-    参数[输出]:   none
-    返回值:       none
+    参数[输出]:   无
+    返回值:       无
 */
 void ADC_Disable(uint32_t ADC_periph) {
     /* disable ADC */
@@ -185,8 +185,8 @@ void ADC_Disable(uint32_t ADC_periph) {
 /*!
     简介:        ADC calibration and reset calibration
     参数[输入]:    ADC_periph: ADCx,x=0,1,2
-    参数[输出]:   none
-    返回值:       none
+    参数[输出]:   无
+    返回值:       无
 */
 void ADC_Calibration_Enable(uint32_t ADC_periph) {
     /* reset the selected ADC calibration registers */
@@ -211,8 +211,8 @@ void ADC_Calibration_Enable(uint32_t ADC_periph) {
     参数:          ADC_VBAT_Channel_SWITCH: channel 18 (1/4 voltate of external battery) switch of ADC0
     参数:          ADC_TEMP_VREF_Channel_SWITCH: channel 16 (temperature sensor) and 17 (internal reference voltage) switch of ADC0
     参数[输入]:    newvalue: ENABLE or DISABLE
-    参数[输出]:   none
-    返回值:       none
+    参数[输出]:   无
+    返回值:       无
 */
 void ADC_Channel_16_to_18(uint32_t function, ControlStatus newvalue) {
     if(newvalue) {
@@ -247,8 +247,8 @@ void ADC_Channel_16_to_18(uint32_t function, ControlStatus newvalue) {
     参数:          ADC_Resolution_10B: 10-bit ADC resolution
     参数:          ADC_Resolution_8B: 8-bit ADC resolution
     参数:          ADC_Resolution_6B: 6-bit ADC resolution
-    参数[输出]:   none
-    返回值:       none
+    参数[输出]:   无
+    返回值:       无
 */
 void ADC_Resolution_Config(uint32_t ADC_periph, uint32_t resolution) {
     ADC_CTL0(ADC_periph) &= ~((uint32_t)ADC_CTL0_DRES);
@@ -283,8 +283,8 @@ void ADC_Resolution_Config(uint32_t ADC_periph, uint32_t resolution) {
     参数:          ADC_OVERSAMPLING_RATIO_MUL64: oversampling ratio multiple 64
     参数:          ADC_OVERSAMPLING_RATIO_MUL128: oversampling ratio multiple 128
     参数:          ADC_OVERSAMPLING_RATIO_MUL256: oversampling ratio multiple 256
-    参数[输出]:   none
-    返回值:       none
+    参数[输出]:   无
+    返回值:       无
 */
 void ADC_OverSample_Mode_Config(uint32_t ADC_periph, uint32_t mode, uint16_t shift, uint8_t ratio) {
     if(ADC_OVERSAMPLING_ONE_CONVERT == mode) {
@@ -301,8 +301,8 @@ void ADC_OverSample_Mode_Config(uint32_t ADC_periph, uint32_t mode, uint16_t shi
 /*!
     简介:        enable ADC oversample mode
     参数[输入]:    ADC_periph: ADCx,x=0,1,2
-    参数[输出]:   none
-    返回值:       none
+    参数[输出]:   无
+    返回值:       无
 */
 void ADC_OverSample_Mode_Enable(uint32_t ADC_periph) {
     ADC_OVSAMPCTL(ADC_periph) |= ADC_OVSAMPCTL_OVSEN;
@@ -311,8 +311,8 @@ void ADC_OverSample_Mode_Enable(uint32_t ADC_periph) {
 /*!
     简介:        disable ADC oversample mode
     参数[输入]:    ADC_periph: ADCx,x=0,1,2
-    参数[输出]:   none
-    返回值:       none
+    参数[输出]:   无
+    返回值:       无
 */
 void ADC_OverSample_Mode_Disable(uint32_t ADC_periph) {
     ADC_OVSAMPCTL(ADC_periph) &= ~((uint32_t)ADC_OVSAMPCTL_OVSEN);
@@ -321,8 +321,8 @@ void ADC_OverSample_Mode_Disable(uint32_t ADC_periph) {
 /*!
     简介:        enable DMA request
     参数[输入]:    ADC_periph: ADCx,x=0,1,2
-    参数[输出]:   none
-    返回值:       none
+    参数[输出]:   无
+    返回值:       无
 */
 void ADC_DMA_Mode_Enable(uint32_t ADC_periph) {
     /* enable DMA request */
@@ -370,8 +370,8 @@ void ADC_DMA_Request_After_Last_Disable(uint32_t ADC_periph) {
     参数:          ADC_Channel_DISCON_DISABLE: disable discontinuous mode of regular & inserted channel
     参数[输入]:    length: number of conversions in discontinuous mode,the number can be 1..8
                   for regular channel ,the number has no effect for inserted channel
-    参数[输出]:   none
-    返回值:       none
+    参数[输出]:   无
+    返回值:       无
 */
 void ADC_Discontinuous_Mode_Config(uint32_t ADC_periph, uint8_t ADC_Channel_group, uint8_t length) {
     /* disable discontinuous mode of regular & inserted channel */
@@ -413,8 +413,8 @@ void ADC_Discontinuous_Mode_Config(uint32_t ADC_periph, uint8_t ADC_Channel_grou
     参数[输入]:    length: the length of the channel
                   regular channel 1-16
                   inserted channel 1-4
-    参数[输出]:   none
-    返回值:       none
+    参数[输出]:   无
+    返回值:       无
 */
 void ADC_Channel_Length_Config(uint32_t ADC_periph, uint8_t ADC_Channel_group, uint32_t length) {
     switch(ADC_Channel_group) {
@@ -456,8 +456,8 @@ void ADC_Channel_Length_Config(uint32_t ADC_periph, uint8_t ADC_Channel_group, u
     参数:          ADC_SAMPLETIME_112: 112 cycles
     参数:          ADC_SAMPLETIME_144: 144 cycles
     参数:          ADC_SAMPLETIME_480: 480 cycles
-    参数[输出]:   none
-    返回值:       none
+    参数[输出]:   无
+    返回值:       无
 */
 void ADC_Regular_Channel_Config(uint32_t ADC_periph, uint8_t rank, uint8_t ADC_channel, uint32_t sample_time) {
     uint32_t rsq, sampt;
@@ -1084,17 +1084,17 @@ void ADC_Interrupt_Flag_Clear(uint32_t ADC_periph, uint32_t ADC_interrupt) {
 void ADC_Interrupt_Enable(uint32_t ADC_periph, uint32_t ADC_interrupt) {
     switch(ADC_interrupt) {
     case ADC_INT_WDE:
-        /* enable analog watchdog interrupt */
+        /* enable analog watchdog 中断 */
         ADC_CTL0(ADC_periph) |= (uint32_t) ADC_CTL0_WDEIE;
         break;
 
     case ADC_INT_EOC:
-        /* enable end of group conversion interrupt */
+        /* enable end of group conversion 中断 */
         ADC_CTL0(ADC_periph) |= (uint32_t) ADC_CTL0_EOCIE;
         break;
 
     case ADC_INT_EOIC:
-        /* enable end of inserted group conversion interrupt */
+        /* enable end of inserted group conversion 中断 */
         ADC_CTL0(ADC_periph) |= (uint32_t) ADC_CTL0_EOICIE;
         break;
 

@@ -278,7 +278,7 @@ void FSMC_NORSRAMStructInit(FSMC_NORSRAMInitTypeDef* FSMC_NORSRAMInitStruct) {
   *            @arg FSMC_Bank1_NORSRAM2: FSMC Bank1 NOR/SRAM2
   *            @arg FSMC_Bank1_NORSRAM3: FSMC Bank1 NOR/SRAM3
   *            @arg FSMC_Bank1_NORSRAM4: FSMC Bank1 NOR/SRAM4
-  * 参数:  NewState: 新状态-> FSMC_Bank. 此参数可以是:ENABLE或DISABLE。
+  * 参数:  NewState: 新状态-> FSMC_Bank. 此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void FSMC_NORSRAMCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
@@ -286,10 +286,10 @@ void FSMC_NORSRAMCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用 selected NOR/SRAM Bank by setting the PBKEN bit in the BCRx 寄存器 */
+        /* 启用通过设置BCRx中的PBKEN位来选择NOR/SRAM组寄存器 */
         FSMC_Bank1->BTCR[FSMC_Bank] |= BCR_MBKEN_SET;
     } else {
-        /* 禁用 selected NOR/SRAM Bank by clearing the PBKEN bit in the BCRx 寄存器 */
+        /* 禁用通过清除 BCRx 中的 PBKEN 位来选择 NOR/SRAM 组寄存器 */
         FSMC_Bank1->BTCR[FSMC_Bank] &= BCR_MBKEN_RESET;
     }
 }
@@ -360,7 +360,7 @@ void FSMC_NANDDeInit(uint32_t FSMC_Bank) {
     }
     /* FSMC_Bank3_NAND */
     else {
-        /* 设置 FSMC_Bank3 registers to their reset values */
+        /* 设置 FSMC_Bank3 将寄存器设置为其重置值 */
         FSMC_Bank3->PCR3 = 0x00000018;
         FSMC_Bank3->SR3 = 0x00000040;
         FSMC_Bank3->PMEM3 = 0xFCFCFCFC;
@@ -407,7 +407,7 @@ void FSMC_NANDInit(FSMC_NANDInitTypeDef* FSMC_NANDInitStruct) {
                            FSMC_PCR2_PWID | FSMC_PCR2_ECCEN | FSMC_PCR2_TCLR | \
                            FSMC_PCR2_TAR | FSMC_PCR2_ECCPS));
 
-    /* 设置 tmppcr value according to FSMC_NANDInitStruct parameters */
+    /* 设置 tmppcr 值根据 FSMC_NANDInitStruct 参数 */
     tmppcr |= (uint32_t)FSMC_NANDInitStruct->FSMC_Waitfeature |
               PCR_MEMORYTYPE_NAND |
               FSMC_NANDInitStruct->FSMC_MemoryDataWidth |
@@ -428,7 +428,7 @@ void FSMC_NANDInit(FSMC_NANDInitTypeDef* FSMC_NANDInitStruct) {
     tmppmem &= ((uint32_t)~(FSMC_PMEM2_MEMSET2  | FSMC_PMEM2_MEMWAIT2 | FSMC_PMEM2_MEMHOLD2 | \
                             FSMC_PMEM2_MEMHIZ2));
 
-    /* Set tmppmem value according to FSMC_CommonSpaceTimingStructure parameters */
+    /* 根据FSMC_CommonSpaceTimingStructure参数设置tmpmem值 */
     tmppmem |= (uint32_t)FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime |
                (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
                (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16) |
@@ -446,19 +446,19 @@ void FSMC_NANDInit(FSMC_NANDInitTypeDef* FSMC_NANDInitStruct) {
     tmppatt &= ((uint32_t)~(FSMC_PATT2_ATTSET2  | FSMC_PATT2_ATTWAIT2 | FSMC_PATT2_ATTHOLD2 | \
                             FSMC_PATT2_ATTHIZ2));
 
-    /* Set tmppatt value according to FSMC_AttributeSpaceTimingStructure parameters */
+    /* 根据FSMC_AttributeSpaceTimingStructure参数设置tmppatt值 */
     tmppatt |= (uint32_t)FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime |
                (FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
                (FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16) |
                (FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime << 24);
 
     if(FSMC_NANDInitStruct->FSMC_Bank == FSMC_Bank2_NAND) {
-        /* FSMC_Bank2_NAND registers 配置*/
+        /* FSMC_Bank2_NAND 寄存器配置*/
         FSMC_Bank2->PCR2 = tmppcr;
         FSMC_Bank2->PMEM2 = tmppmem;
         FSMC_Bank2->PATT2 = tmppatt;
     } else {
-        /* FSMC_Bank3_NAND registers 配置*/
+        /* FSMC_Bank3_NAND 寄存器配置*/
         FSMC_Bank3->PCR3 = tmppcr;
         FSMC_Bank3->PMEM3 = tmppmem;
         FSMC_Bank3->PATT3 = tmppatt;
@@ -496,7 +496,7 @@ void FSMC_NANDStructInit(FSMC_NANDInitTypeDef* FSMC_NANDInitStruct) {
   *          此参数可以是以下值之一:
   *            @arg FSMC_Bank2_NAND: FSMC Bank2 NAND
   *            @arg FSMC_Bank3_NAND: FSMC Bank3 NAND
-  * 参数:  NewState: 新状态-> FSMC_Bank. 此参数可以是:ENABLE或DISABLE。
+  * 参数:  NewState: 新状态-> FSMC_Bank. 此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void FSMC_NANDCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
@@ -504,14 +504,14 @@ void FSMC_NANDCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用 selected NAND Bank by setting the PBKEN bit in the PCRx 寄存器 */
+        /* 启用通过在PCRx中设置PBKEN位来选择NAND组寄存器 */
         if(FSMC_Bank == FSMC_Bank2_NAND) {
             FSMC_Bank2->PCR2 |= PCR_PBKEN_SET;
         } else {
             FSMC_Bank3->PCR3 |= PCR_PBKEN_SET;
         }
     } else {
-        /* 禁用 selected NAND Bank by clearing the PBKEN bit in the PCRx 寄存器 */
+        /* 禁用通过清除PCRx中的PBKEN位来选择NAND组寄存器 */
         if(FSMC_Bank == FSMC_Bank2_NAND) {
             FSMC_Bank2->PCR2 &= PCR_PBKEN_RESET;
         } else {
@@ -526,7 +526,7 @@ void FSMC_NANDCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
   *            @arg FSMC_Bank2_NAND: FSMC Bank2 NAND
   *            @arg FSMC_Bank3_NAND: FSMC Bank3 NAND
   * 参数:  NewState: 新状态-> FSMC NAND ECC feature.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void FSMC_NANDECCCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
@@ -534,14 +534,14 @@ void FSMC_NANDECCCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用 selected NAND Bank ECC function by setting the ECCEN bit in the PCRx 寄存器 */
+        /* 启用通过在PCRx中设置ECCEN位来选择NAND组ECC功能寄存器 */
         if(FSMC_Bank == FSMC_Bank2_NAND) {
             FSMC_Bank2->PCR2 |= PCR_ECCEN_SET;
         } else {
             FSMC_Bank3->PCR3 |= PCR_ECCEN_SET;
         }
     } else {
-        /* 禁用 selected NAND Bank ECC function by clearing the ECCEN bit in the PCRx 寄存器 */
+        /* 禁用通过清除PCRx中的ECCEN位来选择NAND组ECC功能寄存器 */
         if(FSMC_Bank == FSMC_Bank2_NAND) {
             FSMC_Bank2->PCR2 &= PCR_ECCEN_RESET;
         } else {
@@ -569,7 +569,7 @@ uint32_t FSMC_GetECC(uint32_t FSMC_Bank) {
         eccval = FSMC_Bank3->ECCR3;
     }
 
-    /* 返回error correction code 值 */
+    /* 返回纠错码值 */
     return(eccval);
 }
 /**
@@ -617,7 +617,7 @@ uint32_t FSMC_GetECC(uint32_t FSMC_Bank) {
   * 返回值: 无
   */
 void FSMC_PCCARDDeInit(void) {
-    /* 设置 FSMC_Bank4 registers to their reset values */
+    /* 设置FSMC_Bank4将寄存器设置为其重置值 */
     FSMC_Bank4->PCR4 = 0x00000018;
     FSMC_Bank4->SR4 = 0x00000000;
     FSMC_Bank4->PMEM4 = 0xFCFCFCFC;
@@ -660,7 +660,7 @@ void FSMC_PCCARDInit(FSMC_PCCARDInitTypeDef* FSMC_PCCARDInitStruct) {
     tmppcr4 &= ((uint32_t)~(FSMC_PCR4_TAR  | FSMC_PCR4_TCLR | FSMC_PCR4_PWAITEN | \
                             FSMC_PCR4_PWID));
 
-    /* 设置 PCR4 register value according to FSMC_PCCARDInitStruct parameters */
+    /* 设置根据FSMC_PCCARInitStruct参数的PCR4寄存器值 */
     tmppcr4 |= (uint32_t)FSMC_PCCARDInitStruct->FSMC_Waitfeature |
                FSMC_MemoryDataWidth_16b |
                (FSMC_PCCARDInitStruct->FSMC_TCLRSetupTime << 9) |
@@ -668,14 +668,14 @@ void FSMC_PCCARDInit(FSMC_PCCARDInitTypeDef* FSMC_PCCARDInitStruct) {
 
     FSMC_Bank4->PCR4 = tmppcr4;
 
-    /* Get PCCARD common space timing寄存器值 */
+    /* 获取PCCARD公共空间正时寄存器值 */
     tmppmem4 = FSMC_Bank4->PMEM4;
 
     /* 清除 MEMSETx, MEMWAITx, MEMHOLDx and MEMHIZx 位 */
     tmppmem4 &= ((uint32_t)~(FSMC_PMEM4_MEMSET4  | FSMC_PMEM4_MEMWAIT4 | FSMC_PMEM4_MEMHOLD4 | \
                              FSMC_PMEM4_MEMHIZ4));
 
-    /* Set PMEM4 register value according to FSMC_CommonSpaceTimingStructure parameters */
+    /* 根据FSMC_CommonSpaceTimingStructure参数设置PMEM4寄存器值 */
     tmppmem4 |= (uint32_t)FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime |
                 (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
                 (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16) |
@@ -683,14 +683,14 @@ void FSMC_PCCARDInit(FSMC_PCCARDInitTypeDef* FSMC_PCCARDInitStruct) {
 
     FSMC_Bank4->PMEM4 = tmppmem4;
 
-    /* Get PCCARD timing parameters */
+    /* 获取PCCARD正时参数 */
     tmppatt4 = FSMC_Bank4->PATT4;
 
     /* 清除 ATTSETx, ATTWAITx, ATTHOLDx and ATTHIZx 位 */
     tmppatt4 &= ((uint32_t)~(FSMC_PATT4_ATTSET4  | FSMC_PATT4_ATTWAIT4 | FSMC_PATT4_ATTHOLD4 | \
                              FSMC_PATT4_ATTHIZ4));
 
-    /* Set PATT4 register value according to FSMC_AttributeSpaceTimingStructure parameters */
+    /* 根据FSMC_AttributeSpaceTimingStructure参数设置PATT4寄存器值 */
     tmppatt4 |= (uint32_t)FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime |
                 (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
                 (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16) |
@@ -698,14 +698,14 @@ void FSMC_PCCARDInit(FSMC_PCCARDInitTypeDef* FSMC_PCCARDInitStruct) {
 
     FSMC_Bank4->PATT4 = tmppatt4;
 
-    /* Get FSMC_PCCARD device timing parameters */
+    /* Get FSMC_PCCARD device 定时参数 */
     tmppio4 = FSMC_Bank4->PIO4;
 
     /* 清除 IOSET4, IOWAIT4, IOHOLD4 and IOHIZ4 位 */
     tmppio4 &= ((uint32_t)~(FSMC_PIO4_IOSET4  | FSMC_PIO4_IOWAIT4 | FSMC_PIO4_IOHOLD4 | \
                             FSMC_PIO4_IOHIZ4));
 
-    /* Set PIO4 register value according to FSMC_IOSpaceTimingStructure parameters */
+    /* 根据FSMC_IOSpaceTimingStructure参数设置PIO4寄存器值 */
     tmppio4 |= (uint32_t)FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_SetupTime |
                (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
                (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HoldSetupTime << 16) |
@@ -720,7 +720,7 @@ void FSMC_PCCARDInit(FSMC_PCCARDInitTypeDef* FSMC_PCCARDInitStruct) {
   * 返回值: 无
   */
 void FSMC_PCCARDStructInit(FSMC_PCCARDInitTypeDef* FSMC_PCCARDInitStruct) {
-    /* Reset PCCARD Init structure parameters values */
+    /* 重置PCCARD Init结构参数值 */
     FSMC_PCCARDInitStruct->FSMC_Waitfeature = FSMC_Waitfeature_Disable;
     FSMC_PCCARDInitStruct->FSMC_TCLRSetupTime = 0x0;
     FSMC_PCCARDInitStruct->FSMC_TARSetupTime = 0x0;
@@ -741,17 +741,17 @@ void FSMC_PCCARDStructInit(FSMC_PCCARDInitTypeDef* FSMC_PCCARDInitStruct) {
 /**
   * 简介:  启用或禁用PCCARD Memory Bank.
   * 参数:  NewState: PCCARD内存库的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void FSMC_PCCARDCmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用 PCCARD Bank by setting the PBKEN bit in the PCR4 寄存器 */
+        /* 启用通过在PCR4中设置PBKEN位，PCCARD Bank寄存器 */
         FSMC_Bank4->PCR4 |= PCR_PBKEN_SET;
     } else {
-        /* 禁用 PCCARD Bank by clearing the PBKEN bit in the PCR4 寄存器 */
+        /* 禁用通过清除PCR4中的PBKEN位，PCCARD Bank寄存器 */
         FSMC_Bank4->PCR4 &= PCR_PBKEN_RESET;
     }
 }
@@ -784,7 +784,7 @@ void FSMC_PCCARDCmd(FunctionalState NewState) {
   *            @arg FSMC_IT_Level: 水平边缘检测中断。
   *            @arg FSMC_IT_FallingEdge: 下降沿检测中断。
   * 参数:  NewState: 指定的FSMC中断的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void FSMC_ITConfig(uint32_t FSMC_Bank, uint32_t FSMC_IT, FunctionalState NewState) {
@@ -793,29 +793,29 @@ void FSMC_ITConfig(uint32_t FSMC_Bank, uint32_t FSMC_IT, FunctionalState NewStat
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用 selected FSMC_Bank2 interrupts */
+        /* 启用被选定的 FSMC_Bank2 中断 */
         if(FSMC_Bank == FSMC_Bank2_NAND) {
             FSMC_Bank2->SR2 |= FSMC_IT;
         }
-        /* 启用 selected FSMC_Bank3 interrupts */
+        /* 启用被选定的 FSMC_Bank3 中断 */
         else if (FSMC_Bank == FSMC_Bank3_NAND) {
             FSMC_Bank3->SR3 |= FSMC_IT;
         }
-        /* 启用 selected FSMC_Bank4 interrupts */
+        /* 启用被选定的 FSMC_Bank4 中断 */
         else {
             FSMC_Bank4->SR4 |= FSMC_IT;
         }
     } else {
-        /* 禁用 selected FSMC_Bank2 interrupts */
+        /* 禁用被选中的 FSMC_Bank2 中断 */
         if(FSMC_Bank == FSMC_Bank2_NAND) {
 
             FSMC_Bank2->SR2 &= (uint32_t)~FSMC_IT;
         }
-        /* 禁用 selected FSMC_Bank3 interrupts */
+        /* 禁用被选中的 FSMC_Bank3 中断 */
         else if (FSMC_Bank == FSMC_Bank3_NAND) {
             FSMC_Bank3->SR3 &= (uint32_t)~FSMC_IT;
         }
-        /* 禁用 selected FSMC_Bank4 interrupts */
+        /* 禁用被选中的 FSMC_Bank4 中断 */
         else {
             FSMC_Bank4->SR4 &= (uint32_t)~FSMC_IT;
         }

@@ -30,7 +30,7 @@
 #define __STM32F4xx_CONF_H
 
 /* Includes ------------------------------------------------------------------*/
-/* Uncomment the line below to enable peripheral header file inclusion */
+/* 取消注释下面的行以启用外围头文件包含 */
 #include "stm32f4xx_adc.h"
 #include "stm32f4xx_crc.h"
 #include "stm32f4xx_dbgmcu.h"
@@ -51,7 +51,7 @@
 #include "stm32f4xx_wwdg.h"
 #include "delay.h"
 #include "led.h"
-#include "misc.h" /* High level functions for NVIC and SysTick (add-on to CMSIS functions) */
+#include "misc.h" /* NVIC和SysTick的高级功能（CMSIS功能的附加功能） */
 
 #if defined(STM32F429_439xx) || defined(STM32F446xx) || defined(STM32F469_479xx)
     #include "stm32f4xx_cryp.h"
@@ -141,26 +141,23 @@
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 
-/* If an external clock source is used, then the value of the following define
-   should be set to the value of the external clock source, else, if no external
-   clock is used, keep this define commented */
+/* 如果使用外部时钟源，则应将以下定义的值设置为外部时钟来源的值，否则，如果未使用外部时钟，则保留此定义的注释 */
 /*#define I2S_EXTERNAL_CLOCK_VAL   12288000 */ /* Value of the external clock in Hz */
 
 
-/* Uncomment the line below to expanse the "assert_param" macro in the
-   Standard Peripheral Library drivers code */
+/* 取消注释下面的行以扩展标准外设库驱动程序代码中的"assert_param"宏 */
 /* #define USE_FULL_ASSERT    1 */
 
 /* Exported macro ------------------------------------------------------------*/
 #ifdef  USE_FULL_ASSERT
 
     /**
-    * @brief  The assert_param macro is used for function's parameters check.
+    * @brief  assert_param宏用于函数的参数检查。
     * @param  expr: If expr is false, it calls assert_failed function
     *   which reports the name of the source file and the source
     *   line number of the call that failed.
     *   If expr is true, it returns no value.
-    * @retval None
+    * @retval 无
     */
     #define assert_param(expr) ((expr) ? (void)0 : assert_failed((uint8_t *)__FILE__, __LINE__))
     /* Exported functions ------------------------------------------------------- */

@@ -273,9 +273,9 @@ typedef struct {
     uint32_t databus_width;                                             /*!< specifies the databus width of external memory */
     uint32_t memory_type;                                               /*!< specifies the type of external memory */
     uint32_t address_Data_mux;                                          /*!< specifies whether the data bus and address bus are multiplexed */
-    EXMC_norsram_timing_Parameter_Struct* read_Write_timing;            /*!< timing parameters for read and write if the extendedmode is not used or the timing
+    EXMC_norsram_timing_Parameter_Struct* read_Write_timing;            /*!< 定时参数 for read and write if the extendedmode is not used or the timing
                                                                              parameters for read if the extendedmode is used. */
-    EXMC_norsram_timing_Parameter_Struct* write_timing;                 /*!< timing parameters for write when the extendedmode is used. */
+    EXMC_norsram_timing_Parameter_Struct* write_timing;                 /*!< 定时参数 for write when the extendedmode is used. */
 } EXMC_norsram_Parameter_Struct;
 
 /* EXMC NAND/PC card timing initialize structure */
@@ -295,8 +295,8 @@ typedef struct {
     uint32_t ecc_logic;                                                 /*!< enable or disable the ECC calculation logic */
     uint32_t databus_width;                                             /*!< the NAND flash databus width */
     uint32_t wait_feature;                                              /*!< enable or disable the wait feature */
-    EXMC_nand_pccard_timing_Parameter_Struct* common_space_timing;      /*!< the timing parameters for NAND flash common space */
-    EXMC_nand_pccard_timing_Parameter_Struct* attribute_space_timing;   /*!< the timing parameters for NAND flash attribute space */
+    EXMC_nand_pccard_timing_Parameter_Struct* common_space_timing;      /*!< the 定时参数 for NAND flash common space */
+    EXMC_nand_pccard_timing_Parameter_Struct* attribute_space_timing;   /*!< the 定时参数 for NAND flash attribute space */
 } EXMC_nand_Parameter_Struct;
 
 /* EXMC PC card initialize structure */
@@ -304,9 +304,9 @@ typedef struct {
     uint32_t atr_latency;                                               /*!< configure the latency of ALE low to RB low */
     uint32_t ctr_latency;                                               /*!< configure the latency of CLE low to RB low */
     uint32_t wait_feature;                                              /*!< enable or disable the wait feature */
-    EXMC_nand_pccard_timing_Parameter_Struct*  common_space_timing;     /*!< the timing parameters for PC card common space */
-    EXMC_nand_pccard_timing_Parameter_Struct*  attribute_space_timing;  /*!< the timing parameters for PC card attribute space */
-    EXMC_nand_pccard_timing_Parameter_Struct*  io_space_timing;         /*!< the timing parameters for PC card IO space */
+    EXMC_nand_pccard_timing_Parameter_Struct*  common_space_timing;     /*!< the 定时参数 for PC card common space */
+    EXMC_nand_pccard_timing_Parameter_Struct*  attribute_space_timing;  /*!< the 定时参数 for PC card attribute space */
+    EXMC_nand_pccard_timing_Parameter_Struct*  io_space_timing;         /*!< the 定时参数 for PC card IO space */
 } EXMC_pccard_Parameter_Struct;
 
 /* EXMC SDRAM timing initialize structure */
@@ -332,7 +332,7 @@ typedef struct {
     uint32_t data_width;                                                /*!< the databus width of SDRAM memory */
     uint32_t row_Address_width;                                         /*!< the bit width of a row address */
     uint32_t column_Address_width;                                      /*!< the bit width of a column address */
-    EXMC_sdram_timing_Parameter_Struct* timing;                         /*!< the timing parameters for write and read SDRAM */
+    EXMC_sdram_timing_Parameter_Struct* timing;                         /*!< the 定时参数 for write and read SDRAM */
 } EXMC_sdram_Parameter_Struct;
 
 /* EXMC SDRAM command initialize structure */
@@ -539,7 +539,7 @@ typedef struct {
 /* SDRAM command selection */
 #define SDCMD_CMD(regval)                   (BITS(0,2) & ((uint32_t)(regval) << 0))
 #define EXMC_SDRAM_Normal_OPERATION         SDCMD_CMD(0)                  /*!< normal operation command */
-#define EXMC_SDRAM_Clock_ENABLE             SDCMD_CMD(1)                  /*!< clock enable command */
+#define EXMC_SDRAM_Clock_ENABLE             SDCMD_CMD(1)                  /*!< 时钟启用命令 */
 #define EXMC_SDRAM_PRECHARGE_ALL            SDCMD_CMD(2)                  /*!< precharge all command */
 #define EXMC_SDRAM_Auto_REFRESH             SDCMD_CMD(3)                  /*!< auto-refresh command */
 #define EXMC_SDRAM_LOAD_Mode_REGISTER       SDCMD_CMD(4)                  /*!< load mode register command */
@@ -790,9 +790,9 @@ uint32_t EXMC_sqpipsram_high_ID_Get(void);
 FlagStatus EXMC_sqpipsram_Send_command_State_Get(uint32_t send_command_flag);
 
 /* interrupt & flag functions */
-/* enable EXMC interrupt */
+/* enable EXMC 中断 */
 void EXMC_Interrupt_Enable(uint32_t EXMC_bank, uint32_t interrupt);
-/* disable EXMC interrupt */
+/* disable EXMC 中断 */
 void EXMC_Interrupt_Disable(uint32_t EXMC_bank, uint32_t interrupt);
 /* get EXMC flag status */
 FlagStatus EXMC_Flag_Get(uint32_t EXMC_bank, uint32_t flag);

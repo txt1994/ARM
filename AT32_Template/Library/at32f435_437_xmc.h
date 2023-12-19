@@ -353,7 +353,7 @@ typedef enum {
 
 
 /**
-  * @brief   nor/sram banks timing parameters
+  * @brief   nor/sram banks 定时参数
   */
 typedef struct {
     XMC_NOR_SRAM_SubBank_Type              subbank;             /*!< xmc nor/sram subbank */
@@ -387,7 +387,7 @@ typedef struct {
 } XMC_NORSRAM_Init_Type;
 
 /**
-  * @brief  nand and pccard timing parameters xmc
+  * @brief  nand and pccard 定时参数 xmc
   */
 
 typedef struct {

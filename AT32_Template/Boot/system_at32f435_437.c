@@ -35,7 +35,7 @@
 /** @addtogroup AT32F435_437_System_private_defines
   * @{
   */
-#define VECT_TAB_OFFSET                  0x0 /*!< vector table base offset field. this value must be a multiple of 0x400. */
+#define VECT_TAB_OFFSET                  0x0 /*!< 矢量表基偏移字段。 该值必须是0x400的倍数。 */
 /**
   * @}
   */
@@ -43,7 +43,7 @@
 /** @addtogroup AT32F435_437_System_private_variables
   * @{
   */
-unsigned int system_Core_clock           = HICK_VALUE; /*!< system clock frequency (core clock) */
+unsigned int system_Core_clock           = HICK_VALUE; /*!< 系统时钟频率(核心时钟) */
 /**
   * @}
   */
@@ -53,11 +53,11 @@ unsigned int system_Core_clock           = HICK_VALUE; /*!< system clock frequen
   */
 
 /**
-  * @brief  setup the microcontroller system
-  *         initialize the flash interface.
-  * @note   this function should be used only after reset.
-  * @param  none
-  * @retval none
+  * @brief  设置微控制器系统
+  *         初始化flash接口。
+  * @note   此功能只能在复位后使用。
+  * @param  无
+  * @retval 无
   */
 void SystemInit (void) {
     #if defined (__FPU_USED) && (__FPU_USED == 1U)
@@ -65,7 +65,7 @@ void SystemInit (void) {
                    (3U << 11U * 2U)  );       /* set cp11 full access */
     #endif
 
-    /* reset the crm clock configuration to the default reset state(for debug purpose) */
+    /* 将CRM时钟配置重置为默认重置状态(用于调试目的) */
     /* set hicken bit */
     CRM->ctrl_bit.hicken = TRUE;
 
@@ -90,13 +90,13 @@ void SystemInit (void) {
     /* reset clkout[3], usbbufs, hickdiv, clkoutdiv */
     CRM->misc1 = 0;
 
-    /* disable all interrupts enable and clear pending bits  */
+    /* 禁用所有中断 enable and clear pending bits  */
     CRM->clkint = 0x009F0000U;
 
     #ifdef VECT_TAB_SRAM
-    SCB->VTOR = SRAM_BASE  | VECT_TAB_OFFSET;  /* vector table relocation in internal sram. */
+    SCB->VTOR = SRAM_BASE  | VECT_TAB_OFFSET;  /* 内部SRAM中的矢量表重定位. */
     #else
-    SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET;  /* vector table relocation in internal flash. */
+    SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET;  /* 内部FLASH中的矢量表重定位. */
     #endif
 }
 
@@ -105,8 +105,8 @@ void SystemInit (void) {
   *         the system_Core_clock variable contains the core clock (hclk), it can
   *         be used by the user application to setup the systick timer or configure
   *         other parameters.
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void system_Core_Clock_Update(void) {
     uint32_t pll_ns = 0, pll_ms = 0, pll_fr = 0, pll_Clock_source = 0, pllrcsfreq = 0;

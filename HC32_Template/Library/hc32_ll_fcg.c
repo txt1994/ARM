@@ -106,7 +106,7 @@
  * @brief Enable or disable the FCG0 peripheral clock.
  * @param [in] u32Fcg0Periph The peripheral in FCG0 @ref FCG_FCG0_Peripheral.
  * @param [in] enNewState An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void FCG_Fcg0PeriphClockCmd(uint32_t u32Fcg0Periph, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FCG0_PERIPH(u32Fcg0Periph));
@@ -124,7 +124,7 @@ void FCG_Fcg0PeriphClockCmd(uint32_t u32Fcg0Periph, en_functional_state_t enNewS
  * @brief  Enable or disable the FCG1 peripheral clock.
  * @param [in] u32Fcg1Periph The peripheral in FCG1 @ref FCG_FCG1_Peripheral.
  * @param [in] enNewState An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void FCG_Fcg1PeriphClockCmd(uint32_t u32Fcg1Periph, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FCG1_PERIPH(u32Fcg1Periph));
@@ -141,7 +141,7 @@ void FCG_Fcg1PeriphClockCmd(uint32_t u32Fcg1Periph, en_functional_state_t enNewS
  * @brief  Enable or disable the FCG2 peripheral clock.
  * @param [in] u32Fcg2Periph The peripheral in FCG2 @ref FCG_FCG2_Peripheral.
  * @param [in] enNewState An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void FCG_Fcg2PeriphClockCmd(uint32_t u32Fcg2Periph, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FCG2_PERIPH(u32Fcg2Periph));
@@ -158,7 +158,7 @@ void FCG_Fcg2PeriphClockCmd(uint32_t u32Fcg2Periph, en_functional_state_t enNewS
  * @brief  Enable or disable the FCG3 peripheral clock.
  * @param [in] u32Fcg3Periph The peripheral in FCG3 @ref FCG_FCG3_Peripheral.
  * @param [in] enNewState An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void FCG_Fcg3PeriphClockCmd(uint32_t u32Fcg3Periph, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FCG3_PERIPH(u32Fcg3Periph));

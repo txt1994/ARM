@@ -39,49 +39,47 @@
  * -------------------------------------------------------------------- */
 
 /**
-   \mainpage CMSIS DSP Software Library
+   \mainpage CMSIS DSP 软件库
    *
-   * Introduction
+   * 介绍
    * ------------
    *
-   * This user manual describes the CMSIS DSP software library,
-   * a suite of common signal processing functions for use on Cortex-M processor based devices.
+   * 本用户手册介绍了CMSIS DSP软件库，这是一套在基于Cortex-M处理器的设备上使用的通用信号处理功能。
    *
-   * The library is divided into a number of functions each covering a specific category:
-   * - Basic math functions
-   * - Fast math functions
-   * - Complex math functions
-   * - Filters
-   * - Matrix functions
-   * - Transforms
-   * - Motor control functions
-   * - Statistical functions
-   * - Support functions
-   * - Interpolation functions
+   * 该库分为多个功能，每个功能都涵盖特定类别：
+   * - 基本数学函数
+   * - 快速数学函数
+   * - 复杂的数学函数
+   * - 过滤器
+   * - 矩阵函数
+   * - 转换
+   * - 电机控制功能
+   * - 统计功能
+   * - 支持功能
+   * - 插值函数
    *
-   * The library has separate functions for operating on 8-bit integers, 16-bit integers,
-   * 32-bit integer and 32-bit floating-point values.
+   * 该库具有单独的函数，用于操作8位整数、16位整数、32位整数和32位浮点值。
    *
-   * Using the Library
+   * 使用这个库
    * ------------
    *
-   * The library installer contains prebuilt versions of the libraries in the <code>Lib</code> folder.
-   * - arm_cortexM7lfdp_math.lib (Little endian and Double Precision Floating Point Unit on Cortex-M7)
-   * - arm_cortexM7bfdp_math.lib (Big endian and Double Precision Floating Point Unit on Cortex-M7)
-   * - arm_cortexM7lfsp_math.lib (Little endian and Single Precision Floating Point Unit on Cortex-M7)
-   * - arm_cortexM7bfsp_math.lib (Big endian and Single Precision Floating Point Unit on Cortex-M7)
-   * - arm_cortexM7l_math.lib (Little endian on Cortex-M7)
-   * - arm_cortexM7b_math.lib (Big endian on Cortex-M7)
-   * - arm_cortexM4lf_math.lib (Little endian and Floating Point Unit on Cortex-M4)
-   * - arm_cortexM4bf_math.lib (Big endian and Floating Point Unit on Cortex-M4)
-   * - arm_cortexM4l_math.lib (Little endian on Cortex-M4)
-   * - arm_cortexM4b_math.lib (Big endian on Cortex-M4)
-   * - arm_cortexM3l_math.lib (Little endian on Cortex-M3)
-   * - arm_cortexM3b_math.lib (Big endian on Cortex-M3)
-   * - arm_cortexM0l_math.lib (Little endian on Cortex-M0 / CortexM0+)
-   * - arm_cortexM0b_math.lib (Big endian on Cortex-M0 / CortexM0+)
+   * 库安装程序在<code>Lib</code>文件夹中包含库的预构建版本。
+   * - arm_cortexM7lfdp_math.lib (Cortex-M7上的小端和双精度浮点单元)
+   * - arm_cortexM7bfdp_math.lib (Cortex-M7上的大端和双精度浮点单元)
+   * - arm_cortexM7lfsp_math.lib (Cortex-M7上的小端单精度浮点单元)
+   * - arm_cortexM7bfsp_math.lib Cortex-M7上的大端单精度浮点单元)
+   * - arm_cortexM7l_math.lib (Cortex-M7上的小端)
+   * - arm_cortexM7b_math.lib (Cortex-M7上的大端)
+   * - arm_cortexM4lf_math.lib (Cortex-M4上的小端和浮点单元)
+   * - arm_cortexM4bf_math.lib (Cortex-M4上的大端和浮点单元)
+   * - arm_cortexM4l_math.lib (Cortex-M4上的小端)
+   * - arm_cortexM4b_math.lib (Cortex-M4上的大端)
+   * - arm_cortexM3l_math.lib (Cortex-M3上的小端)
+   * - arm_cortexM3b_math.lib (Cortex-M3上的大端序)
+   * - arm_cortexM0l_math.lib (Cortex-M0 / Cortex-M0 +的小端序)
+   * - arm_cortexM0b_math.lib (Cortex-M0 / Cortex-M0 +的大端位)
    *
-   * The library functions are declared in the public file <code>arm_math.h</code> which is placed in the <code>Include</code> folder.
+   * 库函数在公共文件<code>arm_math.h</code>中声明，该文件位于<code>Include</code>文件夹中。
    * Simply include this file and link the appropriate library in the application and begin calling the library functions. The Library supports single
    * public header file <code> arm_math.h</code> for Cortex-M7/M4/M3/M0/M0+ with little endian and big endian. Same header file will be used for floating point unit(FPU) variants.
    * Define the appropriate pre processor MACRO ARM_MATH_CM7 or ARM_MATH_CM4 or  ARM_MATH_CM3 or

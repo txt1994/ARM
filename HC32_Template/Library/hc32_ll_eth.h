@@ -1685,19 +1685,19 @@ typedef struct {
  */
 #define ETH_DMA_INT_NIE                             (ETH_DMA_INTENAR_NIE)   /*!< Normal interrupt summary */
 #define ETH_DMA_INT_AIE                             (ETH_DMA_INTENAR_AIE)   /*!< Abnormal interrupt summary */
-#define ETH_DMA_INT_ERE                             (ETH_DMA_INTENAR_ERE)   /*!< Early receive interrupt */
-#define ETH_DMA_INT_FBE                             (ETH_DMA_INTENAR_FBE)   /*!< Fatal bus error interrupt */
-#define ETH_DMA_INT_ETE                             (ETH_DMA_INTENAR_ETE)   /*!< Early transmit interrupt */
-#define ETH_DMA_INT_RWE                             (ETH_DMA_INTENAR_RWE)   /*!< Receive watchdog timeout interrupt */
-#define ETH_DMA_INT_RSE                             (ETH_DMA_INTENAR_RSE)   /*!< Receive process stopped interrupt */
-#define ETH_DMA_INT_RUE                             (ETH_DMA_INTENAR_RUE)   /*!< Receive buffer unavailable interrupt */
-#define ETH_DMA_INT_RIE                             (ETH_DMA_INTENAR_RIE)   /*!< Receive interrupt */
-#define ETH_DMA_INT_UNE                             (ETH_DMA_INTENAR_UNE)   /*!< Transmit Underflow interrupt */
-#define ETH_DMA_INT_OVE                             (ETH_DMA_INTENAR_OVE)   /*!< Receive Overflow interrupt */
-#define ETH_DMA_INT_TJE                             (ETH_DMA_INTENAR_TJE)   /*!< Transmit jabber timeout interrupt */
-#define ETH_DMA_INT_TUE                             (ETH_DMA_INTENAR_TUE)   /*!< Transmit buffer unavailable interrupt */
-#define ETH_DMA_INT_TSE                             (ETH_DMA_INTENAR_TSE)   /*!< Transmit process stopped interrupt */
-#define ETH_DMA_INT_TIE                             (ETH_DMA_INTENAR_TIE)   /*!< Transmit interrupt */
+#define ETH_DMA_INT_ERE                             (ETH_DMA_INTENAR_ERE)   /*!< Early receive 中断 */
+#define ETH_DMA_INT_FBE                             (ETH_DMA_INTENAR_FBE)   /*!< Fatal bus error 中断 */
+#define ETH_DMA_INT_ETE                             (ETH_DMA_INTENAR_ETE)   /*!< Early transmit 中断 */
+#define ETH_DMA_INT_RWE                             (ETH_DMA_INTENAR_RWE)   /*!< Receive watchdog timeout 中断 */
+#define ETH_DMA_INT_RSE                             (ETH_DMA_INTENAR_RSE)   /*!< Receive process stopped 中断 */
+#define ETH_DMA_INT_RUE                             (ETH_DMA_INTENAR_RUE)   /*!< Receive buffer unavailable 中断 */
+#define ETH_DMA_INT_RIE                             (ETH_DMA_INTENAR_RIE)   /*!< Receive 中断 */
+#define ETH_DMA_INT_UNE                             (ETH_DMA_INTENAR_UNE)   /*!< Transmit Underflow 中断 */
+#define ETH_DMA_INT_OVE                             (ETH_DMA_INTENAR_OVE)   /*!< Receive Overflow 中断 */
+#define ETH_DMA_INT_TJE                             (ETH_DMA_INTENAR_TJE)   /*!< Transmit jabber timeout 中断 */
+#define ETH_DMA_INT_TUE                             (ETH_DMA_INTENAR_TUE)   /*!< Transmit buffer unavailable 中断 */
+#define ETH_DMA_INT_TSE                             (ETH_DMA_INTENAR_TSE)   /*!< Transmit process stopped 中断 */
+#define ETH_DMA_INT_TIE                             (ETH_DMA_INTENAR_TIE)   /*!< Transmit 中断 */
 #define ETH_DMA_INT_ALL                             (ETH_DMA_INT_NIE | ETH_DMA_INT_AIE | ETH_DMA_INT_ERE | \
         ETH_DMA_INT_FBE | ETH_DMA_INT_ETE | ETH_DMA_INT_RWE | \
         ETH_DMA_INT_RSE | ETH_DMA_INT_RUE | ETH_DMA_INT_RIE | \
@@ -1874,14 +1874,14 @@ typedef struct {
  * @defgroup ETH_MMC_Tx_Interrupt ETH MMC Tx Interrupt
  * @{
  */
-#define ETH_MMC_INT_TXEDEIM                         (ETH_MMC_TITCTLR_TXEDEIM)   /*!< Tx excessive deferral error frame interrupt */
-#define ETH_MMC_INT_TXUGIM                          (ETH_MMC_TITCTLR_TXUGIM)    /*!< Tx unicast good frame interrupt */
-#define ETH_MMC_INT_TXCAEIM                         (ETH_MMC_TITCTLR_TXCAEIM)   /*!< Tx carrier error frame interrupt */
-#define ETH_MMC_INT_TXECEIM                         (ETH_MMC_TITCTLR_TXECEIM)   /*!< Tx excessive collision error frame interrupt */
-#define ETH_MMC_INT_TXLCEIM                         (ETH_MMC_TITCTLR_TXLCEIM)   /*!< Tx deferral collision error frame interrupt */
-#define ETH_MMC_INT_TXDEEIM                         (ETH_MMC_TITCTLR_TXDEEIM)   /*!< Tx deferral error frame interrupt */
-#define ETH_MMC_INT_TXMGIM                          (ETH_MMC_TITCTLR_TXMGIM)    /*!< Tx multicast good frame interrupt */
-#define ETH_MMC_INT_TXBGIM                          (ETH_MMC_TITCTLR_TXBGIM)    /*!< Tx broadcast good frame interrupt */
+#define ETH_MMC_INT_TXEDEIM                         (ETH_MMC_TITCTLR_TXEDEIM)   /*!< Tx excessive deferral error frame 中断 */
+#define ETH_MMC_INT_TXUGIM                          (ETH_MMC_TITCTLR_TXUGIM)    /*!< Tx unicast good frame 中断 */
+#define ETH_MMC_INT_TXCAEIM                         (ETH_MMC_TITCTLR_TXCAEIM)   /*!< Tx carrier error frame 中断 */
+#define ETH_MMC_INT_TXECEIM                         (ETH_MMC_TITCTLR_TXECEIM)   /*!< Tx excessive collision error frame 中断 */
+#define ETH_MMC_INT_TXLCEIM                         (ETH_MMC_TITCTLR_TXLCEIM)   /*!< Tx deferral collision error frame 中断 */
+#define ETH_MMC_INT_TXDEEIM                         (ETH_MMC_TITCTLR_TXDEEIM)   /*!< Tx deferral error frame 中断 */
+#define ETH_MMC_INT_TXMGIM                          (ETH_MMC_TITCTLR_TXMGIM)    /*!< Tx multicast good frame 中断 */
+#define ETH_MMC_INT_TXBGIM                          (ETH_MMC_TITCTLR_TXBGIM)    /*!< Tx broadcast good frame 中断 */
 #define ETH_MMC_INT_TX_ALL                          (ETH_MMC_INT_TXEDEIM | ETH_MMC_INT_TXUGIM  | ETH_MMC_INT_TXCAEIM | \
         ETH_MMC_INT_TXECEIM | ETH_MMC_INT_TXLCEIM | ETH_MMC_INT_TXDEEIM | \
         ETH_MMC_INT_TXMGIM  | ETH_MMC_INT_TXBGIM)
@@ -1893,14 +1893,14 @@ typedef struct {
  * @defgroup ETH_MMC_Rx_Interrupt ETH MMC Rx Interrupt
  * @{
  */
-#define ETH_MMC_INT_RXOEIM                          (ETH_MMC_RITCTLR_RXOEIM)   /*!< Rx out of scope error frame interrupt */
-#define ETH_MMC_INT_RXLEIM                          (ETH_MMC_RITCTLR_RXLEIM)   /*!< Rx length error frame interrupt */
-#define ETH_MMC_INT_RXUGIM                          (ETH_MMC_RITCTLR_RXUGIM)   /*!< Rx unicast good frame interrupt */
-#define ETH_MMC_INT_RXREIM                          (ETH_MMC_RITCTLR_RXREIM)   /*!< Rx short error frame interrupt */
-#define ETH_MMC_INT_RXAEIM                          (ETH_MMC_RITCTLR_RXAEIM)   /*!< Rx alignment error frame interrupt */
-#define ETH_MMC_INT_RXCEIM                          (ETH_MMC_RITCTLR_RXCEIM)   /*!< Rx crc error frame interrupt */
-#define ETH_MMC_INT_RXMGIM                          (ETH_MMC_RITCTLR_RXMGIM)   /*!< Rx multicast good frame interrupt */
-#define ETH_MMC_INT_RXBGIM                          (ETH_MMC_RITCTLR_RXBGIM)   /*!< Rx broadcast good frame interrupt */
+#define ETH_MMC_INT_RXOEIM                          (ETH_MMC_RITCTLR_RXOEIM)   /*!< Rx out of scope error frame 中断 */
+#define ETH_MMC_INT_RXLEIM                          (ETH_MMC_RITCTLR_RXLEIM)   /*!< Rx length error frame 中断 */
+#define ETH_MMC_INT_RXUGIM                          (ETH_MMC_RITCTLR_RXUGIM)   /*!< Rx unicast good frame 中断 */
+#define ETH_MMC_INT_RXREIM                          (ETH_MMC_RITCTLR_RXREIM)   /*!< Rx short error frame 中断 */
+#define ETH_MMC_INT_RXAEIM                          (ETH_MMC_RITCTLR_RXAEIM)   /*!< Rx alignment error frame 中断 */
+#define ETH_MMC_INT_RXCEIM                          (ETH_MMC_RITCTLR_RXCEIM)   /*!< Rx crc error frame 中断 */
+#define ETH_MMC_INT_RXMGIM                          (ETH_MMC_RITCTLR_RXMGIM)   /*!< Rx multicast good frame 中断 */
+#define ETH_MMC_INT_RXBGIM                          (ETH_MMC_RITCTLR_RXBGIM)   /*!< Rx broadcast good frame 中断 */
 #define ETH_MMC_INT_RX_ALL                          (ETH_MMC_INT_RXOEIM | ETH_MMC_INT_RXLEIM | ETH_MMC_INT_RXUGIM | \
         ETH_MMC_INT_RXREIM | ETH_MMC_INT_RXAEIM | ETH_MMC_INT_RXCEIM | \
         ETH_MMC_INT_RXMGIM | ETH_MMC_INT_RXBGIM)
@@ -2105,8 +2105,8 @@ typedef struct {
 
 /**
  * @brief  Generate MAC pause control frame.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void ETH_MAC_GeneratePauseCtrlFrame(void) {
     WRITE_REG32(bCM_ETH->MAC_FLOCTLR_b.FCA_BPA, ENABLE);
@@ -2114,7 +2114,7 @@ __STATIC_INLINE void ETH_MAC_GeneratePauseCtrlFrame(void) {
 
 /**
  * @brief  Get MAC flow control status.
- * @param  None
+ * @param  无
  * @retval An @ref en_flag_status_t enumeration type value.
  */
 __STATIC_INLINE en_flag_status_t ETH_MAC_GetFlowControlStatus(void) {
@@ -2123,8 +2123,8 @@ __STATIC_INLINE en_flag_status_t ETH_MAC_GetFlowControlStatus(void) {
 
 /**
  * @brief  Resume the DMA Transmit.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void ETH_DMA_ResumeTrans(void) {
     WRITE_REG32(CM_ETH->DMA_TXPOLLR, 0U);
@@ -2132,8 +2132,8 @@ __STATIC_INLINE void ETH_DMA_ResumeTrans(void) {
 
 /**
  * @brief  Resume the DMA Receive.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void ETH_DMA_ResumeReceive(void) {
     WRITE_REG32(CM_ETH->DMA_RXPOLLR, 0U);
@@ -2141,7 +2141,7 @@ __STATIC_INLINE void ETH_DMA_ResumeReceive(void) {
 
 /**
  * @brief  Get DMA error status.
- * @param  None
+ * @param  无
  * @retval uint32_t                     The new DMA error status
  *         The error status may be one of the following values:
  *           - ETH_DMA_ERR_STATE_RX_WR_DATA:    TxDMA generates error while reading descriptor
@@ -2157,7 +2157,7 @@ __STATIC_INLINE uint32_t ETH_DMA_GetErrorStatus(void) {
 
 /**
  * @brief  Get DMA transmit status.
- * @param  None
+ * @param  无
  * @retval uint32_t                     The new DMA transmit status
  *           The transmit status may be one of the following values:
  *           - ETH_DMA_TRANS_STATE_STOPPED:     Stopped - Reset or Stop Tx Command issued
@@ -2174,7 +2174,7 @@ __STATIC_INLINE uint32_t ETH_DMA_GetTransStatus(void) {
 
 /**
  * @brief  Get DMA receive status.
- * @param  None
+ * @param  无
  * @retval uint32_t                     The new DMA receive status
  *           The receive status may be one of the following values:
  *           - ETH_DMA_RX_STATE_STOPPED:    Stopped - Reset or Stop Rx Command issued
@@ -2191,7 +2191,7 @@ __STATIC_INLINE uint32_t ETH_DMA_GetReceiveStatus(void) {
 
 /**
  * @brief  Get DMA Rx Overflow Missed Frame Counter value.
- * @param  None
+ * @param  无
  * @retval uint32_t                     Rx Overflow Missed Frame Counter value
  */
 __STATIC_INLINE uint32_t ETH_DMA_GetOvfMissFrameCount(void) {
@@ -2200,7 +2200,7 @@ __STATIC_INLINE uint32_t ETH_DMA_GetOvfMissFrameCount(void) {
 
 /**
  * @brief  Get DMA Buffer Unavailable Missed Frame Counter value.
- * @param  None
+ * @param  无
  * @retval uint32_t                     Buffer Unavailable Missed Frame Counter value
  */
 __STATIC_INLINE uint32_t ETH_DMA_GetBufUnavailableMissFrameCount(void) {
@@ -2209,7 +2209,7 @@ __STATIC_INLINE uint32_t ETH_DMA_GetBufUnavailableMissFrameCount(void) {
 
 /**
  * @brief  Get DMA current Tx descriptor start address.
- * @param  None
+ * @param  无
  * @retval uint32_t                     Transmit descriptor start address
  */
 __STATIC_INLINE uint32_t ETH_DMA_GetCurrentTxDescAddr(void) {
@@ -2218,7 +2218,7 @@ __STATIC_INLINE uint32_t ETH_DMA_GetCurrentTxDescAddr(void) {
 
 /**
  * @brief  Get DMA current Rx descriptor start address.
- * @param  None
+ * @param  无
  * @retval uint32_t                     Receive descriptor start address
  */
 __STATIC_INLINE uint32_t ETH_DMA_GetCurrentRxDescAddr(void) {
@@ -2227,7 +2227,7 @@ __STATIC_INLINE uint32_t ETH_DMA_GetCurrentRxDescAddr(void) {
 
 /**
  * @brief  Get DMA current Tx buffer address.
- * @param  None
+ * @param  无
  * @retval uint32_t                     Transmit buffer address
  */
 __STATIC_INLINE uint32_t ETH_DMA_GetCurrentTxBufAddr(void) {
@@ -2236,7 +2236,7 @@ __STATIC_INLINE uint32_t ETH_DMA_GetCurrentTxBufAddr(void) {
 
 /**
  * @brief  Get DMA current Rx buffer address.
- * @param  None
+ * @param  无
  * @retval uint32_t                     Receive buffer address
  */
 __STATIC_INLINE uint32_t ETH_DMA_GetCurrentRxBufAddr(void) {
@@ -2245,7 +2245,7 @@ __STATIC_INLINE uint32_t ETH_DMA_GetCurrentRxBufAddr(void) {
 
 /**
  * @brief  Get PMT wakeup frame filter register pointer index.
- * @param  None
+ * @param  无
  * @retval uint8_t                      Filter register pointer index.
  */
 __STATIC_INLINE uint8_t ETH_PMT_GetWakeupFramePointerIndex(void) {
@@ -2254,7 +2254,7 @@ __STATIC_INLINE uint8_t ETH_PMT_GetWakeupFramePointerIndex(void) {
 
 /**
  * @brief  Get PTP snapshot frame type.
- * @param  None
+ * @param  无
  * @retval uint32_t                     Receive frame type
  */
 __STATIC_INLINE uint32_t ETH_PTP_GetSnapFrameType(void) {

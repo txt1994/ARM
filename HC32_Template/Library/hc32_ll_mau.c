@@ -91,7 +91,7 @@
  *         This parameter can only be: @arg CM_MAU
  * @param  [in] u8ShiftNum      Number of left shift bits
  *                              Max value is MAU_SQRT_OUTPUT_LSHIFT_MAX
- * @retval None
+ * @retval 无
  */
 void MAU_SqrtResultLShiftConfig(CM_MAU_TypeDef *MAUx, uint8_t u8ShiftNum) {
     DDL_ASSERT(IS_VALID_UNIT(MAUx));
@@ -105,7 +105,7 @@ void MAU_SqrtResultLShiftConfig(CM_MAU_TypeDef *MAUx, uint8_t u8ShiftNum) {
  * @param  [in] MAUx            Pointer to MAU instance register base.
  *         This parameter can only be: @arg CM_MAU
  * @param  [in] enNewState      An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void MAU_SqrtIntCmd(CM_MAU_TypeDef *MAUx, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_VALID_UNIT(MAUx));
@@ -119,7 +119,7 @@ void MAU_SqrtIntCmd(CM_MAU_TypeDef *MAUx, en_functional_state_t enNewState) {
  * @param  [in] MAUx            Pointer to MAU instance register base.
  *         This parameter can only be: @arg CM_MAU
  * @param  [in] u32Radicand     Data to be square rooted
- * @retval None
+ * @retval 无
  */
 void MAU_SqrtWriteData(CM_MAU_TypeDef *MAUx, uint32_t u32Radicand) {
     DDL_ASSERT(IS_VALID_UNIT(MAUx));
@@ -131,7 +131,7 @@ void MAU_SqrtWriteData(CM_MAU_TypeDef *MAUx, uint32_t u32Radicand) {
  * @brief  Start sqrt calculation
  * @param  [in] MAUx            Pointer to MAU instance register base.
  *         This parameter can only be: @arg CM_MAU
- * @retval None
+ * @retval 无
  */
 void MAU_SqrtStart(CM_MAU_TypeDef *MAUx) {
     DDL_ASSERT(IS_VALID_UNIT(MAUx));
@@ -169,7 +169,7 @@ uint32_t MAU_SqrtReadData(const CM_MAU_TypeDef *MAUx) {
  *         This parameter can only be: @arg CM_MAU
  * @param  [in] u8ShiftNum      Sqrt result left shift bits, max value is @ref MAU_SQRT_OUTPUT_LSHIFT_MAX
  * @param  [in] enNewState      Enable or Disable sqrt interrupt @ref en_functional_state_t
- * @retval None
+ * @retval 无
  */
 void MAU_SqrtInit(CM_MAU_TypeDef *MAUx, uint8_t u8ShiftNum, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_VALID_UNIT(MAUx));
@@ -184,7 +184,7 @@ void MAU_SqrtInit(CM_MAU_TypeDef *MAUx, uint8_t u8ShiftNum, en_functional_state_
  * @brief  De-initialize the MAU Sqrt function.
  * @param  [in] MAUx            Pointer to MAU instance register base.
  *         This parameter can only be: @arg CM_MAU
- * @retval None
+ * @retval 无
  */
 void MAU_SqrtDeInit(CM_MAU_TypeDef *MAUx) {
     DDL_ASSERT(IS_VALID_UNIT(MAUx));

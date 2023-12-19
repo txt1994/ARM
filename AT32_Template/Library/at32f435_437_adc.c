@@ -268,7 +268,7 @@ void ADC_DMA_Request_Repeat_Enable(ADC_Type *ADC_x, confirm_state new_state) {
   * @param  ADC_x: 选择adc外设.
   *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
-  * @param  ADC_int: specifies the adc interrupt sources to be enabled or disabled.
+  * @param  ADC_int: 指定adc interrupt sources to be enabled or disabled.
   *         该参数可以是以下值之一:
   *         - ADC_Occe_INT
   *         - ADC_VMOR_INT

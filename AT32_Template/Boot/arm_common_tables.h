@@ -182,7 +182,7 @@
         extern const q15_t twiddleCoef_4096_q15[6144];
     #endif /* !defined(ARM_DSP_Config_TABLES) || defined(ARM_All_FFT_TABLES) */
 
-    /* Double Precision Float RFFT twiddles */
+    /* 双精度浮点数 RFFT 旋转 */
     #if !defined(ARM_DSP_Config_TABLES) || defined(ARM_All_FFT_TABLES) || defined(ARM_Table_TWIDDLECOEF_RFFT_F64_32)
         extern const uint64_t twiddleCoefF64_rfft_32[32];
     #endif /* !defined(ARM_DSP_Config_TABLES) || defined(ARM_All_FFT_TABLES) */
@@ -249,7 +249,7 @@
     #endif /* !defined(ARM_DSP_Config_TABLES) || defined(ARM_All_FFT_TABLES) */
 
 
-    /* Double precision floating-point bit reversal tables */
+    /* 双精度浮点位反转表 */
 
     #if !defined(ARM_DSP_Config_TABLES) || defined(ARM_All_FFT_TABLES) || defined(ARM_Table_BITREVIDX_FLT64_16)
         #define ARMBITREVINDEXTABLEF64_16_Table_LENGTH ((uint16_t)12)
@@ -295,7 +295,7 @@
         #define ARMBITREVINDEXTABLEF64_4096_Table_LENGTH ((uint16_t)4032)
         extern const uint16_t armBitRevIndexTableF64_4096[ARMBITREVINDEXTABLEF64_4096_Table_LENGTH];
     #endif /* !defined(ARM_DSP_Config_TABLES) || defined(ARM_All_FFT_TABLES) */
-    /* floating-point bit reversal tables */
+    /* 浮点位反转表 */
 
     #if !defined(ARM_DSP_Config_TABLES) || defined(ARM_All_FFT_TABLES) || defined(ARM_Table_BITREVIDX_FLT_16)
         #define ARMBITREVINDEXTABLE_16_Table_LENGTH ((uint16_t)20)
@@ -343,7 +343,7 @@
     #endif /* !defined(ARM_DSP_Config_TABLES) || defined(ARM_All_FFT_TABLES) */
 
 
-    /* fixed-point bit reversal tables */
+    /* 定点位反转表 */
 
     #if !defined(ARM_DSP_Config_TABLES) || defined(ARM_All_FFT_TABLES) || defined(ARM_Table_BITREVIDX_FXT_16)
         #define ARMBITREVINDEXTABLE_FIXED_16_Table_LENGTH ((uint16_t)12)
@@ -477,7 +477,7 @@
         extern const q31_t armRecipTableQ31[64];
     #endif /* !defined(ARM_DSP_Config_TABLES) defined(ARM_All_FAST_TABLES) */
 
-    /* Tables for Fast Math Sine and Cosine */
+    /* 快速数学正弦和余弦表 */
     #if !defined(ARM_DSP_Config_TABLES) || defined(ARM_All_FAST_TABLES) || defined(ARM_Table_SIN_F32)
         extern const float32_t sinTable_f32[FAST_MATH_Table_SIZE + 1];
     #endif /* !defined(ARM_DSP_Config_TABLES) defined(ARM_All_FAST_TABLES) */

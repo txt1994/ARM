@@ -486,7 +486,7 @@ int32_t TMR4_Init(CM_TMR4_TypeDef *TMR4x, const stc_tmr4_init_t *pstcTmr4Init) {
  * @param  [in] TMR4x                   Pointer to TMR4 instance register base
  *         This parameter can be one of the following values:
  *           @arg CM_TMR4 or CM_TMR4_x: TMR4 unit instance register base
- * @retval None
+ * @retval 无
  */
 void TMR4_DeInit(CM_TMR4_TypeDef *TMR4x) {
     DDL_ASSERT(IS_TMR4_UNIT(TMR4x));
@@ -506,7 +506,7 @@ void TMR4_DeInit(CM_TMR4_TypeDef *TMR4x) {
  *         This parameter can be one of the macros group @ref TMR4_Count_Clock_Source
  *           @arg TMR4_CLK_SRC_INTERNCLK: Uses the internal clock as counter's count clock
  *           @arg TMR4_CLK_SRC_EXTCLK:    Uses an external input clock as counter's count clock
- * @retval None
+ * @retval 无
  * @note   The clock division function is valid when clock source is internale clock.
  */
 void TMR4_SetClockSrc(CM_TMR4_TypeDef *TMR4x, uint16_t u16Src) {
@@ -534,7 +534,7 @@ void TMR4_SetClockSrc(CM_TMR4_TypeDef *TMR4x, uint16_t u16Src) {
  *           @arg TMR4_CLK_DIV256:      CLK/256
  *           @arg TMR4_CLK_DIV512:      CLK/512
  *           @arg TMR4_CLK_DIV1024:     CLK/1024
- * @retval None
+ * @retval 无
  * @note   The clock division function is valid when clock source is the internal clock.
  */
 void TMR4_SetClockDiv(CM_TMR4_TypeDef *TMR4x, uint16_t u16Div) {
@@ -553,7 +553,7 @@ void TMR4_SetClockDiv(CM_TMR4_TypeDef *TMR4x, uint16_t u16Div) {
  *         This parameter can be one of the macros group @ref TMR4_Count_Mode
  *           @arg TMR4_MD_SAWTOOTH:     TMR4 count mode sawtooth wave
  *           @arg TMR4_MD_TRIANGLE:     TMR4 count mode triangular
- * @retval None
+ * @retval 无
  */
 void TMR4_SetCountMode(CM_TMR4_TypeDef *TMR4x, uint16_t u16Mode) {
     DDL_ASSERT(IS_TMR4_UNIT(TMR4x));
@@ -582,7 +582,7 @@ uint16_t TMR4_GetPeriodValue(const CM_TMR4_TypeDef *TMR4x) {
  *           @arg CM_TMR4 or CM_TMR4_x: TMR4 unit instance register base
  * @param  [in] u16Value                The period value of the TMR4 counter
  *           @arg number of 16bit
- * @retval None
+ * @retval 无
  */
 void TMR4_SetPeriodValue(CM_TMR4_TypeDef *TMR4x, uint16_t u16Value) {
     DDL_ASSERT(IS_TMR4_UNIT(TMR4x));
@@ -610,7 +610,7 @@ uint16_t TMR4_GetCountValue(const CM_TMR4_TypeDef *TMR4x) {
  *           @arg CM_TMR4 or CM_TMR4_x: TMR4 unit instance register base
  * @param  [in] u16Value                The count value of the TMR4 counter
  *           @arg number of 16bit
- * @retval None
+ * @retval 无
  */
 void TMR4_SetCountValue(CM_TMR4_TypeDef *TMR4x, uint16_t u16Value) {
     DDL_ASSERT(IS_TMR4_UNIT(TMR4x));
@@ -623,7 +623,7 @@ void TMR4_SetCountValue(CM_TMR4_TypeDef *TMR4x, uint16_t u16Value) {
  * @param  [in] TMR4x                   Pointer to TMR4 instance register base
  *         This parameter can be one of the following values:
  *           @arg CM_TMR4 or CM_TMR4_x: TMR4 unit instance register base
- * @retval None
+ * @retval 无
  */
 void TMR4_ClearCountValue(CM_TMR4_TypeDef *TMR4x) {
     DDL_ASSERT(IS_TMR4_UNIT(TMR4x));
@@ -636,7 +636,7 @@ void TMR4_ClearCountValue(CM_TMR4_TypeDef *TMR4x) {
  * @param  [in] TMR4x                   Pointer to TMR4 instance register base
  *         This parameter can be one of the following values:
  *           @arg CM_TMR4 or CM_TMR4_x: TMR4 unit instance register base
- * @retval None
+ * @retval 无
  */
 void TMR4_Start(CM_TMR4_TypeDef *TMR4x) {
     DDL_ASSERT(IS_TMR4_UNIT(TMR4x));
@@ -649,7 +649,7 @@ void TMR4_Start(CM_TMR4_TypeDef *TMR4x) {
  * @param  [in] TMR4x                   Pointer to TMR4 instance register base
  *         This parameter can be one of the following values:
  *           @arg CM_TMR4 or CM_TMR4_x: TMR4 unit instance register base
- * @retval None
+ * @retval 无
  */
 void TMR4_Stop(CM_TMR4_TypeDef *TMR4x) {
     DDL_ASSERT(IS_TMR4_UNIT(TMR4x));
@@ -664,7 +664,7 @@ void TMR4_Stop(CM_TMR4_TypeDef *TMR4x) {
  *           @arg CM_TMR4 or CM_TMR4_x: TMR4 unit instance register base
  * @param  [in] u32Flag                 TMR4 flag
  *         This parameter can be any composed value of the macros group @ref TMR4_Flag
- * @retval None
+ * @retval 无
  */
 void TMR4_ClearStatus(CM_TMR4_TypeDef *TMR4x, uint32_t u32Flag) {
     uint32_t u32ClearFlag;
@@ -737,7 +737,7 @@ en_flag_status_t TMR4_GetStatus(const CM_TMR4_TypeDef *TMR4x, uint32_t u32Flag) 
         u8FlagSetCount++;
     }
 
-    /* Output-compare interrupt */
+    /* Output-compare 中断 */
     u32ReadFlag = (u32Flag & TMR4_FLAG_OC_MASK);
 
     if (u32ReadFlag > 0UL) {
@@ -784,7 +784,7 @@ en_flag_status_t TMR4_GetStatus(const CM_TMR4_TypeDef *TMR4x, uint32_t u32Flag) 
  * @param  [in] u32IntType              TMR4 interrupt source
  *         This parameter can be any composed value of the macros group @ref TMR4_Interrupt
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR4_IntCmd(CM_TMR4_TypeDef *TMR4x, uint32_t u32IntType, en_functional_state_t enNewState) {
     uint32_t u32Type;
@@ -794,14 +794,14 @@ void TMR4_IntCmd(CM_TMR4_TypeDef *TMR4x, uint32_t u32IntType, en_functional_stat
     DDL_ASSERT(IS_TMR4_INT(u32IntType));
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
 
-    /* Counter interrupt */
+    /* Counter 中断 */
     u32Type = (u32IntType & TMR4_INT_CNT_MASK);
 
     if (u32Type > 0UL) {
         (ENABLE == enNewState) ? SET_REG16_BIT(TMR4x->CCSR, u32Type) : CLR_REG16_BIT(TMR4x->CCSR, u32Type);
     }
 
-    /* Output-compare interrupt */
+    /* Output-compare 中断 */
     u32Type = (u32IntType & TMR4_INT_OC_MASK);
 
     if (u32Type > 0UL) {
@@ -830,7 +830,7 @@ void TMR4_IntCmd(CM_TMR4_TypeDef *TMR4x, uint32_t u32IntType, en_functional_stat
         }
     }
 
-    /* PWM reload timer interrupt */
+    /* PWM reload timer 中断 */
     u32Type = (u32IntType & TMR4_INT_RELOAD_TMR_MASK);
 
     if (u32Type > 0UL) {
@@ -844,7 +844,7 @@ void TMR4_IntCmd(CM_TMR4_TypeDef *TMR4x, uint32_t u32IntType, en_functional_stat
  *         This parameter can be one of the following values:
  *           @arg CM_TMR4 or CM_TMR4_x: TMR4 unit instance register base
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR4_PeriodBufCmd(CM_TMR4_TypeDef *TMR4x, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_TMR4_UNIT(TMR4x));
@@ -926,7 +926,7 @@ uint16_t TMR4_GetCountIntMaskTime(const CM_TMR4_TypeDef *TMR4x, uint32_t u32IntT
  *           @arg TMR4_INT_CNT_MASK13: Counter interrupt flag is set once when counter counts 14 times at "0x0000" or peak (skiping 13 count)
  *           @arg TMR4_INT_CNT_MASK14: Counter interrupt flag is set once when counter counts 15 times at "0x0000" or peak (skiping 14 count)
  *           @arg TMR4_INT_CNT_MASK15: Counter interrupt flag is set once when counter counts 16 times at "0x0000" or peak (skiping 15 count)
- * @retval None
+ * @retval 无
  */
 void TMR4_SetCountIntMaskTime(CM_TMR4_TypeDef *TMR4x, uint32_t u32IntType, uint16_t u16MaskTime) {
     DDL_ASSERT(IS_TMR4_UNIT(TMR4x));
@@ -990,7 +990,7 @@ uint16_t TMR4_GetCurrentCountIntMaskTime(const CM_TMR4_TypeDef *TMR4x, uint32_t 
  *         This parameter can be one of the following values:
  *           @arg CM_TMR4 or CM_TMR4_x: TMR4 unit instance register base
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR4_PortOutputCmd(CM_TMR4_TypeDef *TMR4x, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_TMR4_UNIT(TMR4x));
@@ -1098,7 +1098,7 @@ int32_t TMR4_OC_Init(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, const stc_tmr4_oc_i
  *           @arg CM_TMR4 or CM_TMR4_x: TMR4 unit instance register base
  * @param  [in] u32Ch                   TMR4 OC channel
  *         This parameter can be one of the macros group @ref TMR4_OC_Channel
- * @retval None
+ * @retval 无
  */
 void TMR4_OC_DeInit(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch) {
     __IO uint16_t *OCER;
@@ -1113,7 +1113,7 @@ void TMR4_OC_DeInit(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch) {
     OCER = TMR4_OCER(TMR4x, u32Ch);
     OCCR = TMR4_OCCR(TMR4x, u32Ch);
 
-    /* Clear bits: port output valid && OP level && interrupt */
+    /* Clear bits: port output valid && OP level && 中断 */
     CLR_REG16_BIT(*OCSR, TMR4_OCSR_MASK(u32Ch));
 
     /* Clear bits: OCMR&&OCCR buffer */
@@ -1153,7 +1153,7 @@ uint16_t TMR4_OC_GetCompareValue(const CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch) {
  *         This parameter can be one of the macros group @ref TMR4_OC_Channel
  * @param  [in] u16Value                The compare value of the TMR4 OC OCCR register
  *           @arg number of 16bit
- * @retval None
+ * @retval 无
  */
 void TMR4_OC_SetCompareValue(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint16_t u16Value) {
     __IO uint16_t *OCCR;
@@ -1175,7 +1175,7 @@ void TMR4_OC_SetCompareValue(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint16_t u1
  * @param  [in] u32Ch                   TMR4 OC channel
  *         This parameter can be one of the macros group @ref TMR4_OC_Channel
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR4_OC_Cmd(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, en_functional_state_t enNewState) {
     __IO uint16_t *OCSR;
@@ -1199,7 +1199,7 @@ void TMR4_OC_Cmd(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, en_functional_state_t e
  * @param  [in] u32Ch                   TMR4 OC channel
  *         This parameter can be one of the macros group @ref TMR4_OC_Channel
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR4_OC_ExtendControlCmd(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, en_functional_state_t enNewState) {
     __IO uint16_t *OCER;
@@ -1229,7 +1229,7 @@ void TMR4_OC_ExtendControlCmd(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, en_functio
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
  *           @arg ENABLE:               Enable the OCMR/OCMR register buffer function.
  *           @arg DISABLE:              Disable the OCMR/OCMR register buffer function.
- * @retval None
+ * @retval 无
  */
 void TMR4_OC_BufIntervalReponseCmd(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch,
                                    uint16_t u16Object, en_functional_state_t enNewState) {
@@ -1291,7 +1291,7 @@ uint16_t TMR4_OC_GetPolarity(const CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch) {
  *         This parameter can be one of the macros group @ref TMR4_OC_Invalid_Output_Polarity
  *           @arg TMR4_OC_INVD_LOW:     TMR4 OC output low level when OC is invalid
  *           @arg TMR4_OC_INVD_HIGH:    TMR4 OC output high level when OC is invalid
- * @retval None
+ * @retval 无
  */
 void TMR4_OC_SetOcInvalidPolarity(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint16_t u16Polarity) {
     __IO uint16_t *OCSR;
@@ -1324,7 +1324,7 @@ void TMR4_OC_SetOcInvalidPolarity(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint16
  *           @arg TMR4_OC_BUF_COND_VALLEY:  Buffer transfer is made when counter count valley.
  *           @arg TMR4_OC_BUF_COND_PEAK:    Buffer transfer is made when counter count peak.
  *           @arg TMR4_OC_BUF_COND_PEAK_VALLEY: Buffer transfer is made when counter count peak or valley.
- * @retval None
+ * @retval 无
  */
 void TMR4_OC_SetCompareBufCond(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint16_t u16Object, uint16_t u16BufCond) {
     __IO uint16_t *OCER;
@@ -1377,7 +1377,7 @@ uint16_t TMR4_OC_GetHighChCompareMode(const CM_TMR4_TypeDef *TMR4x, uint32_t u32
  * @param  [in] u32Ch                   TMR4 OC channel.
  *         This parameter can be one of the following values:
  * @param  [in] unTmr4Ocmrh             The TMR4 OC high channel mode @ref un_tmr4_oc_ocmrh_t
- * @retval None
+ * @retval 无
  * @note   The function only can set high channel mode:TMR4_OC_CH_xH(x = U/V/W)
  */
 void TMR4_OC_SetHighChCompareMode(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, un_tmr4_oc_ocmrh_t unTmr4Ocmrh) {
@@ -1420,7 +1420,7 @@ uint32_t TMR4_OC_GetLowChCompareMode(const CM_TMR4_TypeDef *TMR4x, uint32_t u32C
  * @param  [in] u32Ch                   TMR4 OC channel.
  *         This parameter can be one of the following values:
  * @param  [in] unTmr4Ocmrl             The TMR4 OC low channel mode @ref un_tmr4_oc_ocmrl_t
- * @retval None
+ * @retval 无
  * @note   The function only can set low channel mode:TMR4_OC_CH_xL(x = U/V/W)
  */
 void TMR4_OC_SetLowChCompareMode(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, un_tmr4_oc_ocmrl_t unTmr4Ocmrl) {
@@ -1514,7 +1514,7 @@ int32_t TMR4_PWM_Init(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, const stc_tmr4_pwm
  *           @arg CM_TMR4 or CM_TMR4_x: TMR4 unit instance register base
  * @param  [in] u32Ch                   TMR4 PWM channel
  *         This parameter can be one of the macros group @ref TMR4_PWM_Channel
- * @retval None
+ * @retval 无
  */
 void TMR4_PWM_DeInit(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch) {
     __IO uint16_t *POCR;
@@ -1552,7 +1552,7 @@ void TMR4_PWM_DeInit(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch) {
  *           @arg TMR4_PWM_CLK_DIV32:   CLK/32
  *           @arg TMR4_PWM_CLK_DIV64:   CLK/64
  *           @arg TMR4_PWM_CLK_DIV128:  CLK/128
- * @retval None
+ * @retval 无
  */
 void TMR4_PWM_SetClockDiv(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint16_t u16Div) {
     __IO uint16_t *POCR;
@@ -1580,7 +1580,7 @@ void TMR4_PWM_SetClockDiv(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint16_t u16Di
  *           @arg TMR4_PWM_OXH_INVERT_OXL_INVERT: Output both PWML and PWMH signals reversed
  *           @arg TMR4_PWM_OXH_INVERT_OXL_HOLD:   Output the PWMH signal reversed, outputs the PWML signal without changing the level
  *           @arg TMR4_PWM_OXH_HOLD_OXL_INVERT:   Output the PWMH signal without changing the level, Outputs the PWML signal reversed
- * @retval None
+ * @retval 无
  */
 void TMR4_PWM_SetPolarity(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint16_t u16Polarity) {
     __IO uint16_t *POCR;
@@ -1602,7 +1602,7 @@ void TMR4_PWM_SetPolarity(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint16_t u16Po
  *           @arg CM_TMR4 or CM_TMR4_x: TMR4 unit instance register base
  * @param  [in] u32Ch                   TMR4 PWM channel
  *         This parameter can be one of the macros group @ref TMR4_PWM_Channel
- * @retval None
+ * @retval 无
  */
 void TMR4_PWM_StartReloadTimer(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch) {
     DDL_ASSERT(IS_TMR4_UNIT(TMR4x));
@@ -1618,7 +1618,7 @@ void TMR4_PWM_StartReloadTimer(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch) {
  *           @arg CM_TMR4 or CM_TMR4_x: TMR4 unit instance register base
  * @param  [in] u32Ch                   TMR4 PWM channel
  *         This parameter can be one of the macros group @ref TMR4_PWM_Channel
- * @retval None
+ * @retval 无
  */
 void TMR4_PWM_StopReloadTimer(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch) {
     DDL_ASSERT(IS_TMR4_UNIT(TMR4x));
@@ -1636,7 +1636,7 @@ void TMR4_PWM_StopReloadTimer(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch) {
  *         This parameter can be one of the macros group @ref TMR4_PWM_Channel
  * @param  [in] u16Value                TMR4 PWM filter count value
  *           @arg number of 16bit
- * @retval None
+ * @retval 无
  */
 void TMR4_PWM_SetFilterCountValue(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint16_t u16Value) {
     __IO uint16_t *PFSR;
@@ -1663,7 +1663,7 @@ void TMR4_PWM_SetFilterCountValue(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint16
  *           @arg TMR4_PWM_PDBR_IDX:    TMR4_PDBRn
  * @param  [in] u16Value                TMR4 PWM dead time register value
  *           @arg number of 16bit
- * @retval None
+ * @retval 无
  */
 void TMR4_PWM_SetDeadTimeValue(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint32_t u32DeadTimeIndex, uint16_t u16Value) {
     __IO uint16_t *PDR;
@@ -1714,7 +1714,7 @@ uint16_t TMR4_PWM_GetDeadTimeValue(const CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch,
  *           @arg TMR4_PWM_OE_EFFECT_IMMED:        TMR4 PWM reister TMR4_PSCR.OE bit immediate effect immediate
  *           @arg TMR4_PWM_OE_EFFECT_COUNT_PEAK:   TMR4 PWM reister TMR4_PSCR.OE bit effect when TMR4 counter count peak
  *           @arg TMR4_PWM_OE_EFFECT_COUNT_VALLEY: TMR4 PWM reister TMR4_PSCR.OE bit effect when TMR4 counter count valley
- * @retval None
+ * @retval 无
  */
 void TMR4_PWM_SetOEEffectTime(CM_TMR4_TypeDef *TMR4x, uint32_t u32Time) {
     DDL_ASSERT(IS_TMR4_UNIT(TMR4x));
@@ -1731,7 +1731,7 @@ void TMR4_PWM_SetOEEffectTime(CM_TMR4_TypeDef *TMR4x, uint32_t u32Time) {
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
  *           @arg ENABLE:               The TMR4_PSCR.MOE bit automatically set to 1 by hardware to restore the PWM normal output.
  *           @arg DISABLE:              The TMR4_PSCR.MOE bit can only be set to 1 by software to restore the PWM normal output.
- * @retval None
+ * @retval 无
  */
 void TMR4_PWM_EmbHWMainOutputCmd(CM_TMR4_TypeDef *TMR4x, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_TMR4_UNIT(TMR4x));
@@ -1750,7 +1750,7 @@ void TMR4_PWM_EmbHWMainOutputCmd(CM_TMR4_TypeDef *TMR4x, en_functional_state_t e
  *         This parameter can be one of the following values:
  *           @arg CM_TMR4 or CM_TMR4_x: TMR4 unit instance register base
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR4_PWM_MainOutputCmd(CM_TMR4_TypeDef *TMR4x, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_TMR4_UNIT(TMR4x));
@@ -1774,7 +1774,7 @@ void TMR4_PWM_MainOutputCmd(CM_TMR4_TypeDef *TMR4x, en_functional_state_t enNewS
  *         This parameter can be one of the macros group @ref TMR4_PWM_Pin_Output_Mode
  *           @arg TMR4_PWM_PIN_OUTPUT_OS:     TIM4_<t>_Oxy(x=U/V/W,y=H/L) output polarity by specified OSxy
  *           @arg TMR4_PWM_PIN_OUTPUT_NORMAL: TIM4_<t>_Oxy(x=U/V/W,y=H/L) output normal PWM
- * @retval None
+ * @retval 无
  */
 void TMR4_PWM_SetPortOutputMode(CM_TMR4_TypeDef *TMR4x, uint32_t u32PwmPin, uint32_t u32Mode) {
     DDL_ASSERT(IS_TMR4_UNIT(TMR4x));
@@ -1793,7 +1793,7 @@ void TMR4_PWM_SetPortOutputMode(CM_TMR4_TypeDef *TMR4x, uint32_t u32PwmPin, uint
  *         This parameter can be one of the macros group @ref TMR4_PWM_Pin
  * @param  [in] u32PinStatus            TMR4 PWM pin status
  *         This parameter can be one of the macros group @ref TMR4_PWM_Abnormal_Pin_Status.
- * @retval None
+ * @retval 无
  */
 void TMR4_PWM_SetAbnormalPinStatus(CM_TMR4_TypeDef *TMR4x, uint32_t u32PwmPin, uint32_t u32PinStatus) {
     DDL_ASSERT(IS_TMR4_UNIT(TMR4x));
@@ -1886,7 +1886,7 @@ int32_t TMR4_EVT_Init(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, const stc_tmr4_evt
  *           @arg CM_TMR4 or CM_TMR4_x: TMR4 unit instance register base
  * @param  [in] u32Ch                   TMR4 event channel
  *         This parameter can be one of the macros group @ref TMR4_Event_Channel
- * @retval None
+ * @retval 无
  */
 void TMR4_EVT_DeInit(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch) {
     __IO uint16_t *SCCR;
@@ -1918,7 +1918,7 @@ void TMR4_EVT_DeInit(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch) {
  *         This parameter can be one of the macros group @ref TMR4_Event_Delay_Object
  *           @arg TMR4_EVT_DELAY_OCCRXH: TMR4 event delay object - OCCRxh
  *           @arg TMR4_EVT_DELAY_OCCRXL: TMR4 event delay object - OCCRxl
- * @retval None
+ * @retval 无
  */
 void TMR4_EVT_SetDelayObject(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint16_t u16Object) {
     __IO uint16_t *SCSR;
@@ -1959,7 +1959,7 @@ void TMR4_EVT_SetDelayObject(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint16_t u1
  *           @arg TMR4_EVT_MASK13:      Mask 13 times
  *           @arg TMR4_EVT_MASK14:      Mask 14 times
  *           @arg TMR4_EVT_MASK15:      Mask 15 times
- * @retval None
+ * @retval 无
  */
 void TMR4_EVT_SetMaskTime(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint16_t u16MaskTime) {
     __IO uint16_t *SCMR;
@@ -2021,7 +2021,7 @@ uint16_t TMR4_EVT_GetMaskTime(const CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch) {
  *         This parameter can be one of the macros group @ref TMR4_Event_Channel
  * @param  [in] u16Value                SCCR register value
  *           @arg number of 16bit
- * @retval None
+ * @retval 无
  */
 void TMR4_EVT_SetCompareValue(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint16_t u16Value) {
     __IO uint16_t *SCCR;
@@ -2066,7 +2066,7 @@ uint16_t TMR4_EVT_GetCompareValue(const CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch) 
  *         This parameter can be one of the macros group @ref TMR4_Event_Channel
  * @param  [in] u16Event                TMR4 event output event
  *         This parameter can be one of the macros group @ref TMR4_Event_Output_Event
- * @retval None
+ * @retval 无
  */
 void TMR4_EVT_SetOutputEvent(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint16_t u16Event) {
     __IO uint16_t *SCSR;
@@ -2095,7 +2095,7 @@ void TMR4_EVT_SetOutputEvent(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint16_t u1
  *           @arg TMR4_EVT_BUF_COND_VALLEY:      Register SCCR&SCMR buffer transfer when counter count valley
  *           @arg TMR4_EVT_BUF_COND_PEAK:        Register SCCR&SCMR buffer transfer when counter count peak
  *           @arg TMR4_EVT_BUF_COND_PEAK_VALLEY: Register SCCR&SCMR buffer transfer when counter count peak or valley
- * @retval None
+ * @retval 无
  */
 void TMR4_EVT_SetCompareBufCond(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint16_t u16BufCond) {
     __IO uint16_t *SCSR;
@@ -2118,7 +2118,7 @@ void TMR4_EVT_SetCompareBufCond(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint16_t
  * @param  [in] u32Ch                   TMR4 event channel
  *         This parameter can be one of the macros group @ref TMR4_Event_Channel
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR4_EVT_BufIntervalReponseCmd(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, en_functional_state_t enNewState) {
     __IO uint16_t *SCSR;
@@ -2149,7 +2149,7 @@ void TMR4_EVT_BufIntervalReponseCmd(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, en_f
  *           @arg TMR4_EVT_MASK_VALLEY: Compare with the counter valley interrupt mask counter
  *           @arg TMR4_EVT_MASK_PEAK:   Compare with the counter peak interrupt mask counter
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR4_EVT_EventIntervalReponseCmd(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch,
                                       uint16_t u16MaskType, en_functional_state_t enNewState) {
@@ -2184,7 +2184,7 @@ void TMR4_EVT_EventIntervalReponseCmd(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch,
  *           @arg TMR4_EVT_MATCH_CNT_VALLEY: Start event operate when match with SCCR&SCMR and TMR4 counter count valley
  *           @arg TMR4_EVT_MATCH_CNT_PEAK:   Start event operate when match with SCCR&SCMR and TMR4 counter count peak
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR4_EVT_MatchCondCmd(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint16_t u16Cond, en_functional_state_t enNewState) {
     __IO uint16_t *SCSR;
@@ -2211,7 +2211,7 @@ void TMR4_EVT_MatchCondCmd(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint16_t u16C
  *           @arg CM_TMR4 or CM_TMR4_x: TMR4 unit instance register base
  * @param  [in] u16Signal               TMR4 event signal selection
  *         This parameter can be one of the macros group @ref TMR4_Event_Output_Signal
- * @retval None
+ * @retval 无
  */
 void TMR4_EVT_SetOutputEventSignal(CM_TMR4_TypeDef *TMR4x, uint16_t u16Signal) {
     DDL_ASSERT(IS_TMR4_UNIT(TMR4x));

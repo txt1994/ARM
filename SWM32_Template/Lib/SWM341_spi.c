@@ -212,7 +212,7 @@ uint32_t SPI_IsTXEmpty(SPI_TypeDef * SPIx) {
 * 功能说明:	中断使能
 * 输    入: SPI_TypeDef * SPIx		指定要被设置的SPI，有效值包括SPI0、SPI1
 * 			uint32_t it				interrupt type，有效值SPI_IT_RX_OVF、SPI_IT_RX_FULL、SPI_IT_RX_HFULL、SPI_IT_TX_EMPTY、SPI_IT_TX_HFULL、
-*									SPI_IT_RX_THRES、SPI_IT_TX_THRES、SPI_IT_TX_DONE、SPI_IT_CS_FALL、SPI_IT_CS_RISE 及其“或”
+*									SPI_IT_RX_THRES、SPI_IT_TX_THRES、SPI_IT_TX_DONE、SPI_IT_CS_FALL、SPI_IT_CS_RISE 及其"或"
 * 输    出: 无
 * 注意事项: 无
 ******************************************************************************************************************************************/
@@ -225,7 +225,7 @@ void SPI_INTEn(SPI_TypeDef * SPIx, uint32_t it) {
 * 功能说明:	中断禁止
 * 输    入: SPI_TypeDef * SPIx		指定要被设置的SPI，有效值包括SPI0、SPI1
 * 			uint32_t it				interrupt type，有效值SPI_IT_RX_OVF、SPI_IT_RX_FULL、SPI_IT_RX_HFULL、SPI_IT_TX_EMPTY、SPI_IT_TX_HFULL、
-*									SPI_IT_RX_THRES、SPI_IT_TX_THRES、SPI_IT_TX_DONE、SPI_IT_CS_FALL、SPI_IT_CS_RISE 及其“或”
+*									SPI_IT_RX_THRES、SPI_IT_TX_THRES、SPI_IT_TX_DONE、SPI_IT_CS_FALL、SPI_IT_CS_RISE 及其"或"
 * 输    出: 无
 * 注意事项: 无
 ******************************************************************************************************************************************/
@@ -238,7 +238,7 @@ void SPI_INTDis(SPI_TypeDef * SPIx, uint32_t it) {
 * 功能说明:	中断标志清除
 * 输    入: SPI_TypeDef * SPIx		指定要被设置的SPI，有效值包括SPI0、SPI1
 * 			uint32_t it				interrupt type，有效值SPI_IT_RX_OVF、SPI_IT_RX_FULL、SPI_IT_RX_HFULL、SPI_IT_TX_EMPTY、SPI_IT_TX_HFULL、
-*									SPI_IT_RX_THRES、SPI_IT_TX_THRES、SPI_IT_TX_DONE、SPI_IT_CS_FALL、SPI_IT_CS_RISE 及其“或”
+*									SPI_IT_RX_THRES、SPI_IT_TX_THRES、SPI_IT_TX_DONE、SPI_IT_CS_FALL、SPI_IT_CS_RISE 及其"或"
 * 输    出: 无
 * 注意事项: 无
 ******************************************************************************************************************************************/
@@ -251,7 +251,7 @@ void SPI_INTClr(SPI_TypeDef * SPIx, uint32_t it) {
 * 功能说明:	中断状态查询
 * 输    入: SPI_TypeDef * SPIx		指定要被设置的SPI，有效值包括SPI0、SPI1
 * 			uint32_t it				interrupt type，有效值SPI_IT_RX_OVF、SPI_IT_RX_FULL、SPI_IT_RX_HFULL、SPI_IT_TX_EMPTY、SPI_IT_TX_HFULL、
-*									SPI_IT_RX_THRES、SPI_IT_TX_THRES、SPI_IT_TX_DONE、SPI_IT_CS_FALL、SPI_IT_CS_RISE 及其“或”
+*									SPI_IT_RX_THRES、SPI_IT_TX_THRES、SPI_IT_TX_DONE、SPI_IT_CS_FALL、SPI_IT_CS_RISE 及其"或"
 * 输    出: uint32_t				1 中断发生    0 中断未发生
 * 注意事项: 无
 ******************************************************************************************************************************************/

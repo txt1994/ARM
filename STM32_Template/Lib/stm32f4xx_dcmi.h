@@ -50,25 +50,25 @@ extern "C" {
   */
 typedef struct {
     uint16_t DCMI_CaptureMode;      /*!< 指定捕捉模式:连续或快照。
-									   该参数可以是@ref DCMI_Capture_Mode 的值 */
+									                  该参数可以是@ref DCMI_Capture_Mode 的值 */
 
     uint16_t DCMI_SynchroMode;      /*!< 指定同步模式:硬件或嵌入式。
-									   该参数可以是@ref DCMI_Synchronization_Mode 的值 */
+									                  该参数可以是@ref DCMI_Synchronization_Mode 的值 */
 
     uint16_t DCMI_PCKPolarity;      /*!< 指定像素时钟极性:下降或上升。
-									   该参数可以是@ref DCMI_PIXCK_Polarity 的值 */
+									                  该参数可以是@ref DCMI_PIXCK_Polarity 的值 */
 
     uint16_t DCMI_VSPolarity;       /*!< 指定垂直同步极性:高或低。
-									   该参数可以是@ref DCMI_VSYNC_Polarity 的值 */
+									                  该参数可以是@ref DCMI_VSYNC_Polarity 的值 */
 
     uint16_t DCMI_HSPolarity;       /*!< 指定水平同步极性:高或低。
-									   该参数可以是@ref DCMI_HSYNC_Polarity 的值 */
+									                  该参数可以是@ref DCMI_HSYNC_Polarity 的值 */
 
     uint16_t DCMI_CaptureRate;      /*!< 指定帧捕获的频率:全部、1/2 或 1/4。
-									   该参数可以是@ref DCMI_Capture_Rate 的值 */
+									                  该参数可以是@ref DCMI_Capture_Rate 的值 */
 
     uint16_t DCMI_ExtendedDataMode; /*!< 指定数据宽度:8 位、10 位、12 位或 14 位。
-									   该参数可以是@ref DCMI_Extended_Data_Mode 的值 */
+									                  该参数可以是@ref DCMI_Extended_Data_Mode 的值 */
 } DCMI_InitTypeDef;
 
 /**
@@ -76,16 +76,16 @@ typedef struct {
   */
 typedef struct {
     uint16_t DCMI_VerticalStartLine;      /*!< 指定图像捕获将从其开始的垂直起始行数。
-											 此参数可以是 0x00 和 0x1FFF 之间的值 */
+											                    此参数可以是 0x00 和 0x1FFF 之间的值 */
 
     uint16_t DCMI_HorizontalOffsetCount;  /*!< 指定开始捕获之前要计数的像素时钟数。
-											 此参数可以是 0x00 和 0x3FFF 之间的值 */
+											                    此参数可以是 0x00 和 0x3FFF 之间的值 */
 
     uint16_t DCMI_VerticalLineCount;      /*!< 指定要从起点捕获的行数。
-											 此参数可以是 0x00 和 0x3FFF 之间的值 */
+											                    此参数可以是 0x00 和 0x3FFF 之间的值 */
 
     uint16_t DCMI_CaptureCount;           /*!< 指定要从同一行的起点捕获的像素时钟数。
-											 此参数可以是 0x00 和 0x3FFF 之间的值 */
+											                    此参数可以是 0x00 和 0x3FFF 之间的值 */
 } DCMI_CROPInitTypeDef;
 
 /**

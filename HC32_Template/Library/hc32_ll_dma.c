@@ -210,7 +210,7 @@
  * @param  [in] DMAx DMA unit instance.
  *   @arg  CM_DMAx or CM_DMA
  * @param  [in] enNewState An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void DMA_Cmd(CM_DMA_TypeDef *DMAx, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_DMA_UNIT(DMAx));
@@ -226,7 +226,7 @@ void DMA_Cmd(CM_DMA_TypeDef *DMAx, en_functional_state_t enNewState) {
  *   @arg  CM_DMAx or CM_DMA
  * @param  [in] u32ErrInt DMA error IRQ flag.  @ref DMA_Int_Request_Err_Sel, @ref DMA_Int_Trans_Err_Sel
  * @param  [in] enNewState An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void DMA_ErrIntCmd(CM_DMA_TypeDef *DMAx, uint32_t u32ErrInt, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_DMA_UNIT(DMAx));
@@ -260,7 +260,7 @@ en_flag_status_t DMA_GetErrStatus(const CM_DMA_TypeDef *DMAx, uint32_t u32Flag) 
  * @param  [in] DMAx        DMA unit instance.
  *   @arg  CM_DMAx or CM_DMA
  * @param  [in] u32Flag     DMA error IRQ flag. @ref DMA_Flag_Trans_Err_Sel, @ref DMA_Flag_Request_Err_Sel
- * @retval None
+ * @retval 无
  * @note   Include transfer error flag & request error flag
  */
 void DMA_ClearErrStatus(CM_DMA_TypeDef *DMAx, uint32_t u32Flag) {
@@ -276,7 +276,7 @@ void DMA_ClearErrStatus(CM_DMA_TypeDef *DMAx, uint32_t u32Flag) {
  *   @arg  CM_DMAx or CM_DMA
  * @param  [in] u32TransCompleteInt DMA transfer complete IRQ flag. @ref DMA_Int_Btc_Sel, @ref DMA_Int_Tc_Sel
  * @param  [in] enNewState An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void DMA_TransCompleteIntCmd(CM_DMA_TypeDef *DMAx, uint32_t u32TransCompleteInt, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_DMA_UNIT(DMAx));
@@ -308,7 +308,7 @@ en_flag_status_t DMA_GetTransCompleteStatus(const CM_DMA_TypeDef *DMAx, uint32_t
  * @param  [in] DMAx DMA unit instance.
  *   @arg  CM_DMAx or CM_DMA
  * @param  [in] u32Flag DMA transfer complete flag.  @ref DMA_Flag_Btc_Sel, @ref DMA_Flag_Tc_Sel
- * @retval None
+ * @retval 无
  * @note   Include transfer complete flag & block transfer complete flag
  */
 void DMA_ClearTransCompleteStatus(CM_DMA_TypeDef *DMAx, uint32_t u32Flag) {
@@ -324,7 +324,7 @@ void DMA_ClearTransCompleteStatus(CM_DMA_TypeDef *DMAx, uint32_t u32Flag) {
  *   @arg  CM_DMAx or CM_DMA
  * @param  [in] u8MxCh DMA multiplex channel. @ref DMA_Mx_Channel_selection
  * @param  [in] enNewState An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void DMA_MxChCmd(CM_DMA_TypeDef *DMAx, uint8_t u8MxCh, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_DMA_UNIT(DMAx));
@@ -585,7 +585,7 @@ int32_t DMA_SetNonSeqDestOffset(CM_DMA_TypeDef *DMAx, uint8_t u8Ch, uint32_t u32
  * @param  [in] DMAx DMA unit instance.
  *   @arg  CM_DMAx or CM_DMA
  * @param  [in] u8Ch DMA channel. @ref DMA_Channel_selection
-  * @retval None
+  * @retval 无
  */
 void DMA_DeInit(CM_DMA_TypeDef *DMAx, uint8_t u8Ch) {
     DDL_ASSERT(IS_DMA_UNIT(DMAx));
@@ -879,7 +879,7 @@ int32_t DMA_LlpInit(CM_DMA_TypeDef *DMAx, uint8_t u8Ch, const stc_dma_llp_init_t
  *   @arg  CM_DMAx or CM_DMA
  * @param  [in] u8Ch DMA channel. @ref DMA_Channel_selection
  * @param  [in] u32Addr Next link pointer address for DMA LLP mode.
- * @retval None
+ * @retval 无
  */
 void DMA_SetLlpAddr(CM_DMA_TypeDef *DMAx, uint8_t u8Ch, uint32_t u32Addr) {
 
@@ -896,7 +896,7 @@ void DMA_SetLlpAddr(CM_DMA_TypeDef *DMAx, uint8_t u8Ch, uint32_t u32Addr) {
  *   @arg  CM_DMAx or CM_DMA
  * @param  [in] u8Ch DMA channel. @ref DMA_Channel_selection
  * @param  [in] enNewState An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void DMA_LlpCmd(CM_DMA_TypeDef *DMAx, uint8_t u8Ch, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_DMA_UNIT(DMAx));
@@ -917,7 +917,7 @@ void DMA_LlpCmd(CM_DMA_TypeDef *DMAx, uint8_t u8Ch, en_functional_state_t enNewS
  * @param  [in] DMAx DMA unit instance.
  *   @arg  CM_DMAx or CM_DMA
  * @param  [in] enNewState An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void DMA_ReconfigCmd(CM_DMA_TypeDef *DMAx, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_DMA_UNIT(DMAx));
@@ -936,7 +936,7 @@ void DMA_ReconfigCmd(CM_DMA_TypeDef *DMAx, en_functional_state_t enNewState) {
  *   @arg  CM_DMAx or CM_DMA
  * @param  [in] u8Ch DMA channel. @ref DMA_Channel_selection
  * @param  [in] enNewState An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void DMA_ReconfigLlpCmd(CM_DMA_TypeDef *DMAx, uint8_t u8Ch, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_DMA_UNIT(DMAx));

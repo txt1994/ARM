@@ -236,7 +236,7 @@ int32_t DCU_Init(CM_DCU_TypeDef *DCUx, const stc_dcu_init_t *pstcDcuInit) {
         /* Set register: CTL */
         WRITE_REG32(DCUx->CTL, (pstcDcuInit->u32Mode | pstcDcuInit->u32DataWidth));
 
-        /* Disable interrupt */
+        /* Disable 中断 */
         WRITE_REG32(DCUx->INTEVTSEL, 0x00000000UL);
 
         /* Clear Flag */
@@ -252,7 +252,7 @@ int32_t DCU_Init(CM_DCU_TypeDef *DCUx, const stc_dcu_init_t *pstcDcuInit) {
  * @param [in] DCUx                     Pointer to DCU instance register base
  *         This parameter can be one of the following values:
  *           @arg CM_DCU or CM_DCUx:    DCU instance register base
- * @retval None
+ * @retval 无
  */
 int32_t DCU_DeInit(CM_DCU_TypeDef *DCUx) {
     DDL_ASSERT(IS_DCU_UNIT(DCUx));
@@ -303,7 +303,7 @@ int32_t DCU_WaveConfig(CM_DCU_TypeDef *DCUx, const stc_dcu_wave_config_t *pstcWa
  *           @arg CM_DCU or CM_DCUx:    DCU instance register base
  * @param  [in] u32Mode                 DCU mode
  *         This parameter can be one of the macros group @ref DCU_Mode.
- * @retval None
+ * @retval 无
  */
 void DCU_SetMode(CM_DCU_TypeDef *DCUx, uint32_t u32Mode) {
     DDL_ASSERT((IS_DCU_WAVE_FUNC_UNIT(DCUx) && IS_DCU_WAVE_FUNC_UNIT_MD(u32Mode)) || \
@@ -322,7 +322,7 @@ void DCU_SetMode(CM_DCU_TypeDef *DCUx, uint32_t u32Mode) {
  *           @arg DCU_DATA_WIDTH_8BIT:  DCU data size 8 bit
  *           @arg DCU_DATA_WIDTH_16BIT: DCU data size 16 bit
  *           @arg DCU_DATA_WIDTH_32BIT: DCU data size 32 bit
- * @retval None
+ * @retval 无
  */
 void DCU_SetDataWidth(CM_DCU_TypeDef *DCUx, uint32_t u32DataWidth) {
     DDL_ASSERT(IS_DCU_UNIT(DCUx));
@@ -340,7 +340,7 @@ void DCU_SetDataWidth(CM_DCU_TypeDef *DCUx, uint32_t u32DataWidth) {
  *         This parameter can be one of the macros group @ref DCU_Compare_Trigger_Condition
  *           @arg DCU_CMP_TRIG_DATA0:               DCU compare triggered by DATA0.
  *           @arg DCU_CMP_TRIG_DATA0_DATA1_DATA2:   DCU compare triggered by DATA0 or DATA1 or DATA2.
- * @retval None
+ * @retval 无
  */
 void DCU_SetCompareCond(CM_DCU_TypeDef *DCUx, uint32_t u32Cond) {
     DDL_ASSERT(IS_DCU_UNIT(DCUx));
@@ -372,7 +372,7 @@ en_flag_status_t DCU_GetStatus(const CM_DCU_TypeDef *DCUx, uint32_t u32Flag) {
  *           @arg CM_DCU or CM_DCUx:    DCU instance register base
  * @param  [in] u32Flag                 The specified DCU flag
  *         This parameter can be any composed value of the macros group @ref DCU_Mode.
- * @retval None
+ * @retval 无
  */
 void DCU_ClearStatus(CM_DCU_TypeDef *DCUx, uint32_t u32Flag) {
     DDL_ASSERT((IS_DCU_WAVE_FUNC_UNIT(DCUx) && IS_DCU_WAVE_FUNC_UNIT_FLAG(u32Flag)) || \
@@ -387,7 +387,7 @@ void DCU_ClearStatus(CM_DCU_TypeDef *DCUx, uint32_t u32Flag) {
  *         This parameter can be one of the following values:
  *           @arg CM_DCU or CM_DCUx: DCU instance register base
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void DCU_GlobalIntCmd(CM_DCU_TypeDef *DCUx, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_DCU_UNIT(DCUx));
@@ -410,7 +410,7 @@ void DCU_GlobalIntCmd(CM_DCU_TypeDef *DCUx, en_functional_state_t enNewState) {
  * @param  [in] u32IntType              DCU interrupt type
  *         This parameter can be one of the macros group @ref DCU_Interrupt_Type.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void DCU_IntCmd(CM_DCU_TypeDef *DCUx, uint32_t u32IntCategory, uint32_t u32IntType, en_functional_state_t enNewState) {
     uint32_t u32Type;
@@ -471,7 +471,7 @@ uint8_t DCU_ReadData8(const CM_DCU_TypeDef *DCUx, uint32_t u32DataIndex) {
  *           @arg DCU_DATA1_IDX:        DCU DATA1
  *           @arg DCU_DATA2_IDX:        DCU DATA2
  * @param  [in] u8Data                  The data to write.
- * @retval None
+ * @retval 无
  */
 void DCU_WriteData8(CM_DCU_TypeDef *DCUx, uint32_t u32DataIndex, uint8_t u8Data) {
     __IO uint8_t *DATA;
@@ -513,7 +513,7 @@ uint16_t DCU_ReadData16(const CM_DCU_TypeDef *DCUx, uint32_t u32DataIndex) {
  *           @arg DCU_DATA1_IDX:        DCU DATA1
  *           @arg DCU_DATA2_IDX:        DCU DATA2
  * @param  [in] u16Data                 The data to write.
- * @retval None
+ * @retval 无
  */
 void DCU_WriteData16(CM_DCU_TypeDef *DCUx, uint32_t u32DataIndex, uint16_t u16Data) {
     __IO uint16_t *DATA;
@@ -555,7 +555,7 @@ uint32_t DCU_ReadData32(const CM_DCU_TypeDef *DCUx, uint32_t u32DataIndex) {
  *           @arg DCU_DATA1_IDX:        DCU DATA1
  *           @arg DCU_DATA2_IDX:        DCU DATA2
  * @param  [in] u32Data                 The data to write.
- * @retval None
+ * @retval 无
  */
 void DCU_WriteData32(CM_DCU_TypeDef *DCUx, uint32_t u32DataIndex, uint32_t u32Data) {
     __IO uint32_t *DATA;

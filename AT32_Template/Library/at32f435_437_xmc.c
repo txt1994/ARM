@@ -349,7 +349,7 @@ void XMC_NAND_Timing_Default_Para_Init(XMC_NAND_PcCard_TimingInit_Type* XMC_regu
 
 /**
   * @brief  enable or disable the specified nand memory bank.
-  * @param  XMC_bank: specifies the xmc bank to be used
+  * @param  XMC_bank: 指定xmc bank to be used
   *   该参数可以是以下值之一:
   *   - XMC_Bank2_NAND
   *   - XMC_BANK3_NAND
@@ -369,7 +369,7 @@ void XMC_NAND_Enable(XMC_class_bank_Type XMC_bank, confirm_state new_state) {
 
 /**
   * @brief  enable or disable the xmc nand ecc feature.
-  * @param  XMC_bank: specifies the xmc bank to be used
+  * @param  XMC_bank: 指定xmc bank to be used
   *   该参数可以是以下值之一:
   *   - XMC_Bank2_NAND
   *   - XMC_BANK3_NAND
@@ -389,7 +389,7 @@ void XMC_NAND_ecc_Enable(XMC_class_bank_Type XMC_bank, confirm_state new_state) 
 
 /**
   * @brief  return the error correction code register value.
-  * @param  XMC_bank: specifies the xmc bank to be used
+  * @param  XMC_bank: 指定xmc bank to be used
   *   该参数可以是以下值之一:
   *   - XMC_Bank2_NAND
   *   - XMC_BANK3_NAND
@@ -530,7 +530,7 @@ void XMC_SDRAM_CMD(XMC_SDRAM_CMD_Type *XMC_SDRAM_CMD_struct) {
 
 /**
   * @brief  get sdram bank status
-  * @param  XMC_bank: specifies the xmc bank to be used
+  * @param  XMC_bank: 指定xmc bank to be used
   *   该参数可以是以下值之一:
   *   - XMC_SDRAM_BANK1
   *   - XMC_SDRAM_BANK1
@@ -564,13 +564,13 @@ void XMC_SDRAM_Auto_Refresh_Set(uint32_t number) {
 
 /**
   * @brief  enable or disable the specified xmc interrupts.
-  * @param  XMC_bank: specifies the xmc bank to be used
+  * @param  XMC_bank: 指定xmc bank to be used
   *         该参数可以是以下值之一:
   *         - XMC_Bank2_NAND
   *         - XMC_BANK3_NAND
   *         - XMC_BANK4_PCCARD
   *         - XMC_BANK5_6_SDRAM
-  * @param  XMC_int: specifies the xmc interrupt sources to be enabled or disabled.
+  * @param  XMC_int: 指定xmc interrupt sources to be enabled or disabled.
   *         该参数可以是以下值的任意组合:
   *         - XMC_INT_RISING_EDGE
   *         - XMC_INT_LEVEL
@@ -581,36 +581,36 @@ void XMC_SDRAM_Auto_Refresh_Set(uint32_t number) {
   */
 void XMC_Interrupt_Enable(XMC_class_bank_Type XMC_bank, XMC_Interrupt_sources_Type XMC_int, confirm_state new_state) {
     if(new_state != FALSE) {
-        /* enable the selected XMC_bank2 interrupts */
+        /* enable the selected XMC_bank2 中断 */
         if(XMC_bank == XMC_Bank2_NAND) {
             XMC_BANK2->bk2is |= XMC_int;
         }
-        /* enable the selected XMC_bank3 interrupts */
+        /* enable the selected XMC_bank3 中断 */
         else if(XMC_bank == XMC_BANK3_NAND) {
             XMC_BANK3->bk3is |= XMC_int;
         }
-        /* enable the selected XMC_bank4 interrupts */
+        /* enable the selected XMC_bank4 中断 */
         else if(XMC_bank == XMC_BANK4_PCCARD) {
             XMC_BANK4->bk4is |= XMC_int;
         }
-        /* enable the selected XMC_sdram interrupts */
+        /* enable the selected XMC_sdram 中断 */
         else {
             XMC_SDRAM->rcnt |= XMC_int;
         }
     } else {
-        /* disable the selected XMC_bank2 interrupts */
+        /* disable the selected XMC_bank2 中断 */
         if(XMC_bank == XMC_Bank2_NAND) {
             XMC_BANK2->bk2is &= ~XMC_int;
         }
-        /* disable the selected XMC_bank3 interrupts */
+        /* disable the selected XMC_bank3 中断 */
         else if(XMC_bank == XMC_BANK3_NAND) {
             XMC_BANK3->bk3is &= ~XMC_int;
         }
-        /* disable the selected XMC_bank4 interrupts */
+        /* disable the selected XMC_bank4 中断 */
         else if(XMC_bank == XMC_BANK4_PCCARD) {
             XMC_BANK4->bk4is &= ~XMC_int;
         }
-        /* disable the selected XMC_sdram interrupts */
+        /* disable the selected XMC_sdram 中断 */
         else {
             XMC_SDRAM->rcnt &= ~XMC_int;
         }
@@ -619,13 +619,13 @@ void XMC_Interrupt_Enable(XMC_class_bank_Type XMC_bank, XMC_Interrupt_sources_Ty
 
 /**
   * @brief  check whether the specified xmc flag is set or not.
-  * @param  XMC_bank: specifies the xmc bank to be used
+  * @param  XMC_bank: 指定xmc bank to be used
   *         该参数可以是以下值之一:
   *         - XMC_Bank2_NAND
   *         - XMC_BANK3_NAND
   *         - XMC_BANK4_PCCARD
   *         - XMC_BANK5_6_SDRAM
-  * @param  XMC_flag: specifies the flag to check.
+  * @param  XMC_flag: 指定flag to check.
   *         该参数可以是以下值的任意组合:
   *         - XMC_RISINGEDGE_FLAG
   *         - XMC_LEVEL_FLAG
@@ -662,13 +662,13 @@ flag_status XMC_Flag_Status_Get(XMC_class_bank_Type XMC_bank, XMC_Interrupt_Flag
 
 /**
   * @brief  clear the xmc's pending flags.
-  * @param  XMC_bank: specifies the xmc bank to be used
+  * @param  XMC_bank: 指定xmc bank to be used
   *         该参数可以是以下值之一:
   *         - XMC_Bank2_NAND
   *         - XMC_BANK3_NAND
   *         - XMC_BANK4_PCCARD
   *         - XMC_BANK5_6_SDRAM
-  * @param  XMC_flag: specifies the flag to check.
+  * @param  XMC_flag: 指定flag to check.
   *         该参数可以是以下值的任意组合:
   *         - XMC_RISINGEDGE_FLAG
   *         - XMC_LEVEL_FLAG
@@ -766,7 +766,7 @@ void XMC_PcCard_Timing_Config(XMC_NAND_PcCard_TimingInit_Type* XMC_regular_space
   * @retval 无
   */
 void XMC_PcCard_Default_Para_Init(XMC_PcCard_Init_Type* XMC_PcCard_Init_struct) {
-    /* reset pccard init structure parameters values */
+    /* 重置PCCARD Init结构参数值 */
     XMC_PcCard_Init_struct->enable_Wait = XMC_Wait_Operation_Disable;
     XMC_PcCard_Init_struct->delay_Time_ar = 0x0;
     XMC_PcCard_Init_struct->delay_Time_cr = 0x0;

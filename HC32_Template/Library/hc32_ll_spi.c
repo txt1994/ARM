@@ -500,7 +500,7 @@ int32_t SPI_Init(CM_SPI_TypeDef *SPIx, const stc_spi_init_t *pstcSpiInit) {
  * @brief  De-initializes the SPI peripheral.
  * @param  [in]  SPIx               SPI unit
  *   @arg CM_SPIx or CM_SPI
- * @retval None
+ * @retval 无
  */
 void SPI_DeInit(CM_SPI_TypeDef *SPIx) {
     DDL_ASSERT(IS_VALID_SPI_UNIT(SPIx));
@@ -547,7 +547,7 @@ int32_t SPI_StructInit(stc_spi_init_t *pstcSpiInit) {
  * @param  [in]  u32IntType         SPI interrupt type. Can be one or any
  *                                  combination of the parameter @ref SPI_Int_Type_Define
  * @param  [in]  enNewState         An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void SPI_IntCmd(CM_SPI_TypeDef *SPIx, uint32_t u32IntType, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_VALID_SPI_UNIT(SPIx));
@@ -566,7 +566,7 @@ void SPI_IntCmd(CM_SPI_TypeDef *SPIx, uint32_t u32IntType, en_functional_state_t
  * @param  [in]  SPIx               SPI unit
  *   @arg CM_SPIx or CM_SPI
  * @param  [in]  enNewState         An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void SPI_Cmd(CM_SPI_TypeDef *SPIx, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_VALID_SPI_UNIT(SPIx));
@@ -585,7 +585,7 @@ void SPI_Cmd(CM_SPI_TypeDef *SPIx, en_functional_state_t enNewState) {
  * @param  [in]  SPIx               SPI unit
  *   @arg CM_SPIx or CM_SPI
  * @param  [in]  u32Data            The data will be written to the data register.
- * @retval None.
+ * @retval 无.
  */
 void SPI_WriteData(CM_SPI_TypeDef *SPIx, uint32_t u32Data) {
     DDL_ASSERT(IS_VALID_SPI_UNIT(SPIx));
@@ -633,7 +633,7 @@ en_flag_status_t SPI_GetStatus(const CM_SPI_TypeDef *SPIx, uint32_t u32Flag) {
  *   @arg  SPI_FLAG_MD_FAULT
  *   @arg  SPI_FLAG_PARITY_ERR
  *   @arg  SPI_FLAG_UNDERLOAD
- * @retval None
+ * @retval 无
  */
 void SPI_ClearStatus(CM_SPI_TypeDef *SPIx, uint32_t u32Flag) {
     DDL_ASSERT(IS_VALID_SPI_UNIT(SPIx));
@@ -647,7 +647,7 @@ void SPI_ClearStatus(CM_SPI_TypeDef *SPIx, uint32_t u32Flag) {
  * @param  [in]  SPIx               SPI unit
  *   @arg CM_SPIx or CM_SPI
  * @param  [in]  u32Mode            Loopback mode. Can be one parameter @ref SPI_Loopback_Selection_Define
- * @retval None
+ * @retval 无
  */
 void SPI_LoopbackModeConfig(CM_SPI_TypeDef *SPIx, uint32_t u32Mode) {
     DDL_ASSERT(IS_VALID_SPI_UNIT(SPIx));
@@ -661,7 +661,7 @@ void SPI_LoopbackModeConfig(CM_SPI_TypeDef *SPIx, uint32_t u32Mode) {
  * @param  [in]  SPIx               SPI unit
  *   @arg CM_SPIx or CM_SPI
  * @param  [in]  enNewState         An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 
 void SPI_ParityCheckCmd(CM_SPI_TypeDef *SPIx, en_functional_state_t enNewState) {
@@ -755,7 +755,7 @@ int32_t SPI_DelayStructInit(stc_spi_delay_t *pstcDelayConfig) {
  *   @arg CM_SPIx or CM_SPI
  * @param  [in]  u32SSPin           Specify the SS pin @ref SPI_SS_Pin_Define
  * @param  [in]  enNewState         An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void SPI_SSValidLevelConfig(CM_SPI_TypeDef *SPIx, uint32_t u32SSPin, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_VALID_SPI_UNIT(SPIx));
@@ -774,7 +774,7 @@ void SPI_SSValidLevelConfig(CM_SPI_TypeDef *SPIx, uint32_t u32SSPin, en_function
  * @param  [in]  SPIx               SPI unit
  *   @arg CM_SPIx or CM_SPI
  * @param  [in]  u32SSPin           Specify the SS pin @ref SPI_SS_Pin_Define
- * @retval None
+ * @retval 无
  */
 void SPI_SSPinSelect(CM_SPI_TypeDef *SPIx, uint32_t u32SSPin) {
     uint32_t    u32RegConfig;
@@ -811,7 +811,7 @@ void SPI_SSPinSelect(CM_SPI_TypeDef *SPIx, uint32_t u32SSPin) {
  * @param  [in]  SPIx               SPI unit
  *   @arg CM_SPIx or CM_SPI
  * @param  [in]  u32ReadBuf         Target buffer for read operation @ref SPI_Read_Target_Buf_Define
- * @retval None
+ * @retval 无
  */
 void SPI_ReadBufConfig(CM_SPI_TypeDef *SPIx, uint32_t u32ReadBuf) {
     DDL_ASSERT(IS_VALID_SPI_UNIT(SPIx));

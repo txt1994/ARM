@@ -5,7 +5,7 @@
   * 版本:    V1.8.0
   * 日期:    04-November-2016
    * 简介:    该文件提供固件功能来管理数模转换器 (DAC) 外设的以下功能:
-  *           + DAC通道配置:触发、输出缓冲器、数据格式
+  *           + DAC通道配置: 触发、输出缓冲器、数据格式
   *           + DMA管理
   *           + 中断和标志管理
   *
@@ -240,7 +240,7 @@ void DAC_StructInit(DAC_InitTypeDef* DAC_InitStruct) {
   *            @arg DAC_Channel_1: 选择DAC通道1
   *            @arg DAC_Channel_2: 选择DAC通道2
   * 参数:  NewState: DAC通道的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 注意:   当DAC通道被启用时，触发源就不能再被修改。
   * 返回值: 无
   */
@@ -265,7 +265,7 @@ void DAC_Cmd(uint32_t DAC_Channel, FunctionalState NewState) {
   *            @arg DAC_Channel_1: 选择DAC通道1
   *            @arg DAC_Channel_2: 选择DAC通道2
   * 参数:  NewState: 所选DAC通道软件触发的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void DAC_SoftwareTriggerCmd(uint32_t DAC_Channel, FunctionalState NewState) {
@@ -285,7 +285,7 @@ void DAC_SoftwareTriggerCmd(uint32_t DAC_Channel, FunctionalState NewState) {
 /**
   * 简介:  同时启用或禁用两个 DAC 通道软件触发。
   * 参数:  NewState: DAC通道的新状态的软件触发。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void DAC_DualSoftwareTriggerCmd(FunctionalState NewState) {
@@ -312,7 +312,7 @@ void DAC_DualSoftwareTriggerCmd(FunctionalState NewState) {
   *            @arg DAC_Wave_Noise: 噪声波的产生
   *            @arg DAC_Wave_Triangle: 三角波生成
   * 参数:  NewState: 选定的DAC通道波形生成的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void DAC_WaveGenerationCmd(uint32_t DAC_Channel, uint32_t DAC_Wave, FunctionalState NewState) {
@@ -457,7 +457,7 @@ uint16_t DAC_GetDataOutputValue(uint32_t DAC_Channel) {
   *            @arg DAC_Channel_1: 选择DAC通道1
   *            @arg DAC_Channel_2: 选择DAC通道2
   * 参数:  NewState: 所选DAC通道DMA请求的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 注意:   DAC通道1被映射到DMA1流5通道7上，该通道必须已经被配置。
   * 注意:   DAC通道2被映射到DMA1流6通道7上，该通道必须已经被配置。
   * 返回值: 无
@@ -502,7 +502,7 @@ void DAC_DMACmd(uint32_t DAC_Channel, FunctionalState NewState) {
   *            @arg DAC_IT_DMAUDR: DMA欠运行中断掩码
   * 注意:   当第二个外部触发器在收到第一个外部触发器的确认(第一个请求)之前到达时，DMA欠载发生。
   * 参数:  NewState: 指定 DAC 中断的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void DAC_ITConfig(uint32_t DAC_Channel, uint32_t DAC_IT, FunctionalState NewState) {
@@ -512,10 +512,10 @@ void DAC_ITConfig(uint32_t DAC_Channel, uint32_t DAC_IT, FunctionalState NewStat
     assert_param(IS_DAC_IT(DAC_IT));
 
     if (NewState != DISABLE) {
-        /* 启用 selected DAC interrupts */
+        /* 启用被选定的 DAC 中断 */
         DAC->CR |=  (DAC_IT << DAC_Channel);
     } else {
-        /* 禁用 selected DAC interrupts */
+        /* 禁用被选中的 DAC 中断 */
         DAC->CR &= (~(uint32_t)(DAC_IT << DAC_Channel));
     }
 }
@@ -595,7 +595,7 @@ ITStatus DAC_GetITStatus(uint32_t DAC_Channel, uint32_t DAC_IT) {
     /* 获取DAC_IT enable bit 状态 */
     enablestatus = (DAC->CR & (DAC_IT << DAC_Channel)) ;
 
-    /* 检查 the status of the specified DAC interrupt */
+    /* 检查 the status of the specified DAC 中断 */
     if (((DAC->SR & (DAC_IT << DAC_Channel)) != (uint32_t)RESET) && enablestatus) {
         /* DAC_IT 被设置 */
         bitstatus = SET;

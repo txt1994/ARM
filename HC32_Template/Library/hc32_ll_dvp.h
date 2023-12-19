@@ -227,12 +227,12 @@ typedef struct {
  * @defgroup DVP_Interrupt DVP Interrupt
  * @{
  */
-#define DVP_INT_FRAME_START             (DVP_IER_FSIEN)     /*!< Frame start interrupt */
-#define DVP_INT_LINE_START              (DVP_IER_LSIEN)     /*!< Line start interrupt */
-#define DVP_INT_LINE_END                (DVP_IER_LEIEN)     /*!< Line end interrupt */
-#define DVP_INT_FRAME_END               (DVP_IER_FEIEN)     /*!< Frame end interrupt */
-#define DVP_INT_FIFO_OVF                (DVP_IER_FIFOERIEN) /*!< FIFO overflow error interrupt */
-#define DVP_INT_SYNC_ERR                (DVP_IER_SQUERIEN)  /*!< Sync error interrupt */
+#define DVP_INT_FRAME_START             (DVP_IER_FSIEN)     /*!< Frame start 中断 */
+#define DVP_INT_LINE_START              (DVP_IER_LSIEN)     /*!< Line start 中断 */
+#define DVP_INT_LINE_END                (DVP_IER_LEIEN)     /*!< Line end 中断 */
+#define DVP_INT_FRAME_END               (DVP_IER_FEIEN)     /*!< Frame end 中断 */
+#define DVP_INT_FIFO_OVF                (DVP_IER_FIFOERIEN) /*!< FIFO overflow error 中断 */
+#define DVP_INT_SYNC_ERR                (DVP_IER_SQUERIEN)  /*!< Sync error 中断 */
 #define DVP_INT_ALL                     (DVP_INT_SYNC_ERR   |                  \
         DVP_INT_FIFO_OVF   |                  \
         DVP_INT_LINE_END   |                  \

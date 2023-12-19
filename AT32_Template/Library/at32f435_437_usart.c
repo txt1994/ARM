@@ -241,7 +241,7 @@ void USART_Clock_Enable(USART_Type* USART_x, confirm_state new_state) {
   * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
-  * @param  USART_int: specifies the USART interrupt sources to be enabled or disabled.
+  * @param  USART_int: 指定USART interrupt sources to be enabled or disabled.
   *         该参数可以是以下值之一:
   *         - USART_IDLE_INT:  idle interrupt
   *         - USART_RDBF_INT:  rdbf interrupt
@@ -339,7 +339,7 @@ void USART_Receiver_mute_Enable(USART_Type* USART_x, confirm_state new_state) {
   * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
-  * @param  break_bit: specifies the break bit num.
+  * @param  break_bit: 指定break bit num.
   *         该参数可以是以下值之一:
   *         - USART_Break_10BITS
   *         - USART_Break_11BITS
@@ -402,7 +402,7 @@ void USART_Break_Send(USART_Type* USART_x) {
   * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3 or USART6.
-  * @param  guard_Time_val: specifies the guard time (0x00~0xFF).
+  * @param  guard_Time_val: 指定guard time (0x00~0xFF).
   * @retval 无
   */
 void USART_SmartCard_Guard_Time_Set(USART_Type* USART_x, uint8_t guard_Time_val) {
@@ -415,7 +415,7 @@ void USART_SmartCard_Guard_Time_Set(USART_Type* USART_x, uint8_t guard_Time_val)
   * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3 or USART6.
-  * @param  div_val: specifies the division.
+  * @param  div_val: 指定division.
   * @retval 无
   */
 void USART_IRDA_SmartCard_Division_Set(USART_Type* USART_x, uint8_t div_val) {
@@ -494,7 +494,7 @@ void USART_IRDA_Low_Power_Enable(USART_Type* USART_x, confirm_state new_state) {
   * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3
-  * @param  flow_state: specifies the hardware flow control.
+  * @param  flow_state: 指定hardware flow control.
   *         该参数可以是以下值之一:
   *         - USART_Hardware_Flow_NONE
   *         - USART_Hardware_Flow_RTS,
@@ -523,7 +523,7 @@ void USART_Hardware_Flow_Control_Set(USART_Type* USART_x, USART_Hardware_Flow_Co
   * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
-  * @param  flag: specifies the flag to check.
+  * @param  flag: 指定flag to check.
   *         该参数可以是以下值之一:
   *         - USART_CTSCF_FLAG: cts change flag (not available for UART4,UART5,USART6,UART7 and UART8)
   *         - USART_BFF_FLAG:   break frame flag
@@ -550,7 +550,7 @@ flag_status USART_Flag_Get(USART_Type* USART_x, uint32_t flag) {
   * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
-  * @param  flag: specifies the flag to clear.
+  * @param  flag: 指定flag to clear.
   *         该参数可以是以下值的任意组合:
   *         - USART_CTSCF_FLAG: (not available for UART4,UART5,USART6,UART7 and UART8).
   *         - USART_BFF_FLAG:

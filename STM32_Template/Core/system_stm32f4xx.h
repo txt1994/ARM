@@ -56,7 +56,7 @@ extern "C" {
   * @{
   */
 
-extern uint32_t SystemCoreClock;          /*!< System Clock Frequency (Core Clock) */
+extern uint32_t SystemCoreClock;          /*!< 系统时钟频率(核心时钟) */
 
 
 /**

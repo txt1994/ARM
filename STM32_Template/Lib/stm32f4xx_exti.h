@@ -76,16 +76,16 @@ typedef enum {
 
 typedef struct {
     uint32_t EXTI_Line;               /*!< 指定要启用或禁用的 EXTI 行。
-									该参数可以是@ref EXTI_Lines 的任意组合值 */
+									                    该参数可以是@ref EXTI_Lines 的任意组合值 */
 
     EXTIMode_TypeDef EXTI_Mode;       /*!< 指定 EXTI 行的模式。
-									该参数可以是@ref EXTIMode_TypeDef 的值 */
+									                    该参数可以是@ref EXTIMode_TypeDef 的值 */
 
     EXTITrigger_TypeDef EXTI_Trigger; /*!< 指定 EXTI 线的触发信号有效边沿。
-									该参数可以是@ref EXTITrigger_TypeDef 的值 */
+									                    该参数可以是@ref EXTITrigger_TypeDef 的值 */
 
     FunctionalState EXTI_LineCmd;     /*!< 指定选定 EXTI 行的新状态。
-									此参数可以设置为 ENABLE 或 DISABLE */
+									                    此参数可以设置为 ENABLE 或 DISABLE */
 } EXTI_InitTypeDef;
 
 /* Exported constants --------------------------------------------------------*/

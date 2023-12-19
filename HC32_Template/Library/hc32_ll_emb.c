@@ -583,7 +583,7 @@ int32_t EMB_TMR6_Init(CM_EMB_TypeDef *EMBx, const stc_emb_tmr6_init_t *pstcEmbIn
  * @param  [in] EMBx                    Pointer to EMB instance register base
  *         This parameter can be one of the following values:
  *           @arg CM_EMBx:              EMB group instance register base
- * @retval None
+ * @retval 无
  */
 void EMB_DeInit(CM_EMB_TypeDef *EMBx) {
     DDL_ASSERT(IS_EMB_GROUP(EMBx));
@@ -600,7 +600,7 @@ void EMB_DeInit(CM_EMB_TypeDef *EMBx) {
  * @param  [in] u32IntType              EMB interrupt source
  *         This parameter can be any composed value of the macros group @ref EMB_Interrupt.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void EMB_IntCmd(CM_EMB_TypeDef *EMBx, uint32_t u32IntType, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_EMB_GROUP(EMBx));
@@ -621,7 +621,7 @@ void EMB_IntCmd(CM_EMB_TypeDef *EMBx, uint32_t u32IntType, en_functional_state_t
  *           @arg CM_EMBx:              EMB group instance register base
  * @param  [in] u32Flag                 EMB flag
  *         This parameter can be any composed value(prefix with EMB_FLAG) of the macros group @ref EMB_Flag_State.
- * @retval None
+ * @retval 无
  * @note This parameter u32Flag prefix with EMB_FLAG(eg EMB_FLAG_CMP) of the macros group @ref EMB_Flag_State.
  */
 void EMB_ClearStatus(CM_EMB_TypeDef *EMBx, uint32_t u32Flag) {
@@ -654,7 +654,7 @@ en_flag_status_t EMB_GetStatus(const CM_EMB_TypeDef *EMBx, uint32_t u32Flag) {
  *         This parameter can be one of the following values:
  *           @arg CM_EMBx:              EMB group instance register base
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void EMB_SWBrake(CM_EMB_TypeDef *EMBx, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -675,7 +675,7 @@ void EMB_SWBrake(CM_EMB_TypeDef *EMBx, en_functional_state_t enNewState) {
  *         This parameter can be one of the macros group @ref EMB_Release_TMR_PWM_Condition
  *           @arg EMB_RELEASE_PWM_COND_FLAG_ZERO: Release PWM when flag bit of the specified event is zero
  *           @arg EMB_RELEASE_PWM_COND_STAT_ZERO: Release PWM when state bit of the specified event is zero
- * @retval None
+ * @retval 无
  */
 void EMB_SetReleasePwmCond(CM_EMB_TypeDef *EMBx, uint32_t u32Event, uint32_t u32Cond) {
     DDL_ASSERT(IS_EMB_GROUP(EMBx));

@@ -52,13 +52,13 @@ extern "C" {
   * @{
   */
 
-#define I2C_TD_INT                       ((uint32_t)0x00000002) /*!< i2c transmit data interrupt */
-#define I2C_RD_INT                       ((uint32_t)0x00000004) /*!< i2c receive data interrupt */
-#define I2C_Addr_INT                     ((uint32_t)0x00000008) /*!< i2c address match interrupt */
-#define I2C_ACKFIAL_INT                  ((uint32_t)0x00000010) /*!< i2c ack fail interrupt */
-#define I2C_Stop_INT                     ((uint32_t)0x00000020) /*!< i2c stop detect interrupt */
-#define I2C_TDC_INT                      ((uint32_t)0x00000040) /*!< i2c transmit data complete interrupt */
-#define I2C_ERR_INT                      ((uint32_t)0x00000080) /*!< i2c bus error interrupt */
+#define I2C_TD_INT                       ((uint32_t)0x00000002) /*!< i2c transmit data 中断 */
+#define I2C_RD_INT                       ((uint32_t)0x00000004) /*!< i2c receive data 中断 */
+#define I2C_Addr_INT                     ((uint32_t)0x00000008) /*!< i2c address match 中断 */
+#define I2C_ACKFIAL_INT                  ((uint32_t)0x00000010) /*!< i2c ack fail 中断 */
+#define I2C_Stop_INT                     ((uint32_t)0x00000020) /*!< i2c stop detect 中断 */
+#define I2C_TDC_INT                      ((uint32_t)0x00000040) /*!< i2c transmit data complete 中断 */
+#define I2C_ERR_INT                      ((uint32_t)0x00000080) /*!< i2c bus error 中断 */
 
 /**
   * @}
@@ -114,8 +114,8 @@ typedef enum {
   * @brief i2c transfer direction
   */
 typedef enum {
-    I2C_Dir_Transmit                       = 0x00, /*!< master request a write transfer */
-    I2C_Dir_Receive                        = 0x01  /*!< master request a read transfer */
+    I2C_Dir_Transmit                       = 0x00, /*!< master 请求写入传输 */
+    I2C_Dir_Receive                        = 0x01  /*!< master 请求读取传输 */
 } I2C_Transfer_Dir_Type;
 
 /**

@@ -304,14 +304,14 @@ typedef struct {
 } TIMER_ic_Parameter_Struct;
 
 /* TIMER interrupt enable or disable */
-#define TIMER_INT_UP                        TIMER_DMAINTEN_UPIE                     /*!< update interrupt */
-#define TIMER_INT_CH0                       TIMER_DMAINTEN_CH0IE                    /*!< channel 0 interrupt */
-#define TIMER_INT_CH1                       TIMER_DMAINTEN_CH1IE                    /*!< channel 1 interrupt */
-#define TIMER_INT_CH2                       TIMER_DMAINTEN_CH2IE                    /*!< channel 2 interrupt */
-#define TIMER_INT_CH3                       TIMER_DMAINTEN_CH3IE                    /*!< channel 3 interrupt */
+#define TIMER_INT_UP                        TIMER_DMAINTEN_UPIE                     /*!< update 中断 */
+#define TIMER_INT_CH0                       TIMER_DMAINTEN_CH0IE                    /*!< channel 0 中断 */
+#define TIMER_INT_CH1                       TIMER_DMAINTEN_CH1IE                    /*!< channel 1 中断 */
+#define TIMER_INT_CH2                       TIMER_DMAINTEN_CH2IE                    /*!< channel 2 中断 */
+#define TIMER_INT_CH3                       TIMER_DMAINTEN_CH3IE                    /*!< channel 3 中断 */
 #define TIMER_INT_CMT                       TIMER_DMAINTEN_CMTIE                    /*!< channel commutation interrupt flag */
-#define TIMER_INT_TRG                       TIMER_DMAINTEN_TRGIE                    /*!< trigger interrupt */
-#define TIMER_INT_BRK                       TIMER_DMAINTEN_BRKIE                    /*!< break interrupt */
+#define TIMER_INT_TRG                       TIMER_DMAINTEN_TRGIE                    /*!< trigger 中断 */
+#define TIMER_INT_BRK                       TIMER_DMAINTEN_BRKIE                    /*!< break 中断 */
 
 /* TIMER flag */
 #define TIMER_Flag_UP                       TIMER_INTF_UPIF                         /*!< update flag */
@@ -596,7 +596,7 @@ typedef struct {
 #define TIMER4_CI3_RMP_GPIO                 TIMER4_IRMP(0)                          /*!< timer4 channel 3 input remap to GPIO pin */
 #define TIMER4_CI3_RMP_IRC32K               TIMER4_IRMP(1)                          /*!< timer4 channel 3 input remap to IRC32K */
 #define TIMER4_CI3_RMP_LXTAL                TIMER4_IRMP(2)                          /*!< timer4 channel 3 input remap to  LXTAL */
-#define TIMER4_CI3_RMP_RTC_WakeUp_INT       TIMER4_IRMP(3)                          /*!< timer4 channel 3 input remap to RTC wakeup interrupt */
+#define TIMER4_CI3_RMP_RTC_WakeUp_INT       TIMER4_IRMP(3)                          /*!< timer4 channel 3 input remap to RTC wakeup 中断 */
 
 /* timer10 internal trigger input1 remap */
 #define TIMER10_IRMP(regval)                (BITS(0, 1) & ((uint32_t)(regval) << 0U))
@@ -763,9 +763,9 @@ void TIMER_OutPut_Value_Selection_Config(uint32_t TIMER_periph, uint16_t outsel)
 FlagStatus TIMER_Flag_Get(uint32_t TIMER_periph, uint32_t flag);
 /* clear TIMER flags */
 void TIMER_Flag_Clear(uint32_t TIMER_periph, uint32_t flag);
-/* enable the TIMER interrupt */
+/* enable the TIMER 中断 */
 void TIMER_Interrupt_Enable(uint32_t TIMER_periph, uint32_t interrupt);
-/* disable the TIMER interrupt */
+/* disable the TIMER 中断 */
 void TIMER_Interrupt_Disable(uint32_t TIMER_periph, uint32_t interrupt);
 /* get timer interrupt flag */
 FlagStatus TIMER_Interrupt_Flag_Get(uint32_t TIMER_periph, uint32_t interrupt);

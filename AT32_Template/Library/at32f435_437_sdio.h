@@ -47,29 +47,29 @@ extern "C" {
   * @{
   */
 
-#define SDIO_CMDFAIL_INT                 ((uint32_t)0x00000001) /*!< command response received check failed interrupt */
-#define SDIO_DTFAIL_INT                  ((uint32_t)0x00000002) /*!< data block sent/received check failed interrupt */
-#define SDIO_CMDTIMEOUT_INT              ((uint32_t)0x00000004) /*!< command response timerout interrupt */
-#define SDIO_DTTIMEOUT_INT               ((uint32_t)0x00000008) /*!< data timeout interrupt */
-#define SDIO_TXERRU_INT                  ((uint32_t)0x00000010) /*!< transmit underrun error interrupt */
-#define SDIO_RXERRO_INT                  ((uint32_t)0x00000020) /*!< received overrun error interrupt */
-#define SDIO_CMDRSPCMPL_INT              ((uint32_t)0x00000040) /*!< command response received interrupt */
-#define SDIO_CMDCMPL_INT                 ((uint32_t)0x00000080) /*!< command sent interrupt */
-#define SDIO_DTCMP_INT                   ((uint32_t)0x00000100) /*!< data sent interrupt */
-#define SDIO_SBITERR_INT                 ((uint32_t)0x00000200) /*!< start bit not detected on data bus interrupt */
-#define SDIO_DTBLKCMPL_INT               ((uint32_t)0x00000400) /*!< data block sent/received interrupt */
-#define SDIO_DOCMD_INT                   ((uint32_t)0x00000800) /*!< command transfer in progress interrupt */
-#define SDIO_DOTX_INT                    ((uint32_t)0x00001000) /*!< data transmit in progress interrupt */
-#define SDIO_DORX_INT                    ((uint32_t)0x00002000) /*!< data receive in progress interrupt */
-#define SDIO_TXBUFH_INT                  ((uint32_t)0x00004000) /*!< transmit buf half empty interrupt */
-#define SDIO_RXBUFH_INT                  ((uint32_t)0x00008000) /*!< receive buf half full interrupt */
-#define SDIO_TXBUFF_INT                  ((uint32_t)0x00010000) /*!< transmit buf full interrupt */
-#define SDIO_RXBUFF_INT                  ((uint32_t)0x00020000) /*!< receive buf full interrupt */
-#define SDIO_TXBUFE_INT                  ((uint32_t)0x00040000) /*!< transmit buf empty interrupt */
-#define SDIO_RXBUFE_INT                  ((uint32_t)0x00080000) /*!< receive buf empty interrupt */
-#define SDIO_TXBUF_INT                   ((uint32_t)0x00100000) /*!< data available in transmit interrupt */
-#define SDIO_RXBUF_INT                   ((uint32_t)0x00200000) /*!< data available in receive interrupt */
-#define SDIO_SDIOIF_INT                  ((uint32_t)0x00400000) /*!< sdio interface received interrupt */
+#define SDIO_CMDFAIL_INT                 ((uint32_t)0x00000001) /*!< command response received check failed 中断 */
+#define SDIO_DTFAIL_INT                  ((uint32_t)0x00000002) /*!< data block sent/received check failed 中断 */
+#define SDIO_CMDTIMEOUT_INT              ((uint32_t)0x00000004) /*!< command response timerout 中断 */
+#define SDIO_DTTIMEOUT_INT               ((uint32_t)0x00000008) /*!< data timeout 中断 */
+#define SDIO_TXERRU_INT                  ((uint32_t)0x00000010) /*!< transmit underrun error 中断 */
+#define SDIO_RXERRO_INT                  ((uint32_t)0x00000020) /*!< received overrun error 中断 */
+#define SDIO_CMDRSPCMPL_INT              ((uint32_t)0x00000040) /*!< command response received 中断 */
+#define SDIO_CMDCMPL_INT                 ((uint32_t)0x00000080) /*!< command sent 中断 */
+#define SDIO_DTCMP_INT                   ((uint32_t)0x00000100) /*!< data sent 中断 */
+#define SDIO_SBITERR_INT                 ((uint32_t)0x00000200) /*!< start bit not detected on data bus 中断 */
+#define SDIO_DTBLKCMPL_INT               ((uint32_t)0x00000400) /*!< data block sent/received 中断 */
+#define SDIO_DOCMD_INT                   ((uint32_t)0x00000800) /*!< command transfer in progress 中断 */
+#define SDIO_DOTX_INT                    ((uint32_t)0x00001000) /*!< data transmit in progress 中断 */
+#define SDIO_DORX_INT                    ((uint32_t)0x00002000) /*!< data receive in progress 中断 */
+#define SDIO_TXBUFH_INT                  ((uint32_t)0x00004000) /*!< transmit buf half empty 中断 */
+#define SDIO_RXBUFH_INT                  ((uint32_t)0x00008000) /*!< receive buf half full 中断 */
+#define SDIO_TXBUFF_INT                  ((uint32_t)0x00010000) /*!< transmit buf full 中断 */
+#define SDIO_RXBUFF_INT                  ((uint32_t)0x00020000) /*!< receive buf full 中断 */
+#define SDIO_TXBUFE_INT                  ((uint32_t)0x00040000) /*!< transmit buf empty 中断 */
+#define SDIO_RXBUFE_INT                  ((uint32_t)0x00080000) /*!< receive buf empty 中断 */
+#define SDIO_TXBUF_INT                   ((uint32_t)0x00100000) /*!< data available in transmit 中断 */
+#define SDIO_RXBUF_INT                   ((uint32_t)0x00200000) /*!< data available in receive 中断 */
+#define SDIO_SDIOIF_INT                  ((uint32_t)0x00400000) /*!< sdio interface received 中断 */
 
 /**
   * @}

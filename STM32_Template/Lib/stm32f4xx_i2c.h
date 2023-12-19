@@ -422,41 +422,35 @@ typedef struct {
   */
 
 /* --EV1  (all the events below are variants of EV1) */
-/* 1) Case of One Single Address managed by the slave */
+/* 1) 一个单一地址由从机管理的情况 */
 #define  I2C_EVENT_SLAVE_RECEIVER_ADDRESS_MATCHED          ((uint32_t)0x00020002) /* BUSY and ADDR flags */
 #define  I2C_EVENT_SLAVE_TRANSMITTER_ADDRESS_MATCHED       ((uint32_t)0x00060082) /* TRA, BUSY, TXE and ADDR flags */
 
-/* 2) Case of Dual address managed by the slave */
+/* 2) 双地址由从机管理的情况 */
 #define  I2C_EVENT_SLAVE_RECEIVER_SECONDADDRESS_MATCHED    ((uint32_t)0x00820000)  /* DUALF and BUSY flags */
 #define  I2C_EVENT_SLAVE_TRANSMITTER_SECONDADDRESS_MATCHED ((uint32_t)0x00860080)  /* DUALF, TRA, BUSY and TXE flags */
 
-/* 3) Case of General Call enabled for the slave */
+/* 3) 为从属设备启用通用呼叫的情况 */
 #define  I2C_EVENT_SLAVE_GENERALCALLADDRESS_MATCHED        ((uint32_t)0x00120000)  /* GENCALL and BUSY flags */
 
 /**
-  * 简介:  Communication events
+  * 简介:  通信事件
   *
-  * Wait on one of these events when EV1 has already been checked and:
+  * 当EV1已经被检查时，等待以下事件之一:
   *
   * - Slave 接收器模式:
-  *     - EV2: When the application is expecting a data byte to be received.
-  *     - EV4: When the application is expecting the end of the communication: master
-  *       sends a stop condition and data transmission is stopped.
+  *     - EV2: 当应用程序期望接收一个数据字节时。
+  *     - EV4: 当应用程序期望通信结束时: master 发送一个停止条件，数据传输停止。
   *
   * - Slave 发射器模式:
-  *    - EV3: When a byte has been transmitted by the slave and the application is expecting
-  *      the end of the byte transmission. The two events I2C_EVENT_SLAVE_BYTE_TRANSMITTED and
-  *      I2C_EVENT_SLAVE_BYTE_TRANSMITTING are similar. The second one can optionally be
-  *      used when the user software doesn't guarantee the EV3 is managed before the
-  *      current byte end of transfer.
-  *    - EV3_2: When the master sends a NACK in order to tell slave that data transmission
-  *      shall end (before sending the STOP condition). In this case slave has to stop sending
-  *      data bytes and expect a Stop condition on the bus.
+  *    - EV3: 当一个字节已经被从服务器传输，并且应用程序正在等待字节传输的结束。
+  *           两个事件I2C_EVENT_SLAVE_BYTE_TRANSMITTED和I2C_EVENT_SLAVE-BYTE_TRANSMITTING相似。 
+  *           当用户软件不能保证在当前字节传输结束之前管理EV3时，可以选择性地使用第二个。
+  *    - EV3_2: 当主设备发送NACK以告知从设备数据传输应结束时（在发送STOP条件之前）。
+  *             在这种情况下，从设备必须停止发送数据字节，并在总线上等待"停止"条件。
   *
-  *  @note In case the  user software does not guarantee that the event EV2 is
-  *        managed before the current byte end of transfer, then user may check on EV2
-  *        and BTF flag at the same time (ie. (I2C_EVENT_SLAVE_BYTE_RECEIVED | I2C_FLAG_BTF)).
-  *        In this case the communication may be slower.
+  *  @note 如果用户软件不能保证在当前字节传输结束之前管理事件EV2，
+  * 则用户可以同时检查EV2和BTF标志（即（I2C_EVENT_SLAVE_BYTE_RECEIVED | I2C_FLAG_BTF））。在这种情况下，通信可能会更慢。
   *
   */
 
@@ -475,7 +469,7 @@ typedef struct {
 
 /*
  ===============================================================================
-                          End of Events Description
+                          事件结束描述
  ===============================================================================
  */
 
@@ -528,7 +522,7 @@ typedef struct {
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
 
-/*  Function used to set the I2C configuration to the default reset state *****/
+/*  用于将I2C配置设置为默认重置状态的功能 *****/
 void I2C_DeInit(I2C_TypeDef* I2Cx); // 将I2Cx外设寄存器取消初始化为其默认复位值。
 
 /* 初始化和配置功能 *********************************/

@@ -121,7 +121,7 @@ void QSPI_Interrupt_Enable(QSPI_Type* QSPI_x, confirm_state new_state) {
   * @param  QSPI_x: select the qspi peripheral.
   *         该参数可以是以下值之一:
   *         QSPI1,QSPI2.
-  * @param  flag: specifies the flag to check.
+  * @param  flag: 指定flag to check.
   *         该参数可以是以下值之一:
   *         - QSPI_RXFIFORDY_FLAG
   *         - QSPI_TXFIFORDY_FLAG

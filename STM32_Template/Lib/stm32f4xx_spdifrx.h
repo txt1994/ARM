@@ -64,7 +64,7 @@ typedef struct {
     uint32_t SPDIFRX_DataFormat;               /*!< 指定数据样本格式(LSB、MSB、...)。
                                                  该参数可以是@ref SPDIFRX_Data_Format 的值 */
 
-    uint32_t SPDIFRX_StereoMode;               /*!< 指定外围设备是处于立体声还是单声道模式。
+    uint32_t SPDIFRX_StereoMode;               /*!< 指定外设设备是处于立体声还是单声道模式。
                                                  该参数可以是@ref SPDIFRX_Stereo_Mode 的值 */
 } SPDIFRX_InitTypeDef;
 

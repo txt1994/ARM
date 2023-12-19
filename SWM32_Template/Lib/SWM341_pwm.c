@@ -98,7 +98,7 @@ void PWM_Init(PWM_TypeDef * PWMx, PWM_InitStructure * initStruct) {
 /******************************************************************************************************************************************
 * 函数名称:	PWM_Start()
 * 功能说明:	启动PWM，开始PWM输出
-* 输    入: uint32_t pwm			PWM0_MSK、PWM1_MSK、PWM2_MSK、PWM3_MSK、PWM4_MSK、PWM5_MSK 及其“或”
+* 输    入: uint32_t pwm			PWM0_MSK、PWM1_MSK、PWM2_MSK、PWM3_MSK、PWM4_MSK、PWM5_MSK 及其"或"
 * 输    出: 无
 * 注意事项: 无
 ******************************************************************************************************************************************/
@@ -109,7 +109,7 @@ void PWM_Start(uint32_t pwm) {
 /******************************************************************************************************************************************
 * 函数名称:	PWM_Stop()
 * 功能说明:	关闭PWM，停止PWM输出
-* 输    入: uint32_t pwm			PWM0_MSK、PWM1_MSK、PWM2_MSK、PWM3_MSK、PWM4_MSK、PWM5_MSK 及其“或”
+* 输    入: uint32_t pwm			PWM0_MSK、PWM1_MSK、PWM2_MSK、PWM3_MSK、PWM4_MSK、PWM5_MSK 及其"或"
 * 输    出: 无
 * 注意事项: 无
 ******************************************************************************************************************************************/
@@ -120,7 +120,7 @@ void PWM_Stop(uint32_t pwm) {
 /******************************************************************************************************************************************
 * 函数名称:	PWM_Restart()
 * 功能说明:	重启PWM，将PWM计数器清零，然后使用新的周期、高电平时长、死区时长设定值开始计数
-* 输    入: uint32_t pwm			PWM0_MSK、PWM1_MSK、PWM2_MSK、PWM3_MSK、PWM4_MSK、PWM5_MSK 及其“或”
+* 输    入: uint32_t pwm			PWM0_MSK、PWM1_MSK、PWM2_MSK、PWM3_MSK、PWM4_MSK、PWM5_MSK 及其"或"
 * 输    出: 无
 * 注意事项: 无
 ******************************************************************************************************************************************/
@@ -131,7 +131,7 @@ void PWM_Restart(uint32_t pwm) {
 /******************************************************************************************************************************************
 * 函数名称:	PWM_ReloadEn()
 * 功能说明:	只有当 Reload Enable 时，写入 PERIOD、CMPA、CMPB、DZA、DZB 等寄存器的值才会（在计数器溢出时）加载到内部工作寄存器
-* 输    入: uint32_t pwm			PWM0_MSK、PWM1_MSK、PWM2_MSK、PWM3_MSK、PWM4_MSK、PWM5_MSK 及其“或”
+* 输    入: uint32_t pwm			PWM0_MSK、PWM1_MSK、PWM2_MSK、PWM3_MSK、PWM4_MSK、PWM5_MSK 及其"或"
 * 输    出: 无
 * 注意事项: 如果需要保证在写 PERIOD、CMPA、CMPB、DZA、DZB 等寄存器过程中，这些寄存器的值不会被加载到内部工作寄存器，可以如下操作：
 *			第一步、PWM_ReloadDis(PWM0_MSK | PWM1_MSK);
@@ -145,7 +145,7 @@ void PWM_ReloadEn(uint32_t pwm) {
 /******************************************************************************************************************************************
 * 函数名称:	PWM_ReloadDis()
 * 功能说明:	只有当 Reload Enable 时，写入 PERIOD、CMPA、CMPB、DZA、DZB 等寄存器的值才会（在计数器溢出时）加载到内部工作寄存器
-* 输    入: uint32_t pwm			PWM0_MSK、PWM1_MSK、PWM2_MSK、PWM3_MSK、PWM4_MSK、PWM5_MSK 及其“或”
+* 输    入: uint32_t pwm			PWM0_MSK、PWM1_MSK、PWM2_MSK、PWM3_MSK、PWM4_MSK、PWM5_MSK 及其"或"
 * 输    出: 无
 * 注意事项: 无
 ******************************************************************************************************************************************/
@@ -156,7 +156,7 @@ void PWM_ReloadDis(uint32_t pwm) {
 /******************************************************************************************************************************************
 * 函数名称:	PWM_BrkInPolarity()
 * 功能说明:	设置刹车输入有效极性
-* 输    入: uint32_t brk			PWM_BRK0、PWM_BRK1、PWM_BRK2 及其“或”
+* 输    入: uint32_t brk			PWM_BRK0、PWM_BRK1、PWM_BRK2 及其"或"
 *			uint32_t level			0 低电平刹车   1 高电平刹车
 * 输    出: 无
 * 注意事项: 无
@@ -173,7 +173,7 @@ void PWM_BrkInPolarity(uint32_t brk, uint32_t level) {
 * 功能说明:	刹车配置
 * 输    入: PWM_TypeDef * PWMx 		指定要被设置的PWM，有效值包括PWM0、PWM1、PWM2、PWM3、PWM4
 *			uint32_t chn			指定要被设置的PWM通道，有效值包括PWM_CH_A、PWM_CH_B
-*			uint32_t brk			刹车输入，PWM_BRK0、PWM_BRK1、PWM_BRK2 及其“或”
+*			uint32_t brk			刹车输入，PWM_BRK0、PWM_BRK1、PWM_BRK2 及其"或"
 *			uint32_t out			刹车过程中PWMxA/PWMxB输出电平
 *			uint32_t outN			刹车过程中PWMxAN/PWMxBN输出电平
 *			uint32_t outHold		刹车信号撤销后，0 输出立即恢复   1 输出保持到计数器溢出再恢复
@@ -406,7 +406,7 @@ uint16_t PWM_GetDeadzone(PWM_TypeDef * PWMx, uint32_t chn) {
 * 功能说明: 中断使能
 * 输    入: PWM_TypeDef * PWMx 		指定要被设置的PWM，有效值包括PWM0、PWM1、PWM2、PWM3、PWM4
 *			uint32_t it				interrupt type，有效值包括PWM_IT_OVF_UP、PWM_IT_OVF_DOWN、PWM_IT_CMPA_UP、PWM_IT_CMPB_UP、
-*									PWM_IT_CMPA_DOWN、PWM_IT_CMPB_DOWN 及其“或”
+*									PWM_IT_CMPA_DOWN、PWM_IT_CMPB_DOWN 及其"或"
 * 输    出: 无
 * 注意事项: 无
 ******************************************************************************************************************************************/
@@ -419,7 +419,7 @@ void PWM_IntEn(PWM_TypeDef * PWMx, uint32_t it) {
 * 功能说明: 中断禁能
 * 输    入: PWM_TypeDef * PWMx 		指定要被设置的PWM，有效值包括PWM0、PWM1、PWM2、PWM3、PWM4
 *			uint32_t it				interrupt type，有效值包括PWM_IT_OVF_UP、PWM_IT_OVF_DOWN、PWM_IT_CMPA_UP、PWM_IT_CMPB_UP、
-*									PWM_IT_CMPA_DOWN、PWM_IT_CMPB_DOWN 及其“或”
+*									PWM_IT_CMPA_DOWN、PWM_IT_CMPB_DOWN 及其"或"
 * 输    出: 无
 * 注意事项: 无
 ******************************************************************************************************************************************/
@@ -432,7 +432,7 @@ void PWM_IntDis(PWM_TypeDef * PWMx, uint32_t it) {
 * 功能说明:中断标志清除
 * 输    入: PWM_TypeDef * PWMx 		指定要被设置的PWM，有效值包括PWM0、PWM1、PWM2、PWM3、PWM4
 *			uint32_t it				interrupt type，有效值包括PWM_IT_OVF_UP、PWM_IT_OVF_DOWN、PWM_IT_CMPA_UP、PWM_IT_CMPB_UP、
-*									PWM_IT_CMPA_DOWN、PWM_IT_CMPB_DOWN 及其“或”
+*									PWM_IT_CMPA_DOWN、PWM_IT_CMPB_DOWN 及其"或"
 * 输    出: 无
 * 注意事项: 无
 ******************************************************************************************************************************************/
@@ -445,7 +445,7 @@ void PWM_IntClr(PWM_TypeDef * PWMx, uint32_t it) {
 * 功能说明: 中断标志查询
 * 输    入: PWM_TypeDef * PWMx 		指定要被设置的PWM，有效值包括PWM0、PWM1、PWM2、PWM3、PWM4
 *			uint32_t it				interrupt type，有效值包括PWM_IT_OVF_UP、PWM_IT_OVF_DOWN、PWM_IT_CMPA_UP、PWM_IT_CMPB_UP、
-*									PWM_IT_CMPA_DOWN、PWM_IT_CMPB_DOWN 及其“或”
+*									PWM_IT_CMPA_DOWN、PWM_IT_CMPB_DOWN 及其"或"
 * 输    出: uint32_t				0 中断标志未置起   非0 中断标志已置起
 * 注意事项: 无
 ******************************************************************************************************************************************/
@@ -456,7 +456,7 @@ uint32_t PWM_IntStat(PWM_TypeDef * PWMx, uint32_t it) {
 /******************************************************************************************************************************************
 * 函数名称:	PWM_BrkIntEn()
 * 功能说明: 刹车中断使能
-* 输    入: uint32_t brkit			brake interrupt type，有效值包括 PWM_BRKIT_BRK0、PWM_BRKIT_BRK0、PWM_BRKIT_BRK0 及其“或”
+* 输    入: uint32_t brkit			brake interrupt type，有效值包括 PWM_BRKIT_BRK0、PWM_BRKIT_BRK0、PWM_BRKIT_BRK0 及其"或"
 * 输    出: 无
 * 注意事项: 无
 ******************************************************************************************************************************************/
@@ -467,7 +467,7 @@ void PWM_BrkIntEn(uint32_t brkit) {
 /******************************************************************************************************************************************
 * 函数名称:	PWM_BrkIntDis()
 * 功能说明: 刹车中断禁能
-* 输    入: uint32_t brkit			brake interrupt type，有效值包括 PWM_BRKIT_BRK0、PWM_BRKIT_BRK0、PWM_BRKIT_BRK0 及其“或”
+* 输    入: uint32_t brkit			brake interrupt type，有效值包括 PWM_BRKIT_BRK0、PWM_BRKIT_BRK0、PWM_BRKIT_BRK0 及其"或"
 * 输    出: 无
 * 注意事项: 无
 ******************************************************************************************************************************************/
@@ -478,7 +478,7 @@ void PWM_BrkIntDis(uint32_t brkit) {
 /******************************************************************************************************************************************
 * 函数名称:	PWM_BrkIntClr()
 * 功能说明:中断标志清除
-* 输    入: uint32_t brkit			brake interrupt type，有效值包括 PWM_BRKIT_BRK0、PWM_BRKIT_BRK0、PWM_BRKIT_BRK0 及其“或”
+* 输    入: uint32_t brkit			brake interrupt type，有效值包括 PWM_BRKIT_BRK0、PWM_BRKIT_BRK0、PWM_BRKIT_BRK0 及其"或"
 * 输    出: 无
 * 注意事项: 无
 ******************************************************************************************************************************************/
@@ -489,7 +489,7 @@ void PWM_BrkIntClr(uint32_t brkit) {
 /******************************************************************************************************************************************
 * 函数名称:	PWM_BrkIntStat()
 * 功能说明: 刹车中断标志查询
-* 输    入: uint32_t brkit			brake interrupt type，有效值包括 PWM_BRKIT_BRK0、PWM_BRKIT_BRK0、PWM_BRKIT_BRK0 及其“或”
+* 输    入: uint32_t brkit			brake interrupt type，有效值包括 PWM_BRKIT_BRK0、PWM_BRKIT_BRK0、PWM_BRKIT_BRK0 及其"或"
 * 输    出: uint32_t				0 中断标志未置起   非0 中断标志已置起
 * 注意事项: 无
 ******************************************************************************************************************************************/

@@ -181,7 +181,7 @@
 
 /**
  * @brief  De-Initialize RTC.
- * @param  None
+ * @param  无
  * @retval int32_t:
  *           - LL_OK: De-Initialize success
  *           - LL_ERR_TIMEOUT: De-Initialize timeout
@@ -283,7 +283,7 @@ int32_t RTC_StructInit(stc_rtc_init_t *pstcRtcInit) {
 
 /**
  * @brief  Enter RTC read/write mode.
- * @param  None
+ * @param  无
  * @retval int32_t:
  *           - LL_OK: Enter mode success
  *           - LL_ERR_TIMEOUT: Enter mode timeout
@@ -315,7 +315,7 @@ int32_t RTC_EnterRwMode(void) {
 
 /**
  * @brief  Exit RTC read/write mode.
- * @param  None
+ * @param  无
  * @retval int32_t:
  *           - LL_OK: Exit mode success
  *           - LL_ERR_TIMEOUT: Exit mode timeout
@@ -347,7 +347,7 @@ int32_t RTC_ExitRwMode(void) {
 
 /**
  * @brief  Confirm the condition for RTC to enter low power mode.
- * @param  None
+ * @param  无
  * @retval int32_t:
  *           - LL_OK: Can enter low power mode
  *           - LL_ERR_TIMEOUT: Can't enter low power mode
@@ -401,7 +401,7 @@ int32_t RTC_ConfirmLPMCond(void) {
  *           @arg RTC_INT_PERIOD_PER_HOUR:      Interrupt per hour
  *           @arg RTC_INT_PERIOD_PER_DAY:       Interrupt per day
  *           @arg RTC_INT_PERIOD_PER_MONTH:     Interrupt per month
- * @retval None
+ * @retval 无
  */
 void RTC_SetIntPeriod(uint8_t u8Period) {
     uint32_t u32RtcSta;
@@ -428,11 +428,11 @@ void RTC_SetIntPeriod(uint8_t u8Period) {
 }
 
 /**
- * @brief  Set the RTC clock source.
- * @param  [in] u8Src                   Specifies the clock source.
+ * @brief  Set the RTC 时钟源.
+ * @param  [in] u8Src                   Specifies the 时钟源.
  *         This parameter can be one of the following values:
  *           @arg @ref RTC_Clock_Source
- * @retval None
+ * @retval 无
  */
 void RTC_SetClockSrc(uint8_t u8Src) {
     /* Check parameters */
@@ -445,7 +445,7 @@ void RTC_SetClockSrc(uint8_t u8Src) {
  * @brief  Set RTC clock compensation value.
  * @param  [in] u16Value                Specifies the clock compensation value of RTC.
  *           @arg This parameter can be a number between Min_Data = 0 and Max_Data = 0x1FF.
- * @retval None
+ * @retval 无
  */
 void RTC_SetClockCompenValue(uint16_t u16Value) {
     /* Check parameters */
@@ -457,7 +457,7 @@ void RTC_SetClockCompenValue(uint16_t u16Value) {
 
 /**
  * @brief  Get RTC counter status.
- * @param  None
+ * @param  无
  * @retval An @ref en_functional_state_t enumeration value.
  *           - ENABLE: RTC counter started
  *           - DISABLE: RTC counter stopped
@@ -475,7 +475,7 @@ en_functional_state_t RTC_GetCounterState(void) {
 /**
  * @brief  Enable or disable RTC count.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void RTC_Cmd(en_functional_state_t enNewState) {
     /* Check parameters */
@@ -487,7 +487,7 @@ void RTC_Cmd(en_functional_state_t enNewState) {
 /**
  * @brief  Enable or disable RTC LRC function.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void RTC_LrcCmd(en_functional_state_t enNewState) {
     /* Check parameters */
@@ -499,7 +499,7 @@ void RTC_LrcCmd(en_functional_state_t enNewState) {
 /**
  * @brief  Enable or disable RTC 1HZ output.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void RTC_OneHzOutputCmd(en_functional_state_t enNewState) {
     /* Check parameters */
@@ -511,7 +511,7 @@ void RTC_OneHzOutputCmd(en_functional_state_t enNewState) {
 /**
  * @brief  Enable or disable clock compensation.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void RTC_ClockCompenCmd(en_functional_state_t enNewState) {
     /* Check parameters */
@@ -866,7 +866,7 @@ int32_t RTC_GetAlarm(uint8_t u8Format, stc_rtc_alarm_t *pstcRtcAlarm) {
 /**
  * @brief  Enable or disable RTC alarm.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void RTC_AlarmCmd(en_functional_state_t enNewState) {
     /* Check parameters */
@@ -881,7 +881,7 @@ void RTC_AlarmCmd(en_functional_state_t enNewState) {
  *         This parameter can be one of the following values:
  *           @arg RTC_INTRU_CH0:    Intrusion channel 0
  *           @arg RTC_INTRU_CH1:    Intrusion channel 1
- * @retval None
+ * @retval 无
  */
 void RTC_INTRU_DeInit(uint8_t u8Ch) {
     __IO uint8_t *TPCR;
@@ -1009,7 +1009,7 @@ int32_t RTC_INTRU_GetTimestamp(uint8_t u8Format, stc_rtc_timestamp_t *pstcTimest
  *           @arg RTC_INTRU_CH0:        Intrusion channel 0
  *           @arg RTC_INTRU_CH1:        Intrusion channel 1
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void RTC_INTRU_Cmd(uint8_t u8Ch, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -1029,7 +1029,7 @@ void RTC_INTRU_Cmd(uint8_t u8Ch, en_functional_state_t enNewState) {
  *         This parameter can be one or any combination of the following values:
  *           @arg @ref RTC_Interrupt
  * @param  [in] enNewState                An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void RTC_IntCmd(uint32_t u32IntType, en_functional_state_t enNewState) {
     uint32_t u32IntTemp;
@@ -1048,7 +1048,7 @@ void RTC_IntCmd(uint32_t u32IntType, en_functional_state_t enNewState) {
         }
     }
 
-    /* Intrusion interrupt */
+    /* Intrusion 中断 */
     if (0UL != (u32IntType & 0x00FF00UL)) {
         WRITE_REG32(bCM_RTC->TPCR0_b.TPIE0, enNewState);
     }
@@ -1099,7 +1099,7 @@ en_flag_status_t RTC_GetStatus(uint32_t u32Flag) {
  *         This parameter can be one or any combination of the following values:
  *           @arg @ref RTC_Flag
  *           @arg RTC_FLAG_CLR_ALL:     All of the above
- * @retval None
+ * @retval 无
  */
 void RTC_ClearStatus(uint32_t u32Flag) {
     uint8_t u8FlagTemp;

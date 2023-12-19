@@ -142,7 +142,7 @@
  * @param  [in] TMR0x                   Pointer to TMR0 unit instance
  *         This parameter can be one of the following values:
  *           @arg CM_TMR0 or CM_TMR0_x: TMR0 unit instance
- * @retval None
+ * @retval 无
  */
 void TMR0_DeInit(CM_TMR0_TypeDef *TMR0x) {
     uint32_t u32Ch;
@@ -233,7 +233,7 @@ int32_t TMR0_StructInit(stc_tmr0_init_t *pstcTmr0Init) {
  * @param  [in] u32Ch                   TMR0 channel
  *         This parameter can be one of the following values:
  *           @arg @ref TMR0_Channel
- * @retval None
+ * @retval 无
  */
 void TMR0_Start(CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch) {
     /* Check parameters */
@@ -251,7 +251,7 @@ void TMR0_Start(CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch) {
  * @param  [in] u32Ch                   TMR0 channel
  *         This parameter can be one of the following values:
  *           @arg @ref TMR0_Channel
- * @retval None
+ * @retval 无
  */
 void TMR0_Stop(CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch) {
     /* Check parameters */
@@ -271,7 +271,7 @@ void TMR0_Stop(CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch) {
  *         This parameter can be one of the following values:
  *           @arg @ref TMR0_Channel
  * @param  [in] u16Value                The data to write to the counter register
- * @retval None
+ * @retval 无
  */
 void TMR0_SetCountValue(CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch, uint16_t u16Value) {
     __IO uint32_t *CNTR;
@@ -314,7 +314,7 @@ uint16_t TMR0_GetCountValue(const CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch) {
  *         This parameter can be one of the following values:
  *           @arg @ref TMR0_Channel
  * @param  [in] u16Value                The data to write to the compare register
- * @retval None
+ * @retval 无
  */
 void TMR0_SetCompareValue(CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch, uint16_t u16Value) {
     __IO uint32_t *CMPR;
@@ -349,7 +349,7 @@ uint16_t TMR0_GetCompareValue(const CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch) {
 }
 
 /**
- * @brief  Set clock source.
+ * @brief  Set 时钟源.
  * @param  [in] TMR0x                   Pointer to TMR0 unit instance
  *         This parameter can be one of the following values:
  *           @arg CM_TMR0 or CM_TMR0_x: TMR0 unit instance
@@ -359,7 +359,7 @@ uint16_t TMR0_GetCompareValue(const CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch) {
  * @param  [in] u32Src                  Specifies the clock source
  *         This parameter can be a value of the following:
  *           @arg @ref TMR0_Clock_Source
- * @retval None
+ * @retval 无
  */
 void TMR0_SetClockSrc(CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch, uint32_t u32Src) {
     /* Check parameters */
@@ -391,7 +391,7 @@ void TMR0_SetClockSrc(CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch, uint32_t u32Src) {
  *           @arg TMR0_CLK_DIV256:      Clock source / 256
  *           @arg TMR0_CLK_DIV512:      Clock source / 512
  *           @arg TMR0_CLK_DIV1024:     Clock source / 1024
- * @retval None.
+ * @retval 无.
  */
 void TMR0_SetClockDiv(CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch, uint32_t u32Div) {
     /* Check parameters */
@@ -414,7 +414,7 @@ void TMR0_SetClockDiv(CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch, uint32_t u32Div) {
  *         This parameter can be a value of the following:
  *           @arg TMR0_FUNC_CMP:        Select the Compare function
  *           @arg TMR0_FUNC_CAPT:       Select the Capture function
- * @retval None
+ * @retval 无
  */
 void TMR0_SetFunc(CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch, uint32_t u32Func) {
     /* Check parameters */
@@ -435,7 +435,7 @@ void TMR0_SetFunc(CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch, uint32_t u32Func) {
  *         This parameter can be one of the following values:
  *           @arg @ref TMR0_Channel
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR0_HWCaptureCondCmd(CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -459,7 +459,7 @@ void TMR0_HWCaptureCondCmd(CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch, en_functional
  *         This parameter can be one of the following values:
  *           @arg @ref TMR0_Channel
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR0_HWStartCondCmd(CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -483,7 +483,7 @@ void TMR0_HWStartCondCmd(CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch, en_functional_s
  *         This parameter can be one of the following values:
  *           @arg @ref TMR0_Channel
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR0_HWStopCondCmd(CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -507,7 +507,7 @@ void TMR0_HWStopCondCmd(CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch, en_functional_st
  *         This parameter can be one of the following values:
  *           @arg @ref TMR0_Channel
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR0_HWClearCondCmd(CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -531,7 +531,7 @@ void TMR0_HWClearCondCmd(CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch, en_functional_s
  *         This parameter can be any combination value of the following values:
  *           @arg @ref TMR0_Interrupt.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR0_IntCmd(CM_TMR0_TypeDef *TMR0x, uint32_t u32IntType, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -578,7 +578,7 @@ en_flag_status_t TMR0_GetStatus(const CM_TMR0_TypeDef *TMR0x, uint32_t u32Flag) 
  * @param  [in] u32Flag                 TMR0 flag type
  *         This parameter can be any combination value of the following values:
  *           @arg @ref TMR0_FLAG
- * @retval None
+ * @retval 无
  */
 void TMR0_ClearStatus(CM_TMR0_TypeDef *TMR0x, uint32_t u32Flag) {
     /* Check parameters */

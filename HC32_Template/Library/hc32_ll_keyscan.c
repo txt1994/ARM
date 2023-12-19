@@ -143,7 +143,7 @@
 /**
  * @brief  KEYSCAN function config.
  * @param  [in] enNewState An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void KEYSCAN_Cmd(en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));

@@ -585,9 +585,9 @@ void RTC_tamper_Disable(uint32_t source);
 /* RTC tamper0 pin map */
 void RTC_tamper0_Pin_map(uint32_t RTC_af);
 
-/* enable specified RTC interrupt */
+/* enable specified RTC 中断 */
 void RTC_Interrupt_Enable(uint32_t interrupt);
-/* disble specified RTC interrupt */
+/* disble specified RTC 中断 */
 void RTC_Interrupt_Disable(uint32_t interrupt);
 /* check specified flag */
 FlagStatus RTC_Flag_Get(uint32_t flag);

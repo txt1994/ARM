@@ -536,7 +536,7 @@ ErrStatus OB_Write_Protection_Enable(uint32_t OB_wp) {
 }
 
 /*!
-    简介:    disable write protection
+    简介:    禁用写保护
     参数[输入]:  OB_wp: specify sector to be write protected
                 one or more parameters can be selected which are shown as below:
       参数:        OB_WP_x(x=0..22):sector x(x = 0,1,2...22)
@@ -726,7 +726,7 @@ void OB_User_Bor_threshold(uint32_t OB_Bor_th) {
 
 /*!
     简介:    configure the option byte boot bank value
-    参数[输入]:  boot_mode: specifies the option byte boot bank value
+    参数[输入]:  boot_mode: 指定option byte boot bank value
                 only one parameter can be selected which is shown as below:
       参数:        OB_BB_DISABLE: boot from bank0
       参数:        OB_BB_ENABLE: boot from bank1 or bank0 if bank1 is void

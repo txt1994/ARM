@@ -345,7 +345,7 @@ void CRYP_FIFOFlush(void) {
 /**
   * 简介:  启用或禁用CRYP外设设备。
   * 参数:  NewState: CRYP外围的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void CRYP_Cmd(FunctionalState NewState) {
@@ -590,7 +590,7 @@ void CRYP_RestoreContext(CRYP_Context* CRYP_ContextRestore) {
   *            @arg CRYP_DMAReq_DataOUT: 用于传出(Tx)数据传输的DMA
   *            @arg CRYP_DMAReq_DataIN: 用于传入(Rx)数据传输的DMA
   * 参数:  NewState: 所选CRYP DMA传输请求的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState) {
@@ -689,7 +689,7 @@ void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState) {
   *            @arg CRYP_IT_INI: 输入FIFO中断
   *            @arg CRYP_IT_OUTI: 输出FIFO中断
   * 参数:  NewState: 指定CRYP中断的新状态。
-  *           此参数可以是:ENABLE或DISABLE。
+  *           此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void CRYP_ITConfig(uint8_t CRYP_IT, FunctionalState NewState) {

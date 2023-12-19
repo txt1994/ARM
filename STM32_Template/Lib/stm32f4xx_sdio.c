@@ -306,7 +306,7 @@ void SDIO_StructInit(SDIO_InitTypeDef* SDIO_InitStruct) {
 /**
   * 简介:  启用或禁用 SDIO 时钟。
   * 参数:  NewState: 新状态-> SDIO Clock.
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SDIO_ClockCmd(FunctionalState NewState) {
@@ -570,7 +570,7 @@ uint32_t SDIO_GetFIFOCount(void) {
 /**
   * 简介:  启动 SD I/O 读取等待操作。
   * 参数:  NewState: 新状态-> Start SDIO Read Wait operation.
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SDIO_StartSDIOReadWait(FunctionalState NewState) {
@@ -583,7 +583,7 @@ void SDIO_StartSDIOReadWait(FunctionalState NewState) {
 /**
   * 简介:  停止 SD I/O 读取等待操作。
   * 参数:  NewState: 新状态-> Stop SDIO Read Wait operation.
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SDIO_StopSDIOReadWait(FunctionalState NewState) {
@@ -611,7 +611,7 @@ void SDIO_SetSDIOReadWaitMode(uint32_t SDIO_ReadWaitMode) {
 /**
   * 简介:  启用或禁用 SD I/O 模式操作。
   * 参数:  NewState: 新状态->  SDIO specific operation.
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SDIO_SetSDIOOperation(FunctionalState NewState) {
@@ -624,7 +624,7 @@ void SDIO_SetSDIOOperation(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用 SD I/O 模式挂起命令发送。
   * 参数:  NewState: 新状态-> SD I/O Mode suspend command.
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SDIO_SendSDIOSuspendCmd(FunctionalState NewState) {
@@ -655,7 +655,7 @@ void SDIO_SendSDIOSuspendCmd(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用命令完成信号。
   * 参数:  NewState: 新状态->  command completion signal.
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SDIO_CommandCompletionCmd(FunctionalState NewState) {
@@ -668,7 +668,7 @@ void SDIO_CommandCompletionCmd(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用 CE-ATA 中断。
   * 参数:  NewState: 新状态->  CE-ATA interrupt.
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SDIO_CEATAITCmd(FunctionalState NewState) {
@@ -681,7 +681,7 @@ void SDIO_CEATAITCmd(FunctionalState NewState) {
 /**
   * 简介:  发送 CE-ATA 命令 (CMD61)。
   * 参数:  NewState: 新状态->  CE-ATA command.
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SDIO_SendCEATACmd(FunctionalState NewState) {
@@ -712,7 +712,7 @@ void SDIO_SendCEATACmd(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用SDIO DMA request.
   * 参数:  NewState: 新状态-> selected SDIO DMA request.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SDIO_DMACmd(FunctionalState NewState) {
@@ -768,7 +768,7 @@ void SDIO_DMACmd(FunctionalState NewState) {
   *             @arg SDIO_IT_SDIOIT: SDI /O中断接收中断
   *             @arg SDIO_IT_CEATAEND:接收到CMD61中断的CE-ATA命令完成信号
   * 参数:  NewState: 新状态-> specified SDIO interrupts.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SDIO_ITConfig(uint32_t SDIO_IT, FunctionalState NewState) {

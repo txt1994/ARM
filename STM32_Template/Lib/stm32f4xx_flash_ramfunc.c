@@ -94,7 +94,7 @@
   * 注意:  使用闪存本身执行时无法设置此模式。
   *        它应该使用从RAM执行的特定例程来完成。
   * 参数:  NewState: 智能卡模式的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 __RAM_FUNC FLASH_FlashInterfaceCmd(FunctionalState NewState) {
@@ -113,7 +113,7 @@ __RAM_FUNC FLASH_FlashInterfaceCmd(FunctionalState NewState) {
   * 注意:  使用闪存本身执行时无法设置此模式。
   *        它应该使用从RAM执行的特定例程来完成。
   * 参数:  NewState: 智能卡模式的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 __RAM_FUNC FLASH_FlashSleepModeCmd(FunctionalState NewState) {

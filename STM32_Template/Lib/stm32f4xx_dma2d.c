@@ -250,7 +250,7 @@ void DMA2D_AbortTransfer(void) {
 /**
   * 简介:  停止或继续 DMA2D 传输。
   * 参数:  NewState: DMA2D的新状态外设.
-  *   此参数可以是:ENABLE或DISABLE。
+  *   此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void DMA2D_Suspend(FunctionalState NewState) {
@@ -258,10 +258,10 @@ void DMA2D_Suspend(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 通过设置“STOP”位暂停 DMA2D 传输 */
+        /* 通过设置"STOP"位暂停 DMA2D 传输 */
         DMA2D->CR |= (uint32_t)DMA2D_CR_SUSP;
     } else {
-        /* 清除“STOP”位，继续传输DMA2D */
+        /* 清除"STOP"位，继续传输DMA2D */
         DMA2D->CR &= ~(uint32_t)DMA2D_CR_SUSP;
     }
 }
@@ -453,7 +453,7 @@ void DMA2D_BG_StructInit(DMA2D_BG_InitTypeDef* DMA2D_BG_InitStruct) {
 /**
   * 简介:  开始自动加载 CLUT 或中止传输。
   * 参数:  NewState: DMA2D的新状态外设.
-  *   此参数可以是:ENABLE或DISABLE。
+  *   此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 
@@ -473,7 +473,7 @@ void DMA2D_FGStart(FunctionalState NewState) {
 /**
   * 简介:  启动CLUT的自动加载或中止传输。
   * 参数:  NewState: DMA2D的新状态外设.
-  *   此参数可以是:ENABLE或DISABLE。
+  *   此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 
@@ -575,7 +575,7 @@ void DMA2D_LineWatermarkConfig(uint32_t DMA2D_LWatermarkConfig) {
   *     @arg DMA2D_IT_TC: 传输完成中断启用。
   *     @arg DMA2D_IT_TE: 传输错误中断启用。
   * 参数: NewState: 指定DMA2D中断的新状态。
-  *   此参数可以是:ENABLE或DISABLE。
+  *   此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 

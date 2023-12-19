@@ -128,7 +128,7 @@ static float32_t m_f32OffsetM = 0.0F;
  * @brief  Get built-in slope K and offset M.
  * @param  [in]  pstcOTSInit            Pointer to a stc_ots_init_t structure value that
  *                                      contains the configuration information for OTS.
- * @retval None
+ * @retval 无
  */
 static void OTS_GetDfltPara(const stc_ots_init_t *pstcOTSInit) {
 #define OTS_SCAL_T1         (ai8Temp[pstcOTSInit->stcParaCond.u8T1])
@@ -243,8 +243,8 @@ int32_t OTS_StructInit(stc_ots_init_t *pstcOTSInit) {
 
 /**
  * @brief  De-initializes OTS peripheral. Reset the registers of OTS.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void OTS_DeInit(void) {
     /* Stop OTS. */
@@ -290,7 +290,7 @@ int32_t OTS_Polling(float32_t *pf32Temp, uint32_t u32Timeout) {
 /**
  * @brief  Enable or disable the OTS interrutp.
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void OTS_IntCmd(en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -362,7 +362,7 @@ int32_t OTS_ScalingExperiment(uint16_t *pu16Dr1, uint16_t *pu16Dr2,
 
 /**
  * @brief  Calculate the temperature value.
- * @param  None
+ * @param  无
  * @retval A float32_t type value of temperature.
  */
 float32_t OTS_CalculateTemp(void) {

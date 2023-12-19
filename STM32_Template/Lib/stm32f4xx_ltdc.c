@@ -213,7 +213,7 @@ void LTDC_StructInit(LTDC_InitTypeDef* LTDC_InitStruct) {
 /**
   * 简介:  启用或禁用 LTDC 控制器。
   * 参数:  NewState: 新状态-> LTDC 外设.
-  *   此参数可以是:ENABLE或DISABLE。
+  *   此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 
@@ -233,7 +233,7 @@ void LTDC_Cmd(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用抖动。
   * 参数:  NewState: 新状态-> Dither.
-  *   此参数可以是:ENABLE或DISABLE。
+  *   此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 
@@ -440,7 +440,7 @@ void LTDC_LayerStructInit(LTDC_Layer_InitTypeDef * LTDC_Layer_InitStruct) {
   * 参数:  LTDC_layerx: 选择要配置的层，
   *         这个参数可以是以下值之一:LTDC_Layer1, LTDC_Layer2
   * 参数:  NewState: 新状态-> LTDC_Layer 外设.
-  *   此参数可以是:ENABLE或DISABLE。
+  *   此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 
@@ -567,7 +567,7 @@ void LTDC_ColorKeyingStructInit(LTDC_ColorKeying_InitTypeDef* LTDC_colorkeying_I
   * 简介:  启用或禁用 CLUT。
   * 参数:  NewState: 新状态->  CLUT.
   * 参数:  LTDC_layerx: 选择要配置的层，这个参数可以是以下值之一:LTDC_Layer1, LTDC_Layer2
-  *   此参数可以是:ENABLE或DISABLE。
+  *   此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 
@@ -861,7 +861,7 @@ void LTDC_LayerPixelFormat(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t PixelFormat
   *         @arg LTDC_IT_TERR: 传输错误中断启用。
   *         @arg LTDC_IT_RR: 寄存器重新加载中断使能。
   * 参数: NewState 新状态->指定的 LTDC 中断。
-  *   此参数可以是:ENABLE或DISABLE。
+  *   此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void LTDC_ITConfig(uint32_t LTDC_IT, FunctionalState NewState) {

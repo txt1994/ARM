@@ -143,8 +143,8 @@ typedef struct {
 
 /**
  * @brief  Start CTC trimming.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void CTC_Start(void) {
     SET_REG32_BIT(CM_CTC->CR1, CTC_CR1_CTCEN);
@@ -152,8 +152,8 @@ __STATIC_INLINE void CTC_Start(void) {
 
 /**
  * @brief  Stop CTC trimming.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void CTC_Stop(void) {
     CLR_REG32_BIT(CM_CTC->CR1, CTC_CR1_CTCEN);

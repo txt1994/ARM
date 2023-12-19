@@ -485,7 +485,7 @@ void I2S_StructInit(I2S_InitTypeDef* I2S_InitStruct) {
   * 简介:  启用或禁用指定的SPI外设。
   * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择SPI外设设备。
   * 参数:  NewState: SPIx外设设备的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SPI_Cmd(SPI_TypeDef* SPIx, FunctionalState NewState) {
@@ -506,7 +506,7 @@ void SPI_Cmd(SPI_TypeDef* SPIx, FunctionalState NewState) {
   * 简介:  启用或禁用指定的SPI外设(在I2S模式下)。
   * 参数:  SPIx: 其中x可以是2或3以选择SPI外设设备(或I2Sxext用于全双工模式)。
   * 参数:  NewState: 新状态-> SPIx 外设.
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void I2S_Cmd(SPI_TypeDef* SPIx, FunctionalState NewState) {
@@ -592,7 +592,7 @@ void SPI_NSSInternalSoftwareConfig(SPI_TypeDef* SPIx, uint16_t SPI_NSSInternalSo
   * 简介:  启用或禁用所选 SPI 的 SS 输出。
   * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择SPI外设设备。
   * 参数:  NewState: 新状态-> SPIx SS output.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SPI_SSOutputCmd(SPI_TypeDef* SPIx, FunctionalState NewState) {
@@ -620,7 +620,7 @@ void SPI_SSOutputCmd(SPI_TypeDef* SPIx, FunctionalState NewState) {
   *
   * 参数:  SPIx: where x can be 1, 2, 3, 4, 5 or 6
   * 参数:  NewState: 新状态-> selected SPI TI communication mode.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SPI_TIModeCmd(SPI_TypeDef* SPIx, FunctionalState NewState) {
@@ -806,7 +806,7 @@ void SPI_I2S_SendData(SPI_TypeDef* SPIx, uint16_t Data) {
   * 简介:  启用或禁用传输字节的CRC值计算。
   * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择SPI外设设备。
   * 参数:  NewState: SPIx CRC值计算的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SPI_CalculateCRC(SPI_TypeDef* SPIx, FunctionalState NewState) {
@@ -901,7 +901,7 @@ uint16_t SPI_GetCRCPolynomial(SPI_TypeDef* SPIx) {
   *            @arg SPI_I2S_DMAReq_Tx: Tx缓冲区DMA传输请求
   *            @arg SPI_I2S_DMAReq_Rx: Rx缓冲区DMA传输请求
   * 参数:  NewState: 新状态-> 选择的SPI DMA传输请求。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState NewState) {
@@ -1000,7 +1000,7 @@ void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState 
   *            @arg SPI_I2S_IT_RXNE: Rx缓冲区空中断掩码
   *            @arg SPI_I2S_IT_ERR: 错误中断 mask
   * 参数:  NewState: 新状态-> specified SPI interrupt.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SPI_I2S_ITConfig(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT, FunctionalState NewState) {

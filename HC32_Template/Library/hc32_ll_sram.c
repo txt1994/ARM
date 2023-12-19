@@ -116,8 +116,8 @@
 
 /**
  * @brief  Initializes SRAM.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void SRAM_Init(void) {
     SET_REG32_BIT(CM_SRAMC->CKSR, SRAM_FLAG_ALL);
@@ -125,8 +125,8 @@ void SRAM_Init(void) {
 
 /**
  * @brief  De-initializes SRAM. RESET the registers of SRAM.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  * @note   Call SRAM_REG_Unlock to unlock registers WTCR and CKCR first.
  */
 void SRAM_DeInit(void) {
@@ -155,7 +155,7 @@ void SRAM_DeInit(void) {
  *   @arg  SRAM_WAIT_CYCLE5:            Wait 5 CPU cycles.
  *   @arg  SRAM_WAIT_CYCLE6:            Wait 6 CPU cycles.
  *   @arg  SRAM_WAIT_CYCLE7:            Wait 7 CPU cycles.
- * @retval None
+ * @retval 无
  * @note   Call SRAM_REG_Unlock to unlock register WTCR first.
  */
 void SRAM_SetWaitCycle(uint32_t u32SramSel, uint32_t u32WriteCycle, uint32_t u32ReadCycle) {
@@ -207,7 +207,7 @@ void SRAM_SetWaitCycle(uint32_t u32SramSel, uint32_t u32WriteCycle, uint32_t u32
  *                                      When 2-bit error occurred:
  *                                      ECC error detects.
  *                                      2-bit-error status flag sets and interrupt or reset occurred.
- * @retval None
+ * @retval 无
  * @note   Call SRAM_REG_Unlock to unlock register CKCR first.
  */
 void SRAM_SetEccMode(uint32_t u32SramSel, uint32_t u32EccMode) {
@@ -232,7 +232,7 @@ void SRAM_SetEccMode(uint32_t u32SramSel, uint32_t u32EccMode) {
  *                                      This parameter can be a value of @ref SRAM_Err_Mode
  *   @arg  SRAM_ERR_MD_NMI:             Check error generates NMI(non-maskable interrupt).
  *   @arg  SRAM_ERR_MD_RST:             Check error generates system reset.
- * @retval None
+ * @retval 无
  * @note   Call SRAM_REG_Unlock to unlock register CKCR first.
  */
 void SRAM_SetErrorMode(uint32_t u32SramSel, uint32_t u32ErrMode) {
@@ -275,7 +275,7 @@ en_flag_status_t SRAM_GetStatus(uint32_t u32Flag) {
  * @brief  Clear the status of the specified flag of SRAM.
  * @param  [in]  u32Flag                The flag of SRAM.
  *                                      This parameter can be values of @ref SRAM_Err_Status_Flag
- * @retval None
+ * @retval 无
  */
 void SRAM_ClearStatus(uint32_t u32Flag) {
     DDL_ASSERT(IS_SRAM_FLAG(u32Flag));

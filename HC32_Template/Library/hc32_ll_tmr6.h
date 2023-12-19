@@ -802,7 +802,7 @@ triangular wave valley and peak */
  */
 /**
  * @brief  Get Software Sync start status
- * @param  None
+ * @param  无
  * @retval uint32_t                 Data indicate the read status.
  */
 __STATIC_INLINE uint32_t TMR6_GetSWSyncStartStatus(void) {

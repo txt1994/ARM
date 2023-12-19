@@ -52,16 +52,22 @@ extern "C" {
 typedef struct {
     uint32_t ADC_Resolution;                /*!< 配置 ADC 分辨率双模式。
                                                该参数可以是@ref ADC_resolution 的值 */
+
     FunctionalState ADC_ScanConvMode;       /*!< 指定是在扫描(多通道)还是单(单通道)模式下执行转换。
 											                          此参数可设置为 ENABLE 或 DISABLE */
+
     FunctionalState ADC_ContinuousConvMode; /*!< 指定是在连续模式还是单次模式下执行转换。
                                                此参数可以设置为 ENABLE 或 DISABLE。 */
+
     uint32_t ADC_ExternalTrigConvEdge;      /*!< 选择外部触发沿并启用常规组的触发。
 											                        该参数可以是@ref ADC_external_trigger_edge_for_regular_channels_conversion 的值 */
+
     uint32_t ADC_ExternalTrigConv;          /*!< 选择用于触发常规组转换开始的外部事件。
                                                此参数可以是 @ref ADC_extrenal_trigger_sources_for_regular_channels_conversion 的值 */
+
     uint32_t ADC_DataAlign;                 /*!< 指定 ADC 数据对齐是左对齐还是右对齐。
                                               该参数可以是@ref ADC_data_align 的值 */
+
     uint8_t  ADC_NbrOfConversion;           /*!< 指定将使用常规通道组的定序器完成的 ADC 转换次数。
                                                此参数的范围必须为 1 到 16。 */
 } ADC_InitTypeDef;
@@ -72,13 +78,15 @@ typedef struct {
 typedef struct {
     uint32_t ADC_Mode;                      /*!< 将 ADC 配置为在独立模式或多模式下运行。
 											                        该参数可以是@ref ADC_Common_mode 的值 */
+
     uint32_t ADC_Prescaler;                 /*!< 选择 ADC 的时钟频率。 时钟对所有 ADC 都是通用的。
 											                        该参数可以是@ref ADC_Prescaler 的值 */
+
     uint32_t ADC_DMAAccessMode;             /*!< 为多 ADC 模式配置直接内存访问模式。
 											                        该参数可以是@ref ADC_Direct_memory_access_mode_for_multi_mode 的值 */
+
     uint32_t ADC_TwoSamplingDelay;          /*!< 配置 2 个采样阶段之间的延迟。
 											                        该参数可以是@ref ADC_delay_between_2_sampling_phases 的值 */
-
 } ADC_CommonInitTypeDef;
 
 

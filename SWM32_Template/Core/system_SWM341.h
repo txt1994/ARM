@@ -6,7 +6,7 @@ extern "C" {
 #endif
 
 
-extern uint32_t SystemCoreClock;		// System Clock Frequency (Core Clock)
+extern uint32_t SystemCoreClock;		// 系统时钟频率(核心时钟)
 extern uint32_t CyclesPerUs;			// Cycles per micro second
 
 

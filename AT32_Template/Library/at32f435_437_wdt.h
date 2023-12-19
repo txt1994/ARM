@@ -77,7 +77,7 @@ typedef enum {
   * @brief wdt cmd value type
   */
 typedef enum {
-    WDT_CMD_LOCK                           = 0x0000, /*!< disable write protection command */
+    WDT_CMD_LOCK                           = 0x0000, /*!< 禁用写保护 command */
     WDT_CMD_UNLOCK                         = 0x5555, /*!< enable write protection command */
     WDT_CMD_Enable                         = 0xCCCC, /*!< enable wdt command */
     WDT_CMD_RELOAD                         = 0xAAAA  /*!< reload command */

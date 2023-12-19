@@ -334,7 +334,7 @@ static uint8_t EFM_FlagShift(uint32_t u32Addr) {
  * @brief  Enable or disable EFM.
  * @param  [in]  u32Flash       Specifies the FLASH. @ref EFM_Chip_Sel
  * @param  [in] enNewState      An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void EFM_Cmd(uint32_t u32Flash, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -380,7 +380,7 @@ int32_t EFM_SetWaitCycle(uint32_t u32WaitCycle) {
 /**
  * @brief  Enable or disable the flash data cache reset.
  * @param  [in] enNewState           An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void EFM_DataCacheResetCmd(en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -392,7 +392,7 @@ void EFM_DataCacheResetCmd(en_functional_state_t enNewState) {
 /**
  * @brief  Enable or disable the flash prefetch.
  * @param  [in] enNewState                An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  * @note   Call EFM_REG_Unlock() unlock EFM register first.
  */
 void EFM_PrefetchCmd(en_functional_state_t enNewState) {
@@ -405,7 +405,7 @@ void EFM_PrefetchCmd(en_functional_state_t enNewState) {
 /**
  * @brief  Enable or disable the flash data cache.
  * @param  [in] enNewState                An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  * @note   Call EFM_REG_Unlock() unlock EFM register first.
  */
 void EFM_DCacheCmd(en_functional_state_t enNewState) {
@@ -418,7 +418,7 @@ void EFM_DCacheCmd(en_functional_state_t enNewState) {
 /**
  * @brief  Enable or disable the flash instruction cache.
  * @param  [in] enNewState                An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  * @note   Call EFM_REG_Unlock() unlock EFM register first.
  */
 void EFM_ICacheCmd(en_functional_state_t enNewState) {
@@ -431,7 +431,7 @@ void EFM_ICacheCmd(en_functional_state_t enNewState) {
 /**
  * @brief  Enable or disable the Read of low-voltage mode.
  * @param  [in] enNewState                An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  * @note   Call EFM_REG_Unlock() unlock EFM register first.
  */
 void EFM_LowVoltageReadCmd(en_functional_state_t enNewState) {
@@ -501,7 +501,7 @@ int32_t EFM_SwapCmd(en_functional_state_t enNewState) {
 
 /**
  * @brief  Checks whether the swap function enable or disable.
- * @param  None
+ * @param  无
  * @retval An @ref en_flag_status_t enumeration type value.
  */
 en_flag_status_t EFM_GetSwapStatus(void) {
@@ -541,7 +541,7 @@ int32_t EFM_SetOperateMode(uint32_t u32Mode) {
  *   @arg  EFM_INT_PEERR:               Program/erase error Interrupt source
  *   @arg  EFM_INT_COLERR:              Read collide error Interrupt source
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  * @note   Call EFM_REG_Unlock() unlock EFM register first.
  */
 void EFM_IntCmd(uint32_t u32EfmInt, en_functional_state_t enNewState) {
@@ -584,7 +584,7 @@ en_flag_status_t EFM_GetStatus(uint32_t u32Flag) {
  * @brief  Clear the flash flag.
  * @param  [in] u32Flag                  Specifies the FLASH flag to clear.
  *   @arg  This parameter can be of a value of @ref EFM_Flag_Sel
- * @retval None
+ * @retval 无
  * @note   Call EFM_REG_Unlock() unlock EFM register first.
  */
 void EFM_ClearStatus(uint32_t u32Flag) {
@@ -600,7 +600,7 @@ void EFM_ClearStatus(uint32_t u32Flag) {
  *  This parameter can be one of the following values:
  *   @arg  EFM_BUS_HOLD:                   Bus busy while flash program or erase.
  *   @arg  EFM_BUS_RELEASE:                Bus release while flash program or erase.
- * @retval None
+ * @retval 无
  */
 void EFM_SetBusStatus(uint32_t u32Status) {
     DDL_ASSERT(IS_EFM_REG_UNLOCK());
@@ -1036,7 +1036,7 @@ int32_t EFM_ChipErase(uint8_t u8Chip) {
 /**
  * @brief  FWMC register write enable or disable.
  * @param  [in] enNewState                An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void EFM_FWMC_Cmd(en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -1051,7 +1051,7 @@ void EFM_FWMC_Cmd(en_functional_state_t enNewState) {
 
 /**
  * @brief  Get chip ID.
- * @param  None
+ * @param  无
  * @retval Returns the value of the Chip ID
  */
 uint32_t EFM_GetCID(void) {
@@ -1060,8 +1060,8 @@ uint32_t EFM_GetCID(void) {
 
 /**
  * @brief  EFM OTP operate unlock.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  * @note   Call EFM_REG_Unlock() unlock EFM register first.
  */
 void EFM_OTP_WP_Unlock(void) {
@@ -1073,8 +1073,8 @@ void EFM_OTP_WP_Unlock(void) {
 
 /**
  * @brief  EFM OTP write protect lock.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void EFM_OTP_WP_Lock(void) {
     DDL_ASSERT(IS_EFM_REG_UNLOCK());
@@ -1084,8 +1084,8 @@ void EFM_OTP_WP_Lock(void) {
 
 /**
  * @brief  EFM OTP Enable.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 int32_t EFM_OTP_Enable(void) {
     uint32_t u32Tmp;
@@ -1127,7 +1127,7 @@ int32_t EFM_OTP_Enable(void) {
  * @brief  Sector protected register lock.
  * @param  [in] u32RegLock                      Specifies sector protected register locking.
  *  @arg   EFM_WRLOCK0 ~ EFM_WRLOCK7:
- * @retval None
+ * @retval 无
  * @note   Call EFM_REG_Unlock() unlock EFM register first.
  */
 void EFM_SectorProtectRegLock(uint32_t u32RegLock) {
@@ -1142,7 +1142,7 @@ void EFM_SectorProtectRegLock(uint32_t u32RegLock) {
  * @param  [in] u8SectorNum     Specifies sector for unlock.
  *                              This parameter can be set 0~255.
  * @param  [in] enNewState      An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  * @note   Call EFM_REG_Unlock() unlock EFM register first.
  *         If you want to unlock sequence sectors,Please call EFM_SequenceSectorOperateCmd function
  */
@@ -1164,7 +1164,7 @@ void EFM_SingleSectorOperateCmd(uint8_t u8SectorNum, en_functional_state_t enNew
  * @param  [in] u16Count            Specifies count of sectors to unlock.
  *                                  This parameter can be set 0~256.
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  * @note   Call EFM_REG_Unlock() unlock EFM register first.
  *         If you want to unlock only one sector,Please call EFM_SingleSectorOperateCmd function
  */
@@ -1415,8 +1415,8 @@ int32_t EFM_REMAP_Init(uint8_t u8RemapIdx, stc_efm_remap_init_t *pstcEfmRemapIni
 
 /**
  * @brief  EFM REMAP de-initialize.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void EFM_REMAP_DeInit(void) {
     DDL_ASSERT(IS_EFM_REMAP_UNLOCK());
@@ -1429,7 +1429,7 @@ void EFM_REMAP_DeInit(void) {
  * @brief  Enable or disable REMAP function.
  * @param  [in] u8RemapIdx      Specifies the remap ID.
  * @param  [in] enNewState      An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void EFM_REMAP_Cmd(uint8_t u8RemapIdx, en_functional_state_t enNewState) {
     __IO uint32_t *REMCRx;
@@ -1451,7 +1451,7 @@ void EFM_REMAP_Cmd(uint8_t u8RemapIdx, en_functional_state_t enNewState) {
  * @brief  Set specified REMAP target address.
  * @param  [in] u8RemapIdx      Specifies the remap ID.
  * @param  [in] u32Addr         Specifies the target address.
- * @retval None
+ * @retval 无
  */
 void EFM_REMAP_SetAddr(uint8_t u8RemapIdx, uint32_t u32Addr) {
     __IO uint32_t *REMCRx;
@@ -1468,7 +1468,7 @@ void EFM_REMAP_SetAddr(uint8_t u8RemapIdx, uint32_t u32Addr) {
  * @brief  Set specified REMAP size.
  * @param  [in] u8RemapIdx      Specifies the remap ID.
  * @param  [in] u32Size         Specifies the remap size.
- * @retval None
+ * @retval 无
  */
 void EFM_REMAP_SetSize(uint8_t u8RemapIdx, uint32_t u32Size) {
     __IO uint32_t *REMCRx;
@@ -1484,7 +1484,7 @@ void EFM_REMAP_SetSize(uint8_t u8RemapIdx, uint32_t u32Size) {
 /**
  * @brief  Enable efm protect.
  * @param  [in] u8Level      Specifies the protect level. @ref EFM_Protect_Level
- * @retval None
+ * @retval 无
  */
 void EFM_Protect_Enable(uint8_t u8Level) {
     if (SET == EFM_GetSwapStatus()) {

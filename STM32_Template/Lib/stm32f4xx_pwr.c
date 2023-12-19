@@ -239,7 +239,7 @@ void PWR_PVDLevelConfig(uint32_t PWR_PVDLevel) {
 /**
   * 简介:  启用或禁用电源电压检测器 (PVD)。
   * 参数:  NewState: PVD的新状态。
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void PWR_PVDCmd(FunctionalState NewState) {
@@ -273,7 +273,7 @@ void PWR_PVDCmd(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用唤醒引脚功能。
   * 参数:  NewState: 唤醒引脚功能的新状态。
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void PWR_WakeUpPinCmd(FunctionalState NewState) {
@@ -293,7 +293,7 @@ void PWR_WakeUpPinCmd(FunctionalState NewState) {
   *            @arg PWR_WakeUp_Pin2: WKUP2引脚用于从待机模式唤醒。
   *            @arg PWR_WakeUp_Pin3: WKUP3引脚用于从待机模式唤醒。(仅适用于STM32F410xx、STM32P412xG和STM32V413_423xx设备)
   * 参数:  NewState: 唤醒引脚功能的新状态。
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void PWR_WakeUpPinCmd(uint32_t PWR_WakeUpPinx, FunctionalState NewState) {
@@ -381,7 +381,7 @@ void PWR_WakeUpPinCmd(uint32_t PWR_WakeUpPinx, FunctionalState NewState) {
 /**
   * 简介:  启用或禁用备份调节器。
   * 参数:  NewState: 备用调节器的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void PWR_BackupRegulatorCmd(FunctionalState NewState) {
@@ -432,7 +432,7 @@ void PWR_MainRegulatorModeConfig(uint32_t PWR_Regulator_Voltage) {
   *       一旦超速模式被激活，外围时钟必须被启用。
   *
   * 参数:  NewState: 超速模式的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void PWR_OverDriveCmd(FunctionalState NewState) {
@@ -449,7 +449,7 @@ void PWR_OverDriveCmd(FunctionalState NewState) {
   * 注意:   此函数只能用于STM32F42xxx/STM3243xxx设备。
   *
   * 参数:  NewState: 超速档切换模式的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void PWR_OverDriveSWCmd(FunctionalState NewState) {
@@ -472,7 +472,7 @@ void PWR_OverDriveSWCmd(FunctionalState NewState) {
   *         当电压调节器在欠驱动模式下运行时，从停止模式唤醒时会产生额外的启动延迟。
   *
   * 参数:  NewState: 欠驱动模式的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void PWR_UnderDriveCmd(FunctionalState NewState) {
@@ -495,7 +495,7 @@ void PWR_UnderDriveCmd(FunctionalState NewState) {
   * 注意:  此模式仅适用于STM32F427_437xx/STM32F429_439xx/STM22F446xx设备。
   *
   * 参数:  NewState: 主调节器欠驱动模式的新状态。
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void PWR_MainRegulatorUnderDriveCmd(FunctionalState NewState) {
@@ -515,7 +515,7 @@ void PWR_MainRegulatorUnderDriveCmd(FunctionalState NewState) {
   * 注意:  此模式仅适用于STM32F427_437xx/STM32F429_439xx/STM22F446xx设备。
   *
   * 参数:  NewState: 低功率调节器在驱动模式下的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void PWR_LowRegulatorUnderDriveCmd(FunctionalState NewState) {
@@ -537,7 +537,7 @@ void PWR_LowRegulatorUnderDriveCmd(FunctionalState NewState) {
   * 注意:  此模式仅适用于STM32F401xx/STM32F410xx/STM32.F411xx/STM3.2F412xG/STM32F2F413_423xx设备。
   *
   * 参数:  NewState: 主调节器低压模式的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void PWR_MainRegulatorLowVoltageCmd(FunctionalState NewState) {
@@ -557,7 +557,7 @@ void PWR_MainRegulatorLowVoltageCmd(FunctionalState NewState) {
   * 注意:  该模式仅适用于STM32F401xx/STM32F410xx/STM32F411xx/STM32F412xG/STM32F413_423xx器件。
   *
   * 参数:  NewState: 低功率调节器低电压模式的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void PWR_LowRegulatorLowVoltageCmd(FunctionalState NewState) {
@@ -594,7 +594,7 @@ void PWR_LowRegulatorLowVoltageCmd(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用STOP模式下的Flash断电函数。
   * 参数:  NewState: 闪存功率模式的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void PWR_FlashPowerDownCmd(FunctionalState NewState) {

@@ -240,7 +240,7 @@ void DAC_StructInit(DAC_InitTypeDef* DAC_InitStruct) {
   *            @arg DAC_Channel_1: 选择DAC通道1
   *            @arg DAC_Channel_2: 选择DAC通道2
   * 参数:  NewState: DAC通道的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 注意:   当DAC通道被启用时，触发源就不能再被修改。
   * 返回值: 无
   */
@@ -265,7 +265,7 @@ void DAC_Cmd(uint32_t DAC_Channel, FunctionalState NewState) {
   *            @arg DAC_Channel_1: 选择DAC通道1
   *            @arg DAC_Channel_2: 选择DAC通道2
   * 参数:  NewState: 所选DAC通道软件触发的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void DAC_SoftwareTriggerCmd(uint32_t DAC_Channel, FunctionalState NewState) {
@@ -285,7 +285,7 @@ void DAC_SoftwareTriggerCmd(uint32_t DAC_Channel, FunctionalState NewState) {
 /**
   * 简介:  同时启用或禁用两个 DAC 通道软件触发。
   * 参数:  NewState: DAC通道的新状态的软件触发。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void DAC_DualSoftwareTriggerCmd(FunctionalState NewState) {
@@ -312,7 +312,7 @@ void DAC_DualSoftwareTriggerCmd(FunctionalState NewState) {
   *            @arg DAC_Wave_Noise: 噪声波的产生
   *            @arg DAC_Wave_Triangle: 三角波生成
   * 参数:  NewState: 选定的DAC通道波形生成的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void DAC_WaveGenerationCmd(uint32_t DAC_Channel, uint32_t DAC_Wave, FunctionalState NewState) {
@@ -457,7 +457,7 @@ uint16_t DAC_GetDataOutputValue(uint32_t DAC_Channel) {
   *            @arg DAC_Channel_1: 选择DAC通道1
   *            @arg DAC_Channel_2: 选择DAC通道2
   * 参数:  NewState: 所选DAC通道DMA请求的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 注意:   DAC通道1被映射到DMA1流5通道7上，该通道必须已经被配置。
   * 注意:   DAC通道2被映射到DMA1流6通道7上，该通道必须已经被配置。
   * 返回值: 无
@@ -502,7 +502,7 @@ void DAC_DMACmd(uint32_t DAC_Channel, FunctionalState NewState) {
   *            @arg DAC_IT_DMAUDR: DMA欠运行中断掩码
   * 注意:   当第二个外部触发器在收到第一个外部触发器的确认(第一个请求)之前到达时，DMA欠载发生。
   * 参数:  NewState: 指定 DAC 中断的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void DAC_ITConfig(uint32_t DAC_Channel, uint32_t DAC_IT, FunctionalState NewState) {

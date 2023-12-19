@@ -126,7 +126,7 @@
 /**
  * @brief  Writes the input buffer in data register.
  * @param  [in] pu8Data       The buffer for source data
- * @retval None
+ * @retval 无
  */
 static void HASH_WriteData(const uint8_t *pu8Data) {
     uint8_t i;
@@ -143,7 +143,7 @@ static void HASH_WriteData(const uint8_t *pu8Data) {
  * @param  [in] pu8Dest                 Pointer to a destination address.
  * @param  [in] pu8Src                  Pointer to a source address.
  * @param  [in] u32Size                 Data size.
- * @retval None
+ * @retval 无
  */
 static void HASH_MemCopy(uint8_t *pu8Dest, const uint8_t *pu8Src, uint32_t u32Size) {
     uint32_t i = 0UL;
@@ -159,7 +159,7 @@ static void HASH_MemCopy(uint8_t *pu8Dest, const uint8_t *pu8Src, uint32_t u32Si
  * @param  [in] pu8Mem                  Pointer to an address.
  * @param  [in] u8Value                 Data value.
  * @param  [in] u32Size                 Data size.
- * @retval None
+ * @retval 无
  */
 static void HASH_MemSet(uint8_t *pu8Mem, uint8_t u8Value, uint32_t u32Size) {
     uint32_t i = 0UL;
@@ -285,7 +285,7 @@ static int32_t HASH_DoCalc(const uint8_t *pu8Data, uint32_t u32DataSize) {
 /**
  * @brief  Read message digest.
  * @param  [out] pu8MsgDigest           Buffer for message digest.
- * @retval None
+ * @retval 无
  */
 static void HASH_ReadMsgDigest(uint8_t *pu8MsgDigest) {
     uint8_t i;
@@ -551,7 +551,7 @@ int32_t HASH_SetMsgGroup(uint32_t u32MsgGroup) {
 
 /**
  * @brief  Start HASH.
- * @param  None
+ * @param  无
  * @retval int32_t:
  *           - LL_OK:               No errors occurred
  *           - LL_ERR_TIMEOUT:      Works timeout
@@ -573,7 +573,7 @@ int32_t HASH_Start(void) {
 /**
  * @brief  Provides the message digest result.
  * @param  [out] pu8MsgDigest           Buffer for message digest.
- * @retval None
+ * @retval 无
  */
 void HASH_GetMsgDigest(uint8_t *pu8MsgDigest) {
     HASH_ReadMsgDigest(pu8MsgDigest);

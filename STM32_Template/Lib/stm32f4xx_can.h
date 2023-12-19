@@ -59,37 +59,37 @@ extern "C" {
   */
 typedef struct {
     uint16_t CAN_Prescaler;   /*!< 指定时间段的长度。
-								 它的范围从 1 到 1024。 */
+								              它的范围从 1 到 1024。 */
 
     uint8_t CAN_Mode;         /*!< 指定 CAN 操作模式。
-								 该参数可以是@ref CAN_operating_mode 的值 */
+								              该参数可以是@ref CAN_operating_mode 的值 */
 
     uint8_t CAN_SJW;          /*!< 指定 CAN 硬件允许延长或缩短位以执行重新同步的最大时间量。
-								 该参数可以是@ref CAN_synchronisation_jump_width 的值 */
+								              该参数可以是@ref CAN_synchronisation_jump_width 的值 */
 
     uint8_t CAN_BS1;          /*!< 指定位段 1 中的时间量子数。
-								 该参数可以是 @ref CAN_time_quantum_in_bit_segment_1 的值 */
+								              该参数可以是 @ref CAN_time_quantum_in_bit_segment_1 的值 */
 
     uint8_t CAN_BS2;          /*!< 指定位段 2 中的时间量数。
-								 该参数可以是@ref CAN_time_quantum_in_bit_segment_2 的值 */
+								              该参数可以是@ref CAN_time_quantum_in_bit_segment_2 的值 */
 
     FunctionalState CAN_TTCM; /*!< 启用或禁用时间触发通信模式。
-								 此参数可以设置为 ENABLE 或 DISABLE。 */
+								              此参数可以设置为 ENABLE 或 DISABLE。 */
 
     FunctionalState CAN_ABOM;  /*!< 启用或禁用自动总线关闭管理。
-								  此参数可以设置为 ENABLE 或 DISABLE。 */
+								              此参数可以设置为 ENABLE 或 DISABLE。 */
 
     FunctionalState CAN_AWUM;  /*!< 启用或禁用自动唤醒模式。
-								  此参数可以设置为 ENABLE 或 DISABLE。 */
+								              此参数可以设置为 ENABLE 或 DISABLE。 */
 
     FunctionalState CAN_NART;  /*!< 启用或禁用非自动重传模式。
-								  此参数可以设置为 ENABLE 或 DISABLE。 */
+								              此参数可以设置为 ENABLE 或 DISABLE。 */
 
     FunctionalState CAN_RFLM;  /*!< 启用或禁用接收 FIFO 锁定模式。
-								  此参数可以设置为 ENABLE 或 DISABLE。 */
+								              此参数可以设置为 ENABLE 或 DISABLE。 */
 
     FunctionalState CAN_TXFP;  /*!< 启用或禁用发送 FIFO 优先级。
-								  此参数可以设置为 ENABLE 或 DISABLE。 */
+								              此参数可以设置为 ENABLE 或 DISABLE。 */
 } CAN_InitTypeDef;
 
 /**
@@ -97,30 +97,31 @@ typedef struct {
   */
 typedef struct {
     uint16_t CAN_FilterIdHigh;         /*!< 指定过滤器标识号(MSB 用于 32 位配置，第一个用于 16 位配置)。
-											  此参数可以是 0x0000 和 0xFFFF 之间的值 */
+											                 此参数可以是 0x0000 和 0xFFFF 之间的值 */
 
     uint16_t CAN_FilterIdLow;          /*!< 指定过滤器标识号(32 位配置的 LSB，16 位配置的第二个)。
-										      此参数可以是 0x0000 和 0xFFFF 之间的值 */
+										                   此参数可以是 0x0000 和 0xFFFF 之间的值 */
 
     uint16_t CAN_FilterMaskIdHigh;     /*!< 根据模式指定过滤器掩码号或标识号(MSB 用于 32 位配置，第一个用于 16 位配置)。
-                                              此参数可以是 0x0000 和 0xFFFF 之间的值*/
+                                       此参数可以是 0x0000 和 0xFFFF 之间的值*/
 
     uint16_t CAN_FilterMaskIdLow;      /*!< 根据模式指定过滤器掩码号或标识号(LSB 用于 32 位配置，第二个用于 16 位配置)。
-                                              此参数可以是 0x0000 和 0xFFFF 之间的值 */
+                                       此参数可以是 0x0000 和 0xFFFF 之间的值 */
 
     uint16_t CAN_FilterFIFOAssignment; /*!< 指定将分配给过滤器的 FIFO(0 或 1)。
-											  该参数可以是@ref CAN_filter_FIFO 的值 */
+                                       该参数可以是@ref CAN_filter_FIFO 的值 */
 
-    uint8_t CAN_FilterNumber;          /*!< 指定将被初始化的过滤器。 它的范围从 0 到 13。 */
+    uint8_t CAN_FilterNumber;          /*!< 指定将被初始化的过滤器。 
+                                       它的范围从 0 到 13。 */
 
     uint8_t CAN_FilterMode;            /*!< 指定要初始化的过滤器模式。
-											  该参数可以是@ref CAN_filter_mode 的值 */
+                                       该参数可以是@ref CAN_filter_mode 的值 */
 
     uint8_t CAN_FilterScale;           /*!< 指定过滤器比例。
-										      该参数可以是@ref CAN_filter_scale 的值 */
+                                       该参数可以是@ref CAN_filter_scale 的值 */
 
     FunctionalState CAN_FilterActivation; /*!< 启用或禁用过滤器。
-											 此参数可以设置为 ENABLE 或 DISABLE。 */
+                                       此参数可以设置为 ENABLE 或 DISABLE。 */
 } CAN_FilterInitTypeDef;
 
 /**
@@ -128,18 +129,22 @@ typedef struct {
   */
 typedef struct {
     uint32_t StdId;  /*!< 指定标准标识符。
-						此参数可以是 0 到 0x7FF 之间的值。 */
+						         此参数可以是 0 到 0x7FF 之间的值。 */
 
     uint32_t ExtId;  /*!< 指定扩展标识符。
-						此参数可以是 0 到 0x1FFFFFFF 之间的值。 */
+                     此参数可以是 0 到 0x1FFFFFFF 之间的值。 */
 
-    uint8_t IDE;     /*!< 指定将要传输的消息的标识符类型。 该参数可以是@ref CAN_identifier_type 的值 */
+    uint8_t IDE;     /*!< 指定将要传输的消息的标识符类型。 
+                     该参数可以是@ref CAN_identifier_type 的值 */
 
-    uint8_t RTR;     /*!< 指定将要传输的消息的帧类型。 该参数可以是@ref CAN_remote_transmission_request 的值 */
+    uint8_t RTR;     /*!< 指定将要传输的消息的帧类型。 
+                     该参数可以是@ref CAN_remote_transmission_request 的值 */
 
-    uint8_t DLC;     /*!< 指定将被传输的帧的长度。 此参数可以是 0 到 8 之间的值 */
+    uint8_t DLC;     /*!< 指定将被传输的帧的长度。 
+                     此参数可以是 0 到 8 之间的值 */
 
-    uint8_t Data[8]; /*!< 包含要传输的数据。 它的范围从 0 到 0xFF。 */
+    uint8_t Data[8]; /*!< 包含要传输的数据。 
+                     它的范围从 0 到 0xFF。 */
 } CanTxMsg;
 
 /**
@@ -147,25 +152,25 @@ typedef struct {
   */
 typedef struct {
     uint32_t StdId;  /*!< 指定标准标识符。
-						此参数可以是 0 到 0x7FF 之间的值。 */
+						         此参数可以是 0 到 0x7FF 之间的值。 */
 
     uint32_t ExtId;  /*!< 指定扩展标识符。
-						此参数可以是 0 到 0x1FFFFFFF 之间的值。 */
+                     此参数可以是 0 到 0x1FFFFFFF 之间的值。 */
 
     uint8_t IDE;     /*!< 指定将接收的消息的标识符类型。
-						该参数可以是@ref CAN_identifier_type 的值 */
+                     该参数可以是@ref CAN_identifier_type 的值 */
 
     uint8_t RTR;     /*!< 指定接收消息的帧类型。
-						该参数可以是@ref CAN_remote_transmission_request 的值 */
+                     该参数可以是@ref CAN_remote_transmission_request 的值 */
 
     uint8_t DLC;     /*!< 指定将接收的帧的长度。
-						此参数可以是 0 到 8 之间的值 */
+                     此参数可以是 0 到 8 之间的值 */
 
     uint8_t Data[8]; /*!< 包含要接收的数据。
-						它的范围从 0 到 0xFF。 */
+                     它的范围从 0 到 0xFF。 */
 
     uint8_t FMI;     /*!< 指定存储在邮箱中的消息通过的过滤器的索引。
-						此参数可以是 0 到 0xFF 之间的值 */
+                     此参数可以是 0 到 0xFF 之间的值 */
 } CanRxMsg;
 
 /* Exported constants --------------------------------------------------------*/

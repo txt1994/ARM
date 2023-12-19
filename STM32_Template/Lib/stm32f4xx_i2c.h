@@ -447,7 +447,7 @@ typedef struct {
   *           两个事件I2C_EVENT_SLAVE_BYTE_TRANSMITTED和I2C_EVENT_SLAVE-BYTE_TRANSMITTING相似。 
   *           当用户软件不能保证在当前字节传输结束之前管理EV3时，可以选择性地使用第二个。
   *    - EV3_2: 当主设备发送NACK以告知从设备数据传输应结束时（在发送STOP条件之前）。
-  *             在这种情况下，从设备必须停止发送数据字节，并在总线上等待“停止”条件。
+  *             在这种情况下，从设备必须停止发送数据字节，并在总线上等待"停止"条件。
   *
   *  @note 如果用户软件不能保证在当前字节传输结束之前管理事件EV2，
   * 则用户可以同时检查EV2和BTF标志（即（I2C_EVENT_SLAVE_BYTE_RECEIVED | I2C_FLAG_BTF））。在这种情况下，通信可能会更慢。

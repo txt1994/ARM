@@ -125,7 +125,7 @@ int32_t FMAC_StructInit(stc_fmac_init_t *pstcFmacInit) {
  *   @arg  CM_FMAC2:             FMAC unit 2 instance register base
  *   @arg  CM_FMAC3:             FMAC unit 3 instance register base
  *   @arg  CM_FMAC4:             FMAC unit 4 instance register base
- * @retval None
+ * @retval 无
  */
 void FMAC_DeInit(CM_FMAC_TypeDef *FMACx) {
     DDL_ASSERT(IS_VALID_UNIT(FMACx));
@@ -190,7 +190,7 @@ int32_t FMAC_Init(CM_FMAC_TypeDef *FMACx, const stc_fmac_init_t *pstcFmacInit) {
  *   @arg  CM_FMAC3:            FMAC unit 3 instance register base
  *   @arg  CM_FMAC4:            FMAC unit 4 instance register base
  * @param  [in] enNewState      An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void FMAC_Cmd(CM_FMAC_TypeDef *FMACx, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_VALID_UNIT(FMACx));
@@ -209,7 +209,7 @@ void FMAC_Cmd(CM_FMAC_TypeDef *FMACx, en_functional_state_t enNewState) {
  *   @arg  CM_FMAC4:             FMAC unit 4 instance register base
  * @param  [in] u32ShiftNum      Result shift times.
  * This parameter can be one of @ref FMAC_Filter_Shift
- * @retval None
+ * @retval 无
  */
 void FMAC_SetResultShift(CM_FMAC_TypeDef *FMACx, uint32_t u32ShiftNum) {
     DDL_ASSERT(IS_VALID_UNIT(FMACx));
@@ -230,7 +230,7 @@ void FMAC_SetResultShift(CM_FMAC_TypeDef *FMACx, uint32_t u32ShiftNum) {
  * This parameter can be one of @ref FMAC_Filter_Stage
  * @param  [in] pi16Factor       FMAC filter factor.
  * This parameter can be set -32768 ~ 32767
- * @retval None
+ * @retval 无
  */
 void FMAC_SetStageFactor(CM_FMAC_TypeDef *FMACx, uint32_t u32FilterStage, int16_t *pi16Factor) {
     __IO uint32_t *FMAC_CORx;
@@ -258,7 +258,7 @@ void FMAC_SetStageFactor(CM_FMAC_TypeDef *FMACx, uint32_t u32FilterStage, int16_
  *   @arg  CM_FMAC3:            FMAC unit 3 instance register base
  *   @arg  CM_FMAC4:            FMAC unit 4 instance register base
  * @param  [in] enNewState      An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void FMAC_IntCmd(CM_FMAC_TypeDef *FMACx, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_VALID_UNIT(FMACx));
@@ -276,7 +276,7 @@ void FMAC_IntCmd(CM_FMAC_TypeDef *FMACx, en_functional_state_t enNewState) {
  *   @arg  CM_FMAC3:            FMAC unit 3 instance register base
  *   @arg  CM_FMAC4:            FMAC unit 4 instance register base
  * @param  [in] i16Factor       Data that needs to be processed.
- * @retval None
+ * @retval 无
  */
 void FMAC_FIRInput(CM_FMAC_TypeDef *FMACx, int16_t i16Factor) {
     DDL_ASSERT(IS_VALID_UNIT(FMACx));

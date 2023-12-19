@@ -203,7 +203,7 @@ typedef struct {
  */
 /**
  * @brief  Get KEYOUT index.
- * @param  None
+ * @param  无
  * @retval uint32_t: KEYOUT index 0~7.
  */
 __STATIC_INLINE uint32_t KEYSCAN_GetKeyoutIdx(void) {

@@ -130,7 +130,7 @@ static void system_clock_config(void);
 void SystemInit (void) {
     /* FPU settings */
 #if (__FPU_PRESENT == 1) && (__FPU_USED == 1)
-    SCB->CPACR |= ((3UL << 10*2)|(3UL << 11*2));  /* set CP10 and CP11 Full Access */
+    SCB->CPACR |= ((3UL << 10*2)|(3UL << 11*2));  /* 设置CP10和CP11完全访问 */
 #endif
     /* Reset the RCU clock configuration to the default reset state */
     /* Set IRC16MEN bit */
@@ -160,8 +160,8 @@ void SystemInit (void) {
     /* 禁用所有中断 */
     RCU_INT = 0x00000000U;
 
-    /* Configure the System clock source, PLL Multiplier and Divider factors,
-        AHB/APBx prescalers and Flash settings */
+    /* Configure the System clock source, PLL 乘法器和除法器因子，
+        AHB/APBx 预分频器和 Flash 设置 */
     system_clock_config();
 }
 /*!

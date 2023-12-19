@@ -396,7 +396,7 @@ void HASH_RestoreContext(HASH_Context* HASH_ContextRestore) {
 /**
   * 简介:  启用或禁用DMA传输结束时自动启动消息填充和最终消息摘要的计算。
   * 参数:  NewState: 所选HASH DMA传输请求的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void HASH_AutoStartDigest(FunctionalState NewState) {
@@ -416,7 +416,7 @@ void HASH_AutoStartDigest(FunctionalState NewState) {
   * 简介:  启用或禁用HASH DMA接口。
   * 注意:   DMA在传输结束后被硬件禁用。
   * 参数:  NewState: 所选HASH DMA传输请求的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void HASH_DMACmd(FunctionalState NewState) {
@@ -495,7 +495,7 @@ void HASH_DMACmd(FunctionalState NewState) {
   *            @arg HASH_IT_DINI: 数据输入中断
   *            @arg HASH_IT_DCI: 摘要计算完成中断
   * 参数:  NewState: 指定HASH中断的新状态。
-  *           此参数可以是:ENABLE或DISABLE。
+  *           此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void HASH_ITConfig(uint32_t HASH_IT, FunctionalState NewState) {

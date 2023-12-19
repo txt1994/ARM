@@ -42,7 +42,7 @@ extern "C" {
 /** @defgroup AT32F435_437_System_exported_variables
   * @{
   */
-extern unsigned int system_Core_clock; /*!< system clock frequency (core clock) */
+extern unsigned int system_Core_clock; /*!< 系统时钟频率(核心时钟) */
 
 /**
   * @}

@@ -368,7 +368,7 @@ OF SUCH DAMAGE.
 #define ADC_INT_Flag_EOIC               ADC_STAT_EOIC                     /*!< end of inserted group conversion 中断 */
 #define ADC_INT_Flag_ROVF               ADC_STAT_ROVF                     /*!< regular data register overflow */
 
-/* configure the ADC clock for all the ADCs */
+/* 为所有 ADCs 配置 ADC 时钟 */
 #define SYNCCTL_ADCCK(regval)           (BITS(16,18) & ((uint32_t)(regval) << 16))
 #define ADC_ADCCK_PCLK2_DIV2            SYNCCTL_ADCCK(0)                 /*!< PCLK2 div2 */
 #define ADC_ADCCK_PCLK2_DIV4            SYNCCTL_ADCCK(1)                 /*!< PCLK2 div4 */
@@ -410,9 +410,9 @@ OF SUCH DAMAGE.
 /* initialization config */
 /* reset ADC */
 void ADC_DeInit(void);
-/* configure the ADC clock for all the ADCs */
+/* 为所有 ADCs 配置 ADC 时钟 */
 void ADC_Clock_Config(uint32_t prescaler);
-/* enable or disable ADC special function */
+/* 启用或禁用 ADC 特殊函数 */
 void ADC_Special_Function_Config(uint32_t ADC_periph, uint32_t function, ControlStatus newvalue);
 /* configure ADC data alignment */
 void ADC_Data_Alignment_Config(uint32_t ADC_periph, uint32_t data_alignment);

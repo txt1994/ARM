@@ -97,7 +97,7 @@ extern "C"
  * @{
  */
 
-extern uint32_t SystemCoreClock;        /*!< System clock frequency (Core clock) */
+extern uint32_t SystemCoreClock;        /*!< 系统时钟频率(核心时钟) */
 extern uint32_t HRC_VALUE;              /*!< HRC frequency */
 
 /**

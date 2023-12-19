@@ -177,8 +177,8 @@ static uint32_t m_u32ReadMode = 0U;
 
 /**
  * @brief  De-initializes QSPI.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void QSPI_DeInit(void) {
     WRITE_REG32(CM_QSPI->CR,    0x003F0000UL);
@@ -263,7 +263,7 @@ int32_t QSPI_StructInit(stc_qspi_init_t *pstcQspiInit) {
  *         This parameter can be one of the following values:
  *           @arg QSPI_WP_PIN_LOW:      WP(QSIO2) pin output low
  *           @arg QSPI_WP_PIN_HIGH:     WP(QSIO2) pin output high
- * @retval None
+ * @retval 无
  */
 void QSPI_SetWpPinLevel(uint32_t u32Level) {
     /* Check parameters */
@@ -279,7 +279,7 @@ void QSPI_SetWpPinLevel(uint32_t u32Level) {
  *           @arg QSPI_PREFETCH_MD_INVD:        Disable prefetch
  *           @arg QSPI_PREFETCH_MD_EDGE_STOP:   Stop prefetch at the edge of byte
  *           @arg QSPI_PREFETCH_MD_IMMED_STOP:  Stop prefetch at current position immediately
- * @retval None
+ * @retval 无
  */
 void QSPI_SetPrefetchMode(uint32_t u32Mode) {
     /* Check parameters */
@@ -291,7 +291,7 @@ void QSPI_SetPrefetchMode(uint32_t u32Mode) {
 /**
  * @brief  Selects the block to access.
  * @param  [in] u8Block                 Memory block number (range is 0 to 63)
- * @retval None
+ * @retval 无
  */
 void QSPI_SelectMemoryBlock(uint8_t u8Block) {
     /* Check parameters */
@@ -312,7 +312,7 @@ void QSPI_SelectMemoryBlock(uint8_t u8Block) {
  *           @arg QSPI_RD_MD_QUAD_IO_FAST_RD:       Fast read quad I/O mode (address and data on 4 lines)
  *           @arg QSPI_RD_MD_CUSTOM_STANDARD_RD:    Custom standard read mode
  *           @arg QSPI_RD_MD_CUSTOM_FAST_RD:        Custom fast read mode
- * @retval None
+ * @retval 无
  */
 void QSPI_SetReadMode(uint32_t u32Mode) {
     /* Check parameters */
@@ -351,7 +351,7 @@ int32_t QSPI_CustomReadConfig(const stc_qspi_custom_mode_t *pstcCustomMode) {
  * @brief  Enable or disable XIP mode.
  * @param  [in] u8ModeCode              Enter or exit XIP mode code
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void QSPI_XipModeCmd(uint8_t u8ModeCode, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -368,8 +368,8 @@ void QSPI_XipModeCmd(uint8_t u8ModeCode, en_functional_state_t enNewState) {
 
 /**
  * @brief  Enter direct communication mode.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void QSPI_EnterDirectCommMode(void) {
     /* Backup the read mode */
@@ -386,8 +386,8 @@ void QSPI_EnterDirectCommMode(void) {
 
 /**
  * @brief  Exit direct communication mode.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void QSPI_ExitDirectCommMode(void) {
     /* Exit direct communication mode */
@@ -401,7 +401,7 @@ void QSPI_ExitDirectCommMode(void) {
 
 /**
  * @brief  Get the size of prefetched buffer.
- * @param  None
+ * @param  无
  * @retval uint8_t                      Prefetched buffer size.
  */
 uint8_t QSPI_GetPrefetchBufSize(void) {
@@ -439,7 +439,7 @@ en_flag_status_t QSPI_GetStatus(uint32_t u32Flag) {
  *         This parameter can be one or any combination of the following values:
  *           @arg QSPI_FLAG_ROM_ACCESS_ERR: ROM access detection status in direct communication mode
  *           @arg QSPI_FLAG_CLR_ALL:        All of the above
- * @retval None
+ * @retval 无
  */
 void QSPI_ClearStatus(uint32_t u32Flag) {
     /* Check parameters */

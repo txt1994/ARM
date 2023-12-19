@@ -92,8 +92,8 @@ int32_t INTC_ShareIrqCmd(en_int_src_t enIntSrc, en_functional_state_t enNewState
 
 /**
  * @brief  Interrupt No.128 share IRQ handler
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void IRQ128_Handler(void) {
     const uint32_t VSSEL128 = CM_INTC->VSSEL128;
@@ -181,8 +181,8 @@ void IRQ128_Handler(void) {
 
 /**
  * @brief  Interrupt No.129 share IRQ handler
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void IRQ129_Handler(void) {
     const uint32_t VSSEL129 = CM_INTC->VSSEL129;
@@ -511,8 +511,8 @@ void IRQ129_Handler(void) {
 
 /**
  * @brief  Interrupt No.130 share IRQ handler
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void IRQ130_Handler(void) {
     const uint32_t VSSEL130 = CM_INTC->VSSEL130;
@@ -799,8 +799,8 @@ void IRQ130_Handler(void) {
 
 /**
  * @brief  Interrupt No.131 share IRQ handler
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void IRQ131_Handler(void) {
     const uint32_t VSSEL131 = CM_INTC->VSSEL131;
@@ -998,8 +998,8 @@ void IRQ131_Handler(void) {
 
 /**
  * @brief  Interrupt No.132 share IRQ handler
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void IRQ132_Handler(void) {
     const uint32_t VSSEL132 = CM_INTC->VSSEL132;
@@ -1231,8 +1231,8 @@ void IRQ132_Handler(void) {
 
 /**
  * @brief  Interrupt No.133 share IRQ handler
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void IRQ133_Handler(void) {
     const uint32_t VSSEL133 = CM_INTC->VSSEL133;
@@ -1464,8 +1464,8 @@ void IRQ133_Handler(void) {
 
 /**
  * @brief  Interrupt No.134 share IRQ handler
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void IRQ134_Handler(void) {
     const uint32_t VSSEL134 = CM_INTC->VSSEL134;
@@ -1620,8 +1620,8 @@ void IRQ134_Handler(void) {
 
 /**
  * @brief  Interrupt No.135 share IRQ handler
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void IRQ135_Handler(void) {
     uint32_t u32Tmp1;
@@ -1857,8 +1857,8 @@ void IRQ135_Handler(void) {
 
 /**
  * @brief  Interrupt No.136 share IRQ handler
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void IRQ136_Handler(void) {
     uint32_t u32Tmp1;
@@ -2094,8 +2094,8 @@ void IRQ136_Handler(void) {
 
 /**
  * @brief  Interrupt No.137 share IRQ handler
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void IRQ137_Handler(void) {
     const uint32_t VSSEL137 = CM_INTC->VSSEL137;
@@ -2313,8 +2313,8 @@ void IRQ137_Handler(void) {
 
 /**
  * @brief  Interrupt No.138 share IRQ handler
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void IRQ138_Handler(void) {
     const uint32_t VSSEL138 = CM_INTC->VSSEL138;
@@ -2580,8 +2580,8 @@ void IRQ138_Handler(void) {
 
 /**
  * @brief  Interrupt No.139 share IRQ handler
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void IRQ139_Handler(void) {
     const uint32_t VSSEL139 = CM_INTC->VSSEL139;
@@ -2816,8 +2816,8 @@ void IRQ139_Handler(void) {
 
 /**
  * @brief  Interrupt No.140 share IRQ handler
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void IRQ140_Handler(void) {
     const uint32_t VSSEL140 = CM_INTC->VSSEL140;
@@ -3049,8 +3049,8 @@ void IRQ140_Handler(void) {
 
 /**
  * @brief  Interrupt No.141 share IRQ handler
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void IRQ141_Handler(void) {
     const uint32_t VSSEL141 = CM_INTC->VSSEL141;
@@ -3281,8 +3281,8 @@ void IRQ141_Handler(void) {
 
 /**
  * @brief  Interrupt No.142 share IRQ handler
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void IRQ142_Handler(void) {
     const uint32_t VSSEL142 = CM_INTC->VSSEL142;
@@ -3452,8 +3452,8 @@ void IRQ142_Handler(void) {
 
 /**
  * @brief  Interrupt No.143 share IRQ handler
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void IRQ143_Handler(void) {
     const uint32_t VSSEL143 = CM_INTC->VSSEL143;

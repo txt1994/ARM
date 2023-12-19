@@ -356,7 +356,7 @@ void ADC_CommonStructInit(ADC_CommonInitTypeDef* ADC_CommonInitStruct) {
   * 简介:  启用或禁用指定的ADC外设设备。
   * 参数:  ADCx:其中x可以是1、2或3，以选择ADC外设设备。
   * 参数:  NewState:ADCx外设设备的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void ADC_Cmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
@@ -525,7 +525,7 @@ void ADC_AnalogWatchdogSingleChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channe
 /**
   * 简介:  启用或禁用温度传感器和Vrefint通道。
   * 参数:  NewState: 温度传感器和Vrefint通道的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void ADC_TempSensorVrefintCmd(FunctionalState NewState) {
@@ -548,7 +548,7 @@ void ADC_TempSensorVrefintCmd(FunctionalState NewState) {
   *         在STM32 F42xx和ST M32F43xx设备中等于VBAT/4
   *
   * 参数:  NewState: VBAT通道的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void ADC_VBATCmd(FunctionalState NewState) {
@@ -791,7 +791,7 @@ FlagStatus ADC_GetSoftwareStartConvStatus(ADC_TypeDef* ADCx) {
   * 简介:  在每个常规通道转换中启用或禁用EOC。
   * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
   * 参数:  NewState: 所选ADC的新状态 EOC标志上升
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void ADC_EOCOnEachRegularChannelCmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
@@ -812,7 +812,7 @@ void ADC_EOCOnEachRegularChannelCmd(ADC_TypeDef* ADCx, FunctionalState NewState)
   * 简介:  启用或禁用 ADC 连续转换模式。
   * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
   * 参数:  NewState: 所选ADC连续转换模式的新状态
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void ADC_ContinuousModeCmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
@@ -862,7 +862,7 @@ void ADC_DiscModeChannelCountConfig(ADC_TypeDef* ADCx, uint8_t Number) {
   * 简介:  使能或者失能指定的 ADC 规则组通道的间断模式
   * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
   * 参数:  NewState: 选定的ADC非连续模式的新状态在常规组通道。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void ADC_DiscModeCmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
@@ -939,7 +939,7 @@ uint32_t ADC_GetMultiModeConversionValue(void) {
  * 简介:  使能或者失能指定的 ADC 的 DMA 请求
  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
  * 参数:  NewState: 新状态-> selected ADC DMA transfer.
- *          此参数可以是:ENABLE或DISABLE。
+ *          此参数可以是: ENABLE或DISABLE。
  * 返回值: 无
  */
 void ADC_DMACmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
@@ -960,7 +960,7 @@ void ADC_DMACmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
   * 简介:  在最后一次传输后启用或禁用 ADC DMA 请求(单 ADC 模式)
   * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
   * 参数:  NewState: 最后一次传输后所选ADC DMA请求的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void ADC_DMARequestAfterLastTransferCmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
@@ -980,7 +980,7 @@ void ADC_DMARequestAfterLastTransferCmd(ADC_TypeDef* ADCx, FunctionalState NewSt
 /**
   * 简介:  在多 ADC 模式下最后一次传输后启用或禁用 ADC DMA 请求。
   * 参数:  NewState: 最后一次传输后所选ADC DMA请求的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * note   如果启用，则只要转换数据，就会发出DMA请求，
 		   并且多ADC模式的DMA模式(由ADC_CommonInitStruct.ADC_DMAAccessMode
 		   结构成员使用ADC_CommonInit()函数选择)为ADC_DMAAccessMode_1、
@@ -1283,7 +1283,7 @@ FlagStatus ADC_GetSoftwareStartInjectedConvCmdStatus(ADC_TypeDef* ADCx) {
   * 简介:  在常规ADC自动注入组转换之后，启用或禁用所选ADC自动插入组转换。
   * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
   * 参数:  NewState: 所选ADC自动注入转换的新状态
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void ADC_AutoInjectedConvCmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
@@ -1304,7 +1304,7 @@ void ADC_AutoInjectedConvCmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
   * 简介:  为指定ADC的注入组通道启用或禁用不连续模式
   * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
   * 参数:  NewState: 注入组通道上所选ADC不连续模式的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void ADC_InjectedDiscModeCmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
@@ -1423,7 +1423,7 @@ uint16_t ADC_GetInjectedConversionValue(ADC_TypeDef* ADCx, uint8_t ADC_InjectedC
   *            @arg ADC_IT_JEOC: 注入转换中断掩码结束
   *            @arg ADC_IT_OVR: 超限中断启用
   * 参数:  NewState: 指定ADC中断的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void ADC_ITConfig(ADC_TypeDef* ADCx, uint16_t ADC_IT, FunctionalState NewState) {

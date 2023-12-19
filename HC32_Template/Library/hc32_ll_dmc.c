@@ -361,8 +361,8 @@ int32_t EXMC_DMC_Init(const stc_exmc_dmc_init_t *pstcDmcInit) {
 
 /**
  * @brief  De-Initialize EXMC_DMC function.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void EXMC_DMC_DeInit(void) {
     /* Disable */
@@ -390,7 +390,7 @@ void EXMC_DMC_DeInit(void) {
 /**
  * @brief  Enable/disable DMC.
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void EXMC_DMC_Cmd(en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -411,7 +411,7 @@ void EXMC_DMC_Cmd(en_functional_state_t enNewState) {
  *           @arg EXMC_DMC_CTRL_STATE_WAKEUP: Wake up
  *           @arg EXMC_DMC_CTRL_STATE_PAUSE:  Pause
  *           @arg EXMC_DMC_CTRL_STATE_CONFIG: Configure
- * @retval None
+ * @retval 无
  */
 void EXMC_DMC_SetState(uint32_t u32State) {
     DDL_ASSERT(IS_EXMC_DMC_STATE(u32State));
@@ -519,7 +519,7 @@ uint32_t EXMC_DMC_GetChipEndAddr(uint32_t u32Chip) {
  *           @arg EXMC_DMC_CMD_NOP:          NOP
  * @param  [in] u32Addr                 The address parameter for CMD MdRegConfig only.
  *         This parameter can be a value between Min_Data = 0 and Max_Data = 0x7FFFUL
- * @retval None
+ * @retval 无
  */
 void EXMC_DMC_SetCommand(uint32_t u32Chip, uint32_t u32Bank, uint32_t u32Cmd, uint32_t u32Addr) {
     uint32_t u32RegVal;

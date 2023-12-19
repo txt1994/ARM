@@ -449,7 +449,7 @@ void RTC_StructInit(RTC_InitTypeDef* RTC_InitStruct) {
   * 注意:   写错的键会重新激活写保护。
   * 注意:   保护机制不受系统重置的影响。
   * 参数:  NewState: 写保护的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RTC_WriteProtectionCmd(FunctionalState NewState) {
@@ -558,7 +558,7 @@ ErrorStatus RTC_WaitForSynchro(void) {
 /**
   * 简介:  启用或禁用RTC参考时钟检测。
   * 参数:  NewState: RTC基准时钟的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: RTC参考时钟检测已启用
   *          - ERROR: RTC参考时钟检测被禁用
@@ -601,7 +601,7 @@ ErrorStatus RTC_RefClockCmd(FunctionalState NewState) {
   * 简介:  启用或禁用旁路阴影功能。
   * 注意:   启用旁路阴影时，日历值直接从日历计数器中获取。
   * 参数:  NewState: 旁路阴影功能的新状态。
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
 */
 void RTC_BypassShadowCmd(FunctionalState NewState) {
@@ -1113,7 +1113,7 @@ void RTC_GetAlarm(uint32_t RTC_Format, uint32_t RTC_Alarm, RTC_AlarmTypeDef* RTC
   *            @arg RTC_Alarm_A: 选择报警A
   *            @arg RTC_Alarm_B: 选择报警B
   * 参数:  NewState: 指定报警的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: RTC警报已启用/禁用
   *          - ERROR: RTC警报未启用/禁用
@@ -1337,7 +1337,7 @@ uint32_t RTC_GetWakeUpCounter(void) {
 /**
   * 简介:  启用或禁用RTC 唤醒计数器.
   * 参数:  NewState: 新状态-> WakeUp timer.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 ErrorStatus RTC_WakeUpCmd(FunctionalState NewState) {
@@ -1596,7 +1596,7 @@ ErrorStatus RTC_CoarseCalibCmd(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用通过相关引脚输出的RTC时钟。
   * 参数:  NewState: 数字校准输出的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RTC_CalibOutputCmd(FunctionalState NewState) {
@@ -1725,7 +1725,7 @@ ErrorStatus RTC_SmoothCalibConfig(uint32_t RTC_SmoothCalibPeriod,
   *            @arg RTC_TimeStampEdge_Rising: 时间戳事件发生在相关引脚的上升沿上。
   *            @arg RTC_TimeStampEdge_Falling: 时间戳事件发生在相关引脚的下降沿上。
   * 参数:  NewState: 新状态-> TimeStamp.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RTC_TimeStampCmd(uint32_t RTC_TimeStampEdge, FunctionalState NewState) {
@@ -1860,7 +1860,7 @@ void RTC_TamperTriggerConfig(uint32_t RTC_Tamper, uint32_t RTC_TamperTrigger) {
   * 参数:  RTC_Tamper: 选定的防盗销。
   *          取值为RTC_Tamper_1或RTC_Tamper_2
   * 参数:  NewState: 新状态-> tamper pin.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RTC_TamperCmd(uint32_t RTC_Tamper, FunctionalState NewState) {
@@ -1948,7 +1948,7 @@ void RTC_TamperPinsPrechargeDuration(uint32_t RTC_TamperPrechargeDuration) {
   * 简介:  启用或禁用篡改检测事件的时间戳。
   * 注意:   即使篡改控制寄存器中的TSE位被重置，时间戳仍然有效。
   * 参数:  NewState: 新状态-> timestamp on tamper event.
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RTC_TimeStampOnTamperDetectionCmd(FunctionalState NewState) {
@@ -1967,7 +1967,7 @@ void RTC_TimeStampOnTamperDetectionCmd(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用篡改引脚的预充电。
   * 参数:  NewState: 新状态->  tamper pull up.
-  *   此参数可以是:ENABLE或DISABLE。
+  *   此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RTC_TamperPullUpCmd(FunctionalState NewState) {
@@ -2231,7 +2231,7 @@ ErrorStatus RTC_SynchroShiftConfig(uint32_t RTC_ShiftAdd1S, uint32_t RTC_ShiftSu
   *          @arg RTC_IT_ALRA: 警报A中断掩码
   *          @arg RTC_IT_TAMP: 篡改事件中断掩码
   * 参数:  NewState: 指定的RTC中断的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RTC_ITConfig(uint32_t RTC_IT, FunctionalState NewState) {

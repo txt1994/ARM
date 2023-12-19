@@ -2105,8 +2105,8 @@ typedef struct {
 
 /**
  * @brief  Generate MAC pause control frame.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void ETH_MAC_GeneratePauseCtrlFrame(void) {
     WRITE_REG32(bCM_ETH->MAC_FLOCTLR_b.FCA_BPA, ENABLE);
@@ -2114,7 +2114,7 @@ __STATIC_INLINE void ETH_MAC_GeneratePauseCtrlFrame(void) {
 
 /**
  * @brief  Get MAC flow control status.
- * @param  None
+ * @param  无
  * @retval An @ref en_flag_status_t enumeration type value.
  */
 __STATIC_INLINE en_flag_status_t ETH_MAC_GetFlowControlStatus(void) {
@@ -2123,8 +2123,8 @@ __STATIC_INLINE en_flag_status_t ETH_MAC_GetFlowControlStatus(void) {
 
 /**
  * @brief  Resume the DMA Transmit.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void ETH_DMA_ResumeTrans(void) {
     WRITE_REG32(CM_ETH->DMA_TXPOLLR, 0U);
@@ -2132,8 +2132,8 @@ __STATIC_INLINE void ETH_DMA_ResumeTrans(void) {
 
 /**
  * @brief  Resume the DMA Receive.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void ETH_DMA_ResumeReceive(void) {
     WRITE_REG32(CM_ETH->DMA_RXPOLLR, 0U);
@@ -2141,7 +2141,7 @@ __STATIC_INLINE void ETH_DMA_ResumeReceive(void) {
 
 /**
  * @brief  Get DMA error status.
- * @param  None
+ * @param  无
  * @retval uint32_t                     The new DMA error status
  *         The error status may be one of the following values:
  *           - ETH_DMA_ERR_STATE_RX_WR_DATA:    TxDMA generates error while reading descriptor
@@ -2157,7 +2157,7 @@ __STATIC_INLINE uint32_t ETH_DMA_GetErrorStatus(void) {
 
 /**
  * @brief  Get DMA transmit status.
- * @param  None
+ * @param  无
  * @retval uint32_t                     The new DMA transmit status
  *           The transmit status may be one of the following values:
  *           - ETH_DMA_TRANS_STATE_STOPPED:     Stopped - Reset or Stop Tx Command issued
@@ -2174,7 +2174,7 @@ __STATIC_INLINE uint32_t ETH_DMA_GetTransStatus(void) {
 
 /**
  * @brief  Get DMA receive status.
- * @param  None
+ * @param  无
  * @retval uint32_t                     The new DMA receive status
  *           The receive status may be one of the following values:
  *           - ETH_DMA_RX_STATE_STOPPED:    Stopped - Reset or Stop Rx Command issued
@@ -2191,7 +2191,7 @@ __STATIC_INLINE uint32_t ETH_DMA_GetReceiveStatus(void) {
 
 /**
  * @brief  Get DMA Rx Overflow Missed Frame Counter value.
- * @param  None
+ * @param  无
  * @retval uint32_t                     Rx Overflow Missed Frame Counter value
  */
 __STATIC_INLINE uint32_t ETH_DMA_GetOvfMissFrameCount(void) {
@@ -2200,7 +2200,7 @@ __STATIC_INLINE uint32_t ETH_DMA_GetOvfMissFrameCount(void) {
 
 /**
  * @brief  Get DMA Buffer Unavailable Missed Frame Counter value.
- * @param  None
+ * @param  无
  * @retval uint32_t                     Buffer Unavailable Missed Frame Counter value
  */
 __STATIC_INLINE uint32_t ETH_DMA_GetBufUnavailableMissFrameCount(void) {
@@ -2209,7 +2209,7 @@ __STATIC_INLINE uint32_t ETH_DMA_GetBufUnavailableMissFrameCount(void) {
 
 /**
  * @brief  Get DMA current Tx descriptor start address.
- * @param  None
+ * @param  无
  * @retval uint32_t                     Transmit descriptor start address
  */
 __STATIC_INLINE uint32_t ETH_DMA_GetCurrentTxDescAddr(void) {
@@ -2218,7 +2218,7 @@ __STATIC_INLINE uint32_t ETH_DMA_GetCurrentTxDescAddr(void) {
 
 /**
  * @brief  Get DMA current Rx descriptor start address.
- * @param  None
+ * @param  无
  * @retval uint32_t                     Receive descriptor start address
  */
 __STATIC_INLINE uint32_t ETH_DMA_GetCurrentRxDescAddr(void) {
@@ -2227,7 +2227,7 @@ __STATIC_INLINE uint32_t ETH_DMA_GetCurrentRxDescAddr(void) {
 
 /**
  * @brief  Get DMA current Tx buffer address.
- * @param  None
+ * @param  无
  * @retval uint32_t                     Transmit buffer address
  */
 __STATIC_INLINE uint32_t ETH_DMA_GetCurrentTxBufAddr(void) {
@@ -2236,7 +2236,7 @@ __STATIC_INLINE uint32_t ETH_DMA_GetCurrentTxBufAddr(void) {
 
 /**
  * @brief  Get DMA current Rx buffer address.
- * @param  None
+ * @param  无
  * @retval uint32_t                     Receive buffer address
  */
 __STATIC_INLINE uint32_t ETH_DMA_GetCurrentRxBufAddr(void) {
@@ -2245,7 +2245,7 @@ __STATIC_INLINE uint32_t ETH_DMA_GetCurrentRxBufAddr(void) {
 
 /**
  * @brief  Get PMT wakeup frame filter register pointer index.
- * @param  None
+ * @param  无
  * @retval uint8_t                      Filter register pointer index.
  */
 __STATIC_INLINE uint8_t ETH_PMT_GetWakeupFramePointerIndex(void) {
@@ -2254,7 +2254,7 @@ __STATIC_INLINE uint8_t ETH_PMT_GetWakeupFramePointerIndex(void) {
 
 /**
  * @brief  Get PTP snapshot frame type.
- * @param  None
+ * @param  无
  * @retval uint32_t                     Receive frame type
  */
 __STATIC_INLINE uint32_t ETH_PTP_GetSnapFrameType(void) {

@@ -536,7 +536,7 @@ ErrStatus OB_Write_Protection_Enable(uint32_t OB_wp) {
 }
 
 /*!
-    简介:    disable write protection
+    简介:    禁用写保护
     参数[输入]:  OB_wp: specify sector to be write protected
                 one or more parameters can be selected which are shown as below:
       参数:        OB_WP_x(x=0..22):sector x(x = 0,1,2...22)

@@ -152,7 +152,7 @@ void SPDIFRX_StructInit(SPDIFRX_InitTypeDef* SPDIFRX_InitStruct) {
 /**
   * 简介:  启用或禁用SPDIFRX frame x bit.
   * 参数:  NewState: 选定SPDIFRX帧位的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SPDIFRX_SetPreambleTypeBit(FunctionalState NewState) {
@@ -171,7 +171,7 @@ void SPDIFRX_SetPreambleTypeBit(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用SPDIFRX frame x bit.
   * 参数:  NewState: 选定SPDIFRX帧位的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SPDIFRX_SetUserDataChannelStatusBits(FunctionalState NewState) {
@@ -190,7 +190,7 @@ void SPDIFRX_SetUserDataChannelStatusBits(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用 SPDIFRX 帧 x 位。
   * 参数:  NewState: 选定SPDIFRX帧位的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SPDIFRX_SetValidityBit(FunctionalState NewState) {
@@ -209,7 +209,7 @@ void SPDIFRX_SetValidityBit(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用 SPDIFRX 帧 x 位。
   * 参数:  NewState: 选定SPDIFRX帧位的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SPDIFRX_SetParityBit(FunctionalState NewState) {
@@ -228,7 +228,7 @@ void SPDIFRX_SetParityBit(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用 SPDIFRX DMA 接口 (RX)。
   * 参数:  NewState: 所选SPDIFRX DMA传输请求的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SPDIFRX_RxDMACmd(FunctionalState NewState) {
@@ -247,7 +247,7 @@ void SPDIFRX_RxDMACmd(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用 SPDIFRX DMA 接口(控制缓冲区)。
   * 参数:  NewState: 所选SPDIFRX DMA传输请求的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SPDIFRX_CbDMACmd(FunctionalState NewState) {
@@ -294,7 +294,7 @@ void SPDIFRX_Cmd(uint32_t SPDIFRX_State) {
   *            @arg SPDIFRX_IT_SYNCDIE: Synchronization Done
   *            @arg SPDIFRX_IT_IFEIE: Serial Interface Error Interrupt Enable
   * 参数:  NewState: 新状态-> specified SPDIFRX interrupt.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SPDIFRX_ITConfig(uint32_t SPDIFRX_IT, FunctionalState NewState) {

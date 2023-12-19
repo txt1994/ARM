@@ -186,8 +186,8 @@ int32_t DVP_Init(const stc_dvp_init_t *pstcDvpInit) {
 
 /**
  * @brief  De-Initialize DVP function.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void DVP_DeInit(void) {
     WRITE_REG32(CM_DVP->CTR, 0UL);
@@ -202,7 +202,7 @@ void DVP_DeInit(void) {
 /**
  * @brief  Enable/disable DVP.
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void DVP_Cmd(en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -225,7 +225,7 @@ void DVP_Cmd(en_functional_state_t enNewState) {
  *           @arg DVP_INT_FIFO_OVF:     FIFO overflow error interrupt
  *           @arg DVP_INT_SYNC_ERR:     Sync error interrupt
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void DVP_IntCmd(uint32_t u32IntType, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_DVP_INT(u32IntType));
@@ -241,7 +241,7 @@ void DVP_IntCmd(uint32_t u32IntType, en_functional_state_t enNewState) {
 /**
  * @brief  Enable/disable DVP crop.
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void DVP_CropCmd(en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -252,7 +252,7 @@ void DVP_CropCmd(en_functional_state_t enNewState) {
 /**
  * @brief  Enable/disable DVP JPEG format.
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void DVP_JPEGCmd(en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -267,7 +267,7 @@ void DVP_JPEGCmd(en_functional_state_t enNewState) {
 /**
  * @brief  Enable/disable DVP capture.
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void DVP_CaptrueCmd(en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -307,7 +307,7 @@ en_flag_status_t DVP_GetStatus(uint32_t u32Flag) {
  *           @arg DVP_FLAG_FRAME_END:   Frame end flag
  *           @arg DVP_FLAG_FIFO_OVF:    FIFO overflow error flag
  *           @arg DVP_FLAG_SYNC_ERR:    Sync error interrupt
- * @retval None
+ * @retval 无
  */
 void DVP_ClearStatus(uint32_t u32Flag) {
     DDL_ASSERT(IS_DVP_FLAG(u32Flag));

@@ -596,8 +596,8 @@ typedef struct {
 
 /**
  * @brief  EFM Protect Unlock.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 
 __STATIC_INLINE void EFM_REG_Unlock(void) {
@@ -607,8 +607,8 @@ __STATIC_INLINE void EFM_REG_Unlock(void) {
 
 /**
  * @brief  EFM Protect Lock.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void EFM_REG_Lock(void) {
     WRITE_REG32(CM_EFM->FAPRT, EFM_REG_LOCK_KEY);
@@ -616,8 +616,8 @@ __STATIC_INLINE void EFM_REG_Lock(void) {
 
 /**
  * @brief  EFM remap Unlock.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void EFM_REMAP_Unlock(void) {
     WRITE_REG32(CM_EFM->MMF_REMPRT, EFM_REMAP_REG_UNLOCK_KEY1);
@@ -626,8 +626,8 @@ __STATIC_INLINE void EFM_REMAP_Unlock(void) {
 
 /**
  * @brief  EFM remap Lock.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void EFM_REMAP_Lock(void) {
     WRITE_REG32(CM_EFM->MMF_REMPRT, EFM_REMAP_REG_LOCK_KEY);

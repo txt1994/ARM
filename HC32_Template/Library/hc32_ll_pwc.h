@@ -555,7 +555,7 @@ typedef struct {
  *   @arg  PWC_UNLOCK_CODE0
  *   @arg  PWC_UNLOCK_CODE1
  *   @arg  PWC_UNLOCK_CODE2
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void PWC_REG_Lock(uint16_t u16Module) {
     CM_PWC->FPRC = (PWC_WRITE_ENABLE | (uint16_t)((uint16_t)(~u16Module) & (CM_PWC->FPRC)));
@@ -567,7 +567,7 @@ __STATIC_INLINE void PWC_REG_Lock(uint16_t u16Module) {
  *   @arg  PWC_UNLOCK_CODE0
  *   @arg  PWC_UNLOCK_CODE1
  *   @arg  PWC_UNLOCK_CODE2
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void PWC_REG_Unlock(uint16_t u16Module) {
     SET_REG16_BIT(CM_PWC->FPRC, u16Module);
@@ -575,8 +575,8 @@ __STATIC_INLINE void PWC_REG_Unlock(uint16_t u16Module) {
 
 /**
  * @brief  Lock PWC_FCG0 register .
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void PWC_FCG0_REG_Lock(void) {
     WRITE_REG32(CM_PWC->FCG0PC, PWC_FCG0_REG_LOCK_KEY);
@@ -584,8 +584,8 @@ __STATIC_INLINE void PWC_FCG0_REG_Lock(void) {
 
 /**
  * @brief  Unlock PWR_FCG0 register.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  * @note Call this function before FCG_Fcg0PeriphClockCmd()
  */
 __STATIC_INLINE void PWC_FCG0_REG_Unlock(void) {

@@ -410,7 +410,7 @@ void SAI_SlotStructInit(SAI_SlotInitTypeDef* SAI_SlotInitStruct) {
   * 简介:  启用或禁用指定的 SAI Block 外设。
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设设备。
   * 参数:  NewState: SAI_Block_x外设设备的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SAI_Cmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
@@ -508,7 +508,7 @@ void SAI_CompandingModeConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_Compa
   *
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
   * 参数:  NewState: 新状态-> SAIx block.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SAI_MuteModeCmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
@@ -647,7 +647,7 @@ void SAI_BlockSynchroConfig(SAI_InitTypeDef* SAI_InitStruct, SAI_TypeDef* SAIx) 
   *
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
   * 参数:  NewState: 新状态-> selected SAI TI communication mode.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SAI_FlushFIFO(SAI_Block_TypeDef* SAI_Block_x) {
@@ -732,7 +732,7 @@ void SAI_SendData(SAI_Block_TypeDef* SAI_Block_x, uint32_t Data) {
   * 简介:  启用或禁用 SAI Block x DMA 接口。
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
   * 参数:  NewState: 新状态-> 选择SAI块DMA传输请求。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
@@ -851,7 +851,7 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
   *            @arg SAI_IT_CNRDY: 编解码器未就绪中断掩码
   *            @arg SAI_IT_WCKCFG: 错误的时钟配置中断掩码
   * 参数:  NewState: 新状态-> specified SAI 中断.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void SAI_ITConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT, FunctionalState NewState) {

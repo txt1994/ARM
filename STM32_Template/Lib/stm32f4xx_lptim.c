@@ -224,7 +224,7 @@ void LPTIM_StructInit(LPTIM_InitTypeDef* LPTIM_InitStruct) {
   * 简介:  启用或禁用指定的 LPTIM 外设.
   * 参数:  LPTIMx: 其中x可以是1。
   * 参数:  NewState: 新状态-> LPTIMx 外设.
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void LPTIM_Cmd(LPTIM_TypeDef* LPTIMx, FunctionalState NewState) {
@@ -490,7 +490,7 @@ void LPTIM_SelectOperatingMode(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_Mode) {
   * 简介:  启用或禁用超时功能。
   * 参数:  LPTIMx: 其中x可以是1。
   * 参数:  NewState: 超时功能的新状态。
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   *
   * 注意:   必须禁用外设设备才能使用此功能。
@@ -592,7 +592,7 @@ void LPTIM_SetCompareValue(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_Compare) {
   *         启用计数器模式后，计数器会在 ULPTIM 上的每个有效事件中递增
   * 参数:  LPTIMx: 其中x可以是1。
   * 参数:  NewState: 计数器模式的新状态。
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   *
   * 注意:   必须禁用外设设备才能使用此功能。
@@ -615,7 +615,7 @@ void LPTIM_SelectCounterMode(LPTIM_TypeDef* LPTIMx, FunctionalState NewState) {
   * 简介:  启用或禁用编码器模式。
   * 参数:  LPTIMx: 其中x可以是1。
   * 参数:  NewState: 编码器模式的新状态。
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   *
   * 注意:   必须禁用外设设备才能使用此功能。
@@ -741,7 +741,7 @@ void LPTIM_RemapConfig(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_OPTR) {
   * 注意:   LPTIM_IT_DOWN仅适用于LPTIM1。
   * 注意:   LPTIM_IT_UP仅适用于LPTIM1。
   * 参数:  NewState: TIM中断的新状态。
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   *
   * 注意:   必须禁用外设设备才能使用此功能。
@@ -776,7 +776,7 @@ void LPTIM_ITConfig(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_IT, FunctionalState Ne
   * 注意:   LPTIM_Flag_DOWN仅为LPTIM1生成。
   * 注意:   LPTIM_Flag_UP仅为LPTIM1生成。
   * 参数:  NewState: TIM中断的新状态。
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 FlagStatus LPTIM_GetFlagStatus(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_FLAG) {

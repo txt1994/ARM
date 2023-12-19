@@ -92,7 +92,7 @@
 /**
  * @brief  Write the input buffer in data register.
  * @param  [in] pu8SrcData              Point to the source data buffer.
- * @retval None
+ * @retval 无
  */
 static void AES_WriteData(const uint8_t *pu8SrcData) {
     uint8_t i;
@@ -107,7 +107,7 @@ static void AES_WriteData(const uint8_t *pu8SrcData) {
 /**
  * @brief  Read the from data register.
  * @param  [out] pu8Result              Point to the result buffer.
- * @retval None
+ * @retval 无
  */
 static void AES_ReadData(uint8_t *pu8Result) {
     uint8_t i;
@@ -123,7 +123,7 @@ static void AES_ReadData(uint8_t *pu8Result) {
  * @brief  Write the input buffer in key register.
  * @param  [in]  pu8Key                 Pointer to the key buffer.
  * @param  [in]  u8KeySize              AES key size. This parameter can be a value of @ref AES_Key_Size
- * @retval None
+ * @retval 无
  */
 static void AES_WriteKey(const uint8_t *pu8Key, uint8_t u8KeySize) {
     uint8_t i;
@@ -157,8 +157,8 @@ static void AES_WriteKey(const uint8_t *pu8Key, uint8_t u8KeySize) {
 
 /**
  * @brief  Wait AES operation done.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 static int32_t AES_WaitDone(void) {
     __IO uint32_t u32TimeCount = 0UL;

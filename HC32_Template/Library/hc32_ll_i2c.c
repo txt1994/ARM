@@ -187,7 +187,7 @@ int32_t I2C_WaitStatus(const CM_I2C_TypeDef *I2Cx, uint32_t u32Flag, en_flag_sta
  * @param [in] I2Cx                 Pointer to I2C instance register base.
  *                                  This parameter can be a value of the following:
  *        @arg CM_I2C or CM_I2Cx:   I2C instance register base.
- * @retval None
+ * @retval 无
  */
 void I2C_GenerateStart(CM_I2C_TypeDef *I2Cx) {
     DDL_ASSERT(IS_I2C_UNIT(I2Cx));
@@ -199,7 +199,7 @@ void I2C_GenerateStart(CM_I2C_TypeDef *I2Cx) {
  * @param [in]  I2Cx                Pointer to I2C instance register base.
  *                                  This parameter can be a value of the following:
  *   @arg CM_I2C or CM_I2Cx:        I2C instance register base.
- * @retval None
+ * @retval 无
  */
 void I2C_GenerateRestart(CM_I2C_TypeDef *I2Cx) {
     DDL_ASSERT(IS_I2C_UNIT(I2Cx));
@@ -211,7 +211,7 @@ void I2C_GenerateRestart(CM_I2C_TypeDef *I2Cx) {
  * @param [in] I2Cx                 Pointer to I2C instance register base.
  *                                  This parameter can be a value of the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
- * @retval None
+ * @retval 无
  */
 void I2C_GenerateStop(CM_I2C_TypeDef *I2Cx) {
     DDL_ASSERT(IS_I2C_UNIT(I2Cx));
@@ -326,7 +326,7 @@ int32_t I2C_BaudrateConfig(CM_I2C_TypeDef *I2Cx, const stc_i2c_init_t *pstcI2cIn
  * @param [in] I2Cx                 Pointer to I2C instance register base.
  *                                  This parameter can be a value of the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
- * @retval None
+ * @retval 无
  */
 void I2C_DeInit(CM_I2C_TypeDef *I2Cx) {
     /* Check parameters */
@@ -401,7 +401,7 @@ int32_t I2C_Init(CM_I2C_TypeDef *I2Cx, const stc_i2c_init_t *pstcI2cInit, float3
  * @param [in] u32AddrNum           I2C address 0 or address 1 @ref I2C_Address_Num
  * @param [in] u32AddrMode          Address mode configuration @ref I2C_Addr_Config
  * @param [in] u32Addr              The slave address
- * @retval None
+ * @retval 无
  */
 void I2C_SlaveAddrConfig(CM_I2C_TypeDef *I2Cx, uint32_t u32AddrNum, uint32_t u32AddrMode, uint32_t u32Addr) {
     __IO uint32_t *const pu32SLRx = (__IO uint32_t *)((uint32_t)&I2Cx->SLR0 + (u32AddrNum * 4UL));
@@ -430,7 +430,7 @@ void I2C_SlaveAddrConfig(CM_I2C_TypeDef *I2Cx, uint32_t u32AddrNum, uint32_t u32
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u32AddrNum           I2C address 0 or address 1 @ref I2C_Address_Num
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void I2C_SlaveAddrCmd(CM_I2C_TypeDef *I2Cx, uint32_t u32AddrNum, en_functional_state_t enNewState) {
     __IO uint32_t *const pu32SLRx = (__IO uint32_t *)((uint32_t)&I2Cx->SLR0 + (u32AddrNum * 4UL));
@@ -448,7 +448,7 @@ void I2C_SlaveAddrCmd(CM_I2C_TypeDef *I2Cx, uint32_t u32AddrNum, en_functional_s
  *                                  This parameter can be a value of the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void I2C_Cmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -464,7 +464,7 @@ void I2C_Cmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) {
  *                                  This parameter can be a value of the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void I2C_FastAckCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_I2C_UNIT(I2Cx));
@@ -483,7 +483,7 @@ void I2C_FastAckCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) {
  *                                  This parameter can be a value of the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void I2C_BusWaitCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_I2C_UNIT(I2Cx));
@@ -503,7 +503,7 @@ void I2C_BusWaitCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) {
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u32SmbusConfig       Indicate the SMBUS address match function configuration. @ref I2C_Smbus_Match_Config
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void I2C_SmbusConfig(CM_I2C_TypeDef *I2Cx, uint32_t u32SmbusConfig, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_I2C_UNIT(I2Cx));
@@ -523,7 +523,7 @@ void I2C_SmbusConfig(CM_I2C_TypeDef *I2Cx, uint32_t u32SmbusConfig, en_functiona
  *                                  This parameter can be a value of the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void I2C_SmbusCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_I2C_UNIT(I2Cx));
@@ -538,7 +538,7 @@ void I2C_SmbusCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) {
  *                                  This parameter can be a value of the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u32FilterClock       Chose the digital filter clock, @ref I2C_Digital_Filter_Clock
- * @retval None
+ * @retval 无
  */
 void I2C_DigitalFilterConfig(CM_I2C_TypeDef *I2Cx, uint32_t u32FilterClock) {
     DDL_ASSERT(IS_I2C_UNIT(I2Cx));
@@ -553,7 +553,7 @@ void I2C_DigitalFilterConfig(CM_I2C_TypeDef *I2Cx, uint32_t u32FilterClock) {
  *                                  This parameter can be a value of the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void I2C_DigitalFilterCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_I2C_UNIT(I2Cx));
@@ -568,7 +568,7 @@ void I2C_DigitalFilterCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState
  *                                  This parameter can be a value of the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void I2C_AnalogFilterCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_I2C_UNIT(I2Cx));
@@ -583,7 +583,7 @@ void I2C_AnalogFilterCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState)
  *                                  This parameter can be a value of the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void I2C_GeneralCallCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_I2C_UNIT(I2Cx));
@@ -627,7 +627,7 @@ en_flag_status_t I2C_GetStatus(const CM_I2C_TypeDef *I2Cx, uint32_t u32Flag) {
  *         @arg I2C_FLAG_SMBUS_DEFAULT_MATCH: Smbus default address detected flag clear
  *         @arg I2C_FLAG_SMBUS_HOST_MATCH   : Smbus host address detected flag clear
  *         @arg I2C_FLAG_SMBUS_ALARM_MATCH  : Smbus alarm address detected flag clear
- * @retval None
+ * @retval 无
  */
 void I2C_ClearStatus(CM_I2C_TypeDef *I2Cx, uint32_t u32Flag) {
     DDL_ASSERT(IS_I2C_UNIT(I2Cx));
@@ -642,7 +642,7 @@ void I2C_ClearStatus(CM_I2C_TypeDef *I2Cx, uint32_t u32Flag) {
  *                                  This parameter can be a value of the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void I2C_SWResetCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_I2C_UNIT(I2Cx));
@@ -658,7 +658,7 @@ void I2C_SWResetCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) {
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u32IntType           Specifies the I2C interrupts @ref I2C_Int_Flag
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void I2C_IntCmd(CM_I2C_TypeDef *I2Cx, uint32_t u32IntType, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_I2C_UNIT(I2Cx));
@@ -678,7 +678,7 @@ void I2C_IntCmd(CM_I2C_TypeDef *I2Cx, uint32_t u32IntType, en_functional_state_t
  *                                  This parameter can be a value of the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u8Data               The data to be send
- * @retval None
+ * @retval 无
  */
 void I2C_WriteData(CM_I2C_TypeDef *I2Cx, uint8_t u8Data) {
     DDL_ASSERT(IS_I2C_UNIT(I2Cx));
@@ -705,7 +705,7 @@ uint8_t I2C_ReadData(const CM_I2C_TypeDef *I2Cx) {
  *                                  This parameter can be a value of the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u32AckConfig         I2C ACK configurate. @ref I2C_Ack_Config
- * @retval None
+ * @retval 无
  */
 void I2C_AckConfig(CM_I2C_TypeDef *I2Cx, uint32_t u32AckConfig) {
     DDL_ASSERT(IS_I2C_UNIT(I2Cx));
@@ -720,7 +720,7 @@ void I2C_AckConfig(CM_I2C_TypeDef *I2Cx, uint32_t u32AckConfig) {
  *                                  This parameter can be a value of the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u16TimeoutH          Clock timeout period for high level
- * @retval None
+ * @retval 无
  */
 void I2C_SCLHighTimeoutConfig(CM_I2C_TypeDef *I2Cx, uint16_t u16TimeoutH) {
     DDL_ASSERT(IS_I2C_UNIT(I2Cx));
@@ -734,7 +734,7 @@ void I2C_SCLHighTimeoutConfig(CM_I2C_TypeDef *I2Cx, uint16_t u16TimeoutH) {
  *                                  This parameter can be a value of the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u16TimeoutL          Clock timeout period for low level
- * @retval None
+ * @retval 无
  */
 void I2C_SCLLowTimeoutConfig(CM_I2C_TypeDef *I2Cx, uint16_t u16TimeoutL) {
     DDL_ASSERT(IS_I2C_UNIT(I2Cx));
@@ -747,7 +747,7 @@ void I2C_SCLLowTimeoutConfig(CM_I2C_TypeDef *I2Cx, uint16_t u16TimeoutL) {
  *                                  This parameter can be a value of the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void I2C_SCLHighTimeoutCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_I2C_UNIT(I2Cx));
@@ -766,7 +766,7 @@ void I2C_SCLHighTimeoutCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewStat
  *                                  This parameter can be a value of the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void I2C_SCLLowTimeoutCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_I2C_UNIT(I2Cx));
@@ -785,7 +785,7 @@ void I2C_SCLLowTimeoutCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState
  *                                  This parameter can be a value of the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void I2C_SCLTimeoutCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_I2C_UNIT(I2Cx));

@@ -398,7 +398,7 @@ uint16_t TIM_GetPrescaler(TIM_TypeDef* TIMx) {
   * 简介:  启用或禁用 TIMx 更新事件。
   * 参数:  TIMx: 其中x可以是1到14，用于选择TIM外设设备。
   * 参数:  NewState: TIMx UDIS位的新状态
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void TIM_UpdateDisableConfig(TIM_TypeDef* TIMx, FunctionalState NewState) {
@@ -443,7 +443,7 @@ void TIM_UpdateRequestConfig(TIM_TypeDef* TIMx, uint16_t TIM_UpdateSource) {
   * 简介:  启用或禁用 ARR 上的 TIMx 外设预加载寄存器。
   * 参数:  TIMx: 其中x可以是1到14，用于选择TIM外设设备。
   * 参数:  NewState: TIMx外围预加载寄存器的新状态
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void TIM_ARRPreloadConfig(TIM_TypeDef* TIMx, FunctionalState NewState) {
@@ -507,7 +507,7 @@ void TIM_SetClockDivision(TIM_TypeDef* TIMx, uint16_t TIM_CKD) {
   * 简介:  启用或禁用指定的 TIM 外设。
   * 参数:  TIMx: 其中x可以是1到14，以选择TIMx外设。
   * 参数:  NewState: TIMx外设的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void TIM_Cmd(TIM_TypeDef* TIMx, FunctionalState NewState) {
@@ -2072,7 +2072,7 @@ void TIM_BDTRStructInit(TIM_BDTRInitTypeDef* TIM_BDTRInitStruct) {
   * 简介:  启用或禁用 TIM 外设主输出。
   * 参数:  TIMx: 其中x可以是1或8，以选择TIMx外设。
   * 参数:  NewState: TIM外设主要输出的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void TIM_CtrlPWMOutputs(TIM_TypeDef* TIMx, FunctionalState NewState) {
@@ -2093,7 +2093,7 @@ void TIM_CtrlPWMOutputs(TIM_TypeDef* TIMx, FunctionalState NewState) {
   * 简介:  选择 TIM 外设换向事件。
   * 参数:  TIMx: 其中x可以是1或8，以选择TIMx外设
   * 参数:  NewState: 换向事件的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void TIM_SelectCOM(TIM_TypeDef* TIMx, FunctionalState NewState) {
@@ -2114,7 +2114,7 @@ void TIM_SelectCOM(TIM_TypeDef* TIMx, FunctionalState NewState) {
   * 简介:  设置或复位 TIM 外设捕获比较预紧力控制位。
   * 参数:  TIMx: 其中x可以是1或8，以选择TIMx外设
   * 参数:  NewState: 捕获比较预载控制位的新状态
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void TIM_CCPreloadControl(TIM_TypeDef* TIMx, FunctionalState NewState) {
@@ -2167,7 +2167,7 @@ void TIM_CCPreloadControl(TIM_TypeDef* TIMx, FunctionalState NewState) {
   * 注意:   TIM_IT_COM和TIM_IT_Break只能与TIM1和TIM8一起使用
   *
   * 参数:  NewState: TIM中断的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void TIM_ITConfig(TIM_TypeDef* TIMx, uint16_t TIM_IT, FunctionalState NewState) {
@@ -2400,7 +2400,7 @@ void TIM_DMAConfig(TIM_TypeDef* TIMx, uint16_t TIM_DMABase, uint16_t TIM_DMABurs
   *            @arg TIM_DMA_COM: TIM交换DMA源
   *            @arg TIM_DMA_Trigger: TIM触发器DMA源
   * 参数:  NewState: DMA请求源的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void TIM_DMACmd(TIM_TypeDef* TIMx, uint16_t TIM_DMASource, FunctionalState NewState) {
@@ -2422,7 +2422,7 @@ void TIM_DMACmd(TIM_TypeDef* TIMx, uint16_t TIM_DMASource, FunctionalState NewSt
   * 简介:  选择 TIMx 外设捕获比较 DMA 源。
   * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM外设设备。
   * 参数:  NewState: 捕获比较DMA源的新状态
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void TIM_SelectCCDMA(TIM_TypeDef* TIMx, FunctionalState NewState) {
@@ -2874,7 +2874,7 @@ void TIM_EncoderInterfaceConfig(TIM_TypeDef* TIMx, uint16_t TIM_EncoderMode,
   * 简介:  启用或禁用 TIMx 的霍尔传感器接口。
   * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM外设设备。
   * 参数:  NewState: TIMx霍尔传感器接口的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void TIM_SelectHallSensor(TIM_TypeDef* TIMx, FunctionalState NewState) {

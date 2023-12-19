@@ -196,8 +196,8 @@ int32_t EP_Init(uint8_t u8EventPort, uint16_t u16EventPin, const stc_ep_init_t *
 
 /**
  * @brief  De-init Event Port register to default value
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void EP_DeInit(void) {
     uint8_t u8EventPort;
@@ -385,7 +385,7 @@ uint16_t EP_ReadOutputPort(uint8_t u8EventPort) {
  * @brief  Set specified Event port output data port pins
  * @param  [in] u8EventPort: EVENT_PORT_x, x can be (1~4) to select the EP peripheral
  * @param  [in] u16EventPin: EVENT_PIN_x, x can be (00~15) to select the EP pin index
- * @retval None
+ * @retval 无
  */
 void EP_SetPins(uint8_t u8EventPort, uint16_t u16EventPin) {
     DDL_ASSERT(IS_EVENT_PORT(u8EventPort));
@@ -398,7 +398,7 @@ void EP_SetPins(uint8_t u8EventPort, uint16_t u16EventPin) {
  * @brief  Reset specified Event port output data port pins
  * @param  [in] u8EventPort: EVENT_PORT_x, x can be (1~4) to select the EP peripheral
  * @param  [in] u16EventPin: EVENT_PIN_x, x can be (00~15) to select the EP pin index
- * @retval None
+ * @retval 无
  */
 void EP_ResetPins(uint8_t u8EventPort, uint16_t u16EventPin) {
     DDL_ASSERT(IS_EVENT_PORT(u8EventPort));
@@ -414,7 +414,7 @@ void EP_ResetPins(uint8_t u8EventPort, uint16_t u16EventPin) {
  * @param  [in] u32Dir: Pin direction
  *   @arg  EP_DIR_IN
  *   @arg  EP_DIR_OUT
- * @retval None
+ * @retval 无
  */
 void EP_SetDir(uint8_t u8EventPort, uint16_t u16EventPin, uint32_t u32Dir) {
     DDL_ASSERT(IS_EVENT_PORT(u8EventPort));

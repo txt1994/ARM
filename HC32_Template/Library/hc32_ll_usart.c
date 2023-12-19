@@ -1371,7 +1371,7 @@ int32_t USART_SmartCard_Init(CM_USART_TypeDef *USARTx,
  * @param  [in] USARTx                  Pointer to USART instance register base
  *         This parameter can be one of the following values:
  *           @arg CM_USARTx:            USART unit instance register base
- * @retval None
+ * @retval 无
  */
 void USART_DeInit(CM_USART_TypeDef *USARTx) {
     DDL_ASSERT(IS_USART_UNIT(USARTx));
@@ -1391,7 +1391,7 @@ void USART_DeInit(CM_USART_TypeDef *USARTx) {
  * @param  [in] u32Func                 USART function type
  *         This parameter can be any composed value of the macros group @ref USART_Function.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void USART_FuncCmd(CM_USART_TypeDef *USARTx, uint32_t u32Func, en_functional_state_t enNewState) {
     uint32_t u32BaseFunc;
@@ -1439,7 +1439,7 @@ en_flag_status_t USART_GetStatus(const CM_USART_TypeDef *USARTx, uint32_t u32Fla
  *           @arg CM_USARTx:            USART unit instance register base
  * @param  [in] u32Flag                 USART flag type
  *         This parameter can be any composed value of the macros group @ref USART_Flag.
- * @retval None
+ * @retval 无
  */
 void USART_ClearStatus(CM_USART_TypeDef *USARTx, uint32_t u32Flag) {
     DDL_ASSERT(IS_USART_UNIT(USARTx));
@@ -1478,7 +1478,7 @@ void USART_ClearStatus(CM_USART_TypeDef *USARTx, uint32_t u32Flag) {
  *           @arg USART_PARITY_NONE:    Parity control disabled
  *           @arg USART_PARITY_ODD:     Parity control enabled and Odd Parity is selected
  *           @arg USART_PARITY_EVEN:    Parity control enabled and Even Parity is selected
- * @retval None
+ * @retval 无
  */
 void USART_SetParity(CM_USART_TypeDef *USARTx, uint32_t u32Parity) {
     DDL_ASSERT(IS_USART_UNIT(USARTx));
@@ -1496,7 +1496,7 @@ void USART_SetParity(CM_USART_TypeDef *USARTx, uint32_t u32Parity) {
  *         This parameter can be one of the macros group @ref USART_First_Bit
  *           @arg  USART_FIRST_BIT_MSB: MSB(Most Significant Bit)
  *           @arg  USART_FIRST_BIT_LSB: LSB(Least Significant Bit)
- * @retval None
+ * @retval 无
  */
 void USART_SetFirstBit(CM_USART_TypeDef *USARTx, uint32_t u32FirstBit) {
     DDL_ASSERT(IS_USART_UNIT(USARTx));
@@ -1514,7 +1514,7 @@ void USART_SetFirstBit(CM_USART_TypeDef *USARTx, uint32_t u32FirstBit) {
  *         This parameter can be one of the macros group @ref USART_Stop_Bit
  *           @arg USART_STOPBIT_1BIT:   1 stop bit
  *           @arg USART_STOPBIT_2BIT:   2 stop bit
- * @retval None
+ * @retval 无
  */
 void USART_SetStopBit(CM_USART_TypeDef *USARTx, uint32_t u32StopBit) {
     DDL_ASSERT(IS_USART_UNIT(USARTx));
@@ -1532,7 +1532,7 @@ void USART_SetStopBit(CM_USART_TypeDef *USARTx, uint32_t u32StopBit) {
  *         This parameter can be one of the macros group @ref USART_Data_Width_Bit
  *           @arg USART_DATA_WIDTH_8BIT: 8 bits word width
  *           @arg USART_DATA_WIDTH_9BIT: 9 bits word width
- * @retval None
+ * @retval 无
  */
 void USART_SetDataWidth(CM_USART_TypeDef *USARTx, uint32_t u32DataWidth) {
     DDL_ASSERT(IS_USART_UNIT(USARTx));
@@ -1550,7 +1550,7 @@ void USART_SetDataWidth(CM_USART_TypeDef *USARTx, uint32_t u32DataWidth) {
  *         This parameter can be one of the macros group @ref USART_Over_Sample_Bit
  *           @arg USART_OVER_SAMPLE_8BIT:  Oversampling by 8 bit
  *           @arg USART_OVER_SAMPLE_16BIT: Oversampling by 16 bit
- * @retval None
+ * @retval 无
  */
 void USART_SetOverSampleBit(CM_USART_TypeDef *USARTx, uint32_t u32OverSampleBit) {
     DDL_ASSERT(IS_USART_UNIT(USARTx));
@@ -1568,7 +1568,7 @@ void USART_SetOverSampleBit(CM_USART_TypeDef *USARTx, uint32_t u32OverSampleBit)
  *         This parameter can be one of the macros group @ref USART_Start_Bit_Polarity
  *           @arg USART_START_BIT_LOW:     Detect RX pin low level
  *           @arg USART_START_BIT_FALLING: Detect RX pin falling edge
- * @retval None
+ * @retval 无
  */
 void USART_SetStartBitPolarity(CM_USART_TypeDef *USARTx, uint32_t u32Polarity) {
     DDL_ASSERT(IS_USART_UNIT(USARTx));
@@ -1586,7 +1586,7 @@ void USART_SetStartBitPolarity(CM_USART_TypeDef *USARTx, uint32_t u32Polarity) {
  *         This parameter can be one of the macros group @ref USART_Transmission_Type
  *           @arg USART_TRANS_ID:       USART transmission content type is processor ID
  *           @arg USART_TRANS_DATA:     USART transmission content type is frame data
- * @retval None
+ * @retval 无
  */
 void USART_SetTransType(CM_USART_TypeDef *USARTx, uint32_t u32Type) {
     DDL_ASSERT(IS_USART_UNIT(USARTx));
@@ -1602,7 +1602,7 @@ void USART_SetTransType(CM_USART_TypeDef *USARTx, uint32_t u32Type) {
  *           @arg CM_USARTx:            USART unit instance register base
  * @param  [in] u32ClockDiv             USART clock prescaler division.
  *         This parameter can be one of the macros group @ref USART_Clock_Division
- * @retval None
+ * @retval 无
  * @note   The clock division function is valid only when clock source is internal clock.
  */
 void USART_SetClockDiv(CM_USART_TypeDef *USARTx, uint32_t u32ClockDiv) {
@@ -1635,7 +1635,7 @@ uint32_t USART_GetClockDiv(const CM_USART_TypeDef *USARTx) {
  *         This parameter can be one of the macros group @ref USART_Clock_Source
  *           @arg USART_CLK_SRC_EXTCLK:    Clock source is external clock(USART_CK).
  *           @arg USART_CLK_SRC_INTERNCLK: Clock source is internal clock.
- * @retval None
+ * @retval 无
  */
 void USART_SetClockSrc(CM_USART_TypeDef *USARTx, uint32_t u32ClockSrc) {
     DDL_ASSERT(IS_USART_UNIT(USARTx));
@@ -1665,7 +1665,7 @@ uint32_t USART_GetClockSrc(const CM_USART_TypeDef *USARTx) {
  *         This parameter can be one of the following values:
  *           @arg CM_USARTx:            USART unit instance register base
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void USART_FilterCmd(CM_USART_TypeDef *USARTx, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_USART_UNIT(USARTx));
@@ -1684,7 +1684,7 @@ void USART_FilterCmd(CM_USART_TypeDef *USARTx, en_functional_state_t enNewState)
  *         This parameter can be one of the following values:
  *           @arg CM_USARTx:            USART unit instance register base
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void USART_SilenceCmd(CM_USART_TypeDef *USARTx, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_USART_UNIT(USARTx));
@@ -1704,7 +1704,7 @@ void USART_SilenceCmd(CM_USART_TypeDef *USARTx, en_functional_state_t enNewState
  *           @arg CM_USARTx:            USART unit instance register base
  * @param  [in] u32HWFlowControl        USART hardware flow control CTS/RTS selection
  *         This parameter can be one of the macros group @ref USART_Hardware_Flow_Control.
- * @retval None
+ * @retval 无
  */
 void USART_SetHWFlowControl(CM_USART_TypeDef *USARTx, uint32_t u32HWFlowControl) {
     DDL_ASSERT(IS_USART_UNIT(USARTx));
@@ -1732,7 +1732,7 @@ uint16_t USART_ReadData(const CM_USART_TypeDef *USARTx) {
  *         This parameter can be one of the following values:
  *           @arg CM_USARTx:            USART unit instance register base
  * @param  [in] u16Data                 Transmit data
- * @retval None
+ * @retval 无
  */
 void USART_WriteData(CM_USART_TypeDef *USARTx, uint16_t u16Data) {
     __IO uint16_t *TXD = USART_TXD(USARTx);
@@ -1749,7 +1749,7 @@ void USART_WriteData(CM_USART_TypeDef *USARTx, uint16_t u16Data) {
  *         This parameter can be one of the following values:
  *           @arg CM_USARTx:            USART unit instance register base
  ** @param [in] u16ID                   Processor ID
- * @retval None
+ * @retval 无
  */
 void USART_WriteID(CM_USART_TypeDef *USARTx, uint16_t u16ID) {
     __IO uint16_t *TXD = USART_TXD(USARTx);
@@ -1825,7 +1825,7 @@ int32_t USART_SetBaudrate(CM_USART_TypeDef *USARTx, uint32_t u32Baudrate, float3
  *           @arg USART_SC_ETU_CLK128:  1 etu = 128/f
  *           @arg USART_SC_ETU_CLK256:  1 etu = 256/f
  *           @arg USART_SC_ETU_CLK372:  1 etu = 372/f
- * @retval None
+ * @retval 无
  */
 void USART_SmartCard_SetEtuClock(CM_USART_TypeDef *USARTx, uint32_t u32EtuClock) {
     DDL_ASSERT(IS_USART_SMARTCARD_UNIT(USARTx));
@@ -1840,7 +1840,7 @@ void USART_SmartCard_SetEtuClock(CM_USART_TypeDef *USARTx, uint32_t u32EtuClock)
  *         This parameter can be one of the following values:
  *           @arg CM_USARTx:            USART unit instance register base
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void USART_StopModeNoiseFilterCmd(const CM_USART_TypeDef *USARTx, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_USART_STOP_MD_UNIT(USARTx));
@@ -1864,7 +1864,7 @@ void USART_StopModeNoiseFilterCmd(const CM_USART_TypeDef *USARTx, en_functional_
  *           @arg USART_STOP_MD_FILTER_LVL2: Filter width level 2
  *           @arg USART_STOP_MD_FILTER_LVL3: Filter width level 3
  *           @arg USART_STOP_MD_FILTER_LVL4: Filter width level 4
- * @retval None
+ * @retval 无
  */
 void USART_SetStopModeNoiseFilter(const CM_USART_TypeDef *USARTx, uint32_t u32Level) {
     DDL_ASSERT(IS_USART_STOP_MD_UNIT(USARTx));
@@ -1879,7 +1879,7 @@ void USART_SetStopModeNoiseFilter(const CM_USART_TypeDef *USARTx, uint32_t u32Le
  *         This parameter can be one of the following values:
  *           @arg CM_USARTx:            USART unit instance register base
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void USART_LIN_LoopbackCmd(CM_USART_TypeDef *USARTx, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_USART_LIN_UNIT(USARTx));
@@ -1903,7 +1903,7 @@ void USART_LIN_LoopbackCmd(CM_USART_TypeDef *USARTx, en_functional_state_t enNew
  *           @arg USART_LIN_BMC_CLK_DIV2: CLK/2
  *           @arg USART_LIN_BMC_CLK_DIV4: CLK/4
  *           @arg USART_LIN_BMC_CLK_DIV8: CLK/8
- * @retval None
+ * @retval 无
  * @note   The clock division function is valid when clock source is internal clock.
  */
 void USART_LIN_SetBmcClockDiv(CM_USART_TypeDef *USARTx, uint32_t u32ClockDiv) {
@@ -1918,7 +1918,7 @@ void USART_LIN_SetBmcClockDiv(CM_USART_TypeDef *USARTx, uint32_t u32ClockDiv) {
  * @param  [in] USARTx                  Pointer to USART instance register base
  *         This parameter can be one of the following values:
  *           @arg CM_USARTx:            USART unit instance register base
- * @retval None
+ * @retval 无
  */
 void USART_LIN_RequestBreakSending(CM_USART_TypeDef *USARTx) {
     DDL_ASSERT(IS_USART_LIN_UNIT(USARTx));
@@ -1948,7 +1948,7 @@ en_flag_status_t USART_LIN_GetRequestBreakStatus(const CM_USART_TypeDef *USARTx)
  *         This parameter can be one of the macros group @ref USART_LIN_Send_Break_Mode
  *           @arg USART_LIN_SEND_BREAK_MD_SBK: Start send break after USART_CR2 SBK bit set 1 value
  *           @arg USART_LIN_SEND_BREAK_MD_TDR: Start send break after USART_DR TDR write 0x00 value
- * @retval None
+ * @retval 无
  */
 void USART_LIN_SetBreakMode(CM_USART_TypeDef *USARTx, uint32_t u32Mode) {
     DDL_ASSERT(IS_USART_LIN_UNIT(USARTx));
@@ -2013,7 +2013,7 @@ uint32_t USART_LIN_GetMeasureBaudrate(const CM_USART_TypeDef *USARTx) {
  *         This parameter can be one of the macros group @ref USART_LIN_Detect_Break_Length
  *           @arg USART_LIN_DETECT_BREAK_10BIT: 10-bit break detection
  *           @arg USART_LIN_DETECT_BREAK_11BIT: 11-bit break detection
- * @retval None
+ * @retval 无
  */
 void USART_LIN_SetDetectBreakLen(CM_USART_TypeDef *USARTx, uint32_t u32Len) {
     DDL_ASSERT(IS_USART_LIN_UNIT(USARTx));
@@ -2033,7 +2033,7 @@ void USART_LIN_SetDetectBreakLen(CM_USART_TypeDef *USARTx, uint32_t u32Len) {
  *           @arg USART_LIN_SEND_BREAK_11BIT: Send break 11-bit
  *           @arg USART_LIN_SEND_BREAK_13BIT: Send break 13-bit
  *           @arg USART_LIN_SEND_BREAK_14BIT: Send break 14-bit
- * @retval None
+ * @retval 无
  */
 void USART_LIN_SetSendBreakLen(CM_USART_TypeDef *USARTx, uint32_t u32Len) {
     DDL_ASSERT(IS_USART_LIN_UNIT(USARTx));

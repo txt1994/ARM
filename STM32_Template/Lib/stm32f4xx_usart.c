@@ -369,7 +369,7 @@ void USART_ClockStructInit(USART_ClockInitTypeDef* USART_ClockInitStruct) {
   * 简介:  启用或禁用指定的USART外设设备。
   * 参数:  USARTx: 其中x可以是1、2、3、4、5、6、7或8，以选择USART或UART外设设备。
   * 参数:  NewState: USARTx外设设备的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void USART_Cmd(USART_TypeDef* USARTx, FunctionalState NewState) {
@@ -408,7 +408,7 @@ void USART_SetPrescaler(USART_TypeDef* USARTx, uint8_t USART_Prescaler) {
   * 注意:   为了获得正确的波特率分频器值，必须在调用USART_Init()函数之前调用此函数。
   * 参数:  USARTx: 其中x可以是1、2、3、4、5、6、7或8，以选择USART或UART外设设备。
   * 参数:  NewState: USART 8x过采样模式的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void USART_OverSampling8Cmd(USART_TypeDef* USARTx, FunctionalState NewState) {
@@ -429,7 +429,7 @@ void USART_OverSampling8Cmd(USART_TypeDef* USARTx, FunctionalState NewState) {
   * 简介:  启用或禁用 USART 的一位采样方法。
   * 参数:  USARTx: 其中x可以是1、2、3、4、5、6、7或8，以选择USART或UART外设设备。
   * 参数:  NewState: USART一位采样方法的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void USART_OneBitMethodCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
@@ -555,7 +555,7 @@ void USART_SetAddress(USART_TypeDef* USARTx, uint8_t USART_Address) {
   * 简介:  确定USART是否处于静音模式。
   * 参数:  USARTx: 其中x可以是1、2、3、4、5、6、7或8，以选择USART或UART外设设备。
   * 参数:  NewState: USART静音模式的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void USART_ReceiverWakeUpCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
@@ -653,7 +653,7 @@ void USART_LINBreakDetectLengthConfig(USART_TypeDef* USARTx, uint16_t USART_LINB
   * 简介:  启用或禁用 USART 的 LIN 模式。
   * 参数:  USARTx: 其中x可以是1、2、3、4、5、6、7或8，以选择USART或UART外设设备。
   * 参数:  NewState: 新状态-> USART LIN mode.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void USART_LINCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
@@ -720,7 +720,7 @@ void USART_SendBreak(USART_TypeDef* USARTx) {
   * 简介:  启用或禁用 USART 的半双工通信。
   * 参数:  USARTx: 其中x可以是1、2、3、4、5、6、7或8，以选择USART或UART外设设备。
   * 参数:  NewState: USART通信的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void USART_HalfDuplexCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
@@ -810,7 +810,7 @@ void USART_SetGuardTime(USART_TypeDef* USARTx, uint8_t USART_GuardTime) {
   * 简介:  启用或禁用 USART 的智能卡模式。
   * 参数:  USARTx: 其中x可以是1、2、3或6，以选择USART或UART外设设备。
   * 参数:  NewState: 智能卡模式的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void USART_SmartCardCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
@@ -831,7 +831,7 @@ void USART_SmartCardCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
   * 简介:  启用或禁用 NACK 传输。
   * 参数:  USARTx: 其中x可以是1、2、3或6，以选择USART或UART外设设备。
   * 参数:  NewState: NACK传输的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void USART_SmartCardNACKCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
@@ -908,7 +908,7 @@ void USART_IrDAConfig(USART_TypeDef* USARTx, uint16_t USART_IrDAMode) {
   * 简介:  启用或禁用 USART 的 IrDA 接口。
   * 参数:  USARTx: 其中x可以是1、2、3、4、5、6、7或8，以选择USART或UART外设设备。
   * 参数:  NewState: IrDA模式的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void USART_IrDACmd(USART_TypeDef* USARTx, FunctionalState NewState) {
@@ -949,7 +949,7 @@ void USART_IrDACmd(USART_TypeDef* USARTx, FunctionalState NewState) {
   *            @arg USART_DMAReq_Tx: USART DMA传输请求
   *            @arg USART_DMAReq_Rx: USART DMA接收请求
   * 参数:  NewState: DMA请求源的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState NewState) {
@@ -1065,7 +1065,7 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
   *            @arg USART_IT_PE:   奇偶校验错误中断
   *            @arg USART_IT_ERR:  错误中断(帧错误、噪声错误、溢出错误)
   * 参数:  NewState: 指定USARTx中断的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void USART_ITConfig(USART_TypeDef* USARTx, uint16_t USART_IT, FunctionalState NewState) {

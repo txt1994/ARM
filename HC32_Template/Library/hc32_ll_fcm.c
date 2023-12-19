@@ -233,8 +233,8 @@ int32_t FCM_StructInit(stc_fcm_init_t *pstcFcmInit) {
 
 /**
  * @brief  De-Initialize FCM.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void FCM_DeInit(void) {
     WRITE_REG32(CM_FCM->STR, FCM_REG_RST_VALUE);
@@ -268,7 +268,7 @@ en_flag_status_t FCM_GetStatus(uint32_t u32Flag) {
  *   @arg  FCM_FLAG_ERR:    FCM error.
  *   @arg  FCM_FLAG_END:    FCM measure end.
  *   @arg  FCM_FLAG_OVF:    FCM overflow.
- * @retval None.
+ * @retval 无.
  */
 void FCM_ClearStatus(uint32_t u32Flag) {
     DDL_ASSERT(IS_FCM_FLAG(u32Flag));
@@ -278,7 +278,7 @@ void FCM_ClearStatus(uint32_t u32Flag) {
 
 /**
  * @brief  Get FCM counter value.
- * @param  None
+ * @param  无
  * @retval FCM counter value.
  */
 uint16_t FCM_GetCountValue(void) {
@@ -293,7 +293,7 @@ uint16_t FCM_GetCountValue(void) {
  *   @arg  FCM_TARGET_CLK_DIV4
  *   @arg  FCM_TARGET_CLK_DIV8
  *   @arg  FCM_TARGET_CLK_DIV32
- * @retval None.
+ * @retval 无.
  */
 void FCM_SetTargetClock(uint32_t u32ClockSrc, uint32_t u32Div) {
     DDL_ASSERT(IS_FCM_TARGET_SRC(u32ClockSrc));
@@ -309,7 +309,7 @@ void FCM_SetTargetClock(uint32_t u32ClockSrc, uint32_t u32Div) {
  *   @arg  FCM_REF_CLK_DIV128
  *   @arg  FCM_REF_CLK_DIV1024
  *   @arg  FCM_REF_CLK_DIV8192
- * @retval None.
+ * @retval 无.
  */
 void FCM_SetRefClock(uint32_t u32ClockSrc, uint32_t u32Div) {
     DDL_ASSERT(IS_FCM_REF_SRC(u32ClockSrc));
@@ -320,7 +320,7 @@ void FCM_SetRefClock(uint32_t u32ClockSrc, uint32_t u32Div) {
 /**
  * @brief  Enable or disable the FCM reset
  * @param  [in] enNewState      An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void FCM_ResetCmd(en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -336,7 +336,7 @@ void FCM_ResetCmd(en_functional_state_t enNewState) {
  *    @arg FCM_INT_END:         FCM calculate end interrupt
  *    @arg FCM_INT_ERR:         FCM frequency abnormal interrupt
  * @param  [in] enNewState      An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void FCM_IntCmd(uint32_t u32IntType, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FCM_INT(u32IntType));
@@ -352,7 +352,7 @@ void FCM_IntCmd(uint32_t u32IntType, en_functional_state_t enNewState) {
 /**
  * @brief  FCM function config.
  * @param  [in] enNewState      An @ref en_functional_state_t enumeration value.
- * @retval None.
+ * @retval 无.
  */
 void FCM_Cmd(en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));

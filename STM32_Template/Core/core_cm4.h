@@ -240,12 +240,12 @@ extern "C" {
     \li for automatic generation of peripheral register debug information.
 */
 #ifdef __cplusplus
-#define   __I     volatile             /*!< 定义“只读”权限                 */
+#define   __I     volatile             /*!< 定义"只读"权限                 */
 #else
-#define   __I     volatile const       /*!< 定义“只读”权限                 */
+#define   __I     volatile const       /*!< 定义"只读"权限                 */
 #endif
-#define     __O     volatile             /*!< 定义“只写”权限                */
-#define     __IO    volatile             /*!< 定义“读/写”权限              */
+#define     __O     volatile             /*!< 定义"只写"权限                */
+#define     __IO    volatile             /*!< 定义"读/写"权限              */
 
 /*@} end of group Cortex_M4 */
 

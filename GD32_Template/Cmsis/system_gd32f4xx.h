@@ -42,7 +42,7 @@ extern "C" {
 
 #include <stdint.h>
 
-/* system clock frequency (core clock) */
+/* 系统时钟频率(核心时钟) */
 extern uint32_t SystemCoreClock;
 
 /* function declarations */

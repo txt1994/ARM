@@ -185,7 +185,7 @@ typedef struct {
 
 /**
  * @brief  Get SWDT count value.
- * @param  None
+ * @param  无
  * @retval uint16_t                     Count value
  */
 __STATIC_INLINE uint16_t SWDT_GetCountValue(void) {

@@ -82,8 +82,8 @@ void _ttywrch(int ch) {
 
 /**
   * @brief  retargets the c library printf function to the usart.
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 PUTCHAR_PROTOTYPE {
     while(USART_Flag_Get(PRINT_UART, USART_TDBE_FLAG) == RESET);
@@ -105,7 +105,7 @@ int _Write(int fd, char *pbuffer, int size) {
 /**
   * @brief  initialize uart
   * @param  baudrate: uart baudrate
-  * @retval none
+  * @retval 无
   */
 void uart_print_Init(uint32_t baudrate) {
     gpio_Init_Type gpio_Init_struct;
@@ -138,8 +138,8 @@ void uart_print_Init(uint32_t baudrate) {
 
 /**
   * @brief  board initialize interface init led and button
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void at32_board_Init() {
     /* initialize delay function */
@@ -160,7 +160,7 @@ void at32_board_Init() {
 /**
   * @brief  configure button gpio
   * @param  button: 指定button to be configured.
-  * @retval none
+  * @retval 无
   */
 void at32_button_Init(void) {
     gpio_Init_Type gpio_Init_struct;
@@ -182,7 +182,7 @@ void at32_button_Init(void) {
 
 /**
   * @brief  returns the selected button state
-  * @param  none
+  * @param  无
   * @retval the button gpio pin value
   */
 uint8_t at32_button_state(void) {
@@ -191,7 +191,7 @@ uint8_t at32_button_state(void) {
 
 /**
   * @brief  returns which button have press down
-  * @param  none
+  * @param  无
   * @retval the button have press down
   */
 button_Type at32_button_press() {
@@ -215,7 +215,7 @@ button_Type at32_button_press() {
 /**
   * @brief  configure led gpio
   * @param  led: 指定led to be configured.
-  * @retval none
+  * @retval 无
   */
 void at32_led_Init(led_Type led) {
     gpio_Init_Type gpio_Init_struct;
@@ -242,7 +242,7 @@ void at32_led_Init(led_Type led) {
   *     @arg LED2
   *     @arg LED3
   *     @arg LED4
-  * @retval none
+  * @retval 无
   */
 void at32_led_ON(led_Type led) {
     if(led > (LED_Num - 1))
@@ -259,7 +259,7 @@ void at32_led_ON(led_Type led) {
   *     @arg LED2
   *     @arg LED3
   *     @arg LED4
-  * @retval none
+  * @retval 无
   */
 void at32_led_off(led_Type led) {
     if(led > (LED_Num - 1))
@@ -276,7 +276,7 @@ void at32_led_off(led_Type led) {
   *     @arg LED2
   *     @arg LED3
   *     @arg LED4
-  * @retval none
+  * @retval 无
   */
 void at32_led_toggle(led_Type led) {
     if(led > (LED_Num - 1))
@@ -288,8 +288,8 @@ void at32_led_toggle(led_Type led) {
 
 /**
   * @brief  initialize delay function
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void delay_Init() {
     /* configure systick */
@@ -301,7 +301,7 @@ void delay_Init() {
 /**
   * @brief  inserts a delay time.
   * @param  nus: 指定delay time length, in microsecond.
-  * @retval none
+  * @retval 无
   */
 void delay_us(uint32_t nus) {
     uint32_t temp = 0;
@@ -320,7 +320,7 @@ void delay_us(uint32_t nus) {
 /**
   * @brief  inserts a delay time.
   * @param  nms: 指定delay time length, in milliseconds.
-  * @retval none
+  * @retval 无
   */
 void delay_ms(uint16_t nms) {
     uint32_t temp = 0;
@@ -349,7 +349,7 @@ void delay_ms(uint16_t nms) {
 /**
   * @brief  inserts a delay time.
   * @param  sec: 指定delay time, in seconds.
-  * @retval none
+  * @retval 无
   */
 void delay_sec(uint16_t sec) {
     uint16_t index;

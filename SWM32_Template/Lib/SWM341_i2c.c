@@ -243,7 +243,7 @@ uint8_t I2C_ReadDone(I2C_TypeDef * I2Cx) {
 * 功能说明:	中断使能
 * 输    入: I2C_TypeDef * I2Cx		指定要被设置的I2C，有效值包括I2C0、I2C1
 * 			uint32_t it				interrupt type，有效值I2C_IT_TX_EMPTY、I2C_IT_RX_NOT_EMPTY、I2C_IT_RX_OVF、I2C_IT_TX_DONE、I2C_IT_RX_DONE、
-*									I2C_IT_SLV_DET_STA、I2C_IT_SLV_DET_STP、I2C_IT_ARB_LOST、I2C_IT_SCL_LOW_TO 及其“或”
+*									I2C_IT_SLV_DET_STA、I2C_IT_SLV_DET_STP、I2C_IT_ARB_LOST、I2C_IT_SCL_LOW_TO 及其"或"
 * 输    出: 无
 * 注意事项: 无
 ******************************************************************************************************************************************/
@@ -256,7 +256,7 @@ void I2C_INTEn(I2C_TypeDef * I2Cx, uint32_t it) {
 * 功能说明:	中断禁止
 * 输    入: I2C_TypeDef * I2Cx		指定要被设置的I2C，有效值包括I2C0、I2C1
 * 			uint32_t it				interrupt type，有效值I2C_IT_TX_EMPTY、I2C_IT_RX_NOT_EMPTY、I2C_IT_RX_OVF、I2C_IT_TX_DONE、I2C_IT_RX_DONE、
-*									I2C_IT_SLV_DET_STA、I2C_IT_SLV_DET_STP、I2C_IT_ARB_LOST、I2C_IT_SCL_LOW_TO 及其“或”
+*									I2C_IT_SLV_DET_STA、I2C_IT_SLV_DET_STP、I2C_IT_ARB_LOST、I2C_IT_SCL_LOW_TO 及其"或"
 * 输    出: 无
 * 注意事项: 无
 ******************************************************************************************************************************************/
@@ -269,7 +269,7 @@ void I2C_INTDis(I2C_TypeDef * I2Cx, uint32_t it) {
 * 功能说明:	中断标志清除
 * 输    入: I2C_TypeDef * I2Cx		指定要被设置的I2C，有效值包括I2C0、I2C1
 * 			uint32_t it				interrupt type，有效值I2C_IT_TX_EMPTY、I2C_IT_RX_NOT_EMPTY、I2C_IT_RX_OVF、I2C_IT_TX_DONE、I2C_IT_RX_DONE、
-*									I2C_IT_SLV_DET_STA、I2C_IT_SLV_DET_STP、I2C_IT_ARB_LOST、I2C_IT_SCL_LOW_TO 及其“或”
+*									I2C_IT_SLV_DET_STA、I2C_IT_SLV_DET_STP、I2C_IT_ARB_LOST、I2C_IT_SCL_LOW_TO 及其"或"
 * 输    出: 无
 * 注意事项: 无
 ******************************************************************************************************************************************/
@@ -282,7 +282,7 @@ void I2C_INTClr(I2C_TypeDef * I2Cx, uint32_t it) {
 * 功能说明:	中断状态查询
 * 输    入: I2C_TypeDef * I2Cx		指定要被设置的I2C，有效值包括I2C0、I2C1
 * 			uint32_t it				interrupt type，有效值I2C_IT_TX_EMPTY、I2C_IT_RX_NOT_EMPTY、I2C_IT_RX_OVF、I2C_IT_TX_DONE、I2C_IT_RX_DONE、
-*									I2C_IT_SLV_DET_STA、I2C_IT_SLV_DET_STP、I2C_IT_ARB_LOST、I2C_IT_SCL_LOW_TO 及其“或”
+*									I2C_IT_SLV_DET_STA、I2C_IT_SLV_DET_STP、I2C_IT_ARB_LOST、I2C_IT_SCL_LOW_TO 及其"或"
 * 输    出: uint32_t				1 中断发生    0 中断未发生
 * 注意事项: 无
 ******************************************************************************************************************************************/

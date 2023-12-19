@@ -362,7 +362,7 @@
 
 /**
  * @brief  Get capacity size.
- * @param  None
+ * @param  无
  * @retval Capacity index @ref EXMC_NFC_Memory_Capacity_Index
  *           - NFC_CAPACITY_INDEX_512MBIT:  NFC device capacity 512MBit
  *           - NFC_CAPACITY_INDEX_1GBIT:    NFC device capacity 1GBit
@@ -759,8 +759,8 @@ int32_t EXMC_NFC_Init(const stc_exmc_nfc_init_t *pstcNfcInit) {
 
 /**
  * @brief  De-Initialize EXMC_NFC function.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void EXMC_NFC_DeInit(void) {
     WRITE_REG32(CM_NFC->BACR, 0x00002187UL);
@@ -774,7 +774,7 @@ void EXMC_NFC_DeInit(void) {
 /**
  * @brief  Enable/disable NFC.
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void EXMC_NFC_Cmd(en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -789,7 +789,7 @@ void EXMC_NFC_Cmd(en_functional_state_t enNewState) {
 /**
  * @brief  Enable/disable NFC ECC function.
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void EXMC_NFC_EccCmd(en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -804,7 +804,7 @@ void EXMC_NFC_EccCmd(en_functional_state_t enNewState) {
 /**
  * @brief  Enable/disable NFC write protection function.
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void EXMC_NFC_WriteProtectCmd(en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -833,7 +833,7 @@ void EXMC_NFC_WriteProtectCmd(en_functional_state_t enNewState) {
  *           @arg EXMC_NFC_INT_ECC_CORRECTABLE_ERR: ECC correctable error interrupt
  *           @arg EXMC_NFC_INT_ECC_UNCORRECTABLE_ERR: ECC uncorrectable error interrupt
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void EXMC_NFC_IntCmd(uint16_t u16IntType, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -902,7 +902,7 @@ en_flag_status_t EXMC_NFC_GetStatus(uint32_t u32Flag) {
  *           @arg EXMC_NFC_FLAG_ECC_CALC_COMPLETION: Calculating ECC completely
  *           @arg EXMC_NFC_FLAG_ECC_CORRECTABLE_ERR: ECC correctable error
  *           @arg EXMC_NFC_FLAG_ECC_UNCORRECTABLE_ERR: ECC uncorrectable error
- * @retval None
+ * @retval 无
  */
 void EXMC_NFC_ClearStatus(uint32_t u32Flag) {
     DDL_ASSERT(IS_EXMC_NFC_FLAG(u32Flag));
@@ -1032,7 +1032,7 @@ uint32_t EXMC_NFC_Get1BitEccErrByteLocation(uint32_t u32Section) {
 /**
  * @brief  Set NFC spare area size.
  * @param  [in] u8SpareSizeForUserData  NFC spare area size for user data
- * @retval None
+ * @retval 无
  */
 void EXMC_NFC_SetSpareAreaSize(uint8_t u8SpareSizeForUserData) {
     MODIFY_REG32(CM_NFC->BACR, NFC_BACR_SCS, ((((uint32_t)u8SpareSizeForUserData) << NFC_BACR_SCS_POS) & NFC_BACR_SCS));
@@ -1044,7 +1044,7 @@ void EXMC_NFC_SetSpareAreaSize(uint8_t u8SpareSizeForUserData) {
  *         This parameter can be one of the macros group @ref EXMC_NFC_ECC_Mode
  *           @arg EXMC_NFC_1BIT_ECC:    1 bit ECC
  *           @arg EXMC_NFC_4BIT_ECCS:   4 bit ECC
- * @retval None
+ * @retval 无
  */
 void EXMC_NFC_SetEccMode(uint32_t u32EccMode) {
     DDL_ASSERT(IS_EXMC_NFC_ECC_MD(u32EccMode));

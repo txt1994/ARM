@@ -204,608 +204,608 @@ typedef enum IRQn {
     PendSV_IRQn                 = -2,     /*!< 14 Cortex-M4 Pend SV Interrupt                                    */
     SysTick_IRQn                = -1,     /*!< 15 Cortex-M4 System Tick Interrupt                                */
     /******  STM32 specific Interrupt Numbers **********************************************************************/
-    WWDG_IRQn                   = 0,      /*!< Window WatchDog Interrupt                                         */
+    WWDG_IRQn                   = 0,      /*!< 窗口看门狗中断                                         */
     PVD_IRQn                    = 1,      /*!< PVD through EXTI Line detection Interrupt                         */
     TAMP_STAMP_IRQn             = 2,      /*!< Tamper and TimeStamp interrupts through the EXTI line             */
     RTC_WKUP_IRQn               = 3,      /*!< RTC Wakeup interrupt through the EXTI line                        */
-    FLASH_IRQn                  = 4,      /*!< FLASH global Interrupt                                            */
-    RCC_IRQn                    = 5,      /*!< RCC global Interrupt                                              */
-    EXTI0_IRQn                  = 6,      /*!< EXTI Line0 Interrupt                                              */
-    EXTI1_IRQn                  = 7,      /*!< EXTI Line1 Interrupt                                              */
-    EXTI2_IRQn                  = 8,      /*!< EXTI Line2 Interrupt                                              */
-    EXTI3_IRQn                  = 9,      /*!< EXTI Line3 Interrupt                                              */
-    EXTI4_IRQn                  = 10,     /*!< EXTI Line4 Interrupt                                              */
-    DMA1_Stream0_IRQn           = 11,     /*!< DMA1 Stream 0 global Interrupt                                    */
-    DMA1_Stream1_IRQn           = 12,     /*!< DMA1 Stream 1 global Interrupt                                    */
-    DMA1_Stream2_IRQn           = 13,     /*!< DMA1 Stream 2 global Interrupt                                    */
-    DMA1_Stream3_IRQn           = 14,     /*!< DMA1 Stream 3 global Interrupt                                    */
-    DMA1_Stream4_IRQn           = 15,     /*!< DMA1 Stream 4 global Interrupt                                    */
-    DMA1_Stream5_IRQn           = 16,     /*!< DMA1 Stream 5 global Interrupt                                    */
-    DMA1_Stream6_IRQn           = 17,     /*!< DMA1 Stream 6 global Interrupt                                    */
-    ADC_IRQn                    = 18,     /*!< ADC1, ADC2 and ADC3 global Interrupts                             */
+    FLASH_IRQn                  = 4,      /*!< FLASH 全局中断                                            */
+    RCC_IRQn                    = 5,      /*!< RCC 全局中断                                              */
+    EXTI0_IRQn                  = 6,      /*!< EXTI Line0 中断                                              */
+    EXTI1_IRQn                  = 7,      /*!< EXTI Line1 中断                                              */
+    EXTI2_IRQn                  = 8,      /*!< EXTI Line2 中断                                              */
+    EXTI3_IRQn                  = 9,      /*!< EXTI Line3 中断                                              */
+    EXTI4_IRQn                  = 10,     /*!< EXTI Line4 中断                                              */
+    DMA1_Stream0_IRQn           = 11,     /*!< DMA1 Stream 0 全局中断                                    */
+    DMA1_Stream1_IRQn           = 12,     /*!< DMA1 Stream 1 全局中断                                    */
+    DMA1_Stream2_IRQn           = 13,     /*!< DMA1 Stream 2 全局中断                                    */
+    DMA1_Stream3_IRQn           = 14,     /*!< DMA1 Stream 3 全局中断                                    */
+    DMA1_Stream4_IRQn           = 15,     /*!< DMA1 Stream 4 全局中断                                    */
+    DMA1_Stream5_IRQn           = 16,     /*!< DMA1 Stream 5 全局中断                                    */
+    DMA1_Stream6_IRQn           = 17,     /*!< DMA1 Stream 6 全局中断                                    */
+    ADC_IRQn                    = 18,     /*!< ADC1, ADC2 and ADC3 全局中断                             */
 
 #if defined(STM32F40_41xxx)
-    CAN1_TX_IRQn                = 19,     /*!< CAN1 TX Interrupt                                                 */
-    CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 Interrupt                                                */
-    CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 Interrupt                                                */
-    CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE Interrupt                                                */
+    CAN1_TX_IRQn                = 19,     /*!< CAN1 TX 中断                                                 */
+    CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 中断                                                */
+    CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 中断                                                */
+    CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE 中断                                                */
     EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
-    TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 global interrupt                    */
-    TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 global interrupt                  */
+    TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
+    TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 全局中断                  */
     TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
     TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
-    TIM2_IRQn                   = 28,     /*!< TIM2 global Interrupt                                             */
-    TIM3_IRQn                   = 29,     /*!< TIM3 global Interrupt                                             */
-    TIM4_IRQn                   = 30,     /*!< TIM4 global Interrupt                                             */
-    I2C1_EV_IRQn                = 31,     /*!< I2C1 Event Interrupt                                              */
-    I2C1_ER_IRQn                = 32,     /*!< I2C1 Error Interrupt                                              */
-    I2C2_EV_IRQn                = 33,     /*!< I2C2 Event Interrupt                                              */
-    I2C2_ER_IRQn                = 34,     /*!< I2C2 Error Interrupt                                              */
-    SPI1_IRQn                   = 35,     /*!< SPI1 global Interrupt                                             */
-    SPI2_IRQn                   = 36,     /*!< SPI2 global Interrupt                                             */
-    USART1_IRQn                 = 37,     /*!< USART1 global Interrupt                                           */
-    USART2_IRQn                 = 38,     /*!< USART2 global Interrupt                                           */
-    USART3_IRQn                 = 39,     /*!< USART3 global Interrupt                                           */
+    TIM2_IRQn                   = 28,     /*!< TIM2 全局中断                                             */
+    TIM3_IRQn                   = 29,     /*!< TIM3 全局中断                                             */
+    TIM4_IRQn                   = 30,     /*!< TIM4 全局中断                                             */
+    I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
+    I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
+    I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
+    I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
+    SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
+    SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
+    USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
+    USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
+    USART3_IRQn                 = 39,     /*!< USART3 全局中断                                           */
     EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
     RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
     OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
-    TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 global interrupt                   */
-    TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 global interrupt                  */
+    TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 全局中断                   */
+    TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 全局中断                  */
     TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
     TIM8_CC_IRQn                = 46,     /*!< TIM8 Capture Compare Interrupt                                    */
     DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
-    FSMC_IRQn                   = 48,     /*!< FSMC global Interrupt                                             */
-    SDIO_IRQn                   = 49,     /*!< SDIO global Interrupt                                             */
-    TIM5_IRQn                   = 50,     /*!< TIM5 global Interrupt                                             */
-    SPI3_IRQn                   = 51,     /*!< SPI3 global Interrupt                                             */
-    UART4_IRQn                  = 52,     /*!< UART4 global Interrupt                                            */
-    UART5_IRQn                  = 53,     /*!< UART5 global Interrupt                                            */
+    FSMC_IRQn                   = 48,     /*!< FSMC 全局中断                                             */
+    SDIO_IRQn                   = 49,     /*!< SDIO 全局中断                                             */
+    TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
+    SPI3_IRQn                   = 51,     /*!< SPI3 全局中断                                             */
+    UART4_IRQn                  = 52,     /*!< UART4 全局中断                                            */
+    UART5_IRQn                  = 53,     /*!< UART5 全局中断                                            */
     TIM6_DAC_IRQn               = 54,     /*!< TIM6 global and DAC1&2 underrun error  interrupts                 */
-    TIM7_IRQn                   = 55,     /*!< TIM7 global interrupt                                             */
-    DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 global Interrupt                                    */
-    DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 global Interrupt                                    */
-    DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 global Interrupt                                    */
-    DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 global Interrupt                                    */
-    DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 global Interrupt                                    */
-    ETH_IRQn                    = 61,     /*!< Ethernet global Interrupt                                         */
+    TIM7_IRQn                   = 55,     /*!< TIM7 全局中断                                             */
+    DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
+    DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
+    DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
+    DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
+    DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
+    ETH_IRQn                    = 61,     /*!< Ethernet 全局中断                                         */
     ETH_WKUP_IRQn               = 62,     /*!< Ethernet Wakeup through EXTI line Interrupt                       */
-    CAN2_TX_IRQn                = 63,     /*!< CAN2 TX Interrupt                                                 */
-    CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 Interrupt                                                */
-    CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 Interrupt                                                */
-    CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE Interrupt                                                */
-    OTG_FS_IRQn                 = 67,     /*!< USB OTG FS global Interrupt                                       */
-    DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 global interrupt                                    */
-    DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 global interrupt                                    */
-    DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 global interrupt                                    */
-    USART6_IRQn                 = 71,     /*!< USART6 global interrupt                                           */
-    I2C3_EV_IRQn                = 72,     /*!< I2C3 event interrupt                                              */
-    I2C3_ER_IRQn                = 73,     /*!< I2C3 error interrupt                                              */
-    OTG_HS_EP1_OUT_IRQn         = 74,     /*!< USB OTG HS End Point 1 Out global interrupt                       */
-    OTG_HS_EP1_IN_IRQn          = 75,     /*!< USB OTG HS End Point 1 In global interrupt                        */
+    CAN2_TX_IRQn                = 63,     /*!< CAN2 TX 中断                                                 */
+    CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 中断                                                */
+    CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 中断                                                */
+    CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE 中断                                                */
+    OTG_FS_IRQn                 = 67,     /*!< USB OTG FS 全局中断                                       */
+    DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
+    DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
+    DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
+    USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
+    I2C3_EV_IRQn                = 72,     /*!< I2C3 事件中断                                              */
+    I2C3_ER_IRQn                = 73,     /*!< I2C3 错误中断                                              */
+    OTG_HS_EP1_OUT_IRQn         = 74,     /*!< USB OTG HS End Point 1 Out 全局中断                       */
+    OTG_HS_EP1_IN_IRQn          = 75,     /*!< USB OTG HS End Point 1 In 全局中断                        */
     OTG_HS_WKUP_IRQn            = 76,     /*!< USB OTG HS Wakeup through EXTI interrupt                          */
-    OTG_HS_IRQn                 = 77,     /*!< USB OTG HS global interrupt                                       */
-    DCMI_IRQn                   = 78,     /*!< DCMI global interrupt                                             */
-    CRYP_IRQn                   = 79,     /*!< CRYP crypto global interrupt                                      */
-    HASH_RNG_IRQn               = 80,     /*!< Hash and Rng global interrupt                                     */
-    FPU_IRQn                    = 81      /*!< FPU global interrupt                                              */
+    OTG_HS_IRQn                 = 77,     /*!< USB OTG HS 全局中断                                       */
+    DCMI_IRQn                   = 78,     /*!< DCMI 全局中断                                             */
+    CRYP_IRQn                   = 79,     /*!< CRYP crypto 全局中断                                      */
+    HASH_RNG_IRQn               = 80,     /*!< Hash and Rng 全局中断                                     */
+    FPU_IRQn                    = 81      /*!< FPU 全局中断                                              */
 #endif /* STM32F40_41xxx */
 
 #if defined(STM32F427_437xx)
-                                  CAN1_TX_IRQn                = 19,     /*!< CAN1 TX Interrupt                                                 */
-                                  CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 Interrupt                                                */
-                                  CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 Interrupt                                                */
-                                  CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE Interrupt                                                */
+                                  CAN1_TX_IRQn                = 19,     /*!< CAN1 TX 中断                                                 */
+                                  CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 中断                                                */
+                                  CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 中断                                                */
+                                  CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE 中断                                                */
                                   EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
-                                  TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 global interrupt                    */
-                                  TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 global interrupt                  */
+                                  TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
+                                  TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 全局中断                  */
                                   TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
                                   TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
-                                  TIM2_IRQn                   = 28,     /*!< TIM2 global Interrupt                                             */
-                                  TIM3_IRQn                   = 29,     /*!< TIM3 global Interrupt                                             */
-                                  TIM4_IRQn                   = 30,     /*!< TIM4 global Interrupt                                             */
-                                  I2C1_EV_IRQn                = 31,     /*!< I2C1 Event Interrupt                                              */
-                                  I2C1_ER_IRQn                = 32,     /*!< I2C1 Error Interrupt                                              */
-                                  I2C2_EV_IRQn                = 33,     /*!< I2C2 Event Interrupt                                              */
-                                  I2C2_ER_IRQn                = 34,     /*!< I2C2 Error Interrupt                                              */
-                                  SPI1_IRQn                   = 35,     /*!< SPI1 global Interrupt                                             */
-                                  SPI2_IRQn                   = 36,     /*!< SPI2 global Interrupt                                             */
-                                  USART1_IRQn                 = 37,     /*!< USART1 global Interrupt                                           */
-                                  USART2_IRQn                 = 38,     /*!< USART2 global Interrupt                                           */
-                                  USART3_IRQn                 = 39,     /*!< USART3 global Interrupt                                           */
+                                  TIM2_IRQn                   = 28,     /*!< TIM2 全局中断                                             */
+                                  TIM3_IRQn                   = 29,     /*!< TIM3 全局中断                                             */
+                                  TIM4_IRQn                   = 30,     /*!< TIM4 全局中断                                             */
+                                  I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
+                                  I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
+                                  I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
+                                  I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
+                                  SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
+                                  SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
+                                  USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
+                                  USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
+                                  USART3_IRQn                 = 39,     /*!< USART3 全局中断                                           */
                                   EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
                                   RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
                                   OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
-                                  TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 global interrupt                   */
-                                  TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 global interrupt                  */
+                                  TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 全局中断                   */
+                                  TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 全局中断                  */
                                   TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
                                   TIM8_CC_IRQn                = 46,     /*!< TIM8 Capture Compare Interrupt                                    */
                                   DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
-                                  FMC_IRQn                    = 48,     /*!< FMC global Interrupt                                              */
-                                  SDIO_IRQn                   = 49,     /*!< SDIO global Interrupt                                             */
-                                  TIM5_IRQn                   = 50,     /*!< TIM5 global Interrupt                                             */
-                                  SPI3_IRQn                   = 51,     /*!< SPI3 global Interrupt                                             */
-                                  UART4_IRQn                  = 52,     /*!< UART4 global Interrupt                                            */
-                                  UART5_IRQn                  = 53,     /*!< UART5 global Interrupt                                            */
+                                  FMC_IRQn                    = 48,     /*!< FMC 全局中断                                              */
+                                  SDIO_IRQn                   = 49,     /*!< SDIO 全局中断                                             */
+                                  TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
+                                  SPI3_IRQn                   = 51,     /*!< SPI3 全局中断                                             */
+                                  UART4_IRQn                  = 52,     /*!< UART4 全局中断                                            */
+                                  UART5_IRQn                  = 53,     /*!< UART5 全局中断                                            */
                                   TIM6_DAC_IRQn               = 54,     /*!< TIM6 global and DAC1&2 underrun error  interrupts                 */
-                                  TIM7_IRQn                   = 55,     /*!< TIM7 global interrupt                                             */
-                                  DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 global Interrupt                                    */
-                                  DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 global Interrupt                                    */
-                                  DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 global Interrupt                                    */
-                                  DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 global Interrupt                                    */
-                                  DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 global Interrupt                                    */
-                                  ETH_IRQn                    = 61,     /*!< Ethernet global Interrupt                                         */
+                                  TIM7_IRQn                   = 55,     /*!< TIM7 全局中断                                             */
+                                  DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
+                                  DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
+                                  DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
+                                  DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
+                                  DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
+                                  ETH_IRQn                    = 61,     /*!< Ethernet 全局中断                                         */
                                   ETH_WKUP_IRQn               = 62,     /*!< Ethernet Wakeup through EXTI line Interrupt                       */
-                                  CAN2_TX_IRQn                = 63,     /*!< CAN2 TX Interrupt                                                 */
-                                  CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 Interrupt                                                */
-                                  CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 Interrupt                                                */
-                                  CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE Interrupt                                                */
-                                  OTG_FS_IRQn                 = 67,     /*!< USB OTG FS global Interrupt                                       */
-                                  DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 global interrupt                                    */
-                                  DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 global interrupt                                    */
-                                  DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 global interrupt                                    */
-                                  USART6_IRQn                 = 71,     /*!< USART6 global interrupt                                           */
-                                  I2C3_EV_IRQn                = 72,     /*!< I2C3 event interrupt                                              */
-                                  I2C3_ER_IRQn                = 73,     /*!< I2C3 error interrupt                                              */
-                                  OTG_HS_EP1_OUT_IRQn         = 74,     /*!< USB OTG HS End Point 1 Out global interrupt                       */
-                                  OTG_HS_EP1_IN_IRQn          = 75,     /*!< USB OTG HS End Point 1 In global interrupt                        */
+                                  CAN2_TX_IRQn                = 63,     /*!< CAN2 TX 中断                                                 */
+                                  CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 中断                                                */
+                                  CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 中断                                                */
+                                  CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE 中断                                                */
+                                  OTG_FS_IRQn                 = 67,     /*!< USB OTG FS 全局中断                                       */
+                                  DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
+                                  DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
+                                  DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
+                                  USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
+                                  I2C3_EV_IRQn                = 72,     /*!< I2C3 事件中断                                              */
+                                  I2C3_ER_IRQn                = 73,     /*!< I2C3 错误中断                                              */
+                                  OTG_HS_EP1_OUT_IRQn         = 74,     /*!< USB OTG HS End Point 1 Out 全局中断                       */
+                                  OTG_HS_EP1_IN_IRQn          = 75,     /*!< USB OTG HS End Point 1 In 全局中断                        */
                                   OTG_HS_WKUP_IRQn            = 76,     /*!< USB OTG HS Wakeup through EXTI interrupt                          */
-                                  OTG_HS_IRQn                 = 77,     /*!< USB OTG HS global interrupt                                       */
-                                  DCMI_IRQn                   = 78,     /*!< DCMI global interrupt                                             */
-                                  CRYP_IRQn                   = 79,     /*!< CRYP crypto global interrupt                                      */
-                                  HASH_RNG_IRQn               = 80,     /*!< Hash and Rng global interrupt                                     */
-                                  FPU_IRQn                    = 81,     /*!< FPU global interrupt                                              */
-                                  UART7_IRQn                  = 82,     /*!< UART7 global interrupt                                            */
-                                  UART8_IRQn                  = 83,     /*!< UART8 global interrupt                                            */
-                                  SPI4_IRQn                   = 84,     /*!< SPI4 global Interrupt                                             */
-                                  SPI5_IRQn                   = 85,     /*!< SPI5 global Interrupt                                             */
-                                  SPI6_IRQn                   = 86,     /*!< SPI6 global Interrupt                                             */
-                                  SAI1_IRQn                   = 87,     /*!< SAI1 global Interrupt                                             */
-                                  DMA2D_IRQn                  = 90      /*!< DMA2D global Interrupt                                            */
+                                  OTG_HS_IRQn                 = 77,     /*!< USB OTG HS 全局中断                                       */
+                                  DCMI_IRQn                   = 78,     /*!< DCMI 全局中断                                             */
+                                  CRYP_IRQn                   = 79,     /*!< CRYP crypto 全局中断                                      */
+                                  HASH_RNG_IRQn               = 80,     /*!< Hash and Rng 全局中断                                     */
+                                  FPU_IRQn                    = 81,     /*!< FPU 全局中断                                              */
+                                  UART7_IRQn                  = 82,     /*!< UART7 全局中断                                            */
+                                  UART8_IRQn                  = 83,     /*!< UART8 全局中断                                            */
+                                  SPI4_IRQn                   = 84,     /*!< SPI4 全局中断                                             */
+                                  SPI5_IRQn                   = 85,     /*!< SPI5 全局中断                                             */
+                                  SPI6_IRQn                   = 86,     /*!< SPI6 全局中断                                             */
+                                  SAI1_IRQn                   = 87,     /*!< SAI1 全局中断                                             */
+                                  DMA2D_IRQn                  = 90      /*!< DMA2D 全局中断                                            */
 #endif /* STM32F427_437xx */
 
 #if defined(STM32F429_439xx)
-                                          CAN1_TX_IRQn                = 19,     /*!< CAN1 TX Interrupt                                                 */
-                                          CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 Interrupt                                                */
-                                          CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 Interrupt                                                */
-                                          CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE Interrupt                                                */
+                                          CAN1_TX_IRQn                = 19,     /*!< CAN1 TX 中断                                                 */
+                                          CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 中断                                                */
+                                          CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 中断                                                */
+                                          CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE 中断                                                */
                                           EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
-                                          TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 global interrupt                    */
-                                          TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 global interrupt                  */
+                                          TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
+                                          TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 全局中断                  */
                                           TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
                                           TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
-                                          TIM2_IRQn                   = 28,     /*!< TIM2 global Interrupt                                             */
-                                          TIM3_IRQn                   = 29,     /*!< TIM3 global Interrupt                                             */
-                                          TIM4_IRQn                   = 30,     /*!< TIM4 global Interrupt                                             */
-                                          I2C1_EV_IRQn                = 31,     /*!< I2C1 Event Interrupt                                              */
-                                          I2C1_ER_IRQn                = 32,     /*!< I2C1 Error Interrupt                                              */
-                                          I2C2_EV_IRQn                = 33,     /*!< I2C2 Event Interrupt                                              */
-                                          I2C2_ER_IRQn                = 34,     /*!< I2C2 Error Interrupt                                              */
-                                          SPI1_IRQn                   = 35,     /*!< SPI1 global Interrupt                                             */
-                                          SPI2_IRQn                   = 36,     /*!< SPI2 global Interrupt                                             */
-                                          USART1_IRQn                 = 37,     /*!< USART1 global Interrupt                                           */
-                                          USART2_IRQn                 = 38,     /*!< USART2 global Interrupt                                           */
-                                          USART3_IRQn                 = 39,     /*!< USART3 global Interrupt                                           */
+                                          TIM2_IRQn                   = 28,     /*!< TIM2 全局中断                                             */
+                                          TIM3_IRQn                   = 29,     /*!< TIM3 全局中断                                             */
+                                          TIM4_IRQn                   = 30,     /*!< TIM4 全局中断                                             */
+                                          I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
+                                          I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
+                                          I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
+                                          I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
+                                          SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
+                                          SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
+                                          USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
+                                          USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
+                                          USART3_IRQn                 = 39,     /*!< USART3 全局中断                                           */
                                           EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
                                           RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
                                           OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
-                                          TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 global interrupt                   */
-                                          TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 global interrupt                  */
+                                          TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 全局中断                   */
+                                          TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 全局中断                  */
                                           TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
                                           TIM8_CC_IRQn                = 46,     /*!< TIM8 Capture Compare Interrupt                                    */
                                           DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
-                                          FMC_IRQn                    = 48,     /*!< FMC global Interrupt                                              */
-                                          SDIO_IRQn                   = 49,     /*!< SDIO global Interrupt                                             */
-                                          TIM5_IRQn                   = 50,     /*!< TIM5 global Interrupt                                             */
-                                          SPI3_IRQn                   = 51,     /*!< SPI3 global Interrupt                                             */
-                                          UART4_IRQn                  = 52,     /*!< UART4 global Interrupt                                            */
-                                          UART5_IRQn                  = 53,     /*!< UART5 global Interrupt                                            */
+                                          FMC_IRQn                    = 48,     /*!< FMC 全局中断                                              */
+                                          SDIO_IRQn                   = 49,     /*!< SDIO 全局中断                                             */
+                                          TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
+                                          SPI3_IRQn                   = 51,     /*!< SPI3 全局中断                                             */
+                                          UART4_IRQn                  = 52,     /*!< UART4 全局中断                                            */
+                                          UART5_IRQn                  = 53,     /*!< UART5 全局中断                                            */
                                           TIM6_DAC_IRQn               = 54,     /*!< TIM6 global and DAC1&2 underrun error  interrupts                 */
-                                          TIM7_IRQn                   = 55,     /*!< TIM7 global interrupt                                             */
-                                          DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 global Interrupt                                    */
-                                          DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 global Interrupt                                    */
-                                          DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 global Interrupt                                    */
-                                          DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 global Interrupt                                    */
-                                          DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 global Interrupt                                    */
-                                          ETH_IRQn                    = 61,     /*!< Ethernet global Interrupt                                         */
+                                          TIM7_IRQn                   = 55,     /*!< TIM7 全局中断                                             */
+                                          DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
+                                          DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
+                                          DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
+                                          DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
+                                          DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
+                                          ETH_IRQn                    = 61,     /*!< Ethernet 全局中断                                         */
                                           ETH_WKUP_IRQn               = 62,     /*!< Ethernet Wakeup through EXTI line Interrupt                       */
-                                          CAN2_TX_IRQn                = 63,     /*!< CAN2 TX Interrupt                                                 */
-                                          CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 Interrupt                                                */
-                                          CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 Interrupt                                                */
-                                          CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE Interrupt                                                */
-                                          OTG_FS_IRQn                 = 67,     /*!< USB OTG FS global Interrupt                                       */
-                                          DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 global interrupt                                    */
-                                          DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 global interrupt                                    */
-                                          DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 global interrupt                                    */
-                                          USART6_IRQn                 = 71,     /*!< USART6 global interrupt                                           */
-                                          I2C3_EV_IRQn                = 72,     /*!< I2C3 event interrupt                                              */
-                                          I2C3_ER_IRQn                = 73,     /*!< I2C3 error interrupt                                              */
-                                          OTG_HS_EP1_OUT_IRQn         = 74,     /*!< USB OTG HS End Point 1 Out global interrupt                       */
-                                          OTG_HS_EP1_IN_IRQn          = 75,     /*!< USB OTG HS End Point 1 In global interrupt                        */
+                                          CAN2_TX_IRQn                = 63,     /*!< CAN2 TX 中断                                                 */
+                                          CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 中断                                                */
+                                          CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 中断                                                */
+                                          CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE 中断                                                */
+                                          OTG_FS_IRQn                 = 67,     /*!< USB OTG FS 全局中断                                       */
+                                          DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
+                                          DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
+                                          DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
+                                          USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
+                                          I2C3_EV_IRQn                = 72,     /*!< I2C3 事件中断                                              */
+                                          I2C3_ER_IRQn                = 73,     /*!< I2C3 错误中断                                              */
+                                          OTG_HS_EP1_OUT_IRQn         = 74,     /*!< USB OTG HS End Point 1 Out 全局中断                       */
+                                          OTG_HS_EP1_IN_IRQn          = 75,     /*!< USB OTG HS End Point 1 In 全局中断                        */
                                           OTG_HS_WKUP_IRQn            = 76,     /*!< USB OTG HS Wakeup through EXTI interrupt                          */
-                                          OTG_HS_IRQn                 = 77,     /*!< USB OTG HS global interrupt                                       */
-                                          DCMI_IRQn                   = 78,     /*!< DCMI global interrupt                                             */
-                                          CRYP_IRQn                   = 79,     /*!< CRYP crypto global interrupt                                      */
-                                          HASH_RNG_IRQn               = 80,     /*!< Hash and Rng global interrupt                                     */
-                                          FPU_IRQn                    = 81,     /*!< FPU global interrupt                                              */
-                                          UART7_IRQn                  = 82,     /*!< UART7 global interrupt                                            */
-                                          UART8_IRQn                  = 83,     /*!< UART8 global interrupt                                            */
-                                          SPI4_IRQn                   = 84,     /*!< SPI4 global Interrupt                                             */
-                                          SPI5_IRQn                   = 85,     /*!< SPI5 global Interrupt                                             */
-                                          SPI6_IRQn                   = 86,     /*!< SPI6 global Interrupt                                             */
-                                          SAI1_IRQn                   = 87,     /*!< SAI1 global Interrupt                                             */
-                                          LTDC_IRQn                   = 88,     /*!< LTDC global Interrupt                                             */
-                                          LTDC_ER_IRQn                = 89,     /*!< LTDC Error global Interrupt                                       */
-                                          DMA2D_IRQn                  = 90      /*!< DMA2D global Interrupt                                            */
+                                          OTG_HS_IRQn                 = 77,     /*!< USB OTG HS 全局中断                                       */
+                                          DCMI_IRQn                   = 78,     /*!< DCMI 全局中断                                             */
+                                          CRYP_IRQn                   = 79,     /*!< CRYP crypto 全局中断                                      */
+                                          HASH_RNG_IRQn               = 80,     /*!< Hash and Rng 全局中断                                     */
+                                          FPU_IRQn                    = 81,     /*!< FPU 全局中断                                              */
+                                          UART7_IRQn                  = 82,     /*!< UART7 全局中断                                            */
+                                          UART8_IRQn                  = 83,     /*!< UART8 全局中断                                            */
+                                          SPI4_IRQn                   = 84,     /*!< SPI4 全局中断                                             */
+                                          SPI5_IRQn                   = 85,     /*!< SPI5 全局中断                                             */
+                                          SPI6_IRQn                   = 86,     /*!< SPI6 全局中断                                             */
+                                          SAI1_IRQn                   = 87,     /*!< SAI1 全局中断                                             */
+                                          LTDC_IRQn                   = 88,     /*!< LTDC 全局中断                                             */
+                                          LTDC_ER_IRQn                = 89,     /*!< LTDC Error 全局中断                                       */
+                                          DMA2D_IRQn                  = 90      /*!< DMA2D 全局中断                                            */
 #endif /* STM32F429_439xx */
 
 #if defined(STM32F410xx)
                                                   EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
-                                                  TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 global interrupt                    */
+                                                  TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
                                                   TIM1_UP_IRQn                = 25,     /*!< TIM1 Update Interrupt                                             */
                                                   TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
                                                   TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
-                                                  I2C1_EV_IRQn                = 31,     /*!< I2C1 Event Interrupt                                              */
-                                                  I2C1_ER_IRQn                = 32,     /*!< I2C1 Error Interrupt                                              */
-                                                  I2C2_EV_IRQn                = 33,     /*!< I2C2 Event Interrupt                                              */
-                                                  I2C2_ER_IRQn                = 34,     /*!< I2C2 Error Interrupt                                              */
-                                                  SPI1_IRQn                   = 35,     /*!< SPI1 global Interrupt                                             */
-                                                  SPI2_IRQn                   = 36,     /*!< SPI2 global Interrupt                                             */
-                                                  USART1_IRQn                 = 37,     /*!< USART1 global Interrupt                                           */
-                                                  USART2_IRQn                 = 38,     /*!< USART2 global Interrupt                                           */
+                                                  I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
+                                                  I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
+                                                  I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
+                                                  I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
+                                                  SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
+                                                  SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
+                                                  USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
+                                                  USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
                                                   EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
                                                   RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
                                                   DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
-                                                  TIM5_IRQn                   = 50,     /*!< TIM5 global Interrupt                                             */
-                                                  TIM6_DAC_IRQn               = 54,     /*!< TIM6 global Interrupt and DAC Global Interrupt                    */
-                                                  DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 global Interrupt                                    */
-                                                  DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 global Interrupt                                    */
-                                                  DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 global Interrupt                                    */
-                                                  DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 global Interrupt                                    */
-                                                  DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 global Interrupt                                    */
-                                                  DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 global interrupt                                    */
-                                                  DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 global interrupt                                    */
-                                                  DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 global interrupt                                    */
-                                                  USART6_IRQn                 = 71,     /*!< USART6 global interrupt                                           */
-                                                  RNG_IRQn                    = 80,     /*!< RNG global Interrupt                                              */
-                                                  FPU_IRQn                    = 81,     /*!< FPU global interrupt                                              */
-                                                  SPI5_IRQn                   = 85,     /*!< SPI5 global Interrupt                                             */
-                                                  FMPI2C1_EV_IRQn             = 95,     /*!< FMPI2C1 Event Interrupt                                           */
-                                                  FMPI2C1_ER_IRQn             = 96,     /*!< FMPI2C1 Error Interrupt                                           */
+                                                  TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
+                                                  TIM6_DAC_IRQn               = 54,     /*!< TIM6 global Interrupt and DAC 全局中断                    */
+                                                  DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
+                                                  DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
+                                                  DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
+                                                  DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
+                                                  DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
+                                                  DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
+                                                  DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
+                                                  DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
+                                                  USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
+                                                  RNG_IRQn                    = 80,     /*!< RNG 全局中断                                              */
+                                                  FPU_IRQn                    = 81,     /*!< FPU 全局中断                                              */
+                                                  SPI5_IRQn                   = 85,     /*!< SPI5 全局中断                                             */
+                                                  FMPI2C1_EV_IRQn             = 95,     /*!< FMPI2C1 事件中断                                           */
+                                                  FMPI2C1_ER_IRQn             = 96,     /*!< FMPI2C1 错误中断                                           */
                                                   LPTIM1_IRQn                 = 97      /*!< LPTIM1 interrupt                                                  */
 #endif /* STM32F410xx */
 
 #if defined(STM32F401xx) || defined(STM32F411xE)
                                                           EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
-                                                          TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 global interrupt                    */
-                                                          TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 global interrupt                  */
+                                                          TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
+                                                          TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 全局中断                  */
                                                           TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
                                                           TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
-                                                          TIM2_IRQn                   = 28,     /*!< TIM2 global Interrupt                                             */
-                                                          TIM3_IRQn                   = 29,     /*!< TIM3 global Interrupt                                             */
-                                                          TIM4_IRQn                   = 30,     /*!< TIM4 global Interrupt                                             */
-                                                          I2C1_EV_IRQn                = 31,     /*!< I2C1 Event Interrupt                                              */
-                                                          I2C1_ER_IRQn                = 32,     /*!< I2C1 Error Interrupt                                              */
-                                                          I2C2_EV_IRQn                = 33,     /*!< I2C2 Event Interrupt                                              */
-                                                          I2C2_ER_IRQn                = 34,     /*!< I2C2 Error Interrupt                                              */
-                                                          SPI1_IRQn                   = 35,     /*!< SPI1 global Interrupt                                             */
-                                                          SPI2_IRQn                   = 36,     /*!< SPI2 global Interrupt                                             */
-                                                          USART1_IRQn                 = 37,     /*!< USART1 global Interrupt                                           */
-                                                          USART2_IRQn                 = 38,     /*!< USART2 global Interrupt                                           */
+                                                          TIM2_IRQn                   = 28,     /*!< TIM2 全局中断                                             */
+                                                          TIM3_IRQn                   = 29,     /*!< TIM3 全局中断                                             */
+                                                          TIM4_IRQn                   = 30,     /*!< TIM4 全局中断                                             */
+                                                          I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
+                                                          I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
+                                                          I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
+                                                          I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
+                                                          SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
+                                                          SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
+                                                          USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
+                                                          USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
                                                           EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
                                                           RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
                                                           OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
                                                           DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
-                                                          SDIO_IRQn                   = 49,     /*!< SDIO global Interrupt                                             */
-                                                          TIM5_IRQn                   = 50,     /*!< TIM5 global Interrupt                                             */
-                                                          SPI3_IRQn                   = 51,     /*!< SPI3 global Interrupt                                             */
-                                                          DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 global Interrupt                                    */
-                                                          DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 global Interrupt                                    */
-                                                          DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 global Interrupt                                    */
-                                                          DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 global Interrupt                                    */
-                                                          DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 global Interrupt                                    */
-                                                          OTG_FS_IRQn                 = 67,     /*!< USB OTG FS global Interrupt                                       */
-                                                          DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 global interrupt                                    */
-                                                          DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 global interrupt                                    */
-                                                          DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 global interrupt                                    */
-                                                          USART6_IRQn                 = 71,     /*!< USART6 global interrupt                                           */
-                                                          I2C3_EV_IRQn                = 72,     /*!< I2C3 event interrupt                                              */
-                                                          I2C3_ER_IRQn                = 73,     /*!< I2C3 error interrupt                                              */
-                                                          FPU_IRQn                    = 81,      /*!< FPU global interrupt                                             */
+                                                          SDIO_IRQn                   = 49,     /*!< SDIO 全局中断                                             */
+                                                          TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
+                                                          SPI3_IRQn                   = 51,     /*!< SPI3 全局中断                                             */
+                                                          DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
+                                                          DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
+                                                          DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
+                                                          DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
+                                                          DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
+                                                          OTG_FS_IRQn                 = 67,     /*!< USB OTG FS 全局中断                                       */
+                                                          DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
+                                                          DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
+                                                          DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
+                                                          USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
+                                                          I2C3_EV_IRQn                = 72,     /*!< I2C3 事件中断                                              */
+                                                          I2C3_ER_IRQn                = 73,     /*!< I2C3 错误中断                                              */
+                                                          FPU_IRQn                    = 81,      /*!< FPU 全局中断                                             */
 #if defined(STM32F401xx)
-                                                          SPI4_IRQn                   = 84       /*!< SPI4 global Interrupt                                            */
+                                                          SPI4_IRQn                   = 84       /*!< SPI4 全局中断                                            */
 #endif /* STM32F411xE */
 #if defined(STM32F411xE)
-                                                                  SPI4_IRQn                   = 84,     /*!< SPI4 global Interrupt                                             */
-                                                                  SPI5_IRQn                   = 85      /*!< SPI5 global Interrupt                                             */
+                                                                  SPI4_IRQn                   = 84,     /*!< SPI4 全局中断                                             */
+                                                                  SPI5_IRQn                   = 85      /*!< SPI5 全局中断                                             */
 #endif /* STM32F411xE */
 #endif /* STM32F401xx || STM32F411xE */
 
 #if defined(STM32F469_479xx)
-                                                                          CAN1_TX_IRQn                = 19,     /*!< CAN1 TX Interrupt                                                 */
-                                                                          CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 Interrupt                                                */
-                                                                          CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 Interrupt                                                */
-                                                                          CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE Interrupt                                                */
+                                                                          CAN1_TX_IRQn                = 19,     /*!< CAN1 TX 中断                                                 */
+                                                                          CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 中断                                                */
+                                                                          CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 中断                                                */
+                                                                          CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE 中断                                                */
                                                                           EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
-                                                                          TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 global interrupt                    */
-                                                                          TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 global interrupt                  */
+                                                                          TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
+                                                                          TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 全局中断                  */
                                                                           TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
                                                                           TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
-                                                                          TIM2_IRQn                   = 28,     /*!< TIM2 global Interrupt                                             */
-                                                                          TIM3_IRQn                   = 29,     /*!< TIM3 global Interrupt                                             */
-                                                                          TIM4_IRQn                   = 30,     /*!< TIM4 global Interrupt                                             */
-                                                                          I2C1_EV_IRQn                = 31,     /*!< I2C1 Event Interrupt                                              */
-                                                                          I2C1_ER_IRQn                = 32,     /*!< I2C1 Error Interrupt                                              */
-                                                                          I2C2_EV_IRQn                = 33,     /*!< I2C2 Event Interrupt                                              */
-                                                                          I2C2_ER_IRQn                = 34,     /*!< I2C2 Error Interrupt                                              */
-                                                                          SPI1_IRQn                   = 35,     /*!< SPI1 global Interrupt                                             */
-                                                                          SPI2_IRQn                   = 36,     /*!< SPI2 global Interrupt                                             */
-                                                                          USART1_IRQn                 = 37,     /*!< USART1 global Interrupt                                           */
-                                                                          USART2_IRQn                 = 38,     /*!< USART2 global Interrupt                                           */
-                                                                          USART3_IRQn                 = 39,     /*!< USART3 global Interrupt                                           */
+                                                                          TIM2_IRQn                   = 28,     /*!< TIM2 全局中断                                             */
+                                                                          TIM3_IRQn                   = 29,     /*!< TIM3 全局中断                                             */
+                                                                          TIM4_IRQn                   = 30,     /*!< TIM4 全局中断                                             */
+                                                                          I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
+                                                                          I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
+                                                                          I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
+                                                                          I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
+                                                                          SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
+                                                                          SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
+                                                                          USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
+                                                                          USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
+                                                                          USART3_IRQn                 = 39,     /*!< USART3 全局中断                                           */
                                                                           EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
                                                                           RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
                                                                           OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
-                                                                          TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 global interrupt                   */
-                                                                          TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 global interrupt                  */
+                                                                          TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 全局中断                   */
+                                                                          TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 全局中断                  */
                                                                           TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
                                                                           TIM8_CC_IRQn                = 46,     /*!< TIM8 Capture Compare Interrupt                                    */
                                                                           DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
-                                                                          FMC_IRQn                    = 48,     /*!< FMC global Interrupt                                              */
-                                                                          SDIO_IRQn                   = 49,     /*!< SDIO global Interrupt                                             */
-                                                                          TIM5_IRQn                   = 50,     /*!< TIM5 global Interrupt                                             */
-                                                                          SPI3_IRQn                   = 51,     /*!< SPI3 global Interrupt                                             */
-                                                                          UART4_IRQn                  = 52,     /*!< UART4 global Interrupt                                            */
-                                                                          UART5_IRQn                  = 53,     /*!< UART5 global Interrupt                                            */
+                                                                          FMC_IRQn                    = 48,     /*!< FMC 全局中断                                              */
+                                                                          SDIO_IRQn                   = 49,     /*!< SDIO 全局中断                                             */
+                                                                          TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
+                                                                          SPI3_IRQn                   = 51,     /*!< SPI3 全局中断                                             */
+                                                                          UART4_IRQn                  = 52,     /*!< UART4 全局中断                                            */
+                                                                          UART5_IRQn                  = 53,     /*!< UART5 全局中断                                            */
                                                                           TIM6_DAC_IRQn               = 54,     /*!< TIM6 global and DAC1&2 underrun error  interrupts                 */
-                                                                          TIM7_IRQn                   = 55,     /*!< TIM7 global interrupt                                             */
-                                                                          DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 global Interrupt                                    */
-                                                                          DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 global Interrupt                                    */
-                                                                          DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 global Interrupt                                    */
-                                                                          DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 global Interrupt                                    */
-                                                                          DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 global Interrupt                                    */
-                                                                          ETH_IRQn                    = 61,     /*!< Ethernet global Interrupt                                         */
+                                                                          TIM7_IRQn                   = 55,     /*!< TIM7 全局中断                                             */
+                                                                          DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
+                                                                          DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
+                                                                          DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
+                                                                          DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
+                                                                          DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
+                                                                          ETH_IRQn                    = 61,     /*!< Ethernet 全局中断                                         */
                                                                           ETH_WKUP_IRQn               = 62,     /*!< Ethernet Wakeup through EXTI line Interrupt                       */
-                                                                          CAN2_TX_IRQn                = 63,     /*!< CAN2 TX Interrupt                                                 */
-                                                                          CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 Interrupt                                                */
-                                                                          CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 Interrupt                                                */
-                                                                          CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE Interrupt                                                */
-                                                                          OTG_FS_IRQn                 = 67,     /*!< USB OTG FS global Interrupt                                       */
-                                                                          DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 global interrupt                                    */
-                                                                          DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 global interrupt                                    */
-                                                                          DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 global interrupt                                    */
-                                                                          USART6_IRQn                 = 71,     /*!< USART6 global interrupt                                           */
-                                                                          I2C3_EV_IRQn                = 72,     /*!< I2C3 event interrupt                                              */
-                                                                          I2C3_ER_IRQn                = 73,     /*!< I2C3 error interrupt                                              */
-                                                                          OTG_HS_EP1_OUT_IRQn         = 74,     /*!< USB OTG HS End Point 1 Out global interrupt                       */
-                                                                          OTG_HS_EP1_IN_IRQn          = 75,     /*!< USB OTG HS End Point 1 In global interrupt                        */
+                                                                          CAN2_TX_IRQn                = 63,     /*!< CAN2 TX 中断                                                 */
+                                                                          CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 中断                                                */
+                                                                          CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 中断                                                */
+                                                                          CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE 中断                                                */
+                                                                          OTG_FS_IRQn                 = 67,     /*!< USB OTG FS 全局中断                                       */
+                                                                          DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
+                                                                          DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
+                                                                          DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
+                                                                          USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
+                                                                          I2C3_EV_IRQn                = 72,     /*!< I2C3 事件中断                                              */
+                                                                          I2C3_ER_IRQn                = 73,     /*!< I2C3 错误中断                                              */
+                                                                          OTG_HS_EP1_OUT_IRQn         = 74,     /*!< USB OTG HS End Point 1 Out 全局中断                       */
+                                                                          OTG_HS_EP1_IN_IRQn          = 75,     /*!< USB OTG HS End Point 1 In 全局中断                        */
                                                                           OTG_HS_WKUP_IRQn            = 76,     /*!< USB OTG HS Wakeup through EXTI interrupt                          */
-                                                                          OTG_HS_IRQn                 = 77,     /*!< USB OTG HS global interrupt                                       */
-                                                                          DCMI_IRQn                   = 78,     /*!< DCMI global interrupt                                             */
-                                                                          CRYP_IRQn                   = 79,     /*!< CRYP crypto global interrupt                                      */
-                                                                          HASH_RNG_IRQn               = 80,     /*!< Hash and Rng global interrupt                                     */
-                                                                          FPU_IRQn                    = 81,     /*!< FPU global interrupt                                              */
-                                                                          UART7_IRQn                  = 82,     /*!< UART7 global interrupt                                            */
-                                                                          UART8_IRQn                  = 83,     /*!< UART8 global interrupt                                            */
-                                                                          SPI4_IRQn                   = 84,     /*!< SPI4 global Interrupt                                             */
-                                                                          SPI5_IRQn                   = 85,     /*!< SPI5 global Interrupt                                             */
-                                                                          SPI6_IRQn                   = 86,     /*!< SPI6 global Interrupt                                             */
-                                                                          SAI1_IRQn                   = 87,     /*!< SAI1 global Interrupt                                             */
-                                                                          LTDC_IRQn                   = 88,     /*!< LTDC global Interrupt                                             */
-                                                                          LTDC_ER_IRQn                = 89,     /*!< LTDC Error global Interrupt                                       */
-                                                                          DMA2D_IRQn                  = 90,     /*!< DMA2D global Interrupt                                            */
-                                                                          QUADSPI_IRQn                = 91,     /*!< QUADSPI global Interrupt                                          */
-                                                                          DSI_IRQn                    = 92      /*!< DSI global Interrupt                                              */
+                                                                          OTG_HS_IRQn                 = 77,     /*!< USB OTG HS 全局中断                                       */
+                                                                          DCMI_IRQn                   = 78,     /*!< DCMI 全局中断                                             */
+                                                                          CRYP_IRQn                   = 79,     /*!< CRYP crypto 全局中断                                      */
+                                                                          HASH_RNG_IRQn               = 80,     /*!< Hash and Rng 全局中断                                     */
+                                                                          FPU_IRQn                    = 81,     /*!< FPU 全局中断                                              */
+                                                                          UART7_IRQn                  = 82,     /*!< UART7 全局中断                                            */
+                                                                          UART8_IRQn                  = 83,     /*!< UART8 全局中断                                            */
+                                                                          SPI4_IRQn                   = 84,     /*!< SPI4 全局中断                                             */
+                                                                          SPI5_IRQn                   = 85,     /*!< SPI5 全局中断                                             */
+                                                                          SPI6_IRQn                   = 86,     /*!< SPI6 全局中断                                             */
+                                                                          SAI1_IRQn                   = 87,     /*!< SAI1 全局中断                                             */
+                                                                          LTDC_IRQn                   = 88,     /*!< LTDC 全局中断                                             */
+                                                                          LTDC_ER_IRQn                = 89,     /*!< LTDC Error 全局中断                                       */
+                                                                          DMA2D_IRQn                  = 90,     /*!< DMA2D 全局中断                                            */
+                                                                          QUADSPI_IRQn                = 91,     /*!< QUADSPI 全局中断                                          */
+                                                                          DSI_IRQn                    = 92      /*!< DSI 全局中断                                              */
 #endif /* STM32F469_479xx */
 
 #if defined(STM32F446xx)
-                                                                                  CAN1_TX_IRQn                = 19,     /*!< CAN1 TX Interrupt                                                 */
-                                                                                  CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 Interrupt                                                */
-                                                                                  CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 Interrupt                                                */
-                                                                                  CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE Interrupt                                                */
+                                                                                  CAN1_TX_IRQn                = 19,     /*!< CAN1 TX 中断                                                 */
+                                                                                  CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 中断                                                */
+                                                                                  CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 中断                                                */
+                                                                                  CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE 中断                                                */
                                                                                   EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
-                                                                                  TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 global interrupt                    */
-                                                                                  TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 global interrupt                  */
+                                                                                  TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
+                                                                                  TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 全局中断                  */
                                                                                   TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
                                                                                   TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
-                                                                                  TIM2_IRQn                   = 28,     /*!< TIM2 global Interrupt                                             */
-                                                                                  TIM3_IRQn                   = 29,     /*!< TIM3 global Interrupt                                             */
-                                                                                  TIM4_IRQn                   = 30,     /*!< TIM4 global Interrupt                                             */
-                                                                                  I2C1_EV_IRQn                = 31,     /*!< I2C1 Event Interrupt                                              */
-                                                                                  I2C1_ER_IRQn                = 32,     /*!< I2C1 Error Interrupt                                              */
-                                                                                  I2C2_EV_IRQn                = 33,     /*!< I2C2 Event Interrupt                                              */
-                                                                                  I2C2_ER_IRQn                = 34,     /*!< I2C2 Error Interrupt                                              */
-                                                                                  SPI1_IRQn                   = 35,     /*!< SPI1 global Interrupt                                             */
-                                                                                  SPI2_IRQn                   = 36,     /*!< SPI2 global Interrupt                                             */
-                                                                                  USART1_IRQn                 = 37,     /*!< USART1 global Interrupt                                           */
-                                                                                  USART2_IRQn                 = 38,     /*!< USART2 global Interrupt                                           */
-                                                                                  USART3_IRQn                 = 39,     /*!< USART3 global Interrupt                                           */
+                                                                                  TIM2_IRQn                   = 28,     /*!< TIM2 全局中断                                             */
+                                                                                  TIM3_IRQn                   = 29,     /*!< TIM3 全局中断                                             */
+                                                                                  TIM4_IRQn                   = 30,     /*!< TIM4 全局中断                                             */
+                                                                                  I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
+                                                                                  I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
+                                                                                  I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
+                                                                                  I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
+                                                                                  SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
+                                                                                  SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
+                                                                                  USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
+                                                                                  USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
+                                                                                  USART3_IRQn                 = 39,     /*!< USART3 全局中断                                           */
                                                                                   EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
                                                                                   RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
                                                                                   OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
                                                                                   TIM8_BRK_IRQn               = 43,     /*!< TIM8 Break Interrupt                                              */
-                                                                                  TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 global interrupt                   */
-                                                                                  TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 global interrupt                  */
+                                                                                  TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 全局中断                   */
+                                                                                  TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 全局中断                  */
                                                                                   TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
                                                                                   DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
-                                                                                  FMC_IRQn                    = 48,     /*!< FMC global Interrupt                                              */
-                                                                                  SDIO_IRQn                   = 49,     /*!< SDIO global Interrupt                                             */
-                                                                                  TIM5_IRQn                   = 50,     /*!< TIM5 global Interrupt                                             */
-                                                                                  SPI3_IRQn                   = 51,     /*!< SPI3 global Interrupt                                             */
-                                                                                  UART4_IRQn                  = 52,     /*!< UART4 global Interrupt                                            */
-                                                                                  UART5_IRQn                  = 53,     /*!< UART5 global Interrupt                                            */
+                                                                                  FMC_IRQn                    = 48,     /*!< FMC 全局中断                                              */
+                                                                                  SDIO_IRQn                   = 49,     /*!< SDIO 全局中断                                             */
+                                                                                  TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
+                                                                                  SPI3_IRQn                   = 51,     /*!< SPI3 全局中断                                             */
+                                                                                  UART4_IRQn                  = 52,     /*!< UART4 全局中断                                            */
+                                                                                  UART5_IRQn                  = 53,     /*!< UART5 全局中断                                            */
                                                                                   TIM6_DAC_IRQn               = 54,     /*!< TIM6 global and DAC1&2 underrun error  interrupts                 */
-                                                                                  TIM7_IRQn                   = 55,     /*!< TIM7 global interrupt                                             */
-                                                                                  DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 global Interrupt                                    */
-                                                                                  DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 global Interrupt                                    */
-                                                                                  DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 global Interrupt                                    */
-                                                                                  DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 global Interrupt                                    */
-                                                                                  DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 global Interrupt                                    */
-                                                                                  CAN2_TX_IRQn                = 63,     /*!< CAN2 TX Interrupt                                                 */
-                                                                                  CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 Interrupt                                                */
-                                                                                  CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 Interrupt                                                */
-                                                                                  CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE Interrupt                                                */
-                                                                                  OTG_FS_IRQn                 = 67,     /*!< USB OTG FS global Interrupt                                       */
-                                                                                  DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 global interrupt                                    */
-                                                                                  DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 global interrupt                                    */
-                                                                                  DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 global interrupt                                    */
-                                                                                  USART6_IRQn                 = 71,     /*!< USART6 global interrupt                                           */
-                                                                                  I2C3_EV_IRQn                = 72,     /*!< I2C3 event interrupt                                              */
-                                                                                  I2C3_ER_IRQn                = 73,     /*!< I2C3 error interrupt                                              */
-                                                                                  OTG_HS_EP1_OUT_IRQn         = 74,     /*!< USB OTG HS End Point 1 Out global interrupt                       */
-                                                                                  OTG_HS_EP1_IN_IRQn          = 75,     /*!< USB OTG HS End Point 1 In global interrupt                        */
+                                                                                  TIM7_IRQn                   = 55,     /*!< TIM7 全局中断                                             */
+                                                                                  DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
+                                                                                  DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
+                                                                                  DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
+                                                                                  DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
+                                                                                  DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
+                                                                                  CAN2_TX_IRQn                = 63,     /*!< CAN2 TX 中断                                                 */
+                                                                                  CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 中断                                                */
+                                                                                  CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 中断                                                */
+                                                                                  CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE 中断                                                */
+                                                                                  OTG_FS_IRQn                 = 67,     /*!< USB OTG FS 全局中断                                       */
+                                                                                  DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
+                                                                                  DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
+                                                                                  DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
+                                                                                  USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
+                                                                                  I2C3_EV_IRQn                = 72,     /*!< I2C3 事件中断                                              */
+                                                                                  I2C3_ER_IRQn                = 73,     /*!< I2C3 错误中断                                              */
+                                                                                  OTG_HS_EP1_OUT_IRQn         = 74,     /*!< USB OTG HS End Point 1 Out 全局中断                       */
+                                                                                  OTG_HS_EP1_IN_IRQn          = 75,     /*!< USB OTG HS End Point 1 In 全局中断                        */
                                                                                   OTG_HS_WKUP_IRQn            = 76,     /*!< USB OTG HS Wakeup through EXTI interrupt                          */
-                                                                                  OTG_HS_IRQn                 = 77,     /*!< USB OTG HS global interrupt                                       */
-                                                                                  DCMI_IRQn                   = 78,     /*!< DCMI global interrupt                                             */
-                                                                                  FPU_IRQn                    = 81,     /*!< FPU global interrupt                                              */
-                                                                                  SPI4_IRQn                   = 84,     /*!< SPI4 global Interrupt                                             */
-                                                                                  SAI1_IRQn                   = 87,     /*!< SAI1 global Interrupt                                             */
-                                                                                  SAI2_IRQn                   = 91,     /*!< SAI2 global Interrupt                                             */
-                                                                                  QUADSPI_IRQn                = 92,     /*!< QuadSPI global Interrupt                                          */
-                                                                                  CEC_IRQn                    = 93,     /*!< QuadSPI global Interrupt                                          */
-                                                                                  SPDIF_RX_IRQn               = 94,     /*!< QuadSPI global Interrupt                                          */
-                                                                                  FMPI2C1_EV_IRQn             = 95,     /*!< FMPI2C Event Interrupt                                            */
-                                                                                  FMPI2C1_ER_IRQn             = 96      /*!< FMPCI2C Error Interrupt                                           */
+                                                                                  OTG_HS_IRQn                 = 77,     /*!< USB OTG HS 全局中断                                       */
+                                                                                  DCMI_IRQn                   = 78,     /*!< DCMI 全局中断                                             */
+                                                                                  FPU_IRQn                    = 81,     /*!< FPU 全局中断                                              */
+                                                                                  SPI4_IRQn                   = 84,     /*!< SPI4 全局中断                                             */
+                                                                                  SAI1_IRQn                   = 87,     /*!< SAI1 全局中断                                             */
+                                                                                  SAI2_IRQn                   = 91,     /*!< SAI2 全局中断                                             */
+                                                                                  QUADSPI_IRQn                = 92,     /*!< QuadSPI 全局中断                                          */
+                                                                                  CEC_IRQn                    = 93,     /*!< QuadSPI 全局中断                                          */
+                                                                                  SPDIF_RX_IRQn               = 94,     /*!< QuadSPI 全局中断                                          */
+                                                                                  FMPI2C1_EV_IRQn             = 95,     /*!< FMPI2C 事件中断                                            */
+                                                                                  FMPI2C1_ER_IRQn             = 96      /*!< FMPCI2C 错误中断                                           */
 #endif /* STM32F446xx */
 
 #if defined(STM32F412xG)
-                                                                                          CAN1_TX_IRQn                = 19,     /*!< CAN1 TX Interrupt                                                 */
-                                                                                          CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 Interrupt                                                */
-                                                                                          CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 Interrupt                                                */
-                                                                                          CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE Interrupt                                                */
+                                                                                          CAN1_TX_IRQn                = 19,     /*!< CAN1 TX 中断                                                 */
+                                                                                          CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 中断                                                */
+                                                                                          CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 中断                                                */
+                                                                                          CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE 中断                                                */
                                                                                           EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
-                                                                                          TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 global interrupt                    */
-                                                                                          TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 global interrupt                  */
+                                                                                          TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
+                                                                                          TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 全局中断                  */
                                                                                           TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
                                                                                           TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
-                                                                                          TIM2_IRQn                   = 28,     /*!< TIM2 global Interrupt                                             */
-                                                                                          TIM3_IRQn                   = 29,     /*!< TIM3 global Interrupt                                             */
-                                                                                          TIM4_IRQn                   = 30,     /*!< TIM4 global Interrupt                                             */
-                                                                                          I2C1_EV_IRQn                = 31,     /*!< I2C1 Event Interrupt                                              */
-                                                                                          I2C1_ER_IRQn                = 32,     /*!< I2C1 Error Interrupt                                              */
-                                                                                          I2C2_EV_IRQn                = 33,     /*!< I2C2 Event Interrupt                                              */
-                                                                                          I2C2_ER_IRQn                = 34,     /*!< I2C2 Error Interrupt                                              */
-                                                                                          SPI1_IRQn                   = 35,     /*!< SPI1 global Interrupt                                             */
-                                                                                          SPI2_IRQn                   = 36,     /*!< SPI2 global Interrupt                                             */
-                                                                                          USART1_IRQn                 = 37,     /*!< USART1 global Interrupt                                           */
-                                                                                          USART2_IRQn                 = 38,     /*!< USART2 global Interrupt                                           */
-                                                                                          USART3_IRQn                 = 39,     /*!< USART3 global Interrupt                                           */
+                                                                                          TIM2_IRQn                   = 28,     /*!< TIM2 全局中断                                             */
+                                                                                          TIM3_IRQn                   = 29,     /*!< TIM3 全局中断                                             */
+                                                                                          TIM4_IRQn                   = 30,     /*!< TIM4 全局中断                                             */
+                                                                                          I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
+                                                                                          I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
+                                                                                          I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
+                                                                                          I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
+                                                                                          SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
+                                                                                          SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
+                                                                                          USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
+                                                                                          USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
+                                                                                          USART3_IRQn                 = 39,     /*!< USART3 全局中断                                           */
                                                                                           EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
                                                                                           RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
                                                                                           OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
-                                                                                          TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 global interrupt                   */
-                                                                                          TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 global interrupt                  */
+                                                                                          TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 全局中断                   */
+                                                                                          TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 全局中断                  */
                                                                                           TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
                                                                                           TIM8_CC_IRQn                = 46,     /*!< TIM8 Capture Compare Interrupt                                    */
                                                                                           DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
-                                                                                          FSMC_IRQn                   = 48,     /*!< FSMC global Interrupt                                              */
-                                                                                          SDIO_IRQn                   = 49,     /*!< SDIO global Interrupt                                             */
-                                                                                          TIM5_IRQn                   = 50,     /*!< TIM5 global Interrupt                                             */
-                                                                                          SPI3_IRQn                   = 51,     /*!< SPI3 global Interrupt                                             */
-                                                                                          TIM6_IRQn                   = 54,     /*!< TIM6 global interrupt                                             */
-                                                                                          TIM7_IRQn                   = 55,     /*!< TIM7 global interrupt                                             */
-                                                                                          DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 global Interrupt                                    */
-                                                                                          DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 global Interrupt                                    */
-                                                                                          DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 global Interrupt                                    */
-                                                                                          DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 global Interrupt                                    */
-                                                                                          DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 global Interrupt                                    */
-                                                                                          DFSDM1_FLT0_IRQn            = 61,     /*!< DFSDM1 Filter 0 global Interrupt                                  */
-                                                                                          DFSDM1_FLT1_IRQn            = 62,     /*!< DFSDM1 Filter 1 global Interrupt                                  */
-                                                                                          CAN2_TX_IRQn                = 63,     /*!< CAN2 TX Interrupt                                                 */
-                                                                                          CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 Interrupt                                                */
-                                                                                          CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 Interrupt                                                */
-                                                                                          CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE Interrupt                                                */
-                                                                                          OTG_FS_IRQn                 = 67,     /*!< USB OTG FS global Interrupt                                       */
-                                                                                          DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 global interrupt                                    */
-                                                                                          DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 global interrupt                                    */
-                                                                                          DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 global interrupt                                    */
-                                                                                          USART6_IRQn                 = 71,     /*!< USART6 global interrupt                                           */
-                                                                                          I2C3_EV_IRQn                = 72,     /*!< I2C3 event interrupt                                              */
-                                                                                          I2C3_ER_IRQn                = 73,     /*!< I2C3 error interrupt                                              */
-                                                                                          RNG_IRQn                    = 80,     /*!< RNG global Interrupt                                              */
-                                                                                          FPU_IRQn                    = 81,     /*!< FPU global interrupt                                              */
-                                                                                          SPI4_IRQn                   = 84,     /*!< SPI4 global Interrupt                                             */
-                                                                                          SPI5_IRQn                   = 85,      /*!< SPI5 global Interrupt                                            */
-                                                                                          QUADSPI_IRQn                = 92,     /*!< QuadSPI global Interrupt                                          */
-                                                                                          FMPI2C1_EV_IRQn             = 95,     /*!< FMPI2C1 Event Interrupt                                           */
-                                                                                          FMPI2C1_ER_IRQn             = 96      /*!< FMPI2C1 Error Interrupt                                           */
+                                                                                          FSMC_IRQn                   = 48,     /*!< FSMC 全局中断                                              */
+                                                                                          SDIO_IRQn                   = 49,     /*!< SDIO 全局中断                                             */
+                                                                                          TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
+                                                                                          SPI3_IRQn                   = 51,     /*!< SPI3 全局中断                                             */
+                                                                                          TIM6_IRQn                   = 54,     /*!< TIM6 全局中断                                             */
+                                                                                          TIM7_IRQn                   = 55,     /*!< TIM7 全局中断                                             */
+                                                                                          DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
+                                                                                          DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
+                                                                                          DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
+                                                                                          DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
+                                                                                          DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
+                                                                                          DFSDM1_FLT0_IRQn            = 61,     /*!< DFSDM1 Filter 0 全局中断                                  */
+                                                                                          DFSDM1_FLT1_IRQn            = 62,     /*!< DFSDM1 Filter 1 全局中断                                  */
+                                                                                          CAN2_TX_IRQn                = 63,     /*!< CAN2 TX 中断                                                 */
+                                                                                          CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 中断                                                */
+                                                                                          CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 中断                                                */
+                                                                                          CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE 中断                                                */
+                                                                                          OTG_FS_IRQn                 = 67,     /*!< USB OTG FS 全局中断                                       */
+                                                                                          DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
+                                                                                          DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
+                                                                                          DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
+                                                                                          USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
+                                                                                          I2C3_EV_IRQn                = 72,     /*!< I2C3 事件中断                                              */
+                                                                                          I2C3_ER_IRQn                = 73,     /*!< I2C3 错误中断                                              */
+                                                                                          RNG_IRQn                    = 80,     /*!< RNG 全局中断                                              */
+                                                                                          FPU_IRQn                    = 81,     /*!< FPU 全局中断                                              */
+                                                                                          SPI4_IRQn                   = 84,     /*!< SPI4 全局中断                                             */
+                                                                                          SPI5_IRQn                   = 85,      /*!< SPI5 全局中断                                            */
+                                                                                          QUADSPI_IRQn                = 92,     /*!< QuadSPI 全局中断                                          */
+                                                                                          FMPI2C1_EV_IRQn             = 95,     /*!< FMPI2C1 事件中断                                           */
+                                                                                          FMPI2C1_ER_IRQn             = 96      /*!< FMPI2C1 错误中断                                           */
 #endif /* STM32F412xG */
 
 #if defined(STM32F413_423xx)
-                                                                                                  CAN1_TX_IRQn                = 19,     /*!< CAN1 TX Interrupt                                                 */
-                                                                                                  CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 Interrupt                                                */
-                                                                                                  CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 Interrupt                                                */
-                                                                                                  CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE Interrupt                                                */
+                                                                                                  CAN1_TX_IRQn                = 19,     /*!< CAN1 TX 中断                                                 */
+                                                                                                  CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 中断                                                */
+                                                                                                  CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 中断                                                */
+                                                                                                  CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE 中断                                                */
                                                                                                   EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
-                                                                                                  TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 global interrupt                    */
-                                                                                                  TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 global interrupt                  */
+                                                                                                  TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
+                                                                                                  TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 全局中断                  */
                                                                                                   TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
                                                                                                   TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
-                                                                                                  TIM2_IRQn                   = 28,     /*!< TIM2 global Interrupt                                             */
-                                                                                                  TIM3_IRQn                   = 29,     /*!< TIM3 global Interrupt                                             */
-                                                                                                  TIM4_IRQn                   = 30,     /*!< TIM4 global Interrupt                                             */
-                                                                                                  I2C1_EV_IRQn                = 31,     /*!< I2C1 Event Interrupt                                              */
-                                                                                                  I2C1_ER_IRQn                = 32,     /*!< I2C1 Error Interrupt                                              */
-                                                                                                  I2C2_EV_IRQn                = 33,     /*!< I2C2 Event Interrupt                                              */
-                                                                                                  I2C2_ER_IRQn                = 34,     /*!< I2C2 Error Interrupt                                              */
-                                                                                                  SPI1_IRQn                   = 35,     /*!< SPI1 global Interrupt                                             */
-                                                                                                  SPI2_IRQn                   = 36,     /*!< SPI2 global Interrupt                                             */
-                                                                                                  USART1_IRQn                 = 37,     /*!< USART1 global Interrupt                                           */
-                                                                                                  USART2_IRQn                 = 38,     /*!< USART2 global Interrupt                                           */
-                                                                                                  USART3_IRQn                 = 39,     /*!< USART3 global Interrupt                                           */
+                                                                                                  TIM2_IRQn                   = 28,     /*!< TIM2 全局中断                                             */
+                                                                                                  TIM3_IRQn                   = 29,     /*!< TIM3 全局中断                                             */
+                                                                                                  TIM4_IRQn                   = 30,     /*!< TIM4 全局中断                                             */
+                                                                                                  I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
+                                                                                                  I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
+                                                                                                  I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
+                                                                                                  I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
+                                                                                                  SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
+                                                                                                  SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
+                                                                                                  USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
+                                                                                                  USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
+                                                                                                  USART3_IRQn                 = 39,     /*!< USART3 全局中断                                           */
                                                                                                   EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
                                                                                                   RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
                                                                                                   OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
-                                                                                                  TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 global interrupt                   */
-                                                                                                  TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 global interrupt                  */
+                                                                                                  TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 全局中断                   */
+                                                                                                  TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 全局中断                  */
                                                                                                   TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
                                                                                                   TIM8_CC_IRQn                = 46,     /*!< TIM8 Capture Compare Interrupt                                    */
                                                                                                   DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
-                                                                                                  SDIO_IRQn                   = 49,     /*!< SDIO global Interrupt                                             */
-                                                                                                  TIM5_IRQn                   = 50,     /*!< TIM5 global Interrupt                                             */
-                                                                                                  SPI3_IRQn                   = 51,     /*!< SPI3 global Interrupt                                             */
-                                                                                                  UART4_IRQn                  = 52,     /*!< UART4 global Interrupt                                            */
-                                                                                                  UART5_IRQn                  = 53,     /*!< UART5 global Interrupt                                            */
-                                                                                                  TIM6_DAC_IRQn               = 54,     /*!< TIM6 and DAC1&2 global Interrupt                                  */
-                                                                                                  TIM7_IRQn                   = 55,     /*!< TIM7 global interrupt                                             */
-                                                                                                  DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 global Interrupt                                    */
-                                                                                                  DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 global Interrupt                                    */
-                                                                                                  DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 global Interrupt                                    */
-                                                                                                  DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 global Interrupt                                    */
-                                                                                                  DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 global Interrupt                                    */
-                                                                                                  DFSDM1_FLT0_IRQn            = 61,     /*!< DFSDM1 Filter 0 global Interrupt                                  */
-                                                                                                  DFSDM1_FLT1_IRQn            = 62,     /*!< DFSDM1 Filter 1 global Interrupt                                  */
-                                                                                                  CAN2_TX_IRQn                = 63,     /*!< CAN2 TX Interrupt                                                 */
-                                                                                                  CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 Interrupt                                                */
-                                                                                                  CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 Interrupt                                                */
-                                                                                                  CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE Interrupt                                                */
-                                                                                                  OTG_FS_IRQn                 = 67,     /*!< USB OTG FS global Interrupt                                       */
-                                                                                                  DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 global interrupt                                    */
-                                                                                                  DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 global interrupt                                    */
-                                                                                                  DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 global interrupt                                    */
-                                                                                                  USART6_IRQn                 = 71,     /*!< USART6 global interrupt                                           */
-                                                                                                  I2C3_EV_IRQn                = 72,     /*!< I2C3 event interrupt                                              */
-                                                                                                  I2C3_ER_IRQn                = 73,     /*!< I2C3 error interrupt                                              */
+                                                                                                  SDIO_IRQn                   = 49,     /*!< SDIO 全局中断                                             */
+                                                                                                  TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
+                                                                                                  SPI3_IRQn                   = 51,     /*!< SPI3 全局中断                                             */
+                                                                                                  UART4_IRQn                  = 52,     /*!< UART4 全局中断                                            */
+                                                                                                  UART5_IRQn                  = 53,     /*!< UART5 全局中断                                            */
+                                                                                                  TIM6_DAC_IRQn               = 54,     /*!< TIM6 and DAC1&2 全局中断                                  */
+                                                                                                  TIM7_IRQn                   = 55,     /*!< TIM7 全局中断                                             */
+                                                                                                  DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
+                                                                                                  DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
+                                                                                                  DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
+                                                                                                  DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
+                                                                                                  DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
+                                                                                                  DFSDM1_FLT0_IRQn            = 61,     /*!< DFSDM1 Filter 0 全局中断                                  */
+                                                                                                  DFSDM1_FLT1_IRQn            = 62,     /*!< DFSDM1 Filter 1 全局中断                                  */
+                                                                                                  CAN2_TX_IRQn                = 63,     /*!< CAN2 TX 中断                                                 */
+                                                                                                  CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 中断                                                */
+                                                                                                  CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 中断                                                */
+                                                                                                  CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE 中断                                                */
+                                                                                                  OTG_FS_IRQn                 = 67,     /*!< USB OTG FS 全局中断                                       */
+                                                                                                  DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
+                                                                                                  DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
+                                                                                                  DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
+                                                                                                  USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
+                                                                                                  I2C3_EV_IRQn                = 72,     /*!< I2C3 事件中断                                              */
+                                                                                                  I2C3_ER_IRQn                = 73,     /*!< I2C3 错误中断                                              */
                                                                                                   CAN3_TX_IRQn                = 74,     /*!< CAN3 TX Interrupt                                                 */
                                                                                                   CAN3_RX0_IRQn               = 75,     /*!< CAN3 RX0 Interrupt                                                */
                                                                                                   CAN3_RX1_IRQn               = 76,     /*!< CAN3 RX1 Interrupt                                                */
                                                                                                   CAN3_SCE_IRQn               = 77,     /*!< CAN3 SCE Interrupt                                                */
-                                                                                                  RNG_IRQn                    = 80,     /*!< RNG global Interrupt                                              */
-                                                                                                  FPU_IRQn                    = 81,     /*!< FPU global interrupt                                              */
-                                                                                                  UART7_IRQn                  = 82,     /*!< UART7 global interrupt                                            */
-                                                                                                  UART8_IRQn                  = 83,     /*!< UART8 global interrupt                                            */
-                                                                                                  SPI4_IRQn                   = 84,     /*!< SPI4 global Interrupt                                             */
-                                                                                                  SPI5_IRQn                   = 85,     /*!< SPI5 global Interrupt                                             */
-                                                                                                  SAI1_IRQn                   = 87,     /*!< Serial Audio Interface 1 global interrupt                         */
-                                                                                                  UART9_IRQn                  = 88,     /*!< UART9 global Interrupt                                            */
-                                                                                                  UART10_IRQn                 = 89,     /*!< UART10 global Interrupt                                           */
-                                                                                                  QUADSPI_IRQn                = 92,     /*!< QuadSPI global Interrupt                                          */
-                                                                                                  FMPI2C1_EV_IRQn             = 95,     /*!< FMPI2C1 Event Interrupt                                           */
-                                                                                                  FMPI2C1_ER_IRQn             = 96,     /*!< FMPI2C1 Error Interrupt                                           */
+                                                                                                  RNG_IRQn                    = 80,     /*!< RNG 全局中断                                              */
+                                                                                                  FPU_IRQn                    = 81,     /*!< FPU 全局中断                                              */
+                                                                                                  UART7_IRQn                  = 82,     /*!< UART7 全局中断                                            */
+                                                                                                  UART8_IRQn                  = 83,     /*!< UART8 全局中断                                            */
+                                                                                                  SPI4_IRQn                   = 84,     /*!< SPI4 全局中断                                             */
+                                                                                                  SPI5_IRQn                   = 85,     /*!< SPI5 全局中断                                             */
+                                                                                                  SAI1_IRQn                   = 87,     /*!< Serial Audio Interface 1 全局中断                         */
+                                                                                                  UART9_IRQn                  = 88,     /*!< UART9 全局中断                                            */
+                                                                                                  UART10_IRQn                 = 89,     /*!< UART10 全局中断                                           */
+                                                                                                  QUADSPI_IRQn                = 92,     /*!< QuadSPI 全局中断                                          */
+                                                                                                  FMPI2C1_EV_IRQn             = 95,     /*!< FMPI2C1 事件中断                                           */
+                                                                                                  FMPI2C1_ER_IRQn             = 96,     /*!< FMPI2C1 错误中断                                           */
                                                                                                   LPTIM1_IRQn                 = 97,     /*!< LP TIM1 interrupt                                                 */
-                                                                                                  DFSDM2_FLT0_IRQn            = 98,     /*!< DFSDM2 Filter 0 global Interrupt                                  */
-                                                                                                  DFSDM2_FLT1_IRQn            = 99,     /*!< DFSDM2 Filter 1 global Interrupt                                  */
-                                                                                                  DFSDM2_FLT2_IRQn            = 100,    /*!< DFSDM2 Filter 2 global Interrupt                                  */
-                                                                                                  DFSDM2_FLT3_IRQn            = 101     /*!< DFSDM2 Filter 3 global Interrupt                                  */
+                                                                                                  DFSDM2_FLT0_IRQn            = 98,     /*!< DFSDM2 Filter 0 全局中断                                  */
+                                                                                                  DFSDM2_FLT1_IRQn            = 99,     /*!< DFSDM2 Filter 1 全局中断                                  */
+                                                                                                  DFSDM2_FLT2_IRQn            = 100,    /*!< DFSDM2 Filter 2 全局中断                                  */
+                                                                                                  DFSDM2_FLT3_IRQn            = 101     /*!< DFSDM2 Filter 3 全局中断                                  */
 #endif /* STM32F413_423xx */
 } IRQn_Type;
 
@@ -869,7 +869,7 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} ErrorStatus;
   */
 
 /**
-  * @brief Analog to Digital Converter
+  * @brief 模数转换器
   */
 
 typedef struct {
@@ -904,7 +904,7 @@ typedef struct {
 
 
 /**
-  * @brief Controller Area Network TxMailBox
+  * @brief 控制器区域网络 TxMailBox
   */
 
 typedef struct {
@@ -915,7 +915,7 @@ typedef struct {
 } CAN_TxMailBox_TypeDef;
 
 /**
-  * @brief Controller Area Network FIFOMailBox
+  * @brief 控制器区域网络 FIFOMailBox
   */
 
 typedef struct {
@@ -926,7 +926,7 @@ typedef struct {
 } CAN_FIFOMailBox_TypeDef;
 
 /**
-  * @brief Controller Area Network FilterRegister
+  * @brief 控制器区域网络 FilterRegister
   */
 
 typedef struct {
@@ -935,7 +935,7 @@ typedef struct {
 } CAN_FilterRegister_TypeDef;
 
 /**
-  * @brief Controller Area Network
+  * @brief 控制器区域网络
   */
 
 typedef struct {
@@ -978,7 +978,7 @@ typedef struct {
 #endif /* STM32F446xx */
 
 /**
-  * @brief CRC calculation unit
+  * @brief CRC计算单元
   */
 
 typedef struct {
@@ -990,7 +990,7 @@ typedef struct {
 } CRC_TypeDef;
 
 /**
-  * @brief Digital to Analog Converter
+  * @brief 数模转换器
   */
 
 typedef struct {
@@ -1878,7 +1878,7 @@ typedef struct {
 } WWDG_TypeDef;
 
 /**
-  * @brief Crypto Processor
+  * @brief 加密处理器
   */
 
 typedef struct {
@@ -2402,10 +2402,10 @@ typedef struct {
 
 /******************************************************************************/
 /*                                                                            */
-/*                        Analog to Digital Converter                         */
+/*                        模数转换器                         */
 /*                                                                            */
 /******************************************************************************/
-/********************  Bit definition for ADC_SR register  ********************/
+/********************  ADC_SR寄存器的位定义  ********************/
 #define  ADC_SR_AWD                          ((uint8_t)0x01)               /*!<Analog watchdog flag               */
 #define  ADC_SR_EOC                          ((uint8_t)0x02)               /*!<End of conversion                  */
 #define  ADC_SR_JEOC                         ((uint8_t)0x04)               /*!<Injected channel end of conversion */
@@ -2413,7 +2413,7 @@ typedef struct {
 #define  ADC_SR_STRT                         ((uint8_t)0x10)               /*!<Regular channel Start flag         */
 #define  ADC_SR_OVR                          ((uint8_t)0x20)               /*!<Overrun flag                       */
 
-/*******************  Bit definition for ADC_CR1 register  ********************/
+/*******************  位定义 ADC_CR1 寄存器  ********************/
 #define  ADC_CR1_AWDCH                       ((uint32_t)0x0000001F)        /*!<AWDCH[4:0] bits (Analog watchdog channel select bits) */
 #define  ADC_CR1_AWDCH_0                     ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  ADC_CR1_AWDCH_1                     ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -2439,7 +2439,7 @@ typedef struct {
 #define  ADC_CR1_RES_1                       ((uint32_t)0x02000000)        /*!<Bit 1 */
 #define  ADC_CR1_OVRIE                       ((uint32_t)0x04000000)         /*!<overrun interrupt enable                              */
 
-/*******************  Bit definition for ADC_CR2 register  ********************/
+/*******************  位定义 ADC_CR2 寄存器  ********************/
 #define  ADC_CR2_ADON                        ((uint32_t)0x00000001)        /*!<A/D Converter ON / OFF             */
 #define  ADC_CR2_CONT                        ((uint32_t)0x00000002)        /*!<Continuous Conversion              */
 #define  ADC_CR2_DMA                         ((uint32_t)0x00000100)        /*!<Direct Memory access mode          */
@@ -2465,7 +2465,7 @@ typedef struct {
 #define  ADC_CR2_EXTEN_1                     ((uint32_t)0x20000000)        /*!<Bit 1 */
 #define  ADC_CR2_SWSTART                     ((uint32_t)0x40000000)        /*!<Start Conversion of regular channels */
 
-/******************  Bit definition for ADC_SMPR1 register  *******************/
+/******************  位定义 ADC_SMPR1 寄存器  *******************/
 #define  ADC_SMPR1_SMP10                     ((uint32_t)0x00000007)        /*!<SMP10[2:0] bits (Channel 10 Sample time selection) */
 #define  ADC_SMPR1_SMP10_0                   ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  ADC_SMPR1_SMP10_1                   ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -2503,7 +2503,7 @@ typedef struct {
 #define  ADC_SMPR1_SMP18_1                   ((uint32_t)0x02000000)        /*!<Bit 1 */
 #define  ADC_SMPR1_SMP18_2                   ((uint32_t)0x04000000)        /*!<Bit 2 */
 
-/******************  Bit definition for ADC_SMPR2 register  *******************/
+/******************  位定义 ADC_SMPR2 寄存器  *******************/
 #define  ADC_SMPR2_SMP0                      ((uint32_t)0x00000007)        /*!<SMP0[2:0] bits (Channel 0 Sample time selection) */
 #define  ADC_SMPR2_SMP0_0                    ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  ADC_SMPR2_SMP0_1                    ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -2545,25 +2545,25 @@ typedef struct {
 #define  ADC_SMPR2_SMP9_1                    ((uint32_t)0x10000000)        /*!<Bit 1 */
 #define  ADC_SMPR2_SMP9_2                    ((uint32_t)0x20000000)        /*!<Bit 2 */
 
-/******************  Bit definition for ADC_JOFR1 register  *******************/
+/******************  位定义 ADC_JOFR1 寄存器  *******************/
 #define  ADC_JOFR1_JOFFSET1                  ((uint16_t)0x0FFF)            /*!<Data offset for injected channel 1 */
 
-/******************  Bit definition for ADC_JOFR2 register  *******************/
+/******************  位定义 ADC_JOFR2 寄存器  *******************/
 #define  ADC_JOFR2_JOFFSET2                  ((uint16_t)0x0FFF)            /*!<Data offset for injected channel 2 */
 
-/******************  Bit definition for ADC_JOFR3 register  *******************/
+/******************  位定义 ADC_JOFR3 寄存器  *******************/
 #define  ADC_JOFR3_JOFFSET3                  ((uint16_t)0x0FFF)            /*!<Data offset for injected channel 3 */
 
-/******************  Bit definition for ADC_JOFR4 register  *******************/
+/******************  位定义 ADC_JOFR4 寄存器  *******************/
 #define  ADC_JOFR4_JOFFSET4                  ((uint16_t)0x0FFF)            /*!<Data offset for injected channel 4 */
 
-/*******************  Bit definition for ADC_HTR register  ********************/
+/*******************  位定义 ADC_HTR 寄存器  ********************/
 #define  ADC_HTR_HT                          ((uint16_t)0x0FFF)            /*!<Analog watchdog high threshold */
 
-/*******************  Bit definition for ADC_LTR register  ********************/
+/*******************  位定义 ADC_LTR 寄存器  ********************/
 #define  ADC_LTR_LT                          ((uint16_t)0x0FFF)            /*!<Analog watchdog low threshold */
 
-/*******************  Bit definition for ADC_SQR1 register  *******************/
+/*******************  位定义 ADC_SQR1 寄存器  *******************/
 #define  ADC_SQR1_SQ13                       ((uint32_t)0x0000001F)        /*!<SQ13[4:0] bits (13th conversion in regular sequence) */
 #define  ADC_SQR1_SQ13_0                     ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  ADC_SQR1_SQ13_1                     ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -2594,7 +2594,7 @@ typedef struct {
 #define  ADC_SQR1_L_2                        ((uint32_t)0x00400000)        /*!<Bit 2 */
 #define  ADC_SQR1_L_3                        ((uint32_t)0x00800000)        /*!<Bit 3 */
 
-/*******************  Bit definition for ADC_SQR2 register  *******************/
+/*******************  位定义 ADC_SQR2 寄存器  *******************/
 #define  ADC_SQR2_SQ7                        ((uint32_t)0x0000001F)        /*!<SQ7[4:0] bits (7th conversion in regular sequence) */
 #define  ADC_SQR2_SQ7_0                      ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  ADC_SQR2_SQ7_1                      ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -2632,7 +2632,7 @@ typedef struct {
 #define  ADC_SQR2_SQ12_3                     ((uint32_t)0x10000000)        /*!<Bit 3 */
 #define  ADC_SQR2_SQ12_4                     ((uint32_t)0x20000000)        /*!<Bit 4 */
 
-/*******************  Bit definition for ADC_SQR3 register  *******************/
+/*******************  位定义 ADC_SQR3 寄存器  *******************/
 #define  ADC_SQR3_SQ1                        ((uint32_t)0x0000001F)        /*!<SQ1[4:0] bits (1st conversion in regular sequence) */
 #define  ADC_SQR3_SQ1_0                      ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  ADC_SQR3_SQ1_1                      ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -2670,7 +2670,7 @@ typedef struct {
 #define  ADC_SQR3_SQ6_3                      ((uint32_t)0x10000000)        /*!<Bit 3 */
 #define  ADC_SQR3_SQ6_4                      ((uint32_t)0x20000000)        /*!<Bit 4 */
 
-/*******************  Bit definition for ADC_JSQR register  *******************/
+/*******************  位定义 ADC_JSQR 寄存器  *******************/
 #define  ADC_JSQR_JSQ1                       ((uint32_t)0x0000001F)        /*!<JSQ1[4:0] bits (1st conversion in injected sequence) */
 #define  ADC_JSQR_JSQ1_0                     ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  ADC_JSQR_JSQ1_1                     ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -2699,23 +2699,23 @@ typedef struct {
 #define  ADC_JSQR_JL_0                       ((uint32_t)0x00100000)        /*!<Bit 0 */
 #define  ADC_JSQR_JL_1                       ((uint32_t)0x00200000)        /*!<Bit 1 */
 
-/*******************  Bit definition for ADC_JDR1 register  *******************/
+/*******************  位定义 ADC_JDR1 寄存器  *******************/
 #define  ADC_JDR1_JDATA                      ((uint16_t)0xFFFF)            /*!<Injected data */
 
-/*******************  Bit definition for ADC_JDR2 register  *******************/
+/*******************  位定义 ADC_JDR2 寄存器  *******************/
 #define  ADC_JDR2_JDATA                      ((uint16_t)0xFFFF)            /*!<Injected data */
 
-/*******************  Bit definition for ADC_JDR3 register  *******************/
+/*******************  位定义 ADC_JDR3 寄存器  *******************/
 #define  ADC_JDR3_JDATA                      ((uint16_t)0xFFFF)            /*!<Injected data */
 
-/*******************  Bit definition for ADC_JDR4 register  *******************/
+/*******************  位定义 ADC_JDR4 寄存器  *******************/
 #define  ADC_JDR4_JDATA                      ((uint16_t)0xFFFF)            /*!<Injected data */
 
-/********************  Bit definition for ADC_DR register  ********************/
+/********************  位定义 ADC_DR 寄存器  ********************/
 #define  ADC_DR_DATA                         ((uint32_t)0x0000FFFF)        /*!<Regular data */
 #define  ADC_DR_ADC2DATA                     ((uint32_t)0xFFFF0000)        /*!<ADC2 data */
 
-/*******************  Bit definition for ADC_CSR register  ********************/
+/*******************  位定义 ADC_CSR 寄存器  ********************/
 #define  ADC_CSR_AWD1                        ((uint32_t)0x00000001)        /*!<ADC1 Analog watchdog flag */
 #define  ADC_CSR_EOC1                        ((uint32_t)0x00000002)        /*!<ADC1 End of conversion */
 #define  ADC_CSR_JEOC1                       ((uint32_t)0x00000004)        /*!<ADC1 Injected channel end of conversion */
@@ -2740,7 +2740,7 @@ typedef struct {
 #define  ADC_CSR_DOVR2                        ADC_CSR_OVR2
 #define  ADC_CSR_DOVR3                        ADC_CSR_OVR3
 
-/*******************  Bit definition for ADC_CCR register  ********************/
+/*******************  位定义 ADC_CCR 寄存器  ********************/
 #define  ADC_CCR_MULTI                       ((uint32_t)0x0000001F)        /*!<MULTI[4:0] bits (Multi-ADC mode selection) */
 #define  ADC_CCR_MULTI_0                     ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  ADC_CCR_MULTI_1                     ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -2762,17 +2762,17 @@ typedef struct {
 #define  ADC_CCR_VBATE                       ((uint32_t)0x00400000)        /*!<VBAT Enable */
 #define  ADC_CCR_TSVREFE                     ((uint32_t)0x00800000)        /*!<Temperature Sensor and VREFINT Enable */
 
-/*******************  Bit definition for ADC_CDR register  ********************/
+/*******************  位定义 ADC_CDR 寄存器  ********************/
 #define  ADC_CDR_DATA1                      ((uint32_t)0x0000FFFF)         /*!<1st data of a pair of regular conversions */
 #define  ADC_CDR_DATA2                      ((uint32_t)0xFFFF0000)         /*!<2nd data of a pair of regular conversions */
 
 /******************************************************************************/
 /*                                                                            */
-/*                         Controller Area Network                            */
+/*                         控制器区域网络                            */
 /*                                                                            */
 /******************************************************************************/
-/*!<CAN control and status registers */
-/*******************  Bit definition for CAN_MCR register  ********************/
+/*!<CAN控制和状态寄存器 */
+/*******************  位定义 CAN_MCR 寄存器  ********************/
 #define  CAN_MCR_INRQ                        ((uint16_t)0x0001)            /*!<Initialization Request */
 #define  CAN_MCR_SLEEP                       ((uint16_t)0x0002)            /*!<Sleep Mode Request */
 #define  CAN_MCR_TXFP                        ((uint16_t)0x0004)            /*!<Transmit FIFO Priority */
@@ -2783,7 +2783,7 @@ typedef struct {
 #define  CAN_MCR_TTCM                        ((uint16_t)0x0080)            /*!<Time Triggered Communication Mode */
 #define  CAN_MCR_RESET                       ((uint16_t)0x8000)            /*!<bxCAN software master reset */
 
-/*******************  Bit definition for CAN_MSR register  ********************/
+/*******************  位定义 CAN_MSR 寄存器  ********************/
 #define  CAN_MSR_INAK                        ((uint16_t)0x0001)            /*!<Initialization Acknowledge */
 #define  CAN_MSR_SLAK                        ((uint16_t)0x0002)            /*!<Sleep Acknowledge */
 #define  CAN_MSR_ERRI                        ((uint16_t)0x0004)            /*!<Error 中断 */
@@ -2794,7 +2794,7 @@ typedef struct {
 #define  CAN_MSR_SAMP                        ((uint16_t)0x0400)            /*!<Last Sample Point */
 #define  CAN_MSR_RX                          ((uint16_t)0x0800)            /*!<CAN Rx Signal */
 
-/*******************  Bit definition for CAN_TSR register  ********************/
+/*******************  位定义 CAN_TSR 寄存器  ********************/
 #define  CAN_TSR_RQCP0                       ((uint32_t)0x00000001)        /*!<Request Completed Mailbox0 */
 #define  CAN_TSR_TXOK0                       ((uint32_t)0x00000002)        /*!<Transmission OK of Mailbox0 */
 #define  CAN_TSR_ALST0                       ((uint32_t)0x00000004)        /*!<Arbitration Lost for Mailbox0 */
@@ -2822,19 +2822,19 @@ typedef struct {
 #define  CAN_TSR_LOW1                        ((uint32_t)0x40000000)        /*!<Lowest Priority Flag for Mailbox 1 */
 #define  CAN_TSR_LOW2                        ((uint32_t)0x80000000)        /*!<Lowest Priority Flag for Mailbox 2 */
 
-/*******************  Bit definition for CAN_RF0R register  *******************/
+/*******************  位定义 CAN_RF0R 寄存器  *******************/
 #define  CAN_RF0R_FMP0                       ((uint8_t)0x03)               /*!<FIFO 0 Message Pending */
 #define  CAN_RF0R_FULL0                      ((uint8_t)0x08)               /*!<FIFO 0 Full */
 #define  CAN_RF0R_FOVR0                      ((uint8_t)0x10)               /*!<FIFO 0 Overrun */
 #define  CAN_RF0R_RFOM0                      ((uint8_t)0x20)               /*!<Release FIFO 0 Output Mailbox */
 
-/*******************  Bit definition for CAN_RF1R register  *******************/
+/*******************  位定义 CAN_RF1R 寄存器  *******************/
 #define  CAN_RF1R_FMP1                       ((uint8_t)0x03)               /*!<FIFO 1 Message Pending */
 #define  CAN_RF1R_FULL1                      ((uint8_t)0x08)               /*!<FIFO 1 Full */
 #define  CAN_RF1R_FOVR1                      ((uint8_t)0x10)               /*!<FIFO 1 Overrun */
 #define  CAN_RF1R_RFOM1                      ((uint8_t)0x20)               /*!<Release FIFO 1 Output Mailbox */
 
-/********************  Bit definition for CAN_IER register  *******************/
+/********************  位定义 CAN_IER 寄存器  *******************/
 #define  CAN_IER_TMEIE                       ((uint32_t)0x00000001)        /*!<Transmit Mailbox Empty Interrupt Enable */
 #define  CAN_IER_FMPIE0                      ((uint32_t)0x00000002)        /*!<FIFO Message Pending Interrupt Enable */
 #define  CAN_IER_FFIE0                       ((uint32_t)0x00000004)        /*!<FIFO Full Interrupt Enable */
@@ -2850,7 +2850,7 @@ typedef struct {
 #define  CAN_IER_WKUIE                       ((uint32_t)0x00010000)        /*!<Wakeup Interrupt Enable */
 #define  CAN_IER_SLKIE                       ((uint32_t)0x00020000)        /*!<Sleep Interrupt Enable */
 
-/********************  Bit definition for CAN_ESR register  *******************/
+/********************  位定义 CAN_ESR 寄存器  *******************/
 #define  CAN_ESR_EWGF                        ((uint32_t)0x00000001)        /*!<Error Warning Flag */
 #define  CAN_ESR_EPVF                        ((uint32_t)0x00000002)        /*!<Error Passive Flag */
 #define  CAN_ESR_BOFF                        ((uint32_t)0x00000004)        /*!<Bus-Off Flag */
@@ -2863,7 +2863,7 @@ typedef struct {
 #define  CAN_ESR_TEC                         ((uint32_t)0x00FF0000)        /*!<Least significant byte of the 9-bit Transmit Error Counter */
 #define  CAN_ESR_REC                         ((uint32_t)0xFF000000)        /*!<Receive Error Counter */
 
-/*******************  Bit definition for CAN_BTR register  ********************/
+/*******************  位定义 CAN_BTR 寄存器  ********************/
 #define  CAN_BTR_BRP                         ((uint32_t)0x000003FF)        /*!<Baud Rate Prescaler */
 #define  CAN_BTR_TS1                         ((uint32_t)0x000F0000)        /*!<Time Segment 1 */
 #define  CAN_BTR_TS2                         ((uint32_t)0x00700000)        /*!<Time Segment 2 */
@@ -2872,129 +2872,129 @@ typedef struct {
 #define  CAN_BTR_SILM                        ((uint32_t)0x80000000)        /*!<Silent Mode */
 
 /*!<Mailbox registers */
-/******************  Bit definition for CAN_TI0R register  ********************/
+/******************  位定义 CAN_TI0R 寄存器  ********************/
 #define  CAN_TI0R_TXRQ                       ((uint32_t)0x00000001)        /*!<Transmit Mailbox Request */
 #define  CAN_TI0R_RTR                        ((uint32_t)0x00000002)        /*!<Remote Transmission Request */
 #define  CAN_TI0R_IDE                        ((uint32_t)0x00000004)        /*!<Identifier Extension */
 #define  CAN_TI0R_EXID                       ((uint32_t)0x001FFFF8)        /*!<Extended Identifier */
 #define  CAN_TI0R_STID                       ((uint32_t)0xFFE00000)        /*!<Standard Identifier or Extended Identifier */
 
-/******************  Bit definition for CAN_TDT0R register  *******************/
+/******************  位定义 CAN_TDT0R 寄存器  *******************/
 #define  CAN_TDT0R_DLC                       ((uint32_t)0x0000000F)        /*!<Data Length Code */
 #define  CAN_TDT0R_TGT                       ((uint32_t)0x00000100)        /*!<Transmit Global Time */
 #define  CAN_TDT0R_TIME                      ((uint32_t)0xFFFF0000)        /*!<Message Time Stamp */
 
-/******************  Bit definition for CAN_TDL0R register  *******************/
+/******************  位定义 CAN_TDL0R 寄存器  *******************/
 #define  CAN_TDL0R_DATA0                     ((uint32_t)0x000000FF)        /*!<Data byte 0 */
 #define  CAN_TDL0R_DATA1                     ((uint32_t)0x0000FF00)        /*!<Data byte 1 */
 #define  CAN_TDL0R_DATA2                     ((uint32_t)0x00FF0000)        /*!<Data byte 2 */
 #define  CAN_TDL0R_DATA3                     ((uint32_t)0xFF000000)        /*!<Data byte 3 */
 
-/******************  Bit definition for CAN_TDH0R register  *******************/
+/******************  位定义 CAN_TDH0R 寄存器  *******************/
 #define  CAN_TDH0R_DATA4                     ((uint32_t)0x000000FF)        /*!<Data byte 4 */
 #define  CAN_TDH0R_DATA5                     ((uint32_t)0x0000FF00)        /*!<Data byte 5 */
 #define  CAN_TDH0R_DATA6                     ((uint32_t)0x00FF0000)        /*!<Data byte 6 */
 #define  CAN_TDH0R_DATA7                     ((uint32_t)0xFF000000)        /*!<Data byte 7 */
 
-/*******************  Bit definition for CAN_TI1R register  *******************/
+/*******************  位定义 CAN_TI1R 寄存器  *******************/
 #define  CAN_TI1R_TXRQ                       ((uint32_t)0x00000001)        /*!<Transmit Mailbox Request */
 #define  CAN_TI1R_RTR                        ((uint32_t)0x00000002)        /*!<Remote Transmission Request */
 #define  CAN_TI1R_IDE                        ((uint32_t)0x00000004)        /*!<Identifier Extension */
 #define  CAN_TI1R_EXID                       ((uint32_t)0x001FFFF8)        /*!<Extended Identifier */
 #define  CAN_TI1R_STID                       ((uint32_t)0xFFE00000)        /*!<Standard Identifier or Extended Identifier */
 
-/*******************  Bit definition for CAN_TDT1R register  ******************/
+/*******************  位定义 CAN_TDT1R 寄存器  ******************/
 #define  CAN_TDT1R_DLC                       ((uint32_t)0x0000000F)        /*!<Data Length Code */
 #define  CAN_TDT1R_TGT                       ((uint32_t)0x00000100)        /*!<Transmit Global Time */
 #define  CAN_TDT1R_TIME                      ((uint32_t)0xFFFF0000)        /*!<Message Time Stamp */
 
-/*******************  Bit definition for CAN_TDL1R register  ******************/
+/*******************  位定义 CAN_TDL1R 寄存器  ******************/
 #define  CAN_TDL1R_DATA0                     ((uint32_t)0x000000FF)        /*!<Data byte 0 */
 #define  CAN_TDL1R_DATA1                     ((uint32_t)0x0000FF00)        /*!<Data byte 1 */
 #define  CAN_TDL1R_DATA2                     ((uint32_t)0x00FF0000)        /*!<Data byte 2 */
 #define  CAN_TDL1R_DATA3                     ((uint32_t)0xFF000000)        /*!<Data byte 3 */
 
-/*******************  Bit definition for CAN_TDH1R register  ******************/
+/*******************  位定义 CAN_TDH1R 寄存器  ******************/
 #define  CAN_TDH1R_DATA4                     ((uint32_t)0x000000FF)        /*!<Data byte 4 */
 #define  CAN_TDH1R_DATA5                     ((uint32_t)0x0000FF00)        /*!<Data byte 5 */
 #define  CAN_TDH1R_DATA6                     ((uint32_t)0x00FF0000)        /*!<Data byte 6 */
 #define  CAN_TDH1R_DATA7                     ((uint32_t)0xFF000000)        /*!<Data byte 7 */
 
-/*******************  Bit definition for CAN_TI2R register  *******************/
+/*******************  位定义 CAN_TI2R 寄存器  *******************/
 #define  CAN_TI2R_TXRQ                       ((uint32_t)0x00000001)        /*!<Transmit Mailbox Request */
 #define  CAN_TI2R_RTR                        ((uint32_t)0x00000002)        /*!<Remote Transmission Request */
 #define  CAN_TI2R_IDE                        ((uint32_t)0x00000004)        /*!<Identifier Extension */
 #define  CAN_TI2R_EXID                       ((uint32_t)0x001FFFF8)        /*!<Extended identifier */
 #define  CAN_TI2R_STID                       ((uint32_t)0xFFE00000)        /*!<Standard Identifier or Extended Identifier */
 
-/*******************  Bit definition for CAN_TDT2R register  ******************/
+/*******************  位定义 CAN_TDT2R 寄存器  ******************/
 #define  CAN_TDT2R_DLC                       ((uint32_t)0x0000000F)        /*!<Data Length Code */
 #define  CAN_TDT2R_TGT                       ((uint32_t)0x00000100)        /*!<Transmit Global Time */
 #define  CAN_TDT2R_TIME                      ((uint32_t)0xFFFF0000)        /*!<Message Time Stamp */
 
-/*******************  Bit definition for CAN_TDL2R register  ******************/
+/*******************  位定义 CAN_TDL2R 寄存器  ******************/
 #define  CAN_TDL2R_DATA0                     ((uint32_t)0x000000FF)        /*!<Data byte 0 */
 #define  CAN_TDL2R_DATA1                     ((uint32_t)0x0000FF00)        /*!<Data byte 1 */
 #define  CAN_TDL2R_DATA2                     ((uint32_t)0x00FF0000)        /*!<Data byte 2 */
 #define  CAN_TDL2R_DATA3                     ((uint32_t)0xFF000000)        /*!<Data byte 3 */
 
-/*******************  Bit definition for CAN_TDH2R register  ******************/
+/*******************  位定义 CAN_TDH2R 寄存器  ******************/
 #define  CAN_TDH2R_DATA4                     ((uint32_t)0x000000FF)        /*!<Data byte 4 */
 #define  CAN_TDH2R_DATA5                     ((uint32_t)0x0000FF00)        /*!<Data byte 5 */
 #define  CAN_TDH2R_DATA6                     ((uint32_t)0x00FF0000)        /*!<Data byte 6 */
 #define  CAN_TDH2R_DATA7                     ((uint32_t)0xFF000000)        /*!<Data byte 7 */
 
-/*******************  Bit definition for CAN_RI0R register  *******************/
+/*******************  位定义 CAN_RI0R 寄存器  *******************/
 #define  CAN_RI0R_RTR                        ((uint32_t)0x00000002)        /*!<Remote Transmission Request */
 #define  CAN_RI0R_IDE                        ((uint32_t)0x00000004)        /*!<Identifier Extension */
 #define  CAN_RI0R_EXID                       ((uint32_t)0x001FFFF8)        /*!<Extended Identifier */
 #define  CAN_RI0R_STID                       ((uint32_t)0xFFE00000)        /*!<Standard Identifier or Extended Identifier */
 
-/*******************  Bit definition for CAN_RDT0R register  ******************/
+/*******************  位定义 CAN_RDT0R 寄存器  ******************/
 #define  CAN_RDT0R_DLC                       ((uint32_t)0x0000000F)        /*!<Data Length Code */
 #define  CAN_RDT0R_FMI                       ((uint32_t)0x0000FF00)        /*!<Filter Match Index */
 #define  CAN_RDT0R_TIME                      ((uint32_t)0xFFFF0000)        /*!<Message Time Stamp */
 
-/*******************  Bit definition for CAN_RDL0R register  ******************/
+/*******************  位定义 CAN_RDL0R 寄存器  ******************/
 #define  CAN_RDL0R_DATA0                     ((uint32_t)0x000000FF)        /*!<Data byte 0 */
 #define  CAN_RDL0R_DATA1                     ((uint32_t)0x0000FF00)        /*!<Data byte 1 */
 #define  CAN_RDL0R_DATA2                     ((uint32_t)0x00FF0000)        /*!<Data byte 2 */
 #define  CAN_RDL0R_DATA3                     ((uint32_t)0xFF000000)        /*!<Data byte 3 */
 
-/*******************  Bit definition for CAN_RDH0R register  ******************/
+/*******************  位定义 CAN_RDH0R 寄存器  ******************/
 #define  CAN_RDH0R_DATA4                     ((uint32_t)0x000000FF)        /*!<Data byte 4 */
 #define  CAN_RDH0R_DATA5                     ((uint32_t)0x0000FF00)        /*!<Data byte 5 */
 #define  CAN_RDH0R_DATA6                     ((uint32_t)0x00FF0000)        /*!<Data byte 6 */
 #define  CAN_RDH0R_DATA7                     ((uint32_t)0xFF000000)        /*!<Data byte 7 */
 
-/*******************  Bit definition for CAN_RI1R register  *******************/
+/*******************  位定义 CAN_RI1R 寄存器  *******************/
 #define  CAN_RI1R_RTR                        ((uint32_t)0x00000002)        /*!<Remote Transmission Request */
 #define  CAN_RI1R_IDE                        ((uint32_t)0x00000004)        /*!<Identifier Extension */
 #define  CAN_RI1R_EXID                       ((uint32_t)0x001FFFF8)        /*!<Extended identifier */
 #define  CAN_RI1R_STID                       ((uint32_t)0xFFE00000)        /*!<Standard Identifier or Extended Identifier */
 
-/*******************  Bit definition for CAN_RDT1R register  ******************/
+/*******************  位定义 CAN_RDT1R 寄存器  ******************/
 #define  CAN_RDT1R_DLC                       ((uint32_t)0x0000000F)        /*!<Data Length Code */
 #define  CAN_RDT1R_FMI                       ((uint32_t)0x0000FF00)        /*!<Filter Match Index */
 #define  CAN_RDT1R_TIME                      ((uint32_t)0xFFFF0000)        /*!<Message Time Stamp */
 
-/*******************  Bit definition for CAN_RDL1R register  ******************/
+/*******************  位定义 CAN_RDL1R 寄存器  ******************/
 #define  CAN_RDL1R_DATA0                     ((uint32_t)0x000000FF)        /*!<Data byte 0 */
 #define  CAN_RDL1R_DATA1                     ((uint32_t)0x0000FF00)        /*!<Data byte 1 */
 #define  CAN_RDL1R_DATA2                     ((uint32_t)0x00FF0000)        /*!<Data byte 2 */
 #define  CAN_RDL1R_DATA3                     ((uint32_t)0xFF000000)        /*!<Data byte 3 */
 
-/*******************  Bit definition for CAN_RDH1R register  ******************/
+/*******************  位定义 CAN_RDH1R 寄存器  ******************/
 #define  CAN_RDH1R_DATA4                     ((uint32_t)0x000000FF)        /*!<Data byte 4 */
 #define  CAN_RDH1R_DATA5                     ((uint32_t)0x0000FF00)        /*!<Data byte 5 */
 #define  CAN_RDH1R_DATA6                     ((uint32_t)0x00FF0000)        /*!<Data byte 6 */
 #define  CAN_RDH1R_DATA7                     ((uint32_t)0xFF000000)        /*!<Data byte 7 */
 
 /*!<CAN filter registers */
-/*******************  Bit definition for CAN_FMR register  ********************/
+/*******************  位定义 CAN_FMR 寄存器  ********************/
 #define  CAN_FMR_FINIT                       ((uint8_t)0x01)               /*!<Filter Init Mode */
 
-/*******************  Bit definition for CAN_FM1R register  *******************/
+/*******************  位定义 CAN_FM1R 寄存器  *******************/
 #define  CAN_FM1R_FBM                        ((uint16_t)0x3FFF)            /*!<Filter Mode */
 #define  CAN_FM1R_FBM0                       ((uint16_t)0x0001)            /*!<Filter Init Mode bit 0 */
 #define  CAN_FM1R_FBM1                       ((uint16_t)0x0002)            /*!<Filter Init Mode bit 1 */
@@ -3011,7 +3011,7 @@ typedef struct {
 #define  CAN_FM1R_FBM12                      ((uint16_t)0x1000)            /*!<Filter Init Mode bit 12 */
 #define  CAN_FM1R_FBM13                      ((uint16_t)0x2000)            /*!<Filter Init Mode bit 13 */
 
-/*******************  Bit definition for CAN_FS1R register  *******************/
+/*******************  位定义 CAN_FS1R 寄存器  *******************/
 #define  CAN_FS1R_FSC                        ((uint16_t)0x3FFF)            /*!<Filter Scale Configuration */
 #define  CAN_FS1R_FSC0                       ((uint16_t)0x0001)            /*!<Filter Scale Configuration bit 0 */
 #define  CAN_FS1R_FSC1                       ((uint16_t)0x0002)            /*!<Filter Scale Configuration bit 1 */
@@ -3028,7 +3028,7 @@ typedef struct {
 #define  CAN_FS1R_FSC12                      ((uint16_t)0x1000)            /*!<Filter Scale Configuration bit 12 */
 #define  CAN_FS1R_FSC13                      ((uint16_t)0x2000)            /*!<Filter Scale Configuration bit 13 */
 
-/******************  Bit definition for CAN_FFA1R register  *******************/
+/******************  位定义 CAN_FFA1R 寄存器  *******************/
 #define  CAN_FFA1R_FFA                       ((uint16_t)0x3FFF)            /*!<Filter FIFO Assignment */
 #define  CAN_FFA1R_FFA0                      ((uint16_t)0x0001)            /*!<Filter FIFO Assignment for Filter 0 */
 #define  CAN_FFA1R_FFA1                      ((uint16_t)0x0002)            /*!<Filter FIFO Assignment for Filter 1 */
@@ -3045,7 +3045,7 @@ typedef struct {
 #define  CAN_FFA1R_FFA12                     ((uint16_t)0x1000)            /*!<Filter FIFO Assignment for Filter 12 */
 #define  CAN_FFA1R_FFA13                     ((uint16_t)0x2000)            /*!<Filter FIFO Assignment for Filter 13 */
 
-/*******************  Bit definition for CAN_FA1R register  *******************/
+/*******************  位定义 CAN_FA1R 寄存器  *******************/
 #define  CAN_FA1R_FACT                       ((uint16_t)0x3FFF)            /*!<Filter Active */
 #define  CAN_FA1R_FACT0                      ((uint16_t)0x0001)            /*!<Filter 0 Active */
 #define  CAN_FA1R_FACT1                      ((uint16_t)0x0002)            /*!<Filter 1 Active */
@@ -3062,7 +3062,7 @@ typedef struct {
 #define  CAN_FA1R_FACT12                     ((uint16_t)0x1000)            /*!<Filter 12 Active */
 #define  CAN_FA1R_FACT13                     ((uint16_t)0x2000)            /*!<Filter 13 Active */
 
-/*******************  Bit definition for CAN_F0R1 register  *******************/
+/*******************  位定义 CAN_F0R1 寄存器  *******************/
 #define  CAN_F0R1_FB0                        ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F0R1_FB1                        ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F0R1_FB2                        ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3096,7 +3096,7 @@ typedef struct {
 #define  CAN_F0R1_FB30                       ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F0R1_FB31                       ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F1R1 register  *******************/
+/*******************  位定义 CAN_F1R1 寄存器  *******************/
 #define  CAN_F1R1_FB0                        ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F1R1_FB1                        ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F1R1_FB2                        ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3130,7 +3130,7 @@ typedef struct {
 #define  CAN_F1R1_FB30                       ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F1R1_FB31                       ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F2R1 register  *******************/
+/*******************  位定义 CAN_F2R1 寄存器  *******************/
 #define  CAN_F2R1_FB0                        ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F2R1_FB1                        ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F2R1_FB2                        ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3164,7 +3164,7 @@ typedef struct {
 #define  CAN_F2R1_FB30                       ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F2R1_FB31                       ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F3R1 register  *******************/
+/*******************  位定义 CAN_F3R1 寄存器  *******************/
 #define  CAN_F3R1_FB0                        ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F3R1_FB1                        ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F3R1_FB2                        ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3198,7 +3198,7 @@ typedef struct {
 #define  CAN_F3R1_FB30                       ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F3R1_FB31                       ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F4R1 register  *******************/
+/*******************  位定义 CAN_F4R1 寄存器  *******************/
 #define  CAN_F4R1_FB0                        ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F4R1_FB1                        ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F4R1_FB2                        ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3232,7 +3232,7 @@ typedef struct {
 #define  CAN_F4R1_FB30                       ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F4R1_FB31                       ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F5R1 register  *******************/
+/*******************  位定义 CAN_F5R1 寄存器  *******************/
 #define  CAN_F5R1_FB0                        ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F5R1_FB1                        ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F5R1_FB2                        ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3266,7 +3266,7 @@ typedef struct {
 #define  CAN_F5R1_FB30                       ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F5R1_FB31                       ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F6R1 register  *******************/
+/*******************  位定义 CAN_F6R1 寄存器  *******************/
 #define  CAN_F6R1_FB0                        ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F6R1_FB1                        ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F6R1_FB2                        ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3300,7 +3300,7 @@ typedef struct {
 #define  CAN_F6R1_FB30                       ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F6R1_FB31                       ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F7R1 register  *******************/
+/*******************  位定义 CAN_F7R1 寄存器  *******************/
 #define  CAN_F7R1_FB0                        ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F7R1_FB1                        ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F7R1_FB2                        ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3334,7 +3334,7 @@ typedef struct {
 #define  CAN_F7R1_FB30                       ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F7R1_FB31                       ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F8R1 register  *******************/
+/*******************  位定义 CAN_F8R1 寄存器  *******************/
 #define  CAN_F8R1_FB0                        ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F8R1_FB1                        ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F8R1_FB2                        ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3368,7 +3368,7 @@ typedef struct {
 #define  CAN_F8R1_FB30                       ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F8R1_FB31                       ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F9R1 register  *******************/
+/*******************  位定义 CAN_F9R1 寄存器  *******************/
 #define  CAN_F9R1_FB0                        ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F9R1_FB1                        ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F9R1_FB2                        ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3402,7 +3402,7 @@ typedef struct {
 #define  CAN_F9R1_FB30                       ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F9R1_FB31                       ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F10R1 register  ******************/
+/*******************  位定义 CAN_F10R1 寄存器  ******************/
 #define  CAN_F10R1_FB0                       ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F10R1_FB1                       ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F10R1_FB2                       ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3436,7 +3436,7 @@ typedef struct {
 #define  CAN_F10R1_FB30                      ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F10R1_FB31                      ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F11R1 register  ******************/
+/*******************  位定义 CAN_F11R1 寄存器  ******************/
 #define  CAN_F11R1_FB0                       ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F11R1_FB1                       ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F11R1_FB2                       ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3470,7 +3470,7 @@ typedef struct {
 #define  CAN_F11R1_FB30                      ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F11R1_FB31                      ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F12R1 register  ******************/
+/*******************  位定义 CAN_F12R1 寄存器  ******************/
 #define  CAN_F12R1_FB0                       ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F12R1_FB1                       ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F12R1_FB2                       ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3504,7 +3504,7 @@ typedef struct {
 #define  CAN_F12R1_FB30                      ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F12R1_FB31                      ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F13R1 register  ******************/
+/*******************  位定义 CAN_F13R1 寄存器  ******************/
 #define  CAN_F13R1_FB0                       ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F13R1_FB1                       ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F13R1_FB2                       ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3538,7 +3538,7 @@ typedef struct {
 #define  CAN_F13R1_FB30                      ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F13R1_FB31                      ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F0R2 register  *******************/
+/*******************  位定义 CAN_F0R2 寄存器  *******************/
 #define  CAN_F0R2_FB0                        ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F0R2_FB1                        ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F0R2_FB2                        ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3572,7 +3572,7 @@ typedef struct {
 #define  CAN_F0R2_FB30                       ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F0R2_FB31                       ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F1R2 register  *******************/
+/*******************  位定义 CAN_F1R2 寄存器  *******************/
 #define  CAN_F1R2_FB0                        ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F1R2_FB1                        ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F1R2_FB2                        ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3606,7 +3606,7 @@ typedef struct {
 #define  CAN_F1R2_FB30                       ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F1R2_FB31                       ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F2R2 register  *******************/
+/*******************  位定义 CAN_F2R2 寄存器  *******************/
 #define  CAN_F2R2_FB0                        ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F2R2_FB1                        ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F2R2_FB2                        ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3640,7 +3640,7 @@ typedef struct {
 #define  CAN_F2R2_FB30                       ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F2R2_FB31                       ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F3R2 register  *******************/
+/*******************  位定义 CAN_F3R2 寄存器  *******************/
 #define  CAN_F3R2_FB0                        ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F3R2_FB1                        ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F3R2_FB2                        ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3674,7 +3674,7 @@ typedef struct {
 #define  CAN_F3R2_FB30                       ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F3R2_FB31                       ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F4R2 register  *******************/
+/*******************  位定义 CAN_F4R2 寄存器  *******************/
 #define  CAN_F4R2_FB0                        ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F4R2_FB1                        ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F4R2_FB2                        ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3708,7 +3708,7 @@ typedef struct {
 #define  CAN_F4R2_FB30                       ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F4R2_FB31                       ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F5R2 register  *******************/
+/*******************  位定义 CAN_F5R2 寄存器  *******************/
 #define  CAN_F5R2_FB0                        ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F5R2_FB1                        ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F5R2_FB2                        ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3742,7 +3742,7 @@ typedef struct {
 #define  CAN_F5R2_FB30                       ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F5R2_FB31                       ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F6R2 register  *******************/
+/*******************  位定义 CAN_F6R2 寄存器  *******************/
 #define  CAN_F6R2_FB0                        ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F6R2_FB1                        ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F6R2_FB2                        ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3776,7 +3776,7 @@ typedef struct {
 #define  CAN_F6R2_FB30                       ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F6R2_FB31                       ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F7R2 register  *******************/
+/*******************  位定义 CAN_F7R2 寄存器  *******************/
 #define  CAN_F7R2_FB0                        ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F7R2_FB1                        ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F7R2_FB2                        ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3810,7 +3810,7 @@ typedef struct {
 #define  CAN_F7R2_FB30                       ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F7R2_FB31                       ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F8R2 register  *******************/
+/*******************  位定义 CAN_F8R2 寄存器  *******************/
 #define  CAN_F8R2_FB0                        ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F8R2_FB1                        ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F8R2_FB2                        ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3844,7 +3844,7 @@ typedef struct {
 #define  CAN_F8R2_FB30                       ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F8R2_FB31                       ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F9R2 register  *******************/
+/*******************  位定义 CAN_F9R2 寄存器  *******************/
 #define  CAN_F9R2_FB0                        ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F9R2_FB1                        ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F9R2_FB2                        ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3878,7 +3878,7 @@ typedef struct {
 #define  CAN_F9R2_FB30                       ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F9R2_FB31                       ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F10R2 register  ******************/
+/*******************  位定义 CAN_F10R2 寄存器  ******************/
 #define  CAN_F10R2_FB0                       ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F10R2_FB1                       ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F10R2_FB2                       ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3912,7 +3912,7 @@ typedef struct {
 #define  CAN_F10R2_FB30                      ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F10R2_FB31                      ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F11R2 register  ******************/
+/*******************  位定义 CAN_F11R2 寄存器  ******************/
 #define  CAN_F11R2_FB0                       ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F11R2_FB1                       ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F11R2_FB2                       ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3946,7 +3946,7 @@ typedef struct {
 #define  CAN_F11R2_FB30                      ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F11R2_FB31                      ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F12R2 register  ******************/
+/*******************  位定义 CAN_F12R2 寄存器  ******************/
 #define  CAN_F12R2_FB0                       ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F12R2_FB1                       ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F12R2_FB2                       ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -3980,7 +3980,7 @@ typedef struct {
 #define  CAN_F12R2_FB30                      ((uint32_t)0x40000000)        /*!<Filter bit 30 */
 #define  CAN_F12R2_FB31                      ((uint32_t)0x80000000)        /*!<Filter bit 31 */
 
-/*******************  Bit definition for CAN_F13R2 register  ******************/
+/*******************  位定义 CAN_F13R2 寄存器  ******************/
 #define  CAN_F13R2_FB0                       ((uint32_t)0x00000001)        /*!<Filter bit 0 */
 #define  CAN_F13R2_FB1                       ((uint32_t)0x00000002)        /*!<Filter bit 1 */
 #define  CAN_F13R2_FB2                       ((uint32_t)0x00000004)        /*!<Filter bit 2 */
@@ -4021,12 +4021,12 @@ typedef struct {
 /*                                                                            */
 /******************************************************************************/
 
-/*******************  Bit definition for CEC_CR register  *********************/
+/*******************  位定义 CEC_CR 寄存器  *********************/
 #define  CEC_CR_CECEN                        ((uint32_t)0x00000001)       /*!< CEC Enable                              */
 #define  CEC_CR_TXSOM                        ((uint32_t)0x00000002)       /*!< CEC Tx Start Of Message                 */
 #define  CEC_CR_TXEOM                        ((uint32_t)0x00000004)       /*!< CEC Tx End Of Message                   */
 
-/*******************  Bit definition for CEC_CFGR register  *******************/
+/*******************  位定义 CEC_CFGR 寄存器  *******************/
 #define  CEC_CFGR_SFT                        ((uint32_t)0x00000007)       /*!< CEC Signal Free Time                    */
 #define  CEC_CFGR_RXTOL                      ((uint32_t)0x00000008)       /*!< CEC Tolerance                           */
 #define  CEC_CFGR_BRESTP                     ((uint32_t)0x00000010)       /*!< CEC Rx Stop                             */
@@ -4037,13 +4037,13 @@ typedef struct {
 #define  CEC_CFGR_OAR                        ((uint32_t)0x7FFF0000)       /*!< CEC Own Address                         */
 #define  CEC_CFGR_LSTN                       ((uint32_t)0x80000000)       /*!< CEC Listen mode                         */
 
-/*******************  Bit definition for CEC_TXDR register  *******************/
+/*******************  位定义 CEC_TXDR 寄存器  *******************/
 #define  CEC_TXDR_TXD                        ((uint32_t)0x000000FF)       /*!< CEC Tx Data                              */
 
-/*******************  Bit definition for CEC_RXDR register  *******************/
+/*******************  位定义 CEC_RXDR 寄存器  *******************/
 #define  CEC_TXDR_RXD                        ((uint32_t)0x000000FF)       /*!< CEC Rx Data                              */
 
-/*******************  Bit definition for CEC_ISR register  ********************/
+/*******************  位定义 CEC_ISR 寄存器  ********************/
 #define  CEC_ISR_RXBR                        ((uint32_t)0x00000001)       /*!< CEC Rx-Byte Received                      */
 #define  CEC_ISR_RXEND                       ((uint32_t)0x00000002)       /*!< CEC End Of Reception                      */
 #define  CEC_ISR_RXOVR                       ((uint32_t)0x00000004)       /*!< CEC Rx-Overrun                            */
@@ -4058,7 +4058,7 @@ typedef struct {
 #define  CEC_ISR_TXERR                       ((uint32_t)0x00000800)       /*!< CEC Tx-Error                              */
 #define  CEC_ISR_TXACKE                      ((uint32_t)0x00001000)       /*!< CEC Tx Missing Acknowledge                */
 
-/*******************  Bit definition for CEC_IER register  ********************/
+/*******************  位定义 CEC_IER 寄存器  ********************/
 #define  CEC_IER_RXBRIE                      ((uint32_t)0x00000001)       /*!< CEC Rx-Byte Received IT Enable            */
 #define  CEC_IER_RXENDIE                     ((uint32_t)0x00000002)       /*!< CEC End Of Reception IT Enable            */
 #define  CEC_IER_RXOVRIE                     ((uint32_t)0x00000004)       /*!< CEC Rx-Overrun IT Enable                  */
@@ -4076,26 +4076,26 @@ typedef struct {
 
 /******************************************************************************/
 /*                                                                            */
-/*                          CRC calculation unit                              */
+/*                          CRC计算单元                              */
 /*                                                                            */
 /******************************************************************************/
-/*******************  Bit definition for CRC_DR register  *********************/
+/*******************  位定义 CRC_DR 寄存器  *********************/
 #define  CRC_DR_DR                           ((uint32_t)0xFFFFFFFF) /*!< Data register bits */
 
 
-/*******************  Bit definition for CRC_IDR register  ********************/
+/*******************  位定义 CRC_IDR 寄存器  ********************/
 #define  CRC_IDR_IDR                         ((uint8_t)0xFF)        /*!< General-purpose 8-bit data register bits */
 
 
-/********************  Bit definition for CRC_CR register  ********************/
+/********************  位定义 CRC_CR 寄存器  ********************/
 #define  CRC_CR_RESET                        ((uint8_t)0x01)        /*!< RESET bit */
 
 /******************************************************************************/
 /*                                                                            */
-/*                            Crypto Processor                                */
+/*                            加密处理器                                */
 /*                                                                            */
 /******************************************************************************/
-/******************* Bits definition for CRYP_CR register  ********************/
+/******************* 位定义为 CRYP_CR 寄存器  ********************/
 #define CRYP_CR_ALGODIR                      ((uint32_t)0x00000004)
 
 #define CRYP_CR_ALGOMODE                     ((uint32_t)0x00080038)
@@ -4125,31 +4125,31 @@ typedef struct {
 #define CRYP_CR_GCM_CCMPH_1                  ((uint32_t)0x00020000)
 #define CRYP_CR_ALGOMODE_3                   ((uint32_t)0x00080000)
 
-/****************** Bits definition for CRYP_SR register  *********************/
+/****************** 位定义为 CRYP_SR 寄存器  *********************/
 #define CRYP_SR_IFEM                         ((uint32_t)0x00000001)
 #define CRYP_SR_IFNF                         ((uint32_t)0x00000002)
 #define CRYP_SR_OFNE                         ((uint32_t)0x00000004)
 #define CRYP_SR_OFFU                         ((uint32_t)0x00000008)
 #define CRYP_SR_BUSY                         ((uint32_t)0x00000010)
-/****************** Bits definition for CRYP_DMACR register  ******************/
+/****************** 位定义为 CRYP_DMACR 寄存器  ******************/
 #define CRYP_DMACR_DIEN                      ((uint32_t)0x00000001)
 #define CRYP_DMACR_DOEN                      ((uint32_t)0x00000002)
-/*****************  Bits definition for CRYP_IMSCR register  ******************/
+/*****************  位定义为 CRYP_IMSCR 寄存器  ******************/
 #define CRYP_IMSCR_INIM                      ((uint32_t)0x00000001)
 #define CRYP_IMSCR_OUTIM                     ((uint32_t)0x00000002)
-/****************** Bits definition for CRYP_RISR register  *******************/
+/****************** 位定义为 CRYP_RISR 寄存器  *******************/
 #define CRYP_RISR_OUTRIS                     ((uint32_t)0x00000001)
 #define CRYP_RISR_INRIS                      ((uint32_t)0x00000002)
-/****************** Bits definition for CRYP_MISR register  *******************/
+/****************** 位定义为 CRYP_MISR 寄存器  *******************/
 #define CRYP_MISR_INMIS                      ((uint32_t)0x00000001)
 #define CRYP_MISR_OUTMIS                     ((uint32_t)0x00000002)
 
 /******************************************************************************/
 /*                                                                            */
-/*                      Digital to Analog Converter                           */
+/*                      数模转换器                           */
 /*                                                                            */
 /******************************************************************************/
-/********************  Bit definition for DAC_CR register  ********************/
+/********************  位定义 DAC_CR 寄存器  ********************/
 #define  DAC_CR_EN1                          ((uint32_t)0x00000001)        /*!<DAC channel1 enable */
 #define  DAC_CR_BOFF1                        ((uint32_t)0x00000002)        /*!<DAC channel1 output buffer disable */
 #define  DAC_CR_TEN1                         ((uint32_t)0x00000004)        /*!<DAC channel1 Trigger enable */
@@ -4193,47 +4193,47 @@ typedef struct {
 #define  DAC_CR_DMAEN2                       ((uint32_t)0x10000000)        /*!<DAC channel2 DMA enabled */
 #define  DAC_CR_DMAUDRIE2                    ((uint32_t)0x20000000U)        /*!<DAC channel2 DMA underrun interrupt enable*/
 
-/*****************  Bit definition for DAC_SWTRIGR register  ******************/
+/*****************  位定义 DAC_SWTRIGR 寄存器  ******************/
 #define  DAC_SWTRIGR_SWTRIG1                 ((uint8_t)0x01)               /*!<DAC channel1 software trigger */
 #define  DAC_SWTRIGR_SWTRIG2                 ((uint8_t)0x02)               /*!<DAC channel2 software trigger */
 
-/*****************  Bit definition for DAC_DHR12R1 register  ******************/
+/*****************  位定义 DAC_DHR12R1 寄存器  ******************/
 #define  DAC_DHR12R1_DACC1DHR                ((uint16_t)0x0FFF)            /*!<DAC channel1 12-bit Right aligned data */
 
-/*****************  Bit definition for DAC_DHR12L1 register  ******************/
+/*****************  位定义 DAC_DHR12L1 寄存器  ******************/
 #define  DAC_DHR12L1_DACC1DHR                ((uint16_t)0xFFF0)            /*!<DAC channel1 12-bit Left aligned data */
 
-/******************  Bit definition for DAC_DHR8R1 register  ******************/
+/******************  位定义 DAC_DHR8R1 寄存器  ******************/
 #define  DAC_DHR8R1_DACC1DHR                 ((uint8_t)0xFF)               /*!<DAC channel1 8-bit Right aligned data */
 
-/*****************  Bit definition for DAC_DHR12R2 register  ******************/
+/*****************  位定义 DAC_DHR12R2 寄存器  ******************/
 #define  DAC_DHR12R2_DACC2DHR                ((uint16_t)0x0FFF)            /*!<DAC channel2 12-bit Right aligned data */
 
-/*****************  Bit definition for DAC_DHR12L2 register  ******************/
+/*****************  位定义 DAC_DHR12L2 寄存器  ******************/
 #define  DAC_DHR12L2_DACC2DHR                ((uint16_t)0xFFF0)            /*!<DAC channel2 12-bit Left aligned data */
 
-/******************  Bit definition for DAC_DHR8R2 register  ******************/
+/******************  位定义 DAC_DHR8R2 寄存器  ******************/
 #define  DAC_DHR8R2_DACC2DHR                 ((uint8_t)0xFF)               /*!<DAC channel2 8-bit Right aligned data */
 
-/*****************  Bit definition for DAC_DHR12RD register  ******************/
+/*****************  位定义 DAC_DHR12RD 寄存器  ******************/
 #define  DAC_DHR12RD_DACC1DHR                ((uint32_t)0x00000FFF)        /*!<DAC channel1 12-bit Right aligned data */
 #define  DAC_DHR12RD_DACC2DHR                ((uint32_t)0x0FFF0000)        /*!<DAC channel2 12-bit Right aligned data */
 
-/*****************  Bit definition for DAC_DHR12LD register  ******************/
+/*****************  位定义 DAC_DHR12LD 寄存器  ******************/
 #define  DAC_DHR12LD_DACC1DHR                ((uint32_t)0x0000FFF0)        /*!<DAC channel1 12-bit Left aligned data */
 #define  DAC_DHR12LD_DACC2DHR                ((uint32_t)0xFFF00000)        /*!<DAC channel2 12-bit Left aligned data */
 
-/******************  Bit definition for DAC_DHR8RD register  ******************/
+/******************  位定义 DAC_DHR8RD 寄存器  ******************/
 #define  DAC_DHR8RD_DACC1DHR                 ((uint16_t)0x00FF)            /*!<DAC channel1 8-bit Right aligned data */
 #define  DAC_DHR8RD_DACC2DHR                 ((uint16_t)0xFF00)            /*!<DAC channel2 8-bit Right aligned data */
 
-/*******************  Bit definition for DAC_DOR1 register  *******************/
+/*******************  位定义 DAC_DOR1 寄存器  *******************/
 #define  DAC_DOR1_DACC1DOR                   ((uint16_t)0x0FFF)            /*!<DAC channel1 data output */
 
-/*******************  Bit definition for DAC_DOR2 register  *******************/
+/*******************  位定义 DAC_DOR2 寄存器  *******************/
 #define  DAC_DOR2_DACC2DOR                   ((uint16_t)0x0FFF)            /*!<DAC channel2 data output */
 
-/********************  Bit definition for DAC_SR register  ********************/
+/********************  位定义 DAC_SR 寄存器  ********************/
 #define  DAC_SR_DMAUDR1                      ((uint32_t)0x00002000)        /*!<DAC channel1 DMA underrun flag */
 #define  DAC_SR_DMAUDR2                      ((uint32_t)0x20000000)        /*!<DAC channel2 DMA underrun flag */
 
@@ -4248,7 +4248,7 @@ typedef struct {
 /*                                    DCMI                                    */
 /*                                                                            */
 /******************************************************************************/
-/********************  Bits definition for DCMI_CR register  ******************/
+/********************  位定义为 DCMI_CR 寄存器  ******************/
 #define DCMI_CR_CAPTURE                      ((uint32_t)0x00000001)
 #define DCMI_CR_CM                           ((uint32_t)0x00000002)
 #define DCMI_CR_CROP                         ((uint32_t)0x00000004)
@@ -4264,12 +4264,12 @@ typedef struct {
 #define DCMI_CR_CRE                          ((uint32_t)0x00001000)
 #define DCMI_CR_ENABLE                       ((uint32_t)0x00004000)
 
-/********************  Bits definition for DCMI_SR register  ******************/
+/********************  位定义为 DCMI_SR 寄存器  ******************/
 #define DCMI_SR_HSYNC                        ((uint32_t)0x00000001)
 #define DCMI_SR_VSYNC                        ((uint32_t)0x00000002)
 #define DCMI_SR_FNE                          ((uint32_t)0x00000004)
 
-/********************  Bits definition for DCMI_RIS register  *****************/
+/********************  位定义为 DCMI_RIS 寄存器  *****************/
 #define DCMI_RIS_FRAME_RIS                   ((uint32_t)0x00000001)
 #define DCMI_RIS_OVR_RIS                     ((uint32_t)0x00000002)
 #define DCMI_RIS_ERR_RIS                     ((uint32_t)0x00000004)
@@ -4283,7 +4283,7 @@ typedef struct {
 #define DCMI_RISR_LINE_RIS                   DCMI_RIS_LINE_RIS
 #define DCMI_RISR_OVF_RIS                    DCMI_RIS_OVR_RIS
 
-/********************  Bits definition for DCMI_IER register  *****************/
+/********************  位定义为 DCMI_IER 寄存器  *****************/
 #define DCMI_IER_FRAME_IE                    ((uint32_t)0x00000001)
 #define DCMI_IER_OVR_IE                      ((uint32_t)0x00000002)
 #define DCMI_IER_ERR_IE                      ((uint32_t)0x00000004)
@@ -4293,7 +4293,7 @@ typedef struct {
 /* Legacy defines */
 #define DCMI_IER_OVF_IE                      DCMI_IER_OVR_IE
 
-/********************  Bits definition for DCMI_MIS register  ****************/
+/********************  位定义为 DCMI_MIS 寄存器  ****************/
 #define DCMI_MIS_FRAME_MIS                   ((uint32_t)0x00000001)
 #define DCMI_MIS_OVR_MIS                     ((uint32_t)0x00000002)
 #define DCMI_MIS_ERR_MIS                     ((uint32_t)0x00000004)
@@ -4307,7 +4307,7 @@ typedef struct {
 #define DCMI_MISR_VSYNC_MIS                  DCMI_MIS_VSYNC_MIS
 #define DCMI_MISR_LINE_MIS                   DCMI_MIS_LINE_MIS
 
-/********************  Bits definition for DCMI_ICR register  *****************/
+/********************  位定义为 DCMI_ICR 寄存器  *****************/
 #define DCMI_ICR_FRAME_ISC                   ((uint32_t)0x00000001)
 #define DCMI_ICR_OVR_ISC                     ((uint32_t)0x00000002)
 #define DCMI_ICR_ERR_ISC                     ((uint32_t)0x00000004)
@@ -4317,27 +4317,27 @@ typedef struct {
 /* Legacy defines */
 #define DCMI_ICR_OVF_ISC                     DCMI_ICR_OVR_ISC
 
-/********************  Bits definition for DCMI_ESCR register  ******************/
+/********************  位定义为 DCMI_ESCR 寄存器  ******************/
 #define DCMI_ESCR_FSC                        ((uint32_t)0x000000FF)
 #define DCMI_ESCR_LSC                        ((uint32_t)0x0000FF00)
 #define DCMI_ESCR_LEC                        ((uint32_t)0x00FF0000)
 #define DCMI_ESCR_FEC                        ((uint32_t)0xFF000000)
 
-/********************  Bits definition for DCMI_ESUR register  ******************/
+/********************  位定义为 DCMI_ESUR 寄存器  ******************/
 #define DCMI_ESUR_FSU                        ((uint32_t)0x000000FF)
 #define DCMI_ESUR_LSU                        ((uint32_t)0x0000FF00)
 #define DCMI_ESUR_LEU                        ((uint32_t)0x00FF0000)
 #define DCMI_ESUR_FEU                        ((uint32_t)0xFF000000)
 
-/********************  Bits definition for DCMI_CWSTRT register  ******************/
+/********************  位定义为 DCMI_CWSTRT 寄存器  ******************/
 #define DCMI_CWSTRT_HOFFCNT                  ((uint32_t)0x00003FFF)
 #define DCMI_CWSTRT_VST                      ((uint32_t)0x1FFF0000)
 
-/********************  Bits definition for DCMI_CWSIZE register  ******************/
+/********************  位定义为 DCMI_CWSIZE 寄存器  ******************/
 #define DCMI_CWSIZE_CAPCNT                   ((uint32_t)0x00003FFF)
 #define DCMI_CWSIZE_VLINE                    ((uint32_t)0x3FFF0000)
 
-/********************  Bits definition for DCMI_DR register  ******************/
+/********************  位定义为 DCMI_DR 寄存器  ******************/
 #define DCMI_DR_BYTE0                        ((uint32_t)0x000000FF)
 #define DCMI_DR_BYTE1                        ((uint32_t)0x0000FF00)
 #define DCMI_DR_BYTE2                        ((uint32_t)0x00FF0000)
@@ -4351,7 +4351,7 @@ typedef struct {
 
 /****************   DFSDM channel configuration registers  ********************/
 
-/***************  Bit definition for DFSDM_CHCFGR1 register  ******************/
+/***************  位定义 DFSDM_CHCFGR1 寄存器  ******************/
 #define  DFSDM_CHCFGR1_DFSDMEN                ((uint32_t)0x80000000)            /*!< Global enable for DFSDM interface */
 #define  DFSDM_CHCFGR1_CKOUTSRC               ((uint32_t)0x40000000)            /*!< Output serial clock source selection */
 #define  DFSDM_CHCFGR1_CKOUTDIV               ((uint32_t)0x00FF0000)            /*!< CKOUTDIV[7:0] output serial clock divider */
@@ -4372,11 +4372,11 @@ typedef struct {
 #define  DFSDM_CHCFGR1_SITP_1                 ((uint32_t)0x00000002)            /*!< Serial interface type for channel y, Bit 1 */
 #define  DFSDM_CHCFGR1_SITP_0                 ((uint32_t)0x00000001)            /*!< Serial interface type for channel y, Bit 0 */
 
-/***************  Bit definition for DFSDM_CHCFGR2 register  ******************/
+/***************  位定义 DFSDM_CHCFGR2 寄存器  ******************/
 #define  DFSDM_CHCFGR2_OFFSET                 ((uint32_t)0xFFFFFF00)            /*!< OFFSET[23:0] 24-bit calibration offset for channel y */
 #define  DFSDM_CHCFGR2_DTRBS                  ((uint32_t)0x000000F8)            /*!< DTRBS[4:0] Data right bit-shift for channel y */
 
-/******************  Bit definition for DFSDM_CHAWSCDR register ***************/
+/******************  位定义 DFSDM_CHAWSCDR register ***************/
 #define  DFSDM_CHAWSCDR_AWFORD                ((uint32_t)0x00C00000)            /*!< AWFORD[1:0] Analog watchdog Sinc filter order on channel y */
 #define  DFSDM_CHAWSCDR_AWFORD_1              ((uint32_t)0x00800000)            /*!< Analog watchdog Sinc filter order on channel y, Bit 1 */
 #define  DFSDM_CHAWSCDR_AWFORD_0              ((uint32_t)0x00400000)            /*!< Analog watchdog Sinc filter order on channel y, Bit 0 */
@@ -4384,16 +4384,16 @@ typedef struct {
 #define  DFSDM_CHAWSCDR_BKSCD                 ((uint32_t)0x0000F000)            /*!< BKSCD[3:0] Break signal assignment for short circuit detector on channel y */
 #define  DFSDM_CHAWSCDR_SCDT                  ((uint32_t)0x000000FF)            /*!< SCDT[7:0] Short circuit detector threshold for channel y */
 
-/****************  Bit definition for DFSDM_CHWDATR register *******************/
+/****************  位定义 DFSDM_CHWDATR register *******************/
 #define  DFSDM_CHWDATR_WDATA                  ((uint32_t)0x0000FFFF)            /*!< WDATA[15:0] Input channel y watchdog data */
 
-/****************  Bit definition for DFSDM_CHDATINR register *****************/
+/****************  位定义 DFSDM_CHDATINR register *****************/
 #define  DFSDM_CHDATINR_INDAT0                ((uint32_t)0x0000FFFF)            /*!< INDAT0[31:16] Input data for channel y or channel (y+1) */
 #define  DFSDM_CHDATINR_INDAT1                ((uint32_t)0xFFFF0000)            /*!< INDAT0[15:0] Input data for channel y */
 
 /************************   DFSDM module registers  ****************************/
 
-/*****************  Bit definition for DFSDM_FLTCR1 register *******************/
+/*****************  位定义 DFSDM_FLTCR1 register *******************/
 #define  DFSDM_FLTCR1_AWFSEL                  ((uint32_t)0x40000000)            /*!< Analog watchdog fast mode select */
 #define  DFSDM_FLTCR1_FAST                    ((uint32_t)0x20000000)            /*!< Fast conversion mode selection */
 #define  DFSDM_FLTCR1_RCH                     ((uint32_t)0x07000000)            /*!< RCH[2:0] Regular channel selection */
@@ -4414,7 +4414,7 @@ typedef struct {
 #define  DFSDM_FLTCR1_JSWSTART                ((uint32_t)0x00000002)            /*!< Start the conversion of the injected group of channels */
 #define  DFSDM_FLTCR1_DFEN                    ((uint32_t)0x00000001)            /*!< DFSDM enable */
 
-/********************  Bit definition for DFSDM_FLTCR2 register ***************/
+/********************  位定义 DFSDM_FLTCR2 register ***************/
 #define  DFSDM_FLTCR2_AWDCH                   ((uint32_t)0x000F0000)            /*!< AWDCH[7:0] Analog watchdog channel selection */
 #define  DFSDM_FLTCR2_EXCH                    ((uint32_t)0x00000F00)            /*!< EXCH[7:0] Extreme detector channel selection */
 #define  DFSDM_FLTCR2_CKABIE                  ((uint32_t)0x00000040)            /*!< Clock absence interrupt enable */
@@ -4425,7 +4425,7 @@ typedef struct {
 #define  DFSDM_FLTCR2_REOCIE                  ((uint32_t)0x00000002)            /*!< Regular end of conversion interrupt enable */
 #define  DFSDM_FLTCR2_JEOCIE                  ((uint32_t)0x00000001)            /*!< Injected end of conversion interrupt enable */
 
-/*****************  Bit definition for DFSDM_FLTISR register *******************/
+/*****************  位定义 DFSDM_FLTISR register *******************/
 #define  DFSDM_FLTISR_SCDF                    ((uint32_t)0x0F000000)            /*!< SCDF[7:0] Short circuit detector flag */
 #define  DFSDM_FLTISR_CKABF                   ((uint32_t)0x000F0000)            /*!< CKABF[7:0] Clock absence flag */
 #define  DFSDM_FLTISR_RCIP                    ((uint32_t)0x00004000)            /*!< Regular conversion in progress status */
@@ -4436,16 +4436,16 @@ typedef struct {
 #define  DFSDM_FLTISR_REOCF                   ((uint32_t)0x00000002)            /*!< End of regular conversion flag */
 #define  DFSDM_FLTISR_JEOCF                   ((uint32_t)0x00000001)            /*!< End of injected conversion flag */
 
-/*****************  Bit definition for DFSDM_FLTICR register *******************/
+/*****************  位定义 DFSDM_FLTICR register *******************/
 #define  DFSDM_FLTICR_CLRSCSDF                ((uint32_t)0x0F000000)            /*!< CLRSCSDF[7:0] Clear the short circuit detector flag */
 #define  DFSDM_FLTICR_CLRCKABF                ((uint32_t)0x000F0000)            /*!< CLRCKABF[7:0] Clear the clock absence flag */
 #define  DFSDM_FLTICR_CLRROVRF                ((uint32_t)0x00000008)            /*!< Clear the regular conversion overrun flag */
 #define  DFSDM_FLTICR_CLRJOVRF                ((uint32_t)0x00000004)            /*!< Clear the injected conversion overrun flag */
 
-/****************  Bit definition for DFSDM_FLTJCHGR register ******************/
+/****************  位定义 DFSDM_FLTJCHGR register ******************/
 #define  DFSDM_FLTJCHGR_JCHG                  ((uint32_t)0x000000FF)            /*!< JCHG[7:0] Injected channel group selection */
 
-/*****************  Bit definition for DFSDM_FLTFCR register *******************/
+/*****************  位定义 DFSDM_FLTFCR register *******************/
 #define  DFSDM_FLTFCR_FORD                    ((uint32_t)0xE0000000)            /*!< FORD[2:0] Sinc filter order */
 #define  DFSDM_FLTFCR_FORD_2                  ((uint32_t)0x80000000)            /*!< Sinc filter order, Bit 2 */
 #define  DFSDM_FLTFCR_FORD_1                  ((uint32_t)0x40000000)            /*!< Sinc filter order, Bit 1 */
@@ -4453,40 +4453,40 @@ typedef struct {
 #define  DFSDM_FLTFCR_FOSR                    ((uint32_t)0x03FF0000)            /*!< FOSR[9:0] Sinc filter oversampling ratio (decimation rate) */
 #define  DFSDM_FLTFCR_IOSR                    ((uint32_t)0x000000FF)            /*!< IOSR[7:0] Integrator oversampling ratio (averaging length) */
 
-/***************  Bit definition for DFSDM_FLTJDATAR register *****************/
+/***************  位定义 DFSDM_FLTJDATAR register *****************/
 #define  DFSDM_FLTJDATAR_JDATA                ((uint32_t)0xFFFFFF00)            /*!< JDATA[23:0] Injected group conversion data */
 #define  DFSDM_FLTJDATAR_JDATACH              ((uint32_t)0x00000007)            /*!< JDATACH[2:0] Injected channel most recently converted */
 
-/***************  Bit definition for DFSDM_FLTRDATAR register *****************/
+/***************  位定义 DFSDM_FLTRDATAR register *****************/
 #define  DFSDM_FLTRDATAR_RDATA                ((uint32_t)0xFFFFFF00)            /*!< RDATA[23:0] Regular channel conversion data */
 #define  DFSDM_FLTRDATAR_RPEND                ((uint32_t)0x00000010)            /*!< RPEND Regular channel pending data */
 #define  DFSDM_FLTRDATAR_RDATACH              ((uint32_t)0x00000007)            /*!< RDATACH[2:0] Regular channel most recently converted */
 
-/***************  Bit definition for DFSDM_FLTAWHTR register ******************/
+/***************  位定义 DFSDM_FLTAWHTR register ******************/
 #define  DFSDM_FLTAWHTR_AWHT                 ((uint32_t)0xFFFFFF00)             /*!< AWHT[23:0] Analog watchdog high threshold */
 #define  DFSDM_FLTAWHTR_BKAWH                ((uint32_t)0x0000000F)             /*!< BKAWH[3:0] Break signal assignment to analog watchdog high threshold event */
 
-/***************  Bit definition for DFSDM_FLTAWLTR register ******************/
+/***************  位定义 DFSDM_FLTAWLTR register ******************/
 #define  DFSDM_FLTAWLTR_AWLT                 ((uint32_t)0xFFFFFF00)             /*!< AWLT[23:0] Analog watchdog low threshold */
 #define  DFSDM_FLTAWLTR_BKAWL                ((uint32_t)0x0000000F)             /*!< BKAWL[3:0] Break signal assignment to analog watchdog low threshold event */
 
-/***************  Bit definition for DFSDM_FLTAWSR register *******************/
+/***************  位定义 DFSDM_FLTAWSR register *******************/
 #define  DFSDM_FLTAWSR_AWHTF                 ((uint32_t)0x00000F00)             /*!< AWHTF[15:8] Analog watchdog high threshold error on given channels */
 #define  DFSDM_FLTAWSR_AWLTF                 ((uint32_t)0x0000000F)             /*!< AWLTF[7:0] Analog watchdog low threshold error on given channels */
 
-/***************  Bit definition for DFSDM_FLTAWCFR register ******************/
+/***************  位定义 DFSDM_FLTAWCFR register ******************/
 #define  DFSDM_FLTAWCFR_CLRAWHTF             ((uint32_t)0x00000F00)             /*!< CLRAWHTF[15:8] Clear the Analog watchdog high threshold flag */
 #define  DFSDM_FLTAWCFR_CLRAWLTF             ((uint32_t)0x0000000F)             /*!< CLRAWLTF[7:0] Clear the Analog watchdog low threshold flag */
 
-/***************  Bit definition for DFSDM_FLTEXMAX register ******************/
+/***************  位定义 DFSDM_FLTEXMAX register ******************/
 #define  DFSDM_FLTEXMAX_EXMAX                ((uint32_t)0xFFFFFF00)             /*!< EXMAX[23:0] Extreme detector maximum value */
 #define  DFSDM_FLTEXMAX_EXMAXCH              ((uint32_t)0x00000007)             /*!< EXMAXCH[2:0] Extreme detector maximum data channel */
 
-/***************  Bit definition for DFSDM_FLTEXMIN register ******************/
+/***************  位定义 DFSDM_FLTEXMIN register ******************/
 #define  DFSDM_FLTEXMIN_EXMIN                ((uint32_t)0xFFFFFF00)             /*!< EXMIN[23:0] Extreme detector minimum value */
 #define  DFSDM_FLTEXMIN_EXMINCH              ((uint32_t)0x00000007)             /*!< EXMINCH[2:0] Extreme detector minimum data channel */
 
-/***************  Bit definition for DFSDM_FLTCNVTIMR register ****************/
+/***************  位定义 DFSDM_FLTCNVTIMR register ****************/
 #define  DFSDM_FLTCNVTIMR_CNVCNT             ((uint32_t)0xFFFFFFF0)             /*!< CNVCNT[27:0]: 28-bit timer counting conversion time */
 
 /******************************************************************************/
@@ -4494,7 +4494,7 @@ typedef struct {
 /*                             DMA Controller                                 */
 /*                                                                            */
 /******************************************************************************/
-/********************  Bits definition for DMA_SxCR register  *****************/
+/********************  位定义为 DMA_SxCR 寄存器  *****************/
 #define DMA_SxCR_CHSEL                       ((uint32_t)0x0E000000)
 #define DMA_SxCR_CHSEL_0                     ((uint32_t)0x02000000)
 #define DMA_SxCR_CHSEL_1                     ((uint32_t)0x04000000)
@@ -4531,7 +4531,7 @@ typedef struct {
 #define DMA_SxCR_DMEIE                       ((uint32_t)0x00000002)
 #define DMA_SxCR_EN                          ((uint32_t)0x00000001)
 
-/********************  Bits definition for DMA_SxCNDTR register  **************/
+/********************  位定义为 DMA_SxCNDTR 寄存器  **************/
 #define DMA_SxNDT                            ((uint32_t)0x0000FFFF)
 #define DMA_SxNDT_0                          ((uint32_t)0x00000001)
 #define DMA_SxNDT_1                          ((uint32_t)0x00000002)
@@ -4550,7 +4550,7 @@ typedef struct {
 #define DMA_SxNDT_14                         ((uint32_t)0x00004000)
 #define DMA_SxNDT_15                         ((uint32_t)0x00008000)
 
-/********************  Bits definition for DMA_SxFCR register  ****************/
+/********************  位定义为 DMA_SxFCR 寄存器  ****************/
 #define DMA_SxFCR_FEIE                       ((uint32_t)0x00000080)
 #define DMA_SxFCR_FS                         ((uint32_t)0x00000038)
 #define DMA_SxFCR_FS_0                       ((uint32_t)0x00000008)
@@ -4561,7 +4561,7 @@ typedef struct {
 #define DMA_SxFCR_FTH_0                      ((uint32_t)0x00000001)
 #define DMA_SxFCR_FTH_1                      ((uint32_t)0x00000002)
 
-/********************  Bits definition for DMA_LISR register  *****************/
+/********************  位定义为 DMA_LISR 寄存器  *****************/
 #define DMA_LISR_TCIF3                       ((uint32_t)0x08000000)
 #define DMA_LISR_HTIF3                       ((uint32_t)0x04000000)
 #define DMA_LISR_TEIF3                       ((uint32_t)0x02000000)
@@ -4583,7 +4583,7 @@ typedef struct {
 #define DMA_LISR_DMEIF0                      ((uint32_t)0x00000004)
 #define DMA_LISR_FEIF0                       ((uint32_t)0x00000001)
 
-/********************  Bits definition for DMA_HISR register  *****************/
+/********************  位定义为 DMA_HISR 寄存器  *****************/
 #define DMA_HISR_TCIF7                       ((uint32_t)0x08000000)
 #define DMA_HISR_HTIF7                       ((uint32_t)0x04000000)
 #define DMA_HISR_TEIF7                       ((uint32_t)0x02000000)
@@ -4605,7 +4605,7 @@ typedef struct {
 #define DMA_HISR_DMEIF4                      ((uint32_t)0x00000004)
 #define DMA_HISR_FEIF4                       ((uint32_t)0x00000001)
 
-/********************  Bits definition for DMA_LIFCR register  ****************/
+/********************  位定义为 DMA_LIFCR 寄存器  ****************/
 #define DMA_LIFCR_CTCIF3                     ((uint32_t)0x08000000)
 #define DMA_LIFCR_CHTIF3                     ((uint32_t)0x04000000)
 #define DMA_LIFCR_CTEIF3                     ((uint32_t)0x02000000)
@@ -4627,7 +4627,7 @@ typedef struct {
 #define DMA_LIFCR_CDMEIF0                    ((uint32_t)0x00000004)
 #define DMA_LIFCR_CFEIF0                     ((uint32_t)0x00000001)
 
-/********************  Bits definition for DMA_HIFCR  register  ****************/
+/********************  位定义为 DMA_HIFCR  寄存器  ****************/
 #define DMA_HIFCR_CTCIF7                     ((uint32_t)0x08000000)
 #define DMA_HIFCR_CHTIF7                     ((uint32_t)0x04000000)
 #define DMA_HIFCR_CTEIF7                     ((uint32_t)0x02000000)
@@ -4655,7 +4655,7 @@ typedef struct {
 /*                                                                            */
 /******************************************************************************/
 
-/********************  Bit definition for DMA2D_CR register  ******************/
+/********************  位定义 DMA2D_CR 寄存器  ******************/
 
 #define DMA2D_CR_START                     ((uint32_t)0x00000001)               /*!< Start transfer */
 #define DMA2D_CR_SUSP                      ((uint32_t)0x00000002)               /*!< Suspend transfer */
@@ -4668,7 +4668,7 @@ typedef struct {
 #define DMA2D_CR_CEIE                      ((uint32_t)0x00002000)               /*!< Configuration Error Interrupt Enable */
 #define DMA2D_CR_MODE                      ((uint32_t)0x00030000)               /*!< DMA2D Mode */
 
-/********************  Bit definition for DMA2D_ISR register  *****************/
+/********************  位定义 DMA2D_ISR 寄存器  *****************/
 
 #define DMA2D_ISR_TEIF                     ((uint32_t)0x00000001)               /*!< Transfer Error Interrupt Flag */
 #define DMA2D_ISR_TCIF                     ((uint32_t)0x00000002)               /*!< Transfer Complete Interrupt Flag */
@@ -4677,7 +4677,7 @@ typedef struct {
 #define DMA2D_ISR_CTCIF                    ((uint32_t)0x00000010)               /*!< CLUT Transfer Complete Interrupt Flag */
 #define DMA2D_ISR_CEIF                     ((uint32_t)0x00000020)               /*!< Configuration Error Interrupt Flag */
 
-/********************  Bit definition for DMA2D_IFCR register  ****************/
+/********************  位定义 DMA2D_IFCR 寄存器  ****************/
 
 #define DMA2D_IFCR_CTEIF                   ((uint32_t)0x00000001)               /*!< Clears Transfer Error Interrupt Flag         */
 #define DMA2D_IFCR_CTCIF                   ((uint32_t)0x00000002)               /*!< Clears Transfer Complete Interrupt Flag      */
@@ -4694,23 +4694,23 @@ typedef struct {
 #define DMA2D_IFSR_CCTCIF                  DMA2D_IFCR_CCTCIF                    /*!< Clears CLUT Transfer Complete Interrupt Flag */
 #define DMA2D_IFSR_CCEIF                   DMA2D_IFCR_CCEIF                     /*!< Clears Configuration Error Interrupt Flag    */
 
-/********************  Bit definition for DMA2D_FGMAR register  ***************/
+/********************  位定义 DMA2D_FGMAR 寄存器  ***************/
 
 #define DMA2D_FGMAR_MA                     ((uint32_t)0xFFFFFFFF)               /*!< Memory Address */
 
-/********************  Bit definition for DMA2D_FGOR register  ****************/
+/********************  位定义 DMA2D_FGOR 寄存器  ****************/
 
 #define DMA2D_FGOR_LO                      ((uint32_t)0x00003FFF)               /*!< Line Offset */
 
-/********************  Bit definition for DMA2D_BGMAR register  ***************/
+/********************  位定义 DMA2D_BGMAR 寄存器  ***************/
 
 #define DMA2D_BGMAR_MA                     ((uint32_t)0xFFFFFFFF)               /*!< Memory Address */
 
-/********************  Bit definition for DMA2D_BGOR register  ****************/
+/********************  位定义 DMA2D_BGOR 寄存器  ****************/
 
 #define DMA2D_BGOR_LO                      ((uint32_t)0x00003FFF)               /*!< Line Offset */
 
-/********************  Bit definition for DMA2D_FGPFCCR register  *************/
+/********************  位定义 DMA2D_FGPFCCR 寄存器  *************/
 
 #define DMA2D_FGPFCCR_CM                   ((uint32_t)0x0000000F)               /*!< Input color mode CM[3:0] */
 #define DMA2D_FGPFCCR_CM_0                 ((uint32_t)0x00000001)               /*!< Input color mode CM bit 0 */
@@ -4725,13 +4725,13 @@ typedef struct {
 #define DMA2D_FGPFCCR_AM_1                 ((uint32_t)0x00020000)               /*!< Alpha mode AM bit 1 */
 #define DMA2D_FGPFCCR_ALPHA                ((uint32_t)0xFF000000)               /*!< Alpha value */
 
-/********************  Bit definition for DMA2D_FGCOLR register  **************/
+/********************  位定义 DMA2D_FGCOLR 寄存器  **************/
 
 #define DMA2D_FGCOLR_BLUE                  ((uint32_t)0x000000FF)               /*!< Blue Value */
 #define DMA2D_FGCOLR_GREEN                 ((uint32_t)0x0000FF00)               /*!< Green Value */
 #define DMA2D_FGCOLR_RED                   ((uint32_t)0x00FF0000)               /*!< Red Value */
 
-/********************  Bit definition for DMA2D_BGPFCCR register  *************/
+/********************  位定义 DMA2D_BGPFCCR 寄存器  *************/
 
 #define DMA2D_BGPFCCR_CM                   ((uint32_t)0x0000000F)               /*!< Input color mode CM[3:0] */
 #define DMA2D_BGPFCCR_CM_0                 ((uint32_t)0x00000001)               /*!< Input color mode CM bit 0 */
@@ -4746,28 +4746,28 @@ typedef struct {
 #define DMA2D_BGPFCCR_AM_1                 ((uint32_t)0x00020000)               /*!< Alpha mode AM bit 1 */
 #define DMA2D_BGPFCCR_ALPHA                ((uint32_t)0xFF000000)               /*!< Alpha value */
 
-/********************  Bit definition for DMA2D_BGCOLR register  **************/
+/********************  位定义 DMA2D_BGCOLR 寄存器  **************/
 
 #define DMA2D_BGCOLR_BLUE                  ((uint32_t)0x000000FF)               /*!< Blue Value */
 #define DMA2D_BGCOLR_GREEN                 ((uint32_t)0x0000FF00)               /*!< Green Value */
 #define DMA2D_BGCOLR_RED                   ((uint32_t)0x00FF0000)               /*!< Red Value */
 
-/********************  Bit definition for DMA2D_FGCMAR register  **************/
+/********************  位定义 DMA2D_FGCMAR 寄存器  **************/
 
 #define DMA2D_FGCMAR_MA                    ((uint32_t)0xFFFFFFFF)               /*!< Memory Address */
 
-/********************  Bit definition for DMA2D_BGCMAR register  **************/
+/********************  位定义 DMA2D_BGCMAR 寄存器  **************/
 
 #define DMA2D_BGCMAR_MA                    ((uint32_t)0xFFFFFFFF)               /*!< Memory Address */
 
-/********************  Bit definition for DMA2D_OPFCCR register  **************/
+/********************  位定义 DMA2D_OPFCCR 寄存器  **************/
 
 #define DMA2D_OPFCCR_CM                    ((uint32_t)0x00000007)               /*!< Color mode CM[2:0] */
 #define DMA2D_OPFCCR_CM_0                  ((uint32_t)0x00000001)               /*!< Color mode CM bit 0 */
 #define DMA2D_OPFCCR_CM_1                  ((uint32_t)0x00000002)               /*!< Color mode CM bit 1 */
 #define DMA2D_OPFCCR_CM_2                  ((uint32_t)0x00000004)               /*!< Color mode CM bit 2 */
 
-/********************  Bit definition for DMA2D_OCOLR register  ***************/
+/********************  位定义 DMA2D_OCOLR 寄存器  ***************/
 
 /*!<Mode_ARGB8888/RGB888 */
 
@@ -4793,33 +4793,33 @@ typedef struct {
 #define DMA2D_OCOLR_RED_4                  ((uint32_t)0x00000F00)               /*!< Red Value */
 #define DMA2D_OCOLR_ALPHA_4                ((uint32_t)0x0000F000)               /*!< Alpha Channel Value */
 
-/********************  Bit definition for DMA2D_OMAR register  ****************/
+/********************  位定义 DMA2D_OMAR 寄存器  ****************/
 
 #define DMA2D_OMAR_MA                      ((uint32_t)0xFFFFFFFF)               /*!< Memory Address */
 
-/********************  Bit definition for DMA2D_OOR register  *****************/
+/********************  位定义 DMA2D_OOR 寄存器  *****************/
 
 #define DMA2D_OOR_LO                       ((uint32_t)0x00003FFF)               /*!< Line Offset */
 
-/********************  Bit definition for DMA2D_NLR register  *****************/
+/********************  位定义 DMA2D_NLR 寄存器  *****************/
 
 #define DMA2D_NLR_NL                       ((uint32_t)0x0000FFFF)               /*!< Number of Lines */
 #define DMA2D_NLR_PL                       ((uint32_t)0x3FFF0000)               /*!< Pixel per Lines */
 
-/********************  Bit definition for DMA2D_LWR register  *****************/
+/********************  位定义 DMA2D_LWR 寄存器  *****************/
 
 #define DMA2D_LWR_LW                       ((uint32_t)0x0000FFFF)               /*!< Line Watermark */
 
-/********************  Bit definition for DMA2D_AMTCR register  ***************/
+/********************  位定义 DMA2D_AMTCR 寄存器  ***************/
 
 #define DMA2D_AMTCR_EN                     ((uint32_t)0x00000001)               /*!< Enable */
 #define DMA2D_AMTCR_DT                     ((uint32_t)0x0000FF00)               /*!< Dead Time */
 
 
 
-/********************  Bit definition for DMA2D_FGCLUT register  **************/
+/********************  位定义 DMA2D_FGCLUT 寄存器  **************/
 
-/********************  Bit definition for DMA2D_BGCLUT register  **************/
+/********************  位定义 DMA2D_BGCLUT 寄存器  **************/
 
 
 /******************************************************************************/
@@ -4827,7 +4827,7 @@ typedef struct {
 /*                    External Interrupt/Event Controller                     */
 /*                                                                            */
 /******************************************************************************/
-/*******************  Bit definition for EXTI_IMR register  *******************/
+/*******************  位定义 EXTI_IMR 寄存器  *******************/
 #define  EXTI_IMR_MR0                        ((uint32_t)0x00000001)        /*!< Interrupt Mask on line 0 */
 #define  EXTI_IMR_MR1                        ((uint32_t)0x00000002)        /*!< Interrupt Mask on line 1 */
 #define  EXTI_IMR_MR2                        ((uint32_t)0x00000004)        /*!< Interrupt Mask on line 2 */
@@ -4850,7 +4850,7 @@ typedef struct {
 #define  EXTI_IMR_MR19                       ((uint32_t)0x00080000)        /*!< Interrupt Mask on line 19 */
 #define  EXTI_IMR_MR23                       ((uint32_t)0x00800000)        /*!< Interrupt Mask on line 23 */
 
-/*******************  Bit definition for EXTI_EMR register  *******************/
+/*******************  位定义 EXTI_EMR 寄存器  *******************/
 #define  EXTI_EMR_MR0                        ((uint32_t)0x00000001)        /*!< Event Mask on line 0 */
 #define  EXTI_EMR_MR1                        ((uint32_t)0x00000002)        /*!< Event Mask on line 1 */
 #define  EXTI_EMR_MR2                        ((uint32_t)0x00000004)        /*!< Event Mask on line 2 */
@@ -4873,7 +4873,7 @@ typedef struct {
 #define  EXTI_EMR_MR19                       ((uint32_t)0x00080000)        /*!< Event Mask on line 19 */
 #define  EXTI_EMR_MR23                       ((uint32_t)0x00800000)        /*!< Event Mask on line 19 */
 
-/******************  Bit definition for EXTI_RTSR register  *******************/
+/******************  位定义 EXTI_RTSR 寄存器  *******************/
 #define  EXTI_RTSR_TR0                       ((uint32_t)0x00000001)        /*!< Rising trigger event configuration bit of line 0 */
 #define  EXTI_RTSR_TR1                       ((uint32_t)0x00000002)        /*!< Rising trigger event configuration bit of line 1 */
 #define  EXTI_RTSR_TR2                       ((uint32_t)0x00000004)        /*!< Rising trigger event configuration bit of line 2 */
@@ -4896,7 +4896,7 @@ typedef struct {
 #define  EXTI_RTSR_TR19                      ((uint32_t)0x00080000)        /*!< Rising trigger event configuration bit of line 19 */
 #define  EXTI_RTSR_TR23                      ((uint32_t)0x00800000)        /*!< Rising trigger event configuration bit of line 23 */
 
-/******************  Bit definition for EXTI_FTSR register  *******************/
+/******************  位定义 EXTI_FTSR 寄存器  *******************/
 #define  EXTI_FTSR_TR0                       ((uint32_t)0x00000001)        /*!< Falling trigger event configuration bit of line 0 */
 #define  EXTI_FTSR_TR1                       ((uint32_t)0x00000002)        /*!< Falling trigger event configuration bit of line 1 */
 #define  EXTI_FTSR_TR2                       ((uint32_t)0x00000004)        /*!< Falling trigger event configuration bit of line 2 */
@@ -4919,7 +4919,7 @@ typedef struct {
 #define  EXTI_FTSR_TR19                      ((uint32_t)0x00080000)        /*!< Falling trigger event configuration bit of line 19 */
 #define  EXTI_FTSR_TR23                      ((uint32_t)0x00800000)        /*!< Falling trigger event configuration bit of line 23 */
 
-/******************  Bit definition for EXTI_SWIER register  ******************/
+/******************  位定义 EXTI_SWIER 寄存器  ******************/
 #define  EXTI_SWIER_SWIER0                   ((uint32_t)0x00000001)        /*!< Software Interrupt on line 0 */
 #define  EXTI_SWIER_SWIER1                   ((uint32_t)0x00000002)        /*!< Software Interrupt on line 1 */
 #define  EXTI_SWIER_SWIER2                   ((uint32_t)0x00000004)        /*!< Software Interrupt on line 2 */
@@ -4942,7 +4942,7 @@ typedef struct {
 #define  EXTI_SWIER_SWIER19                  ((uint32_t)0x00080000)        /*!< Software Interrupt on line 19 */
 #define  EXTI_SWIER_SWIER23                  ((uint32_t)0x00800000)        /*!< Software Interrupt on line 23 */
 
-/*******************  Bit definition for EXTI_PR register  ********************/
+/*******************  位定义 EXTI_PR 寄存器  ********************/
 #define  EXTI_PR_PR0                         ((uint32_t)0x00000001)        /*!< Pending bit for line 0 */
 #define  EXTI_PR_PR1                         ((uint32_t)0x00000002)        /*!< Pending bit for line 1 */
 #define  EXTI_PR_PR2                         ((uint32_t)0x00000004)        /*!< Pending bit for line 2 */
@@ -4970,7 +4970,7 @@ typedef struct {
 /*                                    FLASH                                   */
 /*                                                                            */
 /******************************************************************************/
-/*******************  Bits definition for FLASH_ACR register  *****************/
+/*******************  位定义为 FLASH_ACR 寄存器  *****************/
 #define FLASH_ACR_LATENCY                    ((uint32_t)0x0000000F)
 #define FLASH_ACR_LATENCY_0WS                ((uint32_t)0x00000000)
 #define FLASH_ACR_LATENCY_1WS                ((uint32_t)0x00000001)
@@ -4997,7 +4997,7 @@ typedef struct {
 #define FLASH_ACR_BYTE0_ADDRESS              ((uint32_t)0x40023C00)
 #define FLASH_ACR_BYTE2_ADDRESS              ((uint32_t)0x40023C03)
 
-/*******************  Bits definition for FLASH_SR register  ******************/
+/*******************  位定义为 FLASH_SR 寄存器  ******************/
 #define FLASH_SR_EOP                         ((uint32_t)0x00000001)
 #define FLASH_SR_SOP                         ((uint32_t)0x00000002)
 #define FLASH_SR_WRPERR                      ((uint32_t)0x00000010)
@@ -5006,7 +5006,7 @@ typedef struct {
 #define FLASH_SR_PGSERR                      ((uint32_t)0x00000080)
 #define FLASH_SR_BSY                         ((uint32_t)0x00010000)
 
-/*******************  Bits definition for FLASH_CR register  ******************/
+/*******************  位定义为 FLASH_CR 寄存器  ******************/
 #define FLASH_CR_PG                          ((uint32_t)0x00000001)
 #define FLASH_CR_SER                         ((uint32_t)0x00000002)
 #define FLASH_CR_MER                         ((uint32_t)0x00000004)
@@ -5025,7 +5025,7 @@ typedef struct {
 #define FLASH_CR_EOPIE                       ((uint32_t)0x01000000)
 #define FLASH_CR_LOCK                        ((uint32_t)0x80000000)
 
-/*******************  Bits definition for FLASH_OPTCR register  ***************/
+/*******************  位定义为 FLASH_OPTCR 寄存器  ***************/
 #define FLASH_OPTCR_OPTLOCK                 ((uint32_t)0x00000001)
 #define FLASH_OPTCR_OPTSTRT                 ((uint32_t)0x00000002)
 #define FLASH_OPTCR_BOR_LEV_0               ((uint32_t)0x00000004)
@@ -5062,7 +5062,7 @@ typedef struct {
 #define FLASH_OPTCR_DB1M                    ((uint32_t)0x40000000)
 #define FLASH_OPTCR_SPRMOD                  ((uint32_t)0x80000000)
 
-/******************  Bits definition for FLASH_OPTCR1 register  ***************/
+/******************  位定义为 FLASH_OPTCR1 寄存器  ***************/
 #define FLASH_OPTCR1_nWRP                    ((uint32_t)0x0FFF0000)
 #define FLASH_OPTCR1_nWRP_0                  ((uint32_t)0x00010000)
 #define FLASH_OPTCR1_nWRP_1                  ((uint32_t)0x00020000)
@@ -5083,7 +5083,7 @@ typedef struct {
 /*                       Flexible Static Memory Controller                    */
 /*                                                                            */
 /******************************************************************************/
-/******************  Bit definition for FSMC_BCR1 register  *******************/
+/******************  位定义 FSMC_BCR1 寄存器  *******************/
 #define  FSMC_BCR1_MBKEN                     ((uint32_t)0x00000001)        /*!<Memory bank enable bit                 */
 #define  FSMC_BCR1_MUXEN                     ((uint32_t)0x00000002)        /*!<Address/data multiplexing enable bit   */
 
@@ -5106,7 +5106,7 @@ typedef struct {
 #define  FSMC_BCR1_ASYNCWAIT                 ((uint32_t)0x00008000)        /*!<Asynchronous wait                      */
 #define  FSMC_BCR1_CBURSTRW                  ((uint32_t)0x00080000)        /*!<Write burst enable                     */
 
-/******************  Bit definition for FSMC_BCR2 register  *******************/
+/******************  位定义 FSMC_BCR2 寄存器  *******************/
 #define  FSMC_BCR2_MBKEN                     ((uint32_t)0x00000001)        /*!<Memory bank enable bit                */
 #define  FSMC_BCR2_MUXEN                     ((uint32_t)0x00000002)        /*!<Address/data multiplexing enable bit   */
 
@@ -5129,7 +5129,7 @@ typedef struct {
 #define  FSMC_BCR2_ASYNCWAIT                 ((uint32_t)0x00008000)        /*!<Asynchronous wait                      */
 #define  FSMC_BCR2_CBURSTRW                  ((uint32_t)0x00080000)        /*!<Write burst enable                     */
 
-/******************  Bit definition for FSMC_BCR3 register  *******************/
+/******************  位定义 FSMC_BCR3 寄存器  *******************/
 #define  FSMC_BCR3_MBKEN                     ((uint32_t)0x00000001)        /*!<Memory bank enable bit                 */
 #define  FSMC_BCR3_MUXEN                     ((uint32_t)0x00000002)        /*!<Address/data multiplexing enable bit   */
 
@@ -5152,7 +5152,7 @@ typedef struct {
 #define  FSMC_BCR3_ASYNCWAIT                 ((uint32_t)0x00008000)        /*!<Asynchronous wait                      */
 #define  FSMC_BCR3_CBURSTRW                  ((uint32_t)0x00080000)        /*!<Write burst enable                     */
 
-/******************  Bit definition for FSMC_BCR4 register  *******************/
+/******************  位定义 FSMC_BCR4 寄存器  *******************/
 #define  FSMC_BCR4_MBKEN                     ((uint32_t)0x00000001)        /*!<Memory bank enable bit */
 #define  FSMC_BCR4_MUXEN                     ((uint32_t)0x00000002)        /*!<Address/data multiplexing enable bit   */
 
@@ -5175,7 +5175,7 @@ typedef struct {
 #define  FSMC_BCR4_ASYNCWAIT                 ((uint32_t)0x00008000)        /*!<Asynchronous wait                      */
 #define  FSMC_BCR4_CBURSTRW                  ((uint32_t)0x00080000)        /*!<Write burst enable                     */
 
-/******************  Bit definition for FSMC_BTR1 register  ******************/
+/******************  位定义 FSMC_BTR1 寄存器  ******************/
 #define  FSMC_BTR1_ADDSET                    ((uint32_t)0x0000000F)        /*!<ADDSET[3:0] bits (Address setup phase duration) */
 #define  FSMC_BTR1_ADDSET_0                  ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FSMC_BTR1_ADDSET_1                  ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -5216,7 +5216,7 @@ typedef struct {
 #define  FSMC_BTR1_ACCMOD_0                  ((uint32_t)0x10000000)        /*!<Bit 0 */
 #define  FSMC_BTR1_ACCMOD_1                  ((uint32_t)0x20000000)        /*!<Bit 1 */
 
-/******************  Bit definition for FSMC_BTR2 register  *******************/
+/******************  位定义 FSMC_BTR2 寄存器  *******************/
 #define  FSMC_BTR2_ADDSET                    ((uint32_t)0x0000000F)        /*!<ADDSET[3:0] bits (Address setup phase duration) */
 #define  FSMC_BTR2_ADDSET_0                  ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FSMC_BTR2_ADDSET_1                  ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -5257,7 +5257,7 @@ typedef struct {
 #define  FSMC_BTR2_ACCMOD_0                  ((uint32_t)0x10000000)        /*!<Bit 0 */
 #define  FSMC_BTR2_ACCMOD_1                  ((uint32_t)0x20000000)        /*!<Bit 1 */
 
-/*******************  Bit definition for FSMC_BTR3 register  *******************/
+/*******************  位定义 FSMC_BTR3 寄存器  *******************/
 #define  FSMC_BTR3_ADDSET                    ((uint32_t)0x0000000F)        /*!<ADDSET[3:0] bits (Address setup phase duration) */
 #define  FSMC_BTR3_ADDSET_0                  ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FSMC_BTR3_ADDSET_1                  ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -5298,7 +5298,7 @@ typedef struct {
 #define  FSMC_BTR3_ACCMOD_0                  ((uint32_t)0x10000000)        /*!<Bit 0 */
 #define  FSMC_BTR3_ACCMOD_1                  ((uint32_t)0x20000000)        /*!<Bit 1 */
 
-/******************  Bit definition for FSMC_BTR4 register  *******************/
+/******************  位定义 FSMC_BTR4 寄存器  *******************/
 #define  FSMC_BTR4_ADDSET                    ((uint32_t)0x0000000F)        /*!<ADDSET[3:0] bits (Address setup phase duration) */
 #define  FSMC_BTR4_ADDSET_0                  ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FSMC_BTR4_ADDSET_1                  ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -5339,7 +5339,7 @@ typedef struct {
 #define  FSMC_BTR4_ACCMOD_0                  ((uint32_t)0x10000000)        /*!<Bit 0 */
 #define  FSMC_BTR4_ACCMOD_1                  ((uint32_t)0x20000000)        /*!<Bit 1 */
 
-/******************  Bit definition for FSMC_BWTR1 register  ******************/
+/******************  位定义 FSMC_BWTR1 寄存器  ******************/
 #define  FSMC_BWTR1_ADDSET                   ((uint32_t)0x0000000F)        /*!<ADDSET[3:0] bits (Address setup phase duration) */
 #define  FSMC_BWTR1_ADDSET_0                 ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FSMC_BWTR1_ADDSET_1                 ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -5368,7 +5368,7 @@ typedef struct {
 #define  FSMC_BWTR1_ACCMOD_0                 ((uint32_t)0x10000000)        /*!<Bit 0 */
 #define  FSMC_BWTR1_ACCMOD_1                 ((uint32_t)0x20000000)        /*!<Bit 1 */
 
-/******************  Bit definition for FSMC_BWTR2 register  ******************/
+/******************  位定义 FSMC_BWTR2 寄存器  ******************/
 #define  FSMC_BWTR2_ADDSET                   ((uint32_t)0x0000000F)        /*!<ADDSET[3:0] bits (Address setup phase duration) */
 #define  FSMC_BWTR2_ADDSET_0                 ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FSMC_BWTR2_ADDSET_1                 ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -5397,7 +5397,7 @@ typedef struct {
 #define  FSMC_BWTR2_ACCMOD_0                 ((uint32_t)0x10000000)        /*!<Bit 0 */
 #define  FSMC_BWTR2_ACCMOD_1                 ((uint32_t)0x20000000)        /*!<Bit 1 */
 
-/******************  Bit definition for FSMC_BWTR3 register  ******************/
+/******************  位定义 FSMC_BWTR3 寄存器  ******************/
 #define  FSMC_BWTR3_ADDSET                   ((uint32_t)0x0000000F)        /*!<ADDSET[3:0] bits (Address setup phase duration) */
 #define  FSMC_BWTR3_ADDSET_0                 ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FSMC_BWTR3_ADDSET_1                 ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -5426,7 +5426,7 @@ typedef struct {
 #define  FSMC_BWTR3_ACCMOD_0                 ((uint32_t)0x10000000)        /*!<Bit 0 */
 #define  FSMC_BWTR3_ACCMOD_1                 ((uint32_t)0x20000000)        /*!<Bit 1 */
 
-/******************  Bit definition for FSMC_BWTR4 register  ******************/
+/******************  位定义 FSMC_BWTR4 寄存器  ******************/
 #define  FSMC_BWTR4_ADDSET                   ((uint32_t)0x0000000F)        /*!<ADDSET[3:0] bits (Address setup phase duration) */
 #define  FSMC_BWTR4_ADDSET_0                 ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FSMC_BWTR4_ADDSET_1                 ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -5455,7 +5455,7 @@ typedef struct {
 #define  FSMC_BWTR4_ACCMOD_0                 ((uint32_t)0x10000000)        /*!<Bit 0 */
 #define  FSMC_BWTR4_ACCMOD_1                 ((uint32_t)0x20000000)        /*!<Bit 1 */
 
-/******************  Bit definition for FSMC_PCR2 register  *******************/
+/******************  位定义 FSMC_PCR2 寄存器  *******************/
 #define  FSMC_PCR2_PWAITEN                   ((uint32_t)0x00000002)        /*!<Wait feature enable bit */
 #define  FSMC_PCR2_PBKEN                     ((uint32_t)0x00000004)        /*!<PC Card/NAND Flash memory bank enable bit */
 #define  FSMC_PCR2_PTYP                      ((uint32_t)0x00000008)        /*!<Memory type */
@@ -5483,7 +5483,7 @@ typedef struct {
 #define  FSMC_PCR2_ECCPS_1                   ((uint32_t)0x00040000)        /*!<Bit 1 */
 #define  FSMC_PCR2_ECCPS_2                   ((uint32_t)0x00080000)        /*!<Bit 2 */
 
-/******************  Bit definition for FSMC_PCR3 register  *******************/
+/******************  位定义 FSMC_PCR3 寄存器  *******************/
 #define  FSMC_PCR3_PWAITEN                   ((uint32_t)0x00000002)        /*!<Wait feature enable bit */
 #define  FSMC_PCR3_PBKEN                     ((uint32_t)0x00000004)        /*!<PC Card/NAND Flash memory bank enable bit */
 #define  FSMC_PCR3_PTYP                      ((uint32_t)0x00000008)        /*!<Memory type */
@@ -5511,7 +5511,7 @@ typedef struct {
 #define  FSMC_PCR3_ECCPS_1                   ((uint32_t)0x00040000)        /*!<Bit 1 */
 #define  FSMC_PCR3_ECCPS_2                   ((uint32_t)0x00080000)        /*!<Bit 2 */
 
-/******************  Bit definition for FSMC_PCR4 register  *******************/
+/******************  位定义 FSMC_PCR4 寄存器  *******************/
 #define  FSMC_PCR4_PWAITEN                   ((uint32_t)0x00000002)        /*!<Wait feature enable bit */
 #define  FSMC_PCR4_PBKEN                     ((uint32_t)0x00000004)        /*!<PC Card/NAND Flash memory bank enable bit */
 #define  FSMC_PCR4_PTYP                      ((uint32_t)0x00000008)        /*!<Memory type */
@@ -5539,7 +5539,7 @@ typedef struct {
 #define  FSMC_PCR4_ECCPS_1                   ((uint32_t)0x00040000)        /*!<Bit 1 */
 #define  FSMC_PCR4_ECCPS_2                   ((uint32_t)0x00080000)        /*!<Bit 2 */
 
-/*******************  Bit definition for FSMC_SR2 register  *******************/
+/*******************  位定义 FSMC_SR2 寄存器  *******************/
 #define  FSMC_SR2_IRS                        ((uint8_t)0x01)               /*!<Interrupt Rising Edge status                */
 #define  FSMC_SR2_ILS                        ((uint8_t)0x02)               /*!<Interrupt Level status                      */
 #define  FSMC_SR2_IFS                        ((uint8_t)0x04)               /*!<Interrupt Falling Edge status               */
@@ -5548,7 +5548,7 @@ typedef struct {
 #define  FSMC_SR2_IFEN                       ((uint8_t)0x20)               /*!<Interrupt Falling Edge detection Enable bit */
 #define  FSMC_SR2_FEMPT                      ((uint8_t)0x40)               /*!<FIFO empty */
 
-/*******************  Bit definition for FSMC_SR3 register  *******************/
+/*******************  位定义 FSMC_SR3 寄存器  *******************/
 #define  FSMC_SR3_IRS                        ((uint8_t)0x01)               /*!<Interrupt Rising Edge status                */
 #define  FSMC_SR3_ILS                        ((uint8_t)0x02)               /*!<Interrupt Level status                      */
 #define  FSMC_SR3_IFS                        ((uint8_t)0x04)               /*!<Interrupt Falling Edge status               */
@@ -5557,7 +5557,7 @@ typedef struct {
 #define  FSMC_SR3_IFEN                       ((uint8_t)0x20)               /*!<Interrupt Falling Edge detection Enable bit */
 #define  FSMC_SR3_FEMPT                      ((uint8_t)0x40)               /*!<FIFO empty */
 
-/*******************  Bit definition for FSMC_SR4 register  *******************/
+/*******************  位定义 FSMC_SR4 寄存器  *******************/
 #define  FSMC_SR4_IRS                        ((uint8_t)0x01)               /*!<Interrupt Rising Edge status                 */
 #define  FSMC_SR4_ILS                        ((uint8_t)0x02)               /*!<Interrupt Level status                       */
 #define  FSMC_SR4_IFS                        ((uint8_t)0x04)               /*!<Interrupt Falling Edge status                */
@@ -5566,7 +5566,7 @@ typedef struct {
 #define  FSMC_SR4_IFEN                       ((uint8_t)0x20)               /*!<Interrupt Falling Edge detection Enable bit  */
 #define  FSMC_SR4_FEMPT                      ((uint8_t)0x40)               /*!<FIFO empty */
 
-/******************  Bit definition for FSMC_PMEM2 register  ******************/
+/******************  位定义 FSMC_PMEM2 寄存器  ******************/
 #define  FSMC_PMEM2_MEMSET2                  ((uint32_t)0x000000FF)        /*!<MEMSET2[7:0] bits (Common memory 2 setup time) */
 #define  FSMC_PMEM2_MEMSET2_0                ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FSMC_PMEM2_MEMSET2_1                ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -5607,7 +5607,7 @@ typedef struct {
 #define  FSMC_PMEM2_MEMHIZ2_6                ((uint32_t)0x40000000)        /*!<Bit 6 */
 #define  FSMC_PMEM2_MEMHIZ2_7                ((uint32_t)0x80000000)        /*!<Bit 7 */
 
-/******************  Bit definition for FSMC_PMEM3 register  ******************/
+/******************  位定义 FSMC_PMEM3 寄存器  ******************/
 #define  FSMC_PMEM3_MEMSET3                  ((uint32_t)0x000000FF)        /*!<MEMSET3[7:0] bits (Common memory 3 setup time) */
 #define  FSMC_PMEM3_MEMSET3_0                ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FSMC_PMEM3_MEMSET3_1                ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -5648,7 +5648,7 @@ typedef struct {
 #define  FSMC_PMEM3_MEMHIZ3_6                ((uint32_t)0x40000000)        /*!<Bit 6 */
 #define  FSMC_PMEM3_MEMHIZ3_7                ((uint32_t)0x80000000)        /*!<Bit 7 */
 
-/******************  Bit definition for FSMC_PMEM4 register  ******************/
+/******************  位定义 FSMC_PMEM4 寄存器  ******************/
 #define  FSMC_PMEM4_MEMSET4                  ((uint32_t)0x000000FF)        /*!<MEMSET4[7:0] bits (Common memory 4 setup time) */
 #define  FSMC_PMEM4_MEMSET4_0                ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FSMC_PMEM4_MEMSET4_1                ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -5689,7 +5689,7 @@ typedef struct {
 #define  FSMC_PMEM4_MEMHIZ4_6                ((uint32_t)0x40000000)        /*!<Bit 6 */
 #define  FSMC_PMEM4_MEMHIZ4_7                ((uint32_t)0x80000000)        /*!<Bit 7 */
 
-/******************  Bit definition for FSMC_PATT2 register  ******************/
+/******************  位定义 FSMC_PATT2 寄存器  ******************/
 #define  FSMC_PATT2_ATTSET2                  ((uint32_t)0x000000FF)        /*!<ATTSET2[7:0] bits (Attribute memory 2 setup time) */
 #define  FSMC_PATT2_ATTSET2_0                ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FSMC_PATT2_ATTSET2_1                ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -5730,7 +5730,7 @@ typedef struct {
 #define  FSMC_PATT2_ATTHIZ2_6                ((uint32_t)0x40000000)        /*!<Bit 6 */
 #define  FSMC_PATT2_ATTHIZ2_7                ((uint32_t)0x80000000)        /*!<Bit 7 */
 
-/******************  Bit definition for FSMC_PATT3 register  ******************/
+/******************  位定义 FSMC_PATT3 寄存器  ******************/
 #define  FSMC_PATT3_ATTSET3                  ((uint32_t)0x000000FF)        /*!<ATTSET3[7:0] bits (Attribute memory 3 setup time) */
 #define  FSMC_PATT3_ATTSET3_0                ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FSMC_PATT3_ATTSET3_1                ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -5771,7 +5771,7 @@ typedef struct {
 #define  FSMC_PATT3_ATTHIZ3_6                ((uint32_t)0x40000000)        /*!<Bit 6 */
 #define  FSMC_PATT3_ATTHIZ3_7                ((uint32_t)0x80000000)        /*!<Bit 7 */
 
-/******************  Bit definition for FSMC_PATT4 register  ******************/
+/******************  位定义 FSMC_PATT4 寄存器  ******************/
 #define  FSMC_PATT4_ATTSET4                  ((uint32_t)0x000000FF)        /*!<ATTSET4[7:0] bits (Attribute memory 4 setup time) */
 #define  FSMC_PATT4_ATTSET4_0                ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FSMC_PATT4_ATTSET4_1                ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -5812,7 +5812,7 @@ typedef struct {
 #define  FSMC_PATT4_ATTHIZ4_6                ((uint32_t)0x40000000)        /*!<Bit 6 */
 #define  FSMC_PATT4_ATTHIZ4_7                ((uint32_t)0x80000000)        /*!<Bit 7 */
 
-/******************  Bit definition for FSMC_PIO4 register  *******************/
+/******************  位定义 FSMC_PIO4 寄存器  *******************/
 #define  FSMC_PIO4_IOSET4                    ((uint32_t)0x000000FF)        /*!<IOSET4[7:0] bits (I/O 4 setup time) */
 #define  FSMC_PIO4_IOSET4_0                  ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FSMC_PIO4_IOSET4_1                  ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -5853,10 +5853,10 @@ typedef struct {
 #define  FSMC_PIO4_IOHIZ4_6                  ((uint32_t)0x40000000)        /*!<Bit 6 */
 #define  FSMC_PIO4_IOHIZ4_7                  ((uint32_t)0x80000000)        /*!<Bit 7 */
 
-/******************  Bit definition for FSMC_ECCR2 register  ******************/
+/******************  位定义 FSMC_ECCR2 寄存器  ******************/
 #define  FSMC_ECCR2_ECC2                     ((uint32_t)0xFFFFFFFF)        /*!<ECC result */
 
-/******************  Bit definition for FSMC_ECCR3 register  ******************/
+/******************  位定义 FSMC_ECCR3 寄存器  ******************/
 #define  FSMC_ECCR3_ECC3                     ((uint32_t)0xFFFFFFFF)        /*!<ECC result */
 #endif /* STM32F40_41xxx || STM32F412xG || STM32F413_423xx */
 
@@ -5866,7 +5866,7 @@ typedef struct {
 /*                          Flexible Memory Controller                        */
 /*                                                                            */
 /******************************************************************************/
-/******************  Bit definition for FMC_BCR1 register  *******************/
+/******************  位定义 FMC_BCR1 寄存器  *******************/
 #define  FMC_BCR1_MBKEN                     ((uint32_t)0x00000001)        /*!<Memory bank enable bit                 */
 #define  FMC_BCR1_MUXEN                     ((uint32_t)0x00000002)        /*!<Address/data multiplexing enable bit   */
 
@@ -5890,7 +5890,7 @@ typedef struct {
 #define  FMC_BCR1_CBURSTRW                  ((uint32_t)0x00080000)        /*!<Write burst enable         */
 #define  FMC_BCR1_CCLKEN                    ((uint32_t)0x00100000)        /*!<Continous clock enable     */
 
-/******************  Bit definition for FMC_BCR2 register  *******************/
+/******************  位定义 FMC_BCR2 寄存器  *******************/
 #define  FMC_BCR2_MBKEN                     ((uint32_t)0x00000001)        /*!<Memory bank enable bit                 */
 #define  FMC_BCR2_MUXEN                     ((uint32_t)0x00000002)        /*!<Address/data multiplexing enable bit   */
 
@@ -5913,7 +5913,7 @@ typedef struct {
 #define  FMC_BCR2_ASYNCWAIT                 ((uint32_t)0x00008000)        /*!<Asynchronous wait          */
 #define  FMC_BCR2_CBURSTRW                  ((uint32_t)0x00080000)        /*!<Write burst enable         */
 
-/******************  Bit definition for FMC_BCR3 register  *******************/
+/******************  位定义 FMC_BCR3 寄存器  *******************/
 #define  FMC_BCR3_MBKEN                     ((uint32_t)0x00000001)        /*!<Memory bank enable bit                 */
 #define  FMC_BCR3_MUXEN                     ((uint32_t)0x00000002)        /*!<Address/data multiplexing enable bit   */
 
@@ -5936,7 +5936,7 @@ typedef struct {
 #define  FMC_BCR3_ASYNCWAIT                 ((uint32_t)0x00008000)        /*!<Asynchronous wait          */
 #define  FMC_BCR3_CBURSTRW                  ((uint32_t)0x00080000)        /*!<Write burst enable         */
 
-/******************  Bit definition for FMC_BCR4 register  *******************/
+/******************  位定义 FMC_BCR4 寄存器  *******************/
 #define  FMC_BCR4_MBKEN                     ((uint32_t)0x00000001)        /*!<Memory bank enable bit                 */
 #define  FMC_BCR4_MUXEN                     ((uint32_t)0x00000002)        /*!<Address/data multiplexing enable bit   */
 
@@ -5959,7 +5959,7 @@ typedef struct {
 #define  FMC_BCR4_ASYNCWAIT                 ((uint32_t)0x00008000)        /*!<Asynchronous wait          */
 #define  FMC_BCR4_CBURSTRW                  ((uint32_t)0x00080000)        /*!<Write burst enable         */
 
-/******************  Bit definition for FMC_BTR1 register  ******************/
+/******************  位定义 FMC_BTR1 寄存器  ******************/
 #define  FMC_BTR1_ADDSET                    ((uint32_t)0x0000000F)        /*!<ADDSET[3:0] bits (Address setup phase duration) */
 #define  FMC_BTR1_ADDSET_0                  ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FMC_BTR1_ADDSET_1                  ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -6004,7 +6004,7 @@ typedef struct {
 #define  FMC_BTR1_ACCMOD_0                  ((uint32_t)0x10000000)        /*!<Bit 0 */
 #define  FMC_BTR1_ACCMOD_1                  ((uint32_t)0x20000000)        /*!<Bit 1 */
 
-/******************  Bit definition for FMC_BTR2 register  *******************/
+/******************  位定义 FMC_BTR2 寄存器  *******************/
 #define  FMC_BTR2_ADDSET                    ((uint32_t)0x0000000F)        /*!<ADDSET[3:0] bits (Address setup phase duration) */
 #define  FMC_BTR2_ADDSET_0                  ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FMC_BTR2_ADDSET_1                  ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -6049,7 +6049,7 @@ typedef struct {
 #define  FMC_BTR2_ACCMOD_0                  ((uint32_t)0x10000000)        /*!<Bit 0 */
 #define  FMC_BTR2_ACCMOD_1                  ((uint32_t)0x20000000)        /*!<Bit 1 */
 
-/*******************  Bit definition for FMC_BTR3 register  *******************/
+/*******************  位定义 FMC_BTR3 寄存器  *******************/
 #define  FMC_BTR3_ADDSET                    ((uint32_t)0x0000000F)        /*!<ADDSET[3:0] bits (Address setup phase duration) */
 #define  FMC_BTR3_ADDSET_0                  ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FMC_BTR3_ADDSET_1                  ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -6094,7 +6094,7 @@ typedef struct {
 #define  FMC_BTR3_ACCMOD_0                  ((uint32_t)0x10000000)        /*!<Bit 0 */
 #define  FMC_BTR3_ACCMOD_1                  ((uint32_t)0x20000000)        /*!<Bit 1 */
 
-/******************  Bit definition for FMC_BTR4 register  *******************/
+/******************  位定义 FMC_BTR4 寄存器  *******************/
 #define  FMC_BTR4_ADDSET                    ((uint32_t)0x0000000F)        /*!<ADDSET[3:0] bits (Address setup phase duration) */
 #define  FMC_BTR4_ADDSET_0                  ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FMC_BTR4_ADDSET_1                  ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -6139,7 +6139,7 @@ typedef struct {
 #define  FMC_BTR4_ACCMOD_0                  ((uint32_t)0x10000000)        /*!<Bit 0 */
 #define  FMC_BTR4_ACCMOD_1                  ((uint32_t)0x20000000)        /*!<Bit 1 */
 
-/******************  Bit definition for FMC_BWTR1 register  ******************/
+/******************  位定义 FMC_BWTR1 寄存器  ******************/
 #define  FMC_BWTR1_ADDSET                   ((uint32_t)0x0000000F)        /*!<ADDSET[3:0] bits (Address setup phase duration) */
 #define  FMC_BWTR1_ADDSET_0                 ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FMC_BWTR1_ADDSET_1                 ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -6172,7 +6172,7 @@ typedef struct {
 #define  FMC_BWTR1_ACCMOD_0                 ((uint32_t)0x10000000)        /*!<Bit 0 */
 #define  FMC_BWTR1_ACCMOD_1                 ((uint32_t)0x20000000)        /*!<Bit 1 */
 
-/******************  Bit definition for FMC_BWTR2 register  ******************/
+/******************  位定义 FMC_BWTR2 寄存器  ******************/
 #define  FMC_BWTR2_ADDSET                   ((uint32_t)0x0000000F)        /*!<ADDSET[3:0] bits (Address setup phase duration) */
 #define  FMC_BWTR2_ADDSET_0                 ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FMC_BWTR2_ADDSET_1                 ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -6205,7 +6205,7 @@ typedef struct {
 #define  FMC_BWTR2_ACCMOD_0                 ((uint32_t)0x10000000)        /*!<Bit 0 */
 #define  FMC_BWTR2_ACCMOD_1                 ((uint32_t)0x20000000)        /*!<Bit 1 */
 
-/******************  Bit definition for FMC_BWTR3 register  ******************/
+/******************  位定义 FMC_BWTR3 寄存器  ******************/
 #define  FMC_BWTR3_ADDSET                   ((uint32_t)0x0000000F)        /*!<ADDSET[3:0] bits (Address setup phase duration) */
 #define  FMC_BWTR3_ADDSET_0                 ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FMC_BWTR3_ADDSET_1                 ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -6238,7 +6238,7 @@ typedef struct {
 #define  FMC_BWTR3_ACCMOD_0                 ((uint32_t)0x10000000)        /*!<Bit 0 */
 #define  FMC_BWTR3_ACCMOD_1                 ((uint32_t)0x20000000)        /*!<Bit 1 */
 
-/******************  Bit definition for FMC_BWTR4 register  ******************/
+/******************  位定义 FMC_BWTR4 寄存器  ******************/
 #define  FMC_BWTR4_ADDSET                   ((uint32_t)0x0000000F)        /*!<ADDSET[3:0] bits (Address setup phase duration) */
 #define  FMC_BWTR4_ADDSET_0                 ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FMC_BWTR4_ADDSET_1                 ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -6271,7 +6271,7 @@ typedef struct {
 #define  FMC_BWTR4_ACCMOD_0                 ((uint32_t)0x10000000)        /*!<Bit 0 */
 #define  FMC_BWTR4_ACCMOD_1                 ((uint32_t)0x20000000)        /*!<Bit 1 */
 
-/******************  Bit definition for FMC_PCR2 register  *******************/
+/******************  位定义 FMC_PCR2 寄存器  *******************/
 #define  FMC_PCR2_PWAITEN                   ((uint32_t)0x00000002)        /*!<Wait feature enable bit                   */
 #define  FMC_PCR2_PBKEN                     ((uint32_t)0x00000004)        /*!<PC Card/NAND Flash memory bank enable bit */
 #define  FMC_PCR2_PTYP                      ((uint32_t)0x00000008)        /*!<Memory type                               */
@@ -6299,7 +6299,7 @@ typedef struct {
 #define  FMC_PCR2_ECCPS_1                   ((uint32_t)0x00040000)        /*!<Bit 1 */
 #define  FMC_PCR2_ECCPS_2                   ((uint32_t)0x00080000)        /*!<Bit 2 */
 
-/******************  Bit definition for FMC_PCR3 register  *******************/
+/******************  位定义 FMC_PCR3 寄存器  *******************/
 #define  FMC_PCR3_PWAITEN                   ((uint32_t)0x00000002)        /*!<Wait feature enable bit                   */
 #define  FMC_PCR3_PBKEN                     ((uint32_t)0x00000004)        /*!<PC Card/NAND Flash memory bank enable bit */
 #define  FMC_PCR3_PTYP                      ((uint32_t)0x00000008)        /*!<Memory type                               */
@@ -6327,7 +6327,7 @@ typedef struct {
 #define  FMC_PCR3_ECCPS_1                   ((uint32_t)0x00040000)        /*!<Bit 1 */
 #define  FMC_PCR3_ECCPS_2                   ((uint32_t)0x00080000)        /*!<Bit 2 */
 
-/******************  Bit definition for FMC_PCR4 register  *******************/
+/******************  位定义 FMC_PCR4 寄存器  *******************/
 #define  FMC_PCR4_PWAITEN                   ((uint32_t)0x00000002)        /*!<Wait feature enable bit                   */
 #define  FMC_PCR4_PBKEN                     ((uint32_t)0x00000004)        /*!<PC Card/NAND Flash memory bank enable bit */
 #define  FMC_PCR4_PTYP                      ((uint32_t)0x00000008)        /*!<Memory type                               */
@@ -6355,7 +6355,7 @@ typedef struct {
 #define  FMC_PCR4_ECCPS_1                   ((uint32_t)0x00040000)        /*!<Bit 1 */
 #define  FMC_PCR4_ECCPS_2                   ((uint32_t)0x00080000)        /*!<Bit 2 */
 
-/*******************  Bit definition for FMC_SR2 register  *******************/
+/*******************  位定义 FMC_SR2 寄存器  *******************/
 #define  FMC_SR2_IRS                        ((uint8_t)0x01)               /*!<Interrupt Rising Edge status                */
 #define  FMC_SR2_ILS                        ((uint8_t)0x02)               /*!<Interrupt Level status                      */
 #define  FMC_SR2_IFS                        ((uint8_t)0x04)               /*!<Interrupt Falling Edge status               */
@@ -6364,7 +6364,7 @@ typedef struct {
 #define  FMC_SR2_IFEN                       ((uint8_t)0x20)               /*!<Interrupt Falling Edge detection Enable bit */
 #define  FMC_SR2_FEMPT                      ((uint8_t)0x40)               /*!<FIFO empty                                  */
 
-/*******************  Bit definition for FMC_SR3 register  *******************/
+/*******************  位定义 FMC_SR3 寄存器  *******************/
 #define  FMC_SR3_IRS                        ((uint8_t)0x01)               /*!<Interrupt Rising Edge status                */
 #define  FMC_SR3_ILS                        ((uint8_t)0x02)               /*!<Interrupt Level status                      */
 #define  FMC_SR3_IFS                        ((uint8_t)0x04)               /*!<Interrupt Falling Edge status               */
@@ -6373,7 +6373,7 @@ typedef struct {
 #define  FMC_SR3_IFEN                       ((uint8_t)0x20)               /*!<Interrupt Falling Edge detection Enable bit */
 #define  FMC_SR3_FEMPT                      ((uint8_t)0x40)               /*!<FIFO empty                                  */
 
-/*******************  Bit definition for FMC_SR4 register  *******************/
+/*******************  位定义 FMC_SR4 寄存器  *******************/
 #define  FMC_SR4_IRS                        ((uint8_t)0x01)               /*!<Interrupt Rising Edge status                */
 #define  FMC_SR4_ILS                        ((uint8_t)0x02)               /*!<Interrupt Level status                      */
 #define  FMC_SR4_IFS                        ((uint8_t)0x04)               /*!<Interrupt Falling Edge status               */
@@ -6382,7 +6382,7 @@ typedef struct {
 #define  FMC_SR4_IFEN                       ((uint8_t)0x20)               /*!<Interrupt Falling Edge detection Enable bit */
 #define  FMC_SR4_FEMPT                      ((uint8_t)0x40)               /*!<FIFO empty                                  */
 
-/******************  Bit definition for FMC_PMEM2 register  ******************/
+/******************  位定义 FMC_PMEM2 寄存器  ******************/
 #define  FMC_PMEM2_MEMSET2                  ((uint32_t)0x000000FF)        /*!<MEMSET2[7:0] bits (Common memory 2 setup time) */
 #define  FMC_PMEM2_MEMSET2_0                ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FMC_PMEM2_MEMSET2_1                ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -6423,7 +6423,7 @@ typedef struct {
 #define  FMC_PMEM2_MEMHIZ2_6                ((uint32_t)0x40000000)        /*!<Bit 6 */
 #define  FMC_PMEM2_MEMHIZ2_7                ((uint32_t)0x80000000)        /*!<Bit 7 */
 
-/******************  Bit definition for FMC_PMEM3 register  ******************/
+/******************  位定义 FMC_PMEM3 寄存器  ******************/
 #define  FMC_PMEM3_MEMSET3                  ((uint32_t)0x000000FF)        /*!<MEMSET3[7:0] bits (Common memory 3 setup time) */
 #define  FMC_PMEM3_MEMSET3_0                ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FMC_PMEM3_MEMSET3_1                ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -6464,7 +6464,7 @@ typedef struct {
 #define  FMC_PMEM3_MEMHIZ3_6                ((uint32_t)0x40000000)        /*!<Bit 6 */
 #define  FMC_PMEM3_MEMHIZ3_7                ((uint32_t)0x80000000)        /*!<Bit 7 */
 
-/******************  Bit definition for FMC_PMEM4 register  ******************/
+/******************  位定义 FMC_PMEM4 寄存器  ******************/
 #define  FMC_PMEM4_MEMSET4                  ((uint32_t)0x000000FF)        /*!<MEMSET4[7:0] bits (Common memory 4 setup time) */
 #define  FMC_PMEM4_MEMSET4_0                ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FMC_PMEM4_MEMSET4_1                ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -6505,7 +6505,7 @@ typedef struct {
 #define  FMC_PMEM4_MEMHIZ4_6                ((uint32_t)0x40000000)        /*!<Bit 6 */
 #define  FMC_PMEM4_MEMHIZ4_7                ((uint32_t)0x80000000)        /*!<Bit 7 */
 
-/******************  Bit definition for FMC_PATT2 register  ******************/
+/******************  位定义 FMC_PATT2 寄存器  ******************/
 #define  FMC_PATT2_ATTSET2                  ((uint32_t)0x000000FF)        /*!<ATTSET2[7:0] bits (Attribute memory 2 setup time) */
 #define  FMC_PATT2_ATTSET2_0                ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FMC_PATT2_ATTSET2_1                ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -6546,7 +6546,7 @@ typedef struct {
 #define  FMC_PATT2_ATTHIZ2_6                ((uint32_t)0x40000000)        /*!<Bit 6 */
 #define  FMC_PATT2_ATTHIZ2_7                ((uint32_t)0x80000000)        /*!<Bit 7 */
 
-/******************  Bit definition for FMC_PATT3 register  ******************/
+/******************  位定义 FMC_PATT3 寄存器  ******************/
 #define  FMC_PATT3_ATTSET3                  ((uint32_t)0x000000FF)        /*!<ATTSET3[7:0] bits (Attribute memory 3 setup time) */
 #define  FMC_PATT3_ATTSET3_0                ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FMC_PATT3_ATTSET3_1                ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -6587,7 +6587,7 @@ typedef struct {
 #define  FMC_PATT3_ATTHIZ3_6                ((uint32_t)0x40000000)        /*!<Bit 6 */
 #define  FMC_PATT3_ATTHIZ3_7                ((uint32_t)0x80000000)        /*!<Bit 7 */
 
-/******************  Bit definition for FMC_PATT4 register  ******************/
+/******************  位定义 FMC_PATT4 寄存器  ******************/
 #define  FMC_PATT4_ATTSET4                  ((uint32_t)0x000000FF)        /*!<ATTSET4[7:0] bits (Attribute memory 4 setup time) */
 #define  FMC_PATT4_ATTSET4_0                ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FMC_PATT4_ATTSET4_1                ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -6628,7 +6628,7 @@ typedef struct {
 #define  FMC_PATT4_ATTHIZ4_6                ((uint32_t)0x40000000)        /*!<Bit 6 */
 #define  FMC_PATT4_ATTHIZ4_7                ((uint32_t)0x80000000)        /*!<Bit 7 */
 
-/******************  Bit definition for FMC_PIO4 register  *******************/
+/******************  位定义 FMC_PIO4 寄存器  *******************/
 #define  FMC_PIO4_IOSET4                    ((uint32_t)0x000000FF)        /*!<IOSET4[7:0] bits (I/O 4 setup time) */
 #define  FMC_PIO4_IOSET4_0                  ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FMC_PIO4_IOSET4_1                  ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -6669,13 +6669,13 @@ typedef struct {
 #define  FMC_PIO4_IOHIZ4_6                  ((uint32_t)0x40000000)        /*!<Bit 6 */
 #define  FMC_PIO4_IOHIZ4_7                  ((uint32_t)0x80000000)        /*!<Bit 7 */
 
-/******************  Bit definition for FMC_ECCR2 register  ******************/
+/******************  位定义 FMC_ECCR2 寄存器  ******************/
 #define  FMC_ECCR2_ECC2                     ((uint32_t)0xFFFFFFFF)        /*!<ECC result */
 
-/******************  Bit definition for FMC_ECCR3 register  ******************/
+/******************  位定义 FMC_ECCR3 寄存器  ******************/
 #define  FMC_ECCR3_ECC3                     ((uint32_t)0xFFFFFFFF)        /*!<ECC result */
 
-/******************  Bit definition for FMC_SDCR1 register  ******************/
+/******************  位定义 FMC_SDCR1 寄存器  ******************/
 #define  FMC_SDCR1_NC                       ((uint32_t)0x00000003)        /*!<NC[1:0] bits (Number of column bits) */
 #define  FMC_SDCR1_NC_0                     ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FMC_SDCR1_NC_1                     ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -6706,7 +6706,7 @@ typedef struct {
 #define  FMC_SDCR1_RPIPE_0                  ((uint32_t)0x00002000)        /*!<Bit 0 */
 #define  FMC_SDCR1_RPIPE_1                  ((uint32_t)0x00004000)        /*!<Bit 1 */
 
-/******************  Bit definition for FMC_SDCR2 register  ******************/
+/******************  位定义 FMC_SDCR2 寄存器  ******************/
 #define  FMC_SDCR2_NC                       ((uint32_t)0x00000003)        /*!<NC[1:0] bits (Number of column bits) */
 #define  FMC_SDCR2_NC_0                     ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FMC_SDCR2_NC_1                     ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -6737,7 +6737,7 @@ typedef struct {
 #define  FMC_SDCR2_RPIPE_0                  ((uint32_t)0x00002000)        /*!<Bit 0 */
 #define  FMC_SDCR2_RPIPE_1                  ((uint32_t)0x00004000)        /*!<Bit 1 */
 
-/******************  Bit definition for FMC_SDTR1 register  ******************/
+/******************  位定义 FMC_SDTR1 寄存器  ******************/
 #define  FMC_SDTR1_TMRD                     ((uint32_t)0x0000000F)        /*!<TMRD[3:0] bits (Load mode register to active) */
 #define  FMC_SDTR1_TMRD_0                   ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FMC_SDTR1_TMRD_1                   ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -6776,7 +6776,7 @@ typedef struct {
 #define  FMC_SDTR1_TRCD_1                   ((uint32_t)0x02000000)        /*!<Bit 1 */
 #define  FMC_SDTR1_TRCD_2                   ((uint32_t)0x04000000)        /*!<Bit 2 */
 
-/******************  Bit definition for FMC_SDTR2 register  ******************/
+/******************  位定义 FMC_SDTR2 寄存器  ******************/
 #define  FMC_SDTR2_TMRD                     ((uint32_t)0x0000000F)        /*!<TMRD[3:0] bits (Load mode register to active) */
 #define  FMC_SDTR2_TMRD_0                   ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FMC_SDTR2_TMRD_1                   ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -6815,7 +6815,7 @@ typedef struct {
 #define  FMC_SDTR2_TRCD_1                   ((uint32_t)0x02000000)        /*!<Bit 1 */
 #define  FMC_SDTR2_TRCD_2                   ((uint32_t)0x04000000)        /*!<Bit 2 */
 
-/******************  Bit definition for FMC_SDCMR register  ******************/
+/******************  位定义 FMC_SDCMR 寄存器  ******************/
 #define  FMC_SDCMR_MODE                     ((uint32_t)0x00000007)        /*!<MODE[2:0] bits (Command mode) */
 #define  FMC_SDCMR_MODE_0                   ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  FMC_SDCMR_MODE_1                   ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -6833,14 +6833,14 @@ typedef struct {
 
 #define  FMC_SDCMR_MRD                      ((uint32_t)0x003FFE00)        /*!<MRD[12:0] bits (Mode register definition) */
 
-/******************  Bit definition for FMC_SDRTR register  ******************/
+/******************  位定义 FMC_SDRTR 寄存器  ******************/
 #define  FMC_SDRTR_CRE                      ((uint32_t)0x00000001)        /*!<Clear refresh error flag */
 
 #define  FMC_SDRTR_COUNT                    ((uint32_t)0x00003FFE)        /*!<COUNT[12:0] bits (Refresh timer count) */
 
 #define  FMC_SDRTR_REIE                     ((uint32_t)0x00004000)        /*!<RES interupt enable */
 
-/******************  Bit definition for FMC_SDSR register  ******************/
+/******************  位定义 FMC_SDSR 寄存器  ******************/
 #define  FMC_SDSR_RE                        ((uint32_t)0x00000001)        /*!<Refresh error flag */
 
 #define  FMC_SDSR_MODES1                    ((uint32_t)0x00000006)        /*!<MODES1[1:0]bits (Status mode for bank 1) */
@@ -6860,7 +6860,7 @@ typedef struct {
 /*                            General Purpose I/O                             */
 /*                                                                            */
 /******************************************************************************/
-/******************  Bits definition for GPIO_MODER register  *****************/
+/******************  位定义为 GPIO_MODER 寄存器  *****************/
 #define GPIO_MODER_MODER0                    ((uint32_t)0x00000003)
 #define GPIO_MODER_MODER0_0                  ((uint32_t)0x00000001)
 #define GPIO_MODER_MODER0_1                  ((uint32_t)0x00000002)
@@ -6925,7 +6925,7 @@ typedef struct {
 #define GPIO_MODER_MODER15_0                 ((uint32_t)0x40000000)
 #define GPIO_MODER_MODER15_1                 ((uint32_t)0x80000000)
 
-/******************  Bits definition for GPIO_OTYPER register  ****************/
+/******************  位定义为 GPIO_OTYPER 寄存器  ****************/
 #define GPIO_OTYPER_OT_0                     ((uint32_t)0x00000001)
 #define GPIO_OTYPER_OT_1                     ((uint32_t)0x00000002)
 #define GPIO_OTYPER_OT_2                     ((uint32_t)0x00000004)
@@ -6943,7 +6943,7 @@ typedef struct {
 #define GPIO_OTYPER_OT_14                    ((uint32_t)0x00004000)
 #define GPIO_OTYPER_OT_15                    ((uint32_t)0x00008000)
 
-/******************  Bits definition for GPIO_OSPEEDR register  ***************/
+/******************  位定义为 GPIO_OSPEEDR 寄存器  ***************/
 #define GPIO_OSPEEDER_OSPEEDR0               ((uint32_t)0x00000003)
 #define GPIO_OSPEEDER_OSPEEDR0_0             ((uint32_t)0x00000001)
 #define GPIO_OSPEEDER_OSPEEDR0_1             ((uint32_t)0x00000002)
@@ -7008,7 +7008,7 @@ typedef struct {
 #define GPIO_OSPEEDER_OSPEEDR15_0            ((uint32_t)0x40000000)
 #define GPIO_OSPEEDER_OSPEEDR15_1            ((uint32_t)0x80000000)
 
-/******************  Bits definition for GPIO_PUPDR register  *****************/
+/******************  位定义为 GPIO_PUPDR 寄存器  *****************/
 #define GPIO_PUPDR_PUPDR0                    ((uint32_t)0x00000003)
 #define GPIO_PUPDR_PUPDR0_0                  ((uint32_t)0x00000001)
 #define GPIO_PUPDR_PUPDR0_1                  ((uint32_t)0x00000002)
@@ -7073,7 +7073,7 @@ typedef struct {
 #define GPIO_PUPDR_PUPDR15_0                 ((uint32_t)0x40000000)
 #define GPIO_PUPDR_PUPDR15_1                 ((uint32_t)0x80000000)
 
-/******************  Bits definition for GPIO_IDR register  *******************/
+/******************  位定义为 GPIO_IDR 寄存器  *******************/
 #define GPIO_IDR_IDR_0                       ((uint32_t)0x00000001)
 #define GPIO_IDR_IDR_1                       ((uint32_t)0x00000002)
 #define GPIO_IDR_IDR_2                       ((uint32_t)0x00000004)
@@ -7108,7 +7108,7 @@ typedef struct {
 #define GPIO_OTYPER_IDR_14                   GPIO_IDR_IDR_14
 #define GPIO_OTYPER_IDR_15                   GPIO_IDR_IDR_15
 
-/******************  Bits definition for GPIO_ODR register  *******************/
+/******************  位定义为 GPIO_ODR 寄存器  *******************/
 #define GPIO_ODR_ODR_0                       ((uint32_t)0x00000001)
 #define GPIO_ODR_ODR_1                       ((uint32_t)0x00000002)
 #define GPIO_ODR_ODR_2                       ((uint32_t)0x00000004)
@@ -7143,7 +7143,7 @@ typedef struct {
 #define GPIO_OTYPER_ODR_14                   GPIO_ODR_ODR_14
 #define GPIO_OTYPER_ODR_15                   GPIO_ODR_ODR_15
 
-/******************  Bits definition for GPIO_BSRR register  ******************/
+/******************  位定义为 GPIO_BSRR 寄存器  ******************/
 #define GPIO_BSRR_BS_0                       ((uint32_t)0x00000001)
 #define GPIO_BSRR_BS_1                       ((uint32_t)0x00000002)
 #define GPIO_BSRR_BS_2                       ((uint32_t)0x00000004)
@@ -7182,7 +7182,7 @@ typedef struct {
 /*                                    HASH                                    */
 /*                                                                            */
 /******************************************************************************/
-/******************  Bits definition for HASH_CR register  ********************/
+/******************  位定义为 HASH_CR 寄存器  ********************/
 #define HASH_CR_INIT                         ((uint32_t)0x00000004)
 #define HASH_CR_DMAE                         ((uint32_t)0x00000008)
 #define HASH_CR_DATATYPE                     ((uint32_t)0x00000030)
@@ -7201,7 +7201,7 @@ typedef struct {
 #define HASH_CR_MDMAT                        ((uint32_t)0x00002000)
 #define HASH_CR_LKEY                         ((uint32_t)0x00010000)
 
-/******************  Bits definition for HASH_STR register  *******************/
+/******************  位定义为 HASH_STR 寄存器  *******************/
 #define HASH_STR_NBW                         ((uint32_t)0x0000001F)
 #define HASH_STR_NBW_0                       ((uint32_t)0x00000001)
 #define HASH_STR_NBW_1                       ((uint32_t)0x00000002)
@@ -7210,11 +7210,11 @@ typedef struct {
 #define HASH_STR_NBW_4                       ((uint32_t)0x00000010)
 #define HASH_STR_DCAL                        ((uint32_t)0x00000100)
 
-/******************  Bits definition for HASH_IMR register  *******************/
+/******************  位定义为 HASH_IMR 寄存器  *******************/
 #define HASH_IMR_DINIM                       ((uint32_t)0x00000001)
 #define HASH_IMR_DCIM                        ((uint32_t)0x00000002)
 
-/******************  Bits definition for HASH_SR register  ********************/
+/******************  位定义为 HASH_SR 寄存器  ********************/
 #define HASH_SR_DINIS                        ((uint32_t)0x00000001)
 #define HASH_SR_DCIS                         ((uint32_t)0x00000002)
 #define HASH_SR_DMAS                         ((uint32_t)0x00000004)
@@ -7225,7 +7225,7 @@ typedef struct {
 /*                      Inter-integrated Circuit Interface                    */
 /*                                                                            */
 /******************************************************************************/
-/*******************  Bit definition for I2C_CR1 register  ********************/
+/*******************  位定义 I2C_CR1 寄存器  ********************/
 #define  I2C_CR1_PE                          ((uint16_t)0x0001)            /*!<Peripheral Enable                             */
 #define  I2C_CR1_SMBUS                       ((uint16_t)0x0002)            /*!<SMBus Mode                                    */
 #define  I2C_CR1_SMBTYPE                     ((uint16_t)0x0008)            /*!<SMBus Type                                    */
@@ -7241,7 +7241,7 @@ typedef struct {
 #define  I2C_CR1_ALERT                       ((uint16_t)0x2000)            /*!<SMBus Alert                                   */
 #define  I2C_CR1_SWRST                       ((uint16_t)0x8000)            /*!<Software Reset                                */
 
-/*******************  Bit definition for I2C_CR2 register  ********************/
+/*******************  位定义 I2C_CR2 寄存器  ********************/
 #define  I2C_CR2_FREQ                        ((uint16_t)0x003F)            /*!<FREQ[5:0] bits (Peripheral Clock Frequency)   */
 #define  I2C_CR2_FREQ_0                      ((uint16_t)0x0001)            /*!<Bit 0 */
 #define  I2C_CR2_FREQ_1                      ((uint16_t)0x0002)            /*!<Bit 1 */
@@ -7256,7 +7256,7 @@ typedef struct {
 #define  I2C_CR2_DMAEN                       ((uint16_t)0x0800)            /*!<DMA Requests Enable     */
 #define  I2C_CR2_LAST                        ((uint16_t)0x1000)            /*!<DMA Last Transfer       */
 
-/*******************  Bit definition for I2C_OAR1 register  *******************/
+/*******************  位定义 I2C_OAR1 寄存器  *******************/
 #define  I2C_OAR1_ADD1_7                     ((uint16_t)0x00FE)            /*!<Interface Address */
 #define  I2C_OAR1_ADD8_9                     ((uint16_t)0x0300)            /*!<Interface Address */
 
@@ -7273,14 +7273,14 @@ typedef struct {
 
 #define  I2C_OAR1_ADDMODE                    ((uint16_t)0x8000)            /*!<Addressing Mode (Slave mode) */
 
-/*******************  Bit definition for I2C_OAR2 register  *******************/
+/*******************  位定义 I2C_OAR2 寄存器  *******************/
 #define  I2C_OAR2_ENDUAL                     ((uint8_t)0x01)               /*!<Dual addressing mode enable */
 #define  I2C_OAR2_ADD2                       ((uint8_t)0xFE)               /*!<Interface address           */
 
-/********************  Bit definition for I2C_DR register  ********************/
+/********************  位定义 I2C_DR 寄存器  ********************/
 #define  I2C_DR_DR                           ((uint8_t)0xFF)               /*!<8-bit Data Register         */
 
-/*******************  Bit definition for I2C_SR1 register  ********************/
+/*******************  位定义 I2C_SR1 寄存器  ********************/
 #define  I2C_SR1_SB                          ((uint16_t)0x0001)            /*!<Start Bit (Master mode)                         */
 #define  I2C_SR1_ADDR                        ((uint16_t)0x0002)            /*!<Address sent (master mode)/matched (slave mode) */
 #define  I2C_SR1_BTF                         ((uint16_t)0x0004)            /*!<Byte Transfer Finished                          */
@@ -7296,7 +7296,7 @@ typedef struct {
 #define  I2C_SR1_TIMEOUT                     ((uint16_t)0x4000)            /*!<Timeout or Tlow Error                           */
 #define  I2C_SR1_SMBALERT                    ((uint16_t)0x8000)            /*!<SMBus Alert                                     */
 
-/*******************  Bit definition for I2C_SR2 register  ********************/
+/*******************  位定义 I2C_SR2 寄存器  ********************/
 #define  I2C_SR2_MSL                         ((uint16_t)0x0001)            /*!<Master/Slave                              */
 #define  I2C_SR2_BUSY                        ((uint16_t)0x0002)            /*!<Bus Busy                                  */
 #define  I2C_SR2_TRA                         ((uint16_t)0x0004)            /*!<Transmitter/Receiver                      */
@@ -7306,15 +7306,15 @@ typedef struct {
 #define  I2C_SR2_DUALF                       ((uint16_t)0x0080)            /*!<Dual Flag (Slave mode)                    */
 #define  I2C_SR2_PEC                         ((uint16_t)0xFF00)            /*!<Packet Error Checking Register            */
 
-/*******************  Bit definition for I2C_CCR register  ********************/
+/*******************  位定义 I2C_CCR 寄存器  ********************/
 #define  I2C_CCR_CCR                         ((uint16_t)0x0FFF)            /*!<Clock Control Register in Fast/Standard mode (Master mode) */
 #define  I2C_CCR_DUTY                        ((uint16_t)0x4000)            /*!<Fast Mode Duty Cycle                                       */
 #define  I2C_CCR_FS                          ((uint16_t)0x8000)            /*!<I2C Master Mode Selection                                  */
 
-/******************  Bit definition for I2C_TRISE register  *******************/
+/******************  位定义 I2C_TRISE 寄存器  *******************/
 #define  I2C_TRISE_TRISE                     ((uint8_t)0x3F)               /*!<Maximum Rise Time in Fast/Standard mode (Master mode) */
 
-/******************  Bit definition for I2C_FLTR register  *******************/
+/******************  位定义 I2C_FLTR 寄存器  *******************/
 #define  I2C_FLTR_DNF                     ((uint8_t)0x0F)                  /*!<Digital Noise Filter */
 #define  I2C_FLTR_ANOFF                   ((uint8_t)0x10)                  /*!<Analog Noise Filter OFF */
 
@@ -7324,7 +7324,7 @@ typedef struct {
 /*              Fast-mode Plus Inter-integrated circuit (FMPI2C)              */
 /*                                                                            */
 /******************************************************************************/
-/*******************  Bit definition for I2C_CR1 register  *******************/
+/*******************  位定义 I2C_CR1 寄存器  *******************/
 #define  FMPI2C_CR1_PE                          ((uint32_t)0x00000001)        /*!< Peripheral enable                   */
 #define  FMPI2C_CR1_TXIE                        ((uint32_t)0x00000002)        /*!< TX interrupt enable                 */
 #define  FMPI2C_CR1_RXIE                        ((uint32_t)0x00000004)        /*!< RX interrupt enable                 */
@@ -7345,7 +7345,7 @@ typedef struct {
 #define  FMPI2C_CR1_ALERTEN                     ((uint32_t)0x00400000)        /*!< SMBus alert enable                  */
 #define  FMPI2C_CR1_PECEN                       ((uint32_t)0x00800000)        /*!< PEC enable                          */
 
-/******************  Bit definition for I2C_CR2 register  ********************/
+/******************  位定义 I2C_CR2 寄存器  ********************/
 #define  FMPI2C_CR2_SADD                        ((uint32_t)0x000003FF)        /*!< Slave address (master mode)                             */
 #define  FMPI2C_CR2_RD_WRN                      ((uint32_t)0x00000400)        /*!< Transfer direction (master mode)                        */
 #define  FMPI2C_CR2_ADD10                       ((uint32_t)0x00000800)        /*!< 10-bit addressing mode (master mode)                    */
@@ -7358,17 +7358,17 @@ typedef struct {
 #define  FMPI2C_CR2_AUTOEND                     ((uint32_t)0x02000000)        /*!< Automatic end mode (master mode)                        */
 #define  FMPI2C_CR2_PECBYTE                     ((uint32_t)0x04000000)        /*!< Packet error checking byte                              */
 
-/*******************  Bit definition for I2C_OAR1 register  ******************/
+/*******************  位定义 I2C_OAR1 寄存器  ******************/
 #define  FMPI2C_OAR1_OA1                        ((uint32_t)0x000003FF)        /*!< Interface own address 1   */
 #define  FMPI2C_OAR1_OA1MODE                    ((uint32_t)0x00000400)        /*!< Own address 1 10-bit mode */
 #define  FMPI2C_OAR1_OA1EN                      ((uint32_t)0x00008000)        /*!< Own address 1 enable     */
 
-/*******************  Bit definition for I2C_OAR2 register  *******************/
+/*******************  位定义 I2C_OAR2 寄存器  *******************/
 #define  FMPI2C_OAR2_OA2                        ((uint32_t)0x000000FE)        /*!< Interface own address 2 */
 #define  FMPI2C_OAR2_OA2MSK                     ((uint32_t)0x00000700)        /*!< Own address 2 masks     */
 #define  FMPI2C_OAR2_OA2EN                      ((uint32_t)0x00008000)        /*!< Own address 2 enable    */
 
-/*******************  Bit definition for I2C_TIMINGR register *****************/
+/*******************  位定义 I2C_TIMINGR register *****************/
 #define  FMPI2C_TIMINGR_SCLL                    ((uint32_t)0x000000FF)        /*!< SCL low period (master mode)  */
 #define  FMPI2C_TIMINGR_SCLH                    ((uint32_t)0x0000FF00)        /*!< SCL high period (master mode) */
 #define  FMPI2C_TIMINGR_SDADEL                  ((uint32_t)0x000F0000)        /*!< Data hold time                */
@@ -7382,7 +7382,7 @@ typedef struct {
 #define  FMPI2C_TIMEOUTR_TIMEOUTB               ((uint32_t)0x0FFF0000)        /*!< Bus timeout B                 */
 #define  FMPI2C_TIMEOUTR_TEXTEN                 ((uint32_t)0x80000000)        /*!< Extended clock timeout enable */
 
-/******************  Bit definition for I2C_ISR register  *********************/
+/******************  位定义 I2C_ISR 寄存器  *********************/
 #define  FMPI2C_ISR_TXE                         ((uint32_t)0x00000001)        /*!< Transmit data register empty    */
 #define  FMPI2C_ISR_TXIS                        ((uint32_t)0x00000002)        /*!< Transmit interrupt status       */
 #define  FMPI2C_ISR_RXNE                        ((uint32_t)0x00000004)        /*!< Receive data register not empty */
@@ -7401,7 +7401,7 @@ typedef struct {
 #define  FMPI2C_ISR_DIR                         ((uint32_t)0x00010000)        /*!< Transfer direction (slave mode) */
 #define  FMPI2C_ISR_ADDCODE                     ((uint32_t)0x00FE0000)        /*!< Address match code (slave mode) */
 
-/******************  Bit definition for I2C_ICR register  *********************/
+/******************  位定义 I2C_ICR 寄存器  *********************/
 #define  FMPI2C_ICR_ADDRCF                      ((uint32_t)0x00000008)        /*!< Address matched clear flag  */
 #define  FMPI2C_ICR_NACKCF                      ((uint32_t)0x00000010)        /*!< NACK clear flag             */
 #define  FMPI2C_ICR_STOPCF                      ((uint32_t)0x00000020)        /*!< STOP detection clear flag   */
@@ -7412,13 +7412,13 @@ typedef struct {
 #define  FMPI2C_ICR_TIMOUTCF                    ((uint32_t)0x00001000)        /*!< Timeout clear flag          */
 #define  FMPI2C_ICR_ALERTCF                     ((uint32_t)0x00002000)        /*!< Alert clear flag            */
 
-/******************  Bit definition for I2C_PECR register  ********************/
+/******************  位定义 I2C_PECR 寄存器  ********************/
 #define  FMPI2C_PECR_PEC                        ((uint32_t)0x000000FF)        /*!< PEC register */
 
-/******************  Bit definition for I2C_RXDR register  *********************/
+/******************  位定义 I2C_RXDR 寄存器  *********************/
 #define  FMPI2C_RXDR_RXDATA                     ((uint32_t)0x000000FF)        /*!< 8-bit receive data */
 
-/******************  Bit definition for I2C_TXDR register  *********************/
+/******************  位定义 I2C_TXDR 寄存器  *********************/
 #define  FMPI2C_TXDR_TXDATA                     ((uint32_t)0x000000FF)        /*!< 8-bit transmit data */
 #endif /* STM32F410xx || STM32F412xG || STM32F413_423xx || STM32F446xx */
 /******************************************************************************/
@@ -7426,19 +7426,19 @@ typedef struct {
 /*                           Independent WATCHDOG                             */
 /*                                                                            */
 /******************************************************************************/
-/*******************  Bit definition for IWDG_KR register  ********************/
+/*******************  位定义 IWDG_KR 寄存器  ********************/
 #define  IWDG_KR_KEY                         ((uint16_t)0xFFFF)            /*!<Key value (write only, read 0000h)  */
 
-/*******************  Bit definition for IWDG_PR register  ********************/
+/*******************  位定义 IWDG_PR 寄存器  ********************/
 #define  IWDG_PR_PR                          ((uint8_t)0x07)               /*!<PR[2:0] (Prescaler divider)         */
 #define  IWDG_PR_PR_0                        ((uint8_t)0x01)               /*!<Bit 0 */
 #define  IWDG_PR_PR_1                        ((uint8_t)0x02)               /*!<Bit 1 */
 #define  IWDG_PR_PR_2                        ((uint8_t)0x04)               /*!<Bit 2 */
 
-/*******************  Bit definition for IWDG_RLR register  *******************/
+/*******************  位定义 IWDG_RLR 寄存器  *******************/
 #define  IWDG_RLR_RL                         ((uint16_t)0x0FFF)            /*!<Watchdog counter reload value        */
 
-/*******************  Bit definition for IWDG_SR register  ********************/
+/*******************  位定义 IWDG_SR 寄存器  ********************/
 #define  IWDG_SR_PVU                         ((uint8_t)0x01)               /*!<Watchdog prescaler value update      */
 #define  IWDG_SR_RVU                         ((uint8_t)0x02)               /*!<Watchdog counter reload value update */
 
@@ -7448,27 +7448,27 @@ typedef struct {
 /*                                                                            */
 /******************************************************************************/
 
-/********************  Bit definition for LTDC_SSCR register  *****************/
+/********************  位定义 LTDC_SSCR 寄存器  *****************/
 
 #define LTDC_SSCR_VSH                       ((uint32_t)0x000007FF)              /*!< Vertical Synchronization Height */
 #define LTDC_SSCR_HSW                       ((uint32_t)0x0FFF0000)              /*!< Horizontal Synchronization Width */
 
-/********************  Bit definition for LTDC_BPCR register  *****************/
+/********************  位定义 LTDC_BPCR 寄存器  *****************/
 
 #define LTDC_BPCR_AVBP                      ((uint32_t)0x000007FF)              /*!< Accumulated Vertical Back Porch */
 #define LTDC_BPCR_AHBP                      ((uint32_t)0x0FFF0000)              /*!< Accumulated Horizontal Back Porch */
 
-/********************  Bit definition for LTDC_AWCR register  *****************/
+/********************  位定义 LTDC_AWCR 寄存器  *****************/
 
 #define LTDC_AWCR_AAH                       ((uint32_t)0x000007FF)              /*!< Accumulated Active heigh */
 #define LTDC_AWCR_AAW                       ((uint32_t)0x0FFF0000)              /*!< Accumulated Active Width */
 
-/********************  Bit definition for LTDC_TWCR register  *****************/
+/********************  位定义 LTDC_TWCR 寄存器  *****************/
 
 #define LTDC_TWCR_TOTALH                    ((uint32_t)0x000007FF)              /*!< Total Heigh */
 #define LTDC_TWCR_TOTALW                    ((uint32_t)0x0FFF0000)              /*!< Total Width */
 
-/********************  Bit definition for LTDC_GCR register  ******************/
+/********************  位定义 LTDC_GCR 寄存器  ******************/
 
 #define LTDC_GCR_LTDCEN                     ((uint32_t)0x00000001)              /*!< LCD-TFT controller enable bit */
 #define LTDC_GCR_DBW                        ((uint32_t)0x00000070)              /*!< Dither Blue Width */
@@ -7483,110 +7483,110 @@ typedef struct {
 /* Legacy defines */
 #define LTDC_GCR_DTEN                       LTDC_GCR_DEN
 
-/********************  Bit definition for LTDC_SRCR register  *****************/
+/********************  位定义 LTDC_SRCR 寄存器  *****************/
 
 #define LTDC_SRCR_IMR                      ((uint32_t)0x00000001)               /*!< Immediate Reload */
 #define LTDC_SRCR_VBR                      ((uint32_t)0x00000002)               /*!< Vertical Blanking Reload */
 
-/********************  Bit definition for LTDC_BCCR register  *****************/
+/********************  位定义 LTDC_BCCR 寄存器  *****************/
 
 #define LTDC_BCCR_BCBLUE                    ((uint32_t)0x000000FF)              /*!< Background Blue value */
 #define LTDC_BCCR_BCGREEN                   ((uint32_t)0x0000FF00)              /*!< Background Green value */
 #define LTDC_BCCR_BCRED                     ((uint32_t)0x00FF0000)              /*!< Background Red value */
 
-/********************  Bit definition for LTDC_IER register  ******************/
+/********************  位定义 LTDC_IER 寄存器  ******************/
 
 #define LTDC_IER_LIE                        ((uint32_t)0x00000001)              /*!< Line Interrupt Enable */
 #define LTDC_IER_FUIE                       ((uint32_t)0x00000002)              /*!< FIFO Underrun Interrupt Enable */
 #define LTDC_IER_TERRIE                     ((uint32_t)0x00000004)              /*!< Transfer Error Interrupt Enable */
 #define LTDC_IER_RRIE                       ((uint32_t)0x00000008)              /*!< Register Reload interrupt enable */
 
-/********************  Bit definition for LTDC_ISR register  ******************/
+/********************  位定义 LTDC_ISR 寄存器  ******************/
 
 #define LTDC_ISR_LIF                        ((uint32_t)0x00000001)              /*!< Line Interrupt Flag */
 #define LTDC_ISR_FUIF                       ((uint32_t)0x00000002)              /*!< FIFO Underrun Interrupt Flag */
 #define LTDC_ISR_TERRIF                     ((uint32_t)0x00000004)              /*!< Transfer Error Interrupt Flag */
 #define LTDC_ISR_RRIF                       ((uint32_t)0x00000008)              /*!< Register Reload interrupt Flag */
 
-/********************  Bit definition for LTDC_ICR register  ******************/
+/********************  位定义 LTDC_ICR 寄存器  ******************/
 
 #define LTDC_ICR_CLIF                       ((uint32_t)0x00000001)              /*!< Clears the Line Interrupt Flag */
 #define LTDC_ICR_CFUIF                      ((uint32_t)0x00000002)              /*!< Clears the FIFO Underrun Interrupt Flag */
 #define LTDC_ICR_CTERRIF                    ((uint32_t)0x00000004)              /*!< Clears the Transfer Error Interrupt Flag */
 #define LTDC_ICR_CRRIF                      ((uint32_t)0x00000008)              /*!< Clears Register Reload interrupt Flag */
 
-/********************  Bit definition for LTDC_LIPCR register  ****************/
+/********************  位定义 LTDC_LIPCR 寄存器  ****************/
 
 #define LTDC_LIPCR_LIPOS                    ((uint32_t)0x000007FF)              /*!< Line Interrupt Position */
 
-/********************  Bit definition for LTDC_CPSR register  *****************/
+/********************  位定义 LTDC_CPSR 寄存器  *****************/
 
 #define LTDC_CPSR_CYPOS                     ((uint32_t)0x0000FFFF)              /*!< Current Y Position */
 #define LTDC_CPSR_CXPOS                     ((uint32_t)0xFFFF0000)              /*!< Current X Position */
 
-/********************  Bit definition for LTDC_CDSR register  *****************/
+/********************  位定义 LTDC_CDSR 寄存器  *****************/
 
 #define LTDC_CDSR_VDES                      ((uint32_t)0x00000001)              /*!< Vertical Data Enable Status */
 #define LTDC_CDSR_HDES                      ((uint32_t)0x00000002)              /*!< Horizontal Data Enable Status */
 #define LTDC_CDSR_VSYNCS                    ((uint32_t)0x00000004)              /*!< Vertical Synchronization Status */
 #define LTDC_CDSR_HSYNCS                    ((uint32_t)0x00000008)              /*!< Horizontal Synchronization Status */
 
-/********************  Bit definition for LTDC_LxCR register  *****************/
+/********************  位定义 LTDC_LxCR 寄存器  *****************/
 
 #define LTDC_LxCR_LEN                       ((uint32_t)0x00000001)              /*!< Layer Enable */
 #define LTDC_LxCR_COLKEN                    ((uint32_t)0x00000002)              /*!< Color Keying Enable */
 #define LTDC_LxCR_CLUTEN                    ((uint32_t)0x00000010)              /*!< Color Lockup Table Enable */
 
-/********************  Bit definition for LTDC_LxWHPCR register  **************/
+/********************  位定义 LTDC_LxWHPCR 寄存器  **************/
 
 #define LTDC_LxWHPCR_WHSTPOS                ((uint32_t)0x00000FFF)              /*!< Window Horizontal Start Position */
 #define LTDC_LxWHPCR_WHSPPOS                ((uint32_t)0xFFFF0000)              /*!< Window Horizontal Stop Position */
 
-/********************  Bit definition for LTDC_LxWVPCR register  **************/
+/********************  位定义 LTDC_LxWVPCR 寄存器  **************/
 
 #define LTDC_LxWVPCR_WVSTPOS                ((uint32_t)0x00000FFF)              /*!< Window Vertical Start Position */
 #define LTDC_LxWVPCR_WVSPPOS                ((uint32_t)0xFFFF0000)              /*!< Window Vertical Stop Position */
 
-/********************  Bit definition for LTDC_LxCKCR register  ***************/
+/********************  位定义 LTDC_LxCKCR 寄存器  ***************/
 
 #define LTDC_LxCKCR_CKBLUE                  ((uint32_t)0x000000FF)              /*!< Color Key Blue value */
 #define LTDC_LxCKCR_CKGREEN                 ((uint32_t)0x0000FF00)              /*!< Color Key Green value */
 #define LTDC_LxCKCR_CKRED                   ((uint32_t)0x00FF0000)              /*!< Color Key Red value */
 
-/********************  Bit definition for LTDC_LxPFCR register  ***************/
+/********************  位定义 LTDC_LxPFCR 寄存器  ***************/
 
 #define LTDC_LxPFCR_PF                      ((uint32_t)0x00000007)              /*!< Pixel Format */
 
-/********************  Bit definition for LTDC_LxCACR register  ***************/
+/********************  位定义 LTDC_LxCACR 寄存器  ***************/
 
 #define LTDC_LxCACR_CONSTA                  ((uint32_t)0x000000FF)              /*!< Constant Alpha */
 
-/********************  Bit definition for LTDC_LxDCCR register  ***************/
+/********************  位定义 LTDC_LxDCCR 寄存器  ***************/
 
 #define LTDC_LxDCCR_DCBLUE                  ((uint32_t)0x000000FF)              /*!< Default Color Blue */
 #define LTDC_LxDCCR_DCGREEN                 ((uint32_t)0x0000FF00)              /*!< Default Color Green */
 #define LTDC_LxDCCR_DCRED                   ((uint32_t)0x00FF0000)              /*!< Default Color Red */
 #define LTDC_LxDCCR_DCALPHA                 ((uint32_t)0xFF000000)              /*!< Default Color Alpha */
 
-/********************  Bit definition for LTDC_LxBFCR register  ***************/
+/********************  位定义 LTDC_LxBFCR 寄存器  ***************/
 
 #define LTDC_LxBFCR_BF2                     ((uint32_t)0x00000007)              /*!< Blending Factor 2 */
 #define LTDC_LxBFCR_BF1                     ((uint32_t)0x00000700)              /*!< Blending Factor 1 */
 
-/********************  Bit definition for LTDC_LxCFBAR register  **************/
+/********************  位定义 LTDC_LxCFBAR 寄存器  **************/
 
 #define LTDC_LxCFBAR_CFBADD                 ((uint32_t)0xFFFFFFFF)              /*!< Color Frame Buffer Start Address */
 
-/********************  Bit definition for LTDC_LxCFBLR register  **************/
+/********************  位定义 LTDC_LxCFBLR 寄存器  **************/
 
 #define LTDC_LxCFBLR_CFBLL                  ((uint32_t)0x00001FFF)              /*!< Color Frame Buffer Line Length */
 #define LTDC_LxCFBLR_CFBP                   ((uint32_t)0x1FFF0000)              /*!< Color Frame Buffer Pitch in bytes */
 
-/********************  Bit definition for LTDC_LxCFBLNR register  *************/
+/********************  位定义 LTDC_LxCFBLNR 寄存器  *************/
 
 #define LTDC_LxCFBLNR_CFBLNBR               ((uint32_t)0x000007FF)              /*!< Frame Buffer Line Number */
 
-/********************  Bit definition for LTDC_LxCLUTWR register  *************/
+/********************  位定义 LTDC_LxCLUTWR 寄存器  *************/
 
 #define LTDC_LxCLUTWR_BLUE                  ((uint32_t)0x000000FF)              /*!< Blue value */
 #define LTDC_LxCLUTWR_GREEN                 ((uint32_t)0x0000FF00)              /*!< Green value */
@@ -7599,13 +7599,13 @@ typedef struct {
 /*                                    DSI                                     */
 /*                                                                            */
 /******************************************************************************/
-/*******************  Bit definition for DSI_VR register  *****************/
+/*******************  位定义 DSI_VR 寄存器  *****************/
 #define DSI_VR                         ((uint32_t)0x3133302A)               /*!< DSI Host Version */
 
-/*******************  Bit definition for DSI_CR register  *****************/
+/*******************  位定义 DSI_CR 寄存器  *****************/
 #define DSI_CR_EN                      ((uint32_t)0x00000001)               /*!< DSI Host power up and reset */
 
-/*******************  Bit definition for DSI_CCR register  ****************/
+/*******************  位定义 DSI_CCR 寄存器  ****************/
 #define DSI_CCR_TXECKDIV               ((uint32_t)0x000000FF)               /*!< TX Escape Clock Division */
 #define DSI_CCR_TXECKDIV0              ((uint32_t)0x00000001)
 #define DSI_CCR_TXECKDIV1              ((uint32_t)0x00000002)
@@ -7626,12 +7626,12 @@ typedef struct {
 #define DSI_CCR_TOCKDIV6               ((uint32_t)0x00004000)
 #define DSI_CCR_TOCKDIV7               ((uint32_t)0x00008000)
 
-/*******************  Bit definition for DSI_LVCIDR register  *************/
+/*******************  位定义 DSI_LVCIDR 寄存器  *************/
 #define DSI_LVCIDR_VCID                ((uint32_t)0x00000003)               /*!< Virtual Channel ID */
 #define DSI_LVCIDR_VCID0               ((uint32_t)0x00000001)
 #define DSI_LVCIDR_VCID1               ((uint32_t)0x00000002)
 
-/*******************  Bit definition for DSI_LCOLCR register  *************/
+/*******************  位定义 DSI_LCOLCR 寄存器  *************/
 #define DSI_LCOLCR_COLC                ((uint32_t)0x0000000F)               /*!< Color Coding */
 #define DSI_LCOLCR_COLC0               ((uint32_t)0x00000001)
 #define DSI_LCOLCR_COLC1               ((uint32_t)0x00000020)
@@ -7640,12 +7640,12 @@ typedef struct {
 
 #define DSI_LCOLCR_LPE                 ((uint32_t)0x00000100)               /*!< Loosly Packet Enable */
 
-/*******************  Bit definition for DSI_LPCR register  ***************/
+/*******************  位定义 DSI_LPCR 寄存器  ***************/
 #define DSI_LPCR_DEP                   ((uint32_t)0x00000001)               /*!< Data Enable Polarity */
 #define DSI_LPCR_VSP                   ((uint32_t)0x00000002)               /*!< VSYNC Polarity */
 #define DSI_LPCR_HSP                   ((uint32_t)0x00000004)               /*!< HSYNC Polarity */
 
-/*******************  Bit definition for DSI_LPMCR register  **************/
+/*******************  位定义 DSI_LPMCR 寄存器  **************/
 #define DSI_LPMCR_VLPSIZE              ((uint32_t)0x000000FF)               /*!< VACT Largest Packet Size */
 #define DSI_LPMCR_VLPSIZE0             ((uint32_t)0x00000001)
 #define DSI_LPMCR_VLPSIZE1             ((uint32_t)0x00000002)
@@ -7666,22 +7666,22 @@ typedef struct {
 #define DSI_LPMCR_LPSIZE6              ((uint32_t)0x00400000)
 #define DSI_LPMCR_LPSIZE7              ((uint32_t)0x00800000)
 
-/*******************  Bit definition for DSI_PCR register  ****************/
+/*******************  位定义 DSI_PCR 寄存器  ****************/
 #define DSI_PCR_ETTXE                  ((uint32_t)0x00000001)               /*!< EoTp Transmission Enable */
 #define DSI_PCR_ETRXE                  ((uint32_t)0x00000002)               /*!< EoTp Reception Enable */
 #define DSI_PCR_BTAE                   ((uint32_t)0x00000004)               /*!< Bus Turn Around Enable */
 #define DSI_PCR_ECCRXE                 ((uint32_t)0x00000008)               /*!< ECC Reception Enable */
 #define DSI_PCR_CRCRXE                 ((uint32_t)0x00000010)               /*!< CRC Reception Enable */
 
-/*******************  Bit definition for DSI_GVCIDR register  *************/
+/*******************  位定义 DSI_GVCIDR 寄存器  *************/
 #define DSI_GVCIDR_VCID                ((uint32_t)0x00000003)               /*!< Virtual Channel ID */
 #define DSI_GVCIDR_VCID0               ((uint32_t)0x00000001)
 #define DSI_GVCIDR_VCID1               ((uint32_t)0x00000002)
 
-/*******************  Bit definition for DSI_MCR register  ****************/
+/*******************  位定义 DSI_MCR 寄存器  ****************/
 #define DSI_MCR_CMDM                   ((uint32_t)0x00000001)               /*!< Command Mode */
 
-/*******************  Bit definition for DSI_VMCR register  ***************/
+/*******************  位定义 DSI_VMCR 寄存器  ***************/
 #define DSI_VMCR_VMT                   ((uint32_t)0x00000003)               /*!< Video Mode Type */
 #define DSI_VMCR_VMT0                  ((uint32_t)0x00000001)
 #define DSI_VMCR_VMT1                  ((uint32_t)0x00000002)
@@ -7698,7 +7698,7 @@ typedef struct {
 #define DSI_VMCR_PGM                   ((uint32_t)0x00100000)               /*!< Pattern Generator Mode */
 #define DSI_VMCR_PGO                   ((uint32_t)0x01000000)               /*!< Pattern Generator Orientation */
 
-/*******************  Bit definition for DSI_VPCR register  ***************/
+/*******************  位定义 DSI_VPCR 寄存器  ***************/
 #define DSI_VPCR_VPSIZE                ((uint32_t)0x00003FFF)               /*!< Video Packet Size */
 #define DSI_VPCR_VPSIZE0               ((uint32_t)0x00000001)
 #define DSI_VPCR_VPSIZE1               ((uint32_t)0x00000002)
@@ -7715,7 +7715,7 @@ typedef struct {
 #define DSI_VPCR_VPSIZE12              ((uint32_t)0x00001000)
 #define DSI_VPCR_VPSIZE13              ((uint32_t)0x00002000)
 
-/*******************  Bit definition for DSI_VCCR register  ***************/
+/*******************  位定义 DSI_VCCR 寄存器  ***************/
 #define DSI_VCCR_NUMC                  ((uint32_t)0x00001FFF)               /*!< Number of Chunks */
 #define DSI_VCCR_NUMC0                 ((uint32_t)0x00000001)
 #define DSI_VCCR_NUMC1                 ((uint32_t)0x00000002)
@@ -7731,7 +7731,7 @@ typedef struct {
 #define DSI_VCCR_NUMC11                ((uint32_t)0x00000800)
 #define DSI_VCCR_NUMC12                ((uint32_t)0x00001000)
 
-/*******************  Bit definition for DSI_VNPCR register  **************/
+/*******************  位定义 DSI_VNPCR 寄存器  **************/
 #define DSI_VNPCR_NPSIZE               ((uint32_t)0x00001FFF)               /*!< Null Packet Size */
 #define DSI_VNPCR_NPSIZE0              ((uint32_t)0x00000001)
 #define DSI_VNPCR_NPSIZE1              ((uint32_t)0x00000002)
@@ -7747,7 +7747,7 @@ typedef struct {
 #define DSI_VNPCR_NPSIZE11             ((uint32_t)0x00000800)
 #define DSI_VNPCR_NPSIZE12             ((uint32_t)0x00001000)
 
-/*******************  Bit definition for DSI_VHSACR register  *************/
+/*******************  位定义 DSI_VHSACR 寄存器  *************/
 #define DSI_VHSACR_HSA                 ((uint32_t)0x00000FFF)               /*!< Horizontal Synchronism Active duration */
 #define DSI_VHSACR_HSA0                ((uint32_t)0x00000001)
 #define DSI_VHSACR_HSA1                ((uint32_t)0x00000002)
@@ -7762,7 +7762,7 @@ typedef struct {
 #define DSI_VHSACR_HSA10               ((uint32_t)0x00000400)
 #define DSI_VHSACR_HSA11               ((uint32_t)0x00000800)
 
-/*******************  Bit definition for DSI_VHBPCR register  *************/
+/*******************  位定义 DSI_VHBPCR 寄存器  *************/
 #define DSI_VHBPCR_HBP                 ((uint32_t)0x00000FFF)               /*!< Horizontal Back-Porch duration */
 #define DSI_VHBPCR_HBP0                ((uint32_t)0x00000001)
 #define DSI_VHBPCR_HBP1                ((uint32_t)0x00000002)
@@ -7777,7 +7777,7 @@ typedef struct {
 #define DSI_VHBPCR_HBP10               ((uint32_t)0x00000400)
 #define DSI_VHBPCR_HBP11               ((uint32_t)0x00000800)
 
-/*******************  Bit definition for DSI_VLCR register  ***************/
+/*******************  位定义 DSI_VLCR 寄存器  ***************/
 #define DSI_VLCR_HLINE                 ((uint32_t)0x00007FFF)               /*!< Horizontal Line duration */
 #define DSI_VLCR_HLINE0                ((uint32_t)0x00000001)
 #define DSI_VLCR_HLINE1                ((uint32_t)0x00000002)
@@ -7795,7 +7795,7 @@ typedef struct {
 #define DSI_VLCR_HLINE13               ((uint32_t)0x00002000)
 #define DSI_VLCR_HLINE14               ((uint32_t)0x00004000)
 
-/*******************  Bit definition for DSI_VVSACR register  *************/
+/*******************  位定义 DSI_VVSACR 寄存器  *************/
 #define DSI_VVSACR_VSA                 ((uint32_t)0x000003FF)               /*!< Vertical Synchronism Active duration */
 #define DSI_VVSACR_VSA0                ((uint32_t)0x00000001)
 #define DSI_VVSACR_VSA1                ((uint32_t)0x00000002)
@@ -7808,7 +7808,7 @@ typedef struct {
 #define DSI_VVSACR_VSA8                ((uint32_t)0x00000100)
 #define DSI_VVSACR_VSA9                ((uint32_t)0x00000200)
 
-/*******************  Bit definition for DSI_VVBPCR register  *************/
+/*******************  位定义 DSI_VVBPCR 寄存器  *************/
 #define DSI_VVBPCR_VBP                 ((uint32_t)0x000003FF)               /*!< Vertical Back-Porch duration */
 #define DSI_VVBPCR_VBP0                ((uint32_t)0x00000001)
 #define DSI_VVBPCR_VBP1                ((uint32_t)0x00000002)
@@ -7821,7 +7821,7 @@ typedef struct {
 #define DSI_VVBPCR_VBP8                ((uint32_t)0x00000100)
 #define DSI_VVBPCR_VBP9                ((uint32_t)0x00000200)
 
-/*******************  Bit definition for DSI_VVFPCR register  *************/
+/*******************  位定义 DSI_VVFPCR 寄存器  *************/
 #define DSI_VVFPCR_VFP                 ((uint32_t)0x000003FF)               /*!< Vertical Front-Porch duration */
 #define DSI_VVFPCR_VFP0                ((uint32_t)0x00000001)
 #define DSI_VVFPCR_VFP1                ((uint32_t)0x00000002)
@@ -7834,7 +7834,7 @@ typedef struct {
 #define DSI_VVFPCR_VFP8                ((uint32_t)0x00000100)
 #define DSI_VVFPCR_VFP9                ((uint32_t)0x00000200)
 
-/*******************  Bit definition for DSI_VVACR register  **************/
+/*******************  位定义 DSI_VVACR 寄存器  **************/
 #define DSI_VVACR_VA                   ((uint32_t)0x00003FFF)               /*!< Vertical Active duration */
 #define DSI_VVACR_VA0                  ((uint32_t)0x00000001)
 #define DSI_VVACR_VA1                  ((uint32_t)0x00000002)
@@ -7851,7 +7851,7 @@ typedef struct {
 #define DSI_VVACR_VA12                 ((uint32_t)0x00001000)
 #define DSI_VVACR_VA13                 ((uint32_t)0x00002000)
 
-/*******************  Bit definition for DSI_LCCR register  ***************/
+/*******************  位定义 DSI_LCCR 寄存器  ***************/
 #define DSI_LCCR_CMDSIZE               ((uint32_t)0x0000FFFF)               /*!< Command Size */
 #define DSI_LCCR_CMDSIZE0              ((uint32_t)0x00000001)
 #define DSI_LCCR_CMDSIZE1              ((uint32_t)0x00000002)
@@ -7870,7 +7870,7 @@ typedef struct {
 #define DSI_LCCR_CMDSIZE14             ((uint32_t)0x00004000)
 #define DSI_LCCR_CMDSIZE15             ((uint32_t)0x00008000)
 
-/*******************  Bit definition for DSI_CMCR register  ***************/
+/*******************  位定义 DSI_CMCR 寄存器  ***************/
 #define DSI_CMCR_TEARE                 ((uint32_t)0x00000001)               /*!< Tearing Effect Acknowledge Request Enable */
 #define DSI_CMCR_ARE                   ((uint32_t)0x00000002)               /*!< Acknowledge Request Enable */
 #define DSI_CMCR_GSW0TX                ((uint32_t)0x00000100)               /*!< Generic Short Write Zero parameters Transmission */
@@ -7886,7 +7886,7 @@ typedef struct {
 #define DSI_CMCR_DLWTX                 ((uint32_t)0x00080000)               /*!< DCS Long Write Transmission */
 #define DSI_CMCR_MRDPS                 ((uint32_t)0x01000000)               /*!< Maximum Read Packet Size */
 
-/*******************  Bit definition for DSI_GHCR register  ***************/
+/*******************  位定义 DSI_GHCR 寄存器  ***************/
 #define DSI_GHCR_DT                    ((uint32_t)0x0000003F)               /*!< Type */
 #define DSI_GHCR_DT0                   ((uint32_t)0x00000001)
 #define DSI_GHCR_DT1                   ((uint32_t)0x00000002)
@@ -7919,7 +7919,7 @@ typedef struct {
 #define DSI_GHCR_WCMSB6                ((uint32_t)0x00400000)
 #define DSI_GHCR_WCMSB7                ((uint32_t)0x00800000)
 
-/*******************  Bit definition for DSI_GPDR register  ***************/
+/*******************  位定义 DSI_GPDR 寄存器  ***************/
 #define DSI_GPDR_DATA1                 ((uint32_t)0x000000FF)               /*!< Payload Byte 1 */
 #define DSI_GPDR_DATA1_0               ((uint32_t)0x00000001)
 #define DSI_GPDR_DATA1_1               ((uint32_t)0x00000002)
@@ -7960,7 +7960,7 @@ typedef struct {
 #define DSI_GPDR_DATA4_6               ((uint32_t)0x40000000)
 #define DSI_GPDR_DATA4_7               ((uint32_t)0x80000000)
 
-/*******************  Bit definition for DSI_GPSR register  ***************/
+/*******************  位定义 DSI_GPSR 寄存器  ***************/
 #define DSI_GPSR_CMDFE                 ((uint32_t)0x00000001)               /*!< Command FIFO Empty */
 #define DSI_GPSR_CMDFF                 ((uint32_t)0x00000002)               /*!< Command FIFO Full */
 #define DSI_GPSR_PWRFE                 ((uint32_t)0x00000004)               /*!< Payload Write FIFO Empty */
@@ -7969,7 +7969,7 @@ typedef struct {
 #define DSI_GPSR_PRDFF                 ((uint32_t)0x00000020)               /*!< Payload Read FIFO Full */
 #define DSI_GPSR_RCB                   ((uint32_t)0x00000040)               /*!< Read Command Busy */
 
-/*******************  Bit definition for DSI_TCCR0 register  **************/
+/*******************  位定义 DSI_TCCR0 寄存器  **************/
 #define DSI_TCCR0_LPRX_TOCNT           ((uint32_t)0x0000FFFF)               /*!< Low-power Reception Timeout Counter */
 #define DSI_TCCR0_LPRX_TOCNT0          ((uint32_t)0x00000001)
 #define DSI_TCCR0_LPRX_TOCNT1          ((uint32_t)0x00000002)
@@ -8006,7 +8006,7 @@ typedef struct {
 #define DSI_TCCR0_HSTX_TOCNT14         ((uint32_t)0x40000000)
 #define DSI_TCCR0_HSTX_TOCNT15         ((uint32_t)0x80000000)
 
-/*******************  Bit definition for DSI_TCCR1 register  **************/
+/*******************  位定义 DSI_TCCR1 寄存器  **************/
 #define DSI_TCCR1_HSRD_TOCNT           ((uint32_t)0x0000FFFF)               /*!< High-Speed Read Timeout Counter */
 #define DSI_TCCR1_HSRD_TOCNT0          ((uint32_t)0x00000001)
 #define DSI_TCCR1_HSRD_TOCNT1          ((uint32_t)0x00000002)
@@ -8025,7 +8025,7 @@ typedef struct {
 #define DSI_TCCR1_HSRD_TOCNT14         ((uint32_t)0x00004000)
 #define DSI_TCCR1_HSRD_TOCNT15         ((uint32_t)0x00008000)
 
-/*******************  Bit definition for DSI_TCCR2 register  **************/
+/*******************  位定义 DSI_TCCR2 寄存器  **************/
 #define DSI_TCCR2_LPRD_TOCNT           ((uint32_t)0x0000FFFF)               /*!< Low-Power Read Timeout Counter */
 #define DSI_TCCR2_LPRD_TOCNT0          ((uint32_t)0x00000001)
 #define DSI_TCCR2_LPRD_TOCNT1          ((uint32_t)0x00000002)
@@ -8044,7 +8044,7 @@ typedef struct {
 #define DSI_TCCR2_LPRD_TOCNT14         ((uint32_t)0x00004000)
 #define DSI_TCCR2_LPRD_TOCNT15         ((uint32_t)0x00008000)
 
-/*******************  Bit definition for DSI_TCCR3 register  **************/
+/*******************  位定义 DSI_TCCR3 寄存器  **************/
 #define DSI_TCCR3_HSWR_TOCNT           ((uint32_t)0x0000FFFF)               /*!< High-Speed Write Timeout Counter */
 #define DSI_TCCR3_HSWR_TOCNT0          ((uint32_t)0x00000001)
 #define DSI_TCCR3_HSWR_TOCNT1          ((uint32_t)0x00000002)
@@ -8065,7 +8065,7 @@ typedef struct {
 
 #define DSI_TCCR3_PM                   ((uint32_t)0x01000000)               /*!< Presp Mode */
 
-/*******************  Bit definition for DSI_TCCR4 register  **************/
+/*******************  位定义 DSI_TCCR4 寄存器  **************/
 #define DSI_TCCR4_LPWR_TOCNT           ((uint32_t)0x0000FFFF)               /*!< Low-Power Write Timeout Counter */
 #define DSI_TCCR4_LPWR_TOCNT0          ((uint32_t)0x00000001)
 #define DSI_TCCR4_LPWR_TOCNT1          ((uint32_t)0x00000002)
@@ -8084,7 +8084,7 @@ typedef struct {
 #define DSI_TCCR4_LPWR_TOCNT14         ((uint32_t)0x00004000)
 #define DSI_TCCR4_LPWR_TOCNT15         ((uint32_t)0x00008000)
 
-/*******************  Bit definition for DSI_TCCR5 register  **************/
+/*******************  位定义 DSI_TCCR5 寄存器  **************/
 #define DSI_TCCR5_BTA_TOCNT            ((uint32_t)0x0000FFFF)               /*!< Bus-Turn-Around Timeout Counter */
 #define DSI_TCCR5_BTA_TOCNT0           ((uint32_t)0x00000001)
 #define DSI_TCCR5_BTA_TOCNT1           ((uint32_t)0x00000002)
@@ -8103,7 +8103,7 @@ typedef struct {
 #define DSI_TCCR5_BTA_TOCNT14          ((uint32_t)0x00004000)
 #define DSI_TCCR5_BTA_TOCNT15          ((uint32_t)0x00008000)
 
-/*******************  Bit definition for DSI_TDCR register  ***************/
+/*******************  位定义 DSI_TDCR 寄存器  ***************/
 #define DSI_TDCR_3DM                   ((uint32_t)0x00000003)               /*!< 3D Mode */
 #define DSI_TDCR_3DM0                  ((uint32_t)0x00000001)
 #define DSI_TDCR_3DM1                  ((uint32_t)0x00000002)
@@ -8116,11 +8116,11 @@ typedef struct {
 #define DSI_TDCR_RF                    ((uint32_t)0x00000020)               /*!< Right First */
 #define DSI_TDCR_S3DC                  ((uint32_t)0x00010000)               /*!< Send 3D Control */
 
-/*******************  Bit definition for DSI_CLCR register  ***************/
+/*******************  位定义 DSI_CLCR 寄存器  ***************/
 #define DSI_CLCR_DPCC                  ((uint32_t)0x00000001)               /*!< D-PHY Clock Control */
 #define DSI_CLCR_ACR                   ((uint32_t)0x00000002)               /*!< Automatic Clocklane Control */
 
-/*******************  Bit definition for DSI_CLTCR register  **************/
+/*******************  位定义 DSI_CLTCR 寄存器  **************/
 #define DSI_CLTCR_LP2HS_TIME           ((uint32_t)0x000003FF)               /*!< Low-Power to High-Speed Time */
 #define DSI_CLTCR_LP2HS_TIME0          ((uint32_t)0x00000001)
 #define DSI_CLTCR_LP2HS_TIME1          ((uint32_t)0x00000002)
@@ -8145,7 +8145,7 @@ typedef struct {
 #define DSI_CLTCR_HS2LP_TIME8          ((uint32_t)0x01000000)
 #define DSI_CLTCR_HS2LP_TIME9          ((uint32_t)0x02000000)
 
-/*******************  Bit definition for DSI_DLTCR register  **************/
+/*******************  位定义 DSI_DLTCR 寄存器  **************/
 #define DSI_DLTCR_MRD_TIME             ((uint32_t)0x00007FFF)               /*!< Maximum Read Time */
 #define DSI_DLTCR_MRD_TIME0            ((uint32_t)0x00000001)
 #define DSI_DLTCR_MRD_TIME1            ((uint32_t)0x00000002)
@@ -8183,11 +8183,11 @@ typedef struct {
 #define DSI_DLTCR_HS2LP_TIME6          ((uint32_t)0x40000000)
 #define DSI_DLTCR_HS2LP_TIME7          ((uint32_t)0x80000000)
 
-/*******************  Bit definition for DSI_PCTLR register  **************/
+/*******************  位定义 DSI_PCTLR 寄存器  **************/
 #define DSI_PCTLR_DEN                  ((uint32_t)0x00000002)               /*!< Digital Enable */
 #define DSI_PCTLR_CKE                  ((uint32_t)0x00000004)               /*!< Clock Enable */
 
-/*******************  Bit definition for DSI_PCONFR register  *************/
+/*******************  位定义 DSI_PCONFR 寄存器  *************/
 #define DSI_PCONFR_NL                  ((uint32_t)0x00000003)               /*!< Number of Lanes */
 #define DSI_PCONFR_NL0                 ((uint32_t)0x00000001)
 #define DSI_PCONFR_NL1                 ((uint32_t)0x00000002)
@@ -8202,20 +8202,20 @@ typedef struct {
 #define DSI_PCONFR_SW_TIME6            ((uint32_t)0x00004000)
 #define DSI_PCONFR_SW_TIME7            ((uint32_t)0x00008000)
 
-/*******************  Bit definition for DSI_PUCR register  ***************/
+/*******************  位定义 DSI_PUCR 寄存器  ***************/
 #define DSI_PUCR_URCL                  ((uint32_t)0x00000001)               /*!< ULPS Request on Clock Lane */
 #define DSI_PUCR_UECL                  ((uint32_t)0x00000002)               /*!< ULPS Exit on Clock Lane */
 #define DSI_PUCR_URDL                  ((uint32_t)0x00000004)               /*!< ULPS Request on Data Lane */
 #define DSI_PUCR_UEDL                  ((uint32_t)0x00000008)               /*!< ULPS Exit on Data Lane */
 
-/*******************  Bit definition for DSI_PTTCR register  **************/
+/*******************  位定义 DSI_PTTCR 寄存器  **************/
 #define DSI_PTTCR_TX_TRIG              ((uint32_t)0x0000000F)               /*!< Transmission Trigger */
 #define DSI_PTTCR_TX_TRIG0             ((uint32_t)0x00000001)
 #define DSI_PTTCR_TX_TRIG1             ((uint32_t)0x00000002)
 #define DSI_PTTCR_TX_TRIG2             ((uint32_t)0x00000004)
 #define DSI_PTTCR_TX_TRIG3             ((uint32_t)0x00000008)
 
-/*******************  Bit definition for DSI_PSR register  ****************/
+/*******************  位定义 DSI_PSR 寄存器  ****************/
 #define DSI_PSR_PD                     ((uint32_t)0x00000002)               /*!< PHY Direction */
 #define DSI_PSR_PSSC                   ((uint32_t)0x00000004)               /*!< PHY Stop State Clock lane */
 #define DSI_PSR_UANC                   ((uint32_t)0x00000008)               /*!< ULPS Active Not Clock lane */
@@ -8225,7 +8225,7 @@ typedef struct {
 #define DSI_PSR_PSS1                   ((uint32_t)0x00000080)               /*!< PHY Stop State lane 1 */
 #define DSI_PSR_UAN1                   ((uint32_t)0x00000100)               /*!< ULPS Active Not lane 1 */
 
-/*******************  Bit definition for DSI_ISR0 register  ***************/
+/*******************  位定义 DSI_ISR0 寄存器  ***************/
 #define DSI_ISR0_AE0                   ((uint32_t)0x00000001)               /*!< Acknowledge Error 0 */
 #define DSI_ISR0_AE1                   ((uint32_t)0x00000002)               /*!< Acknowledge Error 1 */
 #define DSI_ISR0_AE2                   ((uint32_t)0x00000004)               /*!< Acknowledge Error 2 */
@@ -8248,7 +8248,7 @@ typedef struct {
 #define DSI_ISR0_PE3                   ((uint32_t)0x00080000)               /*!< PHY Error 3 */
 #define DSI_ISR0_PE4                   ((uint32_t)0x00100000)               /*!< PHY Error 4 */
 
-/*******************  Bit definition for DSI_ISR1 register  ***************/
+/*******************  位定义 DSI_ISR1 寄存器  ***************/
 #define DSI_ISR1_TOHSTX                ((uint32_t)0x00000001)               /*!< Timeout High-Speed Transmission */
 #define DSI_ISR1_TOLPRX                ((uint32_t)0x00000002)               /*!< Timeout Low-Power Reception */
 #define DSI_ISR1_ECCSE                 ((uint32_t)0x00000004)               /*!< ECC Single-bit Error */
@@ -8263,7 +8263,7 @@ typedef struct {
 #define DSI_ISR1_GPRDE                 ((uint32_t)0x00000800)               /*!< Generic Payload Read Error */
 #define DSI_ISR1_GPRXE                 ((uint32_t)0x00001000)               /*!< Generic Payload Receive Error */
 
-/*******************  Bit definition for DSI_IER0 register  ***************/
+/*******************  位定义 DSI_IER0 寄存器  ***************/
 #define DSI_IER0_AE0IE                 ((uint32_t)0x00000001)               /*!< Acknowledge Error 0 Interrupt Enable */
 #define DSI_IER0_AE1IE                 ((uint32_t)0x00000002)               /*!< Acknowledge Error 1 Interrupt Enable */
 #define DSI_IER0_AE2IE                 ((uint32_t)0x00000004)               /*!< Acknowledge Error 2 Interrupt Enable */
@@ -8286,7 +8286,7 @@ typedef struct {
 #define DSI_IER0_PE3IE                 ((uint32_t)0x00080000)               /*!< PHY Error 3 Interrupt Enable */
 #define DSI_IER0_PE4IE                 ((uint32_t)0x00100000)               /*!< PHY Error 4 Interrupt Enable */
 
-/*******************  Bit definition for DSI_IER1 register  ***************/
+/*******************  位定义 DSI_IER1 寄存器  ***************/
 #define DSI_IER1_TOHSTXIE              ((uint32_t)0x00000001)               /*!< Timeout High-Speed Transmission Interrupt Enable */
 #define DSI_IER1_TOLPRXIE              ((uint32_t)0x00000002)               /*!< Timeout Low-Power Reception Interrupt Enable */
 #define DSI_IER1_ECCSEIE               ((uint32_t)0x00000004)               /*!< ECC Single-bit Error Interrupt Enable */
@@ -8301,7 +8301,7 @@ typedef struct {
 #define DSI_IER1_GPRDEIE               ((uint32_t)0x00000800)               /*!< Generic Payload Read Error Interrupt Enable */
 #define DSI_IER1_GPRXEIE               ((uint32_t)0x00001000)               /*!< Generic Payload Receive Error Interrupt Enable */
 
-/*******************  Bit definition for DSI_FIR0 register  ***************/
+/*******************  位定义 DSI_FIR0 寄存器  ***************/
 #define DSI_FIR0_FAE0                  ((uint32_t)0x00000001)               /*!< Force Acknowledge Error 0 */
 #define DSI_FIR0_FAE1                  ((uint32_t)0x00000002)               /*!< Force Acknowledge Error 1 */
 #define DSI_FIR0_FAE2                  ((uint32_t)0x00000004)               /*!< Force Acknowledge Error 2 */
@@ -8324,7 +8324,7 @@ typedef struct {
 #define DSI_FIR0_FPE3                  ((uint32_t)0x00080000)               /*!< Force PHY Error 3 */
 #define DSI_FIR0_FPE4                  ((uint32_t)0x00100000)               /*!< Force PHY Error 4 */
 
-/*******************  Bit definition for DSI_FIR1 register  ***************/
+/*******************  位定义 DSI_FIR1 寄存器  ***************/
 #define DSI_FIR1_FTOHSTX               ((uint32_t)0x00000001)               /*!< Force Timeout High-Speed Transmission */
 #define DSI_FIR1_FTOLPRX               ((uint32_t)0x00000002)               /*!< Force Timeout Low-Power Reception */
 #define DSI_FIR1_FECCSE                ((uint32_t)0x00000004)               /*!< Force ECC Single-bit Error */
@@ -8339,16 +8339,16 @@ typedef struct {
 #define DSI_FIR1_FGPRDE                ((uint32_t)0x00000800)               /*!< Force Generic Payload Read Error */
 #define DSI_FIR1_FGPRXE                ((uint32_t)0x00001000)               /*!< Force Generic Payload Receive Error */
 
-/*******************  Bit definition for DSI_VSCR register  ***************/
+/*******************  位定义 DSI_VSCR 寄存器  ***************/
 #define DSI_VSCR_EN                    ((uint32_t)0x00000001)               /*!< Enable */
 #define DSI_VSCR_UR                    ((uint32_t)0x00000100)               /*!< Update Register */
 
-/*******************  Bit definition for DSI_LCVCIDR register  ************/
+/*******************  位定义 DSI_LCVCIDR 寄存器  ************/
 #define DSI_LCVCIDR_VCID               ((uint32_t)0x00000003)               /*!< Virtual Channel ID */
 #define DSI_LCVCIDR_VCID0              ((uint32_t)0x00000001)
 #define DSI_LCVCIDR_VCID1              ((uint32_t)0x00000002)
 
-/*******************  Bit definition for DSI_LCCCR register  **************/
+/*******************  位定义 DSI_LCCCR 寄存器  **************/
 #define DSI_LCCCR_COLC                 ((uint32_t)0x0000000F)               /*!< Color Coding */
 #define DSI_LCCCR_COLC0                ((uint32_t)0x00000001)
 #define DSI_LCCCR_COLC1                ((uint32_t)0x00000002)
@@ -8357,7 +8357,7 @@ typedef struct {
 
 #define DSI_LCCCR_LPE                  ((uint32_t)0x00000100)               /*!< Loosely Packed Enable */
 
-/*******************  Bit definition for DSI_LPMCCR register  *************/
+/*******************  位定义 DSI_LPMCCR 寄存器  *************/
 #define DSI_LPMCCR_VLPSIZE             ((uint32_t)0x000000FF)               /*!< VACT Largest Packet Size */
 #define DSI_LPMCCR_VLPSIZE0            ((uint32_t)0x00000001)
 #define DSI_LPMCCR_VLPSIZE1            ((uint32_t)0x00000002)
@@ -8378,7 +8378,7 @@ typedef struct {
 #define DSI_LPMCCR_LPSIZE6             ((uint32_t)0x00400000)
 #define DSI_LPMCCR_LPSIZE7             ((uint32_t)0x00800000)
 
-/*******************  Bit definition for DSI_VMCCR register  **************/
+/*******************  位定义 DSI_VMCCR 寄存器  **************/
 #define DSI_VMCCR_VMT                  ((uint32_t)0x00000003)               /*!< Video Mode Type */
 #define DSI_VMCCR_VMT0                 ((uint32_t)0x00000001)
 #define DSI_VMCCR_VMT1                 ((uint32_t)0x00000002)
@@ -8392,7 +8392,7 @@ typedef struct {
 #define DSI_VMCCR_FBTAAE               ((uint32_t)0x00004000)               /*!< Frame BTA Acknowledge Enable */
 #define DSI_VMCCR_LPCE                 ((uint32_t)0x00008000)               /*!< Low-power Command Enable */
 
-/*******************  Bit definition for DSI_VPCCR register  **************/
+/*******************  位定义 DSI_VPCCR 寄存器  **************/
 #define DSI_VPCCR_VPSIZE               ((uint32_t)0x00003FFF)               /*!< Video Packet Size */
 #define DSI_VPCCR_VPSIZE0              ((uint32_t)0x00000001)
 #define DSI_VPCCR_VPSIZE1              ((uint32_t)0x00000002)
@@ -8409,7 +8409,7 @@ typedef struct {
 #define DSI_VPCCR_VPSIZE12             ((uint32_t)0x00001000)
 #define DSI_VPCCR_VPSIZE13             ((uint32_t)0x00002000)
 
-/*******************  Bit definition for DSI_VCCCR register  **************/
+/*******************  位定义 DSI_VCCCR 寄存器  **************/
 #define DSI_VCCCR_NUMC                 ((uint32_t)0x00001FFF)               /*!< Number of Chunks */
 #define DSI_VCCCR_NUMC0                ((uint32_t)0x00000001)
 #define DSI_VCCCR_NUMC1                ((uint32_t)0x00000002)
@@ -8425,7 +8425,7 @@ typedef struct {
 #define DSI_VCCCR_NUMC11               ((uint32_t)0x00000800)
 #define DSI_VCCCR_NUMC12               ((uint32_t)0x00001000)
 
-/*******************  Bit definition for DSI_VNPCCR register  *************/
+/*******************  位定义 DSI_VNPCCR 寄存器  *************/
 #define DSI_VNPCCR_NPSIZE              ((uint32_t)0x00001FFF)               /*!< Number of Chunks */
 #define DSI_VNPCCR_NPSIZE0             ((uint32_t)0x00000001)
 #define DSI_VNPCCR_NPSIZE1             ((uint32_t)0x00000002)
@@ -8441,7 +8441,7 @@ typedef struct {
 #define DSI_VNPCCR_NPSIZE11            ((uint32_t)0x00000800)
 #define DSI_VNPCCR_NPSIZE12            ((uint32_t)0x00001000)
 
-/*******************  Bit definition for DSI_VHSACCR register  ************/
+/*******************  位定义 DSI_VHSACCR 寄存器  ************/
 #define DSI_VHSACCR_HSA                ((uint32_t)0x00000FFF)               /*!< Horizontal Synchronism Active duration */
 #define DSI_VHSACCR_HSA0               ((uint32_t)0x00000001)
 #define DSI_VHSACCR_HSA1               ((uint32_t)0x00000002)
@@ -8456,7 +8456,7 @@ typedef struct {
 #define DSI_VHSACCR_HSA10              ((uint32_t)0x00000400)
 #define DSI_VHSACCR_HSA11              ((uint32_t)0x00000800)
 
-/*******************  Bit definition for DSI_VHBPCCR register  ************/
+/*******************  位定义 DSI_VHBPCCR 寄存器  ************/
 #define DSI_VHBPCCR_HBP                ((uint32_t)0x00000FFF)               /*!< Horizontal Back-Porch duration */
 #define DSI_VHBPCCR_HBP0               ((uint32_t)0x00000001)
 #define DSI_VHBPCCR_HBP1               ((uint32_t)0x00000002)
@@ -8471,7 +8471,7 @@ typedef struct {
 #define DSI_VHBPCCR_HBP10              ((uint32_t)0x00000400)
 #define DSI_VHBPCCR_HBP11              ((uint32_t)0x00000800)
 
-/*******************  Bit definition for DSI_VLCCR register  **************/
+/*******************  位定义 DSI_VLCCR 寄存器  **************/
 #define DSI_VLCCR_HLINE                ((uint32_t)0x00007FFF)               /*!< Horizontal Line duration */
 #define DSI_VLCCR_HLINE0               ((uint32_t)0x00000001)
 #define DSI_VLCCR_HLINE1               ((uint32_t)0x00000002)
@@ -8489,7 +8489,7 @@ typedef struct {
 #define DSI_VLCCR_HLINE13              ((uint32_t)0x00002000)
 #define DSI_VLCCR_HLINE14              ((uint32_t)0x00004000)
 
-/*******************  Bit definition for DSI_VVSACCR register  ***************/
+/*******************  位定义 DSI_VVSACCR 寄存器  ***************/
 #define DSI_VVSACCR_VSA                   ((uint32_t)0x000003FF)               /*!< Vertical Synchronism Active duration */
 #define DSI_VVSACCR_VSA0                  ((uint32_t)0x00000001)
 #define DSI_VVSACCR_VSA1                  ((uint32_t)0x00000002)
@@ -8502,7 +8502,7 @@ typedef struct {
 #define DSI_VVSACCR_VSA8                  ((uint32_t)0x00000100)
 #define DSI_VVSACCR_VSA9                  ((uint32_t)0x00000200)
 
-/*******************  Bit definition for DSI_VVBPCCR register  ************/
+/*******************  位定义 DSI_VVBPCCR 寄存器  ************/
 #define DSI_VVBPCCR_VBP                ((uint32_t)0x000003FF)               /*!< Vertical Back-Porch duration */
 #define DSI_VVBPCCR_VBP0               ((uint32_t)0x00000001)
 #define DSI_VVBPCCR_VBP1               ((uint32_t)0x00000002)
@@ -8515,7 +8515,7 @@ typedef struct {
 #define DSI_VVBPCCR_VBP8               ((uint32_t)0x00000100)
 #define DSI_VVBPCCR_VBP9               ((uint32_t)0x00000200)
 
-/*******************  Bit definition for DSI_VVFPCCR register  ************/
+/*******************  位定义 DSI_VVFPCCR 寄存器  ************/
 #define DSI_VVFPCCR_VFP                ((uint32_t)0x000003FF)               /*!< Vertical Front-Porch duration */
 #define DSI_VVFPCCR_VFP0               ((uint32_t)0x00000001)
 #define DSI_VVFPCCR_VFP1               ((uint32_t)0x00000002)
@@ -8528,7 +8528,7 @@ typedef struct {
 #define DSI_VVFPCCR_VFP8               ((uint32_t)0x00000100)
 #define DSI_VVFPCCR_VFP9               ((uint32_t)0x00000200)
 
-/*******************  Bit definition for DSI_VVACCR register  *************/
+/*******************  位定义 DSI_VVACCR 寄存器  *************/
 #define DSI_VVACCR_VA                  ((uint32_t)0x00003FFF)               /*!< Vertical Active duration */
 #define DSI_VVACCR_VA0                 ((uint32_t)0x00000001)
 #define DSI_VVACCR_VA1                 ((uint32_t)0x00000002)
@@ -8545,7 +8545,7 @@ typedef struct {
 #define DSI_VVACCR_VA12                ((uint32_t)0x00001000)
 #define DSI_VVACCR_VA13                ((uint32_t)0x00002000)
 
-/*******************  Bit definition for DSI_TDCCR register  **************/
+/*******************  位定义 DSI_TDCCR 寄存器  **************/
 #define DSI_TDCCR_3DM                  ((uint32_t)0x00000003)               /*!< 3D Mode */
 #define DSI_TDCCR_3DM0                 ((uint32_t)0x00000001)
 #define DSI_TDCCR_3DM1                 ((uint32_t)0x00000002)
@@ -8558,7 +8558,7 @@ typedef struct {
 #define DSI_TDCCR_RF                   ((uint32_t)0x00000020)               /*!< Right First */
 #define DSI_TDCCR_S3DC                 ((uint32_t)0x00010000)               /*!< Send 3D Control */
 
-/*******************  Bit definition for DSI_WCFGR register  ***************/
+/*******************  位定义 DSI_WCFGR 寄存器  ***************/
 #define DSI_WCFGR_DSIM                   ((uint32_t)0x00000001)              /*!< DSI Mode */
 #define DSI_WCFGR_COLMUX                 ((uint32_t)0x0000000E)              /*!< Color Multiplexing */
 #define DSI_WCFGR_COLMUX0                ((uint32_t)0x00000002)
@@ -8570,20 +8570,20 @@ typedef struct {
 #define DSI_WCFGR_AR                     ((uint32_t)0x00000040)              /*!< Automatic Refresh */
 #define DSI_WCFGR_VSPOL                  ((uint32_t)0x00000080)              /*!< VSync Polarity */
 
-/*******************  Bit definition for DSI_WCR register  *****************/
+/*******************  位定义 DSI_WCR 寄存器  *****************/
 #define DSI_WCR_COLM                     ((uint32_t)0x00000001)              /*!< Color Mode */
 #define DSI_WCR_SHTDN                    ((uint32_t)0x00000002)              /*!< Shutdown */
 #define DSI_WCR_LTDCEN                   ((uint32_t)0x00000004)              /*!< LTDC Enable */
 #define DSI_WCR_DSIEN                    ((uint32_t)0x00000008)              /*!< DSI Enable */
 
-/*******************  Bit definition for DSI_WIER register  ****************/
+/*******************  位定义 DSI_WIER 寄存器  ****************/
 #define DSI_WIER_TEIE                    ((uint32_t)0x00000001)              /*!< Tearing Effect Interrupt Enable */
 #define DSI_WIER_ERIE                    ((uint32_t)0x00000002)              /*!< End of Refresh Interrupt Enable */
 #define DSI_WIER_PLLLIE                  ((uint32_t)0x00000200)              /*!< PLL Lock Interrupt Enable */
 #define DSI_WIER_PLLUIE                  ((uint32_t)0x00000400)              /*!< PLL Unlock Interrupt Enable */
 #define DSI_WIER_RRIE                    ((uint32_t)0x00002000)              /*!< Regulator 就绪中断 Enable */
 
-/*******************  Bit definition for DSI_WISR register  ****************/
+/*******************  位定义 DSI_WISR 寄存器  ****************/
 #define DSI_WISR_TEIF                    ((uint32_t)0x00000001)              /*!< Tearing Effect Interrupt Flag */
 #define DSI_WISR_ERIF                    ((uint32_t)0x00000002)              /*!< End of Refresh Interrupt Flag */
 #define DSI_WISR_BUSY                    ((uint32_t)0x00000004)              /*!< Busy Flag */
@@ -8593,14 +8593,14 @@ typedef struct {
 #define DSI_WISR_RRS                     ((uint32_t)0x00001000)              /*!< Regulator Ready Flag */
 #define DSI_WISR_RRIF                    ((uint32_t)0x00002000)              /*!< Regulator 就绪中断 Flag */
 
-/*******************  Bit definition for DSI_WIFCR register  ***************/
+/*******************  位定义 DSI_WIFCR 寄存器  ***************/
 #define DSI_WIFCR_CTEIF                  ((uint32_t)0x00000001)              /*!< Clear Tearing Effect Interrupt Flag */
 #define DSI_WIFCR_CERIF                  ((uint32_t)0x00000002)              /*!< Clear End of Refresh Interrupt Flag */
 #define DSI_WIFCR_CPLLLIF                ((uint32_t)0x00000200)              /*!< Clear PLL Lock Interrupt Flag */
 #define DSI_WIFCR_CPLLUIF                ((uint32_t)0x00000400)              /*!< Clear PLL Unlock Interrupt Flag */
 #define DSI_WIFCR_CRRIF                  ((uint32_t)0x00002000)              /*!< Clear Regulator 就绪中断 Flag */
 
-/*******************  Bit definition for DSI_WPCR0 register  ***************/
+/*******************  位定义 DSI_WPCR0 寄存器  ***************/
 #define DSI_WPCR0_UIX4                   ((uint32_t)0x0000003F)              /*!< Unit Interval multiplied by 4 */
 #define DSI_WPCR0_UIX4_0                 ((uint32_t)0x00000001)
 #define DSI_WPCR0_UIX4_1                 ((uint32_t)0x00000002)
@@ -8630,7 +8630,7 @@ typedef struct {
 #define DSI_WPCR0_TLPXCEN                ((uint32_t)0x04000000)              /*!< Timer for t-LPXC Enable */
 #define DSI_WPCR0_TCLKPOSTEN             ((uint32_t)0x08000000)              /*!< Timer for t-CLKPOST Enable */
 
-/*******************  Bit definition for DSI_WPCR1 register  ***************/
+/*******************  位定义 DSI_WPCR1 寄存器  ***************/
 #define DSI_WPCR1_HSTXDCL                ((uint32_t)0x00000003)              /*!< 时钟通道上的高速传输延迟 */
 #define DSI_WPCR1_HSTXDCL0               ((uint32_t)0x00000001)
 #define DSI_WPCR1_HSTXDCL1               ((uint32_t)0x00000002)
@@ -8667,7 +8667,7 @@ typedef struct {
 #define DSI_WPCR1_LPRXFT0                ((uint32_t)0x02000000)
 #define DSI_WPCR1_LPRXFT1                ((uint32_t)0x04000000)
 
-/*******************  Bit definition for DSI_WPCR2 register  ***************/
+/*******************  位定义 DSI_WPCR2 寄存器  ***************/
 #define DSI_WPCR2_TCLKPREP               ((uint32_t)0x000000FF)              /*!< t-CLKPREP */
 #define DSI_WPCR2_TCLKPREP0              ((uint32_t)0x00000001)
 #define DSI_WPCR2_TCLKPREP1              ((uint32_t)0x00000002)
@@ -8708,7 +8708,7 @@ typedef struct {
 #define DSI_WPCR2_THSTRAIL6              ((uint32_t)0x40000000)
 #define DSI_WPCR2_THSTRAIL7              ((uint32_t)0x80000000)
 
-/*******************  Bit definition for DSI_WPCR3 register  ***************/
+/*******************  位定义 DSI_WPCR3 寄存器  ***************/
 #define DSI_WPCR3_THSZERO                ((uint32_t)0x000000FF)              /*!< t-HSZERO */
 #define DSI_WPCR3_THSZERO0               ((uint32_t)0x00000001)
 #define DSI_WPCR3_THSZERO1               ((uint32_t)0x00000002)
@@ -8749,7 +8749,7 @@ typedef struct {
 #define DSI_WPCR3_TLPXC6                 ((uint32_t)0x40000000)
 #define DSI_WPCR3_TLPXC7                 ((uint32_t)0x80000000)
 
-/*******************  Bit definition for DSI_WPCR4 register  ***************/
+/*******************  位定义 DSI_WPCR4 寄存器  ***************/
 #define DSI_WPCR4_TCLKPOST               ((uint32_t)0x000000FF)              /*!< t-CLKPOST */
 #define DSI_WPCR4_TCLKPOST0              ((uint32_t)0x00000001)
 #define DSI_WPCR4_TCLKPOST1              ((uint32_t)0x00000002)
@@ -8760,7 +8760,7 @@ typedef struct {
 #define DSI_WPCR4_TCLKPOST6              ((uint32_t)0x00000040)
 #define DSI_WPCR4_TCLKPOST7              ((uint32_t)0x00000080)
 
-/*******************  Bit definition for DSI_WRPCR register  ***************/
+/*******************  位定义 DSI_WRPCR 寄存器  ***************/
 #define DSI_WRPCR_PLLEN                  ((uint32_t)0x00000001)              /*!< PLL Enable */
 #define DSI_WRPCR_PLL_NDIV               ((uint32_t)0x000001FC)              /*!< PLL Loop Division Factor */
 #define DSI_WRPCR_PLL_NDIV0              ((uint32_t)0x00000004)
@@ -8789,7 +8789,7 @@ typedef struct {
 /*                             Power Control                                  */
 /*                                                                            */
 /******************************************************************************/
-/********************  Bit definition for PWR_CR register  ********************/
+/********************  位定义 PWR_CR 寄存器  ********************/
 #define  PWR_CR_LPDS                         ((uint32_t)0x00000001)     /*!< Low-Power Deepsleep                 */
 #define  PWR_CR_PDDS                         ((uint32_t)0x00000002)     /*!< Power Down Deepsleep                */
 #define  PWR_CR_CWUF                         ((uint32_t)0x00000004)     /*!< Clear Wakeup Flag                   */
@@ -8837,7 +8837,7 @@ typedef struct {
 /* Legacy define */
 #define  PWR_CR_PMODE                        PWR_CR_VOS
 
-/*******************  Bit definition for PWR_CSR register  ********************/
+/*******************  位定义 PWR_CSR 寄存器  ********************/
 #define  PWR_CSR_WUF                         ((uint32_t)0x00000001)     /*!< Wakeup Flag                                      */
 #define  PWR_CSR_SBF                         ((uint32_t)0x00000002)     /*!< Standby Flag                                     */
 #define  PWR_CSR_PVDO                        ((uint32_t)0x00000004)     /*!< PVD Output                                       */
@@ -8859,7 +8859,7 @@ typedef struct {
 /*                                    QUADSPI                                 */
 /*                                                                            */
 /******************************************************************************/
-/*****************  Bit definition for QUADSPI_CR register  *******************/
+/*****************  位定义 QUADSPI_CR 寄存器  *******************/
 #define  QUADSPI_CR_EN                           ((uint32_t)0x00000001)            /*!< Enable                             */
 #define  QUADSPI_CR_ABORT                        ((uint32_t)0x00000002)            /*!< Abort request                      */
 #define  QUADSPI_CR_DMAEN                        ((uint32_t)0x00000004)            /*!< DMA Enable                         */
@@ -8890,7 +8890,7 @@ typedef struct {
 #define  QUADSPI_CR_PRESCALER_6                  ((uint32_t)0x40000000)            /*!< Bit 6 */
 #define  QUADSPI_CR_PRESCALER_7                  ((uint32_t)0x80000000)            /*!< Bit 7 */
 
-/*****************  Bit definition for QUADSPI_DCR register  ******************/
+/*****************  位定义 QUADSPI_DCR 寄存器  ******************/
 #define  QUADSPI_DCR_CKMODE                      ((uint32_t)0x00000001)            /*!< Mode 0 / Mode 3                 */
 #define  QUADSPI_DCR_CSHT                        ((uint32_t)0x00000700)            /*!< CSHT[2:0]: ChipSelect High Time */
 #define  QUADSPI_DCR_CSHT_0                      ((uint32_t)0x00000100)            /*!< Bit 0 */
@@ -8903,7 +8903,7 @@ typedef struct {
 #define  QUADSPI_DCR_FSIZE_3                     ((uint32_t)0x00080000)            /*!< Bit 3 */
 #define  QUADSPI_DCR_FSIZE_4                     ((uint32_t)0x00100000)            /*!< Bit 4 */
 
-/******************  Bit definition for QUADSPI_SR register  *******************/
+/******************  位定义 QUADSPI_SR 寄存器  *******************/
 #define  QUADSPI_SR_TEF                          ((uint32_t)0x00000001)             /*!< Transfer Error Flag     */
 #define  QUADSPI_SR_TCF                          ((uint32_t)0x00000002)             /*!< Transfer Complete Flag  */
 #define  QUADSPI_SR_FTF                          ((uint32_t)0x00000004)             /*!< FIFO Threshlod Flag     */
@@ -8918,16 +8918,16 @@ typedef struct {
 #define  QUADSPI_SR_FLEVEL_4                     ((uint32_t)0x00001000)             /*!< Bit 4 */
 #define  QUADSPI_SR_FLEVEL_5                     ((uint32_t)0x00002000)             /*!< Bit 5 */
 
-/******************  Bit definition for QUADSPI_FCR register  ******************/
+/******************  位定义 QUADSPI_FCR 寄存器  ******************/
 #define  QUADSPI_FCR_CTEF                        ((uint32_t)0x00000001)             /*!< Clear Transfer Error Flag    */
 #define  QUADSPI_FCR_CTCF                        ((uint32_t)0x00000002)             /*!< Clear Transfer Complete Flag */
 #define  QUADSPI_FCR_CSMF                        ((uint32_t)0x00000008)             /*!< Clear Status Match Flag      */
 #define  QUADSPI_FCR_CTOF                        ((uint32_t)0x00000010)             /*!< Clear Timeout Flag           */
 
-/******************  Bit definition for QUADSPI_DLR register  ******************/
+/******************  位定义 QUADSPI_DLR 寄存器  ******************/
 #define  QUADSPI_DLR_DL                        ((uint32_t)0xFFFFFFFF)               /*!< DL[31:0]: Data Length */
 
-/******************  Bit definition for QUADSPI_CCR register  ******************/
+/******************  位定义 QUADSPI_CCR 寄存器  ******************/
 #define  QUADSPI_CCR_INSTRUCTION                  ((uint32_t)0x000000FF)            /*!< INSTRUCTION[7:0]: Instruction */
 #define  QUADSPI_CCR_INSTRUCTION_0                ((uint32_t)0x00000001)            /*!< Bit 0 */
 #define  QUADSPI_CCR_INSTRUCTION_1                ((uint32_t)0x00000002)            /*!< Bit 1 */
@@ -8967,25 +8967,25 @@ typedef struct {
 #define  QUADSPI_CCR_SIOO                         ((uint32_t)0x10000000)            /*!< SIOO: Send Instruction Only Once Mode */
 #define  QUADSPI_CCR_DHHC                         ((uint32_t)0x40000000)            /*!< DHHC: Delay Half Hclk Cycle */
 #define  QUADSPI_CCR_DDRM                         ((uint32_t)0x80000000)            /*!< DDRM: Double Data Rate Mode */
-/******************  Bit definition for QUADSPI_AR register  *******************/
+/******************  位定义 QUADSPI_AR 寄存器  *******************/
 #define  QUADSPI_AR_ADDRESS                       ((uint32_t)0xFFFFFFFF)            /*!< ADDRESS[31:0]: Address */
 
-/******************  Bit definition for QUADSPI_ABR register  ******************/
+/******************  位定义 QUADSPI_ABR 寄存器  ******************/
 #define  QUADSPI_ABR_ALTERNATE                    ((uint32_t)0xFFFFFFFF)            /*!< ALTERNATE[31:0]: Alternate Bytes */
 
-/******************  Bit definition for QUADSPI_DR register  *******************/
+/******************  位定义 QUADSPI_DR 寄存器  *******************/
 #define  QUADSPI_DR_DATA                          ((uint32_t)0xFFFFFFFF)            /*!< DATA[31:0]: Data */
 
-/******************  Bit definition for QUADSPI_PSMKR register  ****************/
+/******************  位定义 QUADSPI_PSMKR 寄存器  ****************/
 #define  QUADSPI_PSMKR_MASK                       ((uint32_t)0xFFFFFFFF)            /*!< MASK[31:0]: Status Mask */
 
-/******************  Bit definition for QUADSPI_PSMAR register  ****************/
+/******************  位定义 QUADSPI_PSMAR 寄存器  ****************/
 #define  QUADSPI_PSMAR_MATCH                      ((uint32_t)0xFFFFFFFF)            /*!< MATCH[31:0]: Status Match */
 
-/******************  Bit definition for QUADSPI_PIR register  *****************/
+/******************  位定义 QUADSPI_PIR 寄存器  *****************/
 #define  QUADSPI_PIR_INTERVAL                     ((uint32_t)0x0000FFFF)            /*!< INTERVAL[15:0]: Polling Interval */
 
-/******************  Bit definition for QUADSPI_LPTR register  *****************/
+/******************  位定义 QUADSPI_LPTR 寄存器  *****************/
 #define  QUADSPI_LPTR_TIMEOUT                     ((uint32_t)0x0000FFFF)            /*!< TIMEOUT[15:0]: Timeout period */
 #endif /* STM32F412xG || STM32F413_423xx || STM32F446xx || STM32F469_479xx */
 
@@ -8994,7 +8994,7 @@ typedef struct {
 /*                         Reset and Clock Control                            */
 /*                                                                            */
 /******************************************************************************/
-/********************  Bit definition for RCC_CR register  ********************/
+/********************  位定义 RCC_CR 寄存器  ********************/
 #define  RCC_CR_HSION                        ((uint32_t)0x00000001)
 #define  RCC_CR_HSIRDY                       ((uint32_t)0x00000002)
 
@@ -9026,7 +9026,7 @@ typedef struct {
 #define  RCC_CR_PLLSAION                     ((uint32_t)0x10000000)
 #define  RCC_CR_PLLSAIRDY                    ((uint32_t)0x20000000)
 
-/********************  Bit definition for RCC_PLLCFGR register  ***************/
+/********************  位定义 RCC_PLLCFGR 寄存器  ***************/
 #define  RCC_PLLCFGR_PLLM                    ((uint32_t)0x0000003F)
 #define  RCC_PLLCFGR_PLLM_0                  ((uint32_t)0x00000001)
 #define  RCC_PLLCFGR_PLLM_1                  ((uint32_t)0x00000002)
@@ -9067,7 +9067,7 @@ typedef struct {
 #define  RCC_PLLCFGR_PLLR_2                  ((uint32_t)0x40000000)
 #endif /* STM32F412xG || STM32F413_423xx || STM32F446xx || STM32F469_479xx */
 
-/********************  Bit definition for RCC_CFGR register  ******************/
+/********************  位定义 RCC_CFGR 寄存器  ******************/
 /*!< SW configuration */
 #define  RCC_CFGR_SW                         ((uint32_t)0x00000003)        /*!< SW[1:0] bits (System clock Switch) */
 #define  RCC_CFGR_SW_0                       ((uint32_t)0x00000001)        /*!< Bit 0 */
@@ -9168,7 +9168,7 @@ typedef struct {
 #define  RCC_CFGR_MCO2_0                     ((uint32_t)0x40000000)
 #define  RCC_CFGR_MCO2_1                     ((uint32_t)0x80000000)
 
-/********************  Bit definition for RCC_CIR register  *******************/
+/********************  位定义 RCC_CIR 寄存器  *******************/
 #define  RCC_CIR_LSIRDYF                     ((uint32_t)0x00000001)
 #define  RCC_CIR_LSERDYF                     ((uint32_t)0x00000002)
 #define  RCC_CIR_HSIRDYF                     ((uint32_t)0x00000004)
@@ -9193,7 +9193,7 @@ typedef struct {
 #define  RCC_CIR_PLLSAIRDYC                  ((uint32_t)0x00400000)
 #define  RCC_CIR_CSSC                        ((uint32_t)0x00800000)
 
-/********************  Bit definition for RCC_AHB1RSTR register  **************/
+/********************  位定义 RCC_AHB1RSTR 寄存器  **************/
 #define  RCC_AHB1RSTR_GPIOARST               ((uint32_t)0x00000001)
 #define  RCC_AHB1RSTR_GPIOBRST               ((uint32_t)0x00000002)
 #define  RCC_AHB1RSTR_GPIOCRST               ((uint32_t)0x00000004)
@@ -9212,7 +9212,7 @@ typedef struct {
 #define  RCC_AHB1RSTR_ETHMACRST              ((uint32_t)0x02000000)
 #define  RCC_AHB1RSTR_OTGHRST                ((uint32_t)0x10000000)
 
-/********************  Bit definition for RCC_AHB2RSTR register  **************/
+/********************  位定义 RCC_AHB2RSTR 寄存器  **************/
 #define  RCC_AHB2RSTR_DCMIRST                ((uint32_t)0x00000001)
 #define  RCC_AHB2RSTR_CRYPRST                ((uint32_t)0x00000010)
 #define  RCC_AHB2RSTR_HASHRST                ((uint32_t)0x00000020)
@@ -9221,7 +9221,7 @@ typedef struct {
 #define  RCC_AHB2RSTR_RNGRST                 ((uint32_t)0x00000040)
 #define  RCC_AHB2RSTR_OTGFSRST               ((uint32_t)0x00000080)
 
-/********************  Bit definition for RCC_AHB3RSTR register  **************/
+/********************  位定义 RCC_AHB3RSTR 寄存器  **************/
 #if defined(STM32F40_41xxx) || defined(STM32F412xG) || defined(STM32F413_423xx)
 #define  RCC_AHB3RSTR_FSMCRST                ((uint32_t)0x00000001)
 #endif /* STM32F40_41xxx || STM32F412xG || STM32F413_423xx */
@@ -9233,7 +9233,7 @@ typedef struct {
 #define  RCC_AHB3RSTR_QSPIRST               ((uint32_t)0x00000002)
 #endif /* STM32F412xG || STM32F413_423xx || STM32F446xx || STM32F469_479xx */
 
-/********************  Bit definition for RCC_APB1RSTR register  **************/
+/********************  位定义 RCC_APB1RSTR 寄存器  **************/
 #define  RCC_APB1RSTR_TIM2RST                ((uint32_t)0x00000001)
 #define  RCC_APB1RSTR_TIM3RST                ((uint32_t)0x00000002)
 #define  RCC_APB1RSTR_TIM4RST                ((uint32_t)0x00000004)
@@ -9272,7 +9272,7 @@ typedef struct {
 #define  RCC_APB1RSTR_UART7RST               ((uint32_t)0x40000000)
 #define  RCC_APB1RSTR_UART8RST               ((uint32_t)0x80000000)
 
-/********************  Bit definition for RCC_APB2RSTR register  **************/
+/********************  位定义 RCC_APB2RSTR 寄存器  **************/
 #define  RCC_APB2RSTR_TIM1RST                ((uint32_t)0x00000001)
 #define  RCC_APB2RSTR_TIM8RST                ((uint32_t)0x00000002)
 #define  RCC_APB2RSTR_USART1RST              ((uint32_t)0x00000010)
@@ -9308,7 +9308,7 @@ typedef struct {
 #define  RCC_APB2RSTR_SPI1                   RCC_APB2RSTR_SPI1RST
 #define  RCC_APB2RSTR_DFSDMRST               RCC_APB2RSTR_DFSDM1RST
 
-/********************  Bit definition for RCC_AHB1ENR register  ***************/
+/********************  位定义 RCC_AHB1ENR 寄存器  ***************/
 #define  RCC_AHB1ENR_GPIOAEN                 ((uint32_t)0x00000001)
 #define  RCC_AHB1ENR_GPIOBEN                 ((uint32_t)0x00000002)
 #define  RCC_AHB1ENR_GPIOCEN                 ((uint32_t)0x00000004)
@@ -9333,14 +9333,14 @@ typedef struct {
 #define  RCC_AHB1ENR_OTGHSEN                 ((uint32_t)0x20000000)
 #define  RCC_AHB1ENR_OTGHSULPIEN             ((uint32_t)0x40000000)
 
-/********************  Bit definition for RCC_AHB2ENR register  ***************/
+/********************  位定义 RCC_AHB2ENR 寄存器  ***************/
 #define  RCC_AHB2ENR_DCMIEN                  ((uint32_t)0x00000001)
 #define  RCC_AHB2ENR_CRYPEN                  ((uint32_t)0x00000010)
 #define  RCC_AHB2ENR_HASHEN                  ((uint32_t)0x00000020)
 #define  RCC_AHB2ENR_RNGEN                   ((uint32_t)0x00000040)
 #define  RCC_AHB2ENR_OTGFSEN                 ((uint32_t)0x00000080)
 
-/********************  Bit definition for RCC_AHB3ENR register  ***************/
+/********************  位定义 RCC_AHB3ENR 寄存器  ***************/
 
 #if defined(STM32F40_41xxx) || defined(STM32F412xG) || defined(STM32F413_423xx)
 #define  RCC_AHB3ENR_FSMCEN                  ((uint32_t)0x00000001)
@@ -9354,7 +9354,7 @@ typedef struct {
 #define  RCC_AHB3ENR_QSPIEN                 ((uint32_t)0x00000002)
 #endif /* STM32F412xG || STM32F413_423xx || STM32F446xx || STM32F469_479xx */
 
-/********************  Bit definition for RCC_APB1ENR register  ***************/
+/********************  位定义 RCC_APB1ENR 寄存器  ***************/
 #define  RCC_APB1ENR_TIM2EN                  ((uint32_t)0x00000001)
 #define  RCC_APB1ENR_TIM3EN                  ((uint32_t)0x00000002)
 #define  RCC_APB1ENR_TIM4EN                  ((uint32_t)0x00000004)
@@ -9393,7 +9393,7 @@ typedef struct {
 #define  RCC_APB1ENR_UART7EN                 ((uint32_t)0x40000000)
 #define  RCC_APB1ENR_UART8EN                 ((uint32_t)0x80000000)
 
-/********************  Bit definition for RCC_APB2ENR register  ***************/
+/********************  位定义 RCC_APB2ENR 寄存器  ***************/
 #define  RCC_APB2ENR_TIM1EN                  ((uint32_t)0x00000001)
 #define  RCC_APB2ENR_TIM8EN                  ((uint32_t)0x00000002)
 #define  RCC_APB2ENR_USART1EN                ((uint32_t)0x00000010)
@@ -9427,7 +9427,7 @@ typedef struct {
 #if defined(STM32F413_423xx)
 #define  RCC_APB2ENR_DFSDM2EN                ((uint32_t)0x02000000)
 #endif /* STM32F413_423xx */
-/********************  Bit definition for RCC_AHB1LPENR register  *************/
+/********************  位定义 RCC_AHB1LPENR 寄存器  *************/
 #define  RCC_AHB1LPENR_GPIOALPEN             ((uint32_t)0x00000001)
 #define  RCC_AHB1LPENR_GPIOBLPEN             ((uint32_t)0x00000002)
 #define  RCC_AHB1LPENR_GPIOCLPEN             ((uint32_t)0x00000004)
@@ -9455,14 +9455,14 @@ typedef struct {
 #define  RCC_AHB1LPENR_OTGHSLPEN             ((uint32_t)0x20000000)
 #define  RCC_AHB1LPENR_OTGHSULPILPEN         ((uint32_t)0x40000000)
 
-/********************  Bit definition for RCC_AHB2LPENR register  *************/
+/********************  位定义 RCC_AHB2LPENR 寄存器  *************/
 #define  RCC_AHB2LPENR_DCMILPEN              ((uint32_t)0x00000001)
 #define  RCC_AHB2LPENR_CRYPLPEN              ((uint32_t)0x00000010)
 #define  RCC_AHB2LPENR_HASHLPEN              ((uint32_t)0x00000020)
 #define  RCC_AHB2LPENR_RNGLPEN               ((uint32_t)0x00000040)
 #define  RCC_AHB2LPENR_OTGFSLPEN             ((uint32_t)0x00000080)
 
-/********************  Bit definition for RCC_AHB3LPENR register  *************/
+/********************  位定义 RCC_AHB3LPENR 寄存器  *************/
 #if defined(STM32F40_41xxx) || defined(STM32F412xG) || defined(STM32F413_423xx)
 #define  RCC_AHB3LPENR_FSMCLPEN              ((uint32_t)0x00000001)
 #endif /* STM32F40_41xxx || STM32F412xG || STM32F413_423xx */
@@ -9474,7 +9474,7 @@ typedef struct {
 #define  RCC_AHB3LPENR_QSPILPEN             ((uint32_t)0x00000002)
 #endif /* STM32F412xG || STM32F413_423xx || STM32F469_479xx || STM32F446xx */
 
-/********************  Bit definition for RCC_APB1LPENR register  *************/
+/********************  位定义 RCC_APB1LPENR 寄存器  *************/
 #define  RCC_APB1LPENR_TIM2LPEN              ((uint32_t)0x00000001)
 #define  RCC_APB1LPENR_TIM3LPEN              ((uint32_t)0x00000002)
 #define  RCC_APB1LPENR_TIM4LPEN              ((uint32_t)0x00000004)
@@ -9513,7 +9513,7 @@ typedef struct {
 #define  RCC_APB1LPENR_UART7LPEN             ((uint32_t)0x40000000)
 #define  RCC_APB1LPENR_UART8LPEN             ((uint32_t)0x80000000)
 
-/********************  Bit definition for RCC_APB2LPENR register  *************/
+/********************  位定义 RCC_APB2LPENR 寄存器  *************/
 #define  RCC_APB2LPENR_TIM1LPEN              ((uint32_t)0x00000001)
 #define  RCC_APB2LPENR_TIM8LPEN              ((uint32_t)0x00000002)
 #define  RCC_APB2LPENR_USART1LPEN            ((uint32_t)0x00000010)
@@ -9547,7 +9547,7 @@ typedef struct {
 #define  RCC_APB2LPENR_DFSDM2LPEN            ((uint32_t)0x02000000)
 #endif /* STM32F413_423xx */
 
-/********************  Bit definition for RCC_BDCR register  ******************/
+/********************  位定义 RCC_BDCR 寄存器  ******************/
 #define  RCC_BDCR_LSEON                      ((uint32_t)0x00000001)
 #define  RCC_BDCR_LSERDY                     ((uint32_t)0x00000002)
 #define  RCC_BDCR_LSEBYP                     ((uint32_t)0x00000004)
@@ -9560,7 +9560,7 @@ typedef struct {
 #define  RCC_BDCR_RTCEN                      ((uint32_t)0x00008000)
 #define  RCC_BDCR_BDRST                      ((uint32_t)0x00010000)
 
-/********************  Bit definition for RCC_CSR register  *******************/
+/********************  位定义 RCC_CSR 寄存器  *******************/
 #define  RCC_CSR_LSION                       ((uint32_t)0x00000001)
 #define  RCC_CSR_LSIRDY                      ((uint32_t)0x00000002)
 #define  RCC_CSR_RMVF                        ((uint32_t)0x01000000)
@@ -9572,13 +9572,13 @@ typedef struct {
 #define  RCC_CSR_WWDGRSTF                    ((uint32_t)0x40000000)
 #define  RCC_CSR_LPWRRSTF                    ((uint32_t)0x80000000)
 
-/********************  Bit definition for RCC_SSCGR register  *****************/
+/********************  位定义 RCC_SSCGR 寄存器  *****************/
 #define  RCC_SSCGR_MODPER                    ((uint32_t)0x00001FFF)
 #define  RCC_SSCGR_INCSTEP                   ((uint32_t)0x0FFFE000)
 #define  RCC_SSCGR_SPREADSEL                 ((uint32_t)0x40000000)
 #define  RCC_SSCGR_SSCGEN                    ((uint32_t)0x80000000)
 
-/********************  Bit definition for RCC_PLLI2SCFGR register  ************/
+/********************  位定义 RCC_PLLI2SCFGR 寄存器  ************/
 #define  RCC_PLLI2SCFGR_PLLI2SM              ((uint32_t)0x0000003F)
 #define  RCC_PLLI2SCFGR_PLLI2SM_0            ((uint32_t)0x00000001)
 #define  RCC_PLLI2SCFGR_PLLI2SM_1            ((uint32_t)0x00000002)
@@ -9619,7 +9619,7 @@ typedef struct {
 #define  RCC_PLLI2SCFGR_PLLI2SR_1            ((uint32_t)0x20000000)
 #define  RCC_PLLI2SCFGR_PLLI2SR_2            ((uint32_t)0x40000000)
 
-/********************  Bit definition for RCC_PLLSAICFGR register  ************/
+/********************  位定义 RCC_PLLSAICFGR 寄存器  ************/
 #if defined(STM32F446xx)
 #define  RCC_PLLSAICFGR_PLLSAIM              ((uint32_t)0x0000003F)
 #define  RCC_PLLSAICFGR_PLLSAIM_0            ((uint32_t)0x00000001)
@@ -9658,7 +9658,7 @@ typedef struct {
 #define  RCC_PLLSAICFGR_PLLSAIR_1            ((uint32_t)0x20000000)
 #define  RCC_PLLSAICFGR_PLLSAIR_2            ((uint32_t)0x40000000)
 
-/********************  Bit definition for RCC_DCKCFGR register  ***************/
+/********************  位定义 RCC_DCKCFGR 寄存器  ***************/
 #define  RCC_DCKCFGR_PLLI2SDIVQ              ((uint32_t)0x0000001F)
 #define  RCC_DCKCFGR_PLLSAIDIVQ              ((uint32_t)0x00001F00)
 #define  RCC_DCKCFGR_PLLSAIDIVR              ((uint32_t)0x00030000)
@@ -9718,7 +9718,7 @@ typedef struct {
 #define  RCC_DCKCFGR_I2S2SRC_0               ((uint32_t)0x08000000)
 #define  RCC_DCKCFGR_I2S2SRC_1               ((uint32_t)0x10000000)
 
-/********************  Bit definition for RCC_CKGATENR register  ***************/
+/********************  位定义 RCC_CKGATENR 寄存器  ***************/
 #define  RCC_CKGATENR_AHB2APB1_CKEN          ((uint32_t)0x00000001)
 #define  RCC_CKGATENR_AHB2APB2_CKEN          ((uint32_t)0x00000002)
 #define  RCC_CKGATENR_CM4DBG_CKEN            ((uint32_t)0x00000004)
@@ -9730,7 +9730,7 @@ typedef struct {
 #define  RCC_CKGATENR_RCC_EVTCTL             ((uint32_t)0x00000080)
 #endif /* STM32F412xG || STM32F413_423xx */
 
-/********************  Bit definition for RCC_DCKCFGR2 register  ***************/
+/********************  位定义 RCC_DCKCFGR2 寄存器  ***************/
 #define  RCC_DCKCFGR2_FMPI2C1SEL             ((uint32_t)0x00C00000)
 #define  RCC_DCKCFGR2_FMPI2C1SEL_0           ((uint32_t)0x00400000)
 #define  RCC_DCKCFGR2_FMPI2C1SEL_1           ((uint32_t)0x00800000)
@@ -9754,7 +9754,7 @@ typedef struct {
 #endif /* STM32F410xx */
 
 #if defined(STM32F410xx)
-/********************  Bit definition for RCC_DCKCFGR2 register  **************/
+/********************  位定义 RCC_DCKCFGR2 寄存器  **************/
 #define  RCC_DCKCFGR2_FMPI2C1SEL             ((uint32_t)0x00C00000)
 #define  RCC_DCKCFGR2_FMPI2C1SEL_0           ((uint32_t)0x00400000)
 #define  RCC_DCKCFGR2_FMPI2C1SEL_1           ((uint32_t)0x00800000)
@@ -9767,11 +9767,11 @@ typedef struct {
 /*                                    RNG                                     */
 /*                                                                            */
 /******************************************************************************/
-/********************  Bits definition for RNG_CR register  *******************/
+/********************  位定义为 RNG_CR 寄存器  *******************/
 #define RNG_CR_RNGEN                         ((uint32_t)0x00000004)
 #define RNG_CR_IE                            ((uint32_t)0x00000008)
 
-/********************  Bits definition for RNG_SR register  *******************/
+/********************  位定义为 RNG_SR 寄存器  *******************/
 #define RNG_SR_DRDY                          ((uint32_t)0x00000001)
 #define RNG_SR_CECS                          ((uint32_t)0x00000002)
 #define RNG_SR_SECS                          ((uint32_t)0x00000004)
@@ -9783,7 +9783,7 @@ typedef struct {
 /*                           Real-Time Clock (RTC)                            */
 /*                                                                            */
 /******************************************************************************/
-/********************  Bits definition for RTC_TR register  *******************/
+/********************  位定义为 RTC_TR 寄存器  *******************/
 #define RTC_TR_PM                            ((uint32_t)0x00400000)
 #define RTC_TR_HT                            ((uint32_t)0x00300000)
 #define RTC_TR_HT_0                          ((uint32_t)0x00100000)
@@ -9812,7 +9812,7 @@ typedef struct {
 #define RTC_TR_SU_2                          ((uint32_t)0x00000004)
 #define RTC_TR_SU_3                          ((uint32_t)0x00000008)
 
-/********************  Bits definition for RTC_DR register  *******************/
+/********************  位定义为 RTC_DR 寄存器  *******************/
 #define RTC_DR_YT                            ((uint32_t)0x00F00000)
 #define RTC_DR_YT_0                          ((uint32_t)0x00100000)
 #define RTC_DR_YT_1                          ((uint32_t)0x00200000)
@@ -9842,7 +9842,7 @@ typedef struct {
 #define RTC_DR_DU_2                          ((uint32_t)0x00000004)
 #define RTC_DR_DU_3                          ((uint32_t)0x00000008)
 
-/********************  Bits definition for RTC_CR register  *******************/
+/********************  位定义为 RTC_CR 寄存器  *******************/
 #define RTC_CR_COE                           ((uint32_t)0x00800000)
 #define RTC_CR_OSEL                          ((uint32_t)0x00600000)
 #define RTC_CR_OSEL_0                        ((uint32_t)0x00200000)
@@ -9870,7 +9870,7 @@ typedef struct {
 #define RTC_CR_WUCKSEL_1                     ((uint32_t)0x00000002)
 #define RTC_CR_WUCKSEL_2                     ((uint32_t)0x00000004)
 
-/********************  Bits definition for RTC_ISR register  ******************/
+/********************  位定义为 RTC_ISR 寄存器  ******************/
 #define RTC_ISR_RECALPF                      ((uint32_t)0x00010000)
 #define RTC_ISR_TAMP1F                       ((uint32_t)0x00002000)
 #define RTC_ISR_TAMP2F                       ((uint32_t)0x00004000)
@@ -9888,18 +9888,18 @@ typedef struct {
 #define RTC_ISR_ALRBWF                       ((uint32_t)0x00000002)
 #define RTC_ISR_ALRAWF                       ((uint32_t)0x00000001)
 
-/********************  Bits definition for RTC_PRER register  *****************/
+/********************  位定义为 RTC_PRER 寄存器  *****************/
 #define RTC_PRER_PREDIV_A                    ((uint32_t)0x007F0000)
 #define RTC_PRER_PREDIV_S                    ((uint32_t)0x00001FFF)
 
-/********************  Bits definition for RTC_WUTR register  *****************/
+/********************  位定义为 RTC_WUTR 寄存器  *****************/
 #define RTC_WUTR_WUT                         ((uint32_t)0x0000FFFF)
 
-/********************  Bits definition for RTC_CALIBR register  ***************/
+/********************  位定义为 RTC_CALIBR 寄存器  ***************/
 #define RTC_CALIBR_DCS                       ((uint32_t)0x00000080)
 #define RTC_CALIBR_DC                        ((uint32_t)0x0000001F)
 
-/********************  Bits definition for RTC_ALRMAR register  ***************/
+/********************  位定义为 RTC_ALRMAR 寄存器  ***************/
 #define RTC_ALRMAR_MSK4                      ((uint32_t)0x80000000)
 #define RTC_ALRMAR_WDSEL                     ((uint32_t)0x40000000)
 #define RTC_ALRMAR_DT                        ((uint32_t)0x30000000)
@@ -9941,7 +9941,7 @@ typedef struct {
 #define RTC_ALRMAR_SU_2                      ((uint32_t)0x00000004)
 #define RTC_ALRMAR_SU_3                      ((uint32_t)0x00000008)
 
-/********************  Bits definition for RTC_ALRMBR register  ***************/
+/********************  位定义为 RTC_ALRMBR 寄存器  ***************/
 #define RTC_ALRMBR_MSK4                      ((uint32_t)0x80000000)
 #define RTC_ALRMBR_WDSEL                     ((uint32_t)0x40000000)
 #define RTC_ALRMBR_DT                        ((uint32_t)0x30000000)
@@ -9983,17 +9983,17 @@ typedef struct {
 #define RTC_ALRMBR_SU_2                      ((uint32_t)0x00000004)
 #define RTC_ALRMBR_SU_3                      ((uint32_t)0x00000008)
 
-/********************  Bits definition for RTC_WPR register  ******************/
+/********************  位定义为 RTC_WPR 寄存器  ******************/
 #define RTC_WPR_KEY                          ((uint32_t)0x000000FF)
 
-/********************  Bits definition for RTC_SSR register  ******************/
+/********************  位定义为 RTC_SSR 寄存器  ******************/
 #define RTC_SSR_SS                           ((uint32_t)0x0000FFFF)
 
-/********************  Bits definition for RTC_SHIFTR register  ***************/
+/********************  位定义为 RTC_SHIFTR 寄存器  ***************/
 #define RTC_SHIFTR_SUBFS                     ((uint32_t)0x00007FFF)
 #define RTC_SHIFTR_ADD1S                     ((uint32_t)0x80000000)
 
-/********************  Bits definition for RTC_TSTR register  *****************/
+/********************  位定义为 RTC_TSTR 寄存器  *****************/
 #define RTC_TSTR_PM                          ((uint32_t)0x00400000)
 #define RTC_TSTR_HT                          ((uint32_t)0x00300000)
 #define RTC_TSTR_HT_0                        ((uint32_t)0x00100000)
@@ -10022,7 +10022,7 @@ typedef struct {
 #define RTC_TSTR_SU_2                        ((uint32_t)0x00000004)
 #define RTC_TSTR_SU_3                        ((uint32_t)0x00000008)
 
-/********************  Bits definition for RTC_TSDR register  *****************/
+/********************  位定义为 RTC_TSDR 寄存器  *****************/
 #define RTC_TSDR_WDU                         ((uint32_t)0x0000E000)
 #define RTC_TSDR_WDU_0                       ((uint32_t)0x00002000)
 #define RTC_TSDR_WDU_1                       ((uint32_t)0x00004000)
@@ -10042,10 +10042,10 @@ typedef struct {
 #define RTC_TSDR_DU_2                        ((uint32_t)0x00000004)
 #define RTC_TSDR_DU_3                        ((uint32_t)0x00000008)
 
-/********************  Bits definition for RTC_TSSSR register  ****************/
+/********************  位定义为 RTC_TSSSR 寄存器  ****************/
 #define RTC_TSSSR_SS                         ((uint32_t)0x0000FFFF)
 
-/********************  Bits definition for RTC_CAL register  *****************/
+/********************  位定义为 RTC_CAL 寄存器  *****************/
 #define RTC_CALR_CALP                        ((uint32_t)0x00008000)
 #define RTC_CALR_CALW8                       ((uint32_t)0x00004000)
 #define RTC_CALR_CALW16                      ((uint32_t)0x00002000)
@@ -10060,7 +10060,7 @@ typedef struct {
 #define RTC_CALR_CALM_7                      ((uint32_t)0x00000080)
 #define RTC_CALR_CALM_8                      ((uint32_t)0x00000100)
 
-/********************  Bits definition for RTC_TAFCR register  ****************/
+/********************  位定义为 RTC_TAFCR 寄存器  ****************/
 #define RTC_TAFCR_ALARMOUTTYPE               ((uint32_t)0x00040000)
 #define RTC_TAFCR_TSINSEL                    ((uint32_t)0x00020000)
 #define RTC_TAFCR_TAMPINSEL                  ((uint32_t)0x00010000)
@@ -10082,7 +10082,7 @@ typedef struct {
 #define RTC_TAFCR_TAMP1TRG                   ((uint32_t)0x00000002)
 #define RTC_TAFCR_TAMP1E                     ((uint32_t)0x00000001)
 
-/********************  Bits definition for RTC_ALRMASSR register  *************/
+/********************  位定义为 RTC_ALRMASSR 寄存器  *************/
 #define RTC_ALRMASSR_MASKSS                  ((uint32_t)0x0F000000)
 #define RTC_ALRMASSR_MASKSS_0                ((uint32_t)0x01000000)
 #define RTC_ALRMASSR_MASKSS_1                ((uint32_t)0x02000000)
@@ -10090,7 +10090,7 @@ typedef struct {
 #define RTC_ALRMASSR_MASKSS_3                ((uint32_t)0x08000000)
 #define RTC_ALRMASSR_SS                      ((uint32_t)0x00007FFF)
 
-/********************  Bits definition for RTC_ALRMBSSR register  *************/
+/********************  位定义为 RTC_ALRMBSSR 寄存器  *************/
 #define RTC_ALRMBSSR_MASKSS                  ((uint32_t)0x0F000000)
 #define RTC_ALRMBSSR_MASKSS_0                ((uint32_t)0x01000000)
 #define RTC_ALRMBSSR_MASKSS_1                ((uint32_t)0x02000000)
@@ -10098,64 +10098,64 @@ typedef struct {
 #define RTC_ALRMBSSR_MASKSS_3                ((uint32_t)0x08000000)
 #define RTC_ALRMBSSR_SS                      ((uint32_t)0x00007FFF)
 
-/********************  Bits definition for RTC_BKP0R register  ****************/
+/********************  位定义为 RTC_BKP0R 寄存器  ****************/
 #define RTC_BKP0R                            ((uint32_t)0xFFFFFFFF)
 
-/********************  Bits definition for RTC_BKP1R register  ****************/
+/********************  位定义为 RTC_BKP1R 寄存器  ****************/
 #define RTC_BKP1R                            ((uint32_t)0xFFFFFFFF)
 
-/********************  Bits definition for RTC_BKP2R register  ****************/
+/********************  位定义为 RTC_BKP2R 寄存器  ****************/
 #define RTC_BKP2R                            ((uint32_t)0xFFFFFFFF)
 
-/********************  Bits definition for RTC_BKP3R register  ****************/
+/********************  位定义为 RTC_BKP3R 寄存器  ****************/
 #define RTC_BKP3R                            ((uint32_t)0xFFFFFFFF)
 
-/********************  Bits definition for RTC_BKP4R register  ****************/
+/********************  位定义为 RTC_BKP4R 寄存器  ****************/
 #define RTC_BKP4R                            ((uint32_t)0xFFFFFFFF)
 
-/********************  Bits definition for RTC_BKP5R register  ****************/
+/********************  位定义为 RTC_BKP5R 寄存器  ****************/
 #define RTC_BKP5R                            ((uint32_t)0xFFFFFFFF)
 
-/********************  Bits definition for RTC_BKP6R register  ****************/
+/********************  位定义为 RTC_BKP6R 寄存器  ****************/
 #define RTC_BKP6R                            ((uint32_t)0xFFFFFFFF)
 
-/********************  Bits definition for RTC_BKP7R register  ****************/
+/********************  位定义为 RTC_BKP7R 寄存器  ****************/
 #define RTC_BKP7R                            ((uint32_t)0xFFFFFFFF)
 
-/********************  Bits definition for RTC_BKP8R register  ****************/
+/********************  位定义为 RTC_BKP8R 寄存器  ****************/
 #define RTC_BKP8R                            ((uint32_t)0xFFFFFFFF)
 
-/********************  Bits definition for RTC_BKP9R register  ****************/
+/********************  位定义为 RTC_BKP9R 寄存器  ****************/
 #define RTC_BKP9R                            ((uint32_t)0xFFFFFFFF)
 
-/********************  Bits definition for RTC_BKP10R register  ***************/
+/********************  位定义为 RTC_BKP10R 寄存器  ***************/
 #define RTC_BKP10R                           ((uint32_t)0xFFFFFFFF)
 
-/********************  Bits definition for RTC_BKP11R register  ***************/
+/********************  位定义为 RTC_BKP11R 寄存器  ***************/
 #define RTC_BKP11R                           ((uint32_t)0xFFFFFFFF)
 
-/********************  Bits definition for RTC_BKP12R register  ***************/
+/********************  位定义为 RTC_BKP12R 寄存器  ***************/
 #define RTC_BKP12R                           ((uint32_t)0xFFFFFFFF)
 
-/********************  Bits definition for RTC_BKP13R register  ***************/
+/********************  位定义为 RTC_BKP13R 寄存器  ***************/
 #define RTC_BKP13R                           ((uint32_t)0xFFFFFFFF)
 
-/********************  Bits definition for RTC_BKP14R register  ***************/
+/********************  位定义为 RTC_BKP14R 寄存器  ***************/
 #define RTC_BKP14R                           ((uint32_t)0xFFFFFFFF)
 
-/********************  Bits definition for RTC_BKP15R register  ***************/
+/********************  位定义为 RTC_BKP15R 寄存器  ***************/
 #define RTC_BKP15R                           ((uint32_t)0xFFFFFFFF)
 
-/********************  Bits definition for RTC_BKP16R register  ***************/
+/********************  位定义为 RTC_BKP16R 寄存器  ***************/
 #define RTC_BKP16R                           ((uint32_t)0xFFFFFFFF)
 
-/********************  Bits definition for RTC_BKP17R register  ***************/
+/********************  位定义为 RTC_BKP17R 寄存器  ***************/
 #define RTC_BKP17R                           ((uint32_t)0xFFFFFFFF)
 
-/********************  Bits definition for RTC_BKP18R register  ***************/
+/********************  位定义为 RTC_BKP18R 寄存器  ***************/
 #define RTC_BKP18R                           ((uint32_t)0xFFFFFFFF)
 
-/********************  Bits definition for RTC_BKP19R register  ***************/
+/********************  位定义为 RTC_BKP19R 寄存器  ***************/
 #define RTC_BKP19R                           ((uint32_t)0xFFFFFFFF)
 
 /******************************************************************************/
@@ -10163,7 +10163,7 @@ typedef struct {
 /*                          Serial Audio Interface                            */
 /*                                                                            */
 /******************************************************************************/
-/********************  Bit definition for SAI_GCR register  *******************/
+/********************  位定义 SAI_GCR 寄存器  *******************/
 #define  SAI_GCR_SYNCIN                  ((uint32_t)0x00000003)        /*!<SYNCIN[1:0] bits (Synchronization Inputs)   */
 #define  SAI_GCR_SYNCIN_0                ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  SAI_GCR_SYNCIN_1                ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -10172,7 +10172,7 @@ typedef struct {
 #define  SAI_GCR_SYNCOUT_0               ((uint32_t)0x00000010)        /*!<Bit 0 */
 #define  SAI_GCR_SYNCOUT_1               ((uint32_t)0x00000020)        /*!<Bit 1 */
 
-/*******************  Bit definition for SAI_xCR1 register  *******************/
+/*******************  位定义 SAI_xCR1 寄存器  *******************/
 #define  SAI_xCR1_MODE                    ((uint32_t)0x00000003)        /*!<MODE[1:0] bits (Audio Block Mode)           */
 #define  SAI_xCR1_MODE_0                  ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  SAI_xCR1_MODE_1                  ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -10205,7 +10205,7 @@ typedef struct {
 #define  SAI_xCR1_MCKDIV_2                ((uint32_t)0x00200000)        /*!<Bit 2  */
 #define  SAI_xCR1_MCKDIV_3                ((uint32_t)0x00400000)        /*!<Bit 3  */
 
-/*******************  Bit definition for SAI_xCR2 register  *******************/
+/*******************  位定义 SAI_xCR2 寄存器  *******************/
 #define  SAI_xCR2_FTH                     ((uint32_t)0x00000003)        /*!<FTH[1:0](Fifo THreshold)  */
 #define  SAI_xCR2_FTH_0                   ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  SAI_xCR2_FTH_1                   ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -10229,7 +10229,7 @@ typedef struct {
 #define  SAI_xCR2_COMP_0                  ((uint32_t)0x00004000)        /*!<Bit 0 */
 #define  SAI_xCR2_COMP_1                  ((uint32_t)0x00008000)        /*!<Bit 1 */
 
-/******************  Bit definition for SAI_xFRCR register  *******************/
+/******************  位定义 SAI_xFRCR 寄存器  *******************/
 #define  SAI_xFRCR_FRL                    ((uint32_t)0x000000FF)        /*!<FRL[1:0](Frame length)  */
 #define  SAI_xFRCR_FRL_0                  ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  SAI_xFRCR_FRL_1                  ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -10255,7 +10255,7 @@ typedef struct {
 /* Legacy defines */
 #define  SAI_xFRCR_FSPO                   SAI_xFRCR_FSPOL
 
-/******************  Bit definition for SAI_xSLOTR register  *******************/
+/******************  位定义 SAI_xSLOTR 寄存器  *******************/
 #define  SAI_xSLOTR_FBOFF                 ((uint32_t)0x0000001F)        /*!<FRL[4:0](First Bit Offset)  */
 #define  SAI_xSLOTR_FBOFF_0               ((uint32_t)0x00000001)        /*!<Bit 0 */
 #define  SAI_xSLOTR_FBOFF_1               ((uint32_t)0x00000002)        /*!<Bit 1 */
@@ -10275,7 +10275,7 @@ typedef struct {
 
 #define  SAI_xSLOTR_SLOTEN                ((uint32_t)0xFFFF0000)        /*!<SLOTEN[15:0] (Slot Enable)  */
 
-/*******************  Bit definition for SAI_xIMR register  *******************/
+/*******************  位定义 SAI_xIMR 寄存器  *******************/
 #define  SAI_xIMR_OVRUDRIE                ((uint32_t)0x00000001)        /*!<Overrun underrun interrupt enable                              */
 #define  SAI_xIMR_MUTEDETIE               ((uint32_t)0x00000002)        /*!<Mute detection interrupt enable                                */
 #define  SAI_xIMR_WCKCFGIE                ((uint32_t)0x00000004)        /*!<Wrong Clock Configuration interrupt enable                     */
@@ -10284,7 +10284,7 @@ typedef struct {
 #define  SAI_xIMR_AFSDETIE                ((uint32_t)0x00000020)        /*!<Anticipated frame synchronization detection interrupt enable   */
 #define  SAI_xIMR_LFSDETIE                ((uint32_t)0x00000040)        /*!<Late frame synchronization detection interrupt enable          */
 
-/********************  Bit definition for SAI_xSR register  *******************/
+/********************  位定义 SAI_xSR 寄存器  *******************/
 #define  SAI_xSR_OVRUDR                   ((uint32_t)0x00000001)         /*!<Overrun underrun                               */
 #define  SAI_xSR_MUTEDET                  ((uint32_t)0x00000002)         /*!<Mute detection                                 */
 #define  SAI_xSR_WCKCFG                   ((uint32_t)0x00000004)         /*!<Wrong Clock Configuration                      */
@@ -10298,7 +10298,7 @@ typedef struct {
 #define  SAI_xSR_FLVL_1                   ((uint32_t)0x00020000)         /*!<Bit 1 */
 #define  SAI_xSR_FLVL_2                   ((uint32_t)0x00030000)         /*!<Bit 2 */
 
-/******************  Bit definition for SAI_xCLRFR register  ******************/
+/******************  位定义 SAI_xCLRFR 寄存器  ******************/
 #define  SAI_xCLRFR_COVRUDR               ((uint32_t)0x00000001)        /*!<Clear Overrun underrun                               */
 #define  SAI_xCLRFR_CMUTEDET              ((uint32_t)0x00000002)        /*!<Clear Mute detection                                 */
 #define  SAI_xCLRFR_CWCKCFG               ((uint32_t)0x00000004)        /*!<Clear Wrong Clock Configuration                      */
@@ -10307,7 +10307,7 @@ typedef struct {
 #define  SAI_xCLRFR_CAFSDET               ((uint32_t)0x00000020)        /*!<Clear Anticipated frame synchronization detection    */
 #define  SAI_xCLRFR_CLFSDET               ((uint32_t)0x00000040)        /*!<Clear Late frame synchronization detection           */
 
-/******************  Bit definition for SAI_xDR register  ******************/
+/******************  位定义 SAI_xDR 寄存器  ******************/
 #define  SAI_xDR_DATA                     ((uint32_t)0xFFFFFFFF)
 
 #if defined(STM32F446xx)
@@ -10316,7 +10316,7 @@ typedef struct {
 /*                              SPDIF-RX Interface                            */
 /*                                                                            */
 /******************************************************************************/
-/********************  Bit definition for SPDIFRX_CR register  *******************/
+/********************  位定义 SPDIFRX_CR 寄存器  *******************/
 #define  SPDIFRX_CR_SPDIFEN                  ((uint32_t)0x00000003)        /*!<Peripheral Block Enable                      */
 #define  SPDIFRX_CR_RXDMAEN                  ((uint32_t)0x00000004)        /*!<Receiver DMA Enable for data flow            */
 #define  SPDIFRX_CR_RXSTEO                   ((uint32_t)0x00000008)        /*!<Stereo Mode                                  */
@@ -10331,7 +10331,7 @@ typedef struct {
 #define  SPDIFRX_CR_WFA                      ((uint32_t)0x00004000)        /*!<Wait For Activity     */
 #define  SPDIFRX_CR_INSEL                    ((uint32_t)0x00070000)        /*!<SPDIFRX input selection */
 
-/*******************  Bit definition for SPDIFRX_IMR register  *******************/
+/*******************  位定义 SPDIFRX_IMR 寄存器  *******************/
 #define  SPDIFRX_IMR_RXNEIE                   ((uint32_t)0x00000001)        /*!<RXNE interrupt enable                              */
 #define  SPDIFRX_IMR_CSRNEIE                  ((uint32_t)0x00000002)        /*!<Control Buffer 就绪中断 Enable              */
 #define  SPDIFRX_IMR_PERRIE                   ((uint32_t)0x00000004)        /*!<Parity error interrupt enable                      */
@@ -10340,7 +10340,7 @@ typedef struct {
 #define  SPDIFRX_IMR_SYNCDIE                  ((uint32_t)0x00000020)        /*!<Synchronization Done                               */
 #define  SPDIFRX_IMR_IFEIE                    ((uint32_t)0x00000040)        /*!<Serial Interface Error Interrupt Enable            */
 
-/*******************  Bit definition for SPDIFRX_SR register  *******************/
+/*******************  位定义 SPDIFRX_SR 寄存器  *******************/
 #define  SPDIFRX_SR_RXNE                   ((uint32_t)0x00000001)       /*!<Read data register not empty                          */
 #define  SPDIFRX_SR_CSRNE                  ((uint32_t)0x00000002)       /*!<The Control Buffer register is not empty              */
 #define  SPDIFRX_SR_PERR                   ((uint32_t)0x00000004)       /*!<Parity error                                          */
@@ -10352,13 +10352,13 @@ typedef struct {
 #define  SPDIFRX_SR_TERR                   ((uint32_t)0x00000100)       /*!<Time-out error                                        */
 #define  SPDIFRX_SR_WIDTH5                 ((uint32_t)0x7FFF0000)       /*!<Duration of 5 symbols counted with SPDIFRX_clk        */
 
-/*******************  Bit definition for SPDIFRX_IFCR register  *******************/
+/*******************  位定义 SPDIFRX_IFCR 寄存器  *******************/
 #define  SPDIFRX_IFCR_PERRCF               ((uint32_t)0x00000004)       /*!<Clears the Parity error flag                         */
 #define  SPDIFRX_IFCR_OVRCF                ((uint32_t)0x00000008)       /*!<Clears the Overrun error flag                        */
 #define  SPDIFRX_IFCR_SBDCF                ((uint32_t)0x00000010)       /*!<Clears the Synchronization Block Detected flag       */
 #define  SPDIFRX_IFCR_SYNCDCF              ((uint32_t)0x00000020)       /*!<Clears the Synchronization Done flag                 */
 
-/*******************  Bit definition for SPDIFRX_DR register  (DRFMT = 0b00 case) *******************/
+/*******************  位定义 SPDIFRX_DR register  (DRFMT = 0b00 case) *******************/
 #define  SPDIFRX_DR0_DR                    ((uint32_t)0x00FFFFFF)        /*!<Data value            */
 #define  SPDIFRX_DR0_PE                    ((uint32_t)0x01000000)        /*!<Parity Error bit      */
 #define  SPDIFRX_DR0_V                     ((uint32_t)0x02000000)        /*!<Validity bit          */
@@ -10366,7 +10366,7 @@ typedef struct {
 #define  SPDIFRX_DR0_C                     ((uint32_t)0x08000000)        /*!<Channel Status bit    */
 #define  SPDIFRX_DR0_PT                    ((uint32_t)0x30000000)        /*!<Preamble Type         */
 
-/*******************  Bit definition for SPDIFRX_DR register  (DRFMT = 0b01 case) *******************/
+/*******************  位定义 SPDIFRX_DR register  (DRFMT = 0b01 case) *******************/
 #define  SPDIFRX_DR1_DR                    ((uint32_t)0xFFFFFF00)        /*!<Data value            */
 #define  SPDIFRX_DR1_PT                    ((uint32_t)0x00000030)        /*!<Preamble Type         */
 #define  SPDIFRX_DR1_C                     ((uint32_t)0x00000008)        /*!<Channel Status bit    */
@@ -10374,16 +10374,16 @@ typedef struct {
 #define  SPDIFRX_DR1_V                     ((uint32_t)0x00000002)        /*!<Validity bit          */
 #define  SPDIFRX_DR1_PE                    ((uint32_t)0x00000001)        /*!<Parity Error bit      */
 
-/*******************  Bit definition for SPDIFRX_DR register  (DRFMT = 0b10 case) *******************/
+/*******************  位定义 SPDIFRX_DR register  (DRFMT = 0b10 case) *******************/
 #define  SPDIFRX_DR1_DRNL1                 ((uint32_t)0xFFFF0000)        /*!<Data value Channel B      */
 #define  SPDIFRX_DR1_DRNL2                 ((uint32_t)0x0000FFFF)        /*!<Data value Channel A      */
 
-/*******************  Bit definition for SPDIFRX_CSR register   *******************/
+/*******************  位定义 SPDIFRX_CSR register   *******************/
 #define  SPDIFRX_CSR_USR                     ((uint32_t)0x0000FFFF)        /*!<User data information           */
 #define  SPDIFRX_CSR_CS                      ((uint32_t)0x00FF0000)        /*!<Channel A status information    */
 #define  SPDIFRX_CSR_SOB                     ((uint32_t)0x01000000)        /*!<Start Of Block                  */
 
-/*******************  Bit definition for SPDIFRX_DIR register    *******************/
+/*******************  位定义 SPDIFRX_DIR register    *******************/
 #define  SPDIFRX_DIR_THI                 ((uint32_t)0x000013FF)        /*!<Threshold LOW      */
 #define  SPDIFRX_DIR_TLO                 ((uint32_t)0x1FFF0000)        /*!<Threshold HIGH     */
 #endif /* STM32F446xx */
@@ -10393,12 +10393,12 @@ typedef struct {
 /*                          SD host Interface                                 */
 /*                                                                            */
 /******************************************************************************/
-/******************  Bit definition for SDIO_POWER register  ******************/
+/******************  位定义 SDIO_POWER 寄存器  ******************/
 #define  SDIO_POWER_PWRCTRL                  ((uint8_t)0x03)               /*!<PWRCTRL[1:0] bits (Power supply control bits) */
 #define  SDIO_POWER_PWRCTRL_0                ((uint8_t)0x01)               /*!<Bit 0 */
 #define  SDIO_POWER_PWRCTRL_1                ((uint8_t)0x02)               /*!<Bit 1 */
 
-/******************  Bit definition for SDIO_CLKCR register  ******************/
+/******************  位定义 SDIO_CLKCR 寄存器  ******************/
 #define  SDIO_CLKCR_CLKDIV                   ((uint16_t)0x00FF)            /*!<Clock divide factor             */
 #define  SDIO_CLKCR_CLKEN                    ((uint16_t)0x0100)            /*!<Clock enable bit                */
 #define  SDIO_CLKCR_PWRSAV                   ((uint16_t)0x0200)            /*!<Power saving configuration bit  */
@@ -10411,10 +10411,10 @@ typedef struct {
 #define  SDIO_CLKCR_NEGEDGE                  ((uint16_t)0x2000)            /*!<SDIO_CK dephasing selection bit */
 #define  SDIO_CLKCR_HWFC_EN                  ((uint16_t)0x4000)            /*!<HW Flow Control enable          */
 
-/*******************  Bit definition for SDIO_ARG register  *******************/
+/*******************  位定义 SDIO_ARG 寄存器  *******************/
 #define  SDIO_ARG_CMDARG                     ((uint32_t)0xFFFFFFFF)            /*!<Command argument */
 
-/*******************  Bit definition for SDIO_CMD register  *******************/
+/*******************  位定义 SDIO_CMD 寄存器  *******************/
 #define  SDIO_CMD_CMDINDEX                   ((uint16_t)0x003F)            /*!<Command Index                               */
 
 #define  SDIO_CMD_WAITRESP                   ((uint16_t)0x00C0)            /*!<WAITRESP[1:0] bits (Wait for response bits) */
@@ -10429,31 +10429,31 @@ typedef struct {
 #define  SDIO_CMD_NIEN                       ((uint16_t)0x2000)            /*!<Not Interrupt Enable */
 #define  SDIO_CMD_CEATACMD                   ((uint16_t)0x4000)            /*!<CE-ATA command       */
 
-/*****************  Bit definition for SDIO_RESPCMD register  *****************/
+/*****************  位定义 SDIO_RESPCMD 寄存器  *****************/
 #define  SDIO_RESPCMD_RESPCMD                ((uint8_t)0x3F)               /*!<Response command index */
 
-/******************  Bit definition for SDIO_RESP0 register  ******************/
+/******************  位定义 SDIO_RESP0 寄存器  ******************/
 #define  SDIO_RESP0_CARDSTATUS0              ((uint32_t)0xFFFFFFFF)        /*!<Card Status */
 
-/******************  Bit definition for SDIO_RESP1 register  ******************/
+/******************  位定义 SDIO_RESP1 寄存器  ******************/
 #define  SDIO_RESP1_CARDSTATUS1              ((uint32_t)0xFFFFFFFF)        /*!<Card Status */
 
-/******************  Bit definition for SDIO_RESP2 register  ******************/
+/******************  位定义 SDIO_RESP2 寄存器  ******************/
 #define  SDIO_RESP2_CARDSTATUS2              ((uint32_t)0xFFFFFFFF)        /*!<Card Status */
 
-/******************  Bit definition for SDIO_RESP3 register  ******************/
+/******************  位定义 SDIO_RESP3 寄存器  ******************/
 #define  SDIO_RESP3_CARDSTATUS3              ((uint32_t)0xFFFFFFFF)        /*!<Card Status */
 
-/******************  Bit definition for SDIO_RESP4 register  ******************/
+/******************  位定义 SDIO_RESP4 寄存器  ******************/
 #define  SDIO_RESP4_CARDSTATUS4              ((uint32_t)0xFFFFFFFF)        /*!<Card Status */
 
-/******************  Bit definition for SDIO_DTIMER register  *****************/
+/******************  位定义 SDIO_DTIMER 寄存器  *****************/
 #define  SDIO_DTIMER_DATATIME                ((uint32_t)0xFFFFFFFF)        /*!<Data timeout period. */
 
-/******************  Bit definition for SDIO_DLEN register  *******************/
+/******************  位定义 SDIO_DLEN 寄存器  *******************/
 #define  SDIO_DLEN_DATALENGTH                ((uint32_t)0x01FFFFFF)        /*!<Data length value    */
 
-/******************  Bit definition for SDIO_DCTRL register  ******************/
+/******************  位定义 SDIO_DCTRL 寄存器  ******************/
 #define  SDIO_DCTRL_DTEN                     ((uint16_t)0x0001)            /*!<Data transfer enabled bit         */
 #define  SDIO_DCTRL_DTDIR                    ((uint16_t)0x0002)            /*!<Data transfer direction selection */
 #define  SDIO_DCTRL_DTMODE                   ((uint16_t)0x0004)            /*!<Data transfer mode selection      */
@@ -10470,10 +10470,10 @@ typedef struct {
 #define  SDIO_DCTRL_RWMOD                    ((uint16_t)0x0400)            /*!<Read wait mode          */
 #define  SDIO_DCTRL_SDIOEN                   ((uint16_t)0x0800)            /*!<SD I/O enable functions */
 
-/******************  Bit definition for SDIO_DCOUNT register  *****************/
+/******************  位定义 SDIO_DCOUNT 寄存器  *****************/
 #define  SDIO_DCOUNT_DATACOUNT               ((uint32_t)0x01FFFFFF)        /*!<Data count value */
 
-/******************  Bit definition for SDIO_STA register  ********************/
+/******************  位定义 SDIO_STA 寄存器  ********************/
 #define  SDIO_STA_CCRCFAIL                   ((uint32_t)0x00000001)        /*!<Command response received (CRC check failed)  */
 #define  SDIO_STA_DCRCFAIL                   ((uint32_t)0x00000002)        /*!<Data block sent/received (CRC check failed)   */
 #define  SDIO_STA_CTIMEOUT                   ((uint32_t)0x00000004)        /*!<Command response timeout                      */
@@ -10499,7 +10499,7 @@ typedef struct {
 #define  SDIO_STA_SDIOIT                     ((uint32_t)0x00400000)        /*!<SDIO interrupt received                       */
 #define  SDIO_STA_CEATAEND                   ((uint32_t)0x00800000)        /*!<CE-ATA command completion signal received for CMD61 */
 
-/*******************  Bit definition for SDIO_ICR register  *******************/
+/*******************  位定义 SDIO_ICR 寄存器  *******************/
 #define  SDIO_ICR_CCRCFAILC                  ((uint32_t)0x00000001)        /*!<CCRCFAIL flag clear bit */
 #define  SDIO_ICR_DCRCFAILC                  ((uint32_t)0x00000002)        /*!<DCRCFAIL flag clear bit */
 #define  SDIO_ICR_CTIMEOUTC                  ((uint32_t)0x00000004)        /*!<CTIMEOUT flag clear bit */
@@ -10514,7 +10514,7 @@ typedef struct {
 #define  SDIO_ICR_SDIOITC                    ((uint32_t)0x00400000)        /*!<SDIOIT flag clear bit   */
 #define  SDIO_ICR_CEATAENDC                  ((uint32_t)0x00800000)        /*!<CEATAEND flag clear bit */
 
-/******************  Bit definition for SDIO_MASK register  *******************/
+/******************  位定义 SDIO_MASK 寄存器  *******************/
 #define  SDIO_MASK_CCRCFAILIE                ((uint32_t)0x00000001)        /*!<Command CRC Fail Interrupt Enable          */
 #define  SDIO_MASK_DCRCFAILIE                ((uint32_t)0x00000002)        /*!<Data CRC Fail Interrupt Enable             */
 #define  SDIO_MASK_CTIMEOUTIE                ((uint32_t)0x00000004)        /*!<Command TimeOut Interrupt Enable           */
@@ -10540,10 +10540,10 @@ typedef struct {
 #define  SDIO_MASK_SDIOITIE                  ((uint32_t)0x00400000)        /*!<SDIO Mode Interrupt Received interrupt Enable */
 #define  SDIO_MASK_CEATAENDIE                ((uint32_t)0x00800000)        /*!<CE-ATA command completion signal received Interrupt Enable */
 
-/*****************  Bit definition for SDIO_FIFOCNT register  *****************/
+/*****************  位定义 SDIO_FIFOCNT 寄存器  *****************/
 #define  SDIO_FIFOCNT_FIFOCOUNT              ((uint32_t)0x00FFFFFF)        /*!<Remaining number of words to be written to or read from the FIFO */
 
-/******************  Bit definition for SDIO_FIFO register  *******************/
+/******************  位定义 SDIO_FIFO 寄存器  *******************/
 #define  SDIO_FIFO_FIFODATA                  ((uint32_t)0xFFFFFFFF)        /*!<Receive and transmit FIFO data */
 
 /******************************************************************************/
@@ -10551,7 +10551,7 @@ typedef struct {
 /*                        Serial Peripheral Interface                         */
 /*                                                                            */
 /******************************************************************************/
-/*******************  Bit definition for SPI_CR1 register  ********************/
+/*******************  位定义 SPI_CR1 寄存器  ********************/
 #define  SPI_CR1_CPHA                        ((uint16_t)0x0001)            /*!<Clock Phase      */
 #define  SPI_CR1_CPOL                        ((uint16_t)0x0002)            /*!<Clock Polarity   */
 #define  SPI_CR1_MSTR                        ((uint16_t)0x0004)            /*!<Master Selection */
@@ -10572,7 +10572,7 @@ typedef struct {
 #define  SPI_CR1_BIDIOE                      ((uint16_t)0x4000)            /*!<Output enable in bidirectional mode */
 #define  SPI_CR1_BIDIMODE                    ((uint16_t)0x8000)            /*!<Bidirectional data mode enable      */
 
-/*******************  Bit definition for SPI_CR2 register  ********************/
+/*******************  位定义 SPI_CR2 寄存器  ********************/
 #define  SPI_CR2_RXDMAEN                     ((uint8_t)0x01)               /*!<Rx Buffer DMA Enable                 */
 #define  SPI_CR2_TXDMAEN                     ((uint8_t)0x02)               /*!<Tx Buffer DMA Enable                 */
 #define  SPI_CR2_SSOE                        ((uint8_t)0x04)               /*!<SS Output Enable                     */
@@ -10580,7 +10580,7 @@ typedef struct {
 #define  SPI_CR2_RXNEIE                      ((uint8_t)0x40)               /*!<RX buffer Not Empty Interrupt Enable */
 #define  SPI_CR2_TXEIE                       ((uint8_t)0x80)               /*!<Tx buffer Empty Interrupt Enable     */
 
-/********************  Bit definition for SPI_SR register  ********************/
+/********************  位定义 SPI_SR 寄存器  ********************/
 #define  SPI_SR_RXNE                         ((uint8_t)0x01)               /*!<Receive buffer Not Empty */
 #define  SPI_SR_TXE                          ((uint8_t)0x02)               /*!<Transmit buffer Empty    */
 #define  SPI_SR_CHSIDE                       ((uint8_t)0x04)               /*!<Channel side             */
@@ -10590,19 +10590,19 @@ typedef struct {
 #define  SPI_SR_OVR                          ((uint8_t)0x40)               /*!<Overrun flag             */
 #define  SPI_SR_BSY                          ((uint8_t)0x80)               /*!<Busy flag                */
 
-/********************  Bit definition for SPI_DR register  ********************/
+/********************  位定义 SPI_DR 寄存器  ********************/
 #define  SPI_DR_DR                           ((uint16_t)0xFFFF)            /*!<Data Register           */
 
-/*******************  Bit definition for SPI_CRCPR register  ******************/
+/*******************  位定义 SPI_CRCPR 寄存器  ******************/
 #define  SPI_CRCPR_CRCPOLY                   ((uint16_t)0xFFFF)            /*!<CRC polynomial register */
 
-/******************  Bit definition for SPI_RXCRCR register  ******************/
+/******************  位定义 SPI_RXCRCR 寄存器  ******************/
 #define  SPI_RXCRCR_RXCRC                    ((uint16_t)0xFFFF)            /*!<Rx CRC Register         */
 
-/******************  Bit definition for SPI_TXCRCR register  ******************/
+/******************  位定义 SPI_TXCRCR 寄存器  ******************/
 #define  SPI_TXCRCR_TXCRC                    ((uint16_t)0xFFFF)            /*!<Tx CRC Register         */
 
-/******************  Bit definition for SPI_I2SCFGR register  *****************/
+/******************  位定义 SPI_I2SCFGR 寄存器  *****************/
 #define  SPI_I2SCFGR_CHLEN                   ((uint16_t)0x0001)            /*!<Channel length (number of bits per audio channel) */
 
 #define  SPI_I2SCFGR_DATLEN                  ((uint16_t)0x0006)            /*!<DATLEN[1:0] bits (Data length to be transferred)  */
@@ -10627,7 +10627,7 @@ typedef struct {
 #define  SPI_I2SCFGR_ASTRTEN                 ((uint16_t)0x1000)            /*!<Asynchronous start enable */
 #endif /* STM32F413_423xx */
 
-/******************  Bit definition for SPI_I2SPR register  *******************/
+/******************  位定义 SPI_I2SPR 寄存器  *******************/
 #define  SPI_I2SPR_I2SDIV                    ((uint16_t)0x00FF)            /*!<I2S Linear prescaler         */
 #define  SPI_I2SPR_ODD                       ((uint16_t)0x0100)            /*!<Odd factor for the prescaler */
 #define  SPI_I2SPR_MCKOE                     ((uint16_t)0x0200)            /*!<Master Clock Output Enable   */
@@ -10637,7 +10637,7 @@ typedef struct {
 /*                                 SYSCFG                                     */
 /*                                                                            */
 /******************************************************************************/
-/******************  Bit definition for SYSCFG_MEMRMP register  ***************/
+/******************  位定义 SYSCFG_MEMRMP 寄存器  ***************/
 #define SYSCFG_MEMRMP_MEM_MODE          ((uint32_t)0x00000007) /*!< SYSCFG_Memory Remap Config */
 #define SYSCFG_MEMRMP_MEM_MODE_0        ((uint32_t)0x00000001) /*!<Bit 0 */
 #define SYSCFG_MEMRMP_MEM_MODE_1        ((uint32_t)0x00000002) /*!<Bit 1 */
@@ -10650,7 +10650,7 @@ typedef struct {
 #define SYSCFG_MEMRMP_SWP_FMC_1         ((uint32_t)0x00000800) /*!<Bit 1 */
 
 
-/******************  Bit definition for SYSCFG_PMC register  ******************/
+/******************  位定义 SYSCFG_PMC 寄存器  ******************/
 #define SYSCFG_PMC_ADCxDC2              ((uint32_t)0x00070000) /*!< Refer to AN4073 on how to use this bit  */
 #define SYSCFG_PMC_ADC1DC2              ((uint32_t)0x00010000) /*!< Refer to AN4073 on how to use this bit  */
 #define SYSCFG_PMC_ADC2DC2              ((uint32_t)0x00020000) /*!< Refer to AN4073 on how to use this bit  */
@@ -10660,7 +10660,7 @@ typedef struct {
 /* Old MII_RMII_SEL bit definition, maintained for legacy purpose */
 #define SYSCFG_PMC_MII_RMII             SYSCFG_PMC_MII_RMII_SEL
 
-/*****************  Bit definition for SYSCFG_EXTICR1 register  ***************/
+/*****************  位定义 SYSCFG_EXTICR1 寄存器  ***************/
 #define SYSCFG_EXTICR1_EXTI0            ((uint16_t)0x000F) /*!<EXTI 0 configuration */
 #define SYSCFG_EXTICR1_EXTI1            ((uint16_t)0x00F0) /*!<EXTI 1 configuration */
 #define SYSCFG_EXTICR1_EXTI2            ((uint16_t)0x0F00) /*!<EXTI 2 configuration */
@@ -10725,7 +10725,7 @@ typedef struct {
 #define SYSCFG_EXTICR1_EXTI3_PJ         ((uint16_t)0x9000) /*!<PJ[3] pin */
 #define SYSCFG_EXTICR1_EXTI3_PK         ((uint16_t)0xA000) /*!<PK[3] pin */
 
-/*****************  Bit definition for SYSCFG_EXTICR2 register  ***************/
+/*****************  位定义 SYSCFG_EXTICR2 寄存器  ***************/
 #define SYSCFG_EXTICR2_EXTI4            ((uint16_t)0x000F) /*!<EXTI 4 configuration */
 #define SYSCFG_EXTICR2_EXTI5            ((uint16_t)0x00F0) /*!<EXTI 5 configuration */
 #define SYSCFG_EXTICR2_EXTI6            ((uint16_t)0x0F00) /*!<EXTI 6 configuration */
@@ -10790,7 +10790,7 @@ typedef struct {
 #define SYSCFG_EXTICR2_EXTI7_PJ         ((uint16_t)0x9000) /*!<PJ[7] pin */
 #define SYSCFG_EXTICR2_EXTI7_PK         ((uint16_t)0xA000) /*!<PK[7] pin */
 
-/*****************  Bit definition for SYSCFG_EXTICR3 register  ***************/
+/*****************  位定义 SYSCFG_EXTICR3 寄存器  ***************/
 #define SYSCFG_EXTICR3_EXTI8            ((uint16_t)0x000F) /*!<EXTI 8 configuration */
 #define SYSCFG_EXTICR3_EXTI9            ((uint16_t)0x00F0) /*!<EXTI 9 configuration */
 #define SYSCFG_EXTICR3_EXTI10           ((uint16_t)0x0F00) /*!<EXTI 10 configuration */
@@ -10852,7 +10852,7 @@ typedef struct {
 #define SYSCFG_EXTICR3_EXTI11_PI        ((uint16_t)0x8000) /*!<PI[11] pin */
 #define SYSCFG_EXTICR3_EXTI11_PJ        ((uint16_t)0x9000) /*!<PJ[11] pin */
 
-/*****************  Bit definition for SYSCFG_EXTICR4 register  ***************/
+/*****************  位定义 SYSCFG_EXTICR4 寄存器  ***************/
 #define SYSCFG_EXTICR4_EXTI12           ((uint16_t)0x000F) /*!<EXTI 12 configuration */
 #define SYSCFG_EXTICR4_EXTI13           ((uint16_t)0x00F0) /*!<EXTI 13 configuration */
 #define SYSCFG_EXTICR4_EXTI14           ((uint16_t)0x0F00) /*!<EXTI 14 configuration */
@@ -10914,22 +10914,22 @@ typedef struct {
 #define SYSCFG_EXTICR4_EXTI15_PJ        ((uint16_t)0x9000) /*!<PJ[15] pin */
 
 #if defined(STM32F412xG) || defined(STM32F413_423xx)
-/******************  Bit definition for SYSCFG_CFGR register  *****************/
+/******************  位定义 SYSCFG_CFGR 寄存器  *****************/
 #define SYSCFG_CFGR_FMPI2C1_SCL         ((uint32_t)0x00000001) /*!<FM+ drive capability for FMPI2C1_SCL pin */
 #define SYSCFG_CFGR_FMPI2C1_SDA         ((uint32_t)0x00000002) /*!<FM+ drive capability for FMPI2C1_SDA pin */
 #endif /* STM32F412xG || STM32413_423xx */
 
 #if defined (STM32F410xx) || defined(STM32F412xG) || defined(STM32F413_423xx)
-/******************  Bit definition for SYSCFG_CFGR2 register  ****************/
+/******************  位定义 SYSCFG_CFGR2 寄存器  ****************/
 #define SYSCFG_CFGR2_CLL                ((uint32_t)0x00000001) /*!< Core Lockup Lock */
 #define SYSCFG_CFGR2_PVDL               ((uint32_t)0x00000004) /*!<  PVD Lock */
 #endif /* STM32F410xx || STM32F412xG || STM32F413_423xx */
-/******************  Bit definition for SYSCFG_CMPCR register  ****************/
+/******************  位定义 SYSCFG_CMPCR 寄存器  ****************/
 #define SYSCFG_CMPCR_CMP_PD             ((uint32_t)0x00000001) /*!<Compensation cell ready flag */
 #define SYSCFG_CMPCR_READY              ((uint32_t)0x00000100) /*!<Compensation cell power-down */
 
 #if defined(STM32F413_423xx)
-/******************  Bit definition for SYSCFG_MCHDLYCR register  *****************/
+/******************  位定义 SYSCFG_MCHDLYCR 寄存器  *****************/
 #define SYSCFG_MCHDLYCR_BSCKSEL         ((uint32_t)0x00000001) /*!<Bitstream clock source selection                     */
 #define SYSCFG_MCHDLYCR_MCHDLY1EN       ((uint32_t)0x00000002) /*!<MCHDLY clock enable for DFSDM1                       */
 #define SYSCFG_MCHDLYCR_DFSDM1D0SEL     ((uint32_t)0x00000004) /*!<Source selection for DatIn0 for DFSDM1               */
@@ -10956,7 +10956,7 @@ typedef struct {
 /*                                    TIM                                     */
 /*                                                                            */
 /******************************************************************************/
-/*******************  Bit definition for TIM_CR1 register  ********************/
+/*******************  位定义 TIM_CR1 寄存器  ********************/
 #define  TIM_CR1_CEN                         ((uint16_t)0x0001)            /*!<Counter enable        */
 #define  TIM_CR1_UDIS                        ((uint16_t)0x0002)            /*!<Update disable        */
 #define  TIM_CR1_URS                         ((uint16_t)0x0004)            /*!<Update request source */
@@ -10973,7 +10973,7 @@ typedef struct {
 #define  TIM_CR1_CKD_0                       ((uint16_t)0x0100)            /*!<Bit 0 */
 #define  TIM_CR1_CKD_1                       ((uint16_t)0x0200)            /*!<Bit 1 */
 
-/*******************  Bit definition for TIM_CR2 register  ********************/
+/*******************  位定义 TIM_CR2 寄存器  ********************/
 #define  TIM_CR2_CCPC                        ((uint16_t)0x0001)            /*!<Capture/Compare Preloaded Control        */
 #define  TIM_CR2_CCUS                        ((uint16_t)0x0004)            /*!<Capture/Compare Control Update Selection */
 #define  TIM_CR2_CCDS                        ((uint16_t)0x0008)            /*!<Capture/Compare DMA Selection            */
@@ -10992,7 +10992,7 @@ typedef struct {
 #define  TIM_CR2_OIS3N                       ((uint16_t)0x2000)            /*!<Output Idle state 3 (OC3N output) */
 #define  TIM_CR2_OIS4                        ((uint16_t)0x4000)            /*!<Output Idle state 4 (OC4 output)  */
 
-/*******************  Bit definition for TIM_SMCR register  *******************/
+/*******************  位定义 TIM_SMCR 寄存器  *******************/
 #define  TIM_SMCR_SMS                        ((uint16_t)0x0007)            /*!<SMS[2:0] bits (Slave mode selection)    */
 #define  TIM_SMCR_SMS_0                      ((uint16_t)0x0001)            /*!<Bit 0 */
 #define  TIM_SMCR_SMS_1                      ((uint16_t)0x0002)            /*!<Bit 1 */
@@ -11018,7 +11018,7 @@ typedef struct {
 #define  TIM_SMCR_ECE                        ((uint16_t)0x4000)            /*!<External clock enable     */
 #define  TIM_SMCR_ETP                        ((uint16_t)0x8000)            /*!<External trigger polarity */
 
-/*******************  Bit definition for TIM_DIER register  *******************/
+/*******************  位定义 TIM_DIER 寄存器  *******************/
 #define  TIM_DIER_UIE                        ((uint16_t)0x0001)            /*!<Update interrupt enable */
 #define  TIM_DIER_CC1IE                      ((uint16_t)0x0002)            /*!<Capture/Compare 1 interrupt enable   */
 #define  TIM_DIER_CC2IE                      ((uint16_t)0x0004)            /*!<Capture/Compare 2 interrupt enable   */
@@ -11035,7 +11035,7 @@ typedef struct {
 #define  TIM_DIER_COMDE                      ((uint16_t)0x2000)            /*!<COM DMA request enable               */
 #define  TIM_DIER_TDE                        ((uint16_t)0x4000)            /*!<Trigger DMA request enable           */
 
-/********************  Bit definition for TIM_SR register  ********************/
+/********************  位定义 TIM_SR 寄存器  ********************/
 #define  TIM_SR_UIF                          ((uint16_t)0x0001)            /*!<Update interrupt Flag              */
 #define  TIM_SR_CC1IF                        ((uint16_t)0x0002)            /*!<Capture/Compare 1 interrupt Flag   */
 #define  TIM_SR_CC2IF                        ((uint16_t)0x0004)            /*!<Capture/Compare 2 interrupt Flag   */
@@ -11049,7 +11049,7 @@ typedef struct {
 #define  TIM_SR_CC3OF                        ((uint16_t)0x0800)            /*!<Capture/Compare 3 Overcapture Flag */
 #define  TIM_SR_CC4OF                        ((uint16_t)0x1000)            /*!<Capture/Compare 4 Overcapture Flag */
 
-/*******************  Bit definition for TIM_EGR register  ********************/
+/*******************  位定义 TIM_EGR 寄存器  ********************/
 #define  TIM_EGR_UG                          ((uint8_t)0x01)               /*!<Update Generation                         */
 #define  TIM_EGR_CC1G                        ((uint8_t)0x02)               /*!<Capture/Compare 1 Generation              */
 #define  TIM_EGR_CC2G                        ((uint8_t)0x04)               /*!<Capture/Compare 2 Generation              */
@@ -11059,7 +11059,7 @@ typedef struct {
 #define  TIM_EGR_TG                          ((uint8_t)0x40)               /*!<Trigger Generation                        */
 #define  TIM_EGR_BG                          ((uint8_t)0x80)               /*!<Break Generation                          */
 
-/******************  Bit definition for TIM_CCMR1 register  *******************/
+/******************  位定义 TIM_CCMR1 寄存器  *******************/
 #define  TIM_CCMR1_CC1S                      ((uint16_t)0x0003)            /*!<CC1S[1:0] bits (Capture/Compare 1 Selection) */
 #define  TIM_CCMR1_CC1S_0                    ((uint16_t)0x0001)            /*!<Bit 0 */
 #define  TIM_CCMR1_CC1S_1                    ((uint16_t)0x0002)            /*!<Bit 1 */
@@ -11110,7 +11110,7 @@ typedef struct {
 #define  TIM_CCMR1_IC2F_2                    ((uint16_t)0x4000)            /*!<Bit 2 */
 #define  TIM_CCMR1_IC2F_3                    ((uint16_t)0x8000)            /*!<Bit 3 */
 
-/******************  Bit definition for TIM_CCMR2 register  *******************/
+/******************  位定义 TIM_CCMR2 寄存器  *******************/
 #define  TIM_CCMR2_CC3S                      ((uint16_t)0x0003)            /*!<CC3S[1:0] bits (Capture/Compare 3 Selection)  */
 #define  TIM_CCMR2_CC3S_0                    ((uint16_t)0x0001)            /*!<Bit 0 */
 #define  TIM_CCMR2_CC3S_1                    ((uint16_t)0x0002)            /*!<Bit 1 */
@@ -11161,7 +11161,7 @@ typedef struct {
 #define  TIM_CCMR2_IC4F_2                    ((uint16_t)0x4000)            /*!<Bit 2 */
 #define  TIM_CCMR2_IC4F_3                    ((uint16_t)0x8000)            /*!<Bit 3 */
 
-/*******************  Bit definition for TIM_CCER register  *******************/
+/*******************  位定义 TIM_CCER 寄存器  *******************/
 #define  TIM_CCER_CC1E                       ((uint16_t)0x0001)            /*!<Capture/Compare 1 output enable                 */
 #define  TIM_CCER_CC1P                       ((uint16_t)0x0002)            /*!<Capture/Compare 1 output Polarity               */
 #define  TIM_CCER_CC1NE                      ((uint16_t)0x0004)            /*!<Capture/Compare 1 Complementary output enable   */
@@ -11178,31 +11178,31 @@ typedef struct {
 #define  TIM_CCER_CC4P                       ((uint16_t)0x2000)            /*!<Capture/Compare 4 output Polarity               */
 #define  TIM_CCER_CC4NP                      ((uint16_t)0x8000)            /*!<Capture/Compare 4 Complementary output Polarity */
 
-/*******************  Bit definition for TIM_CNT register  ********************/
+/*******************  位定义 TIM_CNT 寄存器  ********************/
 #define  TIM_CNT_CNT                         ((uint16_t)0xFFFF)            /*!<Counter Value            */
 
-/*******************  Bit definition for TIM_PSC register  ********************/
+/*******************  位定义 TIM_PSC 寄存器  ********************/
 #define  TIM_PSC_PSC                         ((uint16_t)0xFFFF)            /*!<Prescaler Value          */
 
-/*******************  Bit definition for TIM_ARR register  ********************/
+/*******************  位定义 TIM_ARR 寄存器  ********************/
 #define  TIM_ARR_ARR                         ((uint16_t)0xFFFF)            /*!<actual auto-reload Value */
 
-/*******************  Bit definition for TIM_RCR register  ********************/
+/*******************  位定义 TIM_RCR 寄存器  ********************/
 #define  TIM_RCR_REP                         ((uint8_t)0xFF)               /*!<Repetition Counter Value */
 
-/*******************  Bit definition for TIM_CCR1 register  *******************/
+/*******************  位定义 TIM_CCR1 寄存器  *******************/
 #define  TIM_CCR1_CCR1                       ((uint16_t)0xFFFF)            /*!<Capture/Compare 1 Value  */
 
-/*******************  Bit definition for TIM_CCR2 register  *******************/
+/*******************  位定义 TIM_CCR2 寄存器  *******************/
 #define  TIM_CCR2_CCR2                       ((uint16_t)0xFFFF)            /*!<Capture/Compare 2 Value  */
 
-/*******************  Bit definition for TIM_CCR3 register  *******************/
+/*******************  位定义 TIM_CCR3 寄存器  *******************/
 #define  TIM_CCR3_CCR3                       ((uint16_t)0xFFFF)            /*!<Capture/Compare 3 Value  */
 
-/*******************  Bit definition for TIM_CCR4 register  *******************/
+/*******************  位定义 TIM_CCR4 寄存器  *******************/
 #define  TIM_CCR4_CCR4                       ((uint16_t)0xFFFF)            /*!<Capture/Compare 4 Value  */
 
-/*******************  Bit definition for TIM_BDTR register  *******************/
+/*******************  位定义 TIM_BDTR 寄存器  *******************/
 #define  TIM_BDTR_DTG                        ((uint16_t)0x00FF)            /*!<DTG[0:7] bits (Dead-Time Generator set-up) */
 #define  TIM_BDTR_DTG_0                      ((uint16_t)0x0001)            /*!<Bit 0 */
 #define  TIM_BDTR_DTG_1                      ((uint16_t)0x0002)            /*!<Bit 1 */
@@ -11224,7 +11224,7 @@ typedef struct {
 #define  TIM_BDTR_AOE                        ((uint16_t)0x4000)            /*!<Automatic Output enable           */
 #define  TIM_BDTR_MOE                        ((uint16_t)0x8000)            /*!<Main Output enable                */
 
-/*******************  Bit definition for TIM_DCR register  ********************/
+/*******************  位定义 TIM_DCR 寄存器  ********************/
 #define  TIM_DCR_DBA                         ((uint16_t)0x001F)            /*!<DBA[4:0] bits (DMA Base Address) */
 #define  TIM_DCR_DBA_0                       ((uint16_t)0x0001)            /*!<Bit 0 */
 #define  TIM_DCR_DBA_1                       ((uint16_t)0x0002)            /*!<Bit 1 */
@@ -11239,10 +11239,10 @@ typedef struct {
 #define  TIM_DCR_DBL_3                       ((uint16_t)0x0800)            /*!<Bit 3 */
 #define  TIM_DCR_DBL_4                       ((uint16_t)0x1000)            /*!<Bit 4 */
 
-/*******************  Bit definition for TIM_DMAR register  *******************/
+/*******************  位定义 TIM_DMAR 寄存器  *******************/
 #define  TIM_DMAR_DMAB                       ((uint16_t)0xFFFF)            /*!<DMA register for burst accesses                    */
 
-/*******************  Bit definition for TIM_OR register  *********************/
+/*******************  位定义 TIM_OR 寄存器  *********************/
 #define TIM_OR_TI4_RMP                       ((uint16_t)0x00C0)            /*!<TI4_RMP[1:0] bits (TIM5 Input 4 remap)             */
 #define TIM_OR_TI4_RMP_0                     ((uint16_t)0x0040)            /*!<Bit 0 */
 #define TIM_OR_TI4_RMP_1                     ((uint16_t)0x0080)            /*!<Bit 1 */
@@ -11256,7 +11256,7 @@ typedef struct {
 /*                         Low Power Timer (LPTIM)                            */
 /*                                                                            */
 /******************************************************************************/
-/******************  Bit definition for LPTIM_ISR register  *******************/
+/******************  位定义 LPTIM_ISR 寄存器  *******************/
 #define  LPTIM_ISR_CMPM                         ((uint32_t)0x00000001)            /*!< Compare match                       */
 #define  LPTIM_ISR_ARRM                         ((uint32_t)0x00000002)            /*!< Autoreload match                    */
 #define  LPTIM_ISR_EXTTRIG                      ((uint32_t)0x00000004)            /*!< External trigger edge event         */
@@ -11265,7 +11265,7 @@ typedef struct {
 #define  LPTIM_ISR_UP                           ((uint32_t)0x00000020)            /*!< Counter direction change down to up */
 #define  LPTIM_ISR_DOWN                         ((uint32_t)0x00000040)            /*!< Counter direction change up to down */
 
-/******************  Bit definition for LPTIM_ICR register  *******************/
+/******************  位定义 LPTIM_ICR 寄存器  *******************/
 #define  LPTIM_ICR_CMPMCF                       ((uint32_t)0x00000001)            /*!< Compare match Clear Flag                       */
 #define  LPTIM_ICR_ARRMCF                       ((uint32_t)0x00000002)            /*!< Autoreload match Clear Flag                    */
 #define  LPTIM_ICR_EXTTRIGCF                    ((uint32_t)0x00000004)            /*!< External trigger edge event Clear Flag         */
@@ -11274,7 +11274,7 @@ typedef struct {
 #define  LPTIM_ICR_UPCF                         ((uint32_t)0x00000020)            /*!< Counter direction change down to up Clear Flag */
 #define  LPTIM_ICR_DOWNCF                       ((uint32_t)0x00000040)            /*!< Counter direction change up to down Clear Flag */
 
-/******************  Bit definition for LPTIM_IER register ********************/
+/******************  位定义 LPTIM_IER register ********************/
 #define  LPTIM_IER_CMPMIE                       ((uint32_t)0x00000001)            /*!< Compare match Interrupt Enable                       */
 #define  LPTIM_IER_ARRMIE                       ((uint32_t)0x00000002)            /*!< Autoreload match Interrupt Enable                    */
 #define  LPTIM_IER_EXTTRIGIE                    ((uint32_t)0x00000004)            /*!< External trigger edge event Interrupt Enable         */
@@ -11283,7 +11283,7 @@ typedef struct {
 #define  LPTIM_IER_UPIE                         ((uint32_t)0x00000020)            /*!< Counter direction change down to up Interrupt Enable */
 #define  LPTIM_IER_DOWNIE                       ((uint32_t)0x00000040)            /*!< Counter direction change up to down Interrupt Enable */
 
-/******************  Bit definition for LPTIM_CFGR register *******************/
+/******************  位定义 LPTIM_CFGR register *******************/
 #define  LPTIM_CFGR_CKSEL                       ((uint32_t)0x00000001)             /*!< Clock selector */
 
 #define  LPTIM_CFGR_CKPOL                       ((uint32_t)0x00000006)             /*!< CKPOL[1:0] bits (Clock polarity) */
@@ -11319,21 +11319,21 @@ typedef struct {
 #define  LPTIM_CFGR_COUNTMODE                   ((uint32_t)0x00800000)             /*!< Counter mode enable     */
 #define  LPTIM_CFGR_ENC                         ((uint32_t)0x01000000)             /*!< Encoder mode enable     */
 
-/******************  Bit definition for LPTIM_CR register  ********************/
+/******************  位定义 LPTIM_CR 寄存器  ********************/
 #define  LPTIM_CR_ENABLE                        ((uint32_t)0x00000001)             /*!< LPTIMer enable                 */
 #define  LPTIM_CR_SNGSTRT                       ((uint32_t)0x00000002)             /*!< Timer start in single mode     */
 #define  LPTIM_CR_CNTSTRT                       ((uint32_t)0x00000004)             /*!< Timer start in continuous mode */
 
-/******************  Bit definition for LPTIM_CMP register  *******************/
+/******************  位定义 LPTIM_CMP 寄存器  *******************/
 #define  LPTIM_CMP_CMP                          ((uint32_t)0x0000FFFF)             /*!< Compare register     */
 
-/******************  Bit definition for LPTIM_ARR register  *******************/
+/******************  位定义 LPTIM_ARR 寄存器  *******************/
 #define  LPTIM_ARR_ARR                          ((uint32_t)0x0000FFFF)             /*!< Auto reload register */
 
-/******************  Bit definition for LPTIM_CNT register  *******************/
+/******************  位定义 LPTIM_CNT 寄存器  *******************/
 #define  LPTIM_CNT_CNT                          ((uint32_t)0x0000FFFF)             /*!< Counter register     */
 
-/******************  Bit definition for LPTIM_OR register  *******************/
+/******************  位定义 LPTIM_OR 寄存器  *******************/
 #define  LPTIM_OR_OR                           ((uint32_t)0x00000003)               /*!< LPTIMER[1:0] bits (Remap selection) */
 #define  LPTIM_OR_OR_0                         ((uint32_t)0x00000001)               /*!< Bit 0 */
 #define  LPTIM_OR_OR_1                         ((uint32_t)0x00000002)               /*!< Bit 1 */
@@ -11344,7 +11344,7 @@ typedef struct {
 /*         Universal Synchronous Asynchronous Receiver Transmitter            */
 /*                                                                            */
 /******************************************************************************/
-/*******************  Bit definition for USART_SR register  *******************/
+/*******************  位定义 USART_SR 寄存器  *******************/
 #define  USART_SR_PE                         ((uint16_t)0x0001)            /*!<Parity Error                 */
 #define  USART_SR_FE                         ((uint16_t)0x0002)            /*!<Framing Error                */
 #define  USART_SR_NE                         ((uint16_t)0x0004)            /*!<Noise Error Flag             */
@@ -11356,14 +11356,14 @@ typedef struct {
 #define  USART_SR_LBD                        ((uint16_t)0x0100)            /*!<LIN Break Detection Flag     */
 #define  USART_SR_CTS                        ((uint16_t)0x0200)            /*!<CTS Flag                     */
 
-/*******************  Bit definition for USART_DR register  *******************/
+/*******************  位定义 USART_DR 寄存器  *******************/
 #define  USART_DR_DR                         ((uint16_t)0x01FF)            /*!<Data value */
 
-/******************  Bit definition for USART_BRR register  *******************/
+/******************  位定义 USART_BRR 寄存器  *******************/
 #define  USART_BRR_DIV_Fraction              ((uint16_t)0x000F)            /*!<Fraction of USARTDIV */
 #define  USART_BRR_DIV_Mantissa              ((uint16_t)0xFFF0)            /*!<Mantissa of USARTDIV */
 
-/******************  Bit definition for USART_CR1 register  *******************/
+/******************  位定义 USART_CR1 寄存器  *******************/
 #define  USART_CR1_SBK                       ((uint16_t)0x0001)            /*!<Send Break                             */
 #define  USART_CR1_RWU                       ((uint16_t)0x0002)            /*!<Receiver wakeup                        */
 #define  USART_CR1_RE                        ((uint16_t)0x0004)            /*!<Receiver Enable                        */
@@ -11380,7 +11380,7 @@ typedef struct {
 #define  USART_CR1_UE                        ((uint16_t)0x2000)            /*!<USART Enable                           */
 #define  USART_CR1_OVER8                     ((uint16_t)0x8000)            /*!<USART Oversampling by 8 enable         */
 
-/******************  Bit definition for USART_CR2 register  *******************/
+/******************  位定义 USART_CR2 寄存器  *******************/
 #define  USART_CR2_ADD                       ((uint16_t)0x000F)            /*!<Address of the USART node            */
 #define  USART_CR2_LBDL                      ((uint16_t)0x0020)            /*!<LIN Break Detection Length           */
 #define  USART_CR2_LBDIE                     ((uint16_t)0x0040)            /*!<LIN Break Detection Interrupt Enable */
@@ -11395,7 +11395,7 @@ typedef struct {
 
 #define  USART_CR2_LINEN                     ((uint16_t)0x4000)            /*!<LIN mode enable */
 
-/******************  Bit definition for USART_CR3 register  *******************/
+/******************  位定义 USART_CR3 寄存器  *******************/
 #define  USART_CR3_EIE                       ((uint16_t)0x0001)            /*!<Error Interrupt Enable      */
 #define  USART_CR3_IREN                      ((uint16_t)0x0002)            /*!<IrDA mode Enable            */
 #define  USART_CR3_IRLP                      ((uint16_t)0x0004)            /*!<IrDA Low-Power              */
@@ -11409,7 +11409,7 @@ typedef struct {
 #define  USART_CR3_CTSIE                     ((uint16_t)0x0400)            /*!<CTS Interrupt Enable        */
 #define  USART_CR3_ONEBIT                    ((uint16_t)0x0800)            /*!<USART One bit method enable */
 
-/******************  Bit definition for USART_GTPR register  ******************/
+/******************  位定义 USART_GTPR 寄存器  ******************/
 #define  USART_GTPR_PSC                      ((uint16_t)0x00FF)            /*!<PSC[7:0] bits (Prescaler value) */
 #define  USART_GTPR_PSC_0                    ((uint16_t)0x0001)            /*!<Bit 0 */
 #define  USART_GTPR_PSC_1                    ((uint16_t)0x0002)            /*!<Bit 1 */
@@ -11427,7 +11427,7 @@ typedef struct {
 /*                            Window WATCHDOG                                 */
 /*                                                                            */
 /******************************************************************************/
-/*******************  Bit definition for WWDG_CR register  ********************/
+/*******************  位定义 WWDG_CR 寄存器  ********************/
 #define  WWDG_CR_T                           ((uint8_t)0x7F)               /*!<T[6:0] bits (7-Bit counter (MSB to LSB)) */
 #define  WWDG_CR_T_0                         ((uint8_t)0x01)               /*!<Bit 0 */
 #define  WWDG_CR_T_1                         ((uint8_t)0x02)               /*!<Bit 1 */
@@ -11447,7 +11447,7 @@ typedef struct {
 
 #define  WWDG_CR_WDGA                        ((uint8_t)0x80)               /*!<Activation bit */
 
-/*******************  Bit definition for WWDG_CFR register  *******************/
+/*******************  位定义 WWDG_CFR 寄存器  *******************/
 #define  WWDG_CFR_W                          ((uint16_t)0x007F)            /*!<W[6:0] bits (7-bit window value) */
 #define  WWDG_CFR_W_0                        ((uint16_t)0x0001)            /*!<Bit 0 */
 #define  WWDG_CFR_W_1                        ((uint16_t)0x0002)            /*!<Bit 1 */
@@ -11474,7 +11474,7 @@ typedef struct {
 
 #define  WWDG_CFR_EWI                        ((uint16_t)0x0200)            /*!<Early Wakeup 中断 */
 
-/*******************  Bit definition for WWDG_SR register  ********************/
+/*******************  位定义 WWDG_SR 寄存器  ********************/
 #define  WWDG_SR_EWIF                        ((uint8_t)0x01)               /*!<Early Wakeup Interrupt Flag */
 
 
@@ -11483,11 +11483,11 @@ typedef struct {
 /*                                DBG                                         */
 /*                                                                            */
 /******************************************************************************/
-/********************  Bit definition for DBGMCU_IDCODE register  *************/
+/********************  位定义 DBGMCU_IDCODE 寄存器  *************/
 #define  DBGMCU_IDCODE_DEV_ID                ((uint32_t)0x00000FFF)
 #define  DBGMCU_IDCODE_REV_ID                ((uint32_t)0xFFFF0000)
 
-/********************  Bit definition for DBGMCU_CR register  *****************/
+/********************  位定义 DBGMCU_CR 寄存器  *****************/
 #define  DBGMCU_CR_DBG_SLEEP                 ((uint32_t)0x00000001)
 #define  DBGMCU_CR_DBG_STOP                  ((uint32_t)0x00000002)
 #define  DBGMCU_CR_DBG_STANDBY               ((uint32_t)0x00000004)
@@ -11497,7 +11497,7 @@ typedef struct {
 #define  DBGMCU_CR_TRACE_MODE_0              ((uint32_t)0x00000040)/*!<Bit 0 */
 #define  DBGMCU_CR_TRACE_MODE_1              ((uint32_t)0x00000080)/*!<Bit 1 */
 
-/********************  Bit definition for DBGMCU_APB1_FZ register  ************/
+/********************  位定义 DBGMCU_APB1_FZ 寄存器  ************/
 #define  DBGMCU_APB1_FZ_DBG_TIM2_STOP            ((uint32_t)0x00000001)
 #define  DBGMCU_APB1_FZ_DBG_TIM3_STOP            ((uint32_t)0x00000002)
 #define  DBGMCU_APB1_FZ_DBG_TIM4_STOP            ((uint32_t)0x00000004)
@@ -11519,14 +11519,14 @@ typedef struct {
 #define  DBGMCU_APB1_FZ_DBG_IWDEG_STOP           DBGMCU_APB1_FZ_DBG_IWDG_STOP
 
 /* ERROR lines */
-/********************  Bit definition for DBGMCU_APB1_FZ register  ************/
+/********************  位定义 DBGMCU_APB1_FZ 寄存器  ************/
 //#define  DBGMCU_APB1_FZ_DBG_TIM1_STOP        ((uint32_t)0x00000001)
 //#define  DBGMCU_APB1_FZ_DBG_TIM8_STOP        ((uint32_t)0x00000002)
 //#define  DBGMCU_APB1_FZ_DBG_TIM9_STOP        ((uint32_t)0x00010000)
 //#define  DBGMCU_APB1_FZ_DBG_TIM10_STOP       ((uint32_t)0x00020000)
 //#define  DBGMCU_APB1_FZ_DBG_TIM11_STOP       ((uint32_t)0x00040000)
 
-/********************  Bit definition for DBGMCU_APB2_FZ register  ************/
+/********************  位定义 DBGMCU_APB2_FZ 寄存器  ************/
 #define  DBGMCU_APB2_FZ_DBG_TIM1_STOP        ((uint32_t)0x00000001)
 #define  DBGMCU_APB2_FZ_DBG_TIM8_STOP        ((uint32_t)0x00000002)
 #define  DBGMCU_APB2_FZ_DBG_TIM9_STOP        ((uint32_t)0x00010000)

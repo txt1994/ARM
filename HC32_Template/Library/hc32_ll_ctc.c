@@ -123,7 +123,7 @@
 
 /**
  * @brief  Get HRC clock frequency.
- * @param  None
+ * @param  无
  * @retval HRC clock frequency.
  */
 static uint32_t CTC_GetHrcClockFreq(void) {
@@ -243,7 +243,7 @@ int32_t CTC_CT_Init(const stc_ctc_ct_init_t *pstcCtcInit) {
 
 /**
  * @brief  De-Initialize CTC function.
- * @param  None
+ * @param  无
  * @retval int32_t:
  *           - LL_OK:                   De-Initialize success
  *           - LL_ERR_BUSY:             CTC state is busy
@@ -265,7 +265,7 @@ int32_t CTC_DeInit(void) {
 /**
  * @brief  Enable or disable CTC error interrupt function.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void CTC_IntCmd(en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -297,7 +297,7 @@ en_flag_status_t CTC_GetStatus(uint32_t u32Flag) {
  * @brief  Set CTC trimming value.
  * @param  [in] u8TrimValue             CTC trimming value
  *         This parameter can be Min_Data=0 && Max_Data=0x3F
- * @retval None
+ * @retval 无
  */
 void CTC_SetTrimValue(uint8_t u8TrimValue) {
     DDL_ASSERT(IS_CTC_TRIM_VALUE(u8TrimValue));
@@ -307,7 +307,7 @@ void CTC_SetTrimValue(uint8_t u8TrimValue) {
 
 /**
  * @brief  Get CTC trimming value.
- * @param  None
+ * @param  无
  * @retval CTC trimming value(between Min_Data=0 and Max_Data=0x3F)
  */
 uint8_t CTC_GetTrimValue(void) {
@@ -318,7 +318,7 @@ uint8_t CTC_GetTrimValue(void) {
  * @brief  Set CTC reload value.
  * @param  [in] u16ReloadValue          CTC reload value
  *         This parameter can be between Min_Data=0 and Max_Data=0xFFFF
- * @retval None
+ * @retval 无
  */
 void CTC_SetReloadValue(uint16_t u16ReloadValue) {
     MODIFY_REG32(CM_CTC->CR2, CTC_CR2_RLDVAL, ((uint32_t)u16ReloadValue << CTC_CR2_RLDVAL_POS));
@@ -326,7 +326,7 @@ void CTC_SetReloadValue(uint16_t u16ReloadValue) {
 
 /**
  * @brief  Get CTC reload value.
- * @param  None
+ * @param  无
  * @retval CTC reload value (between Min_Data=0 and Max_Data=0xFFFF)
  */
 uint16_t CTC_GetReloadValue(void) {
@@ -337,7 +337,7 @@ uint16_t CTC_GetReloadValue(void) {
  * @brief  Set CTC offset value.
  * @param  [in] u8OffsetValue           CTC offset value
  *         This parameter can be between Min_Data=0 and Max_Data=0xFF
- * @retval None
+ * @retval 无
  */
 void CTC_SetOffsetValue(uint8_t u8OffsetValue) {
     MODIFY_REG32(CM_CTC->CR2, CTC_CR2_OFSVAL, ((uint32_t)u8OffsetValue << CTC_CR2_OFSVAL_POS));
@@ -345,7 +345,7 @@ void CTC_SetOffsetValue(uint8_t u8OffsetValue) {
 
 /**
  * @brief  Get CTC offset value.
- * @param  None
+ * @param  无
  * @retval CTC offset value (between Min_Data=0 and Max_Data=0xFF)
  */
 uint8_t CTC_GetOffsetValue(void) {

@@ -86,7 +86,7 @@ static __IO uint32_t m_u32TickCount = 0UL;
 /**
  * @brief  Set print device.
  * @param  [in] pvPrintDevice           Pointer to print device
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void LL_SetPrintDevice(void *pvPrintDevice) {
     m_pvPrintDevice = pvPrintDevice;
@@ -94,7 +94,7 @@ __STATIC_INLINE void LL_SetPrintDevice(void *pvPrintDevice) {
 
 /**
  * @brief  Get print device.
- * @param  None
+ * @param  无
  * @retval Pointer to print device
  */
 __STATIC_INLINE void *LL_GetPrintDevice(void) {
@@ -104,7 +104,7 @@ __STATIC_INLINE void *LL_GetPrintDevice(void) {
 /**
  * @brief  Set print timeout.
  * @param  [in] u32Timeout              Print timeout value
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void LL_SetPrintTimeout(uint32_t u32Timeout) {
     m_u32PrintTimeout = u32Timeout;
@@ -112,7 +112,7 @@ __STATIC_INLINE void LL_SetPrintTimeout(uint32_t u32Timeout) {
 
 /**
  * @brief  Get print timeout.
- * @param  None
+ * @param  无
  * @retval Print timeout value
  */
 __STATIC_INLINE uint32_t LL_GetPrintTimeout(void) {
@@ -132,7 +132,7 @@ __STATIC_INLINE uint32_t LL_GetPrintTimeout(void) {
 /**
  * @brief Delay function, delay ms approximately
  * @param [in] u32Count                   ms
- * @retval None
+ * @retval 无
  */
 void DDL_DelayMS(uint32_t u32Count) {
     __IO uint32_t i;
@@ -149,7 +149,7 @@ void DDL_DelayMS(uint32_t u32Count) {
 /**
  * @brief Delay function, delay us approximately
  * @param [in] u32Count                   us
- * @retval None
+ * @retval 无
  */
 void DDL_DelayUS(uint32_t u32Count) {
     __IO uint32_t i;
@@ -188,7 +188,7 @@ __WEAKDEF int32_t SysTick_Init(uint32_t u32Freq) {
 /**
  * @brief This function provides minimum delay (in milliseconds).
  * @param [in] u32Delay                 Delay specifies the delay time.
- * @retval None
+ * @retval 无
  */
 __WEAKDEF void SysTick_Delay(uint32_t u32Delay) {
     const uint32_t tickStart = SysTick_GetTick();
@@ -212,7 +212,7 @@ __WEAKDEF void SysTick_Delay(uint32_t u32Delay) {
  * @brief This function is called to increment a global variable "u32TickCount".
  * @note  This variable is incremented in SysTick ISR.
  * @param None
- * @retval None
+ * @retval 无
  */
 __WEAKDEF void SysTick_IncTick(void) {
     m_u32TickCount += m_u32TickStep;
@@ -230,7 +230,7 @@ __WEAKDEF uint32_t SysTick_GetTick(void) {
 /**
  * @brief Suspend SysTick increment.
  * @param None
- * @retval None
+ * @retval 无
  */
 __WEAKDEF void SysTick_Suspend(void) {
     /* Disable SysTick 中断 */
@@ -240,7 +240,7 @@ __WEAKDEF void SysTick_Suspend(void) {
 /**
  * @brief Resume SysTick increment.
  * @param None
- * @retval None
+ * @retval 无
  */
 __WEAKDEF void SysTick_Resume(void) {
     /* Enable SysTick 中断 */
@@ -252,7 +252,7 @@ __WEAKDEF void SysTick_Resume(void) {
  * @brief DDL assert error handle function
  * @param [in] file                     Point to the current assert the wrong file.
  * @param [in] line                     Point line assert the wrong file in the current.
- * @retval None
+ * @retval 无
  */
 __WEAKDEF void DDL_AssertHandler(const char *file, int line) {
     /* Users can re-implement this function to print information */

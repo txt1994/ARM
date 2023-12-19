@@ -439,7 +439,7 @@ int32_t TMR6_Init(CM_TMR6_TypeDef *TMR6x, const stc_tmr6_init_t *pstcTmr6Init) {
  * @param  [in] TMR6x               Timer6 unit
  *  @arg CM_TMR6_x
  * @param  [in] u32Mode             @ref TMR6_Count_Mode_Define
- * @retval None
+ * @retval 无
  */
 void TMR6_SetCountMode(CM_TMR6_TypeDef *TMR6x, uint32_t u32Mode) {
     /* Check parameters */
@@ -453,7 +453,7 @@ void TMR6_SetCountMode(CM_TMR6_TypeDef *TMR6x, uint32_t u32Mode) {
  * @param  [in] TMR6x               Timer6 unit
  *  @arg CM_TMR6_x
  * @param  [in] u32Dir              @ref TMR6_Count_Dir_Define
- * @retval None
+ * @retval 无
  */
 void TMR6_SetCountDir(CM_TMR6_TypeDef *TMR6x, uint32_t u32Dir) {
     /* Check parameters */
@@ -479,7 +479,7 @@ uint32_t TMR6_GetCountDir(CM_TMR6_TypeDef *TMR6x) {
  * @param  [in] TMR6x               Timer6 unit
  *  @arg CM_TMR6_x
  * @param  [in] u32Div              @ref TMR6_Count_Clock_Define
- * @retval None
+ * @retval 无
  */
 void TMR6_SetClockDiv(CM_TMR6_TypeDef *TMR6x, uint32_t u32Div) {
     /* Check parameters */
@@ -494,7 +494,7 @@ void TMR6_SetClockDiv(CM_TMR6_TypeDef *TMR6x, uint32_t u32Div) {
  * @param  [in] TMR6x               Timer6 unit
  *  @arg CM_TMR6_x
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR6_CountReloadCmd(CM_TMR6_TypeDef *TMR6x, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -515,7 +515,7 @@ void TMR6_CountReloadCmd(CM_TMR6_TypeDef *TMR6x, en_functional_state_t enNewStat
  * @param  [in] u32Cond             Events source for hardware count, maybe one or any combination of the parameter
  *                                  @ref TMR6_HW_Count_Up_Cond_Define
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR6_HWCountUpCondCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32Cond, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_VALID_TMR6_UNIT(TMR6x));
@@ -536,7 +536,7 @@ void TMR6_HWCountUpCondCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32Cond, en_function
  * @param  [in] u32Cond             Events source for hardware count, maybe one or any combination of the parameter
  *                                  @ref TMR6_HW_Count_Down_Cond_Define
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR6_HWCountDownCondCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32Cond, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_VALID_TMR6_UNIT(TMR6x));
@@ -619,7 +619,7 @@ int32_t TMR6_PWM_Init(CM_TMR6_TypeDef *TMR6x, uint32_t u32Ch, const stc_tmr6_pwm
  *  @arg CM_TMR6_x
  * @param  [in] u32Ch               @ref TMR6_Count_Ch_Define
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR6_PWM_OutputCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32Ch, en_functional_state_t enNewState) {
     uint32_t u32Tmp;
@@ -648,7 +648,7 @@ void TMR6_PWM_OutputCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32Ch, en_functional_st
  * @param  [in] u32Ch               @ref TMR6_Count_Ch_Define
  * @param  [in] u32CountState       Polarity set for @ref TMR6_Count_State_Define
  * @param  [in] u32Polarity         @ref TMR6_Pin_Polarity_Define
- * @retval None
+ * @retval 无
  */
 void TMR6_PWM_SetPolarity(CM_TMR6_TypeDef *TMR6x, uint32_t u32Ch, uint32_t u32CountState, uint32_t u32Polarity) {
     uint32_t u32PolarityMask = PCONR_REG_POLARITY_MASK;
@@ -678,7 +678,7 @@ void TMR6_PWM_SetPolarity(CM_TMR6_TypeDef *TMR6x, uint32_t u32Ch, uint32_t u32Co
  *  @arg CM_TMR6_x
  * @param  [in] u32Ch               @ref TMR6_Count_Ch_Define
  * @param  [in] u32Polarity         @ref TMR6_Pin_Polarity_Define
- * @retval None
+ * @retval 无
  */
 void TMR6_PWM_SetForcePolarity(CM_TMR6_TypeDef *TMR6x, uint32_t u32Ch, uint32_t u32Polarity) {
     /* Check parameters */
@@ -701,7 +701,7 @@ void TMR6_PWM_SetForcePolarity(CM_TMR6_TypeDef *TMR6x, uint32_t u32Ch, uint32_t 
  * @param  [in] u32Cond             Events source for hardware capture, maybe one or any combination of the parameter
  *                                  @ref TMR6_hardware_capture_condition_Define
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR6_HWCaptureCondCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32Ch, uint32_t u32Cond, en_functional_state_t enNewState) {
     __IO uint32_t *HCPxR;
@@ -725,7 +725,7 @@ void TMR6_HWCaptureCondCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32Ch, uint32_t u32C
  *  @arg CM_TMR6_x
  * @param  [in] u32Pin              Pin to be configured @ref TMR6_Pin_Define
  * @param  [in] u32Div              Filter clock @ref TMR6_Input_Filter_Clock
- * @retval None
+ * @retval 无
  */
 void TMR6_SetFilterClockDiv(CM_TMR6_TypeDef *TMR6x, uint32_t u32Pin, uint32_t u32Div) {
     DDL_ASSERT(IS_VALID_TMR6_UNIT(TMR6x));
@@ -768,7 +768,7 @@ void TMR6_SetFilterClockDiv(CM_TMR6_TypeDef *TMR6x, uint32_t u32Pin, uint32_t u3
  *  @arg CM_TMR6_x
  * @param  [in] u32Pin              Input port to be configured @ref TMR6_Pin_Define
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR6_FilterCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32Pin, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_VALID_TMR6_UNIT(TMR6x));
@@ -811,7 +811,7 @@ void TMR6_FilterCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32Pin, en_functional_state
  *  @arg CM_TMR6_x
  * @param  [in] u32Ch               Channel to be configured @ref TMR6_Count_Ch_Define
  * @param  [in] u32Func             IO mode @ref TMR6_Pin_Mode_Define
- * @retval None
+ * @retval 无
  */
 void TMR6_SetFunc(CM_TMR6_TypeDef *TMR6x, uint32_t u32Ch, uint32_t u32Func) {
     DDL_ASSERT(IS_VALID_TMR6_UNIT(TMR6x));
@@ -839,7 +839,7 @@ void TMR6_SetFunc(CM_TMR6_TypeDef *TMR6x, uint32_t u32Ch, uint32_t u32Func) {
  * @param  [in] u32IntType          Irq flag, Can be one or any combination of the values from
  *                                  @ref TMR6_Int_Flag_Define
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR6_IntCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32IntType, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -881,7 +881,7 @@ en_flag_status_t TMR6_GetStatus(const CM_TMR6_TypeDef *TMR6x, uint32_t u32Flag) 
  *  @arg CM_TMR6_x
  * @param  [in] u32Flag             Status bit to be read, Can be one or any combination of the values from
  *                                  @ref TMR6_Stat_Flag_Define
- * @retval None
+ * @retval 无
  */
 void TMR6_ClearStatus(CM_TMR6_TypeDef *TMR6x, uint32_t u32Flag) {
     /* Check parameters */
@@ -908,7 +908,7 @@ uint32_t TMR6_GetPeriodNum(const CM_TMR6_TypeDef *TMR6x) {
  * @brief  De-initialize the timer6 unit
  * @param  [in] TMR6x               Timer6 unit
  *  @arg CM_TMR6_x
- * @retval None
+ * @retval 无
  */
 void TMR6_DeInit(CM_TMR6_TypeDef *TMR6x) {
     uint32_t u32RefRegRstValue;
@@ -971,7 +971,7 @@ void TMR6_DeInit(CM_TMR6_TypeDef *TMR6x) {
  * @brief  Timer6 count start
  * @param  [in] TMR6x               Timer6 unit
  *  @arg CM_TMR6_x
- * @retval None
+ * @retval 无
  */
 void TMR6_Start(CM_TMR6_TypeDef *TMR6x) {
     /* Check parameters */
@@ -983,7 +983,7 @@ void TMR6_Start(CM_TMR6_TypeDef *TMR6x) {
  * @brief  Timer6 count stop
  * @param  [in] TMR6x               Timer6 unit
  *  @arg CM_TMR6_x
- * @retval None
+ * @retval 无
  */
 void TMR6_Stop(CM_TMR6_TypeDef *TMR6x) {
     /* Check parameters */
@@ -996,7 +996,7 @@ void TMR6_Stop(CM_TMR6_TypeDef *TMR6x) {
  * @param  [in] TMR6x               Timer6 unit
  *  @arg CM_TMR6_x
  * @param  [in] u32Value            Counter value
- * @retval None
+ * @retval 无
  */
 void TMR6_SetCountValue(CM_TMR6_TypeDef *TMR6x, uint32_t u32Value) {
     /* Check parameters */
@@ -1014,7 +1014,7 @@ void TMR6_SetCountValue(CM_TMR6_TypeDef *TMR6x, uint32_t u32Value) {
  * @param  [in] TMR6x               Timer6 unit
  *  @arg CM_TMR6_x
  * @param  [in] u32Value            Counter value
- * @retval None
+ * @retval 无
  */
 void TMR6_SetUpdateValue(CM_TMR6_TypeDef *TMR6x, uint32_t u32Value) {
     /* Check parameters */
@@ -1059,7 +1059,7 @@ uint32_t TMR6_GetUpdateValue(const CM_TMR6_TypeDef *TMR6x) {
  *  @arg CM_TMR6_x
  * @param  [in] u32Index            Period register to be write, @ref TMR6_Period_Reg_Index_Define
  * @param  [in] u32Value            Period value for write
- * @retval None
+ * @retval 无
  */
 void TMR6_SetPeriodValue(CM_TMR6_TypeDef *TMR6x, uint32_t u32Index, uint32_t u32Value) {
     __IO uint32_t *TMR6_PERxR;
@@ -1082,7 +1082,7 @@ void TMR6_SetPeriodValue(CM_TMR6_TypeDef *TMR6x, uint32_t u32Index, uint32_t u32
  *  @arg CM_TMR6_x
  * @param  [in] u32Index            General compare register to be write, @ref TMR6_Compare_Reg_Index_Define
  * @param  [in] u32Value            Value for write
- * @retval None
+ * @retval 无
  */
 void TMR6_SetCompareValue(CM_TMR6_TypeDef *TMR6x, uint32_t u32Index, uint32_t u32Value) {
     __IO uint32_t *TMR6_GCMxR;
@@ -1104,7 +1104,7 @@ void TMR6_SetCompareValue(CM_TMR6_TypeDef *TMR6x, uint32_t u32Index, uint32_t u3
  *  @arg CM_TMR6_x
  * @param  [in] u32Index            Special compare register to be write, @ref TMR6_Compare_Reg_Index_Define
  * @param  [in] u32Value            Value for write
- * @retval None
+ * @retval 无
  */
 void TMR6_SetSpecialCompareValue(CM_TMR6_TypeDef *TMR6x, uint32_t u32Index, uint32_t u32Value) {
     __IO uint32_t *TMR6_SCMxR;
@@ -1126,7 +1126,7 @@ void TMR6_SetSpecialCompareValue(CM_TMR6_TypeDef *TMR6x, uint32_t u32Index, uint
  *  @arg CM_TMR6_x
  * @param  [in] u32Index            Special compare register to be write, @ref TMR6_DeadTime_Reg_Define
  * @param  [in] u32Value            Value for write
- * @retval None
+ * @retval 无
  */
 void TMR6_SetDeadTimeValue(CM_TMR6_TypeDef *TMR6x, uint32_t u32Index, uint32_t u32Value) {
     __IO uint32_t *TMR6_DTxyR;
@@ -1249,7 +1249,7 @@ int32_t TMR6_GeneralBufConfig(CM_TMR6_TypeDef *TMR6x, uint32_t u32Ch, const stc_
  *  @arg CM_TMR6_x
  * @param  [in] u32Ch               General compare buffer chose, @ref TMR6_Count_Ch_Define
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR6_GeneralBufCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32Ch, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_VALID_TMR6_UNIT(TMR6x));
@@ -1304,7 +1304,7 @@ int32_t TMR6_SpecialBufConfig(CM_TMR6_TypeDef *TMR6x, uint32_t u32Ch, const stc_
  *  @arg CM_TMR6_x
  * @param  [in] u32Ch               General compare buffer chose, @ref TMR6_Count_Ch_Define
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR6_SpecialBufCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32Ch, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_VALID_TMR6_UNIT(TMR6x));
@@ -1351,7 +1351,7 @@ int32_t TMR6_PeriodBufConfig(CM_TMR6_TypeDef *TMR6x, const stc_tmr6_buf_config_t
  * @param  [in] TMR6x               Timer6 unit
  *  @arg CM_TMR6_x
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR6_PeriodBufCmd(CM_TMR6_TypeDef *TMR6x, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_VALID_TMR6_UNIT(TMR6x));
@@ -1393,7 +1393,7 @@ int32_t TMR6_ValidPeriodConfig(CM_TMR6_TypeDef *TMR6x, const stc_tmr6_valid_peri
  *  @arg CM_TMR6_x
  * @param  [in] u32Ch               General compare buffer chose, @ref TMR6_Count_Ch_Define
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR6_ValidPeriodCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32Ch, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_VALID_TMR6_UNIT(TMR6x));
@@ -1412,7 +1412,7 @@ void TMR6_ValidPeriodCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32Ch, en_functional_s
  * @param  [in] TMR6x               Timer6 unit
  *  @arg CM_TMR6_x
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR6_DeadTimeFuncCmd(CM_TMR6_TypeDef *TMR6x, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -1523,7 +1523,7 @@ int32_t TMR6_EMBConfig(CM_TMR6_TypeDef *TMR6x, uint32_t u32Ch, const stc_tmr6_em
  * @brief  Software Sync Start
  * @param  [in]  u32Unit            Software Sync units, This parameter can be one or any combination of the parameter
  *                                  @ref TMR6_SW_Sync_Unit_define
- * @retval None
+ * @retval 无
  */
 void TMR6_SWSyncStart(uint32_t u32Unit) {
     DDL_ASSERT(IS_VALID_SW_UNIT(u32Unit));
@@ -1534,7 +1534,7 @@ void TMR6_SWSyncStart(uint32_t u32Unit) {
  * @brief  Software Sync Stop
  * @param  [in]  u32Unit            Software Sync units, This parameter can be one or any combination of the parameter
  *                                  @ref TMR6_SW_Sync_Unit_define
- * @retval None
+ * @retval 无
  */
 void TMR6_SWSyncStop(uint32_t u32Unit) {
     DDL_ASSERT(IS_VALID_SW_UNIT(u32Unit));
@@ -1545,7 +1545,7 @@ void TMR6_SWSyncStop(uint32_t u32Unit) {
  * @brief  Software Sync clear
  * @param  [in]  u32Unit            Software Sync units, This parameter can be one or any combination of the parameter
  *                                  @ref TMR6_SW_Sync_Unit_define
- * @retval None
+ * @retval 无
  */
 void TMR6_SWSyncClear(uint32_t u32Unit) {
     DDL_ASSERT(IS_VALID_SW_UNIT(u32Unit));
@@ -1556,7 +1556,7 @@ void TMR6_SWSyncClear(uint32_t u32Unit) {
  * @brief  Software Sync update
  * @param  [in]  u32Unit            Software Sync units, This parameter can be one or any combination of the parameter
  *                                  @ref TMR6_SW_Sync_Unit_define
- * @retval None
+ * @retval 无
  */
 void TMR6_SWSyncUpdate(uint32_t u32Unit) {
     DDL_ASSERT(IS_VALID_SW_UNIT(u32Unit));
@@ -1568,7 +1568,7 @@ void TMR6_SWSyncUpdate(uint32_t u32Unit) {
  * @param  [in] TMR6x               Timer6 unit
  *  @arg CM_TMR6_x
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR6_HWStartCmd(CM_TMR6_TypeDef *TMR6x, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_VALID_TMR6_UNIT(TMR6x));
@@ -1582,7 +1582,7 @@ void TMR6_HWStartCmd(CM_TMR6_TypeDef *TMR6x, en_functional_state_t enNewState) {
  * @param  [in] TMR6x               Timer6 unit
  *  @arg CM_TMR6_x
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR6_HWStopCmd(CM_TMR6_TypeDef *TMR6x, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_VALID_TMR6_UNIT(TMR6x));
@@ -1596,7 +1596,7 @@ void TMR6_HWStopCmd(CM_TMR6_TypeDef *TMR6x, en_functional_state_t enNewState) {
  * @param  [in] TMR6x               Timer6 unit
  *  @arg CM_TMR6_x
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR6_HWClearCmd(CM_TMR6_TypeDef *TMR6x, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_VALID_TMR6_UNIT(TMR6x));
@@ -1610,7 +1610,7 @@ void TMR6_HWClearCmd(CM_TMR6_TypeDef *TMR6x, en_functional_state_t enNewState) {
  * @param  [in] TMR6x               Timer6 unit
  *  @arg CM_TMR6_x
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR6_HWUpdateCmd(CM_TMR6_TypeDef *TMR6x, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_VALID_TMR6_UNIT(TMR6x));
@@ -1626,7 +1626,7 @@ void TMR6_HWUpdateCmd(CM_TMR6_TypeDef *TMR6x, en_functional_state_t enNewState) 
  * @param  [in] u32Cond             Events source for hardware start, maybe one or any combination of the parameter
  *                                  @ref TMR6_hardware_start_condition_Define
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR6_HWStartCondCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32Cond, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_VALID_TMR6_UNIT(TMR6x));
@@ -1647,7 +1647,7 @@ void TMR6_HWStartCondCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32Cond, en_functional
  * @param  [in] u32Cond             Events source for hardware stop, maybe one or any combination of the parameter
  *                                  @ref TMR6_hardware_stop_condition_Define
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR6_HWStopCondCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32Cond, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_VALID_TMR6_UNIT(TMR6x));
@@ -1668,7 +1668,7 @@ void TMR6_HWStopCondCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32Cond, en_functional_
  * @param  [in] u32Cond             Events source for hardware clear, maybe one or any combination of the parameter
  *                                  @ref TMR6_hardware_clear_condition_Define
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR6_HWClearCondCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32Cond, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_VALID_TMR6_UNIT(TMR6x));
@@ -1689,7 +1689,7 @@ void TMR6_HWClearCondCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32Cond, en_functional
  * @param  [in] u32Cond             Events source for hardware update, maybe one or any combination of the parameter
  *                                  @ref TMR6_hardware_update_condition_Define
  * @param  [in] enNewState          An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR6_HWUpdateCondCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32Cond, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_VALID_TMR6_UNIT(TMR6x));

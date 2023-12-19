@@ -146,8 +146,8 @@ typedef struct {
 
 /**
  * @brief  Start OTS.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void OTS_Start(void) {
     WRITE_REG32(bCM_OTS->CTL_b.OTSST, 1U);
@@ -155,8 +155,8 @@ __STATIC_INLINE void OTS_Start(void) {
 
 /**
  * @brief  Stop OTS.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void OTS_Stop(void) {
     WRITE_REG32(bCM_OTS->CTL_b.OTSST, 0U);

@@ -20,12 +20,12 @@
   *                                 并且必须在程序执行期间更改核心时钟时调用。
   *
   * 2. 每次设备复位后，HSI（16 MHz）用作系统时钟源。
-  *    然后，在“startup_stm32f4xx.s”文件中调用SystemInit（）函数，以在分支到主程序之前配置系统时钟。
+  *    然后，在"startup_stm32f4xx.s"文件中调用SystemInit（）函数，以在分支到主程序之前配置系统时钟。
   *
   * 3. 如果用户选择的系统时钟源无法启动，SystemInit（）函数将不执行任何操作，
   *    HSI仍用作系统时钟源。用户可以在SetSysClock（）函数中添加一些代码来处理此问题。
   *
-  * 4. HSE晶体的默认值设置为25MHz，请参阅“stm32f4xx.h”文件中的“HSE_value”定义。
+  * 4. HSE晶体的默认值设置为25MHz，请参阅"stm32f4xx.h"文件中的"HSE_value"定义。
   *    当HSE直接或通过PLL用作系统时钟源时，如果您使用不同的晶体，则必须根据您自己的配置调整HSE值。
   *
   * 5. 此文件按如下方式配置系统时钟：
@@ -88,9 +88,9 @@
   *-----------------------------------------------------------------------------
   *        AHB 预分频器                            | 1
   *-----------------------------------------------------------------------------
-  *        APB1 Prescaler                         | 4
+  *        APB1 预分频器                           | 4
   *-----------------------------------------------------------------------------
-  *        APB2 Prescaler                         | 2
+  *        APB2 预分频器                           | 2
   *-----------------------------------------------------------------------------
   *        HSE Frequency(Hz)                      | 25000000
   *-----------------------------------------------------------------------------
@@ -135,9 +135,9 @@
   *-----------------------------------------------------------------------------
   *        AHB 预分频器                            | 1
   *-----------------------------------------------------------------------------
-  *        APB1 Prescaler                         | 2
+  *        APB1 预分频器                           | 2
   *-----------------------------------------------------------------------------
-  *        APB2 Prescaler                         | 1
+  *        APB2 预分频器                           | 1
   *-----------------------------------------------------------------------------
   *        HSE Frequency(Hz)                      | 25000000
   *-----------------------------------------------------------------------------
@@ -182,9 +182,9 @@
   *-----------------------------------------------------------------------------
   *        AHB 预分频器                            | 1
   *-----------------------------------------------------------------------------
-  *        APB1 Prescaler                         | 2
+  *        APB1 分频器                             | 2
   *-----------------------------------------------------------------------------
-  *        APB2 Prescaler                         | 1
+  *        APB2 分频器                             | 1
   *-----------------------------------------------------------------------------
   *        HSI Frequency(Hz)                      | 16000000
   *-----------------------------------------------------------------------------
@@ -229,7 +229,7 @@
   *-----------------------------------------------------------------------------
   *        AHB 预分频器                            | 1
   *-----------------------------------------------------------------------------
-  *        APB1 Prescaler                         | 4
+  *        APB1 分频器                             | 4
   *-----------------------------------------------------------------------------
   *        APB2 Prescaler                         | 2
   *-----------------------------------------------------------------------------
@@ -349,7 +349,7 @@
 /*!< 如果需要在内部SRAM中重新定位矢量表，请取消注释以下行。 */
 /* #define VECT_TAB_SRAM */
 #define VECT_TAB_OFFSET  0x00 /*!< 矢量表基偏移字段。 
-                                   This value must be a multiple of 0x200. */
+                                   此值必须是 0x200 的倍数。 */
 /******************************************************************************/
 
 /************************* PLL参数 *************************************/
@@ -371,7 +371,7 @@
 #define PLL_Q      7
 
 #if defined(STM32F446xx)
-/* PLL division factor for I2S, SAI, SYSTEM and SPDIF: Clock =  PLL_VCO / PLLR */
+/* I2S、SAI、SYSTEM和SPDIF的PLL分频因子: Clock =  PLL_VCO / PLLR */
 #define PLL_R      7
 #elif defined(STM32F412xG) || defined(STM32F413_423xx)
 #define PLL_R      2
@@ -467,24 +467,24 @@ static void SystemInit_ExtMemCtl(void);
   * 返回值: 无
   */
 void SystemInit(void) {
-    /* FPU settings ------------------------------------------------------------*/
+    /* FPU 设置 ------------------------------------------------------------*/
 #if (__FPU_PRESENT == 1) && (__FPU_USED == 1)
-    SCB->CPACR |= ((3UL << 10*2)|(3UL << 11*2));  /* set CP10 and CP11 Full Access */
+    SCB->CPACR |= ((3UL << 10*2)|(3UL << 11*2));  /* 设置CP10和CP11完全访问 */
 #endif
     /* 将RCC时钟配置重置为默认重置状态 ------------*/
-    /* Set HSION bit */
+    /* 重置 HSION bit */
     RCC->CR |= (uint32_t)0x00000001;
 
-    /* Reset CFGR register */
+    /* 重置 CFGR 寄存器 */
     RCC->CFGR = 0x00000000;
 
-    /* Reset HSEON, CSSON and PLLON bits */
+    /* 重置 HSEON, CSSON and PLLON bits */
     RCC->CR &= (uint32_t)0xFEF6FFFF;
 
-    /* Reset PLLCFGR register */
+    /* 重置 PLLCFGR r寄存器 */
     RCC->PLLCFGR = 0x24003010;
 
-    /* Reset HSEBYP bit */
+    /* 重置 HSEBYP bit */
     RCC->CR &= (uint32_t)0xFFFBFFFF;
 
     /* 禁用所有中断 */
@@ -494,15 +494,15 @@ void SystemInit(void) {
     SystemInit_ExtMemCtl();
 #endif /* DATA_IN_ExtSRAM || DATA_IN_ExtSDRAM */
 
-    /* 配置系统时钟源 , PLL Multiplier and Divider factors,
-       AHB/APBx prescalers and Flash settings ----------------------------------*/
+    /* 配置系统时钟源 , PLL 乘法器和除法器因子，
+       AHB/APBx 预分频器和 Flash 设置 ----------------------------------*/
     SetSysClock();
 
-    /* 配置Vector Table location add offset address ------------------*/
+    /* 配置矢量表位置添加偏移地址 ------------------*/
 #ifdef VECT_TAB_SRAM
-    SCB->VTOR = SRAM_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal SRAM */
+    SCB->VTOR = SRAM_BASE | VECT_TAB_OFFSET; /* 内部SRAM中的矢量表重定位 */
 #else
-    SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal FLASH */
+    SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET; /* 内部FLASH中的矢量表重定位 */
 #endif
 }
 
@@ -510,32 +510,23 @@ void SystemInit(void) {
    * 简介:  根据时钟寄存器值更新SystemCoreClock变量。
   *         SystemCoreClock变量包含核心时钟（HCLK），用户应用程序可以使用它来设置SysTick计时器或配置其他参数。
   *
-  * @note   Each time the core clock (HCLK) changes, this function must be called
-  *         to update SystemCoreClock variable value. Otherwise, any configuration
-  *         based on this variable will be incorrect.
+  * @note   每次核心时钟（HCLK）发生变化时，都必须调用此函数来更新SystemCoreClock
+  *         变量值。否则，基于此变量的任何配置都将是不正确的。
   *
-  * @note   - The system frequency computed by this function is not the real
-  *           frequency in the chip. It is calculated based on the predefined
-  *           constant and the selected clock source:
+  * @note   - 通过该函数计算的系统频率不是芯片中的实际频率。它是根据预定义的常数和选定的时钟源进行计算的：
   *
   *           - 如果 SYSCLK 源是 HSI，SystemCoreClock 将包含 HSI_VALUE(*)
   *
-  *           - If SYSCLK source is HSE, SystemCoreClock will contain the HSE_VALUE(**)
+  *           - 如果SYSCLK源为HSE，SystemCoreClock将包含HSE_VALUE（**）
   *
-  *           - If SYSCLK source is PLL, SystemCoreClock will contain the HSE_VALUE(**)
-  *             or HSI_VALUE(*) multiplied/divided by the PLL factors.
+  *           - 如果SYSCLK源是PLL，则SystemCoreClock将包含HSE_VALUE（**）或HSI_VALE（*）乘以/除以PLL因子。
   *
-  *         (*) HSI_VALUE is a constant defined in stm32f4xx.h file (default value
-  *             16 MHz) but the real value may vary depending on the variations
-  *             in voltage and temperature.
+  *         (*) HSI_VALUE是stm32f44xx.h文件中定义的常数（默认值16 MHz），但实际值可能会根据电压和温度的变化而变化。
   *
-  *         (**) HSE_VALUE is a constant defined in stm32f4xx.h file (default value
-  *              25 MHz), user has to ensure that HSE_VALUE is same as the real
-  *              frequency of the crystal used. Otherwise, this function may
-  *              have wrong result.
+  *         (**) HSE_VALUE是stm32f44xx.h文件中定义的常数（默认值25 MHz），
+  *              用户必须确保HSE_VALUE与所用晶体的实际频率相同。否则，此函数可能会产生错误的结果。
   *
-  *         - The result of this function could be not correct when using fractional
-  *           value for HSE crystal.
+  *         - 当使用 HSE 晶体的分数值时，该函数的结果可能不正确。
   *
   * 参数:  无
   * 返回值: 无
@@ -609,18 +600,17 @@ void SystemCoreClockUpdate(void) {
         SystemCoreClock = HSI_VALUE;
         break;
     }
-    /* Compute HCLK frequency --------------------------------------------------*/
-    /* Get HCLK prescaler */
+    /* 计算 HCLK 频率 --------------------------------------------------*/
+    /* 获取 HCLK 预分频器 */
     tmp = AHBPrescTable[((RCC->CFGR & RCC_CFGR_HPRE) >> 4)];
-    /* HCLK frequency */
+    /* HCLK 频率 */
     SystemCoreClock >>= tmp;
 }
 
 /**
-  * 简介:  配置系统时钟源, PLL Multiplier and Divider factors,
-  *         AHB/APBx prescalers and Flash settings
-  * @Note   This function should be called only once the RCC clock configuration
-  *         is reset to the default reset state (done in SystemInit() function).
+  * 简介:  配置系统时钟源, PLL 乘法器和除法器因子，
+  *         AHB/APBx 预分频器和 Flash 设置
+  * @Note   这个函数应该只在 RCC 时钟配置重置为默认重置状态(在 SystemInit() 函数中完成)时调用。
   * 参数:  无
   * 返回值: 无
   */
@@ -634,7 +624,7 @@ static void SetSysClock(void) {
     /* Enable HSE */
     RCC->CR |= ((uint32_t)RCC_CR_HSEON);
 
-    /* Wait till HSE is ready and if Time out is reached exit */
+    /* 等待HSE准备就绪，如果达到超时，则退出 */
     do {
         HSEStatus = RCC->CR & RCC_CR_HSERDY;
         StartUpCounter++;
@@ -647,7 +637,7 @@ static void SetSysClock(void) {
     }
 
     if (HSEStatus == (uint32_t)0x01) {
-        /* Select regulator voltage output Scale 1 mode */
+        /* 选择调节器电压输出比例1模式 */
         RCC->APB1ENR |= RCC_APB1ENR_PWREN;
         PWR->CR |= PWR_CR_VOS;
 
@@ -682,51 +672,50 @@ static void SetSysClock(void) {
                        (RCC_PLLCFGR_PLLSRC_HSE) | (PLL_Q << 24) | (PLL_R << 28);
 #endif /* STM32F412xG || STM32F413_423xx || STM32F446xx */
 
-        /* Enable the main PLL */
+        /* 启用主 PLL */
         RCC->CR |= RCC_CR_PLLON;
 
-        /* Wait till the main PLL is ready */
+        /* 等待主 PLL 准备就绪 */
         while((RCC->CR & RCC_CR_PLLRDY) == 0) {
         }
 
 #if defined(STM32F427_437xx) || defined(STM32F429_439xx) || defined(STM32F446xx) || defined(STM32F469_479xx)
-        /* Enable the Over-drive to extend the clock frequency to 180 Mhz */
+        /* 启用 Over-drive 将时钟频率扩展到 180 Mhz */
         PWR->CR |= PWR_CR_ODEN;
         while((PWR->CSR & PWR_CSR_ODRDY) == 0) {
         }
         PWR->CR |= PWR_CR_ODSWEN;
         while((PWR->CSR & PWR_CSR_ODSWRDY) == 0) {
         }
-        /* Configure Flash prefetch, Instruction cache, Data cache and wait state */
+        /* 配置闪存预取、指令缓存、数据缓存和等待状态 */
         FLASH->ACR = FLASH_ACR_PRFTEN | FLASH_ACR_ICEN |FLASH_ACR_DCEN |FLASH_ACR_LATENCY_5WS;
 #endif /* STM32F427_437x || STM32F429_439xx || STM32F446xx || STM32F469_479xx */
 
 #if defined(STM32F40_41xxx)  || defined(STM32F412xG)
-        /* Configure Flash prefetch, Instruction cache, Data cache and wait state */
+        /* 配置闪存预取、指令缓存、数据缓存和等待状态 */
         FLASH->ACR = FLASH_ACR_PRFTEN | FLASH_ACR_ICEN |FLASH_ACR_DCEN |FLASH_ACR_LATENCY_5WS;
 #endif /* STM32F40_41xxx  || STM32F412xG */
 
 #if defined(STM32F413_423xx)
-        /* Configure Flash prefetch, Instruction cache, Data cache and wait state */
+        /* 配置闪存预取、指令缓存、数据缓存和等待状态 */
         FLASH->ACR = FLASH_ACR_PRFTEN | FLASH_ACR_ICEN |FLASH_ACR_DCEN |FLASH_ACR_LATENCY_3WS;
 #endif /* STM32F413_423xx */
 
 #if defined(STM32F401xx)
-        /* Configure Flash prefetch, Instruction cache, Data cache and wait state */
+        /* 配置闪存预取、指令缓存、数据缓存和等待状态 */
         FLASH->ACR = FLASH_ACR_PRFTEN | FLASH_ACR_ICEN |FLASH_ACR_DCEN |FLASH_ACR_LATENCY_2WS;
 #endif /* STM32F401xx */
 
-        /* Select the main PLL as 系统时钟源           */
+        /* 选择主 PLL 作为系统时钟源           */
         RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFGR_SW));
         RCC->CFGR |= RCC_CFGR_SW_PLL;
 
-        /* Wait till the main PLL is 用作系统时钟源           */
+        /* 等待主 PLL 用作系统时钟源           */
         while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS ) != RCC_CFGR_SWS_PLL);
         {
         }
     } else {
-        /* If HSE fails to start-up, the application will have wrong clock
-             configuration. User can add here some code to deal with this error */
+        /* 如果HSE未能启动，应用程序将具有错误的时钟配置。用户可以在此处添加一些代码来处理此错误 */
     }
 #elif defined(STM32F410xx) || defined(STM32F411xE)
 #if defined(USE_HSE_BYPASS)
@@ -735,10 +724,10 @@ static void SetSysClock(void) {
     /******************************************************************************/
     __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
 
-    /* Enable HSE and HSE BYPASS */
+    /* 启用HSE和HSE BYPASS */
     RCC->CR |= ((uint32_t)RCC_CR_HSEON | RCC_CR_HSEBYP);
 
-    /* Wait till HSE is ready and if Time out is reached exit */
+    /* 等待HSE准备就绪，如果达到超时，则退出 */
     do {
         HSEStatus = RCC->CR & RCC_CR_HSERDY;
         StartUpCounter++;
@@ -751,7 +740,7 @@ static void SetSysClock(void) {
     }
 
     if (HSEStatus == (uint32_t)0x01) {
-        /* Select regulator voltage output Scale 1 mode */
+        /* 选择调节器电压输出比例1模式 */
         RCC->APB1ENR |= RCC_APB1ENR_PWREN;
         PWR->CR |= PWR_CR_VOS;
 
@@ -768,30 +757,29 @@ static void SetSysClock(void) {
         RCC->PLLCFGR = PLL_M | (PLL_N << 6) | (((PLL_P >> 1) -1) << 16) |
                        (RCC_PLLCFGR_PLLSRC_HSE) | (PLL_Q << 24);
 
-        /* Enable the main PLL */
+        /* 启用主 PLL */
         RCC->CR |= RCC_CR_PLLON;
 
-        /* Wait till the main PLL is ready */
+        /* 等待主 PLL 准备就绪 */
         while((RCC->CR & RCC_CR_PLLRDY) == 0) {
         }
 
-        /* Configure Flash prefetch, Instruction cache, Data cache and wait state */
+        /* 配置闪存预取、指令缓存、数据缓存和等待状态 */
         FLASH->ACR = FLASH_ACR_PRFTEN | FLASH_ACR_ICEN |FLASH_ACR_DCEN |FLASH_ACR_LATENCY_2WS;
 
-        /* Select the main PLL as 系统时钟源           */
+        /* 选择主 PLL 作为系统时钟源           */
         RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFGR_SW));
         RCC->CFGR |= RCC_CFGR_SW_PLL;
 
-        /* Wait till the main PLL is 用作系统时钟源           */
+        /* 等待主 PLL 用作系统时钟源           */
         while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS ) != RCC_CFGR_SWS_PLL);
         {
         }
     } else {
-        /* If HSE fails to start-up, the application will have wrong clock
-             configuration. User can add here some code to deal with this error */
+        /* 如果HSE未能启动，应用程序将具有错误的时钟配置。用户可以在此处添加一些代码来处理此错误 */
     }
 #else /* HSI will be 用作PLL时钟源 */
-    /* Select regulator voltage output Scale 1 mode */
+    /* 选择调节器电压输出比例1模式 */
     RCC->APB1ENR |= RCC_APB1ENR_PWREN;
     PWR->CR |= PWR_CR_VOS;
 
@@ -807,21 +795,21 @@ static void SetSysClock(void) {
     /* 配置main PLL */
     RCC->PLLCFGR = PLL_M | (PLL_N << 6) | (((PLL_P >> 1) -1) << 16) | (PLL_Q << 24);
 
-    /* Enable the main PLL */
+    /* 启用主 PLL */
     RCC->CR |= RCC_CR_PLLON;
 
-    /* Wait till the main PLL is ready */
+    /* 等待主 PLL 准备就绪 */
     while((RCC->CR & RCC_CR_PLLRDY) == 0) {
     }
 
-    /* Configure Flash prefetch, Instruction cache, Data cache and wait state */
+    /* 配置闪存预取、指令缓存、数据缓存和等待状态 */
     FLASH->ACR = FLASH_ACR_PRFTEN | FLASH_ACR_ICEN |FLASH_ACR_DCEN |FLASH_ACR_LATENCY_2WS;
 
-    /* Select the main PLL as 系统时钟源           */
+    /* 选择主 PLL 作为系统时钟源           */
     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFGR_SW));
     RCC->CFGR |= RCC_CFGR_SW_PLL;
 
-    /* Wait till the main PLL is 用作系统时钟源           */
+    /* 等待主 PLL 用作系统时钟源           */
     while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS ) != RCC_CFGR_SWS_PLL);
     {
     }
@@ -832,10 +820,10 @@ static void SetSysClock(void) {
 #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) ||\
     defined(STM32F469xx) || defined(STM32F479xx)
 /**
-  * 简介:  Setup the external memory controller.
-  *         Called in startup_stm32f4xx.s before jump to main.
-  *         This function configures the external memories (SRAM/SDRAM)
-  *         This SRAM/SDRAM will be used as program data memory (including heap and stack).
+  * 简介:  设置外部内存控制器。
+  *         在跳转到main之前，在startup_stm32f4xx.s中调用。
+  *         此函数配置外部存储器（SRAM/SDRAM）
+  *         该SRAM/SDRAM将用作程序数据存储器（包括堆和堆栈）。
   * 参数:  无
   * 返回值: 无
   */
@@ -845,95 +833,95 @@ void SystemInit_ExtMemCtl(void) {
     register uint32_t tmpreg = 0, timeout = 0xFFFF;
     register uint32_t index;
 
-    /* Enable GPIOC, GPIOD, GPIOE, GPIOF, GPIOG, GPIOH and GPIOI interface clock */
+    /* 启用 GPIOC, GPIOD, GPIOE, GPIOF, GPIOG, GPIOH and GPIOI 接口时钟 */
     RCC->AHB1ENR |= 0x000001F8;
 
-    /* Delay after an RCC peripheral clock enabling */
+    /* RCC外围时钟启用后的延迟 */
     tmp = READ_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOCEN);
 
-    /* Connect PDx pins to FMC Alternate function */
+    /* 将 PDx 引脚连接到 FMC 备用功能 */
     GPIOD->AFR[0]  = 0x00CCC0CC;
     GPIOD->AFR[1]  = 0xCCCCCCCC;
-    /* Configure PDx pins in Alternate function mode */
+    /* 在复用功能模式下配置 PDx 引脚 */
     GPIOD->MODER   = 0xAAAA0A8A;
-    /* Configure PDx pins speed to 100 MHz */
+    /* 将 PDx 引脚速度配置为 100 MHz */
     GPIOD->OSPEEDR = 0xFFFF0FCF;
-    /* Configure PDx pins Output type to push-pull */
+    /* 配置 PDx 引脚输出类型为推拉 */
     GPIOD->OTYPER  = 0x00000000;
-    /* No pull-up, pull-down for PDx pins */
+    /* PDx引脚无上拉、下拉 */
     GPIOD->PUPDR   = 0x00000000;
 
-    /* Connect PEx pins to FMC Alternate function */
+    /* 将 PEx 引脚连接到 FMC 复用功能 */
     GPIOE->AFR[0]  = 0xC00CC0CC;
     GPIOE->AFR[1]  = 0xCCCCCCCC;
-    /* Configure PEx pins in Alternate function mode */
+    /* 在复用功能模式下配置 PEx 引脚 */
     GPIOE->MODER   = 0xAAAA828A;
-    /* Configure PEx pins speed to 100 MHz */
+    /* 将 PEx 引脚速度配置为 100 MHz */
     GPIOE->OSPEEDR = 0xFFFFC3CF;
-    /* Configure PEx pins Output type to push-pull */
+    /* 配置 PEx 引脚输出类型为推拉 */
     GPIOE->OTYPER  = 0x00000000;
-    /* No pull-up, pull-down for PEx pins */
+    /* PEx 引脚无上拉、下拉 */
     GPIOE->PUPDR   = 0x00000000;
 
-    /* Connect PFx pins to FMC Alternate function */
+    /* 将 PFx 引脚连接到 FMC 复用功能 */
     GPIOF->AFR[0]  = 0xCCCCCCCC;
     GPIOF->AFR[1]  = 0xCCCCCCCC;
-    /* Configure PFx pins in Alternate function mode */
+    /* 在复用功能模式下配置 PFx 引脚 */
     GPIOF->MODER   = 0xAA800AAA;
-    /* Configure PFx pins speed to 50 MHz */
+    /* 将 PEx 引脚速度配置为 50 MHz */
     GPIOF->OSPEEDR = 0xAA800AAA;
-    /* Configure PFx pins Output type to push-pull */
+    /* 配置 PFx 引脚输出类型为推拉 */
     GPIOF->OTYPER  = 0x00000000;
-    /* No pull-up, pull-down for PFx pins */
+    /* PFx 引脚无上拉、下拉 */
     GPIOF->PUPDR   = 0x00000000;
 
-    /* Connect PGx pins to FMC Alternate function */
+    /* 将 PGx 引脚连接到 FMC 备用功能 */
     GPIOG->AFR[0]  = 0xCCCCCCCC;
     GPIOG->AFR[1]  = 0xCCCCCCCC;
-    /* Configure PGx pins in Alternate function mode */
+    /* 在复用功能模式下配置 PGx 引脚 */
     GPIOG->MODER   = 0xAAAAAAAA;
-    /* Configure PGx pins speed to 50 MHz */
+    /* 将 PGx 引脚速度配置为 50 MHz */
     GPIOG->OSPEEDR = 0xAAAAAAAA;
-    /* Configure PGx pins Output type to push-pull */
+    /* 配置 PGx 引脚输出类型为推拉 */
     GPIOG->OTYPER  = 0x00000000;
-    /* No pull-up, pull-down for PGx pins */
+    /* PGx 引脚无上拉、下拉 */
     GPIOG->PUPDR   = 0x00000000;
 
-    /* Connect PHx pins to FMC Alternate function */
+    /* 将 PHx 引脚连接到 FMC 复用功能 */
     GPIOH->AFR[0]  = 0x00C0CC00;
     GPIOH->AFR[1]  = 0xCCCCCCCC;
-    /* Configure PHx pins in Alternate function mode */
+    /* 在复用功能模式下配置 PHx 引脚 */
     GPIOH->MODER   = 0xAAAA08A0;
-    /* Configure PHx pins speed to 50 MHz */
+    /* 将 PHx 引脚速度配置为 50 MHz */
     GPIOH->OSPEEDR = 0xAAAA08A0;
-    /* Configure PHx pins Output type to push-pull */
+    /* 配置 PHx 引脚输出类型为推拉 */
     GPIOH->OTYPER  = 0x00000000;
-    /* No pull-up, pull-down for PHx pins */
+    /* PHx 引脚无上拉、下拉 */
     GPIOH->PUPDR   = 0x00000000;
 
-    /* Connect PIx pins to FMC Alternate function */
+    /* 将 PIx 引脚连接到 FMC 复用功能 */
     GPIOI->AFR[0]  = 0xCCCCCCCC;
     GPIOI->AFR[1]  = 0x00000CC0;
-    /* Configure PIx pins in Alternate function mode */
+    /* 在复用功能模式下配置 PIx 引脚 */
     GPIOI->MODER   = 0x0028AAAA;
-    /* Configure PIx pins speed to 50 MHz */
+    /* 将 PIx 引脚速度配置为 50 MHz */
     GPIOI->OSPEEDR = 0x0028AAAA;
-    /* Configure PIx pins Output type to push-pull */
+    /* 配置 PIx 引脚输出类型为推拉 */
     GPIOI->OTYPER  = 0x00000000;
-    /* No pull-up, pull-down for PIx pins */
+    /* PIx 引脚无上拉、下拉 */
     GPIOI->PUPDR   = 0x00000000;
 
     /*-- FMC 定义 -------------------------------------------------------*/
-    /* Enable the FMC interface clock */
+    /* 启用 FMC 接口时钟 */
     RCC->AHB3ENR |= 0x00000001;
-    /* Delay after an RCC peripheral clock enabling */
+    /* RCC外围时钟启用后的延迟 */
     tmp = READ_BIT(RCC->AHB3ENR, RCC_AHB3ENR_FMCEN);
 
     FMC_Bank5_6->SDCR[0] = 0x000019E4;
     FMC_Bank5_6->SDTR[0] = 0x01115351;
 
-    /* SDRAM initialization sequence */
-    /* Clock enable command */
+    /* SDRAM 初始化序列 */
+    /* 时钟启用命令 */
     FMC_Bank5_6->SDCMR = 0x00000011;
     tmpreg = FMC_Bank5_6->SDSR & 0x00000020;
     while((tmpreg != 0) && (timeout-- > 0)) {
@@ -950,36 +938,36 @@ void SystemInit_ExtMemCtl(void) {
         tmpreg = FMC_Bank5_6->SDSR & 0x00000020;
     }
 
-    /* Auto refresh command */
+    /*自动刷新命令 */
     FMC_Bank5_6->SDCMR = 0x00000073;
     timeout = 0xFFFF;
     while((tmpreg != 0) && (timeout-- > 0)) {
         tmpreg = FMC_Bank5_6->SDSR & 0x00000020;
     }
 
-    /* MRD register program */
+    /* MRD 寄存器程序 */
     FMC_Bank5_6->SDCMR = 0x00046014;
     timeout = 0xFFFF;
     while((tmpreg != 0) && (timeout-- > 0)) {
         tmpreg = FMC_Bank5_6->SDSR & 0x00000020;
     }
 
-    /* Set refresh count */
+    /* 设置刷新计数 */
     tmpreg = FMC_Bank5_6->SDRTR;
     FMC_Bank5_6->SDRTR = (tmpreg | (0x0000027C<<1));
 
-    /* Disable write protection */
+    /* 禁用写保护 */
     tmpreg = FMC_Bank5_6->SDCR[0];
     FMC_Bank5_6->SDCR[0] = (tmpreg & 0xFFFFFDFF);
 
 #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx)
-    /* Configure and enable Bank1_SRAM2 */
+    /* 配置并启用 Bank1_SRAM2 */
     FMC_Bank1->BTCR[2]  = 0x00001011;
     FMC_Bank1->BTCR[3]  = 0x00000201;
     FMC_Bank1E->BWTR[2] = 0x0fffffff;
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx */
 #if defined(STM32F469xx) || defined(STM32F479xx)
-    /* Configure and enable Bank1_SRAM2 */
+    /* 配置并启用 Bank1_SRAM2 */
     FMC_Bank1->BTCR[2]  = 0x00001091;
     FMC_Bank1->BTCR[3]  = 0x00110212;
     FMC_Bank1E->BWTR[2] = 0x0fffffff;
@@ -990,16 +978,15 @@ void SystemInit_ExtMemCtl(void) {
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx */
 #elif defined (DATA_IN_ExtSRAM)
 /**
-  * 简介:  Setup the external memory controller. Called in startup_stm32f4xx.s
-  *          before jump to __main
+  * 简介:  设置外部内存控制器。在跳转到__main之前在startup_stm32f4xx.s中调用
   * 参数:  无
   * 返回值: 无
   */
 /**
-  * 简介:  Setup the external memory controller.
-  *         Called in startup_stm32f4xx.s before jump to main.
-  *         This function configures the external SRAM mounted on STM324xG_EVAL/STM324x7I boards
-  *         This SRAM will be used as program data memory (including heap and stack).
+  * 简介:  设置外部内存控制器。
+  *         在跳转到main之前，在startup_stm32f4xx.s中调用。
+  *         此功能配置安装在STM324xG_EVAL/STM324x7I板上的外部SRAM
+  *         该SRAM将用作程序数据存储器（包括堆和堆栈）。
   * 参数:  无
   * 返回值: 无
   */
@@ -1024,70 +1011,70 @@ void SystemInit_ExtMemCtl(void) {
      |                  | PE15 <-> FMC_D12  |
      +------------------+------------------+
     */
-    /* Enable GPIOD, GPIOE, GPIOF and GPIOG interface clock */
+    /* 启用 GPIOD, GPIOE, GPIOF and GPIOG 接口时钟 */
     RCC->AHB1ENR   |= 0x00000078;
 
-    /* Connect PDx pins to FMC Alternate function */
+    /* 将 PDx 引脚连接到 FMC 备用功能 */
     GPIOD->AFR[0]  = 0x00cc00cc;
     GPIOD->AFR[1]  = 0xcccccccc;
-    /* Configure PDx pins in Alternate function mode */
+    /* 在复用功能模式下配置 PDx 引脚 */
     GPIOD->MODER   = 0xaaaa0a0a;
-    /* Configure PDx pins speed to 100 MHz */
+    /* 将 PDx 引脚速度配置为 100 MHz */
     GPIOD->OSPEEDR = 0xffff0f0f;
-    /* Configure PDx pins Output type to push-pull */
+    /* 配置 PDx 引脚输出类型为推拉 */
     GPIOD->OTYPER  = 0x00000000;
-    /* No pull-up, pull-down for PDx pins */
+    /* PDx引脚无上拉、下拉 */
     GPIOD->PUPDR   = 0x00000000;
 
-    /* Connect PEx pins to FMC Alternate function */
+    /* 将 PEx 引脚连接到 FMC 复用功能 */
     GPIOE->AFR[0]  = 0xcccccccc;
     GPIOE->AFR[1]  = 0xcccccccc;
-    /* Configure PEx pins in Alternate function mode */
+    /* 在复用功能模式下配置 PEx 引脚 */
     GPIOE->MODER   = 0xaaaaaaaa;
-    /* Configure PEx pins speed to 100 MHz */
+    /* 将 PEx 引脚速度配置为 100 MHz */
     GPIOE->OSPEEDR = 0xffffffff;
-    /* Configure PEx pins Output type to push-pull */
+    /* 配置 PEx 引脚输出类型为推拉 */
     GPIOE->OTYPER  = 0x00000000;
-    /* No pull-up, pull-down for PEx pins */
+    /* PEx 引脚无上拉、下拉 */
     GPIOE->PUPDR   = 0x00000000;
 
-    /* Connect PFx pins to FMC Alternate function */
+    /* 将 PFx 引脚连接到 FMC 复用功能 */
     GPIOF->AFR[0]  = 0x00cccccc;
     GPIOF->AFR[1]  = 0xcccc0000;
-    /* Configure PFx pins in Alternate function mode */
+    /* 在复用功能模式下配置 PFx 引脚 */
     GPIOF->MODER   = 0xaa000aaa;
-    /* Configure PFx pins speed to 100 MHz */
+    /* 将 PFx 引脚速度配置为 100 MHz */
     GPIOF->OSPEEDR = 0xff000fff;
-    /* Configure PFx pins Output type to push-pull */
+    /* 配置 PFx 引脚输出类型为推拉 */
     GPIOF->OTYPER  = 0x00000000;
-    /* No pull-up, pull-down for PFx pins */
+    /* PFx 引脚无上拉、下拉 */
     GPIOF->PUPDR   = 0x00000000;
 
-    /* Connect PGx pins to FMC Alternate function */
+    /* 将 PGx 引脚连接到 FMC 备用功能 */
     GPIOG->AFR[0]  = 0x00cccccc;
     GPIOG->AFR[1]  = 0x000000c0;
-    /* Configure PGx pins in Alternate function mode */
+    /* 在复用功能模式下配置 PGx 引脚 */
     GPIOG->MODER   = 0x00080aaa;
-    /* Configure PGx pins speed to 100 MHz */
+    /* 将 PGx 引脚速度配置为 100 MHz */
     GPIOG->OSPEEDR = 0x000c0fff;
-    /* Configure PGx pins Output type to push-pull */
+    /* 配置 PGx 引脚输出类型为推拉 */
     GPIOG->OTYPER  = 0x00000000;
-    /* No pull-up, pull-down for PGx pins */
+    /* PGx 引脚无上拉、下拉 */
     GPIOG->PUPDR   = 0x00000000;
 
     /*-- FMC 定义 ------------------------------------------------------*/
-    /* Enable the FMC/FSMC interface clock */
+    /* 启用 FMC/FSMC 接口时钟 */
     RCC->AHB3ENR         |= 0x00000001;
 
 #if defined(STM32F427_437xx) || defined(STM32F429_439xx) || defined(STM32F446xx) || defined(STM32F469_479xx)
-    /* Configure and enable Bank1_SRAM2 */
+    /* 配置并启用 Bank1_SRAM2 */
     FMC_Bank1->BTCR[2]  = 0x00001011;
     FMC_Bank1->BTCR[3]  = 0x00000201;
     FMC_Bank1E->BWTR[2] = 0x0fffffff;
 #endif /* STM32F427_437xx || STM32F429_439xx || STM32F446xx || STM32F469_479xx */
 
 #if defined(STM32F40_41xxx)
-    /* Configure and enable Bank1_SRAM2 */
+    /* 配置并启用 Bank1_SRAM2 */
     FSMC_Bank1->BTCR[2]  = 0x00001011;
     FSMC_Bank1->BTCR[3]  = 0x00000201;
     FSMC_Bank1E->BWTR[2] = 0x0fffffff;
@@ -1151,7 +1138,7 @@ void SystemInit_ExtMemCtl(void) {
 #elif defined (DATA_IN_ExtSDRAM)
 /**
   * 简介:  设置外部内存控制器。
-  *         Called in startup_stm32f4xx.s before jump to main.
+  *         在跳转到main之前，在startup_stm32f4xx.s中调用。
   *         This function configures the external SDRAM mounted on STM324x9I_EVAL board
   *         This SDRAM will be used as program data memory (including heap and stack).
   * 参数:  无
@@ -1170,95 +1157,95 @@ void SystemInit_ExtMemCtl(void) {
     GPIOC->AFR[1]  = 0x00007700;
     /* Configure PCx pins in Alternate function mode */
     GPIOC->MODER   = 0x00a00002;
-    /* Configure PCx pins speed to 50 MHz */
+    /* 将 PCx 引脚速度配置为 50 MHz */
     GPIOC->OSPEEDR = 0x00a00002;
-    /* Configure PCx pins Output type to push-pull */
+    /* 配置 PCx 引脚输出类型为推拉 */
     GPIOC->OTYPER  = 0x00000000;
     /* No pull-up, pull-down for PCx pins */
     GPIOC->PUPDR   = 0x00500000;
 
-    /* Connect PDx pins to FMC Alternate function */
+    /* 将 PDx 引脚连接到 FMC 备用功能 */
     GPIOD->AFR[0]  = 0x000000CC;
     GPIOD->AFR[1]  = 0xCC000CCC;
-    /* Configure PDx pins in Alternate function mode */
+    /* 在复用功能模式下配置 PDx 引脚 */
     GPIOD->MODER   = 0xA02A000A;
-    /* Configure PDx pins speed to 50 MHz */
+    /* 将 PDx 引脚速度配置为 50 MHz */
     GPIOD->OSPEEDR = 0xA02A000A;
-    /* Configure PDx pins Output type to push-pull */
+    /* 配置 PDx 引脚输出类型为推拉 */
     GPIOD->OTYPER  = 0x00000000;
-    /* No pull-up, pull-down for PDx pins */
+    /* PDx引脚无上拉、下拉 */
     GPIOD->PUPDR   = 0x00000000;
 
-    /* Connect PEx pins to FMC Alternate function */
+    /* 将 PEx 引脚连接到 FMC 复用功能 */
     GPIOE->AFR[0]  = 0xC00000CC;
     GPIOE->AFR[1]  = 0xCCCCCCCC;
-    /* Configure PEx pins in Alternate function mode */
+    /* 在复用功能模式下配置 PEx 引脚 */
     GPIOE->MODER   = 0xAAAA800A;
-    /* Configure PEx pins speed to 50 MHz */
+    /* 将 PEx 引脚速度配置为 50 MHz */
     GPIOE->OSPEEDR = 0xAAAA800A;
-    /* Configure PEx pins Output type to push-pull */
+    /* 配置 PEx 引脚输出类型为推拉 */
     GPIOE->OTYPER  = 0x00000000;
-    /* No pull-up, pull-down for PEx pins */
+    /* PEx 引脚无上拉、下拉 */
     GPIOE->PUPDR   = 0x00000000;
 
-    /* Connect PFx pins to FMC Alternate function */
+    /* 将 PFx 引脚连接到 FMC 复用功能 */
     GPIOF->AFR[0]  = 0xcccccccc;
     GPIOF->AFR[1]  = 0xcccccccc;
-    /* Configure PFx pins in Alternate function mode */
+    /* 在复用功能模式下配置 PFx 引脚 */
     GPIOF->MODER   = 0xAA800AAA;
-    /* Configure PFx pins speed to 50 MHz */
+    /* 将 PEx 引脚速度配置为 50 MHz */
     GPIOF->OSPEEDR = 0xAA800AAA;
-    /* Configure PFx pins Output type to push-pull */
+    /* 配置 PFx 引脚输出类型为推拉 */
     GPIOF->OTYPER  = 0x00000000;
-    /* No pull-up, pull-down for PFx pins */
+    /* PFx 引脚无上拉、下拉 */
     GPIOF->PUPDR   = 0x00000000;
 
-    /* Connect PGx pins to FMC Alternate function */
+    /* 将 PGx 引脚连接到 FMC 备用功能 */
     GPIOG->AFR[0]  = 0xcccccccc;
     GPIOG->AFR[1]  = 0xcccccccc;
-    /* Configure PGx pins in Alternate function mode */
+    /* 在复用功能模式下配置 PGx 引脚 */
     GPIOG->MODER   = 0xaaaaaaaa;
-    /* Configure PGx pins speed to 50 MHz */
+    /* 将 PGx 引脚速度配置为 50 MHz */
     GPIOG->OSPEEDR = 0xaaaaaaaa;
-    /* Configure PGx pins Output type to push-pull */
+    /* 配置 PGx 引脚输出类型为推拉 */
     GPIOG->OTYPER  = 0x00000000;
-    /* No pull-up, pull-down for PGx pins */
+    /* PGx 引脚无上拉、下拉 */
     GPIOG->PUPDR   = 0x00000000;
 
-    /* Connect PHx pins to FMC Alternate function */
+    /* 将 PHx 引脚连接到 FMC 复用功能 */
     GPIOH->AFR[0]  = 0x00C0CC00;
     GPIOH->AFR[1]  = 0xCCCCCCCC;
-    /* Configure PHx pins in Alternate function mode */
+    /* 在复用功能模式下配置 PHx 引脚 */
     GPIOH->MODER   = 0xAAAA08A0;
-    /* Configure PHx pins speed to 50 MHz */
+    /* 将 PHx 引脚速度配置为 50 MHz */
     GPIOH->OSPEEDR = 0xAAAA08A0;
-    /* Configure PHx pins Output type to push-pull */
+    /* 配置 PHx 引脚输出类型为推拉 */
     GPIOH->OTYPER  = 0x00000000;
-    /* No pull-up, pull-down for PHx pins */
+    /* PHx 引脚无上拉、下拉 */
     GPIOH->PUPDR   = 0x00000000;
 
-    /* Connect PIx pins to FMC Alternate function */
+    /* 将 PIx 引脚连接到 FMC 复用功能 */
     GPIOI->AFR[0]  = 0xCCCCCCCC;
     GPIOI->AFR[1]  = 0x00000CC0;
-    /* Configure PIx pins in Alternate function mode */
+    /* 在复用功能模式下配置 PIx 引脚 */
     GPIOI->MODER   = 0x0028AAAA;
-    /* Configure PIx pins speed to 50 MHz */
+    /* 将 PIx 引脚速度配置为 50 MHz */
     GPIOI->OSPEEDR = 0x0028AAAA;
-    /* Configure PIx pins Output type to push-pull */
+    /* 配置 PIx 引脚输出类型为推拉 */
     GPIOI->OTYPER  = 0x00000000;
-    /* No pull-up, pull-down for PIx pins */
+    /* PIx 引脚无上拉、下拉 */
     GPIOI->PUPDR   = 0x00000000;
 
     /*-- FMC 定义 ------------------------------------------------------*/
-    /* Enable the FMC interface clock */
+    /* 启用 FMC 接口时钟 */
     RCC->AHB3ENR |= 0x00000001;
 
     /* Configure and enable SDRAM bank1 */
     FMC_Bank5_6->SDCR[0] = 0x000039D0;
     FMC_Bank5_6->SDTR[0] = 0x01115351;
 
-    /* SDRAM initialization sequence */
-    /* Clock enable command */
+    /* SDRAM 初始化序列 */
+    /* 时钟启用命令 */
     FMC_Bank5_6->SDCMR = 0x00000011;
     tmpreg = FMC_Bank5_6->SDSR & 0x00000020;
     while((tmpreg != 0) & (timeout-- > 0)) {
@@ -1275,25 +1262,25 @@ void SystemInit_ExtMemCtl(void) {
         tmpreg = FMC_Bank5_6->SDSR & 0x00000020;
     }
 
-    /* Auto refresh command */
+    /*自动刷新命令 */
     FMC_Bank5_6->SDCMR = 0x00000073;
     timeout = 0xFFFF;
     while((tmpreg != 0) & (timeout-- > 0)) {
         tmpreg = FMC_Bank5_6->SDSR & 0x00000020;
     }
 
-    /* MRD register program */
+    /* MRD 寄存器程序 */
     FMC_Bank5_6->SDCMR = 0x00046014;
     timeout = 0xFFFF;
     while((tmpreg != 0) & (timeout-- > 0)) {
         tmpreg = FMC_Bank5_6->SDSR & 0x00000020;
     }
 
-    /* Set refresh count */
+    /* 设置刷新计数 */
     tmpreg = FMC_Bank5_6->SDRTR;
     FMC_Bank5_6->SDRTR = (tmpreg | (0x0000027C<<1));
 
-    /* Disable write protection */
+    /* 禁用写保护 */
     tmpreg = FMC_Bank5_6->SDCR[0];
     FMC_Bank5_6->SDCR[0] = (tmpreg & 0xFFFFFDFF);
 

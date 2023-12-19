@@ -289,7 +289,7 @@ void QSPI_ComConfig_Init(QSPI_ComConfig_InitTypeDef* QSPI_ComConfig_InitStruct) 
 /**
   * 简介:  使能或失能 QSPI 外设.
   * 参数:  NewState: 新状态-> QSPI 外设.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void QSPI_Cmd(FunctionalState NewState) {
@@ -488,7 +488,7 @@ void QSPI_SetDataLength(uint32_t QSPI_DataLength) {
 /**
   * 简介:  启用或禁用超时计数器。
   * 参数:  NewState: 新状态-> 超时计数器。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 注意:   此函数仅在内存映射模式中使用.
   * 返回值: 无
   */
@@ -512,7 +512,7 @@ void QSPI_TimeoutCounterCmd(FunctionalState NewState) {
 /**
   * 简介:  发生匹配时启用或禁用自动轮询模式停止。
   * 参数:  NewState: 新状态-> 自动轮询模式停止。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 注意:   此功能仅在自动轮询模式下使用.
   * 返回值: 无
   */
@@ -621,7 +621,7 @@ uint32_t QSPI_ReceiveData32(void) {
 /**
   * 简介:  启用或禁用间接模式的 DMA。
   * 参数:  NewState: 新状态-> Timeout Counter.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void QSPI_DMACmd(FunctionalState NewState) {
@@ -649,7 +649,7 @@ void QSPI_DMACmd(FunctionalState NewState) {
   *                @arg QSPI_IT_TC:传输完成
   *                @arg QSPI_IT_TE:传输错误
   * 参数:  NewState: 新状态-> 指定的QSPI中断。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void QSPI_ITConfig(uint32_t QSPI_IT, FunctionalState NewState) {
@@ -806,7 +806,7 @@ void QSPI_ClearITPendingBit(uint32_t QSPI_IT) {
 /**
   * 简介:  启用或禁用 QSPI 双Flash模式。
   * 参数:  NewState: 新状态-> QSPI 双Flash模式。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void QSPI_DualFlashMode_Cmd(FunctionalState NewState) {

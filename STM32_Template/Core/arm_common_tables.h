@@ -86,7 +86,7 @@ extern const float32_t twiddleCoef_rfft_2048[2048];
 extern const float32_t twiddleCoef_rfft_4096[4096];
 
 
-/* floating-point bit reversal tables */
+/* 浮点位反转表 */
 #define ARMBITREVINDEXTABLE__16_TABLE_LENGTH ((uint16_t)20  )
 #define ARMBITREVINDEXTABLE__32_TABLE_LENGTH ((uint16_t)48  )
 #define ARMBITREVINDEXTABLE__64_TABLE_LENGTH ((uint16_t)56  )
@@ -107,7 +107,7 @@ extern const uint16_t armBitRevIndexTable1024[ARMBITREVINDEXTABLE1024_TABLE_LENG
 extern const uint16_t armBitRevIndexTable2048[ARMBITREVINDEXTABLE2048_TABLE_LENGTH];
 extern const uint16_t armBitRevIndexTable4096[ARMBITREVINDEXTABLE4096_TABLE_LENGTH];
 
-/* fixed-point bit reversal tables */
+/* 定点位反转表 */
 #define ARMBITREVINDEXTABLE_FIXED___16_TABLE_LENGTH ((uint16_t)12  )
 #define ARMBITREVINDEXTABLE_FIXED___32_TABLE_LENGTH ((uint16_t)24  )
 #define ARMBITREVINDEXTABLE_FIXED___64_TABLE_LENGTH ((uint16_t)56  )
@@ -128,7 +128,7 @@ extern const uint16_t armBitRevIndexTable_fixed_1024[ARMBITREVINDEXTABLE_FIXED_1
 extern const uint16_t armBitRevIndexTable_fixed_2048[ARMBITREVINDEXTABLE_FIXED_2048_TABLE_LENGTH];
 extern const uint16_t armBitRevIndexTable_fixed_4096[ARMBITREVINDEXTABLE_FIXED_4096_TABLE_LENGTH];
 
-/* Tables for Fast Math Sine and Cosine */
+/* 快速数学正弦和余弦表 */
 extern const float32_t sinTable_f32[FAST_MATH_TABLE_SIZE + 1];
 extern const q31_t sinTable_q31[FAST_MATH_TABLE_SIZE + 1];
 extern const q15_t sinTable_q15[FAST_MATH_TABLE_SIZE + 1];

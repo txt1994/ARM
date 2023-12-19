@@ -382,7 +382,7 @@ typedef struct {
 /**
  * @brief  Write data in direct communication mode.
  * @param  [in] u8Value                 Byte data.
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void QSPI_WriteDirectCommValue(uint8_t u8Value) {
     WRITE_REG32(CM_QSPI->DCOM, u8Value);
@@ -390,7 +390,7 @@ __STATIC_INLINE void QSPI_WriteDirectCommValue(uint8_t u8Value) {
 
 /**
  * @brief  Read data in direct communication mode.
- * @param  None
+ * @param  无
  * @retval uint8_t                      Byte data.
  */
 __STATIC_INLINE uint8_t QSPI_ReadDirectCommValue(void) {

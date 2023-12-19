@@ -160,8 +160,8 @@
 
 /**
  * @brief  De-Initialize MPU.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void MPU_DeInit(void) {
     uint32_t i;
@@ -289,7 +289,7 @@ int32_t MPU_StructInit(stc_mpu_init_t *pstcMpuInit) {
  *           @arg MPU_EXP_TYPE_BUS_ERR: The host unit access protection regions will be ignored and a bus error will be triggered
  *           @arg MPU_EXP_TYPE_NMI:     The host unit access protection regions will be ignored and a NMI interrupt will be triggered
  *           @arg MPU_EXP_TYPE_RST:     The host unit access protection regions will trigger the reset
- * @retval None
+ * @retval 无
  */
 void MPU_SetExceptionType(uint32_t u32Unit, uint32_t u32Type) {
     __IO uint32_t *CR;
@@ -320,7 +320,7 @@ void MPU_SetExceptionType(uint32_t u32Unit, uint32_t u32Type) {
  *         This parameter can be one or any combination of the following values:
  *           @arg @ref MPU_Unit_Type
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void MPU_BackgroundWriteCmd(uint32_t u32Unit, en_functional_state_t enNewState) {
     __IO uint32_t *CR;
@@ -356,7 +356,7 @@ void MPU_BackgroundWriteCmd(uint32_t u32Unit, en_functional_state_t enNewState) 
  *         This parameter can be one or any combination of the following values:
  *           @arg @ref MPU_Unit_Type
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void MPU_BackgroundReadCmd(uint32_t u32Unit, en_functional_state_t enNewState) {
     __IO uint32_t *CR;
@@ -392,7 +392,7 @@ void MPU_BackgroundReadCmd(uint32_t u32Unit, en_functional_state_t enNewState) {
  *         This parameter can be one or any combination of the following values:
  *           @arg @ref MPU_Unit_Type
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void MPU_UnitCmd(uint32_t u32Unit, en_functional_state_t enNewState) {
     __IO uint32_t *CR;
@@ -447,7 +447,7 @@ en_flag_status_t MPU_GetStatus(uint32_t u32Flag) {
  * @param  [in] u32Flag                 The type of MPU flag.
  *         This parameter can be one or any combination of the following values:
  *           @arg @ref MPU_Flag
- * @retval None
+ * @retval 无
  */
 void MPU_ClearStatus(uint32_t u32Flag) {
     /* Check parameters */
@@ -602,7 +602,7 @@ int32_t MPU_RegionStructInit(stc_mpu_region_init_t *pstcRegionInit) {
  *           @arg MPU_REGION_NUM14:     MPU region number 14
  *           @arg MPU_REGION_NUM15:     MPU region number 15
  * @param  [in] u32Addr                 The base address of the region.
- * @retval None
+ * @retval 无
  */
 void MPU_SetRegionBaseAddr(uint32_t u32Num, uint32_t u32Addr) {
     __IO uint32_t *RGD;
@@ -668,7 +668,7 @@ void MPU_SetRegionBaseAddr(uint32_t u32Num, uint32_t u32Addr) {
  *           @arg MPU_REGION_SIZE_1GBYTE:   1G Byte
  *           @arg MPU_REGION_SIZE_2GBYTE:   2G Byte
  *           @arg MPU_REGION_SIZE_4GBYTE:   4G Byte
- * @retval None
+ * @retval 无
  */
 void MPU_SetRegionSize(uint32_t u32Num, uint32_t u32Size) {
     __IO uint32_t *RGD;
@@ -707,7 +707,7 @@ void MPU_SetRegionSize(uint32_t u32Num, uint32_t u32Size) {
  *         This parameter can be one or any combination of the following values:
  *           @arg @ref MPU_Unit_Type
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void MPU_RegionWriteCmd(uint32_t u32Num, uint32_t u32Unit, en_functional_state_t enNewState) {
     __IO uint32_t *RGWP;
@@ -765,7 +765,7 @@ void MPU_RegionWriteCmd(uint32_t u32Num, uint32_t u32Unit, en_functional_state_t
  *         This parameter can be one or any combination of the following values:
  *           @arg @ref MPU_Unit_Type
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void MPU_RegionReadCmd(uint32_t u32Num, uint32_t u32Unit, en_functional_state_t enNewState) {
     __IO uint32_t *RGRP;
@@ -823,7 +823,7 @@ void MPU_RegionReadCmd(uint32_t u32Num, uint32_t u32Unit, en_functional_state_t 
  *         This parameter can be one or any combination of the following values:
  *           @arg @ref MPU_Unit_Type
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void MPU_RegionCmd(uint32_t u32Num, uint32_t u32Unit, en_functional_state_t enNewState) {
     __IO uint32_t *RGE;
@@ -861,7 +861,7 @@ void MPU_RegionCmd(uint32_t u32Num, uint32_t u32Unit, en_functional_state_t enNe
  *         This parameter can be one of the following values:
  *           @arg MPU_IP_EXP_TYPE_NONE:     Access to the protected IP will be ignored
  *           @arg MPU_IP_EXP_TYPE_BUS_ERR:  Access to the protected IP will trigger a bus error
- * @retval None
+ * @retval 无
  */
 void MPU_IP_SetExceptionType(uint32_t u32Type) {
     /* Check parameters */
@@ -891,7 +891,7 @@ void MPU_IP_SetExceptionType(uint32_t u32Type) {
  *           @arg MPU_IP_FCG:           PWR_FCG0/1/2/3 and PWR_FCG0PC registers
  *           @arg MPU_IP_ALL:           All of the above
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void MPU_IP_WriteCmd(uint32_t u32Periph, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -926,7 +926,7 @@ void MPU_IP_WriteCmd(uint32_t u32Periph, en_functional_state_t enNewState) {
  *           @arg MPU_IP_FCG:           PWR_FCG0/1/2/3 and PWR_FCG0PC registers
  *           @arg MPU_IP_ALL:           All of the above
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void MPU_IP_ReadCmd(uint32_t u32Periph, en_functional_state_t enNewState) {
     /* Check parameters */

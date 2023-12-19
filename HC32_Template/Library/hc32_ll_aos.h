@@ -152,8 +152,8 @@ extern "C"
 
 /**
  * @brief  AOS software trigger.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void AOS_SW_Trigger(void) {
     WRITE_REG32(bCM_AOS->INTSFTTRG_b.STRG, SET);

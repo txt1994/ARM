@@ -27,8 +27,8 @@ static __IO uint32_t fac_ms;
 
 /**
   * @brief  initialize delay function
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void delay_Init(void) {
     /* configure systick */
@@ -40,7 +40,7 @@ void delay_Init(void) {
 /**
   * @brief  inserts a delay time.
   * @param  nus: 指定delay time length, in microsecond.
-  * @retval none
+  * @retval 无
   */
 void delay_us(uint32_t nus) {
     uint32_t temp = 0;
@@ -59,7 +59,7 @@ void delay_us(uint32_t nus) {
 /**
   * @brief  inserts a delay time.
   * @param  nms: 指定delay time length, in milliseconds.
-  * @retval none
+  * @retval 无
   */
 void delay_ms(uint16_t nms) {
     uint32_t temp = 0;
@@ -89,7 +89,7 @@ void delay_ms(uint16_t nms) {
 /**
   * @brief  inserts a delay time.
   * @param  sec: 指定delay time, in seconds.
-  * @retval none
+  * @retval 无
   */
 void delay_sec(uint16_t sec) {
     uint16_t index;

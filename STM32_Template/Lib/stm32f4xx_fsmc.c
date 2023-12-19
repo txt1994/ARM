@@ -278,7 +278,7 @@ void FSMC_NORSRAMStructInit(FSMC_NORSRAMInitTypeDef* FSMC_NORSRAMInitStruct) {
   *            @arg FSMC_Bank1_NORSRAM2: FSMC Bank1 NOR/SRAM2
   *            @arg FSMC_Bank1_NORSRAM3: FSMC Bank1 NOR/SRAM3
   *            @arg FSMC_Bank1_NORSRAM4: FSMC Bank1 NOR/SRAM4
-  * 参数:  NewState: 新状态-> FSMC_Bank. 此参数可以是:ENABLE或DISABLE。
+  * 参数:  NewState: 新状态-> FSMC_Bank. 此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void FSMC_NORSRAMCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
@@ -496,7 +496,7 @@ void FSMC_NANDStructInit(FSMC_NANDInitTypeDef* FSMC_NANDInitStruct) {
   *          此参数可以是以下值之一:
   *            @arg FSMC_Bank2_NAND: FSMC Bank2 NAND
   *            @arg FSMC_Bank3_NAND: FSMC Bank3 NAND
-  * 参数:  NewState: 新状态-> FSMC_Bank. 此参数可以是:ENABLE或DISABLE。
+  * 参数:  NewState: 新状态-> FSMC_Bank. 此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void FSMC_NANDCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
@@ -526,7 +526,7 @@ void FSMC_NANDCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
   *            @arg FSMC_Bank2_NAND: FSMC Bank2 NAND
   *            @arg FSMC_Bank3_NAND: FSMC Bank3 NAND
   * 参数:  NewState: 新状态-> FSMC NAND ECC feature.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void FSMC_NANDECCCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
@@ -741,7 +741,7 @@ void FSMC_PCCARDStructInit(FSMC_PCCARDInitTypeDef* FSMC_PCCARDInitStruct) {
 /**
   * 简介:  启用或禁用PCCARD Memory Bank.
   * 参数:  NewState: PCCARD内存库的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void FSMC_PCCARDCmd(FunctionalState NewState) {
@@ -784,7 +784,7 @@ void FSMC_PCCARDCmd(FunctionalState NewState) {
   *            @arg FSMC_IT_Level: 水平边缘检测中断。
   *            @arg FSMC_IT_FallingEdge: 下降沿检测中断。
   * 参数:  NewState: 指定的FSMC中断的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void FSMC_ITConfig(uint32_t FSMC_Bank, uint32_t FSMC_IT, FunctionalState NewState) {

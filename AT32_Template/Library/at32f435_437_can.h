@@ -412,7 +412,7 @@ typedef struct {
 } CAN_RX_Message_Type;
 
 /**
-  * @brief can controller area network tx mailbox
+  * @brief can 控制器区域网络 tx mailbox
   */
 typedef struct {
     /**
@@ -471,7 +471,7 @@ typedef struct {
 } CAN_TX_mailbox_Type;
 
 /**
-  * @brief can controller area network fifo mailbox
+  * @brief can 控制器区域网络 fifo mailbox
   */
 typedef struct {
     /**
@@ -529,7 +529,7 @@ typedef struct {
 } CAN_FIFO_mailbox_Type;
 
 /**
-  * @brief can controller area network filter bit register
+  * @brief can 控制器区域网络 filter bit register
   */
 typedef struct {
     __IO uint32_t ffdb1;
@@ -713,12 +713,12 @@ typedef struct {
     __IO uint32_t reserved1[88];
 
     /**
-      * @brief can controller area network tx mailbox register, offset:0x180~0x1AC
+      * @brief can 控制器区域网络 tx mailbox register, offset:0x180~0x1AC
       */
     CAN_TX_mailbox_Type tx_mailbox[3];
 
     /**
-      * @brief can controller area network fifo mailbox register, offset:0x1B0~0x1CC
+      * @brief can 控制器区域网络 fifo mailbox register, offset:0x1B0~0x1CC
       */
     CAN_FIFO_mailbox_Type fifo_mailbox[2];
 

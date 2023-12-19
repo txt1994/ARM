@@ -76,7 +76,7 @@ uint32_t DBGMCU_GetDEVID(void) {
   *     @arg DBGMCU_STOP: 在STOP模式下保持调试器的连接
   *     @arg DBGMCU_STANDBY: 在STANDBY模式下保持调试器的连接。
   * 参数:  NewState: 在调试模式下指定的低功耗模式的新状态。
-  *   此参数可以是:ENABLE或DISABLE。
+  *   此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void DBGMCU_Config(uint32_t DBGMCU_Periph, FunctionalState NewState) {
@@ -137,7 +137,7 @@ void DBGMCU_APB1PeriphConfig(uint32_t DBGMCU_Periph, FunctionalState NewState) {
   *     @arg DBGMCU_TIM10_STOP: 当 Core 停止时，TIM10 计数器停止
   *     @arg DBGMCU_TIM11_STOP: 当 Core 停止工作时，TIM11 计数器停止工作
   * 参数:  NewState:在Debug模式下指定外设的新状态。
-  *   此参数可以是:ENABLE或DISABLE。
+  *   此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void DBGMCU_APB2PeriphConfig(uint32_t DBGMCU_Periph, FunctionalState NewState) {

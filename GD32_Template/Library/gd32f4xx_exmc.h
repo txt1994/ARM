@@ -539,7 +539,7 @@ typedef struct {
 /* SDRAM command selection */
 #define SDCMD_CMD(regval)                   (BITS(0,2) & ((uint32_t)(regval) << 0))
 #define EXMC_SDRAM_Normal_OPERATION         SDCMD_CMD(0)                  /*!< normal operation command */
-#define EXMC_SDRAM_Clock_ENABLE             SDCMD_CMD(1)                  /*!< clock enable command */
+#define EXMC_SDRAM_Clock_ENABLE             SDCMD_CMD(1)                  /*!< 时钟启用命令 */
 #define EXMC_SDRAM_PRECHARGE_ALL            SDCMD_CMD(2)                  /*!< precharge all command */
 #define EXMC_SDRAM_Auto_REFRESH             SDCMD_CMD(3)                  /*!< auto-refresh command */
 #define EXMC_SDRAM_LOAD_Mode_REGISTER       SDCMD_CMD(4)                  /*!< load mode register command */

@@ -293,7 +293,7 @@ void FMC_NORSRAMStructInit(FMC_NORSRAMInitTypeDef* FMC_NORSRAMInitStruct) {
   *            @arg FMC_Bank1_NORSRAM2: FMC Bank1 NOR/SRAM2
   *            @arg FMC_Bank1_NORSRAM3: FMC Bank1 NOR/SRAM3
   *            @arg FMC_Bank1_NORSRAM4: FMC Bank1 NOR/SRAM4
-  * 参数:  NewState: 新状态-> FMC_Bank. 此参数可以是:ENABLE或DISABLE。
+  * 参数:  NewState: 新状态-> FMC_Bank. 此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void FMC_NORSRAMCmd(uint32_t FMC_Bank, FunctionalState NewState) {
@@ -511,7 +511,7 @@ void FMC_NANDStructInit(FMC_NANDInitTypeDef* FMC_NANDInitStruct) {
   *          此参数可以是以下值之一:
   *            @arg FMC_Bank2_NAND: FMC Bank2 NAND
   *            @arg FMC_Bank3_NAND: FMC Bank3 NAND
-  * 参数:  NewState: 新状态-> FMC_Bank. 此参数可以是:ENABLE或DISABLE。
+  * 参数:  NewState: 新状态-> FMC_Bank. 此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void FMC_NANDCmd(uint32_t FMC_Bank, FunctionalState NewState) {
@@ -541,7 +541,7 @@ void FMC_NANDCmd(uint32_t FMC_Bank, FunctionalState NewState) {
   *            @arg FMC_Bank2_NAND: FMC Bank2 NAND
   *            @arg FMC_Bank3_NAND: FMC Bank3 NAND
   * 参数:  NewState: FMC NAND ECC功能的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void FMC_NANDECCCmd(uint32_t FMC_Bank, FunctionalState NewState) {
@@ -758,7 +758,7 @@ void FMC_PCCARDStructInit(FMC_PCCARDInitTypeDef* FMC_PCCARDInitStruct) {
 /**
   * 简介:  启用或禁用PCCARD Memory Bank.
   * 参数:  NewState: PCCARD内存库的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void FMC_PCCARDCmd(FunctionalState NewState) {
@@ -1060,7 +1060,7 @@ void FMC_SetAutoRefresh_Number(uint32_t FMC_Number) {
   * 简介:  启用或禁用对指定 FMC SDRAM Bank 的写保护。
   * 参数:  SDRAM_Bank: 定义FMC SDRAM库。这个参数可以是FMC_Bank1_SDRAM或FMC_Bank2_SDRAM。
   * 参数:  NewState: 写保护标志的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void FMC_SDRAMWriteProtectionConfig(uint32_t SDRAM_Bank, FunctionalState NewState) {
@@ -1108,7 +1108,7 @@ void FMC_SDRAMWriteProtectionConfig(uint32_t SDRAM_Bank, FunctionalState NewStat
   *            @arg FMC_IT_FallingEdge: 下降沿检测中断。
   *            @arg FMC_IT_Refresh: 刷新错误检测中断。
   * 参数:  NewState: 指定FMC中断的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void FMC_ITConfig(uint32_t FMC_Bank, uint32_t FMC_IT, FunctionalState NewState) {

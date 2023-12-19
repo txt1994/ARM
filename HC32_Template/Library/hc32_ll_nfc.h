@@ -471,7 +471,7 @@ typedef struct {
 /**
  * @brief  Set EXMC_NFC command register value.
  * @param  [in] u32Value            The combination value of command @ref EXMC_NFC_Memory_Command and arguments.
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void EXMC_NFC_WriteCmdReg(uint32_t u32Value) {
     WRITE_REG32(CM_NFC->CMDR, u32Value);
@@ -481,7 +481,7 @@ __STATIC_INLINE void EXMC_NFC_WriteCmdReg(uint32_t u32Value) {
  * @brief  Set EXMC_NFC Index register value.
  * @param  [in] u32Value            The value of NFC_IDXR0.
  *         This parameter can be a value between Min_Data = 0 and Max_Data = 0xFFFFFFFF
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void EXMC_NFC_WriteIDXR0(uint32_t u32Value) {
     WRITE_REG32(CM_NFC->IDXR0, u32Value);
@@ -491,7 +491,7 @@ __STATIC_INLINE void EXMC_NFC_WriteIDXR0(uint32_t u32Value) {
  * @brief  Set EXMC_NFC Index register value.
  * @param  [in] u8Value             The value of NFC_IDXR1.
  *         This parameter can be a value between Min_Data = 0 and Max_Data = 0xFF
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void EXMC_NFC_WriteIDXR1(uint8_t u8Value) {
     WRITE_REG32(CM_NFC->IDXR1, u8Value);
@@ -499,8 +499,8 @@ __STATIC_INLINE void EXMC_NFC_WriteIDXR1(uint8_t u8Value) {
 
 /**
  * @brief  De-select NFC bank.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 __STATIC_INLINE void EXMC_NFC_DeselectChip(void) {
     WRITE_REG32(CM_NFC->CMDR, EXMC_NFC_CMD_DESELECT_CHIP);
@@ -508,7 +508,7 @@ __STATIC_INLINE void EXMC_NFC_DeselectChip(void) {
 
 /**
  * @brief  Get the 4BIT ECC error section.
- * @param  None
+ * @param  无
  * @retval The 4BIT ECC error section
  */
 __STATIC_INLINE uint16_t EXMC_NFC_Get4BitEccErrSection(void) {

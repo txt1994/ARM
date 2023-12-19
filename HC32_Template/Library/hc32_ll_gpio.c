@@ -301,8 +301,8 @@ int32_t GPIO_Init(uint8_t u8Port, uint16_t u16Pin, const stc_gpio_init_t *pstcGp
 
 /**
  * @brief  De-init GPIO register to default value
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void GPIO_DeInit(void) {
     stc_gpio_init_t stcGpioInit;
@@ -360,7 +360,7 @@ int32_t GPIO_StructInit(stc_gpio_init_t *pstcGpioInit) {
  * @param  [in] enNewState: An @ref en_functional_state_t enumeration value.
  *   @arg  ENABLE: set to debug port (SWD/JTAG)
  *   @arg  DISABLE: set to GPIO
- * @retval None
+ * @retval 无
  */
 void GPIO_SetDebugPort(uint8_t u8DebugPort, en_functional_state_t enNewState) {
     /* Parameter validity checking */
@@ -380,7 +380,7 @@ void GPIO_SetDebugPort(uint8_t u8DebugPort, en_functional_state_t enNewState) {
  * @param  [in] u8Port: GPIO_PORT_x, x can be the suffix in @ref GPIO_Port_Source for each product
  * @param  [in] u16Pin: GPIO_PIN_x, x can be the suffix in @ref GPIO_Pins_Define for each product
  * @param  [in] u16Func: GPIO_FUNC_x, x can be the suffix in @ref GPIO_Function_Sel for each product
- * @retval None
+ * @retval 无
  */
 void GPIO_SetFunc(uint8_t u8Port, uint16_t u16Pin, uint16_t u16Func) {
     uint8_t u8PinPos;
@@ -405,7 +405,7 @@ void GPIO_SetFunc(uint8_t u8Port, uint16_t u16Pin, uint16_t u16Func) {
  * @param  [in] u8Port: GPIO_PORT_x, x can be the suffix in @ref GPIO_Port_Source for each product
  * @param  [in] u16Pin: GPIO_PIN_x, x can be the suffix in @ref GPIO_Pins_Define for each product
  * @param  [in] enNewState: An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void GPIO_SubFuncCmd(uint8_t u8Port, uint16_t u16Pin, en_functional_state_t enNewState) {
     uint8_t u8PinPos;
@@ -432,7 +432,7 @@ void GPIO_SubFuncCmd(uint8_t u8Port, uint16_t u16Pin, en_functional_state_t enNe
 /**
  * @brief  Set the sub-function, it's a global configuration
  * @param  [in] u8Func: GPIO_FUNC_x, x can be the suffix in @ref GPIO_Function_Sel for each product
- * @retval None
+ * @retval 无
  */
 void GPIO_SetSubFunc(uint8_t u8Func) {
     DDL_ASSERT(IS_GPIO_FUNC(u8Func));
@@ -446,7 +446,7 @@ void GPIO_SetSubFunc(uint8_t u8Func) {
  * @param  [in] u8Port: GPIO_PORT_x, x can be the suffix in @ref GPIO_Port_Source for each product
  * @param  [in] u16Pin: GPIO_PIN_x, x can be the suffix in @ref GPIO_Pins_Define for each product
  * @param  [in] enNewState: An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void GPIO_OutputCmd(uint8_t u8Port, uint16_t u16Pin, en_functional_state_t enNewState) {
     __IO GPIO_REG_TYPE *POERx;
@@ -468,7 +468,7 @@ void GPIO_OutputCmd(uint8_t u8Port, uint16_t u16Pin, en_functional_state_t enNew
 /**
  * @brief  GPIO read wait cycle configure.
  * @param  [in] u16ReadWait: @ref GPIO_ReadCycle_Sel for each product
- * @retval None
+ * @retval 无
  */
 void GPIO_SetReadWaitCycle(uint16_t u16ReadWait) {
     DDL_ASSERT(IS_GPIO_READ_WAIT(u16ReadWait));
@@ -483,7 +483,7 @@ void GPIO_SetReadWaitCycle(uint16_t u16ReadWait) {
  * @param  [in] enNewState: An @ref en_functional_state_t enumeration value.
  *   @arg  ENABLE: set input MOS always ON
  *   @arg  DISABLE: set input MOS turns on while read operation
- * @retval None
+ * @retval 无
  */
 void GPIO_InputMOSCmd(uint8_t u8Port, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_GPIO_PORT(u8Port));
@@ -553,7 +553,7 @@ uint16_t GPIO_ReadOutputPort(uint8_t u8Port) {
  * @brief  Set specified GPIO output data port pins
  * @param  [in] u8Port: GPIO_PORT_x, x can be the suffix in @ref GPIO_Port_Source for each product
  * @param  [in] u16Pin: GPIO_PIN_x, x can be the suffix in @ref GPIO_Pins_Define for each product
- * @retval None
+ * @retval 无
  */
 void GPIO_SetPins(uint8_t u8Port, uint16_t u16Pin) {
     __IO GPIO_REG_TYPE *POSRx;
@@ -570,7 +570,7 @@ void GPIO_SetPins(uint8_t u8Port, uint16_t u16Pin) {
  * @brief  Reset specified GPIO output data port pins
  * @param  [in] u8Port: GPIO_PORT_x, x can be the suffix in @ref GPIO_Port_Source for each product
  * @param  [in] u16Pin: GPIO_PIN_x, x can be the suffix in @ref GPIO_Pins_Define for each product
- * @retval None
+ * @retval 无
  */
 void GPIO_ResetPins(uint8_t u8Port, uint16_t u16Pin) {
     __IO GPIO_REG_TYPE *PORRx;
@@ -587,7 +587,7 @@ void GPIO_ResetPins(uint8_t u8Port, uint16_t u16Pin) {
  * @brief  Write specified GPIO data port
  * @param  [in] u8Port: GPIO_PORT_x, x can be the suffix in @ref GPIO_Port_Source for each product
  * @param  [in] u16PortVal: Pin output value
- * @retval None
+ * @retval 无
  */
 void GPIO_WritePort(uint8_t u8Port, uint16_t u16PortVal) {
     __IO GPIO_REG_TYPE *PODRx;
@@ -603,7 +603,7 @@ void GPIO_WritePort(uint8_t u8Port, uint16_t u16PortVal) {
  * @brief  Toggle specified GPIO output data port pin
  * @param  [in] u8Port: GPIO_PORT_x, x can be the suffix in @ref GPIO_Port_Source for each product
  * @param  [in] u16Pin: GPIO_PIN_x, x can be the suffix in @ref GPIO_Pins_Define for each product
- * @retval None
+ * @retval 无
  */
 void GPIO_TogglePins(uint8_t u8Port, uint16_t u16Pin) {
     __IO GPIO_REG_TYPE *POTRx;
@@ -621,7 +621,7 @@ void GPIO_TogglePins(uint8_t u8Port, uint16_t u16Pin) {
  * @param  [in] u8Port: GPIO_PORT_x, x can be the suffix in @ref GPIO_Port_Source for each product
  * @param  [in] u16Pin: GPIO_PIN_x, x can be the suffix in @ref GPIO_Pins_Define for each product
  * @param  [in] enNewState: An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void GPIO_AnalogCmd(uint8_t u8Port, uint16_t u16Pin, en_functional_state_t enNewState) {
     __IO uint16_t *PCRx;
@@ -649,7 +649,7 @@ void GPIO_AnalogCmd(uint8_t u8Port, uint16_t u16Pin, en_functional_state_t enNew
  * @param  [in] u8Port: GPIO_PORT_x, x can be the suffix in @ref GPIO_Port_Source for each product
  * @param  [in] u16Pin: GPIO_PIN_x, x can be the suffix in @ref GPIO_Pins_Define for each product
  * @param  [in] enNewState: An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void GPIO_ExIntCmd(uint8_t u8Port, uint16_t u16Pin, en_functional_state_t enNewState) {
     __IO uint16_t *PCRx;

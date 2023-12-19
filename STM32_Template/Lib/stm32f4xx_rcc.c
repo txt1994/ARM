@@ -392,7 +392,7 @@ void RCC_LSEConfig(uint8_t RCC_LSE) {
   *         表示LSI时钟稳定，可用于IWDG和/或RTC的时钟。
   * 注意:   当IWDG正在运行时，不能禁用LSI。
   * 参数:  NewState: 新状态-> LSI.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 注意:   当LSI停止时，经过6个LSI振荡器时钟周期后LSIRDY标志位变为low。
   * 返回值: 无
   */
@@ -505,7 +505,7 @@ void RCC_PLLConfig(uint32_t RCC_PLLSource, uint32_t PLLM, uint32_t PLLN, uint32_
 			被设置，指示PLL时钟稳定，可以用作系统时钟源。
   * 注意:   如果主PLL用作系统时钟源，则不能禁用它
   * 注意:   当进入STOP(停止)和STANDBY(待机)模式时，主PLL被硬件禁用。
-  * 参数:  NewState: 新状态-> main PLL. 此参数可以是:ENABLE或DISABLE。
+  * 参数:  NewState: 新状态-> main PLL. 此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_PLLCmd(FunctionalState NewState) {
@@ -654,7 +654,7 @@ void RCC_PLLI2SConfig(uint32_t PLLI2SM, uint32_t PLLI2SN, uint32_t PLLI2SP, uint
 /**
   * 简介:  启用或禁用PLLI2S.
   * 注意:   在进入STOP和STANDBY模式时，PLLI2S被硬件禁用。
-  * 参数:  NewState: 新状态-> PLLI2S. 此参数可以是:ENABLE或DISABLE。
+  * 参数:  NewState: 新状态-> PLLI2S. 此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_PLLI2SCmd(FunctionalState NewState) {
@@ -767,7 +767,7 @@ void RCC_PLLSAIConfig(uint32_t PLLSAIN, uint32_t PLLSAIQ, uint32_t PLLSAIR) {
   * 注意:  该功能只支持 STM32F42xxx/43xxx/446xx/469xx/479xx 设备
   *
   * 注意:  在进入STOP和STANDBY模式时，PLLSAI被硬件禁用。
-  * 参数:  NewState: 新状态-> PLLSAI. 此参数可以是:ENABLE或DISABLE。
+  * 参数:  NewState: 新状态-> PLLSAI. 此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_PLLSAICmd(FunctionalState NewState) {
@@ -783,7 +783,7 @@ void RCC_PLLSAICmd(FunctionalState NewState) {
 			从而允许MCU执行救援操作。
 			CSSI链接到 Cortex-M4 NMI(非屏蔽中断)异常向量。
   * 参数:  NewState: 新状态-> Clock Security System.
-  *         此参数可以是:ENABLE或DISABLE。
+  *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_ClockSecuritySystemCmd(FunctionalState NewState) {
@@ -893,7 +893,7 @@ void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div) {
       (#) 多个时钟源可用于驱动系统时钟(SYSCLK): HSI、HSE和PLL。
           AHB时钟(HCLK)由系统时钟通过可配置的预分频器派生而来，用于为映射在AHB总线(DMA, GPIO…)
           上的CPU，内存和外设计时。APB1 (PCLK1)和APB2 (PCLK2)时钟是由AHB时钟通过可配置的预分频器派生出来的，
-          用于为映射在这些总线上的外设设备计时。您可以使用“RCC_GetClocksFreq()”函数来检索这些时钟的频率。
+          用于为映射在这些总线上的外设设备计时。您可以使用"RCC_GetClocksFreq()"函数来检索这些时钟的频率。
 
       -@- 所有的外围时钟都来源于系统时钟(SYSCLK)，除了:
         (+@) I2S: I2S时钟可以从特定的锁相环(PLLI2S)或映射在I2S_CKIN引脚上的外部时钟派生。
@@ -1073,7 +1073,7 @@ uint8_t RCC_GetSYSCLKSource(void) {
   * 简介:  配置 AHB 时钟 (HCLK)。
   * 注意:   根据设备电压范围，软件必须正确设置这些位，
   *         以确保HCLK不超过允许的最大频率
-  *         (有关更多详细信息，请参阅上文“CPU、AHB和APB总线时钟配置功能")
+  *         (有关更多详细信息，请参阅上文"CPU、AHB和APB总线时钟配置功能")
   * 参数:  RCC_SYSCLK: 定义AHB时钟分频器。该时钟源自系统时钟(SYSCLK)。
   *          此参数可以是以下值之一:
   *            @arg RCC_SYSCLK_Div1: AHB clock = SYSCLK
@@ -1350,7 +1350,7 @@ void RCC_RTCCLKConfig(uint32_t RCC_RTCCLKSource) {
 /**
   * 简介:  启用或禁用 RTC 时钟.
   * 注意:   只有在使用 RCC_RTCCLKConfig 函数选择 RTC 时钟源后，才能使用此函数。
-  * 参数:  NewState: 新状态-> RTC clock. 此参数可以是:ENABLE或DISABLE。
+  * 参数:  NewState: 新状态-> RTC clock. 此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_RTCCLKCmd(FunctionalState NewState) {
@@ -1365,7 +1365,7 @@ void RCC_RTCCLKCmd(FunctionalState NewState) {
   * 注意:   此功能重置RTC外设设备（包括备份寄存器）和RCC_CSR寄存器中的RTC时钟源选择。
   * 注意:   BKPSRAM不受此重置的影响。
   * 参数:  NewState: 新状态-> 备份域重置。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_BackupResetCmd(FunctionalState NewState) {
@@ -1908,7 +1908,7 @@ void RCC_TIMCLKPresConfig(uint32_t RCC_TIMCLKPrescaler) {
   *            @arg RCC_AHB1Periph_OTG_HS:      USB OTG HS 时钟
   *            @arg RCC_AHB1Periph_OTG_HS_ULPI: USB OTG HS ULPI 时钟
   * 参数:  NewState: 指定外围时钟的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_AHB1PeriphClockCmd(uint32_t RCC_AHB1Periph, FunctionalState NewState) {
@@ -1935,7 +1935,7 @@ void RCC_AHB1PeriphClockCmd(uint32_t RCC_AHB1Periph, FunctionalState NewState) {
   *            @arg RCC_AHB2Periph_RNG:    RNG 时钟
   *            @arg RCC_AHB2Periph_OTG_FS: USB OTG FS 时钟
   * 参数:  NewState: 指定外围时钟的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_AHB2PeriphClockCmd(uint32_t RCC_AHB2Periph, FunctionalState NewState) {
@@ -1959,7 +1959,7 @@ void RCC_AHB2PeriphClockCmd(uint32_t RCC_AHB2Periph, FunctionalState NewState) {
   *           - RCC_AHB3Periph_FSMC or RCC_AHB3Periph_FMC (STM32F412xG/STM32F413_423xx/STM32F429x/439x devices)
   *           - RCC_AHB3Periph_QSPI (STM32F412xG/STM32F413_423xx/STM32F446xx/STM32F469_479xx devices)
   * 参数:  NewState: 指定外围时钟的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_AHB3PeriphClockCmd(uint32_t RCC_AHB3Periph, FunctionalState NewState) {
@@ -2010,7 +2010,7 @@ void RCC_AHB3PeriphClockCmd(uint32_t RCC_AHB3Periph, FunctionalState NewState) {
   *            @arg RCC_APB1Periph_UART7:  UART7 时钟
   *            @arg RCC_APB1Periph_UART8:  UART8 时钟
   * 参数:  NewState: 指定外围时钟的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_APB1PeriphClockCmd(uint32_t RCC_APB1Periph, FunctionalState NewState) {
@@ -2056,7 +2056,7 @@ void RCC_APB1PeriphClockCmd(uint32_t RCC_APB1Periph, FunctionalState NewState) {
   *            @arg RCC_APB2Periph_UART9:  UART9 时钟 (STM32F413_423xx Devices)
   *            @arg RCC_APB2Periph_UART10: UART10 时钟 (STM32F413_423xx Devices)
   * 参数:  NewState: 指定外围时钟的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph, FunctionalState NewState) {
@@ -2094,7 +2094,7 @@ void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph, FunctionalState NewState) {
   *            @arg RCC_AHB1Periph_OTG_HS:  USB OTG HS 时钟
   *            @arg RCC_AHB1Periph_RNG:     RNG 时钟为 STM32F410xx 设备
   * 参数:  NewState: 新状态-> specified peripheral reset.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_AHB1PeriphResetCmd(uint32_t RCC_AHB1Periph, FunctionalState NewState) {
@@ -2119,7 +2119,7 @@ void RCC_AHB1PeriphResetCmd(uint32_t RCC_AHB1Periph, FunctionalState NewState) {
   *            @arg RCC_AHB2Periph_RNG:    RNG clock for STM32F40_41xxx/STM32F412xG/STM32F413_423xx/STM32F427_437xx/STM32F429_439xx/STM32F469_479xx devices
   *            @arg RCC_AHB2Periph_OTG_FS: USB OTG FS 时钟
   * 参数:  NewState: 新状态-> specified peripheral reset.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_AHB2PeriphResetCmd(uint32_t RCC_AHB2Periph, FunctionalState NewState) {
@@ -2142,7 +2142,7 @@ void RCC_AHB2PeriphResetCmd(uint32_t RCC_AHB2Periph, FunctionalState NewState) {
   *           - RCC_AHB3Periph_FSMC or RCC_AHB3Periph_FMC (STM32F412xG, STM32F413_423xx and STM32F429x/439x devices)
   *           - RCC_AHB3Periph_QSPI (STM32F412xG/STM32F446xx/STM32F469_479xx devices)
   * 参数:  NewState: 新状态-> specified peripheral reset.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_AHB3PeriphResetCmd(uint32_t RCC_AHB3Periph, FunctionalState NewState) {
@@ -2192,7 +2192,7 @@ void RCC_AHB3PeriphResetCmd(uint32_t RCC_AHB3Periph, FunctionalState NewState) {
   *            @arg RCC_APB1Periph_UART7:  UART7 时钟
   *            @arg RCC_APB1Periph_UART8:  UART8 时钟
   * 参数:  NewState: 新状态-> specified peripheral reset.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_APB1PeriphResetCmd(uint32_t RCC_APB1Periph, FunctionalState NewState) {
@@ -2236,7 +2236,7 @@ void RCC_APB1PeriphResetCmd(uint32_t RCC_APB1Periph, FunctionalState NewState) {
   *            @arg RCC_APB2Periph_UART9:  UART9 时钟 (STM32F413_423xx Devices)
   *            @arg RCC_APB2Periph_UART10: UART10 时钟 (STM32F413_423xx Devices)
   * 参数:  NewState: 新状态-> specified peripheral reset.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_APB2PeriphResetCmd(uint32_t RCC_APB2Periph, FunctionalState NewState) {
@@ -2281,7 +2281,7 @@ void RCC_APB2PeriphResetCmd(uint32_t RCC_APB2Periph, FunctionalState NewState) {
   *            @arg RCC_AHB1Periph_OTG_HS:      USB OTG HS 时钟
   *            @arg RCC_AHB1Periph_OTG_HS_ULPI: USB OTG HS ULPI 时钟
   * 参数:  NewState: 指定外围时钟的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_AHB1PeriphClockLPModeCmd(uint32_t RCC_AHB1Periph, FunctionalState NewState) {
@@ -2309,7 +2309,7 @@ void RCC_AHB1PeriphClockLPModeCmd(uint32_t RCC_AHB1Periph, FunctionalState NewSt
   *            @arg RCC_AHB2Periph_RNG:    RNG 时钟
   *            @arg RCC_AHB2Periph_OTG_FS: USB OTG FS 时钟
   * 参数:  NewState: 指定外围时钟的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_AHB2PeriphClockLPModeCmd(uint32_t RCC_AHB2Periph, FunctionalState NewState) {
@@ -2335,7 +2335,7 @@ void RCC_AHB2PeriphClockLPModeCmd(uint32_t RCC_AHB2Periph, FunctionalState NewSt
   *           - RCC_AHB3Periph_FSMC or RCC_AHB3Periph_FMC (STM32F412xG/STM32F413_423xx/STM32F429x/439x devices)
   *           - RCC_AHB3Periph_QSPI (STM32F412xG/STM32F413_423xx/STM32F446xx/STM32F469_479xx devices)
   * 参数:  NewState: 指定外围时钟的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_AHB3PeriphClockLPModeCmd(uint32_t RCC_AHB3Periph, FunctionalState NewState) {
@@ -2388,7 +2388,7 @@ void RCC_AHB3PeriphClockLPModeCmd(uint32_t RCC_AHB3Periph, FunctionalState NewSt
   *            @arg RCC_APB1Periph_UART7:  UART7 时钟
   *            @arg RCC_APB1Periph_UART8:  UART8 时钟
   * 参数:  NewState: 指定外围时钟的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_APB1PeriphClockLPModeCmd(uint32_t RCC_APB1Periph, FunctionalState NewState) {
@@ -2436,7 +2436,7 @@ void RCC_APB1PeriphClockLPModeCmd(uint32_t RCC_APB1Periph, FunctionalState NewSt
   *            @arg RCC_APB2Periph_UART9:  UART9 时钟 (STM32F413_423xx Devices)
   *            @arg RCC_APB2Periph_UART10: UART10 时钟 (STM32F413_423xx Devices)
   * 参数:  NewState: 指定外围时钟的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_APB2PeriphClockLPModeCmd(uint32_t RCC_APB2Periph, FunctionalState NewState) {
@@ -2605,7 +2605,7 @@ void RCC_SDIOClockSourceConfig(uint8_t RCC_ClockSource) {
   *            @arg RCC_AHB1ClockGating_FLITF: Flash interface clock
   *            @arg RCC_AHB1ClockGating_RCC: RCC clock
   * 参数:  NewState: 指定外围时钟的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_AHB1ClockGatingCmd(uint32_t RCC_AHB1ClockGating, FunctionalState NewState) {
@@ -2691,7 +2691,7 @@ void RCC_FMPI2C1ClockSourceConfig(uint32_t RCC_ClockSource) {
 /**
   * 简介:  启用或禁用MCO1.
   * 参数:  NewState: 新状态-> MCO1.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_MCO1Cmd(FunctionalState NewState) {
@@ -2704,7 +2704,7 @@ void RCC_MCO1Cmd(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用MCO2.
   * 参数:  NewState: 新状态-> MCO2.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_MCO2Cmd(FunctionalState NewState) {
@@ -2739,7 +2739,7 @@ void RCC_MCO2Cmd(FunctionalState NewState) {
   *            @arg RCC_IT_PLLI2SRDY: PLLI2S 就绪中断
   *            @arg RCC_IT_PLLSAIRDY: PLLSAI 就绪中断 (only for STM32F42xxx/43xxx/446xx/469xx/479xx devices)
   * 参数:  NewState: 新状态-> specified RCC interrupts.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RCC_ITConfig(uint8_t RCC_IT, FunctionalState NewState) {

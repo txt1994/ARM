@@ -49,8 +49,8 @@
   *         - pll_ns              = 144
   *         - pll_ms              = 1
   *         - pll_fr              = 4
-  * @param  none
-  * @retval none
+  * @param  无
+  * @retval 无
   */
 void system_Clock_Config(void) {
     /* reset crm */

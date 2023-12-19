@@ -20,7 +20,7 @@
    (#) 使用RNG_Cmd()函数激活RNG外设设备。
 
    (#) 等待直到32位随机数生成器包含有效的随机数据(使用轮询/中断模式)。
-       更多详细信息，请参考“中断和标志管理功能”模块描述。
+       更多详细信息，请参考"中断和标志管理功能"模块描述。
 
    (#) 使用RNG_GetRandomNumber()函数获取32位随机数
 
@@ -113,7 +113,7 @@ void RNG_DeInit(void) {
 /**
   * 简介:  启用或禁用 RNG 外设设备。
   * 参数:  NewState: RNG外设设备的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RNG_Cmd(FunctionalState NewState) {
@@ -157,7 +157,7 @@ void RNG_Cmd(FunctionalState NewState) {
 			函数等待设置DRDY(数据就绪)标志。
   * 注意:   每次读取随机数数据(使用RNG_GetRandomNumber()函数)
 			时，RNG_FLAG_DRDY标志会自动清除。
-  * 注意:   在种子错误的情况下，只要SECS位为“1”，随机数的生成就
+  * 注意:   在种子错误的情况下，只要SECS位为"1"，随机数的生成就
 			会中断。如果一个数字在RNG_DR寄存器中可用，则不能使用它，
 			因为它可能没有足够的熵。在这种情况下，建议清除SEIS位
 			(使用RNG_ClearFlag(RNG_FLAG_SECS)功能)，
@@ -251,7 +251,7 @@ uint32_t RNG_GetRandomNumber(void) {
 			但是，每个中断都有其特定的状态位(请参阅RNG_GetITStatus()
 			函数)和清除位(请参见RNG_ClearITPendingBit()函数，DRDY事件除外)。
   * 参数:  NewState: 新状态-> RNG 中断.
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void RNG_ITConfig(FunctionalState NewState) {

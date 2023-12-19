@@ -390,7 +390,7 @@ void DMA_StructInit(DMA_InitTypeDef* DMA_InitStruct) {
   * 简介:  启用或禁用指定的 DMAy Streamx。
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
   * 参数:  NewState: DMAy Streamx的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   *
   * 注意:  此功能可用于执行暂停恢复操作。当传输正在进行时，
   *        调用此函数以禁用流将导致传输暂停。将保留所有配置寄存器和剩余数据的数量。
@@ -611,10 +611,10 @@ void DMA_DoubleBufferModeConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t Memor
     assert_param(IS_DMA_CURRENT_MEM(DMA_CurrentMemory));
 
     if (DMA_CurrentMemory != DMA_Memory_0) {
-        /* 设置“内存1”为当前内存地址 */
+        /* 设置"内存1"为当前内存地址 */
         DMAy_Streamx->CR |= (uint32_t)(DMA_SxCR_CT);
     } else {
-        /* 设置“内存0”为当前内存地址 */
+        /* 设置"内存0"为当前内存地址 */
         DMAy_Streamx->CR &= ~(uint32_t)(DMA_SxCR_CT);
     }
 
@@ -627,7 +627,7 @@ void DMA_DoubleBufferModeConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t Memor
   * 注意:   只有在禁用DMA流时才能调用此函数。
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
   * 参数:  NewState: DMAy Streamx双缓冲模式的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void DMA_DoubleBufferModeCmd(DMA_Stream_TypeDef* DMAy_Streamx, FunctionalState NewState) {

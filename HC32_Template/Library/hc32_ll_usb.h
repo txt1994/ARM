@@ -309,7 +309,7 @@ __STATIC_INLINE uint8_t usb_getcurmod(LL_USB_TypeDef *USBx) {
 /**
  * @brief  Initializes the normal interrupts
  * @param  [in] USBx        usb instance
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void usb_normalinten(LL_USB_TypeDef *USBx) {
     WRITE_REG32(USBx->GREGS->GINTSTS, 0xBFFFFFFFUL);
@@ -320,7 +320,7 @@ __STATIC_INLINE void usb_normalinten(LL_USB_TypeDef *USBx) {
  * @brief  clear all the pending device interrupt bits and mask the IN and OUT
  *         endpoint interrupts.
  * @param  [in] USBx        usb instance
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void usb_clrandmskepint(LL_USB_TypeDef *USBx) {
     WRITE_REG32(USBx->DREGS->DIEPMSK, 0UL);
@@ -332,7 +332,7 @@ __STATIC_INLINE void usb_clrandmskepint(LL_USB_TypeDef *USBx) {
 /**
  * @brief  generate a device connect signal to the USB host
  * @param  [in] USBx        usb instance
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void usb_coreconn(LL_USB_TypeDef *USBx) {
     CLR_REG32_BIT(USBx->DREGS->DCTL, USBFS_DCTL_SDIS);
@@ -342,7 +342,7 @@ __STATIC_INLINE void usb_coreconn(LL_USB_TypeDef *USBx) {
  * @brief  test of mode processing
  * @param  [in] USBx        usb instance
  * @param  [in] reg         Register write
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void usb_runtestmode(LL_USB_TypeDef *USBx, uint32_t reg) {
     WRITE_REG32(USBx->DREGS->DCTL, reg);
@@ -352,7 +352,7 @@ __STATIC_INLINE void usb_runtestmode(LL_USB_TypeDef *USBx, uint32_t reg) {
  * @brief  Enables the controller's Global interrupts in the AHB Configuration
  *         registers.
  * @param  [in] USBx        usb instance
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void usb_ginten(LL_USB_TypeDef *USBx) {
     SET_REG32_BIT(USBx->GREGS->GAHBCFG, USBFS_GAHBCFG_GINTMSK);
@@ -362,7 +362,7 @@ __STATIC_INLINE void usb_ginten(LL_USB_TypeDef *USBx) {
  * @brief  Disable the controller's Global interrupt in the AHB Configuration
  *         register.
  * @param  [in] USBx        usb instance
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void usb_gintdis(LL_USB_TypeDef *USBx) {
     CLR_REG32_BIT(USBx->GREGS->GAHBCFG, USBFS_GAHBCFG_GINTMSK);
@@ -425,7 +425,7 @@ __STATIC_INLINE uint32_t usb_getalliepintr(LL_USB_TypeDef *USBx) {
  * @brief  Set the device a new address.
  * @param  [in] USBx        usb instance
  * @param  [in] address     device address which will be set to the corresponding register.
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void usb_devaddrset(LL_USB_TypeDef *USBx, uint8_t address) {
     MODIFY_REG32(USBx->DREGS->DCFG, USBFS_DCFG_DAD, (uint32_t)address << USBFS_DCFG_DAD_POS);
@@ -435,7 +435,7 @@ __STATIC_INLINE void usb_devaddrset(LL_USB_TypeDef *USBx, uint8_t address) {
  * @brief  Select the USB PHY.
  * @param  [in] USBx        usb instance
  * @param  [in] PhyType      USB phy, 1 select external ULPI PHY, 0 select internal FS PHY
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void usb_PhySelect(LL_USB_TypeDef *USBx, uint8_t PhyType) {
     if (USBHS_PHY_EXT == PhyType) {
@@ -450,7 +450,7 @@ __STATIC_INLINE void usb_PhySelect(LL_USB_TypeDef *USBx, uint8_t PhyType) {
  * @brief  Select the USB device PHY.
  * @param  [in] USBx        usb instance
  * @param  [in] PhyType      USB phy, 1 select external ULPI PHY, 0 select internal FS PHY
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void usb_DevPhySelect(LL_USB_TypeDef *USBx, uint8_t PhyType) {
     if (1U == PhyType) {
@@ -465,7 +465,7 @@ __STATIC_INLINE void usb_DevPhySelect(LL_USB_TypeDef *USBx, uint8_t PhyType) {
  * @brief  USB DMA function command.
  * @param  [in] USBx        usb instance
  * @param  [in] DmaCmd       USB DMA command status, 0 disable, 1 enable
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void usb_DmaCmd(LL_USB_TypeDef *USBx, uint8_t DmaCmd) {
     MODIFY_REG32(USBx->GREGS->GAHBCFG, USBFS_GAHBCFG_DMAEN, (uint32_t)DmaCmd << USBFS_GAHBCFG_DMAEN_POS);
@@ -475,7 +475,7 @@ __STATIC_INLINE void usb_DmaCmd(LL_USB_TypeDef *USBx, uint8_t DmaCmd) {
  * @brief  USB burst length config.
  * @param  [in] USBx        usb instance
  * @param  [in] len         Burst length
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void usb_BurstLenConfig(LL_USB_TypeDef *USBx, uint8_t len) {
     MODIFY_REG32(USBx->GREGS->GAHBCFG, USBFS_GAHBCFG_HBSTLEN, (uint32_t)len << USBFS_GAHBCFG_HBSTLEN_POS);
@@ -485,7 +485,7 @@ __STATIC_INLINE void usb_BurstLenConfig(LL_USB_TypeDef *USBx, uint8_t len) {
  * @brief  USB frame interval config
  * @param  [in] USBx        usb instance
  * @param  [in] interval    Frame interval
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void usb_FrameIntervalConfig(LL_USB_TypeDef *USBx, uint8_t interval) {
     MODIFY_REG32(USBx->DREGS->DCFG, USBFS_DCFG_PFIVL, interval);
@@ -506,7 +506,7 @@ __STATIC_INLINE uint32_t usb_rdhprt(LL_USB_TypeDef *USBx) {
  * @brief  Issues a ping token
  * @param  [in] USBx        usb instance
  * @param  [in] hc_num      the host channel index
- * @retval None
+ * @retval 无
  */
 //#define USBFS_HCTSIZ_DOPNG (0x80000000UL)
 __STATIC_INLINE void usb_pingtokenissue(LL_USB_TypeDef *USBx, uint8_t hc_num) {
@@ -527,7 +527,7 @@ __STATIC_INLINE uint32_t usb_ifevenframe(LL_USB_TypeDef *USBx) {
  * @brief  Initializes the FSLSPClkSel field of the HCFG register on the PHY type
  * @param  [in] USBx        usb instance
  * @param  [in] freq        clock frequency
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void usb_fslspclkselset(LL_USB_TypeDef *USBx, uint8_t freq) {
     MODIFY_REG32(USBx->HREGS->HCFG, USBFS_HCFG_FSLSPCS, (uint32_t)freq << USBFS_HCFG_FSLSPCS_POS);
@@ -536,7 +536,7 @@ __STATIC_INLINE void usb_fslspclkselset(LL_USB_TypeDef *USBx, uint8_t freq) {
 /**
  * @brief  suspend the port
  * @param  [in] USBx        usb instance
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void usb_prtsusp(LL_USB_TypeDef *USBx) {
     uint32_t u32hprt;
@@ -550,7 +550,7 @@ __STATIC_INLINE void usb_prtsusp(LL_USB_TypeDef *USBx) {
  * @brief  control the enumeration speed of the core, this function make sure that
  *         the maximum speed supperted by the connected device.
  * @param  [in] USBx        usb instance
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void usb_enumspeed(LL_USB_TypeDef *USBx) {
     CLR_REG32_BIT(USBx->HREGS->HCFG, USBFS_HCFG_FSLSS);
@@ -559,7 +559,7 @@ __STATIC_INLINE void usb_enumspeed(LL_USB_TypeDef *USBx) {
 /**
  * @brief  set the TXFIFO and depth for non-periodic and periodic and RXFIFO size
  * @param  [in] USBx        usb instance
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void usb_sethostfifo(LL_USB_TypeDef *USBx, uint8_t u8CoreID) {
     if (USBFS_CORE_ID == u8CoreID) {
@@ -593,7 +593,7 @@ __STATIC_INLINE void usb_sethostfifo(LL_USB_TypeDef *USBx, uint8_t u8CoreID) {
  * @brief  reset the channel whose channel number is ch_idx
  * @param  [in] USBx        usb instance
  * @param  [in] ch_idx      channel number
- * @retval None
+ * @retval 无
  */
 __STATIC_INLINE void usb_chrst(LL_USB_TypeDef *USBx, uint8_t ch_idx) {
     MODIFY_REG32(USBx->HC_REGS[ch_idx]->HCCHAR,

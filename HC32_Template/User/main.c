@@ -2,7 +2,7 @@
 
 /**
  * @brief  Main function of template project
- * @param  None
+ * @param  无
  * @retval int32_t return value, if needed
  */
 int32_t main(void) {

@@ -909,7 +909,7 @@ void FLASH_OB_Lock(void) {
   *            @arg OB_WRP: OB_WRP_Sector0 和 OB_WRP _Sector11 之间的值
   *            @arg OB_WRP_Sector_All
   * 参数:  Newstate: 写保护的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void FLASH_OB_WRPConfig(uint32_t OB_WRP, FunctionalState NewState) {
@@ -944,7 +944,7 @@ void FLASH_OB_WRPConfig(uint32_t OB_WRP, FunctionalState NewState) {
   *            @arg OB_WRP: OB_WRP_Sector12和OB_WRP _Sector23之间的值
   *            @arg OB_WRP_Sector_All
   * 参数:  Newstate: 写保护的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void FLASH_OB_WRP1Config(uint32_t OB_WRP, FunctionalState NewState) {
@@ -1015,7 +1015,7 @@ void FLASH_OB_PCROPSelectionConfig(uint8_t OB_PcROP) {
   *                           OB-PCROP_Sector0和OB-PCROP_Sector5之间的值。
   *            @arg OB_PCROP_Sector_All
   * 参数:  Newstate: 写保护的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void FLASH_OB_PCROPConfig(uint32_t OB_PCROP, FunctionalState NewState) {
@@ -1046,7 +1046,7 @@ void FLASH_OB_PCROPConfig(uint32_t OB_PCROP, FunctionalState NewState) {
   *            @arg OB_PCROP: OB_PCROP_Sector12和OB_PCROP_Sector23之间的值
   *            @arg OB_PCROP_Sector_All
   * 参数:  Newstate: 写保护的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void FLASH_OB_PCROP1Config(uint32_t OB_PCROP, FunctionalState NewState) {

@@ -198,7 +198,7 @@ void DCMI_CROPConfig(DCMI_CROPInitTypeDef* DCMI_CROPInitStruct) {
   * 简介:  启用或禁用 DCMI 裁剪功能。
   * 注意:   这个函数应该在启用和启动DCMI接口之前被调用。
   * 参数:  NewState: 新状态的DCMI作物功能。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void DCMI_CROPCmd(FunctionalState NewState) {
@@ -284,7 +284,7 @@ void DCMI_Cmd(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用 DCMI 捕获。
   * 参数:  NewState: DCMI捕获的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void DCMI_CaptureCmd(FunctionalState NewState) {
@@ -334,7 +334,7 @@ uint32_t DCMI_ReadData(void) {
   *            @arg DCMI_IT_VSYNC: VSYNC中断掩码
   *            @arg DCMI_IT_LINE: 线路中断屏蔽
   * 参数:  NewState: 指定的DCMI中断的新状态。
-  *          此参数可以是:ENABLE或DISABLE。
+  *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
 void DCMI_ITConfig(uint16_t DCMI_IT, FunctionalState NewState) {

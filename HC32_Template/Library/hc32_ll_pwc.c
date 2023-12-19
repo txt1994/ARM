@@ -278,8 +278,8 @@
  */
 /**
  * @brief  Enter power down mode.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void PWC_PD_Enter(void) {
     WRITE_REG16(CM_PWC->FPRC, PWC_UNLOCK_CODE1);
@@ -297,7 +297,7 @@ void PWC_PD_Enter(void) {
  * @param  [in] u8StopType specifies the XTAL initial config.
  *   @arg  PWC_STOP_WFI
  *   @arg  PWC_STOP_WFE
- * @retval None
+ * @retval 无
  */
 void PWC_STOP_Enter(uint8_t u8StopType) {
 
@@ -319,8 +319,8 @@ void PWC_STOP_Enter(uint8_t u8StopType) {
 
 /**
  * @brief  Enter sleep mode.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void PWC_SLEEP_Enter(void) {
     DDL_ASSERT(IS_PWC_UNLOCKED());
@@ -336,7 +336,7 @@ void PWC_SLEEP_Enter(void) {
  * @param  [in] u16Mode  Specifies the mode to run.
  *  @arg    PWC_RAM_HIGH_SPEED
  *  @arg    PWC_RAM_ULOW_SPEED
- * @retval None
+ * @retval 无
  */
 void PWC_RamModeConfig(uint16_t u16Mode) {
     DDL_ASSERT(IS_PWC_RAM_MD(u16Mode));
@@ -426,7 +426,7 @@ int32_t PWC_LVD_Init(uint8_t u8Ch, const stc_pwc_lvd_init_t *pstcLvdInit) {
  * @brief  Enable or disable LVD.
  * @param  [in] u8Ch Specifies whitch channel to operate. @ref PWC_LVD_Channel.
  * @param  [in] enNewState An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void PWC_LVD_Cmd(uint8_t u8Ch, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -443,7 +443,7 @@ void PWC_LVD_Cmd(uint8_t u8Ch, en_functional_state_t enNewState) {
 /**
  * @brief  Enable or disable LVD external input.
  * @param  [in] enNewState An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  * @note   While enable external input, should choose PWC_LVD_CH2 to initialize and threshold voltage must set PWC_LVD_EXTVCC
  */
 void PWC_LVD_ExtInputCmd(en_functional_state_t enNewState) {
@@ -461,7 +461,7 @@ void PWC_LVD_ExtInputCmd(en_functional_state_t enNewState) {
  * @brief  Enable or disable LVD compare output.
  * @param  [in] u8Ch Specifies whitch channel to operate. @ref PWC_LVD_Channel.
  * @param  [in] enNewState An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void PWC_LVD_CompareOutputCmd(uint8_t u8Ch, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -479,7 +479,7 @@ void PWC_LVD_CompareOutputCmd(uint8_t u8Ch, en_functional_state_t enNewState) {
  * @brief  Enable or disable LVD digital filter.
  * @param  [in] u8Ch Specifies whitch channel to operate. @ref PWC_LVD_Channel.
  * @param  [in] enNewState An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void PWC_LVD_DigitalFilterCmd(uint8_t u8Ch, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -497,7 +497,7 @@ void PWC_LVD_DigitalFilterCmd(uint8_t u8Ch, en_functional_state_t enNewState) {
  * @brief  Enable or disable LVD compare output.
  * @param  [in] u8Ch Specifies whitch channel to operate. @ref PWC_LVD_Channel.
  * @param  [in] u32Clock Specifies filter clock. @ref PWC_LVD_DFS_Clk_Sel
- * @retval None
+ * @retval 无
  */
 void PWC_LVD_SetFilterClock(uint8_t u8Ch, uint32_t u32Clock) {
     DDL_ASSERT(IS_PWC_LVD_CH(u8Ch));
@@ -511,7 +511,7 @@ void PWC_LVD_SetFilterClock(uint8_t u8Ch, uint32_t u32Clock) {
  * @brief Set LVD threshold voltage.
  * @param  [in] u8Ch        Specifies whitch channel to operate. @ref PWC_LVD_Channel.
  * @param  [in] u32Voltage  Specifies threshold voltage. @ref PWC_LVD_Detection_Voltage_Sel
- * @retval None
+ * @retval 无
  * @note    While PWC_LVD_CH2, PWC_LVD_EXTVCC only valid while EXTINPUT enable.
  */
 void PWC_LVD_SetThresholdVoltage(uint8_t u8Ch, uint32_t u32Voltage) {
@@ -539,7 +539,7 @@ en_flag_status_t PWC_LVD_GetStatus(uint8_t u8Flag) {
  * @param  [in] u8Flag LVD flag to be get @ref PWC_LVD_Flag
  *  @arg      PWC_LVD1_FLAG_DETECT
  *  @arg      PWC_LVD2_FLAG_DETECT
- * @retval None
+ * @retval 无
  * @note   PWC_LVD1_FLAG_DETECT could clear both LVD1 & LVD2 flag
  */
 void PWC_LVD_ClearStatus(uint8_t u8Flag) {
@@ -559,7 +559,7 @@ void PWC_LVD_ClearStatus(uint8_t u8Flag) {
  *  @arg    PWC_LDO_PLL
  *  @arg    PWC_LDO_HRC
  * @param  [in] enNewState An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void PWC_LDO_Cmd(uint16_t u16Ldo, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -575,7 +575,7 @@ void PWC_LDO_Cmd(uint16_t u16Ldo, en_functional_state_t enNewState) {
 
 /**
  * @brief  Switch high speed to ultra low speed, set the drive ability.
- * @param  None
+ * @param  无
  * @retval int32_t:
  *          - LL_OK: Mode switch successful.
  *          - LL_ERR: Mode switch failure, check whether EFM was unlocked please.
@@ -622,7 +622,7 @@ int32_t PWC_HighSpeedToLowSpeed(void) {
 
 /**
  * @brief  Switch ultra low speed to high speed, set the drive ability.
- * @param  None
+ * @param  无
  * @retval int32_t:
  *          - LL_OK: Mode switch successful.
  *          - LL_ERR: Mode switch failure, check whether EFM was unlocked please.
@@ -630,7 +630,7 @@ int32_t PWC_HighSpeedToLowSpeed(void) {
  */
 /**
  * @brief  Switch ultra low speed to high speed, set the drive ability.
- * @param  None
+ * @param  无
  * @retval int32_t:
  *          - LL_OK: Mode switch successful.
  *          - LL_ERR: Mode switch failure, check whether EFM was unlocked please.
@@ -678,7 +678,7 @@ int32_t PWC_LowSpeedToHighSpeed(void) {
  * @param  [in] enNewState An @ref en_functional_state_t enumeration value.
  *  @arg    ENABLE:      Power down mode
  *  @arg    DISABLE:     Run mode
- * @retval None
+ * @retval 无
  */
 void PWC_PD_RamCmd(uint32_t u32Ram, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -698,7 +698,7 @@ void PWC_PD_RamCmd(uint32_t u32Ram, en_functional_state_t enNewState) {
  * @param  [in] enNewState An @ref en_functional_state_t enumeration value.
  *  @arg    ENABLE:      Power down mode
  *  @arg    DISABLE:     Run mode
- * @retval None
+ * @retval 无
  */
 void PWC_PD_PeriphRamCmd(uint32_t u32PeriphRam, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -764,7 +764,7 @@ int32_t PWC_PD_Config(const stc_pwc_pd_mode_config_t *pstcPDModeConfig) {
  * @brief  Power down mode wake up event config.
  * @param  [in] u32Event Wakeup Event. @ref PWC_WKUP_Event_Sel
  * @param  [in] enNewState An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void PWC_PD_WakeupCmd(uint32_t u32Event, en_functional_state_t enNewState) {
     uint8_t u8Event0 = (uint8_t)u32Event;
@@ -788,7 +788,7 @@ void PWC_PD_WakeupCmd(uint32_t u32Event, en_functional_state_t enNewState) {
  * @param  [in] u8TrigEdge The trigger edge.
  *  @arg PWC_PD_WKUP_TRIG_FALLING
  *  @arg PWC_PD_WKUP_TRIG_RISING
- * @retval None
+ * @retval 无
  */
 void PWC_PD_SetWakeupTriggerEdge(uint8_t u8Event, uint8_t u8TrigEdge) {
     DDL_ASSERT(IS_PWC_WAKEUP_TRIG_EVT(u8Event));
@@ -822,7 +822,7 @@ en_flag_status_t PWC_PD_GetWakeupStatus(uint16_t u16Flag) {
 /**
  * @brief  Get wake up event flag.
  * @param  [in] u16Flag Wake up event. @ref PWC_WKUP_Event_Flag_Sel
- * @retval None
+ * @retval 无
  */
 void PWC_PD_ClearWakeupStatus(uint16_t u16Flag) {
     uint8_t u8Flag0;
@@ -898,7 +898,7 @@ int32_t PWC_STOP_StructInit(stc_pwc_stop_mode_config_t *pstcStopConfig) {
 /**
  * @brief Stop mode wake up clock config.
  * @param [in] u8Clock System clock setting after wake-up from stop mode. @ref PWC_STOP_CLK_Sel
- * @retval None
+ * @retval 无
  */
 void PWC_STOP_ClockSelect(uint8_t u8Clock) {
     DDL_ASSERT(IS_PWC_STOP_CLK(u8Clock));
@@ -911,7 +911,7 @@ void PWC_STOP_ClockSelect(uint8_t u8Clock) {
 /**
  * @brief  Stop mode wake up flash wait config.
  * @param  [in] enNewState An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void PWC_STOP_FlashWaitCmd(en_functional_state_t enNewState) {
     DDL_ASSERT(IS_FUNCTIONAL_STATE(enNewState));
@@ -929,7 +929,7 @@ void PWC_STOP_FlashWaitCmd(en_functional_state_t enNewState) {
  * @param [in] u16ExBusHold ExBus status in stop mode.
  *  @arg   PWC_STOP_EXBUS_HIZ
  *  @arg   PWC_STOP_EXBUS_HOLD
- * @retval None
+ * @retval 无
  */
 void PWC_STOP_ExBusHoldConfig(uint16_t u16ExBusHold) {
     DDL_ASSERT(IS_PWC_STOP_EXBUS(u16ExBusHold));
@@ -943,7 +943,7 @@ void PWC_STOP_ExBusHoldConfig(uint16_t u16ExBusHold) {
  * @param [in] u8StopDrv Drive capacity while enter stop mode.
  *  @arg    PWC_STOP_DRV_HIGH
  *  @arg    PWC_STOP_DRV_LOW
- * @retval None
+ * @retval 无
  */
 void PWC_STOP_SetDrv(uint8_t u8StopDrv) {
     DDL_ASSERT(IS_PWC_STOP_DRV(u8StopDrv));
@@ -955,7 +955,7 @@ void PWC_STOP_SetDrv(uint8_t u8StopDrv) {
 /**
  * @brief  PWC power monitor command.
  * @param  [in] enNewState      An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  * @note   This monitor power is used for ADC and output to REGC pin.
  */
 void PWC_PowerMonitorCmd(en_functional_state_t enNewState) {
@@ -976,7 +976,7 @@ void PWC_PowerMonitorCmd(en_functional_state_t enNewState) {
  *         This parameter can be one of the following values
  *  @arg    PWC_PWR_MON_IREF
  *  @arg    PWC_PWR_MON_TSENSOR or PWC_PWR_MON_VBAT_DIV2
- * @retval None
+ * @retval 无
  * @note   This monitor power is used for ADC and output to REGC pin.
  *         PWC_PWR_MON_VBAT_DIV2 is only valid while HC32F4A0.
  */
@@ -993,7 +993,7 @@ void PWC_SetPowerMonitorVoltageSrc(uint8_t u8VoltageSrc) {
  *         This parameter can be one of the following values:
  *  @arg    PWC_VBAT_REF_VOL_1P8V:  Vbat reference voltage is 1.8V
  *  @arg    PWC_VBAT_REF_VOL_2P1V:  Vbat reference voltage is 2.1V
- * @retval None
+ * @retval 无
  */
 void PWC_VBAT_SetMonitorVoltage(uint8_t u8RefVoltage) {
     /* Check parameters */
@@ -1006,7 +1006,7 @@ void PWC_VBAT_SetMonitorVoltage(uint8_t u8RefVoltage) {
 /**
  * @brief  ENABLE or DISABLE VBAT monitor.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void PWC_VBAT_MonitorCmd(en_functional_state_t enNewState) {
     /* Check parameters */
@@ -1018,7 +1018,7 @@ void PWC_VBAT_MonitorCmd(en_functional_state_t enNewState) {
 
 /**
  * @brief  Get VBAT voltage status.
- * @param  None
+ * @param  无
  * @retval An @ref en_flag_status_t enumeration type value.
  *         - SET: Flag is set, VBAT < VBATREF
  *         - RESET: Flag is reset, VBAT > VBATREF
@@ -1032,7 +1032,7 @@ en_flag_status_t PWC_VBAT_GetVoltageStatus(void) {
 /**
  * @brief  ENABLE or DISABLE VBAT voltage divide monitor.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void PWC_VBAT_VoltageDivMonitorCmd(en_functional_state_t enNewState) {
     /* Check parameters */
@@ -1044,8 +1044,8 @@ void PWC_VBAT_VoltageDivMonitorCmd(en_functional_state_t enNewState) {
 
 /**
  * @brief  RESET the VBAT area.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void PWC_VBAT_Reset(void) {
     DDL_ASSERT(IS_PWC_UNLOCKED());
@@ -1055,7 +1055,7 @@ void PWC_VBAT_Reset(void) {
 /**
  * @brief  ENABLE or DISABLE VBAT power.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void PWC_VBAT_PowerCmd(en_functional_state_t enNewState) {
     /* Check parameters */
@@ -1068,7 +1068,7 @@ void PWC_VBAT_PowerCmd(en_functional_state_t enNewState) {
 /**
  * @brief  ENABLE or DISABLE Backup RAM power.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void PWC_BKR_PowerCmd(en_functional_state_t enNewState) {
     /* Check parameters */
@@ -1110,7 +1110,7 @@ en_flag_status_t PWC_BKR_GetStatus(uint8_t u8Flag) {
  * @param  [in] u8RegNum                Backup register number.
  *  @arg    This parameter can be a number between Min_Data = 0 and Max_Data = 127.
  * @param  [in] u8RegVal                Value written to register
- * @retval None
+ * @retval 无
  */
 void PWC_BKR_Write(uint8_t u8RegNum, uint8_t u8RegVal) {
     __IO uint8_t *BKR;
@@ -1150,7 +1150,7 @@ uint8_t PWC_BKR_Read(uint8_t u8RegNum) {
  *  @arg    PWC_WKT_CLK_SRC_RTCLRC:   RTCLRC Clock
  * @param  [in] u16CmpVal               Comparison value of the Counter.
  *  @arg    This parameter can be a number between Min_Data = 0 and Max_Data = 0xFFF.
- * @retval None
+ * @retval 无
  */
 void PWC_WKT_Config(uint16_t u16ClkSrc, uint16_t u16CmpVal) {
     /* Check parameters */
@@ -1167,7 +1167,7 @@ void PWC_WKT_Config(uint16_t u16ClkSrc, uint16_t u16CmpVal) {
  * @brief  SET WKT Timer compare value.
  * @param  [in] u16CmpVal               Comparison value of the Counter.
  *  @arg    This parameter can be a number between Min_Data = 0 and Max_Data = 0xFFF.
- * @retval None
+ * @retval 无
  */
 void PWC_WKT_SetCompareValue(uint16_t u16CmpVal) {
     /* Check parameters */
@@ -1179,7 +1179,7 @@ void PWC_WKT_SetCompareValue(uint16_t u16CmpVal) {
 
 /**
  * @brief  Get WKT Timer compare value.
- * @param  None
+ * @param  无
  * @retval uint16_t                     WKT Compara value
  */
 uint16_t PWC_WKT_GetCompareValue(void) {
@@ -1194,7 +1194,7 @@ uint16_t PWC_WKT_GetCompareValue(void) {
 /**
  * @brief  ENABLE or DISABLE WKT Timer.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void PWC_WKT_Cmd(en_functional_state_t enNewState) {
     /* Check parameters */
@@ -1206,7 +1206,7 @@ void PWC_WKT_Cmd(en_functional_state_t enNewState) {
 
 /**
  * @brief  Get WKT Timer count match flag.
- * @param  None
+ * @param  无
  * @retval An @ref en_flag_status_t enumeration type value. enumeration value:
  */
 en_flag_status_t PWC_WKT_GetStatus(void) {
@@ -1219,8 +1219,8 @@ en_flag_status_t PWC_WKT_GetStatus(void) {
 
 /**
  * @brief  Clear WKT Timer count match flag.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void PWC_WKT_ClearStatus(void) {
     DDL_ASSERT(IS_PWC_UNLOCKED());

@@ -254,7 +254,7 @@ int32_t TMR2_StructInit(stc_tmr2_init_t *pstcTmr2Init) {
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
  *                                      This parameter can be a value of the following:
  *   @arg  CM_TMR2_x or CM_TMR2
- * @retval None
+ * @retval 无
  */
 void TMR2_DeInit(CM_TMR2_TypeDef *TMR2x) {
     DDL_ASSERT(IS_TMR2_UNIT(TMR2x));
@@ -283,7 +283,7 @@ void TMR2_DeInit(CM_TMR2_TypeDef *TMR2x) {
  *                                      This parameter can be a value of @ref TMR2_Function
  *   @arg  TMR2_FUNC_CMP:               The function of TMR2 channel is ouput compare.
  *   @arg  TMR2_FUNC_CAPT:              The function of TMR2 channel is input capture.
- * @retval None
+ * @retval 无
  */
 void TMR2_SetFunc(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Func) {
     DDL_ASSERT(IS_TMR2_UNIT(TMR2x));
@@ -304,7 +304,7 @@ void TMR2_SetFunc(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Func) {
  *                                      This parameter can be a value of @ref TMR2_Channel
  * @param  [in]  u32Src                 时钟源.
  *                                      This parameter can be a value of @ref TMR2_Clock_Source
- * @retval None
+ * @retval 无
  */
 void TMR2_SetClockSrc(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Src) {
     DDL_ASSERT(IS_TMR2_UNIT(TMR2x));
@@ -325,7 +325,7 @@ void TMR2_SetClockSrc(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Src) {
  *                                      This parameter can be a value of @ref TMR2_Channel
  * @param  [in]  u32Div                 Clock divider.
  *                                      This parameter can be a value of @ref TMR2_Clock_Divider
- * @retval None
+ * @retval 无
  */
 void TMR2_SetClockDiv(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Div) {
     DDL_ASSERT(IS_TMR2_UNIT(TMR2x));
@@ -403,7 +403,7 @@ int32_t TMR2_PWM_Init(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, const stc_tmr2_pwm
  * @param  [in]  u32Ch                  TMR2 channel.
  *                                      This parameter can be a value of @ref TMR2_Channel
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR2_PWM_OutputCmd(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, en_functional_state_t enNewState) {
     uint32_t u32PCONRAddr;
@@ -426,7 +426,7 @@ void TMR2_PWM_OutputCmd(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, en_functional_st
  * @param  [in]  u32Cond                Hardware capture condition.
  *                                      This parameter can be a value of @ref TMR2_Capture_Condition
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR2_HWCaptureCondCmd(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Cond, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_TMR2_UNIT(TMR2x));
@@ -453,7 +453,7 @@ void TMR2_HWCaptureCondCmd(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32C
  * @param  [in]  u32Cond                Hardware start condition.
  *                                      This parameter can be a value of @ref TMR2_Start_Condition
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR2_HWStartCondCmd(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Cond, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_TMR2_UNIT(TMR2x));
@@ -480,7 +480,7 @@ void TMR2_HWStartCondCmd(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Con
  * @param  [in]  u32Cond                Hardware stop condition.
  *                                      This parameter can be a value of @ref TMR2_Stop_Condition
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR2_HWStopCondCmd(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Cond, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_TMR2_UNIT(TMR2x));
@@ -507,7 +507,7 @@ void TMR2_HWStopCondCmd(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Cond
  * @param  [in]  u32Cond                Hardware clear condition.
  *                                      This parameter can be a value of @ref TMR2_Clear_Condition
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR2_HWClearCondCmd(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Cond, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_TMR2_UNIT(TMR2x));
@@ -537,7 +537,7 @@ void TMR2_HWClearCondCmd(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Con
  *   @arg  TMR2_FILTER_CLK_DIV4:        The filter clock is the clock of timer2 / 4.
  *   @arg  TMR2_FILTER_CLK_DIV16:       The filter clock is the clock of timer2 / 16.
  *   @arg  TMR2_FILTER_CLK_DIV64:       The filter clock is the clock of timer2 / 64.
- * @retval None
+ * @retval 无
  */
 void TMR2_SetFilterClockDiv(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Div) {
     DDL_ASSERT(IS_TMR2_UNIT(TMR2x));
@@ -556,7 +556,7 @@ void TMR2_SetFilterClockDiv(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32
  * @param  [in]  u32Ch                  TMR2 channel.
  *                                      This parameter can be a value of @ref TMR2_Channel
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR2_FilterCmd(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, en_functional_state_t enNewState) {
     uint32_t u32PCONRAddr;
@@ -577,7 +577,7 @@ void TMR2_FilterCmd(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, en_functional_state_
  * @param  [in]  u32IntType             The interrupt type.
  *                                      This parameter can be values of @ref TMR2_Interrupt_Type
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void TMR2_IntCmd(CM_TMR2_TypeDef *TMR2x, uint32_t u32IntType, en_functional_state_t enNewState) {
     DDL_ASSERT(IS_TMR2_UNIT(TMR2x));
@@ -598,7 +598,7 @@ void TMR2_IntCmd(CM_TMR2_TypeDef *TMR2x, uint32_t u32IntType, en_functional_stat
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Ch                  TMR2 channel.
  *                                      This parameter can be a value of @ref TMR2_Channel
- * @retval None
+ * @retval 无
  */
 void TMR2_Start(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch) {
     DDL_ASSERT(IS_TMR2_UNIT(TMR2x));
@@ -614,7 +614,7 @@ void TMR2_Start(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch) {
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Ch                  TMR2 channel.
  *                                      This parameter can be a value of @ref TMR2_Channel
- * @retval None
+ * @retval 无
  */
 void TMR2_Stop(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch) {
     DDL_ASSERT(IS_TMR2_UNIT(TMR2x));
@@ -652,7 +652,7 @@ en_flag_status_t TMR2_GetStatus(const CM_TMR2_TypeDef *TMR2x, uint32_t u32Flag) 
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Flag                TMR2 status flag.
  *                                      This parameter can be values of @ref TMR2_Status_Flag
- * @retval None
+ * @retval 无
  */
 void TMR2_ClearStatus(CM_TMR2_TypeDef *TMR2x, uint32_t u32Flag) {
     DDL_ASSERT(IS_TMR2_UNIT(TMR2x));
@@ -669,7 +669,7 @@ void TMR2_ClearStatus(CM_TMR2_TypeDef *TMR2x, uint32_t u32Flag) {
  *                                      This parameter can be a value of @ref TMR2_Channel
  * @param  [in]  u32Value               The compare reference value of the specified TMR2 channel.
  *                                      This parameter can be a number between 0U and 0xFFFFU, inclusive.
- * @retval None
+ * @retval 无
  */
 void TMR2_SetCompareValue(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Value) {
     __IO uint32_t *reg32CMPR;
@@ -709,7 +709,7 @@ uint32_t TMR2_GetCompareValue(const CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch) {
  *                                      This parameter can be a value of @ref TMR2_Channel
  * @param  [in]  u32Value               The counter value for the specified TMR2 channel.
  *                                      This parameter can be a number between 0U and 0xFFFFU, inclusive.
- * @retval None
+ * @retval 无
  */
 void TMR2_SetCountValue(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Value) {
     __IO uint32_t *reg32CNTR;
@@ -752,7 +752,7 @@ uint32_t TMR2_GetCountValue(const CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch) {
  *                                      This parameter can be a value @ref TMR2_Counter_State
  * @param  [in]  u32Polarity            The polarity of PWM.
  *                                      This parameter can be a value @ref TMR2_PWM_Polarity
- * @retval None
+ * @retval 无
  */
 void TMR2_PWM_SetPolarity(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint8_t u8CountState, uint32_t u32Polarity) {
     uint32_t u32PolarityPos;

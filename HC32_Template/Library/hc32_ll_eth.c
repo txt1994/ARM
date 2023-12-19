@@ -664,7 +664,7 @@
 
 /**
  * @brief  De-Initialize ETH.
- * @param  None
+ * @param  无
  * @retval int32_t:
  *           - LL_OK: De-Initialize success
  *           - LL_ERR_TIMEOUT: De-Initialize timeout
@@ -911,7 +911,7 @@ int32_t ETH_StructInit(stc_eth_init_t *pstcEthInit) {
 
 /**
  * @brief  Enable MAC and DMA Transmission/Reception
- * @param  None
+ * @param  无
  * @retval int32_t:
  *           - LL_OK: Enable success
  *           - LL_ERR_TIMEOUT: Enable timeout
@@ -938,7 +938,7 @@ int32_t ETH_Start(void) {
 
 /**
  * @brief  Disable MAC and DMA Transmission/Reception
- * @param  None
+ * @param  无
  * @retval int32_t:
  *           - LL_OK: Disable success
  *           - LL_ERR_TIMEOUT: Disable timeout
@@ -1107,8 +1107,8 @@ int32_t ETH_PHY_LoopBackCmd(stc_eth_handle_t *pstcEthHandle, en_functional_state
 /******************************************************************************/
 /**
  * @brief  De-Initialize MAC.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void ETH_MAC_DeInit(void) {
     WRITE_REG32(CM_ETH->MAC_IFCONFR,  0UL);
@@ -1284,7 +1284,7 @@ int32_t ETH_MAC_StructInit(stc_eth_mac_init_t *pstcMacInit) {
  *         This parameter can be one or any combination of the following values:
  *           @arg ETH_MAC_SPEED_10M:    10Mbps
  *           @arg ETH_MAC_SPEED_100M:   100Mbps
- * @retval None
+ * @retval 无
  */
 void ETH_MAC_SetDuplexSpeed(uint32_t u32Mode, uint32_t u32Speed) {
     /* Check parameters */
@@ -1298,7 +1298,7 @@ void ETH_MAC_SetDuplexSpeed(uint32_t u32Mode, uint32_t u32Speed) {
  * @brief  Set MAC hash table.
  * @param  [in] u32HashHigh             Hash table high value.
  * @param  [in] u32HashLow              Hash table low value.
- * @retval None
+ * @retval 无
  */
 void ETH_MAC_SetHashTable(uint32_t u32HashHigh, uint32_t u32HashLow) {
     WRITE_REG32(CM_ETH->MAC_HASHTLR, u32HashLow);
@@ -1308,7 +1308,7 @@ void ETH_MAC_SetHashTable(uint32_t u32HashHigh, uint32_t u32HashLow) {
 /**
  * @brief  Set MAC Tx VLAN tag value.
  * @param  [in] u16TxTag                The tag value of Tx VLAN.
- * @retval None
+ * @retval 无
  */
 void ETH_MAC_SetTxVlanTagValue(uint16_t u16TxTag) {
     MODIFY_REG32(CM_ETH->MAC_VTACTLR, ETH_MAC_VTACTLR_VLANV, u16TxTag);
@@ -1317,7 +1317,7 @@ void ETH_MAC_SetTxVlanTagValue(uint16_t u16TxTag) {
 /**
  * @brief  Set MAC Rx VLAN tag value.
  * @param  [in] u16RxTag                The tag value of Rx VLAN.
- * @retval None
+ * @retval 无
  */
 void ETH_MAC_SetRxVlanTagValue(uint16_t u16RxTag) {
     MODIFY_REG32(CM_ETH->MAC_VTAFLTR, ETH_MAC_VTAFLTR_VLFLT, u16RxTag);
@@ -1326,7 +1326,7 @@ void ETH_MAC_SetRxVlanTagValue(uint16_t u16RxTag) {
 /**
  * @brief  Set MAC Rx VLAN hash table.
  * @param  [in] u16HashValue            The value of Rx VLAN hash table.
- * @retval None
+ * @retval 无
  */
 void ETH_MAC_SetRxVlanHashTable(uint16_t u16HashValue) {
     WRITE_REG32(CM_ETH->MAC_VLAHTBR, u16HashValue);
@@ -1335,7 +1335,7 @@ void ETH_MAC_SetRxVlanHashTable(uint16_t u16HashValue) {
 /**
  * @brief  Enable or disable MAC loopback.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void ETH_MAC_LoopBackCmd(en_functional_state_t enNewState) {
     /* Check parameters */
@@ -1347,7 +1347,7 @@ void ETH_MAC_LoopBackCmd(en_functional_state_t enNewState) {
 /**
  * @brief  Enable or disable MAC Back Pressure.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void ETH_MAC_BackPressureCmd(en_functional_state_t enNewState) {
     /* Check parameters */
@@ -1359,7 +1359,7 @@ void ETH_MAC_BackPressureCmd(en_functional_state_t enNewState) {
 /**
  * @brief  Enable or disable MAC Transmit.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void ETH_MAC_TransCmd(en_functional_state_t enNewState) {
     /* Check parameters */
@@ -1371,7 +1371,7 @@ void ETH_MAC_TransCmd(en_functional_state_t enNewState) {
 /**
  * @brief  Enable or disable MAC Receive.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void ETH_MAC_ReceiveCmd(en_functional_state_t enNewState) {
     /* Check parameters */
@@ -1388,7 +1388,7 @@ void ETH_MAC_ReceiveCmd(en_functional_state_t enNewState) {
  *           @arg ETH_MAC_INT_PMTIM:    PMT interrupt (on MAC)
  *           @arg ETH_MAC_INT_ALL:      All of the above
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void ETH_MAC_IntCmd(uint32_t u32IntType, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -1439,7 +1439,7 @@ en_flag_status_t ETH_MAC_GetIntStatus(uint32_t u32Flag) {
  *           @arg ETH_MAC_ADDR_IDX2:    MAC address 2
  *           @arg ETH_MAC_ADDR_IDX3:    MAC address 3
  *           @arg ETH_MAC_ADDR_IDX4:    MAC address 4
- * @retval None
+ * @retval 无
  */
 void ETH_MACADDR_DeInit(uint32_t u32Index) {
     __IO uint32_t *MACADHR;
@@ -1625,7 +1625,7 @@ int32_t ETH_MACADDR_GetAddr(uint32_t u32Index, uint8_t au8Addr[]) {
  *           @arg ETH_MAC_ADDR_FILTER_DISABLE:              Disable perfect filter with MAC address.
  *           @arg ETH_MAC_ADDR_FILTER_PERFECT_DEST_ADDR:    Filter the DA address of the received frame with MAC address.
  *           @arg ETH_MAC_ADDR_FILTER_PERFECT_SRC_ADDR:     Filter the SA address of the received frame with MAC address.
- * @retval None
+ * @retval 无
  */
 void ETH_MACADDR_SetFilterMode(uint32_t u32Index, uint32_t u32Mode) {
     __IO uint32_t *MACADHR;
@@ -1656,7 +1656,7 @@ void ETH_MACADDR_SetFilterMode(uint32_t u32Index, uint32_t u32Mode) {
  *           @arg ETH_MAC_ADDR_MASK_BYTE2:   Mask MAC Address low reg bits [15:8]
  *           @arg ETH_MAC_ADDR_MASK_BYTE1:   Mask MAC Address low reg bits [7:0]
  *           @arg ETH_MAC_ADDR_MASK_ALL:     Mask MAC Address low reg bits [31:0] and low high bits [15:0]
- * @retval None
+ * @retval 无
  */
 void ETH_MACADDR_SetFilterMask(uint32_t u32Index, uint32_t u32Mask) {
     __IO uint32_t *MACADHR;
@@ -1674,8 +1674,8 @@ void ETH_MACADDR_SetFilterMask(uint32_t u32Index, uint32_t u32Mask) {
 /******************************************************************************/
 /**
  * @brief  De-Initialize MAC L3L4 Filter.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void ETH_MAC_L3L4FilterDeInit(void) {
     WRITE_REG32(bCM_ETH->MAC_FLTCTLR_b.IPFE, DISABLE);
@@ -1778,7 +1778,7 @@ int32_t ETH_MAC_L3L4FilterStructInit(stc_eth_l3l4_filter_config_t *pstcL3L4Filte
 /**
  * @brief  Enable or disable MAC L3L4 Filter function.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void ETH_MAC_L3L4FilterCmd(en_functional_state_t enNewState) {
     /* Check parameters */
@@ -1793,7 +1793,7 @@ void ETH_MAC_L3L4FilterCmd(en_functional_state_t enNewState) {
  *         This parameter can be one of the following values:
  *           @arg ETH_MAC_L4_PORT_FILTER_PROTOCOL_TCP:  Port filter for TCP frame
  *           @arg ETH_MAC_L4_PORT_FILTER_PROTOCOL_UDP:  Port filter for UDP frame
- * @retval None
+ * @retval 无
  */
 void ETH_MAC_SetPortFilterProtocol(uint32_t u32Protocol) {
     /* Check parameters */
@@ -1805,7 +1805,7 @@ void ETH_MAC_SetPortFilterProtocol(uint32_t u32Protocol) {
 /**
  * @brief  Set L4 Destination port filter value.
  * @param  [in] u16Port                 The value of Destination port.
- * @retval None
+ * @retval 无
  */
 void ETH_MAC_SetDestPortFilterValue(uint16_t u16Port) {
     MODIFY_REG32(CM_ETH->MAC_L4PORTR, ETH_MAC_L4PORTR_L4DPVAL, ((uint32_t)u16Port << 16U));
@@ -1814,7 +1814,7 @@ void ETH_MAC_SetDestPortFilterValue(uint16_t u16Port) {
 /**
  * @brief  Set L4 Source port filter value.
  * @param  [in] u16Port                 The value of Source port.
- * @retval None
+ * @retval 无
  */
 void ETH_MAC_SetSrcPortFilterValue(uint16_t u16Port) {
     MODIFY_REG32(CM_ETH->MAC_L4PORTR, ETH_MAC_L4PORTR_L4SPVAL, u16Port);
@@ -1826,7 +1826,7 @@ void ETH_MAC_SetSrcPortFilterValue(uint16_t u16Port) {
  *         This parameter can be one of the following values:
  *           @arg ETH_MAC_L3_ADDR_FILTER_PROTOCOL_IPV4: Ip Address filter for IPv4
  *           @arg ETH_MAC_L3_ADDR_FILTER_PROTOCOL_IPV6: Ip Address filter for IPv6
- * @retval None
+ * @retval 无
  */
 void ETH_MAC_SetAddrFilterProtocol(uint32_t u32Protocol) {
     /* Check parameters */
@@ -1838,7 +1838,7 @@ void ETH_MAC_SetAddrFilterProtocol(uint32_t u32Protocol) {
 /**
  * @brief  Set L3 Destination address filter value of IPv4.
  * @param  [in] u32Addr                 The value of Destination address.
- * @retval None
+ * @retval 无
  */
 void ETH_MAC_SetIpv4DestAddrFilterValue(uint32_t u32Addr) {
     WRITE_REG32(CM_ETH->MAC_L3ADDRR1, u32Addr);
@@ -1847,7 +1847,7 @@ void ETH_MAC_SetIpv4DestAddrFilterValue(uint32_t u32Addr) {
 /**
  * @brief  Set L3 Source address filter value of IPv4.
  * @param  [in] u32Addr                 The value of Source address.
- * @retval None
+ * @retval 无
  */
 void ETH_MAC_SetIpv4SrcAddrFilterValue(uint32_t u32Addr) {
     WRITE_REG32(CM_ETH->MAC_L3ADDRR0, u32Addr);
@@ -1880,8 +1880,8 @@ int32_t ETH_MAC_SetIpv6AddrFilterValue(const uint32_t au32Addr[]) {
 /******************************************************************************/
 /**
  * @brief  De-Initialize DMA.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void ETH_DMA_DeInit(void) {
     WRITE_REG32(CM_ETH->DMA_BUSMODR, 0x00020101UL);
@@ -1978,7 +1978,7 @@ int32_t ETH_DMA_StructInit(stc_eth_dma_init_t *pstcDmaInit) {
 
 /**
  * @brief  Set DMA software reset.
- * @param  None
+ * @param  无
  * @retval int32_t:
  *           - LL_OK: Software reset success
  *           - LL_ERR_TIMEOUT: Reset timeout
@@ -2016,7 +2016,7 @@ int32_t ETH_DMA_SoftwareReset(void) {
  *           @arg ETH_DMA_ARBITRATION_LOOP_TXRX_4_1:        Tx:Rx = 4:1
  *           @arg ETH_DMA_ARBITRATION_FIXED_RX_PRIOR_TX:    Fixed priority: Rx is higher than Tx
  *           @arg ETH_DMA_ARBITRATION_FIXED_TX_PRIOR_RX:    Fixed priority: Tx is higher than Rx
- * @retval None
+ * @retval 无
  */
 void ETH_DMA_SetTransPriorityRatio(uint32_t u32Ratio) {
     /* Check parameters */
@@ -2028,7 +2028,7 @@ void ETH_DMA_SetTransPriorityRatio(uint32_t u32Ratio) {
 /**
  * @brief  Set DMA Rx watchdog counter.
  * @param  [in] u8Value                 The value of Watchdog timer
- * @retval None
+ * @retval 无
  */
 void ETH_DMA_SetRxWatchdogCounter(uint8_t u8Value) {
     WRITE_REG32(CM_ETH->DMA_REVWDTR, u8Value);
@@ -2036,7 +2036,7 @@ void ETH_DMA_SetRxWatchdogCounter(uint8_t u8Value) {
 
 /**
  * @brief  Flush transmit FIFO.
- * @param  None
+ * @param  无
  * @retval int32_t:
  *           - LL_OK: Flush transmit FIFO success
  *           - LL_ERR_TIMEOUT: Flush timeout
@@ -2063,7 +2063,7 @@ int32_t ETH_DMA_FlushTransFIFO(void) {
 /**
  * @brief  Enable or disable DMA transmit.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void ETH_DMA_TransCmd(en_functional_state_t enNewState) {
     /* Check parameters */
@@ -2075,7 +2075,7 @@ void ETH_DMA_TransCmd(en_functional_state_t enNewState) {
 /**
  * @brief  Enable or disable DMA receive.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void ETH_DMA_ReceiveCmd(en_functional_state_t enNewState) {
     /* Check parameters */
@@ -2105,7 +2105,7 @@ void ETH_DMA_ReceiveCmd(en_functional_state_t enNewState) {
  *           @arg ETH_DMA_INT_TIE:      Transmit interrupt
  *           @arg ETH_DMA_INT_ALL:      All of the above
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void ETH_DMA_IntCmd(uint32_t u32IntType, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -2177,7 +2177,7 @@ en_flag_status_t ETH_DMA_GetStatus(uint32_t u32Flag) {
  *           @arg ETH_DMA_FLAG_TSS:     Transmit stopped flag
  *           @arg ETH_DMA_FLAG_TIS:     Transmit interrupt flag
  *           @arg ETH_DMA_FLAG_CLR_ALL: All of the above
- * @retval None
+ * @retval 无
  */
 void ETH_DMA_ClearStatus(uint32_t u32Flag) {
     /* Check parameters */
@@ -3153,7 +3153,7 @@ int32_t ETH_DMA_GetRxDescTimeStamp(const stc_eth_dma_desc_t *pstcRxDesc, uint32_
 /******************************************************************************/
 /**
  * @brief  Reset PMT wakeup frame pointer.
- * @param  None
+ * @param  无
  * @retval int32_t:
  *           - LL_OK: Reset pointer success
  *           - LL_ERR_TIMEOUT: Reset timeout
@@ -3201,7 +3201,7 @@ int32_t ETH_PMT_WriteWakeupFrameReg(const uint32_t au32RegBuf[]) {
 /**
  * @brief  Enable or disable PMT forward wakeup frame.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void ETH_PMT_ForwardWakeupFrameCmd(en_functional_state_t enNewState) {
     /* Check parameters */
@@ -3219,7 +3219,7 @@ void ETH_PMT_ForwardWakeupFrameCmd(en_functional_state_t enNewState) {
  *           @arg ETH_PMT_WAKEUP_SRC_MAGIC_PACKET:      Magic Packet
  *           @arg ETH_PMT_WAKEUP_SRC_ALL:               All of the above
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void ETH_PMT_WakeupSrcCmd(uint32_t u32WakeupSrc, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -3235,7 +3235,7 @@ void ETH_PMT_WakeupSrcCmd(uint32_t u32WakeupSrc, en_functional_state_t enNewStat
 
 /**
  * @brief  Enable or disable PMT powerdown mode.
- * @param  None
+ * @param  无
  * @retval int32_t:
  *           - LL_OK: Set powerdown mode success
  *           - LL_ERR: Set powerdown mode failed
@@ -3281,7 +3281,7 @@ en_flag_status_t ETH_PMT_GetStatus(uint32_t u32Flag) {
 /******************************************************************************/
 /**
  * @brief  De-Initialize MMC.
- * @param  None
+ * @param  无
  * @retval int32_t:
  *           - LL_OK: MMC De-Initialize success
 *           - LL_ERR_TIMEOUT: De-Initialize timeout
@@ -3345,7 +3345,7 @@ int32_t ETH_MMC_StructInit(stc_eth_mmc_init_t *pstcMmcInit) {
 
 /**
  * @brief  MMC all counter software reset.
- * @param  None
+ * @param  无
  * @retval int32_t:
  *           - LL_OK: Reset success
  *           - LL_ERR_TIMEOUT: Reset timeout
@@ -3372,7 +3372,7 @@ int32_t ETH_MMC_CounterReset(void) {
 /**
  * @brief  Enable or disable the reset of all MMC counter after reading.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void ETH_MMC_ResetAfterReadCmd(en_functional_state_t enNewState) {
     /* Check parameters */
@@ -3384,7 +3384,7 @@ void ETH_MMC_ResetAfterReadCmd(en_functional_state_t enNewState) {
 /**
  * @brief  Enable or disable MMC function.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void ETH_MMC_Cmd(en_functional_state_t enNewState) {
     /* Check parameters */
@@ -3411,7 +3411,7 @@ void ETH_MMC_Cmd(en_functional_state_t enNewState) {
  *           @arg ETH_MMC_INT_TXBGIM:   Tx broadcast good frame interrupt
  *           @arg ETH_MMC_INT_TX_ALL:   All of the above
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void ETH_MMC_TxIntCmd(uint32_t u32IntType, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -3439,7 +3439,7 @@ void ETH_MMC_TxIntCmd(uint32_t u32IntType, en_functional_state_t enNewState) {
  *           @arg ETH_MMC_INT_RXBGIM:   Rx broadcast good frame interrupt
  *           @arg ETH_MMC_INT_RX_ALL:   All of the above
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void ETH_MMC_RxIntCmd(uint32_t u32IntType, en_functional_state_t enNewState) {
     /* Check parameters */
@@ -3543,8 +3543,8 @@ uint32_t ETH_MMC_GetReg(uint32_t u32Reg) {
 /******************************************************************************/
 /**
  * @brief  De-Initialize PTP.
- * @param  None
- * @retval None
+ * @param  无
+ * @retval 无
  */
 void ETH_PTP_DeInit(void) {
     WRITE_REG32(CM_ETH->PTP_TSPCTLR, 0x00002000UL);
@@ -3646,7 +3646,7 @@ int32_t ETH_PTP_StructInit(stc_eth_ptp_init_t *pstcPtpInit) {
  *           @arg ETH_PTP_DATAGRAM_TYPE_DELAY_PDEALY:              Delay_Req Pdelay_Req Pdelay_Resp
  *           @arg ETH_PTP_DATAGRAM_TYPE_SYNC_DELAY:                SYNC Delay_Req
  *           @arg ETH_PTP_DATAGRAM_TYPE_PDELAY:                    Pdelay_Req Pdelay_Resp
- * @retval None
+ * @retval 无
  */
 void ETH_PTP_SetSnapDatagramType(uint32_t u32DatagramType) {
     /* Check parameters */
@@ -3664,7 +3664,7 @@ void ETH_PTP_SetSnapDatagramType(uint32_t u32DatagramType) {
  *           @arg ETH_PTP_FRAME_TYPE_ETH_FRAME:     snapshot of PTP over ethernet frame
  *           @arg ETH_PTP_FRAME_TYPE_RX_FRAME:      snapshot of all received frame
  *           @arg ETH_PTP_FRAME_TYPE_ALL:           All of the above
- * @retval None
+ * @retval 无
  */
 void ETH_PTP_SetSnapFrameType(uint32_t u32FrameType) {
     /* Check parameters */
@@ -3681,7 +3681,7 @@ void ETH_PTP_SetSnapFrameType(uint32_t u32FrameType) {
  *         This parameter can be one of the following values:
  *           @arg ETH_PTP_CALIB_MD_COARSE:  Coarse calibration
  *           @arg ETH_PTP_CALIB_MD_FINE:    Fine calibration
- * @retval None
+ * @retval 无
  */
 void ETH_PTP_SetCalibMode(uint32_t u32CalibMode) {
     /* Check parameters */
@@ -3693,7 +3693,7 @@ void ETH_PTP_SetCalibMode(uint32_t u32CalibMode) {
 /**
  * @brief  Update PTP timestamp basic addend value.
  * @note   Update Timestamp addend value by basic addend register.
- * @param  None
+ * @param  无
  * @retval int32_t:
  *           - LL_OK: Update timestamp addend value success
  *           - LL_ERR: Current state cannot be updated
@@ -3727,7 +3727,7 @@ int32_t ETH_PTP_UpdateBasicAddend(void) {
 /**
  * @brief  Update PTP timestamp system time.
  * @note   Update Timestamp system time by update second and update subsecond registers.
- * @param  None
+ * @param  无
  * @retval int32_t:
  *           - LL_OK: Update timestamp system time success
  *           - LL_ERR: Current state cannot be updated
@@ -3763,7 +3763,7 @@ int32_t ETH_PTP_UpdateSysTime(void) {
 /**
  * @brief  Initialize PTP timestamp system time.
  * @note   Initialize Timestamp system time by update second and update subsecond registers.
- * @param  None
+ * @param  无
  * @retval int32_t:
  *           - LL_OK: Initialize timestamp system time success
  *           - LL_ERR: Current state cannot be initialized
@@ -3819,7 +3819,7 @@ int32_t ETH_PTP_GetSysTime(uint32_t *pu32Sec, uint32_t *pu32Subsec) {
  * @brief  Set PTP timestamp addend value.
  * @param  [in] u32BasicAddend          Timestamp basic addend value (Between 0x0 and 0xFFFFFFFF)
  * @param  [in] u8SubsecAddend          Timestamp subsecond addend value (Between 0x0 and 0xFF)
- * @retval None
+ * @retval 无
  */
 void ETH_PTP_SetBasicAddend(uint32_t u32BasicAddend, uint8_t u8SubsecAddend) {
     WRITE_REG32(CM_ETH->PTP_TSPADDR, u32BasicAddend);
@@ -3854,7 +3854,7 @@ int32_t ETH_PTP_GetBasicAddend(uint32_t *pu32BasicAddend, uint8_t *pu8SubsecAdde
  *           @arg ETH_PTP_TIME_UPDATE_SIGN_PLUS:    Plus
  * @param  [in] u32Sec                  Update time of Second (Between 0x0 and 0xFFFFFFFF)
  * @param  [in] u32Subsec               Update time of Subsecond (Between 0x0 and 0x7FFFFFFF)
- * @retval None
+ * @retval 无
  */
 void ETH_PTP_SetUpdateTime(uint32_t u32Sign, uint32_t u32Sec, uint32_t u32Subsec) {
     /* Check parameters */
@@ -3868,7 +3868,7 @@ void ETH_PTP_SetUpdateTime(uint32_t u32Sign, uint32_t u32Sec, uint32_t u32Subsec
 /**
  * @brief  Enable or disable PTP function.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void ETH_PTP_Cmd(en_functional_state_t enNewState) {
     /* Check parameters */
@@ -3880,7 +3880,7 @@ void ETH_PTP_Cmd(en_functional_state_t enNewState) {
 /**
  * @brief  Enable or disable PTP interrupt.
  * @param  [in] enNewState              An @ref en_functional_state_t enumeration value.
- * @retval None
+ * @retval 无
  */
 void ETH_PTP_IntCmd(en_functional_state_t enNewState) {
     /* Check parameters */
@@ -3923,7 +3923,7 @@ en_flag_status_t ETH_PTP_GetStatus(uint32_t u32Flag) {
  *         This parameter can be one of the following values:
  *           @arg ETH_PPS_CH0:          PPS Channel 0
  *           @arg ETH_PPS_CH1:          PPS Channel 1
- * @retval None
+ * @retval 无
  */
 void ETH_PPS_DeInit(uint8_t u8Ch) {
     uint32_t u32ShiftStep = 0UL;
@@ -4031,7 +4031,7 @@ int32_t ETH_PPS_StructInit(stc_eth_pps_config_t *pstcPpsInit) {
  *           @arg ETH_PPS_CH1:          PPS Channel 1
  * @param  [in] u32Sec                  Target time of Second (Between 0x0 and 0xFFFFFFFF)
  * @param  [in] u32Subsec               Target time of Subsecond (Between 0x0 and 0x7FFFFFFF)
- * @retval None
+ * @retval 无
  */
 void ETH_PPS_SetTargetTime(uint8_t u8Ch, uint32_t u32Sec, uint32_t u32Subsec) {
     uint32_t u32ShiftStep = 0UL;
@@ -4063,7 +4063,7 @@ void ETH_PPS_SetTargetTime(uint8_t u8Ch, uint32_t u32Sec, uint32_t u32Subsec) {
  *           @arg ETH_PPS_TRIG_FUNC_INT_EVT:      Interrupt output event
  *           @arg ETH_PPS_TRIG_FUNC_INT_PPS_EVT:  Interrupt out event and PPS single output event
  *           @arg ETH_PPS_TRIG_FUNC_PPS_EVT:      PPS Single output event
- * @retval None
+ * @retval 无
  */
 void ETH_PPS_SetTriggerFunc(uint8_t u8Ch, uint32_t u32Func) {
     uint32_t u32ShiftBit = 0UL;
@@ -4085,7 +4085,7 @@ void ETH_PPS_SetTriggerFunc(uint8_t u8Ch, uint32_t u32Func) {
  *         This parameter can be one of the following values:
  *           @arg ETH_PPS_OUTPUT_MD_CONTINUE:   Continuous output mode
  *           @arg ETH_PPS_OUTPUT_MD_ONCE:       Single output mode
- * @retval None
+ * @retval 无
  */
 void ETH_PPS_SetPps0OutputMode(uint32_t u32Mode) {
     /* Check parameters */
@@ -4115,7 +4115,7 @@ void ETH_PPS_SetPps0OutputMode(uint32_t u32Mode) {
  *           @arg ETH_PPS_OUTPUT_FREQ_16384HZ:  Ouput pulse is 16384HZ in continuous ouput mode
  *           @arg ETH_PPS_OUTPUT_FREQ_32768HZ:  Ouput pulse is 32768HZ in continuous ouput mode
  *           @arg ETH_PPS_OUTPUT_ONE_PULSE:     One pulse is generated in single ouput mode
- * @retval None
+ * @retval 无
  */
 void ETH_PPS_SetPps0OutputFreq(uint32_t u32Freq) {
     /* Check parameters */
